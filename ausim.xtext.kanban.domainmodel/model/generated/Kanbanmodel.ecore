@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="kanbanmodel" nsURI="http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
+    nsPrefix="kanbanmodel">
+  <eClassifiers xsi:type="ecore:EClass" name="KanbanSchedulingSystem">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="orgUnits" upperBound="-1"
+        eType="#//Team" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="kssTasks" upperBound="-1"
+        eType="#//Task" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="kssWorkFlow" eType="#//KanbanWorkFlow"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Team">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="groupmembers" unique="false"
+        upperBound="-1" eType="#//Team"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+        eType="#//Asset" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="teamProfile" eType="#//ProfileType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
+        eType="#//Service" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="kssBlock" eType="#//KSSBlock"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ProfileType">
+    <eLiterals name="STABILIZER" literal="STABILIZER"/>
+    <eLiterals name="VISIONARY" value="1" literal="VISIONARY"/>
+    <eLiterals name="COOPERATOR" value="2" literal="COOPERATOR"/>
+    <eLiterals name="CATALYST" value="3" literal="CATALYST"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Service">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Asset">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="employedAt" eType="#//Team"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KSSBlock">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignedUnit" eType="#//Team"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="demandUnits" unique="false"
+        upperBound="-1" eType="#//Team"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourcedUnits" unique="false"
+        upperBound="-1" eType="#//Team"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rQueueLimit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wipLimit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Mechanism">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceTask" eType="#//Task"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetTask" eType="#//Task"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Requirement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rTasks" unique="false"
+        upperBound="-1" eType="#//Task"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mechanisms" upperBound="-1"
+        eType="#//Mechanism" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Task">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sTasks" unique="false"
+        upperBound="-1" eType="#//Task"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskMechanims" upperBound="-1"
+        eType="#//Mechanism" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reqSpecialties" unique="false"
+        upperBound="-1" eType="#//Service"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bvalue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="COS" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KanbanWorkFlow">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="caps" upperBound="-1" eType="#//Capability"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Capability">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reqs" upperBound="-1" eType="#//Requirement"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

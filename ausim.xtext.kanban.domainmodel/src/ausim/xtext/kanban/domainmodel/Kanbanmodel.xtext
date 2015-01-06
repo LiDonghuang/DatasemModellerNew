@@ -1,0 +1,90 @@
+grammar ausim.xtext.kanban.domainmodel.Kanbanmodel with org.eclipse.xtext.common.Terminals
+
+generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
+
+	KanbanSchedulingSystem:
+		'KSSWorkFlowModel' name=ID
+		'Organization'
+		(orgUnits += Team)+
+		'end Organization'
+		'WorkItems'
+		(kssTasks += Task)+
+		'end WorkItems'
+		(kssWorkFlow=KanbanWorkFlow)
+		'end KSSWorkFlowModel'
+	;
+	
+	
+	Team :
+		('team'|'group') name=ID '{'
+		('contains' '{' (groupmembers+=[Team])+ '}')?
+		('resources' '{' (resources+=Asset)+ '}')?
+		('profile' teamProfile=ProfileType)?
+		('services' '{' (services+=Service)+ '}')?
+		(kssBlock = KSSBlock)?
+		'}'
+	;
+	
+	enum ProfileType:
+		STABILIZER | VISIONARY | COOPERATOR | CATALYST
+	;
+	
+	Service:
+		'service' name=ID
+	;
+	
+
+	Asset : 
+		'resource' name=ID ('{'
+		'assigned-to' '{' (employedAt=[Team]) '}'
+		'}')?
+	;
+	
+	
+	KSSBlock:
+		'KanbanBoard' name=ID '{'
+		('assigned-unit' '=' assignedUnit=[Team])
+		('source-units' '{' (demandUnits+=[Team])+ '}')?
+		('target-units' '{' (sourcedUnits+=[Team])+ '}')?
+		('readyQueue-limit' '=' rQueueLimit=INT)?
+		('workInProgress-limit' '=' wipLimit=INT)?
+		
+		'}'
+	;	
+		
+	Mechanism:
+		sourceTask=[Task] '=>' targetTask=[Task] 
+
+	;
+		
+	Requirement:
+		'requirement' name=ID '{' 
+		 ('tasks' '{' (rTasks+=[Task])+ '}') 
+		 ('process' (mechanisms += Mechanism)*)?
+		'}'
+	;
+	
+	
+	Task:
+		'workItem' name=ID '{'
+		('subtasks' '{' (sTasks+=[Task])+ '}')?
+		('process'(taskMechanims += Mechanism)*)?
+		('services-required' (reqSpecialties+=[Service])+)?
+		('base value' bvalue=INT)?
+		('class-of-service' COS=ID)?
+		'}'
+	;
+	
+	
+	KanbanWorkFlow:
+		'WorkFlow' name=ID
+		(caps+=Capability)+
+		'end WorkFlow'
+	;
+	
+	Capability:
+		'capability' name=ID '{'
+		(reqs+=Requirement)+ 	
+		'}'
+	;
+	
