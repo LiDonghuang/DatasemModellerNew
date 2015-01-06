@@ -19,16 +19,12 @@ generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
 		('team'|'group') name=ID '{'
 		('contains' '{' (groupmembers+=[Team])+ '}')?
 		('resources' '{' (resources+=Asset)+ '}')?
-		('profile' teamProfile=ProfileType)?
 		('services' '{' (services+=Service)+ '}')?
 		(kssBlock = KSSBlock)?
 		'}'
 	;
 	
-	enum ProfileType:
-		STABILIZER | VISIONARY | COOPERATOR | CATALYST
-	;
-	
+
 	Service:
 		'service' name=ID
 	;
