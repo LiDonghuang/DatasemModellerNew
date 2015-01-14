@@ -8,22 +8,22 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Kanban Work Flow</b></em>'.
+ * A representation of the model object '<em><b>Kanban Task Model</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanWorkFlow#getName <em>Name</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanWorkFlow#getCaps <em>Caps</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanTaskModel#getName <em>Name</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanTaskModel#getCaps <em>Caps</em>}</li>
  * </ul>
  * </p>
  *
- * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanWorkFlow()
+ * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanTaskModel()
  * @model
  * @generated
  */
-public interface KanbanWorkFlow extends EObject
+public interface KanbanTaskModel extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -35,14 +35,14 @@ public interface KanbanWorkFlow extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanWorkFlow_Name()
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanTaskModel_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanWorkFlow#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanTaskModel#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -61,10 +61,10 @@ public interface KanbanWorkFlow extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Caps</em>' containment reference list.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanWorkFlow_Caps()
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanTaskModel_Caps()
    * @model containment="true"
    * @generated
    */
   EList<Capability> getCaps();
 
-} // KanbanWorkFlow
+} // KanbanTaskModel

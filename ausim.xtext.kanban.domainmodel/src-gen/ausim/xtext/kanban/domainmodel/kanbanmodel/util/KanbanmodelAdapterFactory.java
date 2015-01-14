@@ -95,14 +95,14 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
         return createAssetAdapter();
       }
       @Override
-      public Adapter caseKSSBlock(KSSBlock object)
+      public Adapter caseSkill(Skill object)
       {
-        return createKSSBlockAdapter();
+        return createSkillAdapter();
       }
       @Override
-      public Adapter caseMechanism(Mechanism object)
+      public Adapter caseDependency(Dependency object)
       {
-        return createMechanismAdapter();
+        return createDependencyAdapter();
       }
       @Override
       public Adapter caseRequirement(Requirement object)
@@ -115,9 +115,9 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
         return createTaskAdapter();
       }
       @Override
-      public Adapter caseKanbanWorkFlow(KanbanWorkFlow object)
+      public Adapter caseKanbanTaskModel(KanbanTaskModel object)
       {
-        return createKanbanWorkFlowAdapter();
+        return createKanbanTaskModelAdapter();
       }
       @Override
       public Adapter caseCapability(Capability object)
@@ -207,31 +207,31 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KSSBlock <em>KSS Block</em>}'.
+   * Creates a new adapter for an object of class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Skill <em>Skill</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KSSBlock
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Skill
    * @generated
    */
-  public Adapter createKSSBlockAdapter()
+  public Adapter createSkillAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Mechanism <em>Mechanism</em>}'.
+   * Creates a new adapter for an object of class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Dependency <em>Dependency</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Mechanism
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Dependency
    * @generated
    */
-  public Adapter createMechanismAdapter()
+  public Adapter createDependencyAdapter()
   {
     return null;
   }
@@ -267,16 +267,16 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanWorkFlow <em>Kanban Work Flow</em>}'.
+   * Creates a new adapter for an object of class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanTaskModel <em>Kanban Task Model</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanWorkFlow
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanTaskModel
    * @generated
    */
-  public Adapter createKanbanWorkFlowAdapter()
+  public Adapter createKanbanTaskModelAdapter()
   {
     return null;
   }

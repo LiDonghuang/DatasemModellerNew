@@ -18,15 +18,17 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class KanbanmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected KanbanmodelGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Requirement_ProcessKeyword_4_0_q;
-	protected AbstractElementAlias match_Task_ProcessKeyword_4_0_q;
+	protected AbstractElementAlias match_Dependency_EqualsSignGreaterThanSignKeyword_1_0_or_HyphenMinusGreaterThanSignKeyword_1_1;
+	protected AbstractElementAlias match_Requirement_WorkItemNetworkKeyword_4_0_q;
+	protected AbstractElementAlias match_Task_TaskDependenciesKeyword_4_0_q;
 	protected AbstractElementAlias match_Team_GroupKeyword_0_1_or_TeamKeyword_0_0;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (KanbanmodelGrammarAccess) access;
-		match_Requirement_ProcessKeyword_4_0_q = new TokenAlias(false, true, grammarAccess.getRequirementAccess().getProcessKeyword_4_0());
-		match_Task_ProcessKeyword_4_0_q = new TokenAlias(false, true, grammarAccess.getTaskAccess().getProcessKeyword_4_0());
+		match_Dependency_EqualsSignGreaterThanSignKeyword_1_0_or_HyphenMinusGreaterThanSignKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDependencyAccess().getEqualsSignGreaterThanSignKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getDependencyAccess().getHyphenMinusGreaterThanSignKeyword_1_1()));
+		match_Requirement_WorkItemNetworkKeyword_4_0_q = new TokenAlias(false, true, grammarAccess.getRequirementAccess().getWorkItemNetworkKeyword_4_0());
+		match_Task_TaskDependenciesKeyword_4_0_q = new TokenAlias(false, true, grammarAccess.getTaskAccess().getTaskDependenciesKeyword_4_0());
 		match_Team_GroupKeyword_0_1_or_TeamKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTeamAccess().getGroupKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getTeamAccess().getTeamKeyword_0_0()));
 	}
 	
@@ -42,10 +44,12 @@ public class KanbanmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_Requirement_ProcessKeyword_4_0_q.equals(syntax))
-				emit_Requirement_ProcessKeyword_4_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Task_ProcessKeyword_4_0_q.equals(syntax))
-				emit_Task_ProcessKeyword_4_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if(match_Dependency_EqualsSignGreaterThanSignKeyword_1_0_or_HyphenMinusGreaterThanSignKeyword_1_1.equals(syntax))
+				emit_Dependency_EqualsSignGreaterThanSignKeyword_1_0_or_HyphenMinusGreaterThanSignKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Requirement_WorkItemNetworkKeyword_4_0_q.equals(syntax))
+				emit_Requirement_WorkItemNetworkKeyword_4_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Task_TaskDependenciesKeyword_4_0_q.equals(syntax))
+				emit_Task_TaskDependenciesKeyword_4_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Team_GroupKeyword_0_1_or_TeamKeyword_0_0.equals(syntax))
 				emit_Team_GroupKeyword_0_1_or_TeamKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
@@ -54,17 +58,25 @@ public class KanbanmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Syntax:
-	 *     'process'?
+	 *     '=>' | '->'
 	 */
-	protected void emit_Requirement_ProcessKeyword_4_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Dependency_EqualsSignGreaterThanSignKeyword_1_0_or_HyphenMinusGreaterThanSignKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Syntax:
-	 *     'process'?
+	 *     'workItemNetwork'?
 	 */
-	protected void emit_Task_ProcessKeyword_4_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Requirement_WorkItemNetworkKeyword_4_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     'taskDependencies'?
+	 */
+	protected void emit_Task_TaskDependenciesKeyword_4_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

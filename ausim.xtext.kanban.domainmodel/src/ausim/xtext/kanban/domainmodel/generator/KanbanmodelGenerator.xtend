@@ -10,7 +10,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Team
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Task
-import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanWorkFlow
+import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanTaskModel
 
 
 
@@ -57,7 +57,7 @@ def compile(Resource res) '''
 			</workItem>
 		«ENDFOR»
 		</WorkflowDataModel>	
-		«FOR kanbanWFlow : res.allContents.toIterable.filter(KanbanWorkFlow)» <KanbanWorkFlow>
+		«FOR kanbanWFlow : res.allContents.toIterable.filter(KanbanTaskModel)» <KanbanWorkFlow>
 				<capabilities>
 				«FOR wfcap : kanbanWFlow.getCaps()»
 					<capability>
@@ -74,7 +74,7 @@ def compile(Resource res) '''
 								«ENDFOR»
 								</tasks>
 								<process>
-								«FOR wfpr : wfreq.getMechanisms()»
+								«FOR wfpr : wfreq.getDependencies()»
 								<mechanism>
 									<sourceTask> «wfpr.getSourceTask().name» </sourceTask>	
 									<targetTask> «wfpr.getTargetTask().name» </targetTask>

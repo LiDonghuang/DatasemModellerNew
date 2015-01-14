@@ -100,17 +100,17 @@ public class KanbanmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case KanbanmodelPackage.KSS_BLOCK:
+      case KanbanmodelPackage.SKILL:
       {
-        KSSBlock kssBlock = (KSSBlock)theEObject;
-        T result = caseKSSBlock(kssBlock);
+        Skill skill = (Skill)theEObject;
+        T result = caseSkill(skill);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case KanbanmodelPackage.MECHANISM:
+      case KanbanmodelPackage.DEPENDENCY:
       {
-        Mechanism mechanism = (Mechanism)theEObject;
-        T result = caseMechanism(mechanism);
+        Dependency dependency = (Dependency)theEObject;
+        T result = caseDependency(dependency);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -128,10 +128,10 @@ public class KanbanmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case KanbanmodelPackage.KANBAN_WORK_FLOW:
+      case KanbanmodelPackage.KANBAN_TASK_MODEL:
       {
-        KanbanWorkFlow kanbanWorkFlow = (KanbanWorkFlow)theEObject;
-        T result = caseKanbanWorkFlow(kanbanWorkFlow);
+        KanbanTaskModel kanbanTaskModel = (KanbanTaskModel)theEObject;
+        T result = caseKanbanTaskModel(kanbanTaskModel);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -211,33 +211,33 @@ public class KanbanmodelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>KSS Block</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Skill</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>KSS Block</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Skill</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseKSSBlock(KSSBlock object)
+  public T caseSkill(Skill object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Mechanism</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Dependency</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Mechanism</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Dependency</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMechanism(Mechanism object)
+  public T caseDependency(Dependency object)
   {
     return null;
   }
@@ -275,17 +275,17 @@ public class KanbanmodelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Kanban Work Flow</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Kanban Task Model</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Kanban Work Flow</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Kanban Task Model</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseKanbanWorkFlow(KanbanWorkFlow object)
+  public T caseKanbanTaskModel(KanbanTaskModel object)
   {
     return null;
   }

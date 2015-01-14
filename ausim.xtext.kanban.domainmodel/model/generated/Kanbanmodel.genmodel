@@ -7,12 +7,6 @@
     editorPluginID="ausim.xtext.kanban.domainmodel.editor" runtimeVersion="2.10">
   <genPackages prefix="Kanbanmodel" basePackage="ausim.xtext.kanban.domainmodel" disposableProviderFactory="true"
       fileExtensions="kmdl" ecorePackage="Kanbanmodel.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Kanbanmodel.ecore#//ProfileType">
-      <genEnumLiterals ecoreEnumLiteral="Kanbanmodel.ecore#//ProfileType/STABILIZER"/>
-      <genEnumLiterals ecoreEnumLiteral="Kanbanmodel.ecore#//ProfileType/VISIONARY"/>
-      <genEnumLiterals ecoreEnumLiteral="Kanbanmodel.ecore#//ProfileType/COOPERATOR"/>
-      <genEnumLiterals ecoreEnumLiteral="Kanbanmodel.ecore#//ProfileType/CATALYST"/>
-    </genEnums>
     <genClasses ecoreClass="Kanbanmodel.ecore#//KanbanSchedulingSystem">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//KanbanSchedulingSystem/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//KanbanSchedulingSystem/orgUnits"/>
@@ -21,47 +15,42 @@
     </genClasses>
     <genClasses ecoreClass="Kanbanmodel.ecore#//Team">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Team/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Team/demandUnits"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Team/sourcedUnits"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Team/groupmembers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Team/resources"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Team/teamProfile"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Team/services"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Team/kssBlock"/>
     </genClasses>
     <genClasses ecoreClass="Kanbanmodel.ecore#//Service">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Service/name"/>
     </genClasses>
     <genClasses ecoreClass="Kanbanmodel.ecore#//Asset">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Asset/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Asset/employedAt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Asset/hasSkills"/>
     </genClasses>
-    <genClasses ecoreClass="Kanbanmodel.ecore#//KSSBlock">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//KSSBlock/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//KSSBlock/assignedUnit"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//KSSBlock/demandUnits"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//KSSBlock/sourcedUnits"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//KSSBlock/rQueueLimit"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//KSSBlock/wipLimit"/>
+    <genClasses ecoreClass="Kanbanmodel.ecore#//Skill">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Skill/name"/>
     </genClasses>
-    <genClasses ecoreClass="Kanbanmodel.ecore#//Mechanism">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Mechanism/sourceTask"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Mechanism/targetTask"/>
+    <genClasses ecoreClass="Kanbanmodel.ecore#//Dependency">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Dependency/sourceTask"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Dependency/targetTask"/>
     </genClasses>
     <genClasses ecoreClass="Kanbanmodel.ecore#//Requirement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Requirement/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Requirement/rTasks"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Requirement/mechanisms"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Requirement/dependencies"/>
     </genClasses>
     <genClasses ecoreClass="Kanbanmodel.ecore#//Task">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Task/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Task/sTasks"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Task/taskMechanims"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Task/taskDependencies"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Task/reqSpecialties"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Task/bvalue"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Task/COS"/>
     </genClasses>
-    <genClasses ecoreClass="Kanbanmodel.ecore#//KanbanWorkFlow">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//KanbanWorkFlow/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//KanbanWorkFlow/caps"/>
+    <genClasses ecoreClass="Kanbanmodel.ecore#//KanbanTaskModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//KanbanTaskModel/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//KanbanTaskModel/caps"/>
     </genClasses>
     <genClasses ecoreClass="Kanbanmodel.ecore#//Capability">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Capability/name"/>

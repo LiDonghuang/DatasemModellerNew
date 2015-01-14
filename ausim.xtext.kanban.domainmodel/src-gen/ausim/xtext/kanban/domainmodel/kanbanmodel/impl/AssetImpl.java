@@ -4,15 +4,23 @@ package ausim.xtext.kanban.domainmodel.kanbanmodel.impl;
 
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Asset;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.Team;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.Skill;
+
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +30,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.AssetImpl#getName <em>Name</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.AssetImpl#getEmployedAt <em>Employed At</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.AssetImpl#getHasSkills <em>Has Skills</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,14 +59,14 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getEmployedAt() <em>Employed At</em>}' reference.
+   * The cached value of the '{@link #getHasSkills() <em>Has Skills</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getEmployedAt()
+   * @see #getHasSkills()
    * @generated
    * @ordered
    */
-  protected Team employedAt;
+  protected EList<Skill> hasSkills;
 
   /**
    * <!-- begin-user-doc -->
@@ -109,19 +117,13 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
    * <!-- end-user-doc -->
    * @generated
    */
-  public Team getEmployedAt()
+  public EList<Skill> getHasSkills()
   {
-    if (employedAt != null && employedAt.eIsProxy())
+    if (hasSkills == null)
     {
-      InternalEObject oldEmployedAt = (InternalEObject)employedAt;
-      employedAt = (Team)eResolveProxy(oldEmployedAt);
-      if (employedAt != oldEmployedAt)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.ASSET__EMPLOYED_AT, oldEmployedAt, employedAt));
-      }
+      hasSkills = new EObjectContainmentEList<Skill>(Skill.class, this, KanbanmodelPackage.ASSET__HAS_SKILLS);
     }
-    return employedAt;
+    return hasSkills;
   }
 
   /**
@@ -129,22 +131,15 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
    * <!-- end-user-doc -->
    * @generated
    */
-  public Team basicGetEmployedAt()
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    return employedAt;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setEmployedAt(Team newEmployedAt)
-  {
-    Team oldEmployedAt = employedAt;
-    employedAt = newEmployedAt;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.ASSET__EMPLOYED_AT, oldEmployedAt, employedAt));
+    switch (featureID)
+    {
+      case KanbanmodelPackage.ASSET__HAS_SKILLS:
+        return ((InternalEList<?>)getHasSkills()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -159,9 +154,8 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
     {
       case KanbanmodelPackage.ASSET__NAME:
         return getName();
-      case KanbanmodelPackage.ASSET__EMPLOYED_AT:
-        if (resolve) return getEmployedAt();
-        return basicGetEmployedAt();
+      case KanbanmodelPackage.ASSET__HAS_SKILLS:
+        return getHasSkills();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -171,6 +165,7 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -179,8 +174,9 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
       case KanbanmodelPackage.ASSET__NAME:
         setName((String)newValue);
         return;
-      case KanbanmodelPackage.ASSET__EMPLOYED_AT:
-        setEmployedAt((Team)newValue);
+      case KanbanmodelPackage.ASSET__HAS_SKILLS:
+        getHasSkills().clear();
+        getHasSkills().addAll((Collection<? extends Skill>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -199,8 +195,8 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
       case KanbanmodelPackage.ASSET__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case KanbanmodelPackage.ASSET__EMPLOYED_AT:
-        setEmployedAt((Team)null);
+      case KanbanmodelPackage.ASSET__HAS_SKILLS:
+        getHasSkills().clear();
         return;
     }
     super.eUnset(featureID);
@@ -218,8 +214,8 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
     {
       case KanbanmodelPackage.ASSET__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case KanbanmodelPackage.ASSET__EMPLOYED_AT:
-        return employedAt != null;
+      case KanbanmodelPackage.ASSET__HAS_SKILLS:
+        return hasSkills != null && !hasSkills.isEmpty();
     }
     return super.eIsSet(featureID);
   }
