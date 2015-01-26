@@ -39,6 +39,7 @@ public class KanbanmodelParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getTeamAccess().getAlternatives_0(), "rule__Team__Alternatives_0");
 					put(grammarAccess.getDependencyAccess().getAlternatives_1(), "rule__Dependency__Alternatives_1");
+					put(grammarAccess.getTransitionAccess().getAlternatives(), "rule__Transition__Alternatives");
 					put(grammarAccess.getKanbanSchedulingSystemAccess().getGroup(), "rule__KanbanSchedulingSystem__Group__0");
 					put(grammarAccess.getTeamAccess().getGroup(), "rule__Team__Group__0");
 					put(grammarAccess.getTeamAccess().getGroup_3(), "rule__Team__Group_3__0");
@@ -61,7 +62,19 @@ public class KanbanmodelParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTaskAccess().getGroup_7(), "rule__Task__Group_7__0");
 					put(grammarAccess.getKanbanTaskModelAccess().getGroup(), "rule__KanbanTaskModel__Group__0");
 					put(grammarAccess.getCapabilityAccess().getGroup(), "rule__Capability__Group__0");
-					put(grammarAccess.getKanbanGovModelAccess().getGroup(), "rule__KanbanGovModel__Group__0");
+					put(grammarAccess.getStrategyAccess().getGroup(), "rule__Strategy__Group__0");
+					put(grammarAccess.getEntityAccess().getGroup(), "rule__Entity__Group__0");
+					put(grammarAccess.getEntityAccess().getGroup_3(), "rule__Entity__Group_3__0");
+					put(grammarAccess.getProvisionAccess().getGroup(), "rule__Provision__Group__0");
+					put(grammarAccess.getStatemachineAccess().getGroup(), "rule__Statemachine__Group__0");
+					put(grammarAccess.getStatemachineAccess().getGroup_1(), "rule__Statemachine__Group_1__0");
+					put(grammarAccess.getStatemachineAccess().getGroup_2(), "rule__Statemachine__Group_2__0");
+					put(grammarAccess.getEventAccess().getGroup(), "rule__Event__Group__0");
+					put(grammarAccess.getCommandAccess().getGroup(), "rule__Command__Group__0");
+					put(grammarAccess.getStateAccess().getGroup(), "rule__State__Group__0");
+					put(grammarAccess.getStateAccess().getGroup_2(), "rule__State__Group_2__0");
+					put(grammarAccess.getTransitionAccess().getGroup_0(), "rule__Transition__Group_0__0");
+					put(grammarAccess.getTransitionAccess().getGroup_1(), "rule__Transition__Group_1__0");
 					put(grammarAccess.getKanbanSchedulingSystemAccess().getNameAssignment_1(), "rule__KanbanSchedulingSystem__NameAssignment_1");
 					put(grammarAccess.getKanbanSchedulingSystemAccess().getOrgUnitsAssignment_3(), "rule__KanbanSchedulingSystem__OrgUnitsAssignment_3");
 					put(grammarAccess.getKanbanSchedulingSystemAccess().getKssTasksAssignment_6(), "rule__KanbanSchedulingSystem__KssTasksAssignment_6");
@@ -92,7 +105,30 @@ public class KanbanmodelParser extends AbstractContentAssistParser {
 					put(grammarAccess.getKanbanTaskModelAccess().getCapsAssignment_2(), "rule__KanbanTaskModel__CapsAssignment_2");
 					put(grammarAccess.getCapabilityAccess().getNameAssignment_1(), "rule__Capability__NameAssignment_1");
 					put(grammarAccess.getCapabilityAccess().getReqsAssignment_3(), "rule__Capability__ReqsAssignment_3");
-					put(grammarAccess.getKanbanGovModelAccess().getNameAssignment_1(), "rule__KanbanGovModel__NameAssignment_1");
+					put(grammarAccess.getKanbanGovModelAccess().getStrategyAssignment(), "rule__KanbanGovModel__StrategyAssignment");
+					put(grammarAccess.getStrategyAccess().getNameAssignment_1(), "rule__Strategy__NameAssignment_1");
+					put(grammarAccess.getStrategyAccess().getEntitiesAssignment_3(), "rule__Strategy__EntitiesAssignment_3");
+					put(grammarAccess.getEntityAccess().getNameAssignment_1(), "rule__Entity__NameAssignment_1");
+					put(grammarAccess.getEntityAccess().getSdnameAssignment_3_1(), "rule__Entity__SdnameAssignment_3_1");
+					put(grammarAccess.getEntityAccess().getServiceProvisionsAssignment_3_4(), "rule__Entity__ServiceProvisionsAssignment_3_4");
+					put(grammarAccess.getEntityAccess().getEntityBehaviorAssignment_4(), "rule__Entity__EntityBehaviorAssignment_4");
+					put(grammarAccess.getProvisionAccess().getServiceNameAssignment_1(), "rule__Provision__ServiceNameAssignment_1");
+					put(grammarAccess.getProvisionAccess().getProvidersAssignment_4(), "rule__Provision__ProvidersAssignment_4");
+					put(grammarAccess.getStatemachineAccess().getEventsAssignment_1_1(), "rule__Statemachine__EventsAssignment_1_1");
+					put(grammarAccess.getStatemachineAccess().getCommandsAssignment_2_1(), "rule__Statemachine__CommandsAssignment_2_1");
+					put(grammarAccess.getStatemachineAccess().getStatesAssignment_3(), "rule__Statemachine__StatesAssignment_3");
+					put(grammarAccess.getEventAccess().getNameAssignment_0(), "rule__Event__NameAssignment_0");
+					put(grammarAccess.getEventAccess().getCodeAssignment_1(), "rule__Event__CodeAssignment_1");
+					put(grammarAccess.getCommandAccess().getNameAssignment_0(), "rule__Command__NameAssignment_0");
+					put(grammarAccess.getCommandAccess().getCodeAssignment_1(), "rule__Command__CodeAssignment_1");
+					put(grammarAccess.getStateAccess().getNameAssignment_1(), "rule__State__NameAssignment_1");
+					put(grammarAccess.getStateAccess().getActionsAssignment_2_2(), "rule__State__ActionsAssignment_2_2");
+					put(grammarAccess.getStateAccess().getTransitionsAssignment_3(), "rule__State__TransitionsAssignment_3");
+					put(grammarAccess.getTransitionAccess().getEventAssignment_0_0(), "rule__Transition__EventAssignment_0_0");
+					put(grammarAccess.getTransitionAccess().getStateAssignment_0_2(), "rule__Transition__StateAssignment_0_2");
+					put(grammarAccess.getTransitionAccess().getEventAssignment_1_0(), "rule__Transition__EventAssignment_1_0");
+					put(grammarAccess.getTransitionAccess().getEventactionsAssignment_1_3(), "rule__Transition__EventactionsAssignment_1_3");
+					put(grammarAccess.getTransitionAccess().getStateAssignment_1_6(), "rule__Transition__StateAssignment_1_6");
 				}
 			};
 		}

@@ -4,13 +4,21 @@ package ausim.xtext.kanban.domainmodel.kanbanmodel.impl;
 
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanGovModel;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanGovModelImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanGovModelImpl#getStrategy <em>Strategy</em>}</li>
  * </ul>
  * </p>
  *
@@ -28,24 +36,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class KanbanGovModelImpl extends MinimalEObjectImpl.Container implements KanbanGovModel
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getStrategy() <em>Strategy</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getStrategy()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected EList<Strategy> strategy;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,9 +71,13 @@ public class KanbanGovModelImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public EList<Strategy> getStrategy()
   {
-    return name;
+    if (strategy == null)
+    {
+      strategy = new EObjectContainmentEList<Strategy>(Strategy.class, this, KanbanmodelPackage.KANBAN_GOV_MODEL__STRATEGY);
+    }
+    return strategy;
   }
 
   /**
@@ -83,12 +85,15 @@ public class KanbanGovModelImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.KANBAN_GOV_MODEL__NAME, oldName, name));
+    switch (featureID)
+    {
+      case KanbanmodelPackage.KANBAN_GOV_MODEL__STRATEGY:
+        return ((InternalEList<?>)getStrategy()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -101,8 +106,8 @@ public class KanbanGovModelImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.KANBAN_GOV_MODEL__NAME:
-        return getName();
+      case KanbanmodelPackage.KANBAN_GOV_MODEL__STRATEGY:
+        return getStrategy();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -112,13 +117,15 @@ public class KanbanGovModelImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.KANBAN_GOV_MODEL__NAME:
-        setName((String)newValue);
+      case KanbanmodelPackage.KANBAN_GOV_MODEL__STRATEGY:
+        getStrategy().clear();
+        getStrategy().addAll((Collection<? extends Strategy>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +141,8 @@ public class KanbanGovModelImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.KANBAN_GOV_MODEL__NAME:
-        setName(NAME_EDEFAULT);
+      case KanbanmodelPackage.KANBAN_GOV_MODEL__STRATEGY:
+        getStrategy().clear();
         return;
     }
     super.eUnset(featureID);
@@ -151,27 +158,10 @@ public class KanbanGovModelImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.KANBAN_GOV_MODEL__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case KanbanmodelPackage.KANBAN_GOV_MODEL__STRATEGY:
+        return strategy != null && !strategy.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //KanbanGovModelImpl

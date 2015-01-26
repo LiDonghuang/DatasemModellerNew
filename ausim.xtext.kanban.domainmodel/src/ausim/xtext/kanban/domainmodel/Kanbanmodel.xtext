@@ -87,16 +87,52 @@ generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
 		(strategy+=Strategy)
 	;
 	
+	
 	Strategy:
-		SEasService | ValueNeutral
+		'strategy' name=ID '{'
+			(entities+=Entity)*
+		'}'
 	;
 	
-	SEasService:
-		'strategy' name=ID 
+	Entity:
+		'entity' name=ID '{'
+		('ServiceDirectory' sdname=ID '=' '['(serviceProvisions+=Provision)* ']')?
+		(entityBehavior=Statemachine)
+		'}'
+	;
+	
+	Provision:
+		'(' serviceName=[Service] ',' '{'(providers+=[Team])* '}'')' 
+	;
+	
+	
+	Statemachine :
+     {Statemachine}
+	('events' 
+		events+=Event+ 
+	'end')?
+	('activities' 
+		commands+=Command+ 
+	'end')?
+	(states+=State)*
+;
 
-	;
-	
-	ValueNeutral:
-		'strategy' name=ID 
-	;
+Event:
+	name=ID code=ID
+;
+
+Command:
+	name=ID code=ID
+;
+
+State:
+	'state' name=ID
+		('actions' '{' actions+=[Command]+ '}')?
+		(transitions+=Transition)*
+	'end'
+;
+
+Transition:
+	(event=[Event] '=>' state=[State]) | (event=[Event] '/' '[' (eventactions+=[Command])+ ']' '=>' state=[State])
+;
 	
