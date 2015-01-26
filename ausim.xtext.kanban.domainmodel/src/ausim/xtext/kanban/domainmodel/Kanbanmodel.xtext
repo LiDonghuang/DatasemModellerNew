@@ -3,15 +3,18 @@ grammar ausim.xtext.kanban.domainmodel.Kanbanmodel with org.eclipse.xtext.common
 generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
 
 	KanbanSchedulingSystem:
-		'KSSWorkFlowModel' name=ID
-		'Organization'
+		'KSSModel' name=ID
+		'OrganizationModel'
 		(orgUnits += Team)+
-		'end Organization'
-		'WorkItems'
+		'end OrganizationModel'
+		'WorkFlowModel'
 		(kssTasks += Task)+
-		'end WorkItems'
 		(kssWorkFlow=KanbanTaskModel)
-		'end KSSWorkFlowModel'
+		'end WorkFlowModel'
+		'GovernanceModel'
+		(kssGovModel=KanbanGovModel)
+		'end GovernanceModel'
+		'end KSSModel'
 	;
 	
 	
@@ -68,14 +71,32 @@ generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
 	
 	
 	KanbanTaskModel:
-		'TaskModel' name=ID
+		'WorkFlow' name=ID
 		(caps+=Capability)+
-		'end TaskModel'
+		'end WorkFlow'
 	;
 	
 	Capability:
 		'capability' name=ID '{'
 		(reqs+=Requirement)+ 	
 		'}'
+	;
+	
+	KanbanGovModel:
+
+		(strategy+=Strategy)
+	;
+	
+	Strategy:
+		SEasService | ValueNeutral
+	;
+	
+	SEasService:
+		'strategy' name=ID 
+
+	;
+	
+	ValueNeutral:
+		'strategy' name=ID 
 	;
 	

@@ -74,6 +74,7 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
       case KanbanmodelPackage.TASK: return createTask();
       case KanbanmodelPackage.KANBAN_TASK_MODEL: return createKanbanTaskModel();
       case KanbanmodelPackage.CAPABILITY: return createCapability();
+      case KanbanmodelPackage.KANBAN_GOV_MODEL: return createKanbanGovModel();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -187,6 +188,17 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
   {
     CapabilityImpl capability = new CapabilityImpl();
     return capability;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public KanbanGovModel createKanbanGovModel()
+  {
+    KanbanGovModelImpl kanbanGovModel = new KanbanGovModelImpl();
+    return kanbanGovModel;
   }
 
   /**

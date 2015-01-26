@@ -142,6 +142,13 @@ public class KanbanmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case KanbanmodelPackage.KANBAN_GOV_MODEL:
+      {
+        KanbanGovModel kanbanGovModel = (KanbanGovModel)theEObject;
+        T result = caseKanbanGovModel(kanbanGovModel);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -302,6 +309,22 @@ public class KanbanmodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCapability(Capability object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Kanban Gov Model</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Kanban Gov Model</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseKanbanGovModel(KanbanGovModel object)
   {
     return null;
   }

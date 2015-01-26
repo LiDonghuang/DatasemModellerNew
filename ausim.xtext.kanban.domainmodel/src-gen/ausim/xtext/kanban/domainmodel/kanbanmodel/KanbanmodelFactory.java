@@ -113,6 +113,15 @@ public interface KanbanmodelFactory extends EFactory
   Capability createCapability();
 
   /**
+   * Returns a new object of class '<em>Kanban Gov Model</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Kanban Gov Model</em>'.
+   * @generated
+   */
+  KanbanGovModel createKanbanGovModel();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -77,9 +77,9 @@ ruleKanbanSchedulingSystem returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='KSSWorkFlowModel' 
+(	otherlv_0='KSSModel' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getKanbanSchedulingSystemAccess().getKSSWorkFlowModelKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getKanbanSchedulingSystemAccess().getKSSModelKeyword_0());
     }
 (
 (
@@ -99,9 +99,9 @@ ruleKanbanSchedulingSystem returns [EObject current=null]
 	    }
 
 )
-)	otherlv_2='Organization' 
+)	otherlv_2='OrganizationModel' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getKanbanSchedulingSystemAccess().getOrganizationKeyword_2());
+    	newLeafNode(otherlv_2, grammarAccess.getKanbanSchedulingSystemAccess().getOrganizationModelKeyword_2());
     }
 (
 (
@@ -121,13 +121,13 @@ ruleKanbanSchedulingSystem returns [EObject current=null]
 	    }
 
 )
-)+	otherlv_4='end Organization' 
+)+	otherlv_4='end OrganizationModel' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getKanbanSchedulingSystemAccess().getEndOrganizationKeyword_4());
+    	newLeafNode(otherlv_4, grammarAccess.getKanbanSchedulingSystemAccess().getEndOrganizationModelKeyword_4());
     }
-	otherlv_5='WorkItems' 
+	otherlv_5='WorkFlowModel' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getKanbanSchedulingSystemAccess().getWorkItemsKeyword_5());
+    	newLeafNode(otherlv_5, grammarAccess.getKanbanSchedulingSystemAccess().getWorkFlowModelKeyword_5());
     }
 (
 (
@@ -147,31 +147,57 @@ ruleKanbanSchedulingSystem returns [EObject current=null]
 	    }
 
 )
-)+	otherlv_7='end WorkItems' 
-    {
-    	newLeafNode(otherlv_7, grammarAccess.getKanbanSchedulingSystemAccess().getEndWorkItemsKeyword_7());
-    }
-(
+)+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getKssWorkFlowKanbanTaskModelParserRuleCall_8_0()); 
+	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getKssWorkFlowKanbanTaskModelParserRuleCall_7_0()); 
 	    }
-		lv_kssWorkFlow_8_0=ruleKanbanTaskModel		{
+		lv_kssWorkFlow_7_0=ruleKanbanTaskModel		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getKanbanSchedulingSystemRule());
 	        }
        		set(
        			$current, 
        			"kssWorkFlow",
-        		lv_kssWorkFlow_8_0, 
+        		lv_kssWorkFlow_7_0, 
         		"KanbanTaskModel");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_9='end KSSWorkFlowModel' 
+)	otherlv_8='end WorkFlowModel' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getKanbanSchedulingSystemAccess().getEndKSSWorkFlowModelKeyword_9());
+    	newLeafNode(otherlv_8, grammarAccess.getKanbanSchedulingSystemAccess().getEndWorkFlowModelKeyword_8());
+    }
+	otherlv_9='GovernanceModel' 
+    {
+    	newLeafNode(otherlv_9, grammarAccess.getKanbanSchedulingSystemAccess().getGovernanceModelKeyword_9());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getKssGovModelKanbanGovModelParserRuleCall_10_0()); 
+	    }
+		lv_kssGovModel_10_0=ruleKanbanGovModel		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getKanbanSchedulingSystemRule());
+	        }
+       		set(
+       			$current, 
+       			"kssGovModel",
+        		lv_kssGovModel_10_0, 
+        		"KanbanGovModel");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_11='end GovernanceModel' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getKanbanSchedulingSystemAccess().getEndGovernanceModelKeyword_11());
+    }
+	otherlv_12='end KSSModel' 
+    {
+    	newLeafNode(otherlv_12, grammarAccess.getKanbanSchedulingSystemAccess().getEndKSSModelKeyword_12());
     }
 )
 ;
@@ -861,9 +887,9 @@ ruleKanbanTaskModel returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='TaskModel' 
+(	otherlv_0='WorkFlow' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getKanbanTaskModelAccess().getTaskModelKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getKanbanTaskModelAccess().getWorkFlowKeyword_0());
     }
 (
 (
@@ -901,9 +927,9 @@ ruleKanbanTaskModel returns [EObject current=null]
 	    }
 
 )
-)+	otherlv_3='end TaskModel' 
+)+	otherlv_3='end WorkFlow' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getKanbanTaskModelAccess().getEndTaskModelKeyword_3());
+    	newLeafNode(otherlv_3, grammarAccess.getKanbanTaskModelAccess().getEndWorkFlowKeyword_3());
     }
 )
 ;
@@ -975,6 +1001,49 @@ ruleCapability returns [EObject current=null]
     	newLeafNode(otherlv_4, grammarAccess.getCapabilityAccess().getRightCurlyBracketKeyword_4());
     }
 )
+;
+
+
+
+
+
+// Entry rule entryRuleKanbanGovModel
+entryRuleKanbanGovModel returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getKanbanGovModelRule()); }
+	 iv_ruleKanbanGovModel=ruleKanbanGovModel 
+	 { $current=$iv_ruleKanbanGovModel.current; } 
+	 EOF 
+;
+
+// Rule KanbanGovModel
+ruleKanbanGovModel returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='strategy' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getKanbanGovModelAccess().getStrategyKeyword_0());
+    }
+(
+(
+		lv_name_1_0=RULE_ID
+		{
+			newLeafNode(lv_name_1_0, grammarAccess.getKanbanGovModelAccess().getNameIDTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getKanbanGovModelRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_1_0, 
+        		"ID");
+	    }
+
+)
+))
 ;
 
 

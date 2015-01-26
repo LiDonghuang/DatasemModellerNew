@@ -21,32 +21,38 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 	public class KanbanSchedulingSystemElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "KanbanSchedulingSystem");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cKSSWorkFlowModelKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cKSSModelKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cOrganizationKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cOrganizationModelKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cOrgUnitsAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cOrgUnitsTeamParserRuleCall_3_0 = (RuleCall)cOrgUnitsAssignment_3.eContents().get(0);
-		private final Keyword cEndOrganizationKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cWorkItemsKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cEndOrganizationModelKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cWorkFlowModelKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cKssTasksAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cKssTasksTaskParserRuleCall_6_0 = (RuleCall)cKssTasksAssignment_6.eContents().get(0);
-		private final Keyword cEndWorkItemsKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cKssWorkFlowAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cKssWorkFlowKanbanTaskModelParserRuleCall_8_0 = (RuleCall)cKssWorkFlowAssignment_8.eContents().get(0);
-		private final Keyword cEndKSSWorkFlowModelKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Assignment cKssWorkFlowAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cKssWorkFlowKanbanTaskModelParserRuleCall_7_0 = (RuleCall)cKssWorkFlowAssignment_7.eContents().get(0);
+		private final Keyword cEndWorkFlowModelKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Keyword cGovernanceModelKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Assignment cKssGovModelAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cKssGovModelKanbanGovModelParserRuleCall_10_0 = (RuleCall)cKssGovModelAssignment_10.eContents().get(0);
+		private final Keyword cEndGovernanceModelKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Keyword cEndKSSModelKeyword_12 = (Keyword)cGroup.eContents().get(12);
 		
 		//KanbanSchedulingSystem:
-		//	"KSSWorkFlowModel" name=ID "Organization" orgUnits+=Team+ "end Organization" "WorkItems" kssTasks+=Task+
-		//	"end WorkItems" kssWorkFlow=KanbanTaskModel "end KSSWorkFlowModel";
+		//	"KSSModel" name=ID "OrganizationModel" orgUnits+=Team+ "end OrganizationModel" "WorkFlowModel" kssTasks+=Task+
+		//	kssWorkFlow=KanbanTaskModel "end WorkFlowModel" "GovernanceModel" kssGovModel=KanbanGovModel "end GovernanceModel"
+		//	"end KSSModel";
 		public ParserRule getRule() { return rule; }
 
-		//"KSSWorkFlowModel" name=ID "Organization" orgUnits+=Team+ "end Organization" "WorkItems" kssTasks+=Task+ "end WorkItems"
-		//kssWorkFlow=KanbanTaskModel "end KSSWorkFlowModel"
+		//"KSSModel" name=ID "OrganizationModel" orgUnits+=Team+ "end OrganizationModel" "WorkFlowModel" kssTasks+=Task+
+		//kssWorkFlow=KanbanTaskModel "end WorkFlowModel" "GovernanceModel" kssGovModel=KanbanGovModel "end GovernanceModel"
+		//"end KSSModel"
 		public Group getGroup() { return cGroup; }
 
-		//"KSSWorkFlowModel"
-		public Keyword getKSSWorkFlowModelKeyword_0() { return cKSSWorkFlowModelKeyword_0; }
+		//"KSSModel"
+		public Keyword getKSSModelKeyword_0() { return cKSSModelKeyword_0; }
 
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -54,8 +60,8 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
-		//"Organization"
-		public Keyword getOrganizationKeyword_2() { return cOrganizationKeyword_2; }
+		//"OrganizationModel"
+		public Keyword getOrganizationModelKeyword_2() { return cOrganizationModelKeyword_2; }
 
 		//orgUnits+=Team+
 		public Assignment getOrgUnitsAssignment_3() { return cOrgUnitsAssignment_3; }
@@ -63,11 +69,11 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//Team
 		public RuleCall getOrgUnitsTeamParserRuleCall_3_0() { return cOrgUnitsTeamParserRuleCall_3_0; }
 
-		//"end Organization"
-		public Keyword getEndOrganizationKeyword_4() { return cEndOrganizationKeyword_4; }
+		//"end OrganizationModel"
+		public Keyword getEndOrganizationModelKeyword_4() { return cEndOrganizationModelKeyword_4; }
 
-		//"WorkItems"
-		public Keyword getWorkItemsKeyword_5() { return cWorkItemsKeyword_5; }
+		//"WorkFlowModel"
+		public Keyword getWorkFlowModelKeyword_5() { return cWorkFlowModelKeyword_5; }
 
 		//kssTasks+=Task+
 		public Assignment getKssTasksAssignment_6() { return cKssTasksAssignment_6; }
@@ -75,17 +81,29 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//Task
 		public RuleCall getKssTasksTaskParserRuleCall_6_0() { return cKssTasksTaskParserRuleCall_6_0; }
 
-		//"end WorkItems"
-		public Keyword getEndWorkItemsKeyword_7() { return cEndWorkItemsKeyword_7; }
-
 		//kssWorkFlow=KanbanTaskModel
-		public Assignment getKssWorkFlowAssignment_8() { return cKssWorkFlowAssignment_8; }
+		public Assignment getKssWorkFlowAssignment_7() { return cKssWorkFlowAssignment_7; }
 
 		//KanbanTaskModel
-		public RuleCall getKssWorkFlowKanbanTaskModelParserRuleCall_8_0() { return cKssWorkFlowKanbanTaskModelParserRuleCall_8_0; }
+		public RuleCall getKssWorkFlowKanbanTaskModelParserRuleCall_7_0() { return cKssWorkFlowKanbanTaskModelParserRuleCall_7_0; }
 
-		//"end KSSWorkFlowModel"
-		public Keyword getEndKSSWorkFlowModelKeyword_9() { return cEndKSSWorkFlowModelKeyword_9; }
+		//"end WorkFlowModel"
+		public Keyword getEndWorkFlowModelKeyword_8() { return cEndWorkFlowModelKeyword_8; }
+
+		//"GovernanceModel"
+		public Keyword getGovernanceModelKeyword_9() { return cGovernanceModelKeyword_9; }
+
+		//kssGovModel=KanbanGovModel
+		public Assignment getKssGovModelAssignment_10() { return cKssGovModelAssignment_10; }
+
+		//KanbanGovModel
+		public RuleCall getKssGovModelKanbanGovModelParserRuleCall_10_0() { return cKssGovModelKanbanGovModelParserRuleCall_10_0; }
+
+		//"end GovernanceModel"
+		public Keyword getEndGovernanceModelKeyword_11() { return cEndGovernanceModelKeyword_11; }
+
+		//"end KSSModel"
+		public Keyword getEndKSSModelKeyword_12() { return cEndKSSModelKeyword_12; }
 	}
 
 	public class TeamElements extends AbstractParserRuleElementFinder {
@@ -617,22 +635,22 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 	public class KanbanTaskModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "KanbanTaskModel");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cTaskModelKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cWorkFlowKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cCapsAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cCapsCapabilityParserRuleCall_2_0 = (RuleCall)cCapsAssignment_2.eContents().get(0);
-		private final Keyword cEndTaskModelKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cEndWorkFlowKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//KanbanTaskModel:
-		//	"TaskModel" name=ID caps+=Capability+ "end TaskModel";
+		//	"WorkFlow" name=ID caps+=Capability+ "end WorkFlow";
 		public ParserRule getRule() { return rule; }
 
-		//"TaskModel" name=ID caps+=Capability+ "end TaskModel"
+		//"WorkFlow" name=ID caps+=Capability+ "end WorkFlow"
 		public Group getGroup() { return cGroup; }
 
-		//"TaskModel"
-		public Keyword getTaskModelKeyword_0() { return cTaskModelKeyword_0; }
+		//"WorkFlow"
+		public Keyword getWorkFlowKeyword_0() { return cWorkFlowKeyword_0; }
 
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -646,8 +664,8 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//Capability
 		public RuleCall getCapsCapabilityParserRuleCall_2_0() { return cCapsCapabilityParserRuleCall_2_0; }
 
-		//"end TaskModel"
-		public Keyword getEndTaskModelKeyword_3() { return cEndTaskModelKeyword_3; }
+		//"end WorkFlow"
+		public Keyword getEndWorkFlowKeyword_3() { return cEndWorkFlowKeyword_3; }
 	}
 
 	public class CapabilityElements extends AbstractParserRuleElementFinder {
@@ -689,6 +707,30 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
+
+	public class KanbanGovModelElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "KanbanGovModel");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cStrategyKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//KanbanGovModel:
+		//	"strategy" name=ID;
+		public ParserRule getRule() { return rule; }
+
+		//"strategy" name=ID
+		public Group getGroup() { return cGroup; }
+
+		//"strategy"
+		public Keyword getStrategyKeyword_0() { return cStrategyKeyword_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
 	
 	
 	private final KanbanSchedulingSystemElements pKanbanSchedulingSystem;
@@ -701,6 +743,7 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 	private final TaskElements pTask;
 	private final KanbanTaskModelElements pKanbanTaskModel;
 	private final CapabilityElements pCapability;
+	private final KanbanGovModelElements pKanbanGovModel;
 	
 	private final Grammar grammar;
 
@@ -721,6 +764,7 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		this.pTask = new TaskElements();
 		this.pKanbanTaskModel = new KanbanTaskModelElements();
 		this.pCapability = new CapabilityElements();
+		this.pKanbanGovModel = new KanbanGovModelElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -751,8 +795,9 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//KanbanSchedulingSystem:
-	//	"KSSWorkFlowModel" name=ID "Organization" orgUnits+=Team+ "end Organization" "WorkItems" kssTasks+=Task+
-	//	"end WorkItems" kssWorkFlow=KanbanTaskModel "end KSSWorkFlowModel";
+	//	"KSSModel" name=ID "OrganizationModel" orgUnits+=Team+ "end OrganizationModel" "WorkFlowModel" kssTasks+=Task+
+	//	kssWorkFlow=KanbanTaskModel "end WorkFlowModel" "GovernanceModel" kssGovModel=KanbanGovModel "end GovernanceModel"
+	//	"end KSSModel";
 	public KanbanSchedulingSystemElements getKanbanSchedulingSystemAccess() {
 		return pKanbanSchedulingSystem;
 	}
@@ -835,7 +880,7 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//KanbanTaskModel:
-	//	"TaskModel" name=ID caps+=Capability+ "end TaskModel";
+	//	"WorkFlow" name=ID caps+=Capability+ "end WorkFlow";
 	public KanbanTaskModelElements getKanbanTaskModelAccess() {
 		return pKanbanTaskModel;
 	}
@@ -852,6 +897,16 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getCapabilityRule() {
 		return getCapabilityAccess().getRule();
+	}
+
+	//KanbanGovModel:
+	//	"strategy" name=ID;
+	public KanbanGovModelElements getKanbanGovModelAccess() {
+		return pKanbanGovModel;
+	}
+	
+	public ParserRule getKanbanGovModelRule() {
+		return getKanbanGovModelAccess().getRule();
 	}
 
 	//terminal ID:

@@ -103,13 +103,22 @@ public interface KanbanmodelPackage extends EPackage
   int KANBAN_SCHEDULING_SYSTEM__KSS_WORK_FLOW = 3;
 
   /**
+   * The feature id for the '<em><b>Kss Gov Model</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int KANBAN_SCHEDULING_SYSTEM__KSS_GOV_MODEL = 4;
+
+  /**
    * The number of structural features of the '<em>Kanban Scheduling System</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int KANBAN_SCHEDULING_SYSTEM_FEATURE_COUNT = 4;
+  int KANBAN_SCHEDULING_SYSTEM_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TeamImpl <em>Team</em>}' class.
@@ -507,6 +516,34 @@ public interface KanbanmodelPackage extends EPackage
    */
   int CAPABILITY_FEATURE_COUNT = 2;
 
+  /**
+   * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanGovModelImpl <em>Kanban Gov Model</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanGovModelImpl
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getKanbanGovModel()
+   * @generated
+   */
+  int KANBAN_GOV_MODEL = 10;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int KANBAN_GOV_MODEL__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Kanban Gov Model</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int KANBAN_GOV_MODEL_FEATURE_COUNT = 1;
+
 
   /**
    * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem <em>Kanban Scheduling System</em>}'.
@@ -561,6 +598,17 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    */
   EReference getKanbanSchedulingSystem_KssWorkFlow();
+
+  /**
+   * Returns the meta object for the containment reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKssGovModel <em>Kss Gov Model</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Kss Gov Model</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKssGovModel()
+   * @see #getKanbanSchedulingSystem()
+   * @generated
+   */
+  EReference getKanbanSchedulingSystem_KssGovModel();
 
   /**
    * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team <em>Team</em>}'.
@@ -928,6 +976,27 @@ public interface KanbanmodelPackage extends EPackage
   EReference getCapability_Reqs();
 
   /**
+   * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanGovModel <em>Kanban Gov Model</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Kanban Gov Model</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanGovModel
+   * @generated
+   */
+  EClass getKanbanGovModel();
+
+  /**
+   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanGovModel#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanGovModel#getName()
+   * @see #getKanbanGovModel()
+   * @generated
+   */
+  EAttribute getKanbanGovModel_Name();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -991,6 +1060,14 @@ public interface KanbanmodelPackage extends EPackage
      * @generated
      */
     EReference KANBAN_SCHEDULING_SYSTEM__KSS_WORK_FLOW = eINSTANCE.getKanbanSchedulingSystem_KssWorkFlow();
+
+    /**
+     * The meta object literal for the '<em><b>Kss Gov Model</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference KANBAN_SCHEDULING_SYSTEM__KSS_GOV_MODEL = eINSTANCE.getKanbanSchedulingSystem_KssGovModel();
 
     /**
      * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TeamImpl <em>Team</em>}' class.
@@ -1281,6 +1358,24 @@ public interface KanbanmodelPackage extends EPackage
      * @generated
      */
     EReference CAPABILITY__REQS = eINSTANCE.getCapability_Reqs();
+
+    /**
+     * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanGovModelImpl <em>Kanban Gov Model</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanGovModelImpl
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getKanbanGovModel()
+     * @generated
+     */
+    EClass KANBAN_GOV_MODEL = eINSTANCE.getKanbanGovModel();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute KANBAN_GOV_MODEL__NAME = eINSTANCE.getKanbanGovModel_Name();
 
   }
 

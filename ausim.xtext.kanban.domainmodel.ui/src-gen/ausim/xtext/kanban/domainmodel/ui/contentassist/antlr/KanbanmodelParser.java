@@ -61,10 +61,12 @@ public class KanbanmodelParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTaskAccess().getGroup_7(), "rule__Task__Group_7__0");
 					put(grammarAccess.getKanbanTaskModelAccess().getGroup(), "rule__KanbanTaskModel__Group__0");
 					put(grammarAccess.getCapabilityAccess().getGroup(), "rule__Capability__Group__0");
+					put(grammarAccess.getKanbanGovModelAccess().getGroup(), "rule__KanbanGovModel__Group__0");
 					put(grammarAccess.getKanbanSchedulingSystemAccess().getNameAssignment_1(), "rule__KanbanSchedulingSystem__NameAssignment_1");
 					put(grammarAccess.getKanbanSchedulingSystemAccess().getOrgUnitsAssignment_3(), "rule__KanbanSchedulingSystem__OrgUnitsAssignment_3");
 					put(grammarAccess.getKanbanSchedulingSystemAccess().getKssTasksAssignment_6(), "rule__KanbanSchedulingSystem__KssTasksAssignment_6");
-					put(grammarAccess.getKanbanSchedulingSystemAccess().getKssWorkFlowAssignment_8(), "rule__KanbanSchedulingSystem__KssWorkFlowAssignment_8");
+					put(grammarAccess.getKanbanSchedulingSystemAccess().getKssWorkFlowAssignment_7(), "rule__KanbanSchedulingSystem__KssWorkFlowAssignment_7");
+					put(grammarAccess.getKanbanSchedulingSystemAccess().getKssGovModelAssignment_10(), "rule__KanbanSchedulingSystem__KssGovModelAssignment_10");
 					put(grammarAccess.getTeamAccess().getNameAssignment_1(), "rule__Team__NameAssignment_1");
 					put(grammarAccess.getTeamAccess().getDemandUnitsAssignment_3_2(), "rule__Team__DemandUnitsAssignment_3_2");
 					put(grammarAccess.getTeamAccess().getSourcedUnitsAssignment_4_2(), "rule__Team__SourcedUnitsAssignment_4_2");
@@ -90,6 +92,7 @@ public class KanbanmodelParser extends AbstractContentAssistParser {
 					put(grammarAccess.getKanbanTaskModelAccess().getCapsAssignment_2(), "rule__KanbanTaskModel__CapsAssignment_2");
 					put(grammarAccess.getCapabilityAccess().getNameAssignment_1(), "rule__Capability__NameAssignment_1");
 					put(grammarAccess.getCapabilityAccess().getReqsAssignment_3(), "rule__Capability__ReqsAssignment_3");
+					put(grammarAccess.getKanbanGovModelAccess().getNameAssignment_1(), "rule__KanbanGovModel__NameAssignment_1");
 				}
 			};
 		}

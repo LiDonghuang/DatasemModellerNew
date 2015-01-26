@@ -3,6 +3,7 @@ package ausim.xtext.kanban.domainmodel.serializer;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Asset;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Capability;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Dependency;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanGovModel;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanTaskModel;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
@@ -49,6 +50,12 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case KanbanmodelPackage.DEPENDENCY:
 				if(context == grammarAccess.getDependencyRule()) {
 					sequence_Dependency(context, (Dependency) semanticObject); 
+					return; 
+				}
+				else break;
+			case KanbanmodelPackage.KANBAN_GOV_MODEL:
+				if(context == grammarAccess.getKanbanGovModelRule()) {
+					sequence_KanbanGovModel(context, (KanbanGovModel) semanticObject); 
 					return; 
 				}
 				else break;
@@ -137,7 +144,23 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (name=ID orgUnits+=Team+ kssTasks+=Task+ kssWorkFlow=KanbanTaskModel)
+	 *     name=ID
+	 */
+	protected void sequence_KanbanGovModel(EObject context, KanbanGovModel semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.KANBAN_GOV_MODEL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.KANBAN_GOV_MODEL__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getKanbanGovModelAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID orgUnits+=Team+ kssTasks+=Task+ kssWorkFlow=KanbanTaskModel kssGovModel=KanbanGovModel)
 	 */
 	protected void sequence_KanbanSchedulingSystem(EObject context, KanbanSchedulingSystem semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

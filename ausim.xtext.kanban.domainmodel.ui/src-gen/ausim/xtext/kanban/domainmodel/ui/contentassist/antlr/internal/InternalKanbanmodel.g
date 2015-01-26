@@ -336,6 +336,34 @@ finally {
 
 
 
+// Entry rule entryRuleKanbanGovModel
+entryRuleKanbanGovModel 
+:
+{ before(grammarAccess.getKanbanGovModelRule()); }
+	 ruleKanbanGovModel
+{ after(grammarAccess.getKanbanGovModelRule()); } 
+	 EOF 
+;
+
+// Rule KanbanGovModel
+ruleKanbanGovModel
+    @init {
+		int stackSize = keepStackSize();
+    }
+	:
+(
+{ before(grammarAccess.getKanbanGovModelAccess().getGroup()); }
+(rule__KanbanGovModel__Group__0)
+{ after(grammarAccess.getKanbanGovModelAccess().getGroup()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
 
 rule__Team__Alternatives_0
     @init {
@@ -409,11 +437,11 @@ rule__KanbanSchedulingSystem__Group__0__Impl
     }
 :
 (
-{ before(grammarAccess.getKanbanSchedulingSystemAccess().getKSSWorkFlowModelKeyword_0()); }
+{ before(grammarAccess.getKanbanSchedulingSystemAccess().getKSSModelKeyword_0()); }
 
-	'KSSWorkFlowModel' 
+	'KSSModel' 
 
-{ after(grammarAccess.getKanbanSchedulingSystemAccess().getKSSWorkFlowModelKeyword_0()); }
+{ after(grammarAccess.getKanbanSchedulingSystemAccess().getKSSModelKeyword_0()); }
 )
 
 ;
@@ -469,11 +497,11 @@ rule__KanbanSchedulingSystem__Group__2__Impl
     }
 :
 (
-{ before(grammarAccess.getKanbanSchedulingSystemAccess().getOrganizationKeyword_2()); }
+{ before(grammarAccess.getKanbanSchedulingSystemAccess().getOrganizationModelKeyword_2()); }
 
-	'Organization' 
+	'OrganizationModel' 
 
-{ after(grammarAccess.getKanbanSchedulingSystemAccess().getOrganizationKeyword_2()); }
+{ after(grammarAccess.getKanbanSchedulingSystemAccess().getOrganizationModelKeyword_2()); }
 )
 
 ;
@@ -536,11 +564,11 @@ rule__KanbanSchedulingSystem__Group__4__Impl
     }
 :
 (
-{ before(grammarAccess.getKanbanSchedulingSystemAccess().getEndOrganizationKeyword_4()); }
+{ before(grammarAccess.getKanbanSchedulingSystemAccess().getEndOrganizationModelKeyword_4()); }
 
-	'end Organization' 
+	'end OrganizationModel' 
 
-{ after(grammarAccess.getKanbanSchedulingSystemAccess().getEndOrganizationKeyword_4()); }
+{ after(grammarAccess.getKanbanSchedulingSystemAccess().getEndOrganizationModelKeyword_4()); }
 )
 
 ;
@@ -567,11 +595,11 @@ rule__KanbanSchedulingSystem__Group__5__Impl
     }
 :
 (
-{ before(grammarAccess.getKanbanSchedulingSystemAccess().getWorkItemsKeyword_5()); }
+{ before(grammarAccess.getKanbanSchedulingSystemAccess().getWorkFlowModelKeyword_5()); }
 
-	'WorkItems' 
+	'WorkFlowModel' 
 
-{ after(grammarAccess.getKanbanSchedulingSystemAccess().getWorkItemsKeyword_5()); }
+{ after(grammarAccess.getKanbanSchedulingSystemAccess().getWorkFlowModelKeyword_5()); }
 )
 
 ;
@@ -634,11 +662,9 @@ rule__KanbanSchedulingSystem__Group__7__Impl
     }
 :
 (
-{ before(grammarAccess.getKanbanSchedulingSystemAccess().getEndWorkItemsKeyword_7()); }
-
-	'end WorkItems' 
-
-{ after(grammarAccess.getKanbanSchedulingSystemAccess().getEndWorkItemsKeyword_7()); }
+{ before(grammarAccess.getKanbanSchedulingSystemAccess().getKssWorkFlowAssignment_7()); }
+(rule__KanbanSchedulingSystem__KssWorkFlowAssignment_7)
+{ after(grammarAccess.getKanbanSchedulingSystemAccess().getKssWorkFlowAssignment_7()); }
 )
 
 ;
@@ -665,9 +691,11 @@ rule__KanbanSchedulingSystem__Group__8__Impl
     }
 :
 (
-{ before(grammarAccess.getKanbanSchedulingSystemAccess().getKssWorkFlowAssignment_8()); }
-(rule__KanbanSchedulingSystem__KssWorkFlowAssignment_8)
-{ after(grammarAccess.getKanbanSchedulingSystemAccess().getKssWorkFlowAssignment_8()); }
+{ before(grammarAccess.getKanbanSchedulingSystemAccess().getEndWorkFlowModelKeyword_8()); }
+
+	'end WorkFlowModel' 
+
+{ after(grammarAccess.getKanbanSchedulingSystemAccess().getEndWorkFlowModelKeyword_8()); }
 )
 
 ;
@@ -682,6 +710,7 @@ rule__KanbanSchedulingSystem__Group__9
     }
 :
 	rule__KanbanSchedulingSystem__Group__9__Impl
+	rule__KanbanSchedulingSystem__Group__10
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -693,17 +722,113 @@ rule__KanbanSchedulingSystem__Group__9__Impl
     }
 :
 (
-{ before(grammarAccess.getKanbanSchedulingSystemAccess().getEndKSSWorkFlowModelKeyword_9()); }
+{ before(grammarAccess.getKanbanSchedulingSystemAccess().getGovernanceModelKeyword_9()); }
 
-	'end KSSWorkFlowModel' 
+	'GovernanceModel' 
 
-{ after(grammarAccess.getKanbanSchedulingSystemAccess().getEndKSSWorkFlowModelKeyword_9()); }
+{ after(grammarAccess.getKanbanSchedulingSystemAccess().getGovernanceModelKeyword_9()); }
 )
 
 ;
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__KanbanSchedulingSystem__Group__10
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__KanbanSchedulingSystem__Group__10__Impl
+	rule__KanbanSchedulingSystem__Group__11
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__KanbanSchedulingSystem__Group__10__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getKanbanSchedulingSystemAccess().getKssGovModelAssignment_10()); }
+(rule__KanbanSchedulingSystem__KssGovModelAssignment_10)
+{ after(grammarAccess.getKanbanSchedulingSystemAccess().getKssGovModelAssignment_10()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__KanbanSchedulingSystem__Group__11
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__KanbanSchedulingSystem__Group__11__Impl
+	rule__KanbanSchedulingSystem__Group__12
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__KanbanSchedulingSystem__Group__11__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getKanbanSchedulingSystemAccess().getEndGovernanceModelKeyword_11()); }
+
+	'end GovernanceModel' 
+
+{ after(grammarAccess.getKanbanSchedulingSystemAccess().getEndGovernanceModelKeyword_11()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__KanbanSchedulingSystem__Group__12
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__KanbanSchedulingSystem__Group__12__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__KanbanSchedulingSystem__Group__12__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getKanbanSchedulingSystemAccess().getEndKSSModelKeyword_12()); }
+
+	'end KSSModel' 
+
+{ after(grammarAccess.getKanbanSchedulingSystemAccess().getEndKSSModelKeyword_12()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
+
+
 
 
 
@@ -3226,11 +3351,11 @@ rule__KanbanTaskModel__Group__0__Impl
     }
 :
 (
-{ before(grammarAccess.getKanbanTaskModelAccess().getTaskModelKeyword_0()); }
+{ before(grammarAccess.getKanbanTaskModelAccess().getWorkFlowKeyword_0()); }
 
-	'TaskModel' 
+	'WorkFlow' 
 
-{ after(grammarAccess.getKanbanTaskModelAccess().getTaskModelKeyword_0()); }
+{ after(grammarAccess.getKanbanTaskModelAccess().getWorkFlowKeyword_0()); }
 )
 
 ;
@@ -3321,11 +3446,11 @@ rule__KanbanTaskModel__Group__3__Impl
     }
 :
 (
-{ before(grammarAccess.getKanbanTaskModelAccess().getEndTaskModelKeyword_3()); }
+{ before(grammarAccess.getKanbanTaskModelAccess().getEndWorkFlowKeyword_3()); }
 
-	'end TaskModel' 
+	'end WorkFlow' 
 
-{ after(grammarAccess.getKanbanTaskModelAccess().getEndTaskModelKeyword_3()); }
+{ after(grammarAccess.getKanbanTaskModelAccess().getEndWorkFlowKeyword_3()); }
 )
 
 ;
@@ -3509,6 +3634,69 @@ finally {
 
 
 
+rule__KanbanGovModel__Group__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__KanbanGovModel__Group__0__Impl
+	rule__KanbanGovModel__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__KanbanGovModel__Group__0__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getKanbanGovModelAccess().getStrategyKeyword_0()); }
+
+	'strategy' 
+
+{ after(grammarAccess.getKanbanGovModelAccess().getStrategyKeyword_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__KanbanGovModel__Group__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__KanbanGovModel__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__KanbanGovModel__Group__1__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getKanbanGovModelAccess().getNameAssignment_1()); }
+(rule__KanbanGovModel__NameAssignment_1)
+{ after(grammarAccess.getKanbanGovModelAccess().getNameAssignment_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
+
+
 
 rule__KanbanSchedulingSystem__NameAssignment_1
     @init {
@@ -3555,14 +3743,29 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__KanbanSchedulingSystem__KssWorkFlowAssignment_8
+rule__KanbanSchedulingSystem__KssWorkFlowAssignment_7
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getKanbanSchedulingSystemAccess().getKssWorkFlowKanbanTaskModelParserRuleCall_8_0()); }
-	ruleKanbanTaskModel{ after(grammarAccess.getKanbanSchedulingSystemAccess().getKssWorkFlowKanbanTaskModelParserRuleCall_8_0()); }
+{ before(grammarAccess.getKanbanSchedulingSystemAccess().getKssWorkFlowKanbanTaskModelParserRuleCall_7_0()); }
+	ruleKanbanTaskModel{ after(grammarAccess.getKanbanSchedulingSystemAccess().getKssWorkFlowKanbanTaskModelParserRuleCall_7_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__KanbanSchedulingSystem__KssGovModelAssignment_10
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getKanbanSchedulingSystemAccess().getKssGovModelKanbanGovModelParserRuleCall_10_0()); }
+	ruleKanbanGovModel{ after(grammarAccess.getKanbanSchedulingSystemAccess().getKssGovModelKanbanGovModelParserRuleCall_10_0()); }
 )
 
 ;
@@ -3970,6 +4173,21 @@ rule__Capability__ReqsAssignment_3
 (
 { before(grammarAccess.getCapabilityAccess().getReqsRequirementParserRuleCall_3_0()); }
 	ruleRequirement{ after(grammarAccess.getCapabilityAccess().getReqsRequirementParserRuleCall_3_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__KanbanGovModel__NameAssignment_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getKanbanGovModelAccess().getNameIDTerminalRuleCall_1_0()); }
+	RULE_ID{ after(grammarAccess.getKanbanGovModelAccess().getNameIDTerminalRuleCall_1_0()); }
 )
 
 ;
