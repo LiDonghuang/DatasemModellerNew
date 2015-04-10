@@ -28,7 +28,7 @@ public class Main {
 		}*/
 		Injector injector = new ausim.xtext.kanban.domainmodel.KanbanmodelStandaloneSetup().createInjectorAndDoEMFRegistration();
 		Main main = injector.getInstance(Main.class);
-		main.runGenerator("/Users/yilmaz/Desktop/AUSIM/runtime-EclipseXtext/KanbanDSL/src/kanbanDSLTest2.kmdl");
+		main.runGenerator("/Users/Donbghuang Li/desktop/healthcare.kmdl");
 	}
 	
 	@Inject 

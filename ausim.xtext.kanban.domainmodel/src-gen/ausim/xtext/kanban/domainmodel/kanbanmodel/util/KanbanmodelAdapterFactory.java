@@ -80,14 +80,34 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
         return createKanbanSchedulingSystemAdapter();
       }
       @Override
-      public Adapter caseTeam(Team object)
+      public Adapter caseTaskPattern(TaskPattern object)
       {
-        return createTeamAdapter();
+        return createTaskPatternAdapter();
+      }
+      @Override
+      public Adapter caseTaskType(TaskType object)
+      {
+        return createTaskTypeAdapter();
       }
       @Override
       public Adapter caseService(Service object)
       {
         return createServiceAdapter();
+      }
+      @Override
+      public Adapter caseTask(Task object)
+      {
+        return createTaskAdapter();
+      }
+      @Override
+      public Adapter caseDependency(Dependency object)
+      {
+        return createDependencyAdapter();
+      }
+      @Override
+      public Adapter caseTeam(Team object)
+      {
+        return createTeamAdapter();
       }
       @Override
       public Adapter caseAsset(Asset object)
@@ -100,19 +120,9 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
         return createSkillAdapter();
       }
       @Override
-      public Adapter caseDependency(Dependency object)
-      {
-        return createDependencyAdapter();
-      }
-      @Override
       public Adapter caseRequirement(Requirement object)
       {
         return createRequirementAdapter();
-      }
-      @Override
-      public Adapter caseTask(Task object)
-      {
-        return createTaskAdapter();
       }
       @Override
       public Adapter caseKanbanTaskModel(KanbanTaskModel object)
@@ -207,16 +217,31 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team <em>Team</em>}'.
+   * Creates a new adapter for an object of class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.TaskPattern <em>Task Pattern</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Team
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.TaskPattern
    * @generated
    */
-  public Adapter createTeamAdapter()
+  public Adapter createTaskPatternAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.TaskType <em>Task Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.TaskType
+   * @generated
+   */
+  public Adapter createTaskTypeAdapter()
   {
     return null;
   }
@@ -232,6 +257,51 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createServiceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task <em>Task</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Task
+   * @generated
+   */
+  public Adapter createTaskAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Dependency <em>Dependency</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Dependency
+   * @generated
+   */
+  public Adapter createDependencyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team <em>Team</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Team
+   * @generated
+   */
+  public Adapter createTeamAdapter()
   {
     return null;
   }
@@ -267,21 +337,6 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Dependency <em>Dependency</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Dependency
-   * @generated
-   */
-  public Adapter createDependencyAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Requirement <em>Requirement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -292,21 +347,6 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createRequirementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task <em>Task</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Task
-   * @generated
-   */
-  public Adapter createTaskAdapter()
   {
     return null;
   }

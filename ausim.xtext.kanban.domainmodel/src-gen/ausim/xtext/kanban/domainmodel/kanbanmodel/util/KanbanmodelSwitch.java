@@ -79,10 +79,17 @@ public class KanbanmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case KanbanmodelPackage.TEAM:
+      case KanbanmodelPackage.TASK_PATTERN:
       {
-        Team team = (Team)theEObject;
-        T result = caseTeam(team);
+        TaskPattern taskPattern = (TaskPattern)theEObject;
+        T result = caseTaskPattern(taskPattern);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.TASK_TYPE:
+      {
+        TaskType taskType = (TaskType)theEObject;
+        T result = caseTaskType(taskType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -90,6 +97,27 @@ public class KanbanmodelSwitch<T> extends Switch<T>
       {
         Service service = (Service)theEObject;
         T result = caseService(service);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.TASK:
+      {
+        Task task = (Task)theEObject;
+        T result = caseTask(task);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.DEPENDENCY:
+      {
+        Dependency dependency = (Dependency)theEObject;
+        T result = caseDependency(dependency);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.TEAM:
+      {
+        Team team = (Team)theEObject;
+        T result = caseTeam(team);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -107,24 +135,10 @@ public class KanbanmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case KanbanmodelPackage.DEPENDENCY:
-      {
-        Dependency dependency = (Dependency)theEObject;
-        T result = caseDependency(dependency);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case KanbanmodelPackage.REQUIREMENT:
       {
         Requirement requirement = (Requirement)theEObject;
         T result = caseRequirement(requirement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case KanbanmodelPackage.TASK:
-      {
-        Task task = (Task)theEObject;
-        T result = caseTask(task);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -226,17 +240,33 @@ public class KanbanmodelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Team</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Task Pattern</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Team</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Task Pattern</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTeam(Team object)
+  public T caseTaskPattern(TaskPattern object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Task Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Task Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTaskType(TaskType object)
   {
     return null;
   }
@@ -253,6 +283,54 @@ public class KanbanmodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseService(Service object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Task</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Task</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTask(Task object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Dependency</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Dependency</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDependency(Dependency object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Team</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Team</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTeam(Team object)
   {
     return null;
   }
@@ -290,22 +368,6 @@ public class KanbanmodelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Dependency</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Dependency</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDependency(Dependency object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Requirement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -317,22 +379,6 @@ public class KanbanmodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseRequirement(Requirement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Task</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Task</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTask(Task object)
   {
     return null;
   }

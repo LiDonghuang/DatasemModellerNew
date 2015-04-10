@@ -4,7 +4,12 @@ generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
 
 	KanbanSchedulingSystem:
 		'KSSModel' name=ID
+		'TaskPatterns'
+		(KSSTaskPatterns += TaskPattern)+
+		(KSStaskPatternTypes += TaskType)+
+		'end TaskPatterns'
 		'OrganizationModel'
+		(SoSServices += Service)+
 		(orgUnits += Team)+
 		'end OrganizationModel'
 		'WorkFlowModel'
@@ -12,62 +17,85 @@ generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
 		(kssWorkFlow=KanbanTaskModel)
 		'end WorkFlowModel'
 		'GovernanceModel'
-		(kssGovModel=KanbanGovModel)
+		(kssGovModel=KanbanGovModel)?
 		'end GovernanceModel'
 		'end KSSModel'
 	;
 	
 	
-	Team :
+	TaskPattern:
+		'workflowTemplate' name=ID '{'
+		('Description' description=STRING)?
+		('Types' '{' (taskpatternTypes+=[TaskType])+ '}')?
+		'}'
+	;
+	TaskType :
+	'taskType' name=ID '{'
+	('Description' description=STRING)?
+	'}'
+	;	
+	
+	
+	Service:
+		'service' name=ID ('{'
+		('Description' description=STRING)?
+		'}')?
+	;	
+	
+	
+	Task:
+		'workItem' name=ID '{'
+		('Description' description=STRING)?
+		('Pattern' pattern+=[TaskPattern])?		
+		('Type' patternType+=[TaskType])?
+		('subtasks' '{' (sTasks+=[Task])+ '}')?
+		('taskDependencies'(taskDependencies += Dependency)*)?
+		('servicesRequired' (reqSpecialties+=[Service])+)?
+		('base efforts' befforts=INT)?
+		('base value' bvalue=INT)?
+		('classOfService' COS=ID)?
+		'}'
+	;
+	Dependency:
+		sourceTask=[Task] ('=>'| '->') targetTask=[Task] 
+	;
+	
+	
+	Team:
 		('team'|'group') name=ID '{'
+		('Description' description=STRING)?
 		('sourceUnits' '{' (demandUnits+=[Team])+ '}')?
 		('targetUnits' '{' (sourcedUnits+=[Team])+ '}')?
 		('contains' '{' (groupmembers+=[Team])+ '}')?
 		('resources' '{' (resources+=Asset)+ '}')?
-		('services' '{' (services+=Service)+ '}')?
+		('services' '{' (services+=[Service])+ '}')?
 		'}'
 	;
-	
-
-	Service:
-		'service' name=ID
-	;
-	
-
-	Asset : 
-		'resource' name=ID ('{'
+	Asset: 
+		'resource' name=ID '{'
+		('Description' description=STRING)?
 		'skills' '{' (hasSkills+=Skill)+ '}'
+		'}'
+	;	
+	Skill:
+		name=ID ('{'
+		('Description' description=STRING)?
 		'}')?
 	;
 	
-	Skill:
-		name=ID
-	;
 	
-	
-			
-	Dependency:
-		sourceTask=[Task] ('=>'| '->') targetTask=[Task] 
-
-	;
+		
 		
 	Requirement:
 		'requirement' name=ID '{' 
+		 ('Description' description=STRING)?
 		 ('workItems' '{' (rTasks+=[Task])+ '}') 
 		 ('workItemNetwork' (dependencies += Dependency)*)?
 		'}'
 	;
 	
 	
-	Task:
-		'workItem' name=ID '{'
-		('subtasks' '{' (sTasks+=[Task])+ '}')?
-		('taskDependencies'(taskDependencies += Dependency)*)?
-		('servicesRequired' (reqSpecialties+=[Service])+)?
-		('base value' bvalue=INT)?
-		('classOfService' COS=ID)?
-		'}'
-	;
+
 	
 	
 	KanbanTaskModel:
@@ -78,6 +106,7 @@ generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
 	
 	Capability:
 		'capability' name=ID '{'
+		('Description' description=STRING)?
 		(reqs+=Requirement)+ 	
 		'}'
 	;

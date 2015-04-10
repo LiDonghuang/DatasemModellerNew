@@ -11,8 +11,9 @@ import ausim.xtext.kanban.domainmodel.kanbanmodel.Team
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Task
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanTaskModel
-
-
+import ausim.xtext.kanban.domainmodel.kanbanmodel.Service
+import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskPattern
+import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskType
 
 /**
  * Generates code from your model files on save.
@@ -20,6 +21,7 @@ import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanTaskModel
  * see http://www.eclipse.org/Xtext/documentation.html#TutorialCodeGeneration
  */
 class KanbanmodelGenerator implements IGenerator {
+	
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 //		fsa.generateFile('greetings.txt', 'People to greet: ' + 
@@ -33,11 +35,38 @@ class KanbanmodelGenerator implements IGenerator {
 	
 def compile(Resource res) '''
 		<?xml version="1.0"?>
-		«FOR km : res.allContents.toIterable.filter(KanbanSchedulingSystem)» <KSSWorkFlowModel> «ENDFOR»
+		«FOR km : res.allContents.toIterable.filter(KanbanSchedulingSystem)»<KSSModel>«ENDFOR»
+
+		<TaskPatterns>
+		«FOR tp : res.allContents.toIterable.filter(TaskPattern)» 
+		<TaskPattern>
+				<name>«tp.name»</name>
+				<Description>«tp.description»</Description>
+				«FOR tt : res.allContents.toIterable.filter(TaskPattern)» 
+				<Types>«tt.name»</Types>
+				«ENDFOR»		
+		«ENDFOR»
+		</TaskPattern>
+		«FOR tt : res.allContents.toIterable.filter(TaskType)» 
+		<taskType>
+				<name>«tt.name»</name>
+				<Description>«tt.description»</Description>
+		</taskType>	
+		«ENDFOR»
+		</TaskPatterns>
+		
 		<OrganizationDataModel>
+		«FOR s : res.allContents.toIterable.filter(Service)» 
+		<Service>
+				<name>«s.name»</name>
+				<Description>«s.description»</Description>
+		</Service>	
+		«ENDFOR»
+		
 		«FOR t : res.allContents.toIterable.filter(Team)»  
 			<Team>
-				<name> «t.name» </name>
+				<name>«t.name»</name>
+				<Description>«t.description»</Description>
 				«FOR st : t.getGroupmembers()» 
 					<subteam>«st.name»</subteam>
 				«ENDFOR»	
@@ -47,37 +76,52 @@ def compile(Resource res) '''
 			</Team>
 		«ENDFOR»
 		</OrganizationDataModel>
+		
 		<WorkflowDataModel>
 		«FOR wftask : res.allContents.toIterable.filter(Task)»
 			<workItem>
-				<name> «wftask.name» </name>
+				<name>«wftask.name»</name>
+				<Description>«wftask.description»</Description>
+				«FOR p : wftask.getPattern()»
+					<Pattern>«p.name»</Pattern>
+				«ENDFOR»	
+				«FOR t : wftask.getPatternType()»
+					<Type>«t.name»</Type>
+				«ENDFOR»	
 				«FOR stask : wftask.getSTasks()»
-					<subtask> «stask.name» </subtask>
+					<subtask>«stask.name»</subtask>
+				«ENDFOR»	
+				«FOR rs : wftask.getReqSpecialties()»		
+					<servicesRequired>«rs.name»</servicesRequired>
 				«ENDFOR»
+				<baseEfforts>«wftask.befforts»</baseEfforts>
+				<baseValue>«wftask.bvalue»</baseValue>
+				<classOfService>«wftask.COS»</classOfService>
 			</workItem>
 		«ENDFOR»
-		</WorkflowDataModel>	
-		«FOR kanbanWFlow : res.allContents.toIterable.filter(KanbanTaskModel)» <KanbanWorkFlow>
+		</WorkflowDataModel>
+		
+		«FOR kanbanWFlow : res.allContents.toIterable.filter(KanbanTaskModel)»<KanbanWorkFlow>
 				<capabilities>
 				«FOR wfcap : kanbanWFlow.getCaps()»
 					<capability>
-						<name> «wfcap.name» </name>
+						<name>«wfcap.name»</name>
 						<requirements>
 						«FOR wfreq : wfcap.getReqs()»
 							<requirement>
-								<name>« wfreq.name» </name>
+								<name>« wfreq.name»</name>
 								<tasks>
 								«FOR wftask : wfreq.getRTasks()»
 								<task>
-									<name> «wftask.name» </name>	
+									<name>«wftask.name»</name>										
 								</task>
 								«ENDFOR»
 								</tasks>
 								<process>
 								«FOR wfpr : wfreq.getDependencies()»
 								<mechanism>
-									<sourceTask> «wfpr.getSourceTask().name» </sourceTask>	
-									<targetTask> «wfpr.getTargetTask().name» </targetTask>
+									<sourceTask>«wfpr.getSourceTask().name»</sourceTask>	
+									<targetTask>«wfpr.getTargetTask().name»</targetTask>
 								</mechanism>
 								«ENDFOR»
 								</process>
@@ -89,6 +133,11 @@ def compile(Resource res) '''
 				</capabilities>
 			«ENDFOR»
 		</KanbanWorkFlow>
-		</KSSWorkFlowModel>
+		
+		</KSSModel>
 	'''
+	
+	
+	
+	
 }

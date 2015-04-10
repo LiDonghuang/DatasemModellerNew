@@ -18,6 +18,8 @@ import ausim.xtext.kanban.domainmodel.kanbanmodel.State;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Statemachine;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Task;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskPattern;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskType;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Team;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Transition;
 import ausim.xtext.kanban.domainmodel.services.KanbanmodelGrammarAccess;
@@ -145,6 +147,18 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 					return; 
 				}
 				else break;
+			case KanbanmodelPackage.TASK_PATTERN:
+				if(context == grammarAccess.getTaskPatternRule()) {
+					sequence_TaskPattern(context, (TaskPattern) semanticObject); 
+					return; 
+				}
+				else break;
+			case KanbanmodelPackage.TASK_TYPE:
+				if(context == grammarAccess.getTaskTypeRule()) {
+					sequence_TaskType(context, (TaskType) semanticObject); 
+					return; 
+				}
+				else break;
 			case KanbanmodelPackage.TEAM:
 				if(context == grammarAccess.getTeamRule()) {
 					sequence_Team(context, (Team) semanticObject); 
@@ -163,7 +177,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (name=ID hasSkills+=Skill*)
+	 *     (name=ID description=STRING? hasSkills+=Skill+)
 	 */
 	protected void sequence_Asset(EObject context, Asset semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -172,7 +186,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (name=ID reqs+=Requirement+)
+	 *     (name=ID description=STRING? reqs+=Requirement+)
 	 */
 	protected void sequence_Capability(EObject context, Capability semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -256,7 +270,16 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (name=ID orgUnits+=Team+ kssTasks+=Task+ kssWorkFlow=KanbanTaskModel kssGovModel=KanbanGovModel)
+	 *     (
+	 *         name=ID 
+	 *         KSSTaskPatterns+=TaskPattern+ 
+	 *         KSStaskPatternTypes+=TaskType+ 
+	 *         SoSServices+=Service+ 
+	 *         orgUnits+=Team+ 
+	 *         kssTasks+=Task+ 
+	 *         kssWorkFlow=KanbanTaskModel 
+	 *         kssGovModel=KanbanGovModel?
+	 *     )
 	 */
 	protected void sequence_KanbanSchedulingSystem(EObject context, KanbanSchedulingSystem semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -283,7 +306,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (name=ID rTasks+=[Task|ID]+ dependencies+=Dependency*)
+	 *     (name=ID description=STRING? rTasks+=[Task|ID]+ dependencies+=Dependency*)
 	 */
 	protected void sequence_Requirement(EObject context, Requirement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -292,33 +315,19 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID description=STRING?)
 	 */
 	protected void sequence_Service(EObject context, Service semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.SERVICE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.SERVICE__NAME));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getServiceAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID description=STRING?)
 	 */
 	protected void sequence_Skill(EObject context, Skill semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.SKILL__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.SKILL__NAME));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getSkillAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -351,11 +360,33 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
+	 *     (name=ID description=STRING? taskpatternTypes+=[TaskType|ID]*)
+	 */
+	protected void sequence_TaskPattern(EObject context, TaskPattern semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID description=STRING?)
+	 */
+	protected void sequence_TaskType(EObject context, TaskType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (
 	 *         name=ID 
+	 *         description=STRING? 
+	 *         pattern+=[TaskPattern|ID]? 
+	 *         patternType+=[TaskType|ID]? 
 	 *         sTasks+=[Task|ID]* 
 	 *         taskDependencies+=Dependency* 
 	 *         reqSpecialties+=[Service|ID]* 
+	 *         befforts=INT? 
 	 *         bvalue=INT? 
 	 *         COS=ID?
 	 *     )
@@ -369,11 +400,12 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 * Constraint:
 	 *     (
 	 *         name=ID 
+	 *         description=STRING? 
 	 *         demandUnits+=[Team|ID]* 
 	 *         sourcedUnits+=[Team|ID]* 
 	 *         groupmembers+=[Team|ID]* 
 	 *         resources+=Asset* 
-	 *         services+=Service*
+	 *         services+=[Service|ID]*
 	 *     )
 	 */
 	protected void sequence_Team(EObject context, Team semanticObject) {
