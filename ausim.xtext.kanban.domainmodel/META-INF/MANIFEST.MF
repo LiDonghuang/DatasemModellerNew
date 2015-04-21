@@ -22,15 +22,15 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: ausim.xtext.kanban.domainmodel,
- ausim.xtext.kanban.domainmodel.services,
- ausim.xtext.kanban.domainmodel.kanbanmodel,
+ ausim.xtext.kanban.domainmodel.formatting,
+ ausim.xtext.kanban.domainmodel.generator,
  ausim.xtext.kanban.domainmodel.kanbanmodel.impl,
  ausim.xtext.kanban.domainmodel.kanbanmodel.util,
- ausim.xtext.kanban.domainmodel.serializer,
  ausim.xtext.kanban.domainmodel.parser.antlr,
  ausim.xtext.kanban.domainmodel.parser.antlr.internal,
- ausim.xtext.kanban.domainmodel.validation,
  ausim.xtext.kanban.domainmodel.scoping,
- ausim.xtext.kanban.domainmodel.generator,
- ausim.xtext.kanban.domainmodel.formatting
+ ausim.xtext.kanban.domainmodel.serializer,
+ ausim.xtext.kanban.domainmodel.services,
+ ausim.xtext.kanban.domainmodel.validation,
+ ausim.xtext.kanban.domainmodel.kanbanmodel
 

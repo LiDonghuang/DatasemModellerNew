@@ -4,25 +4,40 @@ generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
 
 	KanbanSchedulingSystem:
 		'KSSModel' name=ID
-		'TaskPatterns'
-		(KSSTaskPatterns += TaskPattern)+
-		(KSStaskPatternTypes += TaskType)+
-		'end TaskPatterns'
-		'OrganizationModel'
-		(SoSServices += Service)+
-		(orgUnits += Team)+
-		'end OrganizationModel'
-		'WorkFlowModel'
-		(kssTasks += Task)+
-		(kssWorkFlow=KanbanTaskModel)
-		'end WorkFlowModel'
+		
 		'GovernanceModel'
-		(kssGovModel=KanbanGovModel)?
+		    ((Mechanisms +=Mechanism )+)?
+			'TaskPatterns'
+			(KSSTaskPatterns += TaskPattern)+
+			(KSStaskPatternTypes += TaskType)+
+			'end TaskPatterns'
 		'end GovernanceModel'
+		
+		'OrganizationalModel'
+			'ServiceTypes'
+			(SoSServices += ServiceType)+
+			'end ServiceTypes'
+			'ServiceProviders'
+			(orgUnits += ServiceProvider)+
+			'end ServiceProviders'
+		'end OrganizationalModel'
+		
+		'WorkItemNetworkModel'
+			'WorkSources'
+		    (kssSources += WorkSource)+
+		    'end WorkSources'
+		    'WorkItems'
+			(kssWItems += WorkItem)+
+			'end WorkItems'
+	//		(kssWorkFlow=KanbanTaskModel)
+		'end WorkItemNetworkModel'
+		
 		'end KSSModel'
 	;
 	
-	
+
+
+	// ------------------------ Governance Objects ---------------------------------
 	TaskPattern:
 		'workflowTemplate' name=ID '{'
 		('Description' description=STRING)?
@@ -30,46 +45,121 @@ generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
 		'}'
 	;
 	TaskType :
-	'taskType' name=ID '{'
-	('Description' description=STRING)?
-	'}'
+		'taskType' name=ID '{'
+		('Description' description=STRING)?
+		'}'
 	;	
 	
+	Mechanism:
+		'Mechanism' name=ID
+		('Description' description=STRING)?
+		('ProcessType' processtype=STRING)
+		(Strategies+=Strategy)+
+	;	
 	
-	Service:
-		'service' name=ID ('{'
+	Strategy:
+		'Strategy' name=ID
+		('Description' description=STRING)?
+	    (WIAcceptance+=WIAcceptance)+
+	    (WISelection+=WISelection)+ 
+	    (WIAssignment+=WIAssignment)+ 
+	    (ResourceAllocation+=ResourceAllocation)+ 
+	    (ResourceOutsourcing+=ResourceOutsourcing)+    
+	;
+	
+	
+	WIAcceptance:
+		'WIAcceptance' name=ID '{'
+		('Description' description=STRING)?		
+		('backlogQLimit' backlogQLimit=INT)?
+		'}'
+	;
+	WISelection:
+		'WISelection' name=ID '{'
+		('Description' description=STRING)?
+		('readyQLimit' readyQLimit=INT)?
+		'}'
+	;
+	WIAssignment:
+		'WIAssignment' name=ID '{'
+		('Description' description=STRING)?
+		'}'
+	;
+	ResourceAllocation:
+		'ResourceAllocation' name=ID '{'
+		('Description' description=STRING)?
+		'}'
+	;
+	ResourceOutsourcing:
+		'ResourceOutsorcing' name=ID '{'
+		('Description' description=STRING)?
+		'}'
+	;
+	
+    // ------------------------ WorkItem Objects ---------------------------------
+    WorkSource:
+    	'workSource' name=ID '{'
+    	('Description' description=STRING)?
+    	'}'
+    ;
+//    WorkItemNetwork:
+//    	'workItemNetwork' name=ID '{'
+//    	('Description' description=STRING)?
+//    	('workItems' '{' workItems+=WorkItem '}')
+//    	'}'
+//    ;
+	WorkItem:
+		'workItem' name=ID '{'
+		('Description' description=STRING)?
+		('Pattern' pattern=[TaskPattern])?		
+		('Type' patternType=[TaskType])?
+		('predecessors' '{' (pTasks+=[WorkItem])+ '}')?
+		('subtasks' '{' (sTasks+=[WorkItem])+ '}')?
+		('causality'(causalTriggers+=Causality)*)?
+		('serviceType' (reqSpecialties+=[ServiceType])+)?
+		('baseEfforts' befforts=INT)?
+		('baseValue' bvalue=INT)?
+		('classOfService' COS=ID)?
+		('WorkSource' wItemSource=[WorkSource])?
+		('arrivalTime' arrtime=INT)?
+		('dueDate' duedate=INT)?
+		'}'
+	;
+	Causality:
+		('=>'| '->')'{'(triggered+=[WorkItem])+'}'
+		('atProgress' tProgress=INT)?
+		('onProbability' tProbability=INT)?		
+	;
+	
+	// ------------------------ Organizational Objects ---------------------------------
+	ServiceType:
+		'serviceType' name=ID ('{'
 		('Description' description=STRING)?
 		'}')?
 	;	
-	
-	
-	Task:
-		'workItem' name=ID '{'
+	Service:
+		'service' name=ID ('{'
 		('Description' description=STRING)?
-		('Pattern' pattern+=[TaskPattern])?		
-		('Type' patternType+=[TaskType])?
-		('subtasks' '{' (sTasks+=[Task])+ '}')?
-		('taskDependencies'(taskDependencies += Dependency)*)?
-		('servicesRequired' (reqSpecialties+=[Service])+)?
-		('base efforts' befforts=INT)?
-		('base value' bvalue=INT)?
-		('classOfService' COS=ID)?
-		'}'
-	;
-	Dependency:
-		sourceTask=[Task] ('=>'| '->') targetTask=[Task] 
-	;
-	
-	
-	Team:
-		('team'|'group') name=ID '{'
+		('type' serviceType=[ServiceType])
+		('efficiency' efficiency=INT)?
+		'}')?
+	;	
+	ServiceProvider:
+		('serviceProvider'|'group') name=ID '{'
 		('Description' description=STRING)?
-		('sourceUnits' '{' (demandUnits+=[Team])+ '}')?
-		('targetUnits' '{' (sourcedUnits+=[Team])+ '}')?
-		('contains' '{' (groupmembers+=[Team])+ '}')?
+		('sourceUnits' '{' (sourceUnits+=[ServiceProvider])+ '}')?
+		('targetUnits' '{' (targetUnits+=[ServiceProvider])+ '}')?
+		('subordinateUnits' '{' (subordinateUnits+=[ServiceProvider])+ '}')?
 		('resources' '{' (resources+=Asset)+ '}')?
-		('services' '{' (services+=[Service])+ '}')?
-		'}'
+		('services' '{' (services+=Service)+ '}')?
+		('governanceSearchStrategy' '{'
+			(acceptanceRule=WIAcceptance)?
+		    (selectionRule=WISelection)?
+		    (assignmentRule=WIAssignment)?
+		    (allocationRule=ResourceAllocation)?
+		    (outsourcingRule=ResourceOutsourcing)?
+	    	'}')?
+	    '}'
 	;
 	Asset: 
 		'resource' name=ID '{'
@@ -84,42 +174,23 @@ generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
 	;
 	
 	
-		
-		
-	Requirement:
-		'requirement' name=ID '{' 
-		 ('Description' description=STRING)?
-		 ('workItems' '{' (rTasks+=[Task])+ '}') 
-		 ('workItemNetwork' (dependencies += Dependency)*)?
-		'}'
-	;
-	
-	
-
-	
-	
+	// ------------------------ (Reserved Objects) ---------------------------------
 	KanbanTaskModel:
 		'WorkFlow' name=ID
 		(caps+=Capability)+
 		'end WorkFlow'
 	;
-	
 	Capability:
 		'capability' name=ID '{'
 		('Description' description=STRING)?
 		(reqs+=Requirement)+ 	
 		'}'
 	;
-	
-	KanbanGovModel:
-
-		(strategy+=Strategy)
-	;
-	
-	
-	Strategy:
-		'strategy' name=ID '{'
-			(entities+=Entity)*
+	Requirement:
+		'requirement' name=ID '{' 
+		 ('Description' description=STRING)?
+		 ('workItems' '{' (rTasks+=[WorkItem])+ '}') 
+		 ('workItemNetwork' (dependencies += Causality)*)?
 		'}'
 	;
 	
@@ -131,7 +202,7 @@ generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
 	;
 	
 	Provision:
-		'(' serviceName=[Service] ',' '{'(providers+=[Team])* '}'')' 
+		'(' serviceName=[ServiceType] ',' '{'(providers+=[ServiceProvider])* '}'')' 
 	;
 	
 	

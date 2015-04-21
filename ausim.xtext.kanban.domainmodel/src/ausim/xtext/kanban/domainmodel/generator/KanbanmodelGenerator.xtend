@@ -7,10 +7,13 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
 
-import ausim.xtext.kanban.domainmodel.kanbanmodel.Team
+import ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem
-import ausim.xtext.kanban.domainmodel.kanbanmodel.Task
+import ausim.xtext.kanban.domainmodel.kanbanmodel.WorkSource
+import ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem
+import ausim.xtext.kanban.domainmodel.kanbanmodel.Causality
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanTaskModel
+import ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceType
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Service
 import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskPattern
 import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskType
@@ -36,103 +39,170 @@ class KanbanmodelGenerator implements IGenerator {
 def compile(Resource res) '''
 		<?xml version="1.0"?>
 		«FOR km : res.allContents.toIterable.filter(KanbanSchedulingSystem)»<KSSModel>«ENDFOR»
-
-		<TaskPatterns>
-		«FOR tp : res.allContents.toIterable.filter(TaskPattern)» 
-		<TaskPattern>
-				<name>«tp.name»</name>
-				<Description>«tp.description»</Description>
-				«FOR tt : res.allContents.toIterable.filter(TaskPattern)» 
-				<Types>«tt.name»</Types>
-				«ENDFOR»		
-		«ENDFOR»
-		</TaskPattern>
-		«FOR tt : res.allContents.toIterable.filter(TaskType)» 
-		<taskType>
-				<name>«tt.name»</name>
-				<Description>«tt.description»</Description>
-		</taskType>	
-		«ENDFOR»
-		</TaskPatterns>
+		<GovernanceModel>
+			<TaskPatterns>
+				«FOR tp : res.allContents.toIterable.filter(TaskPattern)» 
+				<TaskPattern>
+					<name>«tp.name»</name>
+					<Description>«tp.description»</Description>
+					<Types>
+						«FOR tt :tp.getTaskpatternTypes()» 
+						<Type>
+						<name>«tt.name»</name>
+						<Description>«tt.description»</Description>
+						</Type>
+						«ENDFOR»	
+					</Types>	
+				«ENDFOR»
+				</TaskPattern>
+			</TaskPatterns>
+		</GovernanceModel>
 		
-		<OrganizationDataModel>
-		«FOR s : res.allContents.toIterable.filter(Service)» 
-		<Service>
-				<name>«s.name»</name>
-				<Description>«s.description»</Description>
-		</Service>	
-		«ENDFOR»
 		
-		«FOR t : res.allContents.toIterable.filter(Team)»  
-			<Team>
-				<name>«t.name»</name>
-				<Description>«t.description»</Description>
-				«FOR st : t.getGroupmembers()» 
-					<subteam>«st.name»</subteam>
-				«ENDFOR»	
-				«FOR k : t.getServices()» 
-					<service>«k.name»</service>
-				«ENDFOR»			
-			</Team>
-		«ENDFOR»
-		</OrganizationDataModel>
+		<OrganizationalModel>
+			<ServiceTypes>
+				«FOR stype : res.allContents.toIterable.filter(ServiceType)» 
+				<ServiceType>
+					<name>«stype.name»</name>
+					<Description>«stype.description»</Description>
+				</ServiceType>	
+				«ENDFOR»
+			</ServiceTypes>
+			<ServiceProvidersList>
+			«FOR t : res.allContents.toIterable.filter(ServiceProvider)»  
+				<ServiceProvider>
+					<name>«t.name»</name>
+					<Description>«t.description»</Description>
+					<sourceUnits>
+					«FOR su : t.getSourceUnits()»
+						<sourceUnit>«su.name»</sourceUnit>
+					«ENDFOR»
+					</sourceUnits>
+					<targetUnits>
+					«FOR tu : t.getTargetUnits()»
+						<targetUnit>«tu.name»</targetUnit>
+					«ENDFOR»
+					</targetUnits>
+					<subordinateUnits>
+					«FOR subu : t.getSubordinateUnits()» 
+						<subordinateUnit>«subu.name»</subordinateUnit>
+					«ENDFOR»
+					</subordinateUnits>	
+					<services>
+					«FOR s : t.getServices()» 
+					<service>
+						<name>«s.name»</name>
+						<Description>«s.description»</Description>
+						<Type>«s.getServiceType().name»</Type>
+						<Efficiency>«s.efficiency»</Efficiency>
+					</service>
+					«ENDFOR»	
+					</services>	
+					<governanceSearchStrategy>
+						<acceptanceRule>
+							«t.getAcceptanceRule().name»
+						</acceptanceRule>
+						<selectionRule>
+							«t.getSelectionRule().name»
+						</selectionRule>
+						<assignmentRule>
+							«t.getAssignmentRule().name»
+						</assignmentRule>
+«««						<allocationRule>
+«««							«t.getAllocationRule().name»
+«««						</allocationRule>	
+«««						<outsourcingRule>
+«««							«t.getOutsourcingRule().name»
+«««						</outsourcingRule>	
+					</governanceSearchStrategy>	
+				</ServiceProvider>
+			«ENDFOR»
+			</ServiceProvidersList>
+		</OrganizationalModel>
 		
-		<WorkflowDataModel>
-		«FOR wftask : res.allContents.toIterable.filter(Task)»
+		<WorkItemNetworkModel>
+		«FOR ws : res.allContents.toIterable.filter(WorkSource)»
+			<workSource>
+				<name>«ws.name»</name>
+				<Description>«ws.description»</Description>
+			</workSource>
+		«ENDFOR»		
+		«FOR wi : res.allContents.toIterable.filter(WorkItem)»
 			<workItem>
-				<name>«wftask.name»</name>
-				<Description>«wftask.description»</Description>
-				«FOR p : wftask.getPattern()»
-					<Pattern>«p.name»</Pattern>
+				<name>«wi.name»</name>
+				<Description>«wi.description»</Description>
+				<Pattern>«wi.getPattern().name»</Pattern>
+					<Type>«wi.getPatternType.name»</Type>					
+				<predecessors>
+				«FOR ptask : wi.getPTasks()»
+					<predecessor>«ptask.name»</predecessor>
 				«ENDFOR»	
-				«FOR t : wftask.getPatternType()»
-					<Type>«t.name»</Type>
+				</predecessors>
+				<subtasks>
+				«FOR stask : wi.getSTasks()»				
+			 		<subtask>«stask.name»</subtask>
 				«ENDFOR»	
-				«FOR stask : wftask.getSTasks()»
-					<subtask>«stask.name»</subtask>
+				</subtasks>
+				<causalities>
+				«FOR cs : wi.getCausalTriggers()»
+					<causality>
+					«FOR ttask : cs.getTriggered()»
+						<triggered>«ttask.name»</triggered>
+					«ENDFOR»
+						<atProgress>«cs.getTProgress»</atProgress>
+						<onProbability>«cs.getTProbability»</onProbability>
+					</causality>
 				«ENDFOR»	
-				«FOR rs : wftask.getReqSpecialties()»		
+				</causalities>
+				«FOR rs : wi.getReqSpecialties()»	
 					<servicesRequired>«rs.name»</servicesRequired>
 				«ENDFOR»
-				<baseEfforts>«wftask.befforts»</baseEfforts>
-				<baseValue>«wftask.bvalue»</baseValue>
-				<classOfService>«wftask.COS»</classOfService>
+					<baseEfforts>«wi.befforts»</baseEfforts>
+					<baseValue>«wi.bvalue»</baseValue>
+					<classOfService>«wi.COS»</classOfService>
+					«IF wi.getWItemSource() != null» 
+					<WorkSource>«wi.getWItemSource().name»</WorkSource>
+					«ELSE»
+					<WorkSource> </WorkSource>
+                    «ENDIF»
+					<arrivalTime>«wi.arrtime»</arrivalTime>
+					<dueDate>«wi.duedate»</dueDate>
 			</workItem>
 		«ENDFOR»
-		</WorkflowDataModel>
+		</WorkItemNetworkModel>
 		
-		«FOR kanbanWFlow : res.allContents.toIterable.filter(KanbanTaskModel)»<KanbanWorkFlow>
-				<capabilities>
-				«FOR wfcap : kanbanWFlow.getCaps()»
-					<capability>
-						<name>«wfcap.name»</name>
-						<requirements>
-						«FOR wfreq : wfcap.getReqs()»
-							<requirement>
-								<name>« wfreq.name»</name>
-								<tasks>
-								«FOR wftask : wfreq.getRTasks()»
-								<task>
-									<name>«wftask.name»</name>										
-								</task>
-								«ENDFOR»
-								</tasks>
-								<process>
-								«FOR wfpr : wfreq.getDependencies()»
-								<mechanism>
-									<sourceTask>«wfpr.getSourceTask().name»</sourceTask>	
-									<targetTask>«wfpr.getTargetTask().name»</targetTask>
-								</mechanism>
-								«ENDFOR»
-								</process>
-							</requirement>
-						«ENDFOR»
-						</requirements>
-					</capability>
-				«ENDFOR»
-				</capabilities>
-			«ENDFOR»
-		</KanbanWorkFlow>
+«««		«FOR kanbanWFlow : res.allContents.toIterable.filter(KanbanTaskModel)»<KanbanWorkFlow>
+«««				<capabilities>
+«««				«FOR wfcap : kanbanWFlow.getCaps()»
+«««					<capability>
+«««						<name>«wfcap.name»</name>
+«««						<requirements>
+«««						«FOR wfreq : wfcap.getReqs()»
+«««							<requirement>
+«««								<name>« wfreq.name»</name>
+«««								<tasks>
+«««								«FOR wi : wfreq.getRTasks()»
+«««								<task>
+«««									<name>«wi.name»</name>										
+«««								</task>
+«««								«ENDFOR»
+«««								</tasks>
+«««								<process>
+«««								«FOR wfpr : wfreq.getDependencies()»
+«««								<mechanism>
+«««									<sourceTask>«wfpr.getSourceTask().name»</sourceTask>	
+«««									<targetTask>«wfpr.getTargetTask().name»</targetTask>
+«««								</mechanism>
+«««								«ENDFOR»
+«««								</process>
+«««							</requirement>
+«««						«ENDFOR»
+«««						</requirements>
+«««					</capability>
+«««				«ENDFOR»
+«««				</capabilities>
+«««			«ENDFOR»
+«««		</KanbanWorkFlow>
 		
 		</KSSModel>
 	'''
