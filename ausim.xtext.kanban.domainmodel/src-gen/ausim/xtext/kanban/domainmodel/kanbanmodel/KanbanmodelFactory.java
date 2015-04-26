@@ -50,6 +50,15 @@ public interface KanbanmodelFactory extends EFactory
   TaskType createTaskType();
 
   /**
+   * Returns a new object of class '<em>Value Function</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Value Function</em>'.
+   * @generated
+   */
+  ValueFunction createValueFunction();
+
+  /**
    * Returns a new object of class '<em>Mechanism</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

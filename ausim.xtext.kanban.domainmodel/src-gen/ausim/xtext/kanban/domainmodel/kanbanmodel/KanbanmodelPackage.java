@@ -85,13 +85,22 @@ public interface KanbanmodelPackage extends EPackage
   int KANBAN_SCHEDULING_SYSTEM__MECHANISMS = 1;
 
   /**
+   * The feature id for the '<em><b>KSS Search Strategies</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int KANBAN_SCHEDULING_SYSTEM__KSS_SEARCH_STRATEGIES = 2;
+
+  /**
    * The feature id for the '<em><b>KSS Task Patterns</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int KANBAN_SCHEDULING_SYSTEM__KSS_TASK_PATTERNS = 2;
+  int KANBAN_SCHEDULING_SYSTEM__KSS_TASK_PATTERNS = 3;
 
   /**
    * The feature id for the '<em><b>KS Stask Pattern Types</b></em>' containment reference list.
@@ -100,7 +109,16 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int KANBAN_SCHEDULING_SYSTEM__KS_STASK_PATTERN_TYPES = 3;
+  int KANBAN_SCHEDULING_SYSTEM__KS_STASK_PATTERN_TYPES = 4;
+
+  /**
+   * The feature id for the '<em><b>KSS Value Functions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int KANBAN_SCHEDULING_SYSTEM__KSS_VALUE_FUNCTIONS = 5;
 
   /**
    * The feature id for the '<em><b>So SServices</b></em>' containment reference list.
@@ -109,7 +127,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int KANBAN_SCHEDULING_SYSTEM__SO_SSERVICES = 4;
+  int KANBAN_SCHEDULING_SYSTEM__SO_SSERVICES = 6;
 
   /**
    * The feature id for the '<em><b>Org Units</b></em>' containment reference list.
@@ -118,7 +136,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int KANBAN_SCHEDULING_SYSTEM__ORG_UNITS = 5;
+  int KANBAN_SCHEDULING_SYSTEM__ORG_UNITS = 7;
 
   /**
    * The feature id for the '<em><b>Kss Sources</b></em>' containment reference list.
@@ -127,7 +145,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int KANBAN_SCHEDULING_SYSTEM__KSS_SOURCES = 6;
+  int KANBAN_SCHEDULING_SYSTEM__KSS_SOURCES = 8;
 
   /**
    * The feature id for the '<em><b>Kss WItems</b></em>' containment reference list.
@@ -136,7 +154,25 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int KANBAN_SCHEDULING_SYSTEM__KSS_WITEMS = 7;
+  int KANBAN_SCHEDULING_SYSTEM__KSS_WITEMS = 9;
+
+  /**
+   * The feature id for the '<em><b>Replications</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int KANBAN_SCHEDULING_SYSTEM__REPLICATIONS = 10;
+
+  /**
+   * The feature id for the '<em><b>Inter Arrival Time</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int KANBAN_SCHEDULING_SYSTEM__INTER_ARRIVAL_TIME = 11;
 
   /**
    * The number of structural features of the '<em>Kanban Scheduling System</em>' class.
@@ -145,7 +181,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int KANBAN_SCHEDULING_SYSTEM_FEATURE_COUNT = 8;
+  int KANBAN_SCHEDULING_SYSTEM_FEATURE_COUNT = 12;
 
   /**
    * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskPatternImpl <em>Task Pattern</em>}' class.
@@ -231,6 +267,43 @@ public interface KanbanmodelPackage extends EPackage
   int TASK_TYPE_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ValueFunctionImpl <em>Value Function</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ValueFunctionImpl
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getValueFunction()
+   * @generated
+   */
+  int VALUE_FUNCTION = 3;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VALUE_FUNCTION__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VALUE_FUNCTION__DESCRIPTION = 1;
+
+  /**
+   * The number of structural features of the '<em>Value Function</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VALUE_FUNCTION_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.MechanismImpl <em>Mechanism</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -238,7 +311,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getMechanism()
    * @generated
    */
-  int MECHANISM = 3;
+  int MECHANISM = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -293,7 +366,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getStrategy()
    * @generated
    */
-  int STRATEGY = 4;
+  int STRATEGY = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -314,49 +387,49 @@ public interface KanbanmodelPackage extends EPackage
   int STRATEGY__DESCRIPTION = 1;
 
   /**
-   * The feature id for the '<em><b>WI Acceptance</b></em>' containment reference list.
+   * The feature id for the '<em><b>WI Acceptance Rule</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STRATEGY__WI_ACCEPTANCE = 2;
+  int STRATEGY__WI_ACCEPTANCE_RULE = 2;
 
   /**
-   * The feature id for the '<em><b>WI Selection</b></em>' containment reference list.
+   * The feature id for the '<em><b>WI Selection Rule</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STRATEGY__WI_SELECTION = 3;
+  int STRATEGY__WI_SELECTION_RULE = 3;
 
   /**
-   * The feature id for the '<em><b>WI Assignment</b></em>' containment reference list.
+   * The feature id for the '<em><b>WI Assignment Rule</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STRATEGY__WI_ASSIGNMENT = 4;
+  int STRATEGY__WI_ASSIGNMENT_RULE = 4;
 
   /**
-   * The feature id for the '<em><b>Resource Allocation</b></em>' containment reference list.
+   * The feature id for the '<em><b>Resource Allocation Rule</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STRATEGY__RESOURCE_ALLOCATION = 5;
+  int STRATEGY__RESOURCE_ALLOCATION_RULE = 5;
 
   /**
-   * The feature id for the '<em><b>Resource Outsourcing</b></em>' containment reference list.
+   * The feature id for the '<em><b>Resource Outsourcing Rule</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STRATEGY__RESOURCE_OUTSOURCING = 6;
+  int STRATEGY__RESOURCE_OUTSOURCING_RULE = 6;
 
   /**
    * The number of structural features of the '<em>Strategy</em>' class.
@@ -375,7 +448,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWIAcceptance()
    * @generated
    */
-  int WI_ACCEPTANCE = 5;
+  int WI_ACCEPTANCE = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -405,13 +478,22 @@ public interface KanbanmodelPackage extends EPackage
   int WI_ACCEPTANCE__BACKLOG_QLIMIT = 2;
 
   /**
+   * The feature id for the '<em><b>Ready QLimit</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WI_ACCEPTANCE__READY_QLIMIT = 3;
+
+  /**
    * The number of structural features of the '<em>WI Acceptance</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WI_ACCEPTANCE_FEATURE_COUNT = 3;
+  int WI_ACCEPTANCE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WISelectionImpl <em>WI Selection</em>}' class.
@@ -421,7 +503,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWISelection()
    * @generated
    */
-  int WI_SELECTION = 6;
+  int WI_SELECTION = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -442,22 +524,13 @@ public interface KanbanmodelPackage extends EPackage
   int WI_SELECTION__DESCRIPTION = 1;
 
   /**
-   * The feature id for the '<em><b>Ready QLimit</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WI_SELECTION__READY_QLIMIT = 2;
-
-  /**
    * The number of structural features of the '<em>WI Selection</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WI_SELECTION_FEATURE_COUNT = 3;
+  int WI_SELECTION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WIAssignmentImpl <em>WI Assignment</em>}' class.
@@ -467,7 +540,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWIAssignment()
    * @generated
    */
-  int WI_ASSIGNMENT = 7;
+  int WI_ASSIGNMENT = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -504,7 +577,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getResourceAllocation()
    * @generated
    */
-  int RESOURCE_ALLOCATION = 8;
+  int RESOURCE_ALLOCATION = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -541,7 +614,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getResourceOutsourcing()
    * @generated
    */
-  int RESOURCE_OUTSOURCING = 9;
+  int RESOURCE_OUTSOURCING = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -578,7 +651,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWorkSource()
    * @generated
    */
-  int WORK_SOURCE = 10;
+  int WORK_SOURCE = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -599,13 +672,22 @@ public interface KanbanmodelPackage extends EPackage
   int WORK_SOURCE__DESCRIPTION = 1;
 
   /**
+   * The feature id for the '<em><b>Assignment Rule</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORK_SOURCE__ASSIGNMENT_RULE = 2;
+
+  /**
    * The number of structural features of the '<em>Work Source</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WORK_SOURCE_FEATURE_COUNT = 2;
+  int WORK_SOURCE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl <em>Work Item</em>}' class.
@@ -615,7 +697,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWorkItem()
    * @generated
    */
-  int WORK_ITEM = 11;
+  int WORK_ITEM = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -760,7 +842,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getCausality()
    * @generated
    */
-  int CAUSALITY = 12;
+  int CAUSALITY = 13;
 
   /**
    * The feature id for the '<em><b>Triggered</b></em>' reference list.
@@ -806,7 +888,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getServiceType()
    * @generated
    */
-  int SERVICE_TYPE = 13;
+  int SERVICE_TYPE = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -843,7 +925,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getService()
    * @generated
    */
-  int SERVICE = 14;
+  int SERVICE = 15;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -898,7 +980,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getServiceProvider()
    * @generated
    */
-  int SERVICE_PROVIDER = 15;
+  int SERVICE_PROVIDER = 16;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -964,13 +1046,22 @@ public interface KanbanmodelPackage extends EPackage
   int SERVICE_PROVIDER__SERVICES = 6;
 
   /**
+   * The feature id for the '<em><b>Default Strategy</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SERVICE_PROVIDER__DEFAULT_STRATEGY = 7;
+
+  /**
    * The feature id for the '<em><b>Acceptance Rule</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SERVICE_PROVIDER__ACCEPTANCE_RULE = 7;
+  int SERVICE_PROVIDER__ACCEPTANCE_RULE = 8;
 
   /**
    * The feature id for the '<em><b>Selection Rule</b></em>' containment reference.
@@ -979,7 +1070,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SERVICE_PROVIDER__SELECTION_RULE = 8;
+  int SERVICE_PROVIDER__SELECTION_RULE = 9;
 
   /**
    * The feature id for the '<em><b>Assignment Rule</b></em>' containment reference.
@@ -988,7 +1079,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SERVICE_PROVIDER__ASSIGNMENT_RULE = 9;
+  int SERVICE_PROVIDER__ASSIGNMENT_RULE = 10;
 
   /**
    * The feature id for the '<em><b>Allocation Rule</b></em>' containment reference.
@@ -997,7 +1088,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SERVICE_PROVIDER__ALLOCATION_RULE = 10;
+  int SERVICE_PROVIDER__ALLOCATION_RULE = 11;
 
   /**
    * The feature id for the '<em><b>Outsourcing Rule</b></em>' containment reference.
@@ -1006,7 +1097,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SERVICE_PROVIDER__OUTSOURCING_RULE = 11;
+  int SERVICE_PROVIDER__OUTSOURCING_RULE = 12;
 
   /**
    * The number of structural features of the '<em>Service Provider</em>' class.
@@ -1015,7 +1106,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SERVICE_PROVIDER_FEATURE_COUNT = 12;
+  int SERVICE_PROVIDER_FEATURE_COUNT = 13;
 
   /**
    * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.AssetImpl <em>Asset</em>}' class.
@@ -1025,7 +1116,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getAsset()
    * @generated
    */
-  int ASSET = 16;
+  int ASSET = 17;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1071,7 +1162,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getSkill()
    * @generated
    */
-  int SKILL = 17;
+  int SKILL = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1108,7 +1199,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getKanbanTaskModel()
    * @generated
    */
-  int KANBAN_TASK_MODEL = 18;
+  int KANBAN_TASK_MODEL = 19;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1145,7 +1236,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getCapability()
    * @generated
    */
-  int CAPABILITY = 19;
+  int CAPABILITY = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1191,7 +1282,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getRequirement()
    * @generated
    */
-  int REQUIREMENT = 20;
+  int REQUIREMENT = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1246,7 +1337,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getEntity()
    * @generated
    */
-  int ENTITY = 21;
+  int ENTITY = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1301,7 +1392,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getProvision()
    * @generated
    */
-  int PROVISION = 22;
+  int PROVISION = 23;
 
   /**
    * The feature id for the '<em><b>Service Name</b></em>' reference.
@@ -1338,7 +1429,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getStatemachine()
    * @generated
    */
-  int STATEMACHINE = 23;
+  int STATEMACHINE = 24;
 
   /**
    * The feature id for the '<em><b>Events</b></em>' containment reference list.
@@ -1384,7 +1475,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getEvent()
    * @generated
    */
-  int EVENT = 24;
+  int EVENT = 25;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1421,7 +1512,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getCommand()
    * @generated
    */
-  int COMMAND = 25;
+  int COMMAND = 26;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1458,7 +1549,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getState()
    * @generated
    */
-  int STATE = 26;
+  int STATE = 27;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1504,7 +1595,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getTransition()
    * @generated
    */
-  int TRANSITION = 27;
+  int TRANSITION = 28;
 
   /**
    * The feature id for the '<em><b>Event</b></em>' reference.
@@ -1576,6 +1667,17 @@ public interface KanbanmodelPackage extends EPackage
   EReference getKanbanSchedulingSystem_Mechanisms();
 
   /**
+   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKSSSearchStrategies <em>KSS Search Strategies</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>KSS Search Strategies</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKSSSearchStrategies()
+   * @see #getKanbanSchedulingSystem()
+   * @generated
+   */
+  EReference getKanbanSchedulingSystem_KSSSearchStrategies();
+
+  /**
    * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKSSTaskPatterns <em>KSS Task Patterns</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1596,6 +1698,17 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    */
   EReference getKanbanSchedulingSystem_KSStaskPatternTypes();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKSSValueFunctions <em>KSS Value Functions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>KSS Value Functions</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKSSValueFunctions()
+   * @see #getKanbanSchedulingSystem()
+   * @generated
+   */
+  EReference getKanbanSchedulingSystem_KSSValueFunctions();
 
   /**
    * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getSoSServices <em>So SServices</em>}'.
@@ -1640,6 +1753,28 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    */
   EReference getKanbanSchedulingSystem_KssWItems();
+
+  /**
+   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getReplications <em>Replications</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Replications</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getReplications()
+   * @see #getKanbanSchedulingSystem()
+   * @generated
+   */
+  EAttribute getKanbanSchedulingSystem_Replications();
+
+  /**
+   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getInterArrivalTime <em>Inter Arrival Time</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Inter Arrival Time</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getInterArrivalTime()
+   * @see #getKanbanSchedulingSystem()
+   * @generated
+   */
+  EAttribute getKanbanSchedulingSystem_InterArrivalTime();
 
   /**
    * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.TaskPattern <em>Task Pattern</em>}'.
@@ -1715,6 +1850,38 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    */
   EAttribute getTaskType_Description();
+
+  /**
+   * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.ValueFunction <em>Value Function</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Value Function</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.ValueFunction
+   * @generated
+   */
+  EClass getValueFunction();
+
+  /**
+   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.ValueFunction#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.ValueFunction#getName()
+   * @see #getValueFunction()
+   * @generated
+   */
+  EAttribute getValueFunction_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.ValueFunction#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.ValueFunction#getDescription()
+   * @see #getValueFunction()
+   * @generated
+   */
+  EAttribute getValueFunction_Description();
 
   /**
    * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Mechanism <em>Mechanism</em>}'.
@@ -1803,59 +1970,59 @@ public interface KanbanmodelPackage extends EPackage
   EAttribute getStrategy_Description();
 
   /**
-   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWIAcceptance <em>WI Acceptance</em>}'.
+   * Returns the meta object for the containment reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWIAcceptanceRule <em>WI Acceptance Rule</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>WI Acceptance</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWIAcceptance()
+   * @return the meta object for the containment reference '<em>WI Acceptance Rule</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWIAcceptanceRule()
    * @see #getStrategy()
    * @generated
    */
-  EReference getStrategy_WIAcceptance();
+  EReference getStrategy_WIAcceptanceRule();
 
   /**
-   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWISelection <em>WI Selection</em>}'.
+   * Returns the meta object for the containment reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWISelectionRule <em>WI Selection Rule</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>WI Selection</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWISelection()
+   * @return the meta object for the containment reference '<em>WI Selection Rule</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWISelectionRule()
    * @see #getStrategy()
    * @generated
    */
-  EReference getStrategy_WISelection();
+  EReference getStrategy_WISelectionRule();
 
   /**
-   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWIAssignment <em>WI Assignment</em>}'.
+   * Returns the meta object for the containment reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWIAssignmentRule <em>WI Assignment Rule</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>WI Assignment</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWIAssignment()
+   * @return the meta object for the containment reference '<em>WI Assignment Rule</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWIAssignmentRule()
    * @see #getStrategy()
    * @generated
    */
-  EReference getStrategy_WIAssignment();
+  EReference getStrategy_WIAssignmentRule();
 
   /**
-   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getResourceAllocation <em>Resource Allocation</em>}'.
+   * Returns the meta object for the containment reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getResourceAllocationRule <em>Resource Allocation Rule</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Resource Allocation</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getResourceAllocation()
+   * @return the meta object for the containment reference '<em>Resource Allocation Rule</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getResourceAllocationRule()
    * @see #getStrategy()
    * @generated
    */
-  EReference getStrategy_ResourceAllocation();
+  EReference getStrategy_ResourceAllocationRule();
 
   /**
-   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getResourceOutsourcing <em>Resource Outsourcing</em>}'.
+   * Returns the meta object for the containment reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getResourceOutsourcingRule <em>Resource Outsourcing Rule</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Resource Outsourcing</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getResourceOutsourcing()
+   * @return the meta object for the containment reference '<em>Resource Outsourcing Rule</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getResourceOutsourcingRule()
    * @see #getStrategy()
    * @generated
    */
-  EReference getStrategy_ResourceOutsourcing();
+  EReference getStrategy_ResourceOutsourcingRule();
 
   /**
    * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WIAcceptance <em>WI Acceptance</em>}'.
@@ -1901,6 +2068,17 @@ public interface KanbanmodelPackage extends EPackage
   EAttribute getWIAcceptance_BacklogQLimit();
 
   /**
+   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WIAcceptance#getReadyQLimit <em>Ready QLimit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Ready QLimit</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.WIAcceptance#getReadyQLimit()
+   * @see #getWIAcceptance()
+   * @generated
+   */
+  EAttribute getWIAcceptance_ReadyQLimit();
+
+  /**
    * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WISelection <em>WI Selection</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1931,17 +2109,6 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    */
   EAttribute getWISelection_Description();
-
-  /**
-   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WISelection#getReadyQLimit <em>Ready QLimit</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Ready QLimit</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.WISelection#getReadyQLimit()
-   * @see #getWISelection()
-   * @generated
-   */
-  EAttribute getWISelection_ReadyQLimit();
 
   /**
    * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WIAssignment <em>WI Assignment</em>}'.
@@ -2070,6 +2237,17 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    */
   EAttribute getWorkSource_Description();
+
+  /**
+   * Returns the meta object for the containment reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkSource#getAssignmentRule <em>Assignment Rule</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Assignment Rule</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.WorkSource#getAssignmentRule()
+   * @see #getWorkSource()
+   * @generated
+   */
+  EReference getWorkSource_AssignmentRule();
 
   /**
    * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem <em>Work Item</em>}'.
@@ -2450,6 +2628,17 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    */
   EReference getServiceProvider_Services();
+
+  /**
+   * Returns the meta object for the reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getDefaultStrategy <em>Default Strategy</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Default Strategy</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getDefaultStrategy()
+   * @see #getServiceProvider()
+   * @generated
+   */
+  EReference getServiceProvider_DefaultStrategy();
 
   /**
    * Returns the meta object for the containment reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getAcceptanceRule <em>Acceptance Rule</em>}'.
@@ -3039,6 +3228,14 @@ public interface KanbanmodelPackage extends EPackage
     EReference KANBAN_SCHEDULING_SYSTEM__MECHANISMS = eINSTANCE.getKanbanSchedulingSystem_Mechanisms();
 
     /**
+     * The meta object literal for the '<em><b>KSS Search Strategies</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference KANBAN_SCHEDULING_SYSTEM__KSS_SEARCH_STRATEGIES = eINSTANCE.getKanbanSchedulingSystem_KSSSearchStrategies();
+
+    /**
      * The meta object literal for the '<em><b>KSS Task Patterns</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3053,6 +3250,14 @@ public interface KanbanmodelPackage extends EPackage
      * @generated
      */
     EReference KANBAN_SCHEDULING_SYSTEM__KS_STASK_PATTERN_TYPES = eINSTANCE.getKanbanSchedulingSystem_KSStaskPatternTypes();
+
+    /**
+     * The meta object literal for the '<em><b>KSS Value Functions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference KANBAN_SCHEDULING_SYSTEM__KSS_VALUE_FUNCTIONS = eINSTANCE.getKanbanSchedulingSystem_KSSValueFunctions();
 
     /**
      * The meta object literal for the '<em><b>So SServices</b></em>' containment reference list feature.
@@ -3085,6 +3290,22 @@ public interface KanbanmodelPackage extends EPackage
      * @generated
      */
     EReference KANBAN_SCHEDULING_SYSTEM__KSS_WITEMS = eINSTANCE.getKanbanSchedulingSystem_KssWItems();
+
+    /**
+     * The meta object literal for the '<em><b>Replications</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute KANBAN_SCHEDULING_SYSTEM__REPLICATIONS = eINSTANCE.getKanbanSchedulingSystem_Replications();
+
+    /**
+     * The meta object literal for the '<em><b>Inter Arrival Time</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute KANBAN_SCHEDULING_SYSTEM__INTER_ARRIVAL_TIME = eINSTANCE.getKanbanSchedulingSystem_InterArrivalTime();
 
     /**
      * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskPatternImpl <em>Task Pattern</em>}' class.
@@ -3145,6 +3366,32 @@ public interface KanbanmodelPackage extends EPackage
      * @generated
      */
     EAttribute TASK_TYPE__DESCRIPTION = eINSTANCE.getTaskType_Description();
+
+    /**
+     * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ValueFunctionImpl <em>Value Function</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ValueFunctionImpl
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getValueFunction()
+     * @generated
+     */
+    EClass VALUE_FUNCTION = eINSTANCE.getValueFunction();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VALUE_FUNCTION__NAME = eINSTANCE.getValueFunction_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VALUE_FUNCTION__DESCRIPTION = eINSTANCE.getValueFunction_Description();
 
     /**
      * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.MechanismImpl <em>Mechanism</em>}' class.
@@ -3215,44 +3462,44 @@ public interface KanbanmodelPackage extends EPackage
     EAttribute STRATEGY__DESCRIPTION = eINSTANCE.getStrategy_Description();
 
     /**
-     * The meta object literal for the '<em><b>WI Acceptance</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>WI Acceptance Rule</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STRATEGY__WI_ACCEPTANCE = eINSTANCE.getStrategy_WIAcceptance();
+    EReference STRATEGY__WI_ACCEPTANCE_RULE = eINSTANCE.getStrategy_WIAcceptanceRule();
 
     /**
-     * The meta object literal for the '<em><b>WI Selection</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>WI Selection Rule</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STRATEGY__WI_SELECTION = eINSTANCE.getStrategy_WISelection();
+    EReference STRATEGY__WI_SELECTION_RULE = eINSTANCE.getStrategy_WISelectionRule();
 
     /**
-     * The meta object literal for the '<em><b>WI Assignment</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>WI Assignment Rule</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STRATEGY__WI_ASSIGNMENT = eINSTANCE.getStrategy_WIAssignment();
+    EReference STRATEGY__WI_ASSIGNMENT_RULE = eINSTANCE.getStrategy_WIAssignmentRule();
 
     /**
-     * The meta object literal for the '<em><b>Resource Allocation</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Resource Allocation Rule</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STRATEGY__RESOURCE_ALLOCATION = eINSTANCE.getStrategy_ResourceAllocation();
+    EReference STRATEGY__RESOURCE_ALLOCATION_RULE = eINSTANCE.getStrategy_ResourceAllocationRule();
 
     /**
-     * The meta object literal for the '<em><b>Resource Outsourcing</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Resource Outsourcing Rule</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STRATEGY__RESOURCE_OUTSOURCING = eINSTANCE.getStrategy_ResourceOutsourcing();
+    EReference STRATEGY__RESOURCE_OUTSOURCING_RULE = eINSTANCE.getStrategy_ResourceOutsourcingRule();
 
     /**
      * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WIAcceptanceImpl <em>WI Acceptance</em>}' class.
@@ -3289,6 +3536,14 @@ public interface KanbanmodelPackage extends EPackage
     EAttribute WI_ACCEPTANCE__BACKLOG_QLIMIT = eINSTANCE.getWIAcceptance_BacklogQLimit();
 
     /**
+     * The meta object literal for the '<em><b>Ready QLimit</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WI_ACCEPTANCE__READY_QLIMIT = eINSTANCE.getWIAcceptance_ReadyQLimit();
+
+    /**
      * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WISelectionImpl <em>WI Selection</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3313,14 +3568,6 @@ public interface KanbanmodelPackage extends EPackage
      * @generated
      */
     EAttribute WI_SELECTION__DESCRIPTION = eINSTANCE.getWISelection_Description();
-
-    /**
-     * The meta object literal for the '<em><b>Ready QLimit</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute WI_SELECTION__READY_QLIMIT = eINSTANCE.getWISelection_ReadyQLimit();
 
     /**
      * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WIAssignmentImpl <em>WI Assignment</em>}' class.
@@ -3425,6 +3672,14 @@ public interface KanbanmodelPackage extends EPackage
      * @generated
      */
     EAttribute WORK_SOURCE__DESCRIPTION = eINSTANCE.getWorkSource_Description();
+
+    /**
+     * The meta object literal for the '<em><b>Assignment Rule</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WORK_SOURCE__ASSIGNMENT_RULE = eINSTANCE.getWorkSource_AssignmentRule();
 
     /**
      * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl <em>Work Item</em>}' class.
@@ -3715,6 +3970,14 @@ public interface KanbanmodelPackage extends EPackage
      * @generated
      */
     EReference SERVICE_PROVIDER__SERVICES = eINSTANCE.getServiceProvider_Services();
+
+    /**
+     * The meta object literal for the '<em><b>Default Strategy</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SERVICE_PROVIDER__DEFAULT_STRATEGY = eINSTANCE.getServiceProvider_DefaultStrategy();
 
     /**
      * The meta object literal for the '<em><b>Acceptance Rule</b></em>' containment reference feature.

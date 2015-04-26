@@ -6,10 +6,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Mechanisms" upperBound="-1"
         eType="#//Mechanism" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="KSSSearchStrategies" upperBound="-1"
+        eType="#//Strategy" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="KSSTaskPatterns" upperBound="-1"
         eType="#//TaskPattern" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="KSStaskPatternTypes" upperBound="-1"
         eType="#//TaskType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="KSSValueFunctions" upperBound="-1"
+        eType="#//ValueFunction" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SoSServices" upperBound="-1"
         eType="#//ServiceType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="orgUnits" upperBound="-1"
@@ -18,6 +22,8 @@
         eType="#//WorkSource" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="kssWItems" upperBound="-1"
         eType="#//WorkItem" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="replications" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interArrivalTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskPattern">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -26,6 +32,10 @@
         upperBound="-1" eType="#//TaskType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ValueFunction">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -39,26 +49,26 @@
   <eClassifiers xsi:type="ecore:EClass" name="Strategy">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="WIAcceptance" upperBound="-1"
-        eType="#//WIAcceptance" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="WISelection" upperBound="-1"
-        eType="#//WISelection" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="WIAssignment" upperBound="-1"
-        eType="#//WIAssignment" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ResourceAllocation" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="WIAcceptanceRule" eType="#//WIAcceptance"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="WISelectionRule" eType="#//WISelection"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="WIAssignmentRule" eType="#//WIAssignment"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ResourceAllocationRule"
         eType="#//ResourceAllocation" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ResourceOutsourcing" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ResourceOutsourcingRule"
         eType="#//ResourceOutsourcing" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WIAcceptance">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="backlogQLimit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="readyQLimit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WISelection">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="readyQLimit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WIAssignment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -75,6 +85,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="WorkSource">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignmentRule" eType="#//WIAssignment"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WorkItem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -125,6 +137,7 @@
         eType="#//Asset" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
         eType="#//Service" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultStrategy" eType="#//Strategy"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="acceptanceRule" eType="#//WIAcceptance"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="selectionRule" eType="#//WISelection"

@@ -27,6 +27,7 @@ import ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskPattern;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskType;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Transition;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.ValueFunction;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.WIAcceptance;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.WIAssignment;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.WISelection;
@@ -68,6 +69,13 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * @generated
    */
   private EClass taskTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass valueFunctionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -342,7 +350,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getKanbanSchedulingSystem_KSSTaskPatterns()
+  public EReference getKanbanSchedulingSystem_KSSSearchStrategies()
   {
     return (EReference)kanbanSchedulingSystemEClass.getEStructuralFeatures().get(2);
   }
@@ -352,7 +360,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getKanbanSchedulingSystem_KSStaskPatternTypes()
+  public EReference getKanbanSchedulingSystem_KSSTaskPatterns()
   {
     return (EReference)kanbanSchedulingSystemEClass.getEStructuralFeatures().get(3);
   }
@@ -362,7 +370,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getKanbanSchedulingSystem_SoSServices()
+  public EReference getKanbanSchedulingSystem_KSStaskPatternTypes()
   {
     return (EReference)kanbanSchedulingSystemEClass.getEStructuralFeatures().get(4);
   }
@@ -372,7 +380,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getKanbanSchedulingSystem_OrgUnits()
+  public EReference getKanbanSchedulingSystem_KSSValueFunctions()
   {
     return (EReference)kanbanSchedulingSystemEClass.getEStructuralFeatures().get(5);
   }
@@ -382,7 +390,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getKanbanSchedulingSystem_KssSources()
+  public EReference getKanbanSchedulingSystem_SoSServices()
   {
     return (EReference)kanbanSchedulingSystemEClass.getEStructuralFeatures().get(6);
   }
@@ -392,9 +400,49 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getKanbanSchedulingSystem_KssWItems()
+  public EReference getKanbanSchedulingSystem_OrgUnits()
   {
     return (EReference)kanbanSchedulingSystemEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getKanbanSchedulingSystem_KssSources()
+  {
+    return (EReference)kanbanSchedulingSystemEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getKanbanSchedulingSystem_KssWItems()
+  {
+    return (EReference)kanbanSchedulingSystemEClass.getEStructuralFeatures().get(9);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getKanbanSchedulingSystem_Replications()
+  {
+    return (EAttribute)kanbanSchedulingSystemEClass.getEStructuralFeatures().get(10);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getKanbanSchedulingSystem_InterArrivalTime()
+  {
+    return (EAttribute)kanbanSchedulingSystemEClass.getEStructuralFeatures().get(11);
   }
 
   /**
@@ -465,6 +513,36 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
   public EAttribute getTaskType_Description()
   {
     return (EAttribute)taskTypeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getValueFunction()
+  {
+    return valueFunctionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getValueFunction_Name()
+  {
+    return (EAttribute)valueFunctionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getValueFunction_Description()
+  {
+    return (EAttribute)valueFunctionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -552,7 +630,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStrategy_WIAcceptance()
+  public EReference getStrategy_WIAcceptanceRule()
   {
     return (EReference)strategyEClass.getEStructuralFeatures().get(2);
   }
@@ -562,7 +640,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStrategy_WISelection()
+  public EReference getStrategy_WISelectionRule()
   {
     return (EReference)strategyEClass.getEStructuralFeatures().get(3);
   }
@@ -572,7 +650,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStrategy_WIAssignment()
+  public EReference getStrategy_WIAssignmentRule()
   {
     return (EReference)strategyEClass.getEStructuralFeatures().get(4);
   }
@@ -582,7 +660,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStrategy_ResourceAllocation()
+  public EReference getStrategy_ResourceAllocationRule()
   {
     return (EReference)strategyEClass.getEStructuralFeatures().get(5);
   }
@@ -592,7 +670,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStrategy_ResourceOutsourcing()
+  public EReference getStrategy_ResourceOutsourcingRule()
   {
     return (EReference)strategyEClass.getEStructuralFeatures().get(6);
   }
@@ -642,6 +720,16 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getWIAcceptance_ReadyQLimit()
+  {
+    return (EAttribute)wiAcceptanceEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getWISelection()
   {
     return wiSelectionEClass;
@@ -665,16 +753,6 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
   public EAttribute getWISelection_Description()
   {
     return (EAttribute)wiSelectionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getWISelection_ReadyQLimit()
-  {
-    return (EAttribute)wiSelectionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -795,6 +873,16 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
   public EAttribute getWorkSource_Description()
   {
     return (EAttribute)workSourceEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getWorkSource_AssignmentRule()
+  {
+    return (EReference)workSourceEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1152,7 +1240,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getServiceProvider_AcceptanceRule()
+  public EReference getServiceProvider_DefaultStrategy()
   {
     return (EReference)serviceProviderEClass.getEStructuralFeatures().get(7);
   }
@@ -1162,7 +1250,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getServiceProvider_SelectionRule()
+  public EReference getServiceProvider_AcceptanceRule()
   {
     return (EReference)serviceProviderEClass.getEStructuralFeatures().get(8);
   }
@@ -1172,7 +1260,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getServiceProvider_AssignmentRule()
+  public EReference getServiceProvider_SelectionRule()
   {
     return (EReference)serviceProviderEClass.getEStructuralFeatures().get(9);
   }
@@ -1182,7 +1270,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getServiceProvider_AllocationRule()
+  public EReference getServiceProvider_AssignmentRule()
   {
     return (EReference)serviceProviderEClass.getEStructuralFeatures().get(10);
   }
@@ -1192,9 +1280,19 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getServiceProvider_OutsourcingRule()
+  public EReference getServiceProvider_AllocationRule()
   {
     return (EReference)serviceProviderEClass.getEStructuralFeatures().get(11);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getServiceProvider_OutsourcingRule()
+  {
+    return (EReference)serviceProviderEClass.getEStructuralFeatures().get(12);
   }
 
   /**
@@ -1680,12 +1778,16 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     kanbanSchedulingSystemEClass = createEClass(KANBAN_SCHEDULING_SYSTEM);
     createEAttribute(kanbanSchedulingSystemEClass, KANBAN_SCHEDULING_SYSTEM__NAME);
     createEReference(kanbanSchedulingSystemEClass, KANBAN_SCHEDULING_SYSTEM__MECHANISMS);
+    createEReference(kanbanSchedulingSystemEClass, KANBAN_SCHEDULING_SYSTEM__KSS_SEARCH_STRATEGIES);
     createEReference(kanbanSchedulingSystemEClass, KANBAN_SCHEDULING_SYSTEM__KSS_TASK_PATTERNS);
     createEReference(kanbanSchedulingSystemEClass, KANBAN_SCHEDULING_SYSTEM__KS_STASK_PATTERN_TYPES);
+    createEReference(kanbanSchedulingSystemEClass, KANBAN_SCHEDULING_SYSTEM__KSS_VALUE_FUNCTIONS);
     createEReference(kanbanSchedulingSystemEClass, KANBAN_SCHEDULING_SYSTEM__SO_SSERVICES);
     createEReference(kanbanSchedulingSystemEClass, KANBAN_SCHEDULING_SYSTEM__ORG_UNITS);
     createEReference(kanbanSchedulingSystemEClass, KANBAN_SCHEDULING_SYSTEM__KSS_SOURCES);
     createEReference(kanbanSchedulingSystemEClass, KANBAN_SCHEDULING_SYSTEM__KSS_WITEMS);
+    createEAttribute(kanbanSchedulingSystemEClass, KANBAN_SCHEDULING_SYSTEM__REPLICATIONS);
+    createEAttribute(kanbanSchedulingSystemEClass, KANBAN_SCHEDULING_SYSTEM__INTER_ARRIVAL_TIME);
 
     taskPatternEClass = createEClass(TASK_PATTERN);
     createEAttribute(taskPatternEClass, TASK_PATTERN__NAME);
@@ -1696,6 +1798,10 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     createEAttribute(taskTypeEClass, TASK_TYPE__NAME);
     createEAttribute(taskTypeEClass, TASK_TYPE__DESCRIPTION);
 
+    valueFunctionEClass = createEClass(VALUE_FUNCTION);
+    createEAttribute(valueFunctionEClass, VALUE_FUNCTION__NAME);
+    createEAttribute(valueFunctionEClass, VALUE_FUNCTION__DESCRIPTION);
+
     mechanismEClass = createEClass(MECHANISM);
     createEAttribute(mechanismEClass, MECHANISM__NAME);
     createEAttribute(mechanismEClass, MECHANISM__DESCRIPTION);
@@ -1705,21 +1811,21 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     strategyEClass = createEClass(STRATEGY);
     createEAttribute(strategyEClass, STRATEGY__NAME);
     createEAttribute(strategyEClass, STRATEGY__DESCRIPTION);
-    createEReference(strategyEClass, STRATEGY__WI_ACCEPTANCE);
-    createEReference(strategyEClass, STRATEGY__WI_SELECTION);
-    createEReference(strategyEClass, STRATEGY__WI_ASSIGNMENT);
-    createEReference(strategyEClass, STRATEGY__RESOURCE_ALLOCATION);
-    createEReference(strategyEClass, STRATEGY__RESOURCE_OUTSOURCING);
+    createEReference(strategyEClass, STRATEGY__WI_ACCEPTANCE_RULE);
+    createEReference(strategyEClass, STRATEGY__WI_SELECTION_RULE);
+    createEReference(strategyEClass, STRATEGY__WI_ASSIGNMENT_RULE);
+    createEReference(strategyEClass, STRATEGY__RESOURCE_ALLOCATION_RULE);
+    createEReference(strategyEClass, STRATEGY__RESOURCE_OUTSOURCING_RULE);
 
     wiAcceptanceEClass = createEClass(WI_ACCEPTANCE);
     createEAttribute(wiAcceptanceEClass, WI_ACCEPTANCE__NAME);
     createEAttribute(wiAcceptanceEClass, WI_ACCEPTANCE__DESCRIPTION);
     createEAttribute(wiAcceptanceEClass, WI_ACCEPTANCE__BACKLOG_QLIMIT);
+    createEAttribute(wiAcceptanceEClass, WI_ACCEPTANCE__READY_QLIMIT);
 
     wiSelectionEClass = createEClass(WI_SELECTION);
     createEAttribute(wiSelectionEClass, WI_SELECTION__NAME);
     createEAttribute(wiSelectionEClass, WI_SELECTION__DESCRIPTION);
-    createEAttribute(wiSelectionEClass, WI_SELECTION__READY_QLIMIT);
 
     wiAssignmentEClass = createEClass(WI_ASSIGNMENT);
     createEAttribute(wiAssignmentEClass, WI_ASSIGNMENT__NAME);
@@ -1736,6 +1842,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     workSourceEClass = createEClass(WORK_SOURCE);
     createEAttribute(workSourceEClass, WORK_SOURCE__NAME);
     createEAttribute(workSourceEClass, WORK_SOURCE__DESCRIPTION);
+    createEReference(workSourceEClass, WORK_SOURCE__ASSIGNMENT_RULE);
 
     workItemEClass = createEClass(WORK_ITEM);
     createEAttribute(workItemEClass, WORK_ITEM__NAME);
@@ -1776,6 +1883,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     createEReference(serviceProviderEClass, SERVICE_PROVIDER__SUBORDINATE_UNITS);
     createEReference(serviceProviderEClass, SERVICE_PROVIDER__RESOURCES);
     createEReference(serviceProviderEClass, SERVICE_PROVIDER__SERVICES);
+    createEReference(serviceProviderEClass, SERVICE_PROVIDER__DEFAULT_STRATEGY);
     createEReference(serviceProviderEClass, SERVICE_PROVIDER__ACCEPTANCE_RULE);
     createEReference(serviceProviderEClass, SERVICE_PROVIDER__SELECTION_RULE);
     createEReference(serviceProviderEClass, SERVICE_PROVIDER__ASSIGNMENT_RULE);
@@ -1874,12 +1982,16 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEClass(kanbanSchedulingSystemEClass, KanbanSchedulingSystem.class, "KanbanSchedulingSystem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getKanbanSchedulingSystem_Name(), ecorePackage.getEString(), "name", null, 0, 1, KanbanSchedulingSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getKanbanSchedulingSystem_Mechanisms(), this.getMechanism(), null, "Mechanisms", null, 0, -1, KanbanSchedulingSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getKanbanSchedulingSystem_KSSSearchStrategies(), this.getStrategy(), null, "KSSSearchStrategies", null, 0, -1, KanbanSchedulingSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getKanbanSchedulingSystem_KSSTaskPatterns(), this.getTaskPattern(), null, "KSSTaskPatterns", null, 0, -1, KanbanSchedulingSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getKanbanSchedulingSystem_KSStaskPatternTypes(), this.getTaskType(), null, "KSStaskPatternTypes", null, 0, -1, KanbanSchedulingSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getKanbanSchedulingSystem_KSSValueFunctions(), this.getValueFunction(), null, "KSSValueFunctions", null, 0, -1, KanbanSchedulingSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getKanbanSchedulingSystem_SoSServices(), this.getServiceType(), null, "SoSServices", null, 0, -1, KanbanSchedulingSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getKanbanSchedulingSystem_OrgUnits(), this.getServiceProvider(), null, "orgUnits", null, 0, -1, KanbanSchedulingSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getKanbanSchedulingSystem_KssSources(), this.getWorkSource(), null, "kssSources", null, 0, -1, KanbanSchedulingSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getKanbanSchedulingSystem_KssWItems(), this.getWorkItem(), null, "kssWItems", null, 0, -1, KanbanSchedulingSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getKanbanSchedulingSystem_Replications(), ecorePackage.getEInt(), "replications", null, 0, 1, KanbanSchedulingSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getKanbanSchedulingSystem_InterArrivalTime(), ecorePackage.getEInt(), "interArrivalTime", null, 0, 1, KanbanSchedulingSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(taskPatternEClass, TaskPattern.class, "TaskPattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTaskPattern_Name(), ecorePackage.getEString(), "name", null, 0, 1, TaskPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1890,6 +2002,10 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEAttribute(getTaskType_Name(), ecorePackage.getEString(), "name", null, 0, 1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTaskType_Description(), ecorePackage.getEString(), "description", null, 0, 1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(valueFunctionEClass, ValueFunction.class, "ValueFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getValueFunction_Name(), ecorePackage.getEString(), "name", null, 0, 1, ValueFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getValueFunction_Description(), ecorePackage.getEString(), "description", null, 0, 1, ValueFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(mechanismEClass, Mechanism.class, "Mechanism", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMechanism_Name(), ecorePackage.getEString(), "name", null, 0, 1, Mechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMechanism_Description(), ecorePackage.getEString(), "description", null, 0, 1, Mechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1899,21 +2015,21 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEClass(strategyEClass, Strategy.class, "Strategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStrategy_Name(), ecorePackage.getEString(), "name", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStrategy_Description(), ecorePackage.getEString(), "description", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStrategy_WIAcceptance(), this.getWIAcceptance(), null, "WIAcceptance", null, 0, -1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStrategy_WISelection(), this.getWISelection(), null, "WISelection", null, 0, -1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStrategy_WIAssignment(), this.getWIAssignment(), null, "WIAssignment", null, 0, -1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStrategy_ResourceAllocation(), this.getResourceAllocation(), null, "ResourceAllocation", null, 0, -1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStrategy_ResourceOutsourcing(), this.getResourceOutsourcing(), null, "ResourceOutsourcing", null, 0, -1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStrategy_WIAcceptanceRule(), this.getWIAcceptance(), null, "WIAcceptanceRule", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStrategy_WISelectionRule(), this.getWISelection(), null, "WISelectionRule", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStrategy_WIAssignmentRule(), this.getWIAssignment(), null, "WIAssignmentRule", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStrategy_ResourceAllocationRule(), this.getResourceAllocation(), null, "ResourceAllocationRule", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStrategy_ResourceOutsourcingRule(), this.getResourceOutsourcing(), null, "ResourceOutsourcingRule", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(wiAcceptanceEClass, WIAcceptance.class, "WIAcceptance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getWIAcceptance_Name(), ecorePackage.getEString(), "name", null, 0, 1, WIAcceptance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWIAcceptance_Description(), ecorePackage.getEString(), "description", null, 0, 1, WIAcceptance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWIAcceptance_BacklogQLimit(), ecorePackage.getEInt(), "backlogQLimit", null, 0, 1, WIAcceptance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getWIAcceptance_ReadyQLimit(), ecorePackage.getEInt(), "readyQLimit", null, 0, 1, WIAcceptance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(wiSelectionEClass, WISelection.class, "WISelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getWISelection_Name(), ecorePackage.getEString(), "name", null, 0, 1, WISelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWISelection_Description(), ecorePackage.getEString(), "description", null, 0, 1, WISelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getWISelection_ReadyQLimit(), ecorePackage.getEInt(), "readyQLimit", null, 0, 1, WISelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(wiAssignmentEClass, WIAssignment.class, "WIAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getWIAssignment_Name(), ecorePackage.getEString(), "name", null, 0, 1, WIAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1930,6 +2046,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEClass(workSourceEClass, WorkSource.class, "WorkSource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getWorkSource_Name(), ecorePackage.getEString(), "name", null, 0, 1, WorkSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkSource_Description(), ecorePackage.getEString(), "description", null, 0, 1, WorkSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkSource_AssignmentRule(), this.getWIAssignment(), null, "assignmentRule", null, 0, 1, WorkSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(workItemEClass, WorkItem.class, "WorkItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getWorkItem_Name(), ecorePackage.getEString(), "name", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1970,6 +2087,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEReference(getServiceProvider_SubordinateUnits(), this.getServiceProvider(), null, "subordinateUnits", null, 0, -1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getServiceProvider_Resources(), this.getAsset(), null, "resources", null, 0, -1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getServiceProvider_Services(), this.getService(), null, "services", null, 0, -1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getServiceProvider_DefaultStrategy(), this.getStrategy(), null, "defaultStrategy", null, 0, 1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getServiceProvider_AcceptanceRule(), this.getWIAcceptance(), null, "acceptanceRule", null, 0, 1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getServiceProvider_SelectionRule(), this.getWISelection(), null, "selectionRule", null, 0, 1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getServiceProvider_AssignmentRule(), this.getWIAssignment(), null, "assignmentRule", null, 0, 1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

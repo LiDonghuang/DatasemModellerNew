@@ -10,21 +10,14 @@ import ausim.xtext.kanban.domainmodel.kanbanmodel.WIAcceptance;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.WIAssignment;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.WISelection;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,11 +28,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StrategyImpl#getName <em>Name</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StrategyImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StrategyImpl#getWIAcceptance <em>WI Acceptance</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StrategyImpl#getWISelection <em>WI Selection</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StrategyImpl#getWIAssignment <em>WI Assignment</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StrategyImpl#getResourceAllocation <em>Resource Allocation</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StrategyImpl#getResourceOutsourcing <em>Resource Outsourcing</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StrategyImpl#getWIAcceptanceRule <em>WI Acceptance Rule</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StrategyImpl#getWISelectionRule <em>WI Selection Rule</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StrategyImpl#getWIAssignmentRule <em>WI Assignment Rule</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StrategyImpl#getResourceAllocationRule <em>Resource Allocation Rule</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StrategyImpl#getResourceOutsourcingRule <em>Resource Outsourcing Rule</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,54 +81,54 @@ public class StrategyImpl extends MinimalEObjectImpl.Container implements Strate
   protected String description = DESCRIPTION_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getWIAcceptance() <em>WI Acceptance</em>}' containment reference list.
+   * The cached value of the '{@link #getWIAcceptanceRule() <em>WI Acceptance Rule</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getWIAcceptance()
+   * @see #getWIAcceptanceRule()
    * @generated
    * @ordered
    */
-  protected EList<WIAcceptance> wiAcceptance;
+  protected WIAcceptance wiAcceptanceRule;
 
   /**
-   * The cached value of the '{@link #getWISelection() <em>WI Selection</em>}' containment reference list.
+   * The cached value of the '{@link #getWISelectionRule() <em>WI Selection Rule</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getWISelection()
+   * @see #getWISelectionRule()
    * @generated
    * @ordered
    */
-  protected EList<WISelection> wiSelection;
+  protected WISelection wiSelectionRule;
 
   /**
-   * The cached value of the '{@link #getWIAssignment() <em>WI Assignment</em>}' containment reference list.
+   * The cached value of the '{@link #getWIAssignmentRule() <em>WI Assignment Rule</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getWIAssignment()
+   * @see #getWIAssignmentRule()
    * @generated
    * @ordered
    */
-  protected EList<WIAssignment> wiAssignment;
+  protected WIAssignment wiAssignmentRule;
 
   /**
-   * The cached value of the '{@link #getResourceAllocation() <em>Resource Allocation</em>}' containment reference list.
+   * The cached value of the '{@link #getResourceAllocationRule() <em>Resource Allocation Rule</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getResourceAllocation()
+   * @see #getResourceAllocationRule()
    * @generated
    * @ordered
    */
-  protected EList<ResourceAllocation> resourceAllocation;
+  protected ResourceAllocation resourceAllocationRule;
 
   /**
-   * The cached value of the '{@link #getResourceOutsourcing() <em>Resource Outsourcing</em>}' containment reference list.
+   * The cached value of the '{@link #getResourceOutsourcingRule() <em>Resource Outsourcing Rule</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getResourceOutsourcing()
+   * @see #getResourceOutsourcingRule()
    * @generated
    * @ordered
    */
-  protected EList<ResourceOutsourcing> resourceOutsourcing;
+  protected ResourceOutsourcing resourceOutsourcingRule;
 
   /**
    * <!-- begin-user-doc -->
@@ -209,13 +202,9 @@ public class StrategyImpl extends MinimalEObjectImpl.Container implements Strate
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<WIAcceptance> getWIAcceptance()
+  public WIAcceptance getWIAcceptanceRule()
   {
-    if (wiAcceptance == null)
-    {
-      wiAcceptance = new EObjectContainmentEList<WIAcceptance>(WIAcceptance.class, this, KanbanmodelPackage.STRATEGY__WI_ACCEPTANCE);
-    }
-    return wiAcceptance;
+    return wiAcceptanceRule;
   }
 
   /**
@@ -223,13 +212,16 @@ public class StrategyImpl extends MinimalEObjectImpl.Container implements Strate
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<WISelection> getWISelection()
+  public NotificationChain basicSetWIAcceptanceRule(WIAcceptance newWIAcceptanceRule, NotificationChain msgs)
   {
-    if (wiSelection == null)
+    WIAcceptance oldWIAcceptanceRule = wiAcceptanceRule;
+    wiAcceptanceRule = newWIAcceptanceRule;
+    if (eNotificationRequired())
     {
-      wiSelection = new EObjectContainmentEList<WISelection>(WISelection.class, this, KanbanmodelPackage.STRATEGY__WI_SELECTION);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.STRATEGY__WI_ACCEPTANCE_RULE, oldWIAcceptanceRule, newWIAcceptanceRule);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return wiSelection;
+    return msgs;
   }
 
   /**
@@ -237,13 +229,20 @@ public class StrategyImpl extends MinimalEObjectImpl.Container implements Strate
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<WIAssignment> getWIAssignment()
+  public void setWIAcceptanceRule(WIAcceptance newWIAcceptanceRule)
   {
-    if (wiAssignment == null)
+    if (newWIAcceptanceRule != wiAcceptanceRule)
     {
-      wiAssignment = new EObjectContainmentEList<WIAssignment>(WIAssignment.class, this, KanbanmodelPackage.STRATEGY__WI_ASSIGNMENT);
+      NotificationChain msgs = null;
+      if (wiAcceptanceRule != null)
+        msgs = ((InternalEObject)wiAcceptanceRule).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.STRATEGY__WI_ACCEPTANCE_RULE, null, msgs);
+      if (newWIAcceptanceRule != null)
+        msgs = ((InternalEObject)newWIAcceptanceRule).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.STRATEGY__WI_ACCEPTANCE_RULE, null, msgs);
+      msgs = basicSetWIAcceptanceRule(newWIAcceptanceRule, msgs);
+      if (msgs != null) msgs.dispatch();
     }
-    return wiAssignment;
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.STRATEGY__WI_ACCEPTANCE_RULE, newWIAcceptanceRule, newWIAcceptanceRule));
   }
 
   /**
@@ -251,13 +250,9 @@ public class StrategyImpl extends MinimalEObjectImpl.Container implements Strate
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ResourceAllocation> getResourceAllocation()
+  public WISelection getWISelectionRule()
   {
-    if (resourceAllocation == null)
-    {
-      resourceAllocation = new EObjectContainmentEList<ResourceAllocation>(ResourceAllocation.class, this, KanbanmodelPackage.STRATEGY__RESOURCE_ALLOCATION);
-    }
-    return resourceAllocation;
+    return wiSelectionRule;
   }
 
   /**
@@ -265,13 +260,181 @@ public class StrategyImpl extends MinimalEObjectImpl.Container implements Strate
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ResourceOutsourcing> getResourceOutsourcing()
+  public NotificationChain basicSetWISelectionRule(WISelection newWISelectionRule, NotificationChain msgs)
   {
-    if (resourceOutsourcing == null)
+    WISelection oldWISelectionRule = wiSelectionRule;
+    wiSelectionRule = newWISelectionRule;
+    if (eNotificationRequired())
     {
-      resourceOutsourcing = new EObjectContainmentEList<ResourceOutsourcing>(ResourceOutsourcing.class, this, KanbanmodelPackage.STRATEGY__RESOURCE_OUTSOURCING);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.STRATEGY__WI_SELECTION_RULE, oldWISelectionRule, newWISelectionRule);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return resourceOutsourcing;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setWISelectionRule(WISelection newWISelectionRule)
+  {
+    if (newWISelectionRule != wiSelectionRule)
+    {
+      NotificationChain msgs = null;
+      if (wiSelectionRule != null)
+        msgs = ((InternalEObject)wiSelectionRule).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.STRATEGY__WI_SELECTION_RULE, null, msgs);
+      if (newWISelectionRule != null)
+        msgs = ((InternalEObject)newWISelectionRule).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.STRATEGY__WI_SELECTION_RULE, null, msgs);
+      msgs = basicSetWISelectionRule(newWISelectionRule, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.STRATEGY__WI_SELECTION_RULE, newWISelectionRule, newWISelectionRule));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WIAssignment getWIAssignmentRule()
+  {
+    return wiAssignmentRule;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetWIAssignmentRule(WIAssignment newWIAssignmentRule, NotificationChain msgs)
+  {
+    WIAssignment oldWIAssignmentRule = wiAssignmentRule;
+    wiAssignmentRule = newWIAssignmentRule;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.STRATEGY__WI_ASSIGNMENT_RULE, oldWIAssignmentRule, newWIAssignmentRule);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setWIAssignmentRule(WIAssignment newWIAssignmentRule)
+  {
+    if (newWIAssignmentRule != wiAssignmentRule)
+    {
+      NotificationChain msgs = null;
+      if (wiAssignmentRule != null)
+        msgs = ((InternalEObject)wiAssignmentRule).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.STRATEGY__WI_ASSIGNMENT_RULE, null, msgs);
+      if (newWIAssignmentRule != null)
+        msgs = ((InternalEObject)newWIAssignmentRule).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.STRATEGY__WI_ASSIGNMENT_RULE, null, msgs);
+      msgs = basicSetWIAssignmentRule(newWIAssignmentRule, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.STRATEGY__WI_ASSIGNMENT_RULE, newWIAssignmentRule, newWIAssignmentRule));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ResourceAllocation getResourceAllocationRule()
+  {
+    return resourceAllocationRule;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetResourceAllocationRule(ResourceAllocation newResourceAllocationRule, NotificationChain msgs)
+  {
+    ResourceAllocation oldResourceAllocationRule = resourceAllocationRule;
+    resourceAllocationRule = newResourceAllocationRule;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.STRATEGY__RESOURCE_ALLOCATION_RULE, oldResourceAllocationRule, newResourceAllocationRule);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setResourceAllocationRule(ResourceAllocation newResourceAllocationRule)
+  {
+    if (newResourceAllocationRule != resourceAllocationRule)
+    {
+      NotificationChain msgs = null;
+      if (resourceAllocationRule != null)
+        msgs = ((InternalEObject)resourceAllocationRule).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.STRATEGY__RESOURCE_ALLOCATION_RULE, null, msgs);
+      if (newResourceAllocationRule != null)
+        msgs = ((InternalEObject)newResourceAllocationRule).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.STRATEGY__RESOURCE_ALLOCATION_RULE, null, msgs);
+      msgs = basicSetResourceAllocationRule(newResourceAllocationRule, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.STRATEGY__RESOURCE_ALLOCATION_RULE, newResourceAllocationRule, newResourceAllocationRule));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ResourceOutsourcing getResourceOutsourcingRule()
+  {
+    return resourceOutsourcingRule;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetResourceOutsourcingRule(ResourceOutsourcing newResourceOutsourcingRule, NotificationChain msgs)
+  {
+    ResourceOutsourcing oldResourceOutsourcingRule = resourceOutsourcingRule;
+    resourceOutsourcingRule = newResourceOutsourcingRule;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.STRATEGY__RESOURCE_OUTSOURCING_RULE, oldResourceOutsourcingRule, newResourceOutsourcingRule);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setResourceOutsourcingRule(ResourceOutsourcing newResourceOutsourcingRule)
+  {
+    if (newResourceOutsourcingRule != resourceOutsourcingRule)
+    {
+      NotificationChain msgs = null;
+      if (resourceOutsourcingRule != null)
+        msgs = ((InternalEObject)resourceOutsourcingRule).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.STRATEGY__RESOURCE_OUTSOURCING_RULE, null, msgs);
+      if (newResourceOutsourcingRule != null)
+        msgs = ((InternalEObject)newResourceOutsourcingRule).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.STRATEGY__RESOURCE_OUTSOURCING_RULE, null, msgs);
+      msgs = basicSetResourceOutsourcingRule(newResourceOutsourcingRule, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.STRATEGY__RESOURCE_OUTSOURCING_RULE, newResourceOutsourcingRule, newResourceOutsourcingRule));
   }
 
   /**
@@ -284,16 +447,16 @@ public class StrategyImpl extends MinimalEObjectImpl.Container implements Strate
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.STRATEGY__WI_ACCEPTANCE:
-        return ((InternalEList<?>)getWIAcceptance()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.STRATEGY__WI_SELECTION:
-        return ((InternalEList<?>)getWISelection()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.STRATEGY__WI_ASSIGNMENT:
-        return ((InternalEList<?>)getWIAssignment()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.STRATEGY__RESOURCE_ALLOCATION:
-        return ((InternalEList<?>)getResourceAllocation()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.STRATEGY__RESOURCE_OUTSOURCING:
-        return ((InternalEList<?>)getResourceOutsourcing()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.STRATEGY__WI_ACCEPTANCE_RULE:
+        return basicSetWIAcceptanceRule(null, msgs);
+      case KanbanmodelPackage.STRATEGY__WI_SELECTION_RULE:
+        return basicSetWISelectionRule(null, msgs);
+      case KanbanmodelPackage.STRATEGY__WI_ASSIGNMENT_RULE:
+        return basicSetWIAssignmentRule(null, msgs);
+      case KanbanmodelPackage.STRATEGY__RESOURCE_ALLOCATION_RULE:
+        return basicSetResourceAllocationRule(null, msgs);
+      case KanbanmodelPackage.STRATEGY__RESOURCE_OUTSOURCING_RULE:
+        return basicSetResourceOutsourcingRule(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -312,16 +475,16 @@ public class StrategyImpl extends MinimalEObjectImpl.Container implements Strate
         return getName();
       case KanbanmodelPackage.STRATEGY__DESCRIPTION:
         return getDescription();
-      case KanbanmodelPackage.STRATEGY__WI_ACCEPTANCE:
-        return getWIAcceptance();
-      case KanbanmodelPackage.STRATEGY__WI_SELECTION:
-        return getWISelection();
-      case KanbanmodelPackage.STRATEGY__WI_ASSIGNMENT:
-        return getWIAssignment();
-      case KanbanmodelPackage.STRATEGY__RESOURCE_ALLOCATION:
-        return getResourceAllocation();
-      case KanbanmodelPackage.STRATEGY__RESOURCE_OUTSOURCING:
-        return getResourceOutsourcing();
+      case KanbanmodelPackage.STRATEGY__WI_ACCEPTANCE_RULE:
+        return getWIAcceptanceRule();
+      case KanbanmodelPackage.STRATEGY__WI_SELECTION_RULE:
+        return getWISelectionRule();
+      case KanbanmodelPackage.STRATEGY__WI_ASSIGNMENT_RULE:
+        return getWIAssignmentRule();
+      case KanbanmodelPackage.STRATEGY__RESOURCE_ALLOCATION_RULE:
+        return getResourceAllocationRule();
+      case KanbanmodelPackage.STRATEGY__RESOURCE_OUTSOURCING_RULE:
+        return getResourceOutsourcingRule();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -331,7 +494,6 @@ public class StrategyImpl extends MinimalEObjectImpl.Container implements Strate
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -343,25 +505,20 @@ public class StrategyImpl extends MinimalEObjectImpl.Container implements Strate
       case KanbanmodelPackage.STRATEGY__DESCRIPTION:
         setDescription((String)newValue);
         return;
-      case KanbanmodelPackage.STRATEGY__WI_ACCEPTANCE:
-        getWIAcceptance().clear();
-        getWIAcceptance().addAll((Collection<? extends WIAcceptance>)newValue);
+      case KanbanmodelPackage.STRATEGY__WI_ACCEPTANCE_RULE:
+        setWIAcceptanceRule((WIAcceptance)newValue);
         return;
-      case KanbanmodelPackage.STRATEGY__WI_SELECTION:
-        getWISelection().clear();
-        getWISelection().addAll((Collection<? extends WISelection>)newValue);
+      case KanbanmodelPackage.STRATEGY__WI_SELECTION_RULE:
+        setWISelectionRule((WISelection)newValue);
         return;
-      case KanbanmodelPackage.STRATEGY__WI_ASSIGNMENT:
-        getWIAssignment().clear();
-        getWIAssignment().addAll((Collection<? extends WIAssignment>)newValue);
+      case KanbanmodelPackage.STRATEGY__WI_ASSIGNMENT_RULE:
+        setWIAssignmentRule((WIAssignment)newValue);
         return;
-      case KanbanmodelPackage.STRATEGY__RESOURCE_ALLOCATION:
-        getResourceAllocation().clear();
-        getResourceAllocation().addAll((Collection<? extends ResourceAllocation>)newValue);
+      case KanbanmodelPackage.STRATEGY__RESOURCE_ALLOCATION_RULE:
+        setResourceAllocationRule((ResourceAllocation)newValue);
         return;
-      case KanbanmodelPackage.STRATEGY__RESOURCE_OUTSOURCING:
-        getResourceOutsourcing().clear();
-        getResourceOutsourcing().addAll((Collection<? extends ResourceOutsourcing>)newValue);
+      case KanbanmodelPackage.STRATEGY__RESOURCE_OUTSOURCING_RULE:
+        setResourceOutsourcingRule((ResourceOutsourcing)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -383,20 +540,20 @@ public class StrategyImpl extends MinimalEObjectImpl.Container implements Strate
       case KanbanmodelPackage.STRATEGY__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case KanbanmodelPackage.STRATEGY__WI_ACCEPTANCE:
-        getWIAcceptance().clear();
+      case KanbanmodelPackage.STRATEGY__WI_ACCEPTANCE_RULE:
+        setWIAcceptanceRule((WIAcceptance)null);
         return;
-      case KanbanmodelPackage.STRATEGY__WI_SELECTION:
-        getWISelection().clear();
+      case KanbanmodelPackage.STRATEGY__WI_SELECTION_RULE:
+        setWISelectionRule((WISelection)null);
         return;
-      case KanbanmodelPackage.STRATEGY__WI_ASSIGNMENT:
-        getWIAssignment().clear();
+      case KanbanmodelPackage.STRATEGY__WI_ASSIGNMENT_RULE:
+        setWIAssignmentRule((WIAssignment)null);
         return;
-      case KanbanmodelPackage.STRATEGY__RESOURCE_ALLOCATION:
-        getResourceAllocation().clear();
+      case KanbanmodelPackage.STRATEGY__RESOURCE_ALLOCATION_RULE:
+        setResourceAllocationRule((ResourceAllocation)null);
         return;
-      case KanbanmodelPackage.STRATEGY__RESOURCE_OUTSOURCING:
-        getResourceOutsourcing().clear();
+      case KanbanmodelPackage.STRATEGY__RESOURCE_OUTSOURCING_RULE:
+        setResourceOutsourcingRule((ResourceOutsourcing)null);
         return;
     }
     super.eUnset(featureID);
@@ -416,16 +573,16 @@ public class StrategyImpl extends MinimalEObjectImpl.Container implements Strate
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case KanbanmodelPackage.STRATEGY__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case KanbanmodelPackage.STRATEGY__WI_ACCEPTANCE:
-        return wiAcceptance != null && !wiAcceptance.isEmpty();
-      case KanbanmodelPackage.STRATEGY__WI_SELECTION:
-        return wiSelection != null && !wiSelection.isEmpty();
-      case KanbanmodelPackage.STRATEGY__WI_ASSIGNMENT:
-        return wiAssignment != null && !wiAssignment.isEmpty();
-      case KanbanmodelPackage.STRATEGY__RESOURCE_ALLOCATION:
-        return resourceAllocation != null && !resourceAllocation.isEmpty();
-      case KanbanmodelPackage.STRATEGY__RESOURCE_OUTSOURCING:
-        return resourceOutsourcing != null && !resourceOutsourcing.isEmpty();
+      case KanbanmodelPackage.STRATEGY__WI_ACCEPTANCE_RULE:
+        return wiAcceptanceRule != null;
+      case KanbanmodelPackage.STRATEGY__WI_SELECTION_RULE:
+        return wiSelectionRule != null;
+      case KanbanmodelPackage.STRATEGY__WI_ASSIGNMENT_RULE:
+        return wiAssignmentRule != null;
+      case KanbanmodelPackage.STRATEGY__RESOURCE_ALLOCATION_RULE:
+        return resourceAllocationRule != null;
+      case KanbanmodelPackage.STRATEGY__RESOURCE_OUTSOURCING_RULE:
+        return resourceOutsourcingRule != null;
     }
     return super.eIsSet(featureID);
   }

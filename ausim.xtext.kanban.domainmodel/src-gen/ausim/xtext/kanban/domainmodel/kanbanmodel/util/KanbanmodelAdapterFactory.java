@@ -90,6 +90,11 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
         return createTaskTypeAdapter();
       }
       @Override
+      public Adapter caseValueFunction(ValueFunction object)
+      {
+        return createValueFunctionAdapter();
+      }
+      @Override
       public Adapter caseMechanism(Mechanism object)
       {
         return createMechanismAdapter();
@@ -277,6 +282,21 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTaskTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.ValueFunction <em>Value Function</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.ValueFunction
+   * @generated
+   */
+  public Adapter createValueFunctionAdapter()
   {
     return null;
   }

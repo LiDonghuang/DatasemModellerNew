@@ -22,7 +22,7 @@ public class KanbanmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_Causality_EqualsSignGreaterThanSignKeyword_0_0_or_HyphenMinusGreaterThanSignKeyword_0_1;
 	protected AbstractElementAlias match_Requirement_WorkItemNetworkKeyword_5_0_q;
 	protected AbstractElementAlias match_ServiceProvider_GroupKeyword_0_1_or_ServiceProviderKeyword_0_0;
-	protected AbstractElementAlias match_ServiceProvider___GovernanceSearchStrategyKeyword_9_0_LeftCurlyBracketKeyword_9_1_RightCurlyBracketKeyword_9_7__q;
+	protected AbstractElementAlias match_ServiceProvider___SpecifiedKeyword_9_4_0_LeftCurlyBracketKeyword_9_4_1_RightCurlyBracketKeyword_9_4_7__q;
 	protected AbstractElementAlias match_ServiceType___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q;
 	protected AbstractElementAlias match_Skill___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_2__q;
 	protected AbstractElementAlias match_WorkItem_CausalityKeyword_8_0_q;
@@ -33,7 +33,7 @@ public class KanbanmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_Causality_EqualsSignGreaterThanSignKeyword_0_0_or_HyphenMinusGreaterThanSignKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getCausalityAccess().getEqualsSignGreaterThanSignKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getCausalityAccess().getHyphenMinusGreaterThanSignKeyword_0_1()));
 		match_Requirement_WorkItemNetworkKeyword_5_0_q = new TokenAlias(false, true, grammarAccess.getRequirementAccess().getWorkItemNetworkKeyword_5_0());
 		match_ServiceProvider_GroupKeyword_0_1_or_ServiceProviderKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getServiceProviderAccess().getGroupKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getServiceProviderAccess().getServiceProviderKeyword_0_0()));
-		match_ServiceProvider___GovernanceSearchStrategyKeyword_9_0_LeftCurlyBracketKeyword_9_1_RightCurlyBracketKeyword_9_7__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getServiceProviderAccess().getGovernanceSearchStrategyKeyword_9_0()), new TokenAlias(false, false, grammarAccess.getServiceProviderAccess().getLeftCurlyBracketKeyword_9_1()), new TokenAlias(false, false, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_9_7()));
+		match_ServiceProvider___SpecifiedKeyword_9_4_0_LeftCurlyBracketKeyword_9_4_1_RightCurlyBracketKeyword_9_4_7__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getServiceProviderAccess().getSpecifiedKeyword_9_4_0()), new TokenAlias(false, false, grammarAccess.getServiceProviderAccess().getLeftCurlyBracketKeyword_9_4_1()), new TokenAlias(false, false, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_9_4_7()));
 		match_ServiceType___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getServiceTypeAccess().getLeftCurlyBracketKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getServiceTypeAccess().getRightCurlyBracketKeyword_2_2()));
 		match_Skill___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSkillAccess().getLeftCurlyBracketKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getSkillAccess().getRightCurlyBracketKeyword_1_2()));
 		match_WorkItem_CausalityKeyword_8_0_q = new TokenAlias(false, true, grammarAccess.getWorkItemAccess().getCausalityKeyword_8_0());
@@ -57,8 +57,8 @@ public class KanbanmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Requirement_WorkItemNetworkKeyword_5_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_ServiceProvider_GroupKeyword_0_1_or_ServiceProviderKeyword_0_0.equals(syntax))
 				emit_ServiceProvider_GroupKeyword_0_1_or_ServiceProviderKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_ServiceProvider___GovernanceSearchStrategyKeyword_9_0_LeftCurlyBracketKeyword_9_1_RightCurlyBracketKeyword_9_7__q.equals(syntax))
-				emit_ServiceProvider___GovernanceSearchStrategyKeyword_9_0_LeftCurlyBracketKeyword_9_1_RightCurlyBracketKeyword_9_7__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ServiceProvider___SpecifiedKeyword_9_4_0_LeftCurlyBracketKeyword_9_4_1_RightCurlyBracketKeyword_9_4_7__q.equals(syntax))
+				emit_ServiceProvider___SpecifiedKeyword_9_4_0_LeftCurlyBracketKeyword_9_4_1_RightCurlyBracketKeyword_9_4_7__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_ServiceType___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q.equals(syntax))
 				emit_ServiceType___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Skill___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_2__q.equals(syntax))
@@ -95,9 +95,9 @@ public class KanbanmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     ('governanceSearchStrategy' '{' '}')?
+	 *     ('specified' '{' '}')?
 	 */
-	protected void emit_ServiceProvider___GovernanceSearchStrategyKeyword_9_0_LeftCurlyBracketKeyword_9_1_RightCurlyBracketKeyword_9_7__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_ServiceProvider___SpecifiedKeyword_9_4_0_LeftCurlyBracketKeyword_9_4_1_RightCurlyBracketKeyword_9_4_7__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

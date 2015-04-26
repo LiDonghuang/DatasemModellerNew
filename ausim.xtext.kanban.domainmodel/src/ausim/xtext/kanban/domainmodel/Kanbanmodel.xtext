@@ -7,10 +7,16 @@ generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
 		
 		'GovernanceModel'
 		    ((Mechanisms +=Mechanism )+)?
-			'TaskPatterns'
+		    ('GovernanceSearchStrategies'
+		    (KSSSearchStrategies += Strategy)+
+		    'end GovernanceSearchStrategies')?
+			('TaskPatterns'
 			(KSSTaskPatterns += TaskPattern)+
 			(KSStaskPatternTypes += TaskType)+
-			'end TaskPatterns'
+			'end TaskPatterns')?
+			('ValueFunctions'
+			(KSSValueFunctions += ValueFunction)+
+			'end ValueFunctions')?
 		'end GovernanceModel'
 		
 		'OrganizationalModel'
@@ -32,10 +38,16 @@ generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
 	//		(kssWorkFlow=KanbanTaskModel)
 		'end WorkItemNetworkModel'
 		
+		'ExperimentSettings'
+			'Replications' replications=INT
+			'InterArrivalTime' interArrivalTime=INT	
+		'end ExperimentSettings'
+		
 		'end KSSModel'
 	;
 	
 
+	
 
 	// ------------------------ Governance Objects ---------------------------------
 	TaskPattern:
@@ -49,6 +61,11 @@ generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
 		('Description' description=STRING)?
 		'}'
 	;	
+	ValueFunction :
+		'valueFunction' name=ID '{'
+		('Description' description=STRING)?
+		'}'
+	;
 	
 	Mechanism:
 		'Mechanism' name=ID
@@ -57,27 +74,28 @@ generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
 		(Strategies+=Strategy)+
 	;	
 	
-	Strategy:
-		'Strategy' name=ID
+	Strategy: 
+		'Strategy' name=ID '{'
 		('Description' description=STRING)?
-	    (WIAcceptance+=WIAcceptance)+
-	    (WISelection+=WISelection)+ 
-	    (WIAssignment+=WIAssignment)+ 
-	    (ResourceAllocation+=ResourceAllocation)+ 
-	    (ResourceOutsourcing+=ResourceOutsourcing)+    
+	   	WIAcceptanceRule=WIAcceptance
+	    WISelectionRule=WISelection 
+	    WIAssignmentRule=WIAssignment 
+	    ResourceAllocationRule=ResourceAllocation 
+	    ResourceOutsourcingRule=ResourceOutsourcing   
+	    '}'
 	;
 	
 	
 	WIAcceptance:
 		'WIAcceptance' name=ID '{'
 		('Description' description=STRING)?		
-		('backlogQLimit' backlogQLimit=INT)?
+		('BackLogLimit' backlogQLimit=INT)?
+		('WIPLimit' readyQLimit=INT)?
 		'}'
 	;
 	WISelection:
 		'WISelection' name=ID '{'
-		('Description' description=STRING)?
-		('readyQLimit' readyQLimit=INT)?
+		('Description' description=STRING)?		
 		'}'
 	;
 	WIAssignment:
@@ -91,7 +109,7 @@ generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
 		'}'
 	;
 	ResourceOutsourcing:
-		'ResourceOutsorcing' name=ID '{'
+		'ResourceOutsourcing' name=ID '{'
 		('Description' description=STRING)?
 		'}'
 	;
@@ -100,6 +118,7 @@ generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
     WorkSource:
     	'workSource' name=ID '{'
     	('Description' description=STRING)?
+    	(assignmentRule=WIAssignment)?
     	'}'
     ;
 //    WorkItemNetwork:
@@ -153,11 +172,14 @@ generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
 		('resources' '{' (resources+=Asset)+ '}')?
 		('services' '{' (services+=Service)+ '}')?
 		('governanceSearchStrategy' '{'
+			'default' defaultStrategy=[Strategy]
+			('specified' '{'
 			(acceptanceRule=WIAcceptance)?
 		    (selectionRule=WISelection)?
 		    (assignmentRule=WIAssignment)?
 		    (allocationRule=ResourceAllocation)?
 		    (outsourcingRule=ResourceOutsourcing)?
+		    '}')?
 	    	'}')?
 	    '}'
 	;

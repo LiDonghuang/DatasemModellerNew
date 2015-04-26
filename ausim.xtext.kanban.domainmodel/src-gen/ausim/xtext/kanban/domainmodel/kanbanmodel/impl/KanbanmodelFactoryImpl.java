@@ -67,6 +67,7 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM: return createKanbanSchedulingSystem();
       case KanbanmodelPackage.TASK_PATTERN: return createTaskPattern();
       case KanbanmodelPackage.TASK_TYPE: return createTaskType();
+      case KanbanmodelPackage.VALUE_FUNCTION: return createValueFunction();
       case KanbanmodelPackage.MECHANISM: return createMechanism();
       case KanbanmodelPackage.STRATEGY: return createStrategy();
       case KanbanmodelPackage.WI_ACCEPTANCE: return createWIAcceptance();
@@ -128,6 +129,17 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
   {
     TaskTypeImpl taskType = new TaskTypeImpl();
     return taskType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ValueFunction createValueFunction()
+  {
+    ValueFunctionImpl valueFunction = new ValueFunctionImpl();
+    return valueFunction;
   }
 
   /**

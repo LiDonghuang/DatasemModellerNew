@@ -24,6 +24,7 @@ import ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskPattern;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskType;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Transition;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.ValueFunction;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.WIAcceptance;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.WIAssignment;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.WISelection;
@@ -190,6 +191,12 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 					return; 
 				}
 				else break;
+			case KanbanmodelPackage.VALUE_FUNCTION:
+				if(context == grammarAccess.getValueFunctionRule()) {
+					sequence_ValueFunction(context, (ValueFunction) semanticObject); 
+					return; 
+				}
+				else break;
 			case KanbanmodelPackage.WI_ACCEPTANCE:
 				if(context == grammarAccess.getWIAcceptanceRule()) {
 					sequence_WIAcceptance(context, (WIAcceptance) semanticObject); 
@@ -303,12 +310,15 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     (
 	 *         name=ID 
 	 *         Mechanisms+=Mechanism? 
-	 *         KSSTaskPatterns+=TaskPattern+ 
-	 *         KSStaskPatternTypes+=TaskType+ 
+	 *         KSSSearchStrategies+=Strategy* 
+	 *         (KSSTaskPatterns+=TaskPattern+ KSStaskPatternTypes+=TaskType+)? 
+	 *         KSSValueFunctions+=ValueFunction* 
 	 *         SoSServices+=ServiceType+ 
 	 *         orgUnits+=ServiceProvider+ 
 	 *         kssSources+=WorkSource+ 
-	 *         kssWItems+=WorkItem+
+	 *         kssWItems+=WorkItem+ 
+	 *         replications=INT 
+	 *         interArrivalTime=INT
 	 *     )
 	 */
 	protected void sequence_KanbanSchedulingSystem(EObject context, KanbanSchedulingSystem semanticObject) {
@@ -381,11 +391,14 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *         resources+=Asset* 
 	 *         services+=Service* 
 	 *         (
-	 *             acceptanceRule=WIAcceptance? 
-	 *             selectionRule=WISelection? 
-	 *             assignmentRule=WIAssignment? 
-	 *             allocationRule=ResourceAllocation? 
-	 *             outsourcingRule=ResourceOutsourcing?
+	 *             defaultStrategy=[Strategy|ID] 
+	 *             (
+	 *                 acceptanceRule=WIAcceptance? 
+	 *                 selectionRule=WISelection? 
+	 *                 assignmentRule=WIAssignment? 
+	 *                 allocationRule=ResourceAllocation? 
+	 *                 outsourcingRule=ResourceOutsourcing?
+	 *             )?
 	 *         )?
 	 *     )
 	 */
@@ -444,11 +457,11 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     (
 	 *         name=ID 
 	 *         description=STRING? 
-	 *         WIAcceptance+=WIAcceptance+ 
-	 *         WISelection+=WISelection+ 
-	 *         WIAssignment+=WIAssignment+ 
-	 *         ResourceAllocation+=ResourceAllocation+ 
-	 *         ResourceOutsourcing+=ResourceOutsourcing+
+	 *         WIAcceptanceRule=WIAcceptance 
+	 *         WISelectionRule=WISelection 
+	 *         WIAssignmentRule=WIAssignment 
+	 *         ResourceAllocationRule=ResourceAllocation 
+	 *         ResourceOutsourcingRule=ResourceOutsourcing
 	 *     )
 	 */
 	protected void sequence_Strategy(EObject context, Strategy semanticObject) {
@@ -485,7 +498,16 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (name=ID description=STRING? backlogQLimit=INT?)
+	 *     (name=ID description=STRING?)
+	 */
+	protected void sequence_ValueFunction(EObject context, ValueFunction semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID description=STRING? backlogQLimit=INT? readyQLimit=INT?)
 	 */
 	protected void sequence_WIAcceptance(EObject context, WIAcceptance semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -503,7 +525,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (name=ID description=STRING? readyQLimit=INT?)
+	 *     (name=ID description=STRING?)
 	 */
 	protected void sequence_WISelection(EObject context, WISelection semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -536,7 +558,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (name=ID description=STRING?)
+	 *     (name=ID description=STRING? assignmentRule=WIAssignment?)
 	 */
 	protected void sequence_WorkSource(EObject context, WorkSource semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

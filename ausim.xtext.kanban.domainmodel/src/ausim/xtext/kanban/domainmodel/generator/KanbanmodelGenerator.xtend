@@ -17,6 +17,8 @@ import ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceType
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Service
 import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskPattern
 import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskType
+import ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy
+import ausim.xtext.kanban.domainmodel.kanbanmodel.ValueFunction
 
 /**
  * Generates code from your model files on save.
@@ -38,8 +40,27 @@ class KanbanmodelGenerator implements IGenerator {
 	
 def compile(Resource res) '''
 		<?xml version="1.0"?>
-		«FOR km : res.allContents.toIterable.filter(KanbanSchedulingSystem)»<KSSModel>«ENDFOR»
+		«FOR km : res.allContents.toIterable.filter(KanbanSchedulingSystem)»
+		<KSSModel>
+			<ExperimentSettings>
+				<Replications>«km.getReplications»</Replications>
+				<InterArrivalTime>«km.getInterArrivalTime»</InterArrivalTime>
+			</ExperimentSettings>
+		«ENDFOR»
 		<GovernanceModel>
+			<GovernanceSearchStrategies>
+				«FOR stg : res.allContents.toIterable.filter(Strategy)» 
+				<Strategy>
+					<name>«stg.name»</name>
+					<Description>«stg.description»</Description>					
+					<acceptanceRule>«stg.getWIAcceptanceRule.name»</acceptanceRule>
+					<selectionRule>«stg.getWISelectionRule.name»</selectionRule>
+					<assignmentRule>«stg.getWIAssignmentRule.name»</assignmentRule>
+					<allocationRule>«stg.getResourceAllocationRule.name»</allocationRule>
+					<outsourcingRule>«stg.getResourceOutsourcingRule.name»</outsourcingRule>
+				</Strategy>
+				«ENDFOR»
+			</GovernanceSearchStrategies>
 			<TaskPatterns>
 				«FOR tp : res.allContents.toIterable.filter(TaskPattern)» 
 				<TaskPattern>
@@ -56,6 +77,14 @@ def compile(Resource res) '''
 				«ENDFOR»
 				</TaskPattern>
 			</TaskPatterns>
+			<ValueFunctions>
+				«FOR vf : res.allContents.toIterable.filter(ValueFunction)» 
+				<ValueFunction>
+					<name>«vf.name»</name>
+					<Description>«vf.description»</Description>
+				</ValueFunction>
+				«ENDFOR»
+			</ValueFunctions>
 		</GovernanceModel>
 		
 		
@@ -98,22 +127,35 @@ def compile(Resource res) '''
 					</service>
 					«ENDFOR»	
 					</services>	
-					<governanceSearchStrategy>
-						<acceptanceRule>
-							«t.getAcceptanceRule().name»
-						</acceptanceRule>
-						<selectionRule>
-							«t.getSelectionRule().name»
-						</selectionRule>
-						<assignmentRule>
-							«t.getAssignmentRule().name»
-						</assignmentRule>
-«««						<allocationRule>
-«««							«t.getAllocationRule().name»
-«««						</allocationRule>	
-«««						<outsourcingRule>
-«««							«t.getOutsourcingRule().name»
-«««						</outsourcingRule>	
+					<governanceSearchStrategy>						
+						<default>«t.getDefaultStrategy().getName()»</default>
+						<specified>
+						«IF t.getAcceptanceRule() != null»
+							<acceptanceRule>«t.getAcceptanceRule().name»</acceptanceRule>						
+						«ELSE»
+							<acceptanceRule>«"null"»</acceptanceRule>
+						«ENDIF»
+						«IF t.getSelectionRule() != null»
+							<selectionRule>«t.getSelectionRule().name»</selectionRule>						
+						«ELSE»
+							<selectionRule>«"null"»</selectionRule>
+						«ENDIF»
+						«IF t.getAssignmentRule() != null»
+							<assignmentRule>«t.getAssignmentRule().name»</assignmentRule>						
+						«ELSE»
+							<assignmentRule>«"null"»</assignmentRule>
+						«ENDIF»
+						«IF t.getAllocationRule() != null»
+							<allocationRule>«t.getAllocationRule().name»</allocationRule>						
+						«ELSE»
+							<allocationRule>«"null"»</allocationRule>
+						«ENDIF»
+						«IF t.getOutsourcingRule() != null»
+							<outsourcingRule>«t.getOutsourcingRule().name»</outsourcingRule>						
+						«ELSE»
+							<outsourcingRule>«"null"»</outsourcingRule>
+						«ENDIF»
+						</specified>
 					</governanceSearchStrategy>	
 				</ServiceProvider>
 			«ENDFOR»
@@ -140,7 +182,7 @@ def compile(Resource res) '''
 				</predecessors>
 				<subtasks>
 				«FOR stask : wi.getSTasks()»				
-			 		<subtask>«stask.name»</subtask>
+					<subtask>«stask.name»</subtask>
 				«ENDFOR»	
 				</subtasks>
 				<causalities>
@@ -163,7 +205,7 @@ def compile(Resource res) '''
 					«IF wi.getWItemSource() != null» 
 					<WorkSource>«wi.getWItemSource().name»</WorkSource>
 					«ELSE»
-					<WorkSource> </WorkSource>
+					<WorkSource>«"null"»</WorkSource>
                     «ENDIF»
 					<arrivalTime>«wi.arrtime»</arrivalTime>
 					<dueDate>«wi.duedate»</dueDate>
@@ -203,6 +245,8 @@ def compile(Resource res) '''
 «««				</capabilities>
 «««			«ENDFOR»
 «««		</KanbanWorkFlow>
+		
+
 		
 		</KSSModel>
 	'''

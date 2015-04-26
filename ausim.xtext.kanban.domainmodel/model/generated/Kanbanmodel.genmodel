@@ -10,12 +10,16 @@
     <genClasses ecoreClass="Kanbanmodel.ecore#//KanbanSchedulingSystem">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//KanbanSchedulingSystem/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//KanbanSchedulingSystem/Mechanisms"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//KanbanSchedulingSystem/KSSSearchStrategies"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//KanbanSchedulingSystem/KSSTaskPatterns"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//KanbanSchedulingSystem/KSStaskPatternTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//KanbanSchedulingSystem/KSSValueFunctions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//KanbanSchedulingSystem/SoSServices"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//KanbanSchedulingSystem/orgUnits"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//KanbanSchedulingSystem/kssSources"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//KanbanSchedulingSystem/kssWItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//KanbanSchedulingSystem/replications"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//KanbanSchedulingSystem/interArrivalTime"/>
     </genClasses>
     <genClasses ecoreClass="Kanbanmodel.ecore#//TaskPattern">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//TaskPattern/name"/>
@@ -26,6 +30,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//TaskType/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//TaskType/description"/>
     </genClasses>
+    <genClasses ecoreClass="Kanbanmodel.ecore#//ValueFunction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ValueFunction/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ValueFunction/description"/>
+    </genClasses>
     <genClasses ecoreClass="Kanbanmodel.ecore#//Mechanism">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Mechanism/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Mechanism/description"/>
@@ -35,21 +43,21 @@
     <genClasses ecoreClass="Kanbanmodel.ecore#//Strategy">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Strategy/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Strategy/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Strategy/WIAcceptance"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Strategy/WISelection"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Strategy/WIAssignment"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Strategy/ResourceAllocation"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Strategy/ResourceOutsourcing"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Strategy/WIAcceptanceRule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Strategy/WISelectionRule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Strategy/WIAssignmentRule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Strategy/ResourceAllocationRule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Strategy/ResourceOutsourcingRule"/>
     </genClasses>
     <genClasses ecoreClass="Kanbanmodel.ecore#//WIAcceptance">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//WIAcceptance/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//WIAcceptance/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//WIAcceptance/backlogQLimit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//WIAcceptance/readyQLimit"/>
     </genClasses>
     <genClasses ecoreClass="Kanbanmodel.ecore#//WISelection">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//WISelection/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//WISelection/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//WISelection/readyQLimit"/>
     </genClasses>
     <genClasses ecoreClass="Kanbanmodel.ecore#//WIAssignment">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//WIAssignment/name"/>
@@ -66,6 +74,7 @@
     <genClasses ecoreClass="Kanbanmodel.ecore#//WorkSource">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//WorkSource/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//WorkSource/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//WorkSource/assignmentRule"/>
     </genClasses>
     <genClasses ecoreClass="Kanbanmodel.ecore#//WorkItem">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//WorkItem/name"/>
@@ -106,6 +115,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//ServiceProvider/subordinateUnits"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//ServiceProvider/resources"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//ServiceProvider/services"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//ServiceProvider/defaultStrategy"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//ServiceProvider/acceptanceRule"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//ServiceProvider/selectionRule"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//ServiceProvider/assignmentRule"/>

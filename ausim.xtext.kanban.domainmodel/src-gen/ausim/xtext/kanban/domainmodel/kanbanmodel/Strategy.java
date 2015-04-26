@@ -2,8 +2,6 @@
  */
 package ausim.xtext.kanban.domainmodel.kanbanmodel;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,11 +14,11 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getName <em>Name</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getDescription <em>Description</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWIAcceptance <em>WI Acceptance</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWISelection <em>WI Selection</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWIAssignment <em>WI Assignment</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getResourceAllocation <em>Resource Allocation</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getResourceOutsourcing <em>Resource Outsourcing</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWIAcceptanceRule <em>WI Acceptance Rule</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWISelectionRule <em>WI Selection Rule</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWIAssignmentRule <em>WI Assignment Rule</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getResourceAllocationRule <em>Resource Allocation Rule</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getResourceOutsourcingRule <em>Resource Outsourcing Rule</em>}</li>
  * </ul>
  * </p>
  *
@@ -83,83 +81,133 @@ public interface Strategy extends EObject
   void setDescription(String value);
 
   /**
-   * Returns the value of the '<em><b>WI Acceptance</b></em>' containment reference list.
-   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.WIAcceptance}.
+   * Returns the value of the '<em><b>WI Acceptance Rule</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>WI Acceptance</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>WI Acceptance Rule</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>WI Acceptance</em>' containment reference list.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_WIAcceptance()
+   * @return the value of the '<em>WI Acceptance Rule</em>' containment reference.
+   * @see #setWIAcceptanceRule(WIAcceptance)
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_WIAcceptanceRule()
    * @model containment="true"
    * @generated
    */
-  EList<WIAcceptance> getWIAcceptance();
+  WIAcceptance getWIAcceptanceRule();
 
   /**
-   * Returns the value of the '<em><b>WI Selection</b></em>' containment reference list.
-   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.WISelection}.
+   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWIAcceptanceRule <em>WI Acceptance Rule</em>}' containment reference.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>WI Selection</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>WI Selection</em>' containment reference list.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_WISelection()
-   * @model containment="true"
+   * @param value the new value of the '<em>WI Acceptance Rule</em>' containment reference.
+   * @see #getWIAcceptanceRule()
    * @generated
    */
-  EList<WISelection> getWISelection();
+  void setWIAcceptanceRule(WIAcceptance value);
 
   /**
-   * Returns the value of the '<em><b>WI Assignment</b></em>' containment reference list.
-   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.WIAssignment}.
+   * Returns the value of the '<em><b>WI Selection Rule</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>WI Assignment</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>WI Selection Rule</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>WI Assignment</em>' containment reference list.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_WIAssignment()
+   * @return the value of the '<em>WI Selection Rule</em>' containment reference.
+   * @see #setWISelectionRule(WISelection)
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_WISelectionRule()
    * @model containment="true"
    * @generated
    */
-  EList<WIAssignment> getWIAssignment();
+  WISelection getWISelectionRule();
 
   /**
-   * Returns the value of the '<em><b>Resource Allocation</b></em>' containment reference list.
-   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocation}.
+   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWISelectionRule <em>WI Selection Rule</em>}' containment reference.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Resource Allocation</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Resource Allocation</em>' containment reference list.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_ResourceAllocation()
-   * @model containment="true"
+   * @param value the new value of the '<em>WI Selection Rule</em>' containment reference.
+   * @see #getWISelectionRule()
    * @generated
    */
-  EList<ResourceAllocation> getResourceAllocation();
+  void setWISelectionRule(WISelection value);
 
   /**
-   * Returns the value of the '<em><b>Resource Outsourcing</b></em>' containment reference list.
-   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcing}.
+   * Returns the value of the '<em><b>WI Assignment Rule</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Resource Outsourcing</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>WI Assignment Rule</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Resource Outsourcing</em>' containment reference list.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_ResourceOutsourcing()
+   * @return the value of the '<em>WI Assignment Rule</em>' containment reference.
+   * @see #setWIAssignmentRule(WIAssignment)
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_WIAssignmentRule()
    * @model containment="true"
    * @generated
    */
-  EList<ResourceOutsourcing> getResourceOutsourcing();
+  WIAssignment getWIAssignmentRule();
+
+  /**
+   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWIAssignmentRule <em>WI Assignment Rule</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>WI Assignment Rule</em>' containment reference.
+   * @see #getWIAssignmentRule()
+   * @generated
+   */
+  void setWIAssignmentRule(WIAssignment value);
+
+  /**
+   * Returns the value of the '<em><b>Resource Allocation Rule</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Resource Allocation Rule</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Resource Allocation Rule</em>' containment reference.
+   * @see #setResourceAllocationRule(ResourceAllocation)
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_ResourceAllocationRule()
+   * @model containment="true"
+   * @generated
+   */
+  ResourceAllocation getResourceAllocationRule();
+
+  /**
+   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getResourceAllocationRule <em>Resource Allocation Rule</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Resource Allocation Rule</em>' containment reference.
+   * @see #getResourceAllocationRule()
+   * @generated
+   */
+  void setResourceAllocationRule(ResourceAllocation value);
+
+  /**
+   * Returns the value of the '<em><b>Resource Outsourcing Rule</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Resource Outsourcing Rule</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Resource Outsourcing Rule</em>' containment reference.
+   * @see #setResourceOutsourcingRule(ResourceOutsourcing)
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_ResourceOutsourcingRule()
+   * @model containment="true"
+   * @generated
+   */
+  ResourceOutsourcing getResourceOutsourcingRule();
+
+  /**
+   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getResourceOutsourcingRule <em>Resource Outsourcing Rule</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Resource Outsourcing Rule</em>' containment reference.
+   * @see #getResourceOutsourcingRule()
+   * @generated
+   */
+  void setResourceOutsourcingRule(ResourceOutsourcing value);
 
 } // Strategy
