@@ -170,6 +170,13 @@ public class KanbanmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case KanbanmodelPackage.LOCAL_VALUE:
+      {
+        LocalValue localValue = (LocalValue)theEObject;
+        T result = caseLocalValue(localValue);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case KanbanmodelPackage.SERVICE_TYPE:
       {
         ServiceType serviceType = (ServiceType)theEObject;
@@ -188,6 +195,13 @@ public class KanbanmodelSwitch<T> extends Switch<T>
       {
         ServiceProvider serviceProvider = (ServiceProvider)theEObject;
         T result = caseServiceProvider(serviceProvider);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.RESOURCE:
+      {
+        Resource resource = (Resource)theEObject;
+        T result = caseResource(resource);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -504,6 +518,22 @@ public class KanbanmodelSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Local Value</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Local Value</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLocalValue(LocalValue object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Service Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -547,6 +577,22 @@ public class KanbanmodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseServiceProvider(ServiceProvider object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Resource</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Resource</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseResource(Resource object)
   {
     return null;
   }

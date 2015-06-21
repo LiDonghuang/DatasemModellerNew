@@ -3,6 +3,7 @@ module ausim.xtext.kanban.domainmodel.GenerateKanbanmodel
 import org.eclipse.emf.mwe.utils.*
 import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
+import org.eclipse.equinox.common
 
 var grammarURI = "classpath:/ausim/xtext/kanban/domainmodel/Kanbanmodel.xtext"
 var fileExtensions = "kmdl"

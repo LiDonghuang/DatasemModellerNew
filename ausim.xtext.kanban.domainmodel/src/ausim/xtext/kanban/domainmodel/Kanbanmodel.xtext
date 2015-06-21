@@ -118,6 +118,7 @@ generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
     WorkSource:
     	'workSource' name=ID '{'
     	('Description' description=STRING)?
+    	('targetUnits' '{' (targetUnits+=[ServiceProvider])+ '}')?
     	(assignmentRule=WIAssignment)?
     	'}'
     ;
@@ -138,6 +139,7 @@ generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
 		('serviceType' (reqSpecialties+=[ServiceType])+)?
 		('baseEfforts' befforts=INT)?
 		('baseValue' bvalue=INT)?
+		('localValues' lvalue+=LocalValue)?
 		('classOfService' COS=ID)?
 		('WorkSource' wItemSource=[WorkSource])?
 		('arrivalTime' arrtime=INT)?
@@ -148,6 +150,10 @@ generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
 		('=>'| '->')'{'(triggered+=[WorkItem])+'}'
 		('atProgress' tProgress=INT)?
 		('onProbability' tProbability=INT)?		
+	;
+	LocalValue:
+		('owner' owner=[ServiceProvider])
+		('value' value=INT)
 	;
 	
 	// ------------------------ Organizational Objects ---------------------------------
@@ -168,8 +174,7 @@ generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
 		('Description' description=STRING)?
 		('sourceUnits' '{' (sourceUnits+=[ServiceProvider])+ '}')?
 		('targetUnits' '{' (targetUnits+=[ServiceProvider])+ '}')?
-		('subordinateUnits' '{' (subordinateUnits+=[ServiceProvider])+ '}')?
-		('resources' '{' (resources+=Asset)+ '}')?
+		('subordinateUnits' '{' (subordinateUnits+=[ServiceProvider])+ '}')?		
 		('services' '{' (services+=Service)+ '}')?
 		('governanceSearchStrategy' '{'
 			'default' defaultStrategy=[Strategy]
@@ -180,13 +185,21 @@ generate kanbanmodel "http://www.xtext.ausim/kanban/domainmodel/Kanbanmodel"
 		    (allocationRule=ResourceAllocation)?
 		    (outsourcingRule=ResourceOutsourcing)?
 		    '}')?
-	    	'}')?
+	    '}')?
+	    ('resources' '{' (resources+=Resource)+ '}')?
 	    '}'
 	;
+	Resource: 
+		'resource' name=ID '{'
+		('Description' description=STRING)?
+		('services' '{' (services+=Service)+ '}')?
+		'}'
+	;	
+	
 	Asset: 
 		'resource' name=ID '{'
 		('Description' description=STRING)?
-		'skills' '{' (hasSkills+=Skill)+ '}'
+		('skills' '{' (hasSkills+=Skill)+ '}')?
 		'}'
 	;	
 	Skill:

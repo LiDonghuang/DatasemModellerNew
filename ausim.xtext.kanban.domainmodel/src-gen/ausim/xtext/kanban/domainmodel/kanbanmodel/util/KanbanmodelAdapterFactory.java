@@ -145,6 +145,11 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
         return createCausalityAdapter();
       }
       @Override
+      public Adapter caseLocalValue(LocalValue object)
+      {
+        return createLocalValueAdapter();
+      }
+      @Override
       public Adapter caseServiceType(ServiceType object)
       {
         return createServiceTypeAdapter();
@@ -158,6 +163,11 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
       public Adapter caseServiceProvider(ServiceProvider object)
       {
         return createServiceProviderAdapter();
+      }
+      @Override
+      public Adapter caseResource(Resource object)
+      {
+        return createResourceAdapter();
       }
       @Override
       public Adapter caseAsset(Asset object)
@@ -452,6 +462,21 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.LocalValue <em>Local Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.LocalValue
+   * @generated
+   */
+  public Adapter createLocalValueAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceType <em>Service Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -492,6 +517,21 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createServiceProviderAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Resource <em>Resource</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Resource
+   * @generated
+   */
+  public Adapter createResourceAdapter()
   {
     return null;
   }

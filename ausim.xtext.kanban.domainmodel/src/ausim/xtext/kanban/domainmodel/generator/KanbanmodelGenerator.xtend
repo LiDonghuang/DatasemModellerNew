@@ -119,12 +119,12 @@ def compile(Resource res) '''
 					</subordinateUnits>	
 					<services>
 					«FOR s : t.getServices()» 
-					<service>
-						<name>«s.name»</name>
-						<Description>«s.description»</Description>
-						<Type>«s.getServiceType().name»</Type>
-						<Efficiency>«s.efficiency»</Efficiency>
-					</service>
+						<service>
+							<name>«s.name»</name>
+							<Description>«s.description»</Description>
+							<Type>«s.getServiceType().name»</Type>
+							<Efficiency>«s.efficiency»</Efficiency>
+						</service>
 					«ENDFOR»	
 					</services>	
 					<governanceSearchStrategy>						
@@ -157,6 +157,24 @@ def compile(Resource res) '''
 						«ENDIF»
 						</specified>
 					</governanceSearchStrategy>	
+					<resources>
+					«FOR r : t.getResources()» 
+						<resource>
+							<name>«r.name»</name>
+							<Description>«r.description»</Description>
+							<services>
+							«FOR s : r.getServices()» 
+							<service>
+								<name>«s.name»</name>
+								<Description>«s.description»</Description>
+								<Type>«s.getServiceType().name»</Type>
+								<Efficiency>«s.efficiency»</Efficiency>
+							</service>
+							«ENDFOR»	
+							</services>	
+						</resource>	
+					«ENDFOR»
+					</resources>	
 				</ServiceProvider>
 			«ENDFOR»
 			</ServiceProvidersList>
@@ -167,6 +185,16 @@ def compile(Resource res) '''
 			<workSource>
 				<name>«ws.name»</name>
 				<Description>«ws.description»</Description>
+				<targetUnits>
+				«FOR tu : ws.getTargetUnits()»
+					<targetUnit>«tu.name»</targetUnit>
+				«ENDFOR»
+				</targetUnits>
+				«IF ws.getAssignmentRule() != null»
+				<assignmentRule>«ws.getAssignmentRule().name»</assignmentRule>						
+				«ELSE»
+				<assignmentRule>«"null"»</assignmentRule>
+				«ENDIF»				
 			</workSource>
 		«ENDFOR»		
 		«FOR wi : res.allContents.toIterable.filter(WorkItem)»
