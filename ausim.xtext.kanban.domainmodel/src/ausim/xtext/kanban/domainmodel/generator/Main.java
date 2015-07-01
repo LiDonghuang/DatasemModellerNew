@@ -28,7 +28,7 @@ public class Main {
 		}*/
 		Injector injector = new ausim.xtext.kanban.domainmodel.KanbanmodelStandaloneSetup().createInjectorAndDoEMFRegistration();
 		Main main = injector.getInstance(Main.class);
-		main.runGenerator("/Users/Donbghuang Li/desktop/healthcare.kmdl");
+		main.runGenerator("/Users/Donbghuang Li/Desktop/KSS-DSL.kmdl");
 	}
 	
 	@Inject 
@@ -58,7 +58,7 @@ public class Main {
 		}
 		
 		// configure and start the generator
-		fileAccess.setOutputPath("/Users/Donbghuang Li/desktop");
+		fileAccess.setOutputPath("/Users/Donbghuang Li/Desktop");
 		generator.doGenerate(resource, fileAccess);
 		
 		System.out.println("Code generation finished.");
