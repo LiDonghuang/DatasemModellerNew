@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.TaskPatternImpl#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.TaskPatternImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.TaskPatternImpl#getTaskpatternTypes <em>Taskpattern Types</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.TaskPatternImpl#getTaskTypes <em>Task Types</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,14 +77,14 @@ public class TaskPatternImpl extends MinimalEObjectImpl.Container implements Tas
   protected String description = DESCRIPTION_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getTaskpatternTypes() <em>Taskpattern Types</em>}' reference list.
+   * The cached value of the '{@link #getTaskTypes() <em>Task Types</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTaskpatternTypes()
+   * @see #getTaskTypes()
    * @generated
    * @ordered
    */
-  protected EList<TaskType> taskpatternTypes;
+  protected EList<TaskType> taskTypes;
 
   /**
    * <!-- begin-user-doc -->
@@ -158,13 +158,13 @@ public class TaskPatternImpl extends MinimalEObjectImpl.Container implements Tas
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<TaskType> getTaskpatternTypes()
+  public EList<TaskType> getTaskTypes()
   {
-    if (taskpatternTypes == null)
+    if (taskTypes == null)
     {
-      taskpatternTypes = new EObjectResolvingEList<TaskType>(TaskType.class, this, KanbanmodelPackage.TASK_PATTERN__TASKPATTERN_TYPES);
+      taskTypes = new EObjectResolvingEList<TaskType>(TaskType.class, this, KanbanmodelPackage.TASK_PATTERN__TASK_TYPES);
     }
-    return taskpatternTypes;
+    return taskTypes;
   }
 
   /**
@@ -181,8 +181,8 @@ public class TaskPatternImpl extends MinimalEObjectImpl.Container implements Tas
         return getName();
       case KanbanmodelPackage.TASK_PATTERN__DESCRIPTION:
         return getDescription();
-      case KanbanmodelPackage.TASK_PATTERN__TASKPATTERN_TYPES:
-        return getTaskpatternTypes();
+      case KanbanmodelPackage.TASK_PATTERN__TASK_TYPES:
+        return getTaskTypes();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -204,9 +204,9 @@ public class TaskPatternImpl extends MinimalEObjectImpl.Container implements Tas
       case KanbanmodelPackage.TASK_PATTERN__DESCRIPTION:
         setDescription((String)newValue);
         return;
-      case KanbanmodelPackage.TASK_PATTERN__TASKPATTERN_TYPES:
-        getTaskpatternTypes().clear();
-        getTaskpatternTypes().addAll((Collection<? extends TaskType>)newValue);
+      case KanbanmodelPackage.TASK_PATTERN__TASK_TYPES:
+        getTaskTypes().clear();
+        getTaskTypes().addAll((Collection<? extends TaskType>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -228,8 +228,8 @@ public class TaskPatternImpl extends MinimalEObjectImpl.Container implements Tas
       case KanbanmodelPackage.TASK_PATTERN__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case KanbanmodelPackage.TASK_PATTERN__TASKPATTERN_TYPES:
-        getTaskpatternTypes().clear();
+      case KanbanmodelPackage.TASK_PATTERN__TASK_TYPES:
+        getTaskTypes().clear();
         return;
     }
     super.eUnset(featureID);
@@ -249,8 +249,8 @@ public class TaskPatternImpl extends MinimalEObjectImpl.Container implements Tas
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case KanbanmodelPackage.TASK_PATTERN__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case KanbanmodelPackage.TASK_PATTERN__TASKPATTERN_TYPES:
-        return taskpatternTypes != null && !taskpatternTypes.isEmpty();
+      case KanbanmodelPackage.TASK_PATTERN__TASK_TYPES:
+        return taskTypes != null && !taskTypes.isEmpty();
     }
     return super.eIsSet(featureID);
   }

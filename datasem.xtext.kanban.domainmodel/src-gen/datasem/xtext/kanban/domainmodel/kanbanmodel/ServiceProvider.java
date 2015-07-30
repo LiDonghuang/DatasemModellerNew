@@ -310,7 +310,7 @@ public interface ServiceProvider extends EObject
 
   /**
    * Returns the value of the '<em><b>Resources</b></em>' containment reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.Resource}.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.Asset}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Resources</em>' containment reference list isn't clear,
@@ -322,6 +322,6 @@ public interface ServiceProvider extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Resource> getResources();
+  EList<Asset> getResources();
 
 } // ServiceProvider

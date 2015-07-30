@@ -35,12 +35,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemProfileImpl#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemProfileImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemProfileImpl#getRefTasks <em>Ref Tasks</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemProfileImpl#getDecTasks <em>Dec Tasks</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemProfileImpl#getReqSpecialties <em>Req Specialties</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemProfileImpl#getBefforts <em>Befforts</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemProfileImpl#getBvalue <em>Bvalue</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemProfileImpl#getCOS <em>COS</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemProfileImpl#getReferences <em>References</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemProfileImpl#getDecompositions <em>Decompositions</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemProfileImpl#getRequiredServices <em>Required Services</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemProfileImpl#getEfforts <em>Efforts</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemProfileImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemProfileImpl#getClassOfService <em>Class Of Service</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemProfileImpl#isAllowAssignment <em>Allow Assignment</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemProfileImpl#isAllowDiscard <em>Allow Discard</em>}</li>
  * </ul>
  * </p>
  *
@@ -89,74 +91,114 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
   protected String description = DESCRIPTION_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getRefTasks() <em>Ref Tasks</em>}' containment reference list.
+   * The cached value of the '{@link #getReferences() <em>References</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRefTasks()
+   * @see #getReferences()
    * @generated
    * @ordered
    */
-  protected EList<WorkReference> refTasks;
+  protected EList<WorkReference> references;
 
   /**
-   * The cached value of the '{@link #getDecTasks() <em>Dec Tasks</em>}' containment reference list.
+   * The cached value of the '{@link #getDecompositions() <em>Decompositions</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDecTasks()
+   * @see #getDecompositions()
    * @generated
    * @ordered
    */
-  protected EList<WorkDecomposition> decTasks;
+  protected EList<WorkDecomposition> decompositions;
 
   /**
-   * The cached value of the '{@link #getReqSpecialties() <em>Req Specialties</em>}' reference list.
+   * The cached value of the '{@link #getRequiredServices() <em>Required Services</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getReqSpecialties()
+   * @see #getRequiredServices()
    * @generated
    * @ordered
    */
-  protected EList<ServiceType> reqSpecialties;
+  protected EList<ServiceType> requiredServices;
 
   /**
-   * The cached value of the '{@link #getBefforts() <em>Befforts</em>}' containment reference.
+   * The cached value of the '{@link #getEfforts() <em>Efforts</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBefforts()
+   * @see #getEfforts()
    * @generated
    * @ordered
    */
-  protected NumExpression befforts;
+  protected NumExpression efforts;
 
   /**
-   * The cached value of the '{@link #getBvalue() <em>Bvalue</em>}' containment reference.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBvalue()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected NumExpression bvalue;
+  protected NumExpression value;
 
   /**
-   * The default value of the '{@link #getCOS() <em>COS</em>}' attribute.
+   * The default value of the '{@link #getClassOfService() <em>Class Of Service</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCOS()
+   * @see #getClassOfService()
    * @generated
    * @ordered
    */
-  protected static final String COS_EDEFAULT = null;
+  protected static final String CLASS_OF_SERVICE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getCOS() <em>COS</em>}' attribute.
+   * The cached value of the '{@link #getClassOfService() <em>Class Of Service</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCOS()
+   * @see #getClassOfService()
    * @generated
    * @ordered
    */
-  protected String cos = COS_EDEFAULT;
+  protected String classOfService = CLASS_OF_SERVICE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isAllowAssignment() <em>Allow Assignment</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isAllowAssignment()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean ALLOW_ASSIGNMENT_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isAllowAssignment() <em>Allow Assignment</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isAllowAssignment()
+   * @generated
+   * @ordered
+   */
+  protected boolean allowAssignment = ALLOW_ASSIGNMENT_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isAllowDiscard() <em>Allow Discard</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isAllowDiscard()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean ALLOW_DISCARD_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isAllowDiscard() <em>Allow Discard</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isAllowDiscard()
+   * @generated
+   * @ordered
+   */
+  protected boolean allowDiscard = ALLOW_DISCARD_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -230,13 +272,13 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<WorkReference> getRefTasks()
+  public EList<WorkReference> getReferences()
   {
-    if (refTasks == null)
+    if (references == null)
     {
-      refTasks = new EObjectContainmentEList<WorkReference>(WorkReference.class, this, KanbanmodelPackage.WORK_ITEM_PROFILE__REF_TASKS);
+      references = new EObjectContainmentEList<WorkReference>(WorkReference.class, this, KanbanmodelPackage.WORK_ITEM_PROFILE__REFERENCES);
     }
-    return refTasks;
+    return references;
   }
 
   /**
@@ -244,13 +286,13 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<WorkDecomposition> getDecTasks()
+  public EList<WorkDecomposition> getDecompositions()
   {
-    if (decTasks == null)
+    if (decompositions == null)
     {
-      decTasks = new EObjectContainmentEList<WorkDecomposition>(WorkDecomposition.class, this, KanbanmodelPackage.WORK_ITEM_PROFILE__DEC_TASKS);
+      decompositions = new EObjectContainmentEList<WorkDecomposition>(WorkDecomposition.class, this, KanbanmodelPackage.WORK_ITEM_PROFILE__DECOMPOSITIONS);
     }
-    return decTasks;
+    return decompositions;
   }
 
   /**
@@ -258,13 +300,13 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ServiceType> getReqSpecialties()
+  public EList<ServiceType> getRequiredServices()
   {
-    if (reqSpecialties == null)
+    if (requiredServices == null)
     {
-      reqSpecialties = new EObjectResolvingEList<ServiceType>(ServiceType.class, this, KanbanmodelPackage.WORK_ITEM_PROFILE__REQ_SPECIALTIES);
+      requiredServices = new EObjectResolvingEList<ServiceType>(ServiceType.class, this, KanbanmodelPackage.WORK_ITEM_PROFILE__REQUIRED_SERVICES);
     }
-    return reqSpecialties;
+    return requiredServices;
   }
 
   /**
@@ -272,9 +314,9 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public NumExpression getBefforts()
+  public NumExpression getEfforts()
   {
-    return befforts;
+    return efforts;
   }
 
   /**
@@ -282,13 +324,13 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetBefforts(NumExpression newBefforts, NotificationChain msgs)
+  public NotificationChain basicSetEfforts(NumExpression newEfforts, NotificationChain msgs)
   {
-    NumExpression oldBefforts = befforts;
-    befforts = newBefforts;
+    NumExpression oldEfforts = efforts;
+    efforts = newEfforts;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM_PROFILE__BEFFORTS, oldBefforts, newBefforts);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM_PROFILE__EFFORTS, oldEfforts, newEfforts);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -299,20 +341,20 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBefforts(NumExpression newBefforts)
+  public void setEfforts(NumExpression newEfforts)
   {
-    if (newBefforts != befforts)
+    if (newEfforts != efforts)
     {
       NotificationChain msgs = null;
-      if (befforts != null)
-        msgs = ((InternalEObject)befforts).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.WORK_ITEM_PROFILE__BEFFORTS, null, msgs);
-      if (newBefforts != null)
-        msgs = ((InternalEObject)newBefforts).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.WORK_ITEM_PROFILE__BEFFORTS, null, msgs);
-      msgs = basicSetBefforts(newBefforts, msgs);
+      if (efforts != null)
+        msgs = ((InternalEObject)efforts).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.WORK_ITEM_PROFILE__EFFORTS, null, msgs);
+      if (newEfforts != null)
+        msgs = ((InternalEObject)newEfforts).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.WORK_ITEM_PROFILE__EFFORTS, null, msgs);
+      msgs = basicSetEfforts(newEfforts, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM_PROFILE__BEFFORTS, newBefforts, newBefforts));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM_PROFILE__EFFORTS, newEfforts, newEfforts));
   }
 
   /**
@@ -320,9 +362,9 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public NumExpression getBvalue()
+  public NumExpression getValue()
   {
-    return bvalue;
+    return value;
   }
 
   /**
@@ -330,13 +372,13 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetBvalue(NumExpression newBvalue, NotificationChain msgs)
+  public NotificationChain basicSetValue(NumExpression newValue, NotificationChain msgs)
   {
-    NumExpression oldBvalue = bvalue;
-    bvalue = newBvalue;
+    NumExpression oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM_PROFILE__BVALUE, oldBvalue, newBvalue);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM_PROFILE__VALUE, oldValue, newValue);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -347,20 +389,20 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBvalue(NumExpression newBvalue)
+  public void setValue(NumExpression newValue)
   {
-    if (newBvalue != bvalue)
+    if (newValue != value)
     {
       NotificationChain msgs = null;
-      if (bvalue != null)
-        msgs = ((InternalEObject)bvalue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.WORK_ITEM_PROFILE__BVALUE, null, msgs);
-      if (newBvalue != null)
-        msgs = ((InternalEObject)newBvalue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.WORK_ITEM_PROFILE__BVALUE, null, msgs);
-      msgs = basicSetBvalue(newBvalue, msgs);
+      if (value != null)
+        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.WORK_ITEM_PROFILE__VALUE, null, msgs);
+      if (newValue != null)
+        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.WORK_ITEM_PROFILE__VALUE, null, msgs);
+      msgs = basicSetValue(newValue, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM_PROFILE__BVALUE, newBvalue, newBvalue));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM_PROFILE__VALUE, newValue, newValue));
   }
 
   /**
@@ -368,9 +410,9 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getCOS()
+  public String getClassOfService()
   {
-    return cos;
+    return classOfService;
   }
 
   /**
@@ -378,12 +420,58 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setCOS(String newCOS)
+  public void setClassOfService(String newClassOfService)
   {
-    String oldCOS = cos;
-    cos = newCOS;
+    String oldClassOfService = classOfService;
+    classOfService = newClassOfService;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM_PROFILE__COS, oldCOS, cos));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM_PROFILE__CLASS_OF_SERVICE, oldClassOfService, classOfService));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isAllowAssignment()
+  {
+    return allowAssignment;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAllowAssignment(boolean newAllowAssignment)
+  {
+    boolean oldAllowAssignment = allowAssignment;
+    allowAssignment = newAllowAssignment;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM_PROFILE__ALLOW_ASSIGNMENT, oldAllowAssignment, allowAssignment));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isAllowDiscard()
+  {
+    return allowDiscard;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAllowDiscard(boolean newAllowDiscard)
+  {
+    boolean oldAllowDiscard = allowDiscard;
+    allowDiscard = newAllowDiscard;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM_PROFILE__ALLOW_DISCARD, oldAllowDiscard, allowDiscard));
   }
 
   /**
@@ -396,14 +484,14 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__REF_TASKS:
-        return ((InternalEList<?>)getRefTasks()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__DEC_TASKS:
-        return ((InternalEList<?>)getDecTasks()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__BEFFORTS:
-        return basicSetBefforts(null, msgs);
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__BVALUE:
-        return basicSetBvalue(null, msgs);
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__REFERENCES:
+        return ((InternalEList<?>)getReferences()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__DECOMPOSITIONS:
+        return ((InternalEList<?>)getDecompositions()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__EFFORTS:
+        return basicSetEfforts(null, msgs);
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__VALUE:
+        return basicSetValue(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -422,18 +510,22 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
         return getName();
       case KanbanmodelPackage.WORK_ITEM_PROFILE__DESCRIPTION:
         return getDescription();
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__REF_TASKS:
-        return getRefTasks();
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__DEC_TASKS:
-        return getDecTasks();
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__REQ_SPECIALTIES:
-        return getReqSpecialties();
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__BEFFORTS:
-        return getBefforts();
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__BVALUE:
-        return getBvalue();
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__COS:
-        return getCOS();
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__REFERENCES:
+        return getReferences();
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__DECOMPOSITIONS:
+        return getDecompositions();
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__REQUIRED_SERVICES:
+        return getRequiredServices();
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__EFFORTS:
+        return getEfforts();
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__VALUE:
+        return getValue();
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__CLASS_OF_SERVICE:
+        return getClassOfService();
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__ALLOW_ASSIGNMENT:
+        return isAllowAssignment();
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__ALLOW_DISCARD:
+        return isAllowDiscard();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -455,26 +547,32 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
       case KanbanmodelPackage.WORK_ITEM_PROFILE__DESCRIPTION:
         setDescription((String)newValue);
         return;
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__REF_TASKS:
-        getRefTasks().clear();
-        getRefTasks().addAll((Collection<? extends WorkReference>)newValue);
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__REFERENCES:
+        getReferences().clear();
+        getReferences().addAll((Collection<? extends WorkReference>)newValue);
         return;
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__DEC_TASKS:
-        getDecTasks().clear();
-        getDecTasks().addAll((Collection<? extends WorkDecomposition>)newValue);
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__DECOMPOSITIONS:
+        getDecompositions().clear();
+        getDecompositions().addAll((Collection<? extends WorkDecomposition>)newValue);
         return;
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__REQ_SPECIALTIES:
-        getReqSpecialties().clear();
-        getReqSpecialties().addAll((Collection<? extends ServiceType>)newValue);
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__REQUIRED_SERVICES:
+        getRequiredServices().clear();
+        getRequiredServices().addAll((Collection<? extends ServiceType>)newValue);
         return;
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__BEFFORTS:
-        setBefforts((NumExpression)newValue);
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__EFFORTS:
+        setEfforts((NumExpression)newValue);
         return;
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__BVALUE:
-        setBvalue((NumExpression)newValue);
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__VALUE:
+        setValue((NumExpression)newValue);
         return;
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__COS:
-        setCOS((String)newValue);
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__CLASS_OF_SERVICE:
+        setClassOfService((String)newValue);
+        return;
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__ALLOW_ASSIGNMENT:
+        setAllowAssignment((Boolean)newValue);
+        return;
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__ALLOW_DISCARD:
+        setAllowDiscard((Boolean)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -496,23 +594,29 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
       case KanbanmodelPackage.WORK_ITEM_PROFILE__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__REF_TASKS:
-        getRefTasks().clear();
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__REFERENCES:
+        getReferences().clear();
         return;
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__DEC_TASKS:
-        getDecTasks().clear();
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__DECOMPOSITIONS:
+        getDecompositions().clear();
         return;
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__REQ_SPECIALTIES:
-        getReqSpecialties().clear();
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__REQUIRED_SERVICES:
+        getRequiredServices().clear();
         return;
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__BEFFORTS:
-        setBefforts((NumExpression)null);
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__EFFORTS:
+        setEfforts((NumExpression)null);
         return;
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__BVALUE:
-        setBvalue((NumExpression)null);
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__VALUE:
+        setValue((NumExpression)null);
         return;
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__COS:
-        setCOS(COS_EDEFAULT);
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__CLASS_OF_SERVICE:
+        setClassOfService(CLASS_OF_SERVICE_EDEFAULT);
+        return;
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__ALLOW_ASSIGNMENT:
+        setAllowAssignment(ALLOW_ASSIGNMENT_EDEFAULT);
+        return;
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__ALLOW_DISCARD:
+        setAllowDiscard(ALLOW_DISCARD_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -532,18 +636,22 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case KanbanmodelPackage.WORK_ITEM_PROFILE__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__REF_TASKS:
-        return refTasks != null && !refTasks.isEmpty();
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__DEC_TASKS:
-        return decTasks != null && !decTasks.isEmpty();
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__REQ_SPECIALTIES:
-        return reqSpecialties != null && !reqSpecialties.isEmpty();
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__BEFFORTS:
-        return befforts != null;
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__BVALUE:
-        return bvalue != null;
-      case KanbanmodelPackage.WORK_ITEM_PROFILE__COS:
-        return COS_EDEFAULT == null ? cos != null : !COS_EDEFAULT.equals(cos);
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__REFERENCES:
+        return references != null && !references.isEmpty();
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__DECOMPOSITIONS:
+        return decompositions != null && !decompositions.isEmpty();
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__REQUIRED_SERVICES:
+        return requiredServices != null && !requiredServices.isEmpty();
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__EFFORTS:
+        return efforts != null;
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__VALUE:
+        return value != null;
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__CLASS_OF_SERVICE:
+        return CLASS_OF_SERVICE_EDEFAULT == null ? classOfService != null : !CLASS_OF_SERVICE_EDEFAULT.equals(classOfService);
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__ALLOW_ASSIGNMENT:
+        return allowAssignment != ALLOW_ASSIGNMENT_EDEFAULT;
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__ALLOW_DISCARD:
+        return allowDiscard != ALLOW_DISCARD_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -563,8 +671,12 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
     result.append(name);
     result.append(", description: ");
     result.append(description);
-    result.append(", COS: ");
-    result.append(cos);
+    result.append(", classOfService: ");
+    result.append(classOfService);
+    result.append(", allowAssignment: ");
+    result.append(allowAssignment);
+    result.append(", allowDiscard: ");
+    result.append(allowDiscard);
     result.append(')');
     return result.toString();
   }

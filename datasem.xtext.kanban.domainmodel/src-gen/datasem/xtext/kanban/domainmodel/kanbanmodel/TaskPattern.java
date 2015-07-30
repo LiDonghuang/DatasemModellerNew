@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.TaskPattern#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.TaskPattern#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.TaskPattern#getTaskpatternTypes <em>Taskpattern Types</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.TaskPattern#getTaskTypes <em>Task Types</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,19 +79,19 @@ public interface TaskPattern extends EObject
   void setDescription(String value);
 
   /**
-   * Returns the value of the '<em><b>Taskpattern Types</b></em>' reference list.
+   * Returns the value of the '<em><b>Task Types</b></em>' reference list.
    * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.TaskType}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Taskpattern Types</em>' reference list isn't clear,
+   * If the meaning of the '<em>Task Types</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Taskpattern Types</em>' reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getTaskPattern_TaskpatternTypes()
+   * @return the value of the '<em>Task Types</em>' reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getTaskPattern_TaskTypes()
    * @model
    * @generated
    */
-  EList<TaskType> getTaskpatternTypes();
+  EList<TaskType> getTaskTypes();
 
 } // TaskPattern

@@ -4,7 +4,6 @@ package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Causality;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.LocalValue;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.TaskPattern;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.TaskType;
@@ -44,14 +43,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getPTasks <em>PTasks</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getSTasks <em>STasks</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getCausalTriggers <em>Causal Triggers</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getReqSpecialties <em>Req Specialties</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getBefforts <em>Befforts</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getBvalue <em>Bvalue</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getLvalue <em>Lvalue</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getCOS <em>COS</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getWItemSource <em>WItem Source</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getArrtime <em>Arrtime</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getDuedate <em>Duedate</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getRequiredServices <em>Required Services</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getEfforts <em>Efforts</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getClassOfService <em>Class Of Service</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getWorkSource <em>Work Source</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getArrivalTime <em>Arrival Time</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getDueDate <em>Due Date</em>}</li>
  * </ul>
  * </p>
  *
@@ -160,134 +158,124 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
   protected EList<Causality> causalTriggers;
 
   /**
-   * The cached value of the '{@link #getReqSpecialties() <em>Req Specialties</em>}' reference list.
+   * The cached value of the '{@link #getRequiredServices() <em>Required Services</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getReqSpecialties()
+   * @see #getRequiredServices()
    * @generated
    * @ordered
    */
-  protected EList<ServiceType> reqSpecialties;
+  protected EList<ServiceType> requiredServices;
 
   /**
-   * The default value of the '{@link #getBefforts() <em>Befforts</em>}' attribute.
+   * The default value of the '{@link #getEfforts() <em>Efforts</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBefforts()
+   * @see #getEfforts()
    * @generated
    * @ordered
    */
-  protected static final int BEFFORTS_EDEFAULT = 0;
+  protected static final String EFFORTS_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getBefforts() <em>Befforts</em>}' attribute.
+   * The cached value of the '{@link #getEfforts() <em>Efforts</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBefforts()
+   * @see #getEfforts()
    * @generated
    * @ordered
    */
-  protected int befforts = BEFFORTS_EDEFAULT;
+  protected String efforts = EFFORTS_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getBvalue() <em>Bvalue</em>}' attribute.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBvalue()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final int BVALUE_EDEFAULT = 0;
+  protected static final String VALUE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getBvalue() <em>Bvalue</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBvalue()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected int bvalue = BVALUE_EDEFAULT;
+  protected String value = VALUE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getLvalue() <em>Lvalue</em>}' containment reference list.
+   * The default value of the '{@link #getClassOfService() <em>Class Of Service</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLvalue()
+   * @see #getClassOfService()
    * @generated
    * @ordered
    */
-  protected EList<LocalValue> lvalue;
+  protected static final String CLASS_OF_SERVICE_EDEFAULT = null;
 
   /**
-   * The default value of the '{@link #getCOS() <em>COS</em>}' attribute.
+   * The cached value of the '{@link #getClassOfService() <em>Class Of Service</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCOS()
+   * @see #getClassOfService()
    * @generated
    * @ordered
    */
-  protected static final String COS_EDEFAULT = null;
+  protected String classOfService = CLASS_OF_SERVICE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getCOS() <em>COS</em>}' attribute.
+   * The cached value of the '{@link #getWorkSource() <em>Work Source</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCOS()
+   * @see #getWorkSource()
    * @generated
    * @ordered
    */
-  protected String cos = COS_EDEFAULT;
+  protected WorkSource workSource;
 
   /**
-   * The cached value of the '{@link #getWItemSource() <em>WItem Source</em>}' reference.
+   * The default value of the '{@link #getArrivalTime() <em>Arrival Time</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getWItemSource()
+   * @see #getArrivalTime()
    * @generated
    * @ordered
    */
-  protected WorkSource wItemSource;
+  protected static final int ARRIVAL_TIME_EDEFAULT = 0;
 
   /**
-   * The default value of the '{@link #getArrtime() <em>Arrtime</em>}' attribute.
+   * The cached value of the '{@link #getArrivalTime() <em>Arrival Time</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getArrtime()
+   * @see #getArrivalTime()
    * @generated
    * @ordered
    */
-  protected static final int ARRTIME_EDEFAULT = 0;
+  protected int arrivalTime = ARRIVAL_TIME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getArrtime() <em>Arrtime</em>}' attribute.
+   * The default value of the '{@link #getDueDate() <em>Due Date</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getArrtime()
+   * @see #getDueDate()
    * @generated
    * @ordered
    */
-  protected int arrtime = ARRTIME_EDEFAULT;
+  protected static final int DUE_DATE_EDEFAULT = 0;
 
   /**
-   * The default value of the '{@link #getDuedate() <em>Duedate</em>}' attribute.
+   * The cached value of the '{@link #getDueDate() <em>Due Date</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDuedate()
+   * @see #getDueDate()
    * @generated
    * @ordered
    */
-  protected static final int DUEDATE_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getDuedate() <em>Duedate</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDuedate()
-   * @generated
-   * @ordered
-   */
-  protected int duedate = DUEDATE_EDEFAULT;
+  protected int dueDate = DUE_DATE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -532,13 +520,13 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ServiceType> getReqSpecialties()
+  public EList<ServiceType> getRequiredServices()
   {
-    if (reqSpecialties == null)
+    if (requiredServices == null)
     {
-      reqSpecialties = new EObjectResolvingEList<ServiceType>(ServiceType.class, this, KanbanmodelPackage.WORK_ITEM__REQ_SPECIALTIES);
+      requiredServices = new EObjectResolvingEList<ServiceType>(ServiceType.class, this, KanbanmodelPackage.WORK_ITEM__REQUIRED_SERVICES);
     }
-    return reqSpecialties;
+    return requiredServices;
   }
 
   /**
@@ -546,9 +534,9 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getBefforts()
+  public String getEfforts()
   {
-    return befforts;
+    return efforts;
   }
 
   /**
@@ -556,12 +544,12 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBefforts(int newBefforts)
+  public void setEfforts(String newEfforts)
   {
-    int oldBefforts = befforts;
-    befforts = newBefforts;
+    String oldEfforts = efforts;
+    efforts = newEfforts;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__BEFFORTS, oldBefforts, befforts));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__EFFORTS, oldEfforts, efforts));
   }
 
   /**
@@ -569,9 +557,9 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getBvalue()
+  public String getValue()
   {
-    return bvalue;
+    return value;
   }
 
   /**
@@ -579,12 +567,12 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBvalue(int newBvalue)
+  public void setValue(String newValue)
   {
-    int oldBvalue = bvalue;
-    bvalue = newBvalue;
+    String oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__BVALUE, oldBvalue, bvalue));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__VALUE, oldValue, value));
   }
 
   /**
@@ -592,56 +580,42 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<LocalValue> getLvalue()
+  public String getClassOfService()
   {
-    if (lvalue == null)
+    return classOfService;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setClassOfService(String newClassOfService)
+  {
+    String oldClassOfService = classOfService;
+    classOfService = newClassOfService;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__CLASS_OF_SERVICE, oldClassOfService, classOfService));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WorkSource getWorkSource()
+  {
+    if (workSource != null && workSource.eIsProxy())
     {
-      lvalue = new EObjectContainmentEList<LocalValue>(LocalValue.class, this, KanbanmodelPackage.WORK_ITEM__LVALUE);
-    }
-    return lvalue;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getCOS()
-  {
-    return cos;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setCOS(String newCOS)
-  {
-    String oldCOS = cos;
-    cos = newCOS;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__COS, oldCOS, cos));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public WorkSource getWItemSource()
-  {
-    if (wItemSource != null && wItemSource.eIsProxy())
-    {
-      InternalEObject oldWItemSource = (InternalEObject)wItemSource;
-      wItemSource = (WorkSource)eResolveProxy(oldWItemSource);
-      if (wItemSource != oldWItemSource)
+      InternalEObject oldWorkSource = (InternalEObject)workSource;
+      workSource = (WorkSource)eResolveProxy(oldWorkSource);
+      if (workSource != oldWorkSource)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.WORK_ITEM__WITEM_SOURCE, oldWItemSource, wItemSource));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.WORK_ITEM__WORK_SOURCE, oldWorkSource, workSource));
       }
     }
-    return wItemSource;
+    return workSource;
   }
 
   /**
@@ -649,9 +623,9 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public WorkSource basicGetWItemSource()
+  public WorkSource basicGetWorkSource()
   {
-    return wItemSource;
+    return workSource;
   }
 
   /**
@@ -659,12 +633,12 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setWItemSource(WorkSource newWItemSource)
+  public void setWorkSource(WorkSource newWorkSource)
   {
-    WorkSource oldWItemSource = wItemSource;
-    wItemSource = newWItemSource;
+    WorkSource oldWorkSource = workSource;
+    workSource = newWorkSource;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__WITEM_SOURCE, oldWItemSource, wItemSource));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__WORK_SOURCE, oldWorkSource, workSource));
   }
 
   /**
@@ -672,9 +646,9 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getArrtime()
+  public int getArrivalTime()
   {
-    return arrtime;
+    return arrivalTime;
   }
 
   /**
@@ -682,12 +656,12 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setArrtime(int newArrtime)
+  public void setArrivalTime(int newArrivalTime)
   {
-    int oldArrtime = arrtime;
-    arrtime = newArrtime;
+    int oldArrivalTime = arrivalTime;
+    arrivalTime = newArrivalTime;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__ARRTIME, oldArrtime, arrtime));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__ARRIVAL_TIME, oldArrivalTime, arrivalTime));
   }
 
   /**
@@ -695,9 +669,9 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getDuedate()
+  public int getDueDate()
   {
-    return duedate;
+    return dueDate;
   }
 
   /**
@@ -705,12 +679,12 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDuedate(int newDuedate)
+  public void setDueDate(int newDueDate)
   {
-    int oldDuedate = duedate;
-    duedate = newDuedate;
+    int oldDueDate = dueDate;
+    dueDate = newDueDate;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__DUEDATE, oldDuedate, duedate));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__DUE_DATE, oldDueDate, dueDate));
   }
 
   /**
@@ -725,8 +699,6 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
     {
       case KanbanmodelPackage.WORK_ITEM__CAUSAL_TRIGGERS:
         return ((InternalEList<?>)getCausalTriggers()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.WORK_ITEM__LVALUE:
-        return ((InternalEList<?>)getLvalue()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -760,23 +732,21 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         return getSTasks();
       case KanbanmodelPackage.WORK_ITEM__CAUSAL_TRIGGERS:
         return getCausalTriggers();
-      case KanbanmodelPackage.WORK_ITEM__REQ_SPECIALTIES:
-        return getReqSpecialties();
-      case KanbanmodelPackage.WORK_ITEM__BEFFORTS:
-        return getBefforts();
-      case KanbanmodelPackage.WORK_ITEM__BVALUE:
-        return getBvalue();
-      case KanbanmodelPackage.WORK_ITEM__LVALUE:
-        return getLvalue();
-      case KanbanmodelPackage.WORK_ITEM__COS:
-        return getCOS();
-      case KanbanmodelPackage.WORK_ITEM__WITEM_SOURCE:
-        if (resolve) return getWItemSource();
-        return basicGetWItemSource();
-      case KanbanmodelPackage.WORK_ITEM__ARRTIME:
-        return getArrtime();
-      case KanbanmodelPackage.WORK_ITEM__DUEDATE:
-        return getDuedate();
+      case KanbanmodelPackage.WORK_ITEM__REQUIRED_SERVICES:
+        return getRequiredServices();
+      case KanbanmodelPackage.WORK_ITEM__EFFORTS:
+        return getEfforts();
+      case KanbanmodelPackage.WORK_ITEM__VALUE:
+        return getValue();
+      case KanbanmodelPackage.WORK_ITEM__CLASS_OF_SERVICE:
+        return getClassOfService();
+      case KanbanmodelPackage.WORK_ITEM__WORK_SOURCE:
+        if (resolve) return getWorkSource();
+        return basicGetWorkSource();
+      case KanbanmodelPackage.WORK_ITEM__ARRIVAL_TIME:
+        return getArrivalTime();
+      case KanbanmodelPackage.WORK_ITEM__DUE_DATE:
+        return getDueDate();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -819,31 +789,27 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         getCausalTriggers().clear();
         getCausalTriggers().addAll((Collection<? extends Causality>)newValue);
         return;
-      case KanbanmodelPackage.WORK_ITEM__REQ_SPECIALTIES:
-        getReqSpecialties().clear();
-        getReqSpecialties().addAll((Collection<? extends ServiceType>)newValue);
+      case KanbanmodelPackage.WORK_ITEM__REQUIRED_SERVICES:
+        getRequiredServices().clear();
+        getRequiredServices().addAll((Collection<? extends ServiceType>)newValue);
         return;
-      case KanbanmodelPackage.WORK_ITEM__BEFFORTS:
-        setBefforts((Integer)newValue);
+      case KanbanmodelPackage.WORK_ITEM__EFFORTS:
+        setEfforts((String)newValue);
         return;
-      case KanbanmodelPackage.WORK_ITEM__BVALUE:
-        setBvalue((Integer)newValue);
+      case KanbanmodelPackage.WORK_ITEM__VALUE:
+        setValue((String)newValue);
         return;
-      case KanbanmodelPackage.WORK_ITEM__LVALUE:
-        getLvalue().clear();
-        getLvalue().addAll((Collection<? extends LocalValue>)newValue);
+      case KanbanmodelPackage.WORK_ITEM__CLASS_OF_SERVICE:
+        setClassOfService((String)newValue);
         return;
-      case KanbanmodelPackage.WORK_ITEM__COS:
-        setCOS((String)newValue);
+      case KanbanmodelPackage.WORK_ITEM__WORK_SOURCE:
+        setWorkSource((WorkSource)newValue);
         return;
-      case KanbanmodelPackage.WORK_ITEM__WITEM_SOURCE:
-        setWItemSource((WorkSource)newValue);
+      case KanbanmodelPackage.WORK_ITEM__ARRIVAL_TIME:
+        setArrivalTime((Integer)newValue);
         return;
-      case KanbanmodelPackage.WORK_ITEM__ARRTIME:
-        setArrtime((Integer)newValue);
-        return;
-      case KanbanmodelPackage.WORK_ITEM__DUEDATE:
-        setDuedate((Integer)newValue);
+      case KanbanmodelPackage.WORK_ITEM__DUE_DATE:
+        setDueDate((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -883,29 +849,26 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
       case KanbanmodelPackage.WORK_ITEM__CAUSAL_TRIGGERS:
         getCausalTriggers().clear();
         return;
-      case KanbanmodelPackage.WORK_ITEM__REQ_SPECIALTIES:
-        getReqSpecialties().clear();
+      case KanbanmodelPackage.WORK_ITEM__REQUIRED_SERVICES:
+        getRequiredServices().clear();
         return;
-      case KanbanmodelPackage.WORK_ITEM__BEFFORTS:
-        setBefforts(BEFFORTS_EDEFAULT);
+      case KanbanmodelPackage.WORK_ITEM__EFFORTS:
+        setEfforts(EFFORTS_EDEFAULT);
         return;
-      case KanbanmodelPackage.WORK_ITEM__BVALUE:
-        setBvalue(BVALUE_EDEFAULT);
+      case KanbanmodelPackage.WORK_ITEM__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
-      case KanbanmodelPackage.WORK_ITEM__LVALUE:
-        getLvalue().clear();
+      case KanbanmodelPackage.WORK_ITEM__CLASS_OF_SERVICE:
+        setClassOfService(CLASS_OF_SERVICE_EDEFAULT);
         return;
-      case KanbanmodelPackage.WORK_ITEM__COS:
-        setCOS(COS_EDEFAULT);
+      case KanbanmodelPackage.WORK_ITEM__WORK_SOURCE:
+        setWorkSource((WorkSource)null);
         return;
-      case KanbanmodelPackage.WORK_ITEM__WITEM_SOURCE:
-        setWItemSource((WorkSource)null);
+      case KanbanmodelPackage.WORK_ITEM__ARRIVAL_TIME:
+        setArrivalTime(ARRIVAL_TIME_EDEFAULT);
         return;
-      case KanbanmodelPackage.WORK_ITEM__ARRTIME:
-        setArrtime(ARRTIME_EDEFAULT);
-        return;
-      case KanbanmodelPackage.WORK_ITEM__DUEDATE:
-        setDuedate(DUEDATE_EDEFAULT);
+      case KanbanmodelPackage.WORK_ITEM__DUE_DATE:
+        setDueDate(DUE_DATE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -937,22 +900,20 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         return sTasks != null && !sTasks.isEmpty();
       case KanbanmodelPackage.WORK_ITEM__CAUSAL_TRIGGERS:
         return causalTriggers != null && !causalTriggers.isEmpty();
-      case KanbanmodelPackage.WORK_ITEM__REQ_SPECIALTIES:
-        return reqSpecialties != null && !reqSpecialties.isEmpty();
-      case KanbanmodelPackage.WORK_ITEM__BEFFORTS:
-        return befforts != BEFFORTS_EDEFAULT;
-      case KanbanmodelPackage.WORK_ITEM__BVALUE:
-        return bvalue != BVALUE_EDEFAULT;
-      case KanbanmodelPackage.WORK_ITEM__LVALUE:
-        return lvalue != null && !lvalue.isEmpty();
-      case KanbanmodelPackage.WORK_ITEM__COS:
-        return COS_EDEFAULT == null ? cos != null : !COS_EDEFAULT.equals(cos);
-      case KanbanmodelPackage.WORK_ITEM__WITEM_SOURCE:
-        return wItemSource != null;
-      case KanbanmodelPackage.WORK_ITEM__ARRTIME:
-        return arrtime != ARRTIME_EDEFAULT;
-      case KanbanmodelPackage.WORK_ITEM__DUEDATE:
-        return duedate != DUEDATE_EDEFAULT;
+      case KanbanmodelPackage.WORK_ITEM__REQUIRED_SERVICES:
+        return requiredServices != null && !requiredServices.isEmpty();
+      case KanbanmodelPackage.WORK_ITEM__EFFORTS:
+        return EFFORTS_EDEFAULT == null ? efforts != null : !EFFORTS_EDEFAULT.equals(efforts);
+      case KanbanmodelPackage.WORK_ITEM__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+      case KanbanmodelPackage.WORK_ITEM__CLASS_OF_SERVICE:
+        return CLASS_OF_SERVICE_EDEFAULT == null ? classOfService != null : !CLASS_OF_SERVICE_EDEFAULT.equals(classOfService);
+      case KanbanmodelPackage.WORK_ITEM__WORK_SOURCE:
+        return workSource != null;
+      case KanbanmodelPackage.WORK_ITEM__ARRIVAL_TIME:
+        return arrivalTime != ARRIVAL_TIME_EDEFAULT;
+      case KanbanmodelPackage.WORK_ITEM__DUE_DATE:
+        return dueDate != DUE_DATE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -972,16 +933,16 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
     result.append(name);
     result.append(", description: ");
     result.append(description);
-    result.append(", befforts: ");
-    result.append(befforts);
-    result.append(", bvalue: ");
-    result.append(bvalue);
-    result.append(", COS: ");
-    result.append(cos);
-    result.append(", arrtime: ");
-    result.append(arrtime);
-    result.append(", duedate: ");
-    result.append(duedate);
+    result.append(", efforts: ");
+    result.append(efforts);
+    result.append(", value: ");
+    result.append(value);
+    result.append(", classOfService: ");
+    result.append(classOfService);
+    result.append(", arrivalTime: ");
+    result.append(arrivalTime);
+    result.append(", dueDate: ");
+    result.append(dueDate);
     result.append(')');
     return result.toString();
   }

@@ -16,12 +16,14 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getRefTasks <em>Ref Tasks</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getDecTasks <em>Dec Tasks</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getReqSpecialties <em>Req Specialties</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getBefforts <em>Befforts</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getBvalue <em>Bvalue</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getCOS <em>COS</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getReferences <em>References</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getDecompositions <em>Decompositions</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getRequiredServices <em>Required Services</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getEfforts <em>Efforts</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getValue <em>Value</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getClassOfService <em>Class Of Service</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#isAllowAssignment <em>Allow Assignment</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#isAllowDiscard <em>Allow Discard</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,129 +86,181 @@ public interface WorkItemProfile extends EObject
   void setDescription(String value);
 
   /**
-   * Returns the value of the '<em><b>Ref Tasks</b></em>' containment reference list.
+   * Returns the value of the '<em><b>References</b></em>' containment reference list.
    * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkReference}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Ref Tasks</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>References</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Ref Tasks</em>' containment reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItemProfile_RefTasks()
+   * @return the value of the '<em>References</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItemProfile_References()
    * @model containment="true"
    * @generated
    */
-  EList<WorkReference> getRefTasks();
+  EList<WorkReference> getReferences();
 
   /**
-   * Returns the value of the '<em><b>Dec Tasks</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Decompositions</b></em>' containment reference list.
    * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkDecomposition}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Dec Tasks</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Decompositions</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Dec Tasks</em>' containment reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItemProfile_DecTasks()
+   * @return the value of the '<em>Decompositions</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItemProfile_Decompositions()
    * @model containment="true"
    * @generated
    */
-  EList<WorkDecomposition> getDecTasks();
+  EList<WorkDecomposition> getDecompositions();
 
   /**
-   * Returns the value of the '<em><b>Req Specialties</b></em>' reference list.
+   * Returns the value of the '<em><b>Required Services</b></em>' reference list.
    * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceType}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Req Specialties</em>' reference list isn't clear,
+   * If the meaning of the '<em>Required Services</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Req Specialties</em>' reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItemProfile_ReqSpecialties()
+   * @return the value of the '<em>Required Services</em>' reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItemProfile_RequiredServices()
    * @model
    * @generated
    */
-  EList<ServiceType> getReqSpecialties();
+  EList<ServiceType> getRequiredServices();
 
   /**
-   * Returns the value of the '<em><b>Befforts</b></em>' containment reference.
+   * Returns the value of the '<em><b>Efforts</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Befforts</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Efforts</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Befforts</em>' containment reference.
-   * @see #setBefforts(NumExpression)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItemProfile_Befforts()
+   * @return the value of the '<em>Efforts</em>' containment reference.
+   * @see #setEfforts(NumExpression)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItemProfile_Efforts()
    * @model containment="true"
    * @generated
    */
-  NumExpression getBefforts();
+  NumExpression getEfforts();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getBefforts <em>Befforts</em>}' containment reference.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getEfforts <em>Efforts</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Befforts</em>' containment reference.
-   * @see #getBefforts()
+   * @param value the new value of the '<em>Efforts</em>' containment reference.
+   * @see #getEfforts()
    * @generated
    */
-  void setBefforts(NumExpression value);
+  void setEfforts(NumExpression value);
 
   /**
-   * Returns the value of the '<em><b>Bvalue</b></em>' containment reference.
+   * Returns the value of the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Bvalue</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Value</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Bvalue</em>' containment reference.
-   * @see #setBvalue(NumExpression)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItemProfile_Bvalue()
+   * @return the value of the '<em>Value</em>' containment reference.
+   * @see #setValue(NumExpression)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItemProfile_Value()
    * @model containment="true"
    * @generated
    */
-  NumExpression getBvalue();
+  NumExpression getValue();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getBvalue <em>Bvalue</em>}' containment reference.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getValue <em>Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Bvalue</em>' containment reference.
-   * @see #getBvalue()
+   * @param value the new value of the '<em>Value</em>' containment reference.
+   * @see #getValue()
    * @generated
    */
-  void setBvalue(NumExpression value);
+  void setValue(NumExpression value);
 
   /**
-   * Returns the value of the '<em><b>COS</b></em>' attribute.
+   * Returns the value of the '<em><b>Class Of Service</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>COS</em>' attribute isn't clear,
+   * If the meaning of the '<em>Class Of Service</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>COS</em>' attribute.
-   * @see #setCOS(String)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItemProfile_COS()
+   * @return the value of the '<em>Class Of Service</em>' attribute.
+   * @see #setClassOfService(String)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItemProfile_ClassOfService()
    * @model
    * @generated
    */
-  String getCOS();
+  String getClassOfService();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getCOS <em>COS</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getClassOfService <em>Class Of Service</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>COS</em>' attribute.
-   * @see #getCOS()
+   * @param value the new value of the '<em>Class Of Service</em>' attribute.
+   * @see #getClassOfService()
    * @generated
    */
-  void setCOS(String value);
+  void setClassOfService(String value);
+
+  /**
+   * Returns the value of the '<em><b>Allow Assignment</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Allow Assignment</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Allow Assignment</em>' attribute.
+   * @see #setAllowAssignment(boolean)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItemProfile_AllowAssignment()
+   * @model
+   * @generated
+   */
+  boolean isAllowAssignment();
+
+  /**
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#isAllowAssignment <em>Allow Assignment</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Allow Assignment</em>' attribute.
+   * @see #isAllowAssignment()
+   * @generated
+   */
+  void setAllowAssignment(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Allow Discard</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Allow Discard</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Allow Discard</em>' attribute.
+   * @see #setAllowDiscard(boolean)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItemProfile_AllowDiscard()
+   * @model
+   * @generated
+   */
+  boolean isAllowDiscard();
+
+  /**
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#isAllowDiscard <em>Allow Discard</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Allow Discard</em>' attribute.
+   * @see #isAllowDiscard()
+   * @generated
+   */
+  void setAllowDiscard(boolean value);
 
 } // WorkItemProfile

@@ -27,8 +27,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.CausalityImpl#getTriggered <em>Triggered</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.CausalityImpl#getTProgress <em>TProgress</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.CausalityImpl#getTProbability <em>TProbability</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.CausalityImpl#getAtProgress <em>At Progress</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.CausalityImpl#getOnProbability <em>On Probability</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,44 +47,44 @@ public class CausalityImpl extends MinimalEObjectImpl.Container implements Causa
   protected EList<WorkItem> triggered;
 
   /**
-   * The default value of the '{@link #getTProgress() <em>TProgress</em>}' attribute.
+   * The default value of the '{@link #getAtProgress() <em>At Progress</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTProgress()
+   * @see #getAtProgress()
    * @generated
    * @ordered
    */
-  protected static final int TPROGRESS_EDEFAULT = 0;
+  protected static final int AT_PROGRESS_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getTProgress() <em>TProgress</em>}' attribute.
+   * The cached value of the '{@link #getAtProgress() <em>At Progress</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTProgress()
+   * @see #getAtProgress()
    * @generated
    * @ordered
    */
-  protected int tProgress = TPROGRESS_EDEFAULT;
+  protected int atProgress = AT_PROGRESS_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getTProbability() <em>TProbability</em>}' attribute.
+   * The default value of the '{@link #getOnProbability() <em>On Probability</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTProbability()
+   * @see #getOnProbability()
    * @generated
    * @ordered
    */
-  protected static final int TPROBABILITY_EDEFAULT = 0;
+  protected static final int ON_PROBABILITY_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getTProbability() <em>TProbability</em>}' attribute.
+   * The cached value of the '{@link #getOnProbability() <em>On Probability</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTProbability()
+   * @see #getOnProbability()
    * @generated
    * @ordered
    */
-  protected int tProbability = TPROBABILITY_EDEFAULT;
+  protected int onProbability = ON_PROBABILITY_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -126,9 +126,9 @@ public class CausalityImpl extends MinimalEObjectImpl.Container implements Causa
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getTProgress()
+  public int getAtProgress()
   {
-    return tProgress;
+    return atProgress;
   }
 
   /**
@@ -136,12 +136,12 @@ public class CausalityImpl extends MinimalEObjectImpl.Container implements Causa
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTProgress(int newTProgress)
+  public void setAtProgress(int newAtProgress)
   {
-    int oldTProgress = tProgress;
-    tProgress = newTProgress;
+    int oldAtProgress = atProgress;
+    atProgress = newAtProgress;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CAUSALITY__TPROGRESS, oldTProgress, tProgress));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CAUSALITY__AT_PROGRESS, oldAtProgress, atProgress));
   }
 
   /**
@@ -149,9 +149,9 @@ public class CausalityImpl extends MinimalEObjectImpl.Container implements Causa
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getTProbability()
+  public int getOnProbability()
   {
-    return tProbability;
+    return onProbability;
   }
 
   /**
@@ -159,12 +159,12 @@ public class CausalityImpl extends MinimalEObjectImpl.Container implements Causa
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTProbability(int newTProbability)
+  public void setOnProbability(int newOnProbability)
   {
-    int oldTProbability = tProbability;
-    tProbability = newTProbability;
+    int oldOnProbability = onProbability;
+    onProbability = newOnProbability;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CAUSALITY__TPROBABILITY, oldTProbability, tProbability));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CAUSALITY__ON_PROBABILITY, oldOnProbability, onProbability));
   }
 
   /**
@@ -179,10 +179,10 @@ public class CausalityImpl extends MinimalEObjectImpl.Container implements Causa
     {
       case KanbanmodelPackage.CAUSALITY__TRIGGERED:
         return getTriggered();
-      case KanbanmodelPackage.CAUSALITY__TPROGRESS:
-        return getTProgress();
-      case KanbanmodelPackage.CAUSALITY__TPROBABILITY:
-        return getTProbability();
+      case KanbanmodelPackage.CAUSALITY__AT_PROGRESS:
+        return getAtProgress();
+      case KanbanmodelPackage.CAUSALITY__ON_PROBABILITY:
+        return getOnProbability();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -202,11 +202,11 @@ public class CausalityImpl extends MinimalEObjectImpl.Container implements Causa
         getTriggered().clear();
         getTriggered().addAll((Collection<? extends WorkItem>)newValue);
         return;
-      case KanbanmodelPackage.CAUSALITY__TPROGRESS:
-        setTProgress((Integer)newValue);
+      case KanbanmodelPackage.CAUSALITY__AT_PROGRESS:
+        setAtProgress((Integer)newValue);
         return;
-      case KanbanmodelPackage.CAUSALITY__TPROBABILITY:
-        setTProbability((Integer)newValue);
+      case KanbanmodelPackage.CAUSALITY__ON_PROBABILITY:
+        setOnProbability((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -225,11 +225,11 @@ public class CausalityImpl extends MinimalEObjectImpl.Container implements Causa
       case KanbanmodelPackage.CAUSALITY__TRIGGERED:
         getTriggered().clear();
         return;
-      case KanbanmodelPackage.CAUSALITY__TPROGRESS:
-        setTProgress(TPROGRESS_EDEFAULT);
+      case KanbanmodelPackage.CAUSALITY__AT_PROGRESS:
+        setAtProgress(AT_PROGRESS_EDEFAULT);
         return;
-      case KanbanmodelPackage.CAUSALITY__TPROBABILITY:
-        setTProbability(TPROBABILITY_EDEFAULT);
+      case KanbanmodelPackage.CAUSALITY__ON_PROBABILITY:
+        setOnProbability(ON_PROBABILITY_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -247,10 +247,10 @@ public class CausalityImpl extends MinimalEObjectImpl.Container implements Causa
     {
       case KanbanmodelPackage.CAUSALITY__TRIGGERED:
         return triggered != null && !triggered.isEmpty();
-      case KanbanmodelPackage.CAUSALITY__TPROGRESS:
-        return tProgress != TPROGRESS_EDEFAULT;
-      case KanbanmodelPackage.CAUSALITY__TPROBABILITY:
-        return tProbability != TPROBABILITY_EDEFAULT;
+      case KanbanmodelPackage.CAUSALITY__AT_PROGRESS:
+        return atProgress != AT_PROGRESS_EDEFAULT;
+      case KanbanmodelPackage.CAUSALITY__ON_PROBABILITY:
+        return onProbability != ON_PROBABILITY_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -266,10 +266,10 @@ public class CausalityImpl extends MinimalEObjectImpl.Container implements Causa
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (tProgress: ");
-    result.append(tProgress);
-    result.append(", tProbability: ");
-    result.append(tProbability);
+    result.append(" (atProgress: ");
+    result.append(atProgress);
+    result.append(", onProbability: ");
+    result.append(onProbability);
     result.append(')');
     return result.toString();
   }

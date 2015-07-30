@@ -6,22 +6,22 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Skill</b></em>'.
+ * A representation of the model object '<em><b>Process Model</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Skill#getName <em>Name</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Skill#getDescription <em>Description</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel#getName <em>Name</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
  *
- * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getSkill()
+ * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getProcessModel()
  * @model
  * @generated
  */
-public interface Skill extends EObject
+public interface ProcessModel extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -33,14 +33,14 @@ public interface Skill extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getSkill_Name()
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getProcessModel_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Skill#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -59,14 +59,14 @@ public interface Skill extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Description</em>' attribute.
    * @see #setDescription(String)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getSkill_Description()
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getProcessModel_Description()
    * @model
    * @generated
    */
   String getDescription();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Skill#getDescription <em>Description</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel#getDescription <em>Description</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Description</em>' attribute.
@@ -75,4 +75,4 @@ public interface Skill extends EObject
    */
   void setDescription(String value);
 
-} // Skill
+} // ProcessModel

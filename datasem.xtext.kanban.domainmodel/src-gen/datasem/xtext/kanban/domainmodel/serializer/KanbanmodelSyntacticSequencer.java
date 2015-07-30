@@ -27,8 +27,7 @@ public class KanbanmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_ServiceProvider_GroupKeyword_0_1_or_ServiceProviderKeyword_0_0;
 	protected AbstractElementAlias match_ServiceProvider___SpecifiedKeyword_8_4_0_LeftCurlyBracketKeyword_8_4_1_RightCurlyBracketKeyword_8_4_7__q;
 	protected AbstractElementAlias match_ServiceType___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q;
-	protected AbstractElementAlias match_Skill___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_2__q;
-	protected AbstractElementAlias match_WorkItem_CausalityKeyword_9_0_q;
+	protected AbstractElementAlias match_WorkItem_CausalTriggersKeyword_9_0_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -38,8 +37,7 @@ public class KanbanmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_ServiceProvider_GroupKeyword_0_1_or_ServiceProviderKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getServiceProviderAccess().getGroupKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getServiceProviderAccess().getServiceProviderKeyword_0_0()));
 		match_ServiceProvider___SpecifiedKeyword_8_4_0_LeftCurlyBracketKeyword_8_4_1_RightCurlyBracketKeyword_8_4_7__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getServiceProviderAccess().getSpecifiedKeyword_8_4_0()), new TokenAlias(false, false, grammarAccess.getServiceProviderAccess().getLeftCurlyBracketKeyword_8_4_1()), new TokenAlias(false, false, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_8_4_7()));
 		match_ServiceType___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getServiceTypeAccess().getLeftCurlyBracketKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getServiceTypeAccess().getRightCurlyBracketKeyword_2_2()));
-		match_Skill___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSkillAccess().getLeftCurlyBracketKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getSkillAccess().getRightCurlyBracketKeyword_1_2()));
-		match_WorkItem_CausalityKeyword_9_0_q = new TokenAlias(false, true, grammarAccess.getWorkItemAccess().getCausalityKeyword_9_0());
+		match_WorkItem_CausalTriggersKeyword_9_0_q = new TokenAlias(false, true, grammarAccess.getWorkItemAccess().getCausalTriggersKeyword_9_0());
 	}
 	
 	@Override
@@ -64,10 +62,8 @@ public class KanbanmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_ServiceProvider___SpecifiedKeyword_8_4_0_LeftCurlyBracketKeyword_8_4_1_RightCurlyBracketKeyword_8_4_7__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_ServiceType___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q.equals(syntax))
 				emit_ServiceType___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Skill___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_2__q.equals(syntax))
-				emit_Skill___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_WorkItem_CausalityKeyword_9_0_q.equals(syntax))
-				emit_WorkItem_CausalityKeyword_9_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_WorkItem_CausalTriggersKeyword_9_0_q.equals(syntax))
+				emit_WorkItem_CausalTriggersKeyword_9_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -96,7 +92,7 @@ public class KanbanmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     'serviceProvider' | 'group'
+	 *     'ServiceProvider' | 'Group'
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) name=ID
@@ -107,10 +103,10 @@ public class KanbanmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('specified' '{' '}')?
+	 *     ('Specified' '{' '}')?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     defaultStrategy=[Strategy|ID] (ambiguity) '}' 'resources' '{' resources+=Resource
+	 *     defaultStrategy=[Strategy|ID] (ambiguity) '}' 'Resources' '{' resources+=Asset
 	 *     defaultStrategy=[Strategy|ID] (ambiguity) '}' '}' (rule end)
 	 */
 	protected void emit_ServiceProvider___SpecifiedKeyword_8_4_0_LeftCurlyBracketKeyword_8_4_1_RightCurlyBracketKeyword_8_4_7__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
@@ -130,85 +126,67 @@ public class KanbanmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('{' '}')?
+	 *     'CausalTriggers'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     name=ID (ambiguity) (rule end)
-	 */
-	protected void emit_Skill___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'causality'?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     description=STRING (ambiguity) 'WorkSource' wItemSource=[WorkSource|ID]
-	 *     description=STRING (ambiguity) 'arrivalTime' arrtime=INT
-	 *     description=STRING (ambiguity) 'baseEfforts' befforts=INT
-	 *     description=STRING (ambiguity) 'baseValue' bvalue=INT
-	 *     description=STRING (ambiguity) 'classOfService' COS=ID
-	 *     description=STRING (ambiguity) 'dueDate' duedate=INT
-	 *     description=STRING (ambiguity) 'localValues' lvalue+=LocalValue
-	 *     description=STRING (ambiguity) 'serviceType' reqSpecialties+=[ServiceType|ID]
+	 *     description=STRING (ambiguity) 'ArrivalTime' arrivalTime=INT
+	 *     description=STRING (ambiguity) 'ClassOfService' classOfService=ID
+	 *     description=STRING (ambiguity) 'DueDate' dueDate=INT
+	 *     description=STRING (ambiguity) 'Efforts' efforts=Double
+	 *     description=STRING (ambiguity) 'RequiredServices' requiredServices+=[ServiceType|ID]
+	 *     description=STRING (ambiguity) 'Value' value=Double
+	 *     description=STRING (ambiguity) 'WorkSource' workSource=[WorkSource|ID]
 	 *     description=STRING (ambiguity) '}' (rule end)
-	 *     name=ID '{' (ambiguity) 'WorkSource' wItemSource=[WorkSource|ID]
-	 *     name=ID '{' (ambiguity) 'arrivalTime' arrtime=INT
-	 *     name=ID '{' (ambiguity) 'baseEfforts' befforts=INT
-	 *     name=ID '{' (ambiguity) 'baseValue' bvalue=INT
-	 *     name=ID '{' (ambiguity) 'classOfService' COS=ID
-	 *     name=ID '{' (ambiguity) 'dueDate' duedate=INT
-	 *     name=ID '{' (ambiguity) 'localValues' lvalue+=LocalValue
-	 *     name=ID '{' (ambiguity) 'serviceType' reqSpecialties+=[ServiceType|ID]
+	 *     name=ID '{' (ambiguity) 'ArrivalTime' arrivalTime=INT
+	 *     name=ID '{' (ambiguity) 'ClassOfService' classOfService=ID
+	 *     name=ID '{' (ambiguity) 'DueDate' dueDate=INT
+	 *     name=ID '{' (ambiguity) 'Efforts' efforts=Double
+	 *     name=ID '{' (ambiguity) 'RequiredServices' requiredServices+=[ServiceType|ID]
+	 *     name=ID '{' (ambiguity) 'Value' value=Double
+	 *     name=ID '{' (ambiguity) 'WorkSource' workSource=[WorkSource|ID]
 	 *     name=ID '{' (ambiguity) '}' (rule end)
-	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) 'WorkSource' wItemSource=[WorkSource|ID]
-	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) 'arrivalTime' arrtime=INT
-	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) 'baseEfforts' befforts=INT
-	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) 'baseValue' bvalue=INT
-	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) 'classOfService' COS=ID
-	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) 'dueDate' duedate=INT
-	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) 'localValues' lvalue+=LocalValue
-	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) 'serviceType' reqSpecialties+=[ServiceType|ID]
+	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) 'ArrivalTime' arrivalTime=INT
+	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) 'ClassOfService' classOfService=ID
+	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) 'DueDate' dueDate=INT
+	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) 'Efforts' efforts=Double
+	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) 'RequiredServices' requiredServices+=[ServiceType|ID]
+	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) 'Value' value=Double
+	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) 'WorkSource' workSource=[WorkSource|ID]
 	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) '}' (rule end)
-	 *     pattern=[TaskPattern|ID] (ambiguity) 'WorkSource' wItemSource=[WorkSource|ID]
-	 *     pattern=[TaskPattern|ID] (ambiguity) 'arrivalTime' arrtime=INT
-	 *     pattern=[TaskPattern|ID] (ambiguity) 'baseEfforts' befforts=INT
-	 *     pattern=[TaskPattern|ID] (ambiguity) 'baseValue' bvalue=INT
-	 *     pattern=[TaskPattern|ID] (ambiguity) 'classOfService' COS=ID
-	 *     pattern=[TaskPattern|ID] (ambiguity) 'dueDate' duedate=INT
-	 *     pattern=[TaskPattern|ID] (ambiguity) 'localValues' lvalue+=LocalValue
-	 *     pattern=[TaskPattern|ID] (ambiguity) 'serviceType' reqSpecialties+=[ServiceType|ID]
+	 *     pattern=[TaskPattern|ID] (ambiguity) 'ArrivalTime' arrivalTime=INT
+	 *     pattern=[TaskPattern|ID] (ambiguity) 'ClassOfService' classOfService=ID
+	 *     pattern=[TaskPattern|ID] (ambiguity) 'DueDate' dueDate=INT
+	 *     pattern=[TaskPattern|ID] (ambiguity) 'Efforts' efforts=Double
+	 *     pattern=[TaskPattern|ID] (ambiguity) 'RequiredServices' requiredServices+=[ServiceType|ID]
+	 *     pattern=[TaskPattern|ID] (ambiguity) 'Value' value=Double
+	 *     pattern=[TaskPattern|ID] (ambiguity) 'WorkSource' workSource=[WorkSource|ID]
 	 *     pattern=[TaskPattern|ID] (ambiguity) '}' (rule end)
-	 *     patternType=[TaskType|ID] (ambiguity) 'WorkSource' wItemSource=[WorkSource|ID]
-	 *     patternType=[TaskType|ID] (ambiguity) 'arrivalTime' arrtime=INT
-	 *     patternType=[TaskType|ID] (ambiguity) 'baseEfforts' befforts=INT
-	 *     patternType=[TaskType|ID] (ambiguity) 'baseValue' bvalue=INT
-	 *     patternType=[TaskType|ID] (ambiguity) 'classOfService' COS=ID
-	 *     patternType=[TaskType|ID] (ambiguity) 'dueDate' duedate=INT
-	 *     patternType=[TaskType|ID] (ambiguity) 'localValues' lvalue+=LocalValue
-	 *     patternType=[TaskType|ID] (ambiguity) 'serviceType' reqSpecialties+=[ServiceType|ID]
+	 *     patternType=[TaskType|ID] (ambiguity) 'ArrivalTime' arrivalTime=INT
+	 *     patternType=[TaskType|ID] (ambiguity) 'ClassOfService' classOfService=ID
+	 *     patternType=[TaskType|ID] (ambiguity) 'DueDate' dueDate=INT
+	 *     patternType=[TaskType|ID] (ambiguity) 'Efforts' efforts=Double
+	 *     patternType=[TaskType|ID] (ambiguity) 'RequiredServices' requiredServices+=[ServiceType|ID]
+	 *     patternType=[TaskType|ID] (ambiguity) 'Value' value=Double
+	 *     patternType=[TaskType|ID] (ambiguity) 'WorkSource' workSource=[WorkSource|ID]
 	 *     patternType=[TaskType|ID] (ambiguity) '}' (rule end)
-	 *     profile=[WorkItemProfile|ID] (ambiguity) 'WorkSource' wItemSource=[WorkSource|ID]
-	 *     profile=[WorkItemProfile|ID] (ambiguity) 'arrivalTime' arrtime=INT
-	 *     profile=[WorkItemProfile|ID] (ambiguity) 'baseEfforts' befforts=INT
-	 *     profile=[WorkItemProfile|ID] (ambiguity) 'baseValue' bvalue=INT
-	 *     profile=[WorkItemProfile|ID] (ambiguity) 'classOfService' COS=ID
-	 *     profile=[WorkItemProfile|ID] (ambiguity) 'dueDate' duedate=INT
-	 *     profile=[WorkItemProfile|ID] (ambiguity) 'localValues' lvalue+=LocalValue
-	 *     profile=[WorkItemProfile|ID] (ambiguity) 'serviceType' reqSpecialties+=[ServiceType|ID]
+	 *     profile=[WorkItemProfile|ID] (ambiguity) 'ArrivalTime' arrivalTime=INT
+	 *     profile=[WorkItemProfile|ID] (ambiguity) 'ClassOfService' classOfService=ID
+	 *     profile=[WorkItemProfile|ID] (ambiguity) 'DueDate' dueDate=INT
+	 *     profile=[WorkItemProfile|ID] (ambiguity) 'Efforts' efforts=Double
+	 *     profile=[WorkItemProfile|ID] (ambiguity) 'RequiredServices' requiredServices+=[ServiceType|ID]
+	 *     profile=[WorkItemProfile|ID] (ambiguity) 'Value' value=Double
+	 *     profile=[WorkItemProfile|ID] (ambiguity) 'WorkSource' workSource=[WorkSource|ID]
 	 *     profile=[WorkItemProfile|ID] (ambiguity) '}' (rule end)
-	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) 'WorkSource' wItemSource=[WorkSource|ID]
-	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) 'arrivalTime' arrtime=INT
-	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) 'baseEfforts' befforts=INT
-	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) 'baseValue' bvalue=INT
-	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) 'classOfService' COS=ID
-	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) 'dueDate' duedate=INT
-	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) 'localValues' lvalue+=LocalValue
-	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) 'serviceType' reqSpecialties+=[ServiceType|ID]
+	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) 'ArrivalTime' arrivalTime=INT
+	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) 'ClassOfService' classOfService=ID
+	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) 'DueDate' dueDate=INT
+	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) 'Efforts' efforts=Double
+	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) 'RequiredServices' requiredServices+=[ServiceType|ID]
+	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) 'Value' value=Double
+	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) 'WorkSource' workSource=[WorkSource|ID]
 	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) '}' (rule end)
 	 */
-	protected void emit_WorkItem_CausalityKeyword_9_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_WorkItem_CausalTriggersKeyword_9_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

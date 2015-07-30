@@ -135,6 +135,11 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
         return createValueFunctionAdapter();
       }
       @Override
+      public Adapter caseProcessModel(ProcessModel object)
+      {
+        return createProcessModelAdapter();
+      }
+      @Override
       public Adapter caseMechanism(Mechanism object)
       {
         return createMechanismAdapter();
@@ -205,19 +210,9 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
         return createServiceProviderAdapter();
       }
       @Override
-      public Adapter caseResource(Resource object)
-      {
-        return createResourceAdapter();
-      }
-      @Override
       public Adapter caseAsset(Asset object)
       {
         return createAssetAdapter();
-      }
-      @Override
-      public Adapter caseSkill(Skill object)
-      {
-        return createSkillAdapter();
       }
       @Override
       public Adapter caseKanbanTaskModel(KanbanTaskModel object)
@@ -472,6 +467,21 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel <em>Process Model</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel
+   * @generated
+   */
+  public Adapter createProcessModelAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism <em>Mechanism</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -682,21 +692,6 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Resource <em>Resource</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Resource
-   * @generated
-   */
-  public Adapter createResourceAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Asset <em>Asset</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -707,21 +702,6 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAssetAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Skill <em>Skill</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Skill
-   * @generated
-   */
-  public Adapter createSkillAdapter()
   {
     return null;
   }

@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkReferenceImpl#getWorkItem <em>Work Item</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkReferenceImpl#getAmount <em>Amount</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkReferenceImpl#getQuantity <em>Quantity</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,14 +43,14 @@ public class WorkReferenceImpl extends MinimalEObjectImpl.Container implements W
   protected WorkItemProfile workItem;
 
   /**
-   * The cached value of the '{@link #getAmount() <em>Amount</em>}' containment reference.
+   * The cached value of the '{@link #getQuantity() <em>Quantity</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAmount()
+   * @see #getQuantity()
    * @generated
    * @ordered
    */
-  protected NumExpression amount;
+  protected NumExpression quantity;
 
   /**
    * <!-- begin-user-doc -->
@@ -121,9 +121,9 @@ public class WorkReferenceImpl extends MinimalEObjectImpl.Container implements W
    * <!-- end-user-doc -->
    * @generated
    */
-  public NumExpression getAmount()
+  public NumExpression getQuantity()
   {
-    return amount;
+    return quantity;
   }
 
   /**
@@ -131,13 +131,13 @@ public class WorkReferenceImpl extends MinimalEObjectImpl.Container implements W
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetAmount(NumExpression newAmount, NotificationChain msgs)
+  public NotificationChain basicSetQuantity(NumExpression newQuantity, NotificationChain msgs)
   {
-    NumExpression oldAmount = amount;
-    amount = newAmount;
+    NumExpression oldQuantity = quantity;
+    quantity = newQuantity;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_REFERENCE__AMOUNT, oldAmount, newAmount);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_REFERENCE__QUANTITY, oldQuantity, newQuantity);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -148,20 +148,20 @@ public class WorkReferenceImpl extends MinimalEObjectImpl.Container implements W
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setAmount(NumExpression newAmount)
+  public void setQuantity(NumExpression newQuantity)
   {
-    if (newAmount != amount)
+    if (newQuantity != quantity)
     {
       NotificationChain msgs = null;
-      if (amount != null)
-        msgs = ((InternalEObject)amount).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.WORK_REFERENCE__AMOUNT, null, msgs);
-      if (newAmount != null)
-        msgs = ((InternalEObject)newAmount).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.WORK_REFERENCE__AMOUNT, null, msgs);
-      msgs = basicSetAmount(newAmount, msgs);
+      if (quantity != null)
+        msgs = ((InternalEObject)quantity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.WORK_REFERENCE__QUANTITY, null, msgs);
+      if (newQuantity != null)
+        msgs = ((InternalEObject)newQuantity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.WORK_REFERENCE__QUANTITY, null, msgs);
+      msgs = basicSetQuantity(newQuantity, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_REFERENCE__AMOUNT, newAmount, newAmount));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_REFERENCE__QUANTITY, newQuantity, newQuantity));
   }
 
   /**
@@ -174,8 +174,8 @@ public class WorkReferenceImpl extends MinimalEObjectImpl.Container implements W
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.WORK_REFERENCE__AMOUNT:
-        return basicSetAmount(null, msgs);
+      case KanbanmodelPackage.WORK_REFERENCE__QUANTITY:
+        return basicSetQuantity(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -193,8 +193,8 @@ public class WorkReferenceImpl extends MinimalEObjectImpl.Container implements W
       case KanbanmodelPackage.WORK_REFERENCE__WORK_ITEM:
         if (resolve) return getWorkItem();
         return basicGetWorkItem();
-      case KanbanmodelPackage.WORK_REFERENCE__AMOUNT:
-        return getAmount();
+      case KanbanmodelPackage.WORK_REFERENCE__QUANTITY:
+        return getQuantity();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -212,8 +212,8 @@ public class WorkReferenceImpl extends MinimalEObjectImpl.Container implements W
       case KanbanmodelPackage.WORK_REFERENCE__WORK_ITEM:
         setWorkItem((WorkItemProfile)newValue);
         return;
-      case KanbanmodelPackage.WORK_REFERENCE__AMOUNT:
-        setAmount((NumExpression)newValue);
+      case KanbanmodelPackage.WORK_REFERENCE__QUANTITY:
+        setQuantity((NumExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -232,8 +232,8 @@ public class WorkReferenceImpl extends MinimalEObjectImpl.Container implements W
       case KanbanmodelPackage.WORK_REFERENCE__WORK_ITEM:
         setWorkItem((WorkItemProfile)null);
         return;
-      case KanbanmodelPackage.WORK_REFERENCE__AMOUNT:
-        setAmount((NumExpression)null);
+      case KanbanmodelPackage.WORK_REFERENCE__QUANTITY:
+        setQuantity((NumExpression)null);
         return;
     }
     super.eUnset(featureID);
@@ -251,8 +251,8 @@ public class WorkReferenceImpl extends MinimalEObjectImpl.Container implements W
     {
       case KanbanmodelPackage.WORK_REFERENCE__WORK_ITEM:
         return workItem != null;
-      case KanbanmodelPackage.WORK_REFERENCE__AMOUNT:
-        return amount != null;
+      case KanbanmodelPackage.WORK_REFERENCE__QUANTITY:
+        return quantity != null;
     }
     return super.eIsSet(featureID);
   }

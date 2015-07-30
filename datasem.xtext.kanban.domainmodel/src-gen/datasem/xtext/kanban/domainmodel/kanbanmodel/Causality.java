@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Causality#getTriggered <em>Triggered</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Causality#getTProgress <em>TProgress</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Causality#getTProbability <em>TProbability</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Causality#getAtProgress <em>At Progress</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Causality#getOnProbability <em>On Probability</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,55 +43,55 @@ public interface Causality extends EObject
   EList<WorkItem> getTriggered();
 
   /**
-   * Returns the value of the '<em><b>TProgress</b></em>' attribute.
+   * Returns the value of the '<em><b>At Progress</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>TProgress</em>' attribute isn't clear,
+   * If the meaning of the '<em>At Progress</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>TProgress</em>' attribute.
-   * @see #setTProgress(int)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getCausality_TProgress()
+   * @return the value of the '<em>At Progress</em>' attribute.
+   * @see #setAtProgress(int)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getCausality_AtProgress()
    * @model
    * @generated
    */
-  int getTProgress();
+  int getAtProgress();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Causality#getTProgress <em>TProgress</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Causality#getAtProgress <em>At Progress</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>TProgress</em>' attribute.
-   * @see #getTProgress()
+   * @param value the new value of the '<em>At Progress</em>' attribute.
+   * @see #getAtProgress()
    * @generated
    */
-  void setTProgress(int value);
+  void setAtProgress(int value);
 
   /**
-   * Returns the value of the '<em><b>TProbability</b></em>' attribute.
+   * Returns the value of the '<em><b>On Probability</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>TProbability</em>' attribute isn't clear,
+   * If the meaning of the '<em>On Probability</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>TProbability</em>' attribute.
-   * @see #setTProbability(int)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getCausality_TProbability()
+   * @return the value of the '<em>On Probability</em>' attribute.
+   * @see #setOnProbability(int)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getCausality_OnProbability()
    * @model
    * @generated
    */
-  int getTProbability();
+  int getOnProbability();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Causality#getTProbability <em>TProbability</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Causality#getOnProbability <em>On Probability</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>TProbability</em>' attribute.
-   * @see #getTProbability()
+   * @param value the new value of the '<em>On Probability</em>' attribute.
+   * @see #getOnProbability()
    * @generated
    */
-  void setTProbability(int value);
+  void setOnProbability(int value);
 
 } // Causality

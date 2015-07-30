@@ -22,14 +22,13 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getPTasks <em>PTasks</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getSTasks <em>STasks</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getCausalTriggers <em>Causal Triggers</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getReqSpecialties <em>Req Specialties</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getBefforts <em>Befforts</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getBvalue <em>Bvalue</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getLvalue <em>Lvalue</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getCOS <em>COS</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getWItemSource <em>WItem Source</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getArrtime <em>Arrtime</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getDuedate <em>Duedate</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getRequiredServices <em>Required Services</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getEfforts <em>Efforts</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getValue <em>Value</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getClassOfService <em>Class Of Service</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getWorkSource <em>Work Source</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getArrivalTime <em>Arrival Time</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getDueDate <em>Due Date</em>}</li>
  * </ul>
  * </p>
  *
@@ -218,191 +217,175 @@ public interface WorkItem extends EObject
   EList<Causality> getCausalTriggers();
 
   /**
-   * Returns the value of the '<em><b>Req Specialties</b></em>' reference list.
+   * Returns the value of the '<em><b>Required Services</b></em>' reference list.
    * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceType}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Req Specialties</em>' reference list isn't clear,
+   * If the meaning of the '<em>Required Services</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Req Specialties</em>' reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_ReqSpecialties()
+   * @return the value of the '<em>Required Services</em>' reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_RequiredServices()
    * @model
    * @generated
    */
-  EList<ServiceType> getReqSpecialties();
+  EList<ServiceType> getRequiredServices();
 
   /**
-   * Returns the value of the '<em><b>Befforts</b></em>' attribute.
+   * Returns the value of the '<em><b>Efforts</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Befforts</em>' attribute isn't clear,
+   * If the meaning of the '<em>Efforts</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Befforts</em>' attribute.
-   * @see #setBefforts(int)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Befforts()
+   * @return the value of the '<em>Efforts</em>' attribute.
+   * @see #setEfforts(String)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Efforts()
    * @model
    * @generated
    */
-  int getBefforts();
+  String getEfforts();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getBefforts <em>Befforts</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getEfforts <em>Efforts</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Befforts</em>' attribute.
-   * @see #getBefforts()
+   * @param value the new value of the '<em>Efforts</em>' attribute.
+   * @see #getEfforts()
    * @generated
    */
-  void setBefforts(int value);
+  void setEfforts(String value);
 
   /**
-   * Returns the value of the '<em><b>Bvalue</b></em>' attribute.
+   * Returns the value of the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Bvalue</em>' attribute isn't clear,
+   * If the meaning of the '<em>Value</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Bvalue</em>' attribute.
-   * @see #setBvalue(int)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Bvalue()
+   * @return the value of the '<em>Value</em>' attribute.
+   * @see #setValue(String)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Value()
    * @model
    * @generated
    */
-  int getBvalue();
+  String getValue();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getBvalue <em>Bvalue</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Bvalue</em>' attribute.
-   * @see #getBvalue()
+   * @param value the new value of the '<em>Value</em>' attribute.
+   * @see #getValue()
    * @generated
    */
-  void setBvalue(int value);
+  void setValue(String value);
 
   /**
-   * Returns the value of the '<em><b>Lvalue</b></em>' containment reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.LocalValue}.
+   * Returns the value of the '<em><b>Class Of Service</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Lvalue</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Class Of Service</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Lvalue</em>' containment reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Lvalue()
-   * @model containment="true"
-   * @generated
-   */
-  EList<LocalValue> getLvalue();
-
-  /**
-   * Returns the value of the '<em><b>COS</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>COS</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>COS</em>' attribute.
-   * @see #setCOS(String)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_COS()
+   * @return the value of the '<em>Class Of Service</em>' attribute.
+   * @see #setClassOfService(String)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_ClassOfService()
    * @model
    * @generated
    */
-  String getCOS();
+  String getClassOfService();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getCOS <em>COS</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getClassOfService <em>Class Of Service</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>COS</em>' attribute.
-   * @see #getCOS()
+   * @param value the new value of the '<em>Class Of Service</em>' attribute.
+   * @see #getClassOfService()
    * @generated
    */
-  void setCOS(String value);
+  void setClassOfService(String value);
 
   /**
-   * Returns the value of the '<em><b>WItem Source</b></em>' reference.
+   * Returns the value of the '<em><b>Work Source</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>WItem Source</em>' reference isn't clear,
+   * If the meaning of the '<em>Work Source</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>WItem Source</em>' reference.
-   * @see #setWItemSource(WorkSource)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_WItemSource()
+   * @return the value of the '<em>Work Source</em>' reference.
+   * @see #setWorkSource(WorkSource)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_WorkSource()
    * @model
    * @generated
    */
-  WorkSource getWItemSource();
+  WorkSource getWorkSource();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getWItemSource <em>WItem Source</em>}' reference.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getWorkSource <em>Work Source</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>WItem Source</em>' reference.
-   * @see #getWItemSource()
+   * @param value the new value of the '<em>Work Source</em>' reference.
+   * @see #getWorkSource()
    * @generated
    */
-  void setWItemSource(WorkSource value);
+  void setWorkSource(WorkSource value);
 
   /**
-   * Returns the value of the '<em><b>Arrtime</b></em>' attribute.
+   * Returns the value of the '<em><b>Arrival Time</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Arrtime</em>' attribute isn't clear,
+   * If the meaning of the '<em>Arrival Time</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Arrtime</em>' attribute.
-   * @see #setArrtime(int)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Arrtime()
+   * @return the value of the '<em>Arrival Time</em>' attribute.
+   * @see #setArrivalTime(int)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_ArrivalTime()
    * @model
    * @generated
    */
-  int getArrtime();
+  int getArrivalTime();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getArrtime <em>Arrtime</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getArrivalTime <em>Arrival Time</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Arrtime</em>' attribute.
-   * @see #getArrtime()
+   * @param value the new value of the '<em>Arrival Time</em>' attribute.
+   * @see #getArrivalTime()
    * @generated
    */
-  void setArrtime(int value);
+  void setArrivalTime(int value);
 
   /**
-   * Returns the value of the '<em><b>Duedate</b></em>' attribute.
+   * Returns the value of the '<em><b>Due Date</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Duedate</em>' attribute isn't clear,
+   * If the meaning of the '<em>Due Date</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Duedate</em>' attribute.
-   * @see #setDuedate(int)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Duedate()
+   * @return the value of the '<em>Due Date</em>' attribute.
+   * @see #setDueDate(int)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_DueDate()
    * @model
    * @generated
    */
-  int getDuedate();
+  int getDueDate();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getDuedate <em>Duedate</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getDueDate <em>Due Date</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Duedate</em>' attribute.
-   * @see #getDuedate()
+   * @param value the new value of the '<em>Due Date</em>' attribute.
+   * @see #getDueDate()
    * @generated
    */
-  void setDuedate(int value);
+  void setDueDate(int value);
 
 } // WorkItem

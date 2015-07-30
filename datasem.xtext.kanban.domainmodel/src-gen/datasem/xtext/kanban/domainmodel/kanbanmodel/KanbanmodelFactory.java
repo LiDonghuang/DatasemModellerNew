@@ -131,6 +131,15 @@ public interface KanbanmodelFactory extends EFactory
   ValueFunction createValueFunction();
 
   /**
+   * Returns a new object of class '<em>Process Model</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Process Model</em>'.
+   * @generated
+   */
+  ProcessModel createProcessModel();
+
+  /**
    * Returns a new object of class '<em>Mechanism</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -257,15 +266,6 @@ public interface KanbanmodelFactory extends EFactory
   ServiceProvider createServiceProvider();
 
   /**
-   * Returns a new object of class '<em>Resource</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Resource</em>'.
-   * @generated
-   */
-  Resource createResource();
-
-  /**
    * Returns a new object of class '<em>Asset</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -273,15 +273,6 @@ public interface KanbanmodelFactory extends EFactory
    * @generated
    */
   Asset createAsset();
-
-  /**
-   * Returns a new object of class '<em>Skill</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Skill</em>'.
-   * @generated
-   */
-  Skill createSkill();
 
   /**
    * Returns a new object of class '<em>Kanban Task Model</em>'.

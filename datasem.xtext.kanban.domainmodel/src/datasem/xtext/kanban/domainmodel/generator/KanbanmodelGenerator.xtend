@@ -6,8 +6,8 @@ package datasem.xtext.kanban.domainmodel.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
-
 import datasem.xtext.kanban.domainmodel.kanbanmodel.*
+import java.util.Random
 
 /**
  * Generates code from your model files on save.
@@ -24,39 +24,35 @@ class KanbanmodelGenerator implements IGenerator {
 //				.join(', '))
 	fsa.generateFile("KSS-Scenario.xml", compile(resource))	
 	}
-	
+
 	def compile(Resource res) '''
-		<?xml version="1.0"?>
 		«FOR km : res.allContents.toIterable.filter(KanbanSchedulingSystem)»
 		<KSSModel>
-			<ExperimentSettings>
-				<Replications>«km.getReplications»</Replications>
-				<InterArrivalTime>«km.getInterArrivalTime»</InterArrivalTime>
-			</ExperimentSettings>
-		«ENDFOR»
+		«km.name»
+		
 		<GovernanceModel>
 			<GovernanceSearchStrategies>
 				«FOR stg : res.allContents.toIterable.filter(Strategy)» 
 				<Strategy>
-					<name>«stg.name»</name>
+					<Name>«stg.name»</Name>
 					<Description>«stg.description»</Description>					
-					<acceptanceRule>«stg.getWIAcceptanceRule.name»</acceptanceRule>
-					<selectionRule>«stg.getWISelectionRule.name»</selectionRule>
-					<assignmentRule>«stg.getWIAssignmentRule.name»</assignmentRule>
-					<allocationRule>«stg.getResourceAllocationRule.name»</allocationRule>
-					<outsourcingRule>«stg.getResourceOutsourcingRule.name»</outsourcingRule>
+					<AcceptanceRule>«stg.getWIAcceptanceRule.name»</AcceptanceRule>
+					<SelectionRule>«stg.getWISelectionRule.name»</SelectionRule>
+					<AssignmentRule>«stg.getWIAssignmentRule.name»</AssignmentRule>
+					<AllocationRule>«stg.getResourceAllocationRule.name»</AllocationRule>
+					<OutsourcingRule>«stg.getResourceOutsourcingRule.name»</OutsourcingRule>
 				</Strategy>
 				«ENDFOR»
 			</GovernanceSearchStrategies>
 			<TaskPatterns>
 				«FOR tp : res.allContents.toIterable.filter(TaskPattern)» 
 				<TaskPattern>
-					<name>«tp.name»</name>
+					<Name>«tp.name»</Name>
 					<Description>«tp.description»</Description>
 					<Types>
-						«FOR tt :tp.getTaskpatternTypes()» 
+						«FOR tt :tp.getTaskTypes()» 
 						<Type>
-						<name>«tt.name»</name>
+						<Name>«tt.name»</Name>
 						<Description>«tt.description»</Description>
 						</Type>
 						«ENDFOR»	
@@ -67,7 +63,7 @@ class KanbanmodelGenerator implements IGenerator {
 			<ValueFunctions>
 				«FOR vf : res.allContents.toIterable.filter(ValueFunction)» 
 				<ValueFunction>
-					<name>«vf.name»</name>
+					<Name>«vf.name»</Name>
 					<Description>«vf.description»</Description>
 				</ValueFunction>
 				«ENDFOR»
@@ -77,225 +73,279 @@ class KanbanmodelGenerator implements IGenerator {
 		
 		<OrganizationalModel>
 			<ServiceTypes>
-				«FOR stype : res.allContents.toIterable.filter(ServiceType)» 
-				<ServiceType>
-					<name>«stype.name»</name>
-					<Description>«stype.description»</Description>
-				</ServiceType>	
-				«ENDFOR»
+			«FOR stype : res.allContents.toIterable.filter(ServiceType)» 
+				«printServiceType(stype)»
+			«ENDFOR»
 			</ServiceTypes>
 			<ServiceProvidersList>
-			«FOR t : res.allContents.toIterable.filter(ServiceProvider)»  
-				<ServiceProvider>
-					<name>«t.name»</name>
-					<Description>«t.description»</Description>
-					<sourceUnits>
-					«FOR su : t.getSourceUnits()»
-						<sourceUnit>«su.name»</sourceUnit>
-					«ENDFOR»
-					</sourceUnits>
-					<targetUnits>
-					«FOR tu : t.getTargetUnits()»
-						<targetUnit>«tu.name»</targetUnit>
-					«ENDFOR»
-					</targetUnits>
-					<subordinateUnits>
-					«FOR subu : t.getSubordinateUnits()» 
-						<subordinateUnit>«subu.name»</subordinateUnit>
-					«ENDFOR»
-					</subordinateUnits>	
-					<services>
-					«FOR s : t.getServices()» 
-						<service>
-							<name>«s.name»</name>
-							<Description>«s.description»</Description>
-							<Type>«s.getServiceType().name»</Type>
-							<Efficiency>«s.efficiency»</Efficiency>
-						</service>
-					«ENDFOR»	
-					</services>	
-					<governanceSearchStrategy>						
-						<default>«t.getDefaultStrategy().getName()»</default>
-						<specified>
-						«IF t.getAcceptanceRule() != null»
-							<acceptanceRule>«t.getAcceptanceRule().name»</acceptanceRule>						
-						«ELSE»
-							<acceptanceRule>«"null"»</acceptanceRule>
-						«ENDIF»
-						«IF t.getSelectionRule() != null»
-							<selectionRule>«t.getSelectionRule().name»</selectionRule>						
-						«ELSE»
-							<selectionRule>«"null"»</selectionRule>
-						«ENDIF»
-						«IF t.getAssignmentRule() != null»
-							<assignmentRule>«t.getAssignmentRule().name»</assignmentRule>						
-						«ELSE»
-							<assignmentRule>«"null"»</assignmentRule>
-						«ENDIF»
-						«IF t.getAllocationRule() != null»
-							<allocationRule>«t.getAllocationRule().name»</allocationRule>						
-						«ELSE»
-							<allocationRule>«"null"»</allocationRule>
-						«ENDIF»
-						«IF t.getOutsourcingRule() != null»
-							<outsourcingRule>«t.getOutsourcingRule().name»</outsourcingRule>						
-						«ELSE»
-							<outsourcingRule>«"null"»</outsourcingRule>
-						«ENDIF»
-						</specified>
-					</governanceSearchStrategy>	
-					<resources>
-					«FOR r : t.getResources()» 
-						<resource>
-							<name>«r.name»</name>
-							<Description>«r.description»</Description>
-							<services>
-							«FOR s : r.getServices()» 
-							<service>
-								<name>«s.name»</name>
-								<Description>«s.description»</Description>
-								<Type>«s.getServiceType().name»</Type>
-								<Efficiency>«s.efficiency»</Efficiency>
-							</service>
-							«ENDFOR»	
-							</services>	
-						</resource>	
-					«ENDFOR»
-					</resources>	
-				</ServiceProvider>
+			«FOR sp : res.allContents.toIterable.filter(ServiceProvider)»  
+				«printServiceProvider(sp)»
 			«ENDFOR»
 			</ServiceProvidersList>
 		</OrganizationalModel>
 		
+		
+		<WorkItemRepositories>
+		«FOR repository : res.allContents.toIterable.filter(Repository)»
+			«printRepository(repository)»
+		«ENDFOR»
+		</WorkItemRepositories>
+		
 		<WorkItemNetworkModel>
 		«FOR ws : res.allContents.toIterable.filter(WorkSource)»
-			<workSource>
-				<name>«ws.name»</name>
-				<Description>«ws.description»</Description>
-				<targetUnits>
-				«FOR tu : ws.getTargetUnits()»
-					<targetUnit>«tu.name»</targetUnit>
-				«ENDFOR»
-				</targetUnits>
-				«IF ws.getAssignmentRule() != null»
-				<assignmentRule>«ws.getAssignmentRule().name»</assignmentRule>						
-				«ELSE»
-				<assignmentRule>«"null"»</assignmentRule>
-				«ENDIF»				
-			</workSource>
+			«printWorkSource(ws)»
 		«ENDFOR»		
 		«FOR wi : res.allContents.toIterable.filter(WorkItem)»
-			<workItem>
-				<name>«wi.name»</name>
-				<Profile>«wi.profile.name»</Profile>
-				<Description>«wi.description»</Description>
-				<Pattern>«wi.getPattern().name»</Pattern>
-					<Type>«wi.getPatternType.name»</Type>					
-				<predecessors>
-				«FOR ptask : wi.getPTasks()»
-					<predecessor>«ptask.name»</predecessor>
-				«ENDFOR»	
-				</predecessors>
-				<subtasks>
-				«FOR stask : wi.getSTasks()»				
-					<subtask>«stask.name»</subtask>
-				«ENDFOR»	
-				</subtasks>
-				<causalities>
-				«FOR cs : wi.getCausalTriggers()»
-					<causality>
-					«FOR ttask : cs.getTriggered()»
-						<triggered>«ttask.name»</triggered>
-					«ENDFOR»
-						<atProgress>«cs.getTProgress»</atProgress>
-						<onProbability>«cs.getTProbability»</onProbability>
-					</causality>
-				«ENDFOR»	
-				</causalities>
-				«FOR rs : wi.getReqSpecialties()»	
-				<servicesRequired>«rs.name»</servicesRequired>
-				«ENDFOR»
-				<baseEfforts>«wi.befforts»</baseEfforts>
-				<baseValue>«wi.bvalue»</baseValue>				
-«««				«IF wi.befforts!=null»		
-«««					«IF wi.befforts.isDistribution()»
-«««					<baseEfforts>
-«««						<distribution>
-«««							<type>«wi.befforts.numDist.getType()»</type>
-«««							«FOR p : wi.befforts.numDist.getParameters()»
-«««							<parameter>«p»</parameter>
-«««							«ENDFOR»
-«««						</distribution>
-«««					</baseEfforts>						
-«««					«ELSE»			
-«««					<baseEfforts>«wi.befforts.numValue»</baseEfforts>
-«««					«ENDIF»	
-«««				«ELSE»
-«««					<baseEfforts>0</baseEfforts>
-«««				«ENDIF»				
-«««				«IF wi.bvalue!=null»		
-«««					«IF wi.bvalue.isDistribution()»
-«««					<baseValue>
-«««						<distribution>
-«««							<type>«wi.bvalue.numDist.getType()»</type>
-«««							«FOR p : wi.bvalue.numDist.getParameters()»
-«««							<parameter>«p»</parameter>
-«««							«ENDFOR»
-«««						</distribution>
-«««					</baseValue>						
-«««					«ELSE»			
-«««					<baseValue>«wi.bvalue.numValue»</baseValue>
-«««					«ENDIF»	
-«««				«ELSE»
-«««					<baseValue>0</baseValue>
-«««				«ENDIF»	
-				<classOfService>«wi.COS»</classOfService>
-				«IF wi.getWItemSource() != null» 
-				<WorkSource>«wi.getWItemSource().name»</WorkSource>
-				«ELSE»
-				<WorkSource>«"null"»</WorkSource>
-                 «ENDIF»
-				<arrivalTime>«wi.arrtime»</arrivalTime>
-				<dueDate>«wi.duedate»</dueDate>
-			</workItem>
+			«printWorkItem(wi)»
 		«ENDFOR»
 		</WorkItemNetworkModel>
 		
-«««		«FOR kanbanWFlow : res.allContents.toIterable.filter(KanbanTaskModel)»<KanbanWorkFlow>
-«««				<capabilities>
-«««				«FOR wfcap : kanbanWFlow.getCaps()»
-«««					<capability>
-«««						<name>«wfcap.name»</name>
-«««						<requirements>
-«««						«FOR wfreq : wfcap.getReqs()»
-«««							<requirement>
-«««								<name>« wfreq.name»</name>
-«««								<tasks>
-«««								«FOR wi : wfreq.getRTasks()»
-«««								<task>
-«««									<name>«wi.name»</name>										
-«««								</task>
-«««								«ENDFOR»
-«««								</tasks>
-«««								<process>
-«««								«FOR wfpr : wfreq.getDependencies()»
-«««								<mechanism>
-«««									<sourceTask>«wfpr.getSourceTask().name»</sourceTask>	
-«««									<targetTask>«wfpr.getTargetTask().name»</targetTask>
-«««								</mechanism>
-«««								«ENDFOR»
-«««								</process>
-«««							</requirement>
-«««						«ENDFOR»
-«««						</requirements>
-«««					</capability>
-«««				«ENDFOR»
-«««				</capabilities>
-«««			«ENDFOR»
-«««		</KanbanWorkFlow>
 		
-
-		
-		</KSSModel>
+	«ENDFOR»
+	</KSSModel>
 	'''
+	
+	def printNumExpression(NumExpression e) '''
+		«IF e!=null»		
+			«IF e.isDistribution()»
+			<Distribution>
+			<Type>«e.numDist.getType()»</Type>
+			«FOR p : e.numDist.getParameters()»
+			<Parameter>«p»</Parameter>
+			«ENDFOR»
+			</Distribution>					
+			«ELSE»			
+			<Value>«e.numValue»</Value>
+			«ENDIF»	
+		«ENDIF»
+	'''
+	
+//	def sampleDistribution(NumExpression e) {
+//		val value = 0.00
+//		if (e.numDist.getType().matches("normal")) {}
+//			val mean = Double.parseDouble(e.numDist.getParameters.get(0))
+//			val std = Double.parseDouble(e.numDist.getParameters.get(1))
+//			val rand = new Random()
+//			value = mean+std*rand.nextGaussian()
+//		}
+//		else {value = 0.00}
+//		return value
+//	}
+	
+	def printServiceType(ServiceType stype) '''
+			<ServiceType>
+				<Name>«stype.name»</Name>
+				<Description>«stype.description»</Description>
+			</ServiceType>	
+	'''
+	
+	def printService(Service s) '''
+			<Service>
+				<Name>«s.name»</Name>
+				<Description>«s.description»</Description>
+				<Type>«s.getType().name»</Type>
+				<Efficiency>
+					«printNumExpression(s.efficiency)»
+				</Efficiency>
+			</Service>
+	'''
+	
+	def printResource(Asset r) '''
+			<Resource>
+				<Name>«r.name»</Name>
+				<Description>«r.description»</Description>
+				<Services>
+				«FOR s : r.getServices()» 
+					«printService(s)»
+				«ENDFOR»	
+				</Services>	
+			</Resource>	
+	'''
+	
+	def printServiceProvider(ServiceProvider sp) '''
+			<ServiceProvider>
+				<Name>«sp.name»</Name>
+				<Description>«sp.description»</Description>
+				<SourceUnits>
+				«FOR su : sp.getSourceUnits()»
+					<SourceUnit>«su.name»</SourceUnit>
+				«ENDFOR»
+				</SourceUnits>
+				<TargetUnits>
+				«FOR tu : sp.getTargetUnits()»
+					<TargetUnit>«tu.name»</TargetUnit>
+				«ENDFOR»
+				</TargetUnits>
+				<SubordinateUnits>
+				«FOR subu : sp.getSubordinateUnits()» 
+					<SubordinateUnit>«subu.name»</SubordinateUnit>
+				«ENDFOR»
+				</SubordinateUnits>	
+				<Services>
+				«FOR s : sp.getServices()» 
+					«printService(s)»
+				«ENDFOR»	
+				</Services>	
+				<GovernanceSearchStrategy>						
+					<Default>«sp.getDefaultStrategy().getName()»</Default>
+					<Specified>
+					«IF sp.getAcceptanceRule() != null»
+						<AcceptanceRule>«sp.getAcceptanceRule().name»</AcceptanceRule>						
+					«ELSE»
+						<AcceptanceRule>«"null"»</AcceptanceRule>
+					«ENDIF»
+					«IF sp.getSelectionRule() != null»
+						<SelectionRule>«sp.getSelectionRule().name»</SelectionRule>						
+					«ELSE»
+						<SelectionRule>«"null"»</SelectionRule>
+					«ENDIF»
+					«IF sp.getAssignmentRule() != null»
+						<AssignmentRule>«sp.getAssignmentRule().name»</AssignmentRule>						
+					«ELSE»
+						<AssignmentRule>«"null"»</AssignmentRule>
+					«ENDIF»
+					«IF sp.getAllocationRule() != null»
+						<AllocationRule>«sp.getAllocationRule().name»</AllocationRule>						
+					«ELSE»
+						<AllocationRule>«"null"»</AllocationRule>
+					«ENDIF»
+					«IF sp.getOutsourcingRule() != null»
+						<OutsourcingRule>«sp.getOutsourcingRule().name»</OutsourcingRule>						
+					«ELSE»
+						<OutsourcingRule>«"null"»</OutsourcingRule>
+					«ENDIF»
+					</Specified>
+				</GovernanceSearchStrategy>	
+				<Resources>
+				«FOR r : sp.getResources()» 
+					«printResource(r)»
+				«ENDFOR»
+				</Resources>	
+			</ServiceProvider>
+	'''
+	def printWorkSource(WorkSource ws) '''
+			<WorkSource>
+				<Name>«ws.name»</Name>
+				<Description>«ws.description»</Description>
+				<TargetUnits>
+				«FOR tu : ws.getTargetUnits()»
+					<TargetUnit>«tu.name»</TargetUnit>
+				«ENDFOR»
+				</TargetUnits>
+				«IF ws.getAssignmentRule() != null»
+				<AssignmentRule>«ws.getAssignmentRule().name»</AssignmentRule>						
+				«ELSE»
+				<AssignmentRule>«"null"»</AssignmentRule>
+				«ENDIF»				
+			</WorkSource>
+	'''
+	
+	def printRepository(Repository repository) '''
+			<Repository>
+				<Type>«repository.type.name»</Type>
+				<Profiles>
+				«FOR p : repository.getProfiles()» 
+					«printWorkItemProfile(p)»
+				«ENDFOR»
+				</Profiles>
+				<Rules> </Rules>
+			</Repository>
+			'''
+			
+	def printWorkItemProfile(WorkItemProfile p) '''
+			<Profile>
+				<Name>«p.name»</Name>
+				<Description>«p.name»</Description>
+				<References> 
+				«FOR wc : p.getReferences()»  
+					«printWorkReference(wc)»
+				«ENDFOR»
+				</References>
+				<Decompositions> 
+				«FOR wd : p.getDecompositions()»  
+					«printWorkDecomposition(wd)»
+				«ENDFOR»
+				</Decompositions>
+				<RequiredServices>
+				«FOR rs : p.getRequiredServices()»	
+				<ServiceType>«rs.name»</ServiceType>
+				«ENDFOR»
+				<RequiredServices>
+				<ClassOfService> 
+				</ClassOfService>
+				<Efforts>
+					«printNumExpression(p.efforts)»
+				</Efforts>
+				<Value>
+					«printNumExpression(p.value)»
+				</Value>
+				<Rules> </Rules>
+			</Profile>
+	'''
+	
+	def printWorkReference(WorkReference wr) '''
+			<Reference>
+				<WorkItem>«wr.workItem.name»</WorkItem>
+				<Quantity>
+					«printNumExpression(wr.quantity)»
+				</Quantity>
+			</Reference>
+	'''	
+	
+	def printWorkDecomposition(WorkDecomposition wd) '''
+			<Decomposition>
+				<WorkItem>«wd.workItem.name»</WorkItem>
+				<Quantity>
+					«printNumExpression(wd.quantity)»
+				</Quantity>
+			</Decomposition>
+	'''	
+	
+	def printWorkItem(WorkItem wi) '''
+			<WorkItem>
+				<Name>«wi.name»</Name>
+				<Profile>«wi.profile.name»</Profile>
+				<Description>«wi.description»</Description>
+				<Pattern>«wi.getPattern().name»</Pattern>
+				<Type>«wi.getPatternType.name»</Type>					
+				<Predecessors>
+				«FOR ptask : wi.getPTasks()»
+					<Predecessor>«ptask.name»</Predecessor>
+				«ENDFOR»	
+				</Predecessors>
+				<Subtasks>
+				«FOR stask : wi.getSTasks()»				
+					<Subtask>«stask.name»</Subtask>
+				«ENDFOR»	
+				</Subtasks>
+				<Causalities>
+				«FOR cs : wi.getCausalTriggers()»
+					<Causality>
+					«FOR ttask : cs.getTriggered()»
+						<Triggered>«ttask.name»</Triggered>
+					«ENDFOR»
+						<AtProgress>«cs.getAtProgress»</AtProgress>
+						<OnProbability>«cs.getOnProbability»</OnProbability>
+					</Causality>
+				«ENDFOR»	
+				</Causalities>
+				<RequiredServices>
+				«FOR rs : wi.getRequiredServices()»	
+				<ServiceType>«rs.name»</ServiceType>
+				«ENDFOR»
+				</RequiredServices>
+				<ClassOfService>«wi.classOfService»</ClassOfService>
+				<Efforts>«wi.efforts»</Efforts>
+				<Value>«wi.value»</Value>	
+				«IF wi.getWorkSource() != null» 
+				<WorkSource>«wi.getWorkSource().name»</WorkSource>
+				«ELSE»
+				<WorkSource>«"null"»</WorkSource>
+				 «ENDIF»
+				<ArrivalTime>«wi.arrivalTime»</ArrivalTime>
+				<DueDate>«wi.dueDate»</DueDate>
+			</WorkItem>
+	'''
+
 }
+

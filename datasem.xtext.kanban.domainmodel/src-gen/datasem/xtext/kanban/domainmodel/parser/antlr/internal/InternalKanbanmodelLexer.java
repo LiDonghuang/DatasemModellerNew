@@ -74,7 +74,6 @@ public class InternalKanbanmodelLexer extends Lexer {
     public static final int T__65=65;
     public static final int T__62=62;
     public static final int T__63=63;
-    public static final int T__114=114;
     public static final int T__61=61;
     public static final int T__60=60;
     public static final int T__55=55;
@@ -164,10 +163,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__12;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:12:7: ( 'Repositories' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:12:9: 'Repositories'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:12:7: ( 'GovernanceModel' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:12:9: 'GovernanceModel'
             {
-            match("Repositories"); 
+            match("GovernanceModel"); 
 
 
             }
@@ -185,10 +184,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__13;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:13:7: ( 'end Repositories' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:13:9: 'end Repositories'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:13:7: ( 'ProcessModels' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:13:9: 'ProcessModels'
             {
-            match("end Repositories"); 
+            match("ProcessModels"); 
 
 
             }
@@ -206,10 +205,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__14;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:14:7: ( 'GovernanceModel' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:14:9: 'GovernanceModel'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:14:7: ( 'end ProcessModels' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:14:9: 'end ProcessModels'
             {
-            match("GovernanceModel"); 
+            match("end ProcessModels"); 
 
 
             }
@@ -521,10 +520,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:29:7: ( 'WorkSources' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:29:9: 'WorkSources'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:29:7: ( 'Repositories' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:29:9: 'Repositories'
             {
-            match("WorkSources"); 
+            match("Repositories"); 
 
 
             }
@@ -542,10 +541,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:30:7: ( 'end WorkSources' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:30:9: 'end WorkSources'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:30:7: ( 'end Repositories' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:30:9: 'end Repositories'
             {
-            match("end WorkSources"); 
+            match("end Repositories"); 
 
 
             }
@@ -563,10 +562,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:31:7: ( 'WorkItems' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:31:9: 'WorkItems'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:31:7: ( 'WorkSources' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:31:9: 'WorkSources'
             {
-            match("WorkItems"); 
+            match("WorkSources"); 
 
 
             }
@@ -584,10 +583,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:32:7: ( 'end WorkItems' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:32:9: 'end WorkItems'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:32:7: ( 'end WorkSources' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:32:9: 'end WorkSources'
             {
-            match("end WorkItems"); 
+            match("end WorkSources"); 
 
 
             }
@@ -605,10 +604,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:33:7: ( 'end WorkItemNetworkModel' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:33:9: 'end WorkItemNetworkModel'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:33:7: ( 'WorkItems' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:33:9: 'WorkItems'
             {
-            match("end WorkItemNetworkModel"); 
+            match("WorkItems"); 
 
 
             }
@@ -626,10 +625,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:34:7: ( 'ExperimentSettings' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:34:9: 'ExperimentSettings'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:34:7: ( 'end WorkItems' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:34:9: 'end WorkItems'
             {
-            match("ExperimentSettings"); 
+            match("end WorkItems"); 
 
 
             }
@@ -647,10 +646,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:35:7: ( 'Replications' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:35:9: 'Replications'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:35:7: ( 'end WorkItemNetworkModel' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:35:9: 'end WorkItemNetworkModel'
             {
-            match("Replications"); 
+            match("end WorkItemNetworkModel"); 
 
 
             }
@@ -668,10 +667,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:36:7: ( 'InterArrivalTime' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:36:9: 'InterArrivalTime'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:36:7: ( 'ExperimentSettings' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:36:9: 'ExperimentSettings'
             {
-            match("InterArrivalTime"); 
+            match("ExperimentSettings"); 
 
 
             }
@@ -689,10 +688,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:37:7: ( 'end ExperimentSettings' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:37:9: 'end ExperimentSettings'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:37:7: ( 'Replications' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:37:9: 'Replications'
             {
-            match("end ExperimentSettings"); 
+            match("Replications"); 
 
 
             }
@@ -710,10 +709,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:38:7: ( 'end KSSModel' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:38:9: 'end KSSModel'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:38:7: ( 'InterArrivalTime' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:38:9: 'InterArrivalTime'
             {
-            match("end KSSModel"); 
+            match("InterArrivalTime"); 
 
 
             }
@@ -731,10 +730,11 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:39:7: ( '.' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:39:9: '.'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:39:7: ( 'end ExperimentSettings' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:39:9: 'end ExperimentSettings'
             {
-            match('.'); 
+            match("end ExperimentSettings"); 
+
 
             }
 
@@ -751,10 +751,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:40:7: ( 'Distribution:' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:40:9: 'Distribution:'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:40:7: ( 'end KSSModel' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:40:9: 'end KSSModel'
             {
-            match("Distribution:"); 
+            match("end KSSModel"); 
 
 
             }
@@ -772,10 +772,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:41:7: ( '[' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:41:9: '['
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:41:7: ( '.' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:41:9: '.'
             {
-            match('['); 
+            match('.'); 
 
             }
 
@@ -792,10 +792,11 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:42:7: ( ']' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:42:9: ']'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:42:7: ( 'Distribution:' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:42:9: 'Distribution:'
             {
-            match(']'); 
+            match("Distribution:"); 
+
 
             }
 
@@ -812,11 +813,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:43:7: ( 'Repository' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:43:9: 'Repository'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:43:7: ( '[' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:43:9: '['
             {
-            match("Repository"); 
-
+            match('['); 
 
             }
 
@@ -833,11 +833,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:44:7: ( 'Profiles' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:44:9: 'Profiles'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:44:7: ( ']' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:44:9: ']'
             {
-            match("Profiles"); 
-
+            match(']'); 
 
             }
 
@@ -854,10 +853,11 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:45:7: ( '{' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:45:9: '{'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:45:7: ( 'Repository' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:45:9: 'Repository'
             {
-            match('{'); 
+            match("Repository"); 
+
 
             }
 
@@ -874,10 +874,11 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:46:7: ( '}' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:46:9: '}'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:46:7: ( 'Profiles' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:46:9: 'Profiles'
             {
-            match('}'); 
+            match("Profiles"); 
+
 
             }
 
@@ -894,11 +895,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:47:7: ( 'end Repository' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:47:9: 'end Repository'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:47:7: ( '{' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:47:9: '{'
             {
-            match("end Repository"); 
-
+            match('{'); 
 
             }
 
@@ -915,11 +915,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:48:7: ( 'workItem' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:48:9: 'workItem'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:48:7: ( '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:48:9: '}'
             {
-            match("workItem"); 
-
+            match('}'); 
 
             }
 
@@ -936,10 +935,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:49:7: ( 'Description' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:49:9: 'Description'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:49:7: ( 'end Repository' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:49:9: 'end Repository'
             {
-            match("Description"); 
+            match("end Repository"); 
 
 
             }
@@ -957,10 +956,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:50:7: ( 'references' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:50:9: 'references'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:50:7: ( 'WorkItem' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:50:9: 'WorkItem'
             {
-            match("references"); 
+            match("WorkItem"); 
 
 
             }
@@ -978,10 +977,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:51:7: ( 'decompositions' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:51:9: 'decompositions'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:51:7: ( 'Description' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:51:9: 'Description'
             {
-            match("decompositions"); 
+            match("Description"); 
 
 
             }
@@ -999,10 +998,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:52:7: ( 'serviceType' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:52:9: 'serviceType'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:52:7: ( 'References' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:52:9: 'References'
             {
-            match("serviceType"); 
+            match("References"); 
 
 
             }
@@ -1020,10 +1019,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:53:7: ( 'baseEfforts' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:53:9: 'baseEfforts'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:53:7: ( 'Decompositions' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:53:9: 'Decompositions'
             {
-            match("baseEfforts"); 
+            match("Decompositions"); 
 
 
             }
@@ -1041,10 +1040,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:54:7: ( 'baseValue' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:54:9: 'baseValue'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:54:7: ( 'RequiredServices' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:54:9: 'RequiredServices'
             {
-            match("baseValue"); 
+            match("RequiredServices"); 
 
 
             }
@@ -1062,10 +1061,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:55:7: ( 'classOfService' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:55:9: 'classOfService'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:55:7: ( 'Efforts' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:55:9: 'Efforts'
             {
-            match("classOfService"); 
+            match("Efforts"); 
 
 
             }
@@ -1083,10 +1082,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:56:7: ( 'quantity' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:56:9: 'quantity'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:56:7: ( 'Value' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:56:9: 'Value'
             {
-            match("quantity"); 
+            match("Value"); 
 
 
             }
@@ -1104,10 +1103,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:57:7: ( 'workflowTemplate' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:57:9: 'workflowTemplate'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:57:7: ( 'ClassOfService' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:57:9: 'ClassOfService'
             {
-            match("workflowTemplate"); 
+            match("ClassOfService"); 
 
 
             }
@@ -1125,10 +1124,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:58:7: ( 'Types' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:58:9: 'Types'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:58:7: ( 'AssignmentAllowed' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:58:9: 'AssignmentAllowed'
             {
-            match("Types"); 
+            match("AssignmentAllowed"); 
 
 
             }
@@ -1146,10 +1145,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:59:7: ( 'taskType' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:59:9: 'taskType'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:59:7: ( 'DiscardAllowed' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:59:9: 'DiscardAllowed'
             {
-            match("taskType"); 
+            match("DiscardAllowed"); 
 
 
             }
@@ -1167,10 +1166,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:60:7: ( 'valueFunction' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:60:9: 'valueFunction'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:60:7: ( 'Quantity' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:60:9: 'Quantity'
             {
-            match("valueFunction"); 
+            match("Quantity"); 
 
 
             }
@@ -1188,10 +1187,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:61:7: ( 'Mechanism' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:61:9: 'Mechanism'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:61:7: ( 'TaskPattern' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:61:9: 'TaskPattern'
             {
-            match("Mechanism"); 
+            match("TaskPattern"); 
 
 
             }
@@ -1209,10 +1208,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:62:7: ( 'ProcessType' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:62:9: 'ProcessType'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:62:7: ( 'Types' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:62:9: 'Types'
             {
-            match("ProcessType"); 
+            match("Types"); 
 
 
             }
@@ -1230,10 +1229,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:63:7: ( 'Strategy' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:63:9: 'Strategy'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:63:7: ( 'TaskType' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:63:9: 'TaskType'
             {
-            match("Strategy"); 
+            match("TaskType"); 
 
 
             }
@@ -1251,10 +1250,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:64:7: ( 'WIAcceptance' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:64:9: 'WIAcceptance'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:64:7: ( 'ValueFunction' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:64:9: 'ValueFunction'
             {
-            match("WIAcceptance"); 
+            match("ValueFunction"); 
 
 
             }
@@ -1272,10 +1271,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:65:7: ( 'BackLogLimit' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:65:9: 'BackLogLimit'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:65:7: ( 'ProcessModel' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:65:9: 'ProcessModel'
             {
-            match("BackLogLimit"); 
+            match("ProcessModel"); 
 
 
             }
@@ -1293,10 +1292,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:66:7: ( 'WIPLimit' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:66:9: 'WIPLimit'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:66:7: ( 'Strategy' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:66:9: 'Strategy'
             {
-            match("WIPLimit"); 
+            match("Strategy"); 
 
 
             }
@@ -1314,10 +1313,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:67:7: ( 'WISelection' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:67:9: 'WISelection'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:67:7: ( 'WIAcceptance' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:67:9: 'WIAcceptance'
             {
-            match("WISelection"); 
+            match("WIAcceptance"); 
 
 
             }
@@ -1335,10 +1334,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:68:7: ( 'WIAssignment' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:68:9: 'WIAssignment'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:68:7: ( 'BackLogLimit' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:68:9: 'BackLogLimit'
             {
-            match("WIAssignment"); 
+            match("BackLogLimit"); 
 
 
             }
@@ -1356,10 +1355,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:69:7: ( 'ResourceAllocation' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:69:9: 'ResourceAllocation'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:69:7: ( 'WIPLimit' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:69:9: 'WIPLimit'
             {
-            match("ResourceAllocation"); 
+            match("WIPLimit"); 
 
 
             }
@@ -1377,10 +1376,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:70:7: ( 'ResourceOutsourcing' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:70:9: 'ResourceOutsourcing'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:70:7: ( 'WISelection' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:70:9: 'WISelection'
             {
-            match("ResourceOutsourcing"); 
+            match("WISelection"); 
 
 
             }
@@ -1398,10 +1397,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:71:7: ( 'workSource' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:71:9: 'workSource'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:71:7: ( 'WIAssignment' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:71:9: 'WIAssignment'
             {
-            match("workSource"); 
+            match("WIAssignment"); 
 
 
             }
@@ -1419,10 +1418,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__72;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:72:7: ( 'targetUnits' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:72:9: 'targetUnits'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:72:7: ( 'ResourceAllocation' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:72:9: 'ResourceAllocation'
             {
-            match("targetUnits"); 
+            match("ResourceAllocation"); 
 
 
             }
@@ -1440,10 +1439,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__73;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:73:7: ( 'Profile' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:73:9: 'Profile'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:73:7: ( 'ResourceOutsourcing' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:73:9: 'ResourceOutsourcing'
             {
-            match("Profile"); 
+            match("ResourceOutsourcing"); 
 
 
             }
@@ -1461,10 +1460,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__74;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:74:7: ( 'Pattern' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:74:9: 'Pattern'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:74:7: ( 'WorkSource' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:74:9: 'WorkSource'
             {
-            match("Pattern"); 
+            match("WorkSource"); 
 
 
             }
@@ -1482,10 +1481,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__75;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:75:7: ( 'Type' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:75:9: 'Type'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:75:7: ( 'TargetUnits' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:75:9: 'TargetUnits'
             {
-            match("Type"); 
+            match("TargetUnits"); 
 
 
             }
@@ -1503,10 +1502,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__76;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:76:7: ( 'predecessors' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:76:9: 'predecessors'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:76:7: ( 'Profile' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:76:9: 'Profile'
             {
-            match("predecessors"); 
+            match("Profile"); 
 
 
             }
@@ -1524,10 +1523,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__77;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:77:7: ( 'subtasks' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:77:9: 'subtasks'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:77:7: ( 'Pattern' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:77:9: 'Pattern'
             {
-            match("subtasks"); 
+            match("Pattern"); 
 
 
             }
@@ -1545,10 +1544,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__78;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:78:7: ( 'causality' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:78:9: 'causality'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:78:7: ( 'Type' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:78:9: 'Type'
             {
-            match("causality"); 
+            match("Type"); 
 
 
             }
@@ -1566,10 +1565,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__79;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:79:7: ( 'localValues' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:79:9: 'localValues'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:79:7: ( 'Predecessors' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:79:9: 'Predecessors'
             {
-            match("localValues"); 
+            match("Predecessors"); 
 
 
             }
@@ -1587,10 +1586,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__80;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:80:7: ( 'WorkSource' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:80:9: 'WorkSource'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:80:7: ( 'Subtasks' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:80:9: 'Subtasks'
             {
-            match("WorkSource"); 
+            match("Subtasks"); 
 
 
             }
@@ -1608,10 +1607,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__81;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:81:7: ( 'arrivalTime' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:81:9: 'arrivalTime'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:81:7: ( 'CausalTriggers' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:81:9: 'CausalTriggers'
             {
-            match("arrivalTime"); 
+            match("CausalTriggers"); 
 
 
             }
@@ -1629,10 +1628,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__82;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:82:7: ( 'dueDate' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:82:9: 'dueDate'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:82:7: ( 'ArrivalTime' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:82:9: 'ArrivalTime'
             {
-            match("dueDate"); 
+            match("ArrivalTime"); 
 
 
             }
@@ -1650,10 +1649,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__83;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:83:7: ( '=>' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:83:9: '=>'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:83:7: ( 'DueDate' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:83:9: 'DueDate'
             {
-            match("=>"); 
+            match("DueDate"); 
 
 
             }
@@ -1671,10 +1670,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__84;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:84:7: ( '->' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:84:9: '->'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:84:7: ( '=>' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:84:9: '=>'
             {
-            match("->"); 
+            match("=>"); 
 
 
             }
@@ -1692,10 +1691,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__85;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:85:7: ( 'atProgress' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:85:9: 'atProgress'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:85:7: ( '->' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:85:9: '->'
             {
-            match("atProgress"); 
+            match("->"); 
 
 
             }
@@ -1713,10 +1712,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__86;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:86:7: ( 'onProbability' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:86:9: 'onProbability'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:86:7: ( 'AtProgress' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:86:9: 'AtProgress'
             {
-            match("onProbability"); 
+            match("AtProgress"); 
 
 
             }
@@ -1734,10 +1733,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__87;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:87:7: ( 'owner' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:87:9: 'owner'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:87:7: ( 'OnProbability' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:87:9: 'OnProbability'
             {
-            match("owner"); 
+            match("OnProbability"); 
 
 
             }
@@ -1755,10 +1754,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__88;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:88:7: ( 'value' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:88:9: 'value'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:88:7: ( 'ServiceType' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:88:9: 'ServiceType'
             {
-            match("value"); 
+            match("ServiceType"); 
 
 
             }
@@ -1776,10 +1775,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__89;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:89:7: ( 'service' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:89:9: 'service'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:89:7: ( 'Service' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:89:9: 'Service'
             {
-            match("service"); 
+            match("Service"); 
 
 
             }
@@ -1797,10 +1796,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__90;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:90:7: ( 'type' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:90:9: 'type'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:90:7: ( 'Efficiency' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:90:9: 'Efficiency'
             {
-            match("type"); 
+            match("Efficiency"); 
 
 
             }
@@ -1818,10 +1817,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__91;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:91:7: ( 'efficiency' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:91:9: 'efficiency'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:91:7: ( 'ServiceProvider' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:91:9: 'ServiceProvider'
             {
-            match("efficiency"); 
+            match("ServiceProvider"); 
 
 
             }
@@ -1839,10 +1838,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__92;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:92:7: ( 'serviceProvider' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:92:9: 'serviceProvider'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:92:7: ( 'Group' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:92:9: 'Group'
             {
-            match("serviceProvider"); 
+            match("Group"); 
 
 
             }
@@ -1860,10 +1859,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__93;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:93:7: ( 'group' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:93:9: 'group'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:93:7: ( 'SourceUnits' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:93:9: 'SourceUnits'
             {
-            match("group"); 
+            match("SourceUnits"); 
 
 
             }
@@ -1881,10 +1880,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__94;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:94:7: ( 'sourceUnits' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:94:9: 'sourceUnits'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:94:7: ( 'SubordinateUnits' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:94:9: 'SubordinateUnits'
             {
-            match("sourceUnits"); 
+            match("SubordinateUnits"); 
 
 
             }
@@ -1902,10 +1901,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__95;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:95:7: ( 'subordinateUnits' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:95:9: 'subordinateUnits'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:95:7: ( 'Services' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:95:9: 'Services'
             {
-            match("subordinateUnits"); 
+            match("Services"); 
 
 
             }
@@ -1923,10 +1922,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__96;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:96:7: ( 'services' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:96:9: 'services'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:96:7: ( 'GovernanceSearchStrategy' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:96:9: 'GovernanceSearchStrategy'
             {
-            match("services"); 
+            match("GovernanceSearchStrategy"); 
 
 
             }
@@ -1944,10 +1943,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__97;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:97:7: ( 'governanceSearchStrategy' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:97:9: 'governanceSearchStrategy'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:97:7: ( 'Default' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:97:9: 'Default'
             {
-            match("governanceSearchStrategy"); 
+            match("Default"); 
 
 
             }
@@ -1965,10 +1964,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__98;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:98:7: ( 'default' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:98:9: 'default'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:98:7: ( 'Specified' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:98:9: 'Specified'
             {
-            match("default"); 
+            match("Specified"); 
 
 
             }
@@ -1986,10 +1985,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__99;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:99:7: ( 'specified' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:99:9: 'specified'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:99:7: ( 'Resources' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:99:9: 'Resources'
             {
-            match("specified"); 
+            match("Resources"); 
 
 
             }
@@ -2007,10 +2006,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__100;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:100:8: ( 'resources' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:100:10: 'resources'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:100:8: ( 'Resource' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:100:10: 'Resource'
             {
-            match("resources"); 
+            match("Resource"); 
 
 
             }
@@ -2028,10 +2027,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__101;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:101:8: ( 'resource' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:101:10: 'resource'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:101:8: ( 'capability' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:101:10: 'capability'
             {
-            match("resource"); 
+            match("capability"); 
 
 
             }
@@ -2049,10 +2048,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__102;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:102:8: ( 'capability' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:102:10: 'capability'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:102:8: ( 'requirement' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:102:10: 'requirement'
             {
-            match("capability"); 
+            match("requirement"); 
 
 
             }
@@ -2070,10 +2069,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__103;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:103:8: ( 'requirement' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:103:10: 'requirement'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:103:8: ( 'workItems' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:103:10: 'workItems'
             {
-            match("requirement"); 
+            match("workItems"); 
 
 
             }
@@ -2091,10 +2090,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__104;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:104:8: ( 'workItems' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:104:10: 'workItems'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:104:8: ( 'workItemNetwork' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:104:10: 'workItemNetwork'
             {
-            match("workItems"); 
+            match("workItemNetwork"); 
 
 
             }
@@ -2112,11 +2111,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__105;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:105:8: ( 'workItemNetwork' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:105:10: 'workItemNetwork'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:105:8: ( '(' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:105:10: '('
             {
-            match("workItemNetwork"); 
-
+            match('('); 
 
             }
 
@@ -2133,10 +2131,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__106;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:106:8: ( '(' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:106:10: '('
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:106:8: ( ',' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:106:10: ','
             {
-            match('('); 
+            match(','); 
 
             }
 
@@ -2153,10 +2151,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__107;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:107:8: ( ',' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:107:10: ','
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:107:8: ( ')' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:107:10: ')'
             {
-            match(','); 
+            match(')'); 
 
             }
 
@@ -2173,10 +2171,11 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__108;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:108:8: ( ')' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:108:10: ')'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:108:8: ( 'events' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:108:10: 'events'
             {
-            match(')'); 
+            match("events"); 
+
 
             }
 
@@ -2193,10 +2192,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__109;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:109:8: ( 'events' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:109:10: 'events'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:109:8: ( 'end' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:109:10: 'end'
             {
-            match("events"); 
+            match("end"); 
 
 
             }
@@ -2214,10 +2213,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__110;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:110:8: ( 'end' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:110:10: 'end'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:110:8: ( 'activities' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:110:10: 'activities'
             {
-            match("end"); 
+            match("activities"); 
 
 
             }
@@ -2235,10 +2234,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__111;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:111:8: ( 'activities' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:111:10: 'activities'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:111:8: ( 'state' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:111:10: 'state'
             {
-            match("activities"); 
+            match("state"); 
 
 
             }
@@ -2256,10 +2255,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__112;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:112:8: ( 'state' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:112:10: 'state'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:112:8: ( 'actions' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:112:10: 'actions'
             {
-            match("state"); 
+            match("actions"); 
 
 
             }
@@ -2277,29 +2276,8 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = T__113;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:113:8: ( 'actions' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:113:10: 'actions'
-            {
-            match("actions"); 
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__113"
-
-    // $ANTLR start "T__114"
-    public final void mT__114() throws RecognitionException {
-        try {
-            int _type = T__114;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:114:8: ( '/' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:114:10: '/'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:113:8: ( '/' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:113:10: '/'
             {
             match('/'); 
 
@@ -2311,17 +2289,17 @@ public class InternalKanbanmodelLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "T__114"
+    // $ANTLR end "T__113"
 
     // $ANTLR start "RULE_ID"
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4069:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4069:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3940:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3940:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4069:11: ( '^' )?
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3940:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -2330,7 +2308,7 @@ public class InternalKanbanmodelLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4069:11: '^'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3940:11: '^'
                     {
                     match('^'); 
 
@@ -2348,7 +2326,7 @@ public class InternalKanbanmodelLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4069:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3940:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -2397,10 +2375,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4071:10: ( ( '0' .. '9' )+ )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4071:12: ( '0' .. '9' )+
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3942:10: ( ( '0' .. '9' )+ )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3942:12: ( '0' .. '9' )+
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4071:12: ( '0' .. '9' )+
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3942:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -2414,7 +2392,7 @@ public class InternalKanbanmodelLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4071:13: '0' .. '9'
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3942:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -2446,10 +2424,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4073:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4073:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3944:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3944:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4073:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3944:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -2467,10 +2445,10 @@ public class InternalKanbanmodelLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4073:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3944:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4073:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3944:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -2486,7 +2464,7 @@ public class InternalKanbanmodelLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4073:21: '\\\\' .
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3944:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2494,7 +2472,7 @@ public class InternalKanbanmodelLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4073:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3944:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2519,10 +2497,10 @@ public class InternalKanbanmodelLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4073:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3944:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4073:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3944:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -2538,7 +2516,7 @@ public class InternalKanbanmodelLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4073:54: '\\\\' .
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3944:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2546,7 +2524,7 @@ public class InternalKanbanmodelLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4073:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3944:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2589,12 +2567,12 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4075:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4075:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3946:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3946:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4075:24: ( options {greedy=false; } : . )*
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3946:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -2619,7 +2597,7 @@ public class InternalKanbanmodelLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4075:52: .
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3946:52: .
             	    {
             	    matchAny(); 
 
@@ -2649,12 +2627,12 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4077:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4077:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3948:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3948:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4077:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3948:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -2667,7 +2645,7 @@ public class InternalKanbanmodelLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4077:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3948:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2687,7 +2665,7 @@ public class InternalKanbanmodelLexer extends Lexer {
                 }
             } while (true);
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4077:40: ( ( '\\r' )? '\\n' )?
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3948:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -2696,9 +2674,9 @@ public class InternalKanbanmodelLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4077:41: ( '\\r' )? '\\n'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3948:41: ( '\\r' )? '\\n'
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4077:41: ( '\\r' )?
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3948:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -2707,7 +2685,7 @@ public class InternalKanbanmodelLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4077:41: '\\r'
+                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3948:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2739,10 +2717,10 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4079:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4079:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3950:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3950:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4079:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3950:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -2796,8 +2774,8 @@ public class InternalKanbanmodelLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4081:16: ( . )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4081:18: .
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3952:16: ( . )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3952:18: .
             {
             matchAny(); 
 
@@ -2812,8 +2790,8 @@ public class InternalKanbanmodelLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | T__114 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=111;
+        // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=110;
         alt12 = dfa12.predict(input);
         switch (alt12) {
             case 1 :
@@ -3538,56 +3516,49 @@ public class InternalKanbanmodelLexer extends Lexer {
                 }
                 break;
             case 104 :
-                // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1:642: T__114
-                {
-                mT__114(); 
-
-                }
-                break;
-            case 105 :
-                // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1:649: RULE_ID
+                // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1:642: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 106 :
-                // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1:657: RULE_INT
+            case 105 :
+                // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1:650: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 107 :
-                // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1:666: RULE_STRING
+            case 106 :
+                // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1:659: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 108 :
-                // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1:678: RULE_ML_COMMENT
+            case 107 :
+                // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1:671: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 109 :
-                // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1:694: RULE_SL_COMMENT
+            case 108 :
+                // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1:687: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 110 :
-                // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1:710: RULE_WS
+            case 109 :
+                // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1:703: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 111 :
-                // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1:718: RULE_ANY_OTHER
+            case 110 :
+                // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1:711: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -3601,305 +3572,308 @@ public class InternalKanbanmodelLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\13\61\1\uffff\1\61\2\uffff\1\61\2\uffff\16\61\2\57\2\61"+
-        "\3\uffff\1\154\1\57\2\uffff\2\57\2\uffff\1\61\1\uffff\17\61\1\uffff"+
-        "\2\61\2\uffff\2\61\2\uffff\27\61\2\uffff\4\61\11\uffff\3\61\1\u00ac"+
-        "\67\61\2\uffff\4\61\1\u00f5\44\61\1\u011e\20\61\11\uffff\4\61\1"+
-        "\u0138\1\uffff\37\61\1\u0158\10\61\1\uffff\1\u0162\11\61\1\u016c"+
-        "\1\u016d\5\61\4\uffff\1\61\1\u0178\2\61\1\uffff\37\61\1\uffff\11"+
-        "\61\1\uffff\11\61\2\uffff\5\61\4\uffff\1\61\1\uffff\20\61\1\u01c8"+
-        "\1\61\1\u01ca\7\61\1\u01d2\1\u01d3\1\u01d7\24\61\1\u01ec\2\61\1"+
-        "\u01ef\3\61\4\uffff\7\61\1\u0200\4\61\1\u0206\5\61\1\u020c\1\uffff"+
-        "\1\61\1\uffff\1\u0210\3\61\1\u0215\2\61\2\uffff\2\61\1\u021a\1\uffff"+
-        "\1\u021b\10\61\1\u0224\1\u0225\11\61\1\uffff\2\61\1\uffff\4\61\5"+
-        "\uffff\7\61\1\uffff\1\61\1\u0242\3\61\1\uffff\5\61\1\uffff\1\61"+
-        "\1\u024c\1\61\1\uffff\3\61\1\u0251\1\uffff\4\61\2\uffff\2\61\1\u0258"+
-        "\1\61\1\u025a\1\61\1\u025c\1\61\2\uffff\2\61\1\u0260\11\61\1\u026a"+
-        "\3\61\4\uffff\1\u0272\7\61\1\uffff\1\u027c\10\61\1\uffff\2\61\1"+
-        "\u0287\1\u0288\1\uffff\6\61\1\uffff\1\61\1\uffff\1\61\1\uffff\1"+
-        "\u0291\2\61\1\uffff\4\61\1\u0298\1\u0299\3\61\1\uffff\3\61\5\uffff"+
-        "\10\61\1\u02ad\1\uffff\2\61\1\u02b0\3\61\1\u02b4\1\u02b5\2\61\2"+
-        "\uffff\1\u02b8\1\61\1\u02ba\2\61\1\u02bd\1\u02be\1\61\1\uffff\1"+
-        "\u02c0\3\61\1\u02c4\1\u02c5\2\uffff\2\61\1\u02c8\1\u02c9\2\61\5"+
-        "\uffff\2\61\1\u02d2\2\61\1\u02d5\2\61\1\uffff\1\u02d8\1\u02d9\1"+
-        "\uffff\3\61\2\uffff\2\61\1\uffff\1\61\1\uffff\2\61\2\uffff\1\61"+
-        "\1\uffff\1\61\1\u02e4\1\u02e5\2\uffff\2\61\2\uffff\2\61\4\uffff"+
-        "\2\61\1\uffff\2\61\1\uffff\2\61\2\uffff\2\61\1\uffff\6\61\1\u02fb"+
-        "\2\uffff\1\u02fc\3\61\3\uffff\2\61\1\u0304\7\61\1\u030c\2\61\1\u030f"+
-        "\2\uffff\3\61\2\uffff\1\u0313\1\61\1\uffff\5\61\1\u031a\1\61\1\uffff"+
-        "\1\u031c\1\61\1\uffff\3\61\1\uffff\2\61\1\u0323\2\61\1\u0326\1\uffff"+
-        "\1\u0327\1\uffff\1\u0328\5\61\1\uffff\2\61\3\uffff\1\61\1\u0331"+
-        "\4\61\1\u0336\1\61\1\uffff\1\u0338\1\61\1\u033a\1\61\1\uffff\1\61"+
-        "\1\uffff\1\61\1\uffff\1\u033e\2\61\1\uffff\6\61\1\u0347\1\61\1\uffff"+
-        "\1\u0349\1\uffff";
+        "\1\uffff\14\52\1\uffff\1\52\4\uffff\4\52\2\50\3\52\3\uffff\2\52"+
+        "\1\134\1\50\2\uffff\2\50\2\uffff\1\52\1\uffff\26\52\1\uffff\3\52"+
+        "\4\uffff\7\52\2\uffff\3\52\3\uffff\2\52\6\uffff\6\52\1\u0097\57"+
+        "\52\2\uffff\3\52\1\u00db\53\52\1\u0109\4\52\12\uffff\4\52\1\u0116"+
+        "\1\uffff\1\u0118\51\52\1\u0142\2\52\1\uffff\4\52\4\uffff\1\u014d"+
+        "\3\52\1\uffff\1\52\1\uffff\51\52\1\uffff\3\52\1\u017f\1\52\1\u0181"+
+        "\5\uffff\6\52\1\u018f\21\52\1\u01a1\6\52\1\u01a8\1\u01a9\13\52\1"+
+        "\u01b5\1\u01b6\2\52\1\u01b9\1\uffff\1\52\5\uffff\1\52\1\u01c1\6"+
+        "\52\1\u01c8\1\uffff\1\u01c9\1\u01ca\3\52\1\u01d0\3\52\1\u01d4\5"+
+        "\52\1\u01dd\1\52\1\uffff\6\52\2\uffff\5\52\1\u01ea\5\52\2\uffff"+
+        "\2\52\1\uffff\1\52\5\uffff\1\52\1\uffff\6\52\3\uffff\2\52\1\u0201"+
+        "\1\52\1\u0203\1\uffff\3\52\1\uffff\7\52\1\u020f\1\uffff\14\52\1"+
+        "\uffff\3\52\1\u021f\5\52\4\uffff\11\52\1\uffff\1\52\1\uffff\1\u0235"+
+        "\4\52\1\u023a\1\52\1\u023c\3\52\1\uffff\1\52\1\u0241\11\52\1\u024b"+
+        "\1\52\1\u024d\1\52\1\uffff\1\52\1\u0250\4\52\4\uffff\1\u025b\1\u025c"+
+        "\3\52\1\u0261\2\52\1\u0264\1\52\1\u0266\1\uffff\2\52\1\u0269\1\52"+
+        "\1\uffff\1\52\1\uffff\4\52\1\uffff\3\52\1\u0273\4\52\1\u0278\1\uffff"+
+        "\1\52\1\uffff\1\u027a\1\52\1\uffff\2\52\1\u027f\1\u0280\5\uffff"+
+        "\1\u0285\2\uffff\3\52\1\u0289\1\uffff\2\52\1\uffff\1\52\1\uffff"+
+        "\1\u028d\1\u028e\1\uffff\1\u028f\1\u0290\7\52\1\uffff\4\52\1\uffff"+
+        "\1\u029c\1\uffff\3\52\1\u02a0\7\uffff\1\u02a5\1\52\1\u02a7\1\uffff"+
+        "\3\52\4\uffff\5\52\1\uffff\5\52\1\uffff\3\52\4\uffff\1\u02ba\1\uffff"+
+        "\1\52\1\uffff\10\52\1\u02c4\1\u02c5\1\u02c6\1\u02c7\2\52\1\u02ca"+
+        "\1\52\3\uffff\1\52\1\u02ce\7\52\4\uffff\1\52\1\u02d7\1\uffff\2\52"+
+        "\1\u02da\1\uffff\1\u02db\1\52\1\u02dd\3\52\1\u02e1\1\52\1\uffff"+
+        "\2\52\2\uffff\1\52\1\uffff\3\52\1\uffff\1\u02e9\3\52\1\u02ed\1\52"+
+        "\1\u02ef\1\uffff\1\52\1\u02f1\1\52\1\uffff\1\u02f3\1\uffff\1\52"+
+        "\1\uffff\1\u02f5\1\uffff\1\52\1\uffff\3\52\1\u02fb\1\52\1\uffff"+
+        "\1\u02fd\1\uffff";
     static final String DFA12_eofS =
-        "\u034a\uffff";
+        "\u02fe\uffff";
     static final String DFA12_minS =
-        "\1\0\1\123\1\145\1\146\1\157\2\141\1\162\1\145\1\111\1\170\1\156"+
-        "\1\uffff\1\145\2\uffff\1\141\2\uffff\1\157\3\145\2\141\1\165\2\141"+
-        "\1\145\1\141\1\162\1\157\1\143\2\76\1\156\1\157\3\uffff\1\52\1\101"+
-        "\2\uffff\2\0\2\uffff\1\123\1\uffff\1\160\1\144\1\146\1\145\1\166"+
-        "\1\163\1\160\1\154\1\147\3\162\1\101\1\160\1\164\1\uffff\2\163\2"+
-        "\uffff\1\157\1\164\2\uffff\1\162\1\146\1\143\1\145\1\162\1\142\1"+
-        "\165\1\145\1\141\1\163\1\141\1\160\1\141\1\162\1\160\1\154\2\143"+
-        "\1\145\1\143\1\162\1\120\1\164\2\uffff\1\120\1\156\1\157\1\166\11"+
-        "\uffff\1\115\1\154\1\157\1\40\1\151\1\156\1\145\1\153\1\145\1\165"+
-        "\1\141\1\166\1\141\1\153\1\143\1\114\3\145\1\164\2\143\1\164\1\153"+
-        "\1\145\1\157\1\165\1\157\1\141\1\104\1\166\1\157\1\162\1\143\1\164"+
-        "\1\145\2\163\1\141\1\156\1\153\1\147\1\145\1\165\1\150\1\153\1\144"+
-        "\1\141\1\151\1\162\1\151\1\162\1\145\1\165\1\145\1\157\1\163\1\151"+
-        "\1\165\1\105\1\uffff\1\143\1\164\1\162\1\120\1\60\1\145\1\156\1"+
-        "\151\1\164\1\111\1\143\1\163\1\151\1\154\4\162\1\151\2\145\1\111"+
-        "\1\162\1\165\1\151\1\155\1\165\1\141\1\151\1\141\1\162\1\143\1\151"+
-        "\1\145\1\105\1\163\1\141\1\142\1\164\1\124\1\145\1\60\1\145\1\141"+
-        "\1\114\1\145\1\154\1\166\3\157\1\162\1\160\1\162\1\144\1\151\1\143"+
-        "\1\162\1\145\1\157\2\uffff\1\145\1\uffff\1\157\2\uffff\1\151\1\163"+
-        "\1\156\1\141\1\60\1\uffff\1\106\1\151\1\143\1\145\1\164\1\157\1"+
-        "\145\1\151\1\155\1\145\1\151\1\101\2\151\1\154\1\163\1\162\1\164"+
-        "\1\154\1\157\1\145\2\162\1\160\1\154\1\164\1\143\1\163\1\144\1\145"+
-        "\1\146\1\60\1\146\1\141\1\117\1\154\2\151\1\171\1\164\1\uffff\1"+
-        "\60\1\156\1\157\1\143\1\126\1\141\1\147\1\151\1\156\1\142\2\60\1"+
-        "\156\1\145\1\164\1\141\1\143\1\160\1\166\2\162\1\145\1\60\1\141"+
-        "\1\164\1\uffff\1\165\1\172\1\145\1\147\1\145\1\165\1\160\1\147\1"+
-        "\151\1\143\1\155\1\162\1\142\1\160\1\145\1\163\1\156\1\145\1\157"+
-        "\1\165\1\156\1\143\1\145\1\157\1\164\2\145\1\153\1\151\1\125\1\151"+
-        "\1\uffff\1\146\1\154\1\146\1\151\1\154\1\164\1\160\1\125\1\165\1"+
-        "\uffff\1\151\1\147\1\145\1\141\1\154\1\162\1\164\1\163\1\141\2\uffff"+
-        "\1\141\1\154\1\157\1\164\1\145\1\157\1\145\1\166\1\153\1\156\1\uffff"+
-        "\1\156\1\164\1\156\1\141\1\120\1\171\1\155\1\162\1\164\1\156\2\164"+
-        "\1\145\1\162\1\165\1\164\1\60\1\124\1\60\1\155\1\167\1\162\1\143"+
-        "\1\145\1\155\1\163\3\60\1\163\2\156\1\145\1\157\1\165\1\123\1\164"+
-        "\1\151\1\171\1\145\2\156\1\163\1\114\1\163\1\154\1\124\1\145\1\151"+
-        "\1\60\1\142\1\156\1\60\1\162\1\151\1\101\1\163\1\162\1\151\1\111"+
-        "\2\143\1\145\1\143\1\164\1\171\1\162\1\60\1\116\1\143\1\141\1\155"+
-        "\1\60\1\151\1\156\1\151\1\164\1\151\1\60\1\uffff\1\171\1\uffff\1"+
-        "\60\1\124\1\143\1\145\1\60\1\145\1\151\2\uffff\1\171\1\162\1\60"+
-        "\1\uffff\1\60\1\141\1\151\1\144\1\162\2\145\1\171\1\164\2\60\1\151"+
-        "\1\143\1\155\1\151\1\163\1\165\1\151\1\163\1\145\1\uffff\1\151\1"+
-        "\143\1\uffff\1\151\1\157\1\154\1\165\1\151\1\156\1\143\1\uffff\1"+
-        "\164\1\171\1\145\1\162\1\164\1\151\1\160\1\157\1\uffff\1\145\1\60"+
-        "\1\145\1\156\1\145\1\uffff\1\157\1\164\1\166\1\151\1\157\1\uffff"+
-        "\1\160\1\60\1\145\1\uffff\2\145\1\163\1\60\1\uffff\1\156\1\164\1"+
-        "\160\1\157\2\uffff\2\164\1\60\1\164\1\60\1\162\1\60\1\171\2\uffff"+
-        "\2\164\1\60\1\155\1\157\1\145\1\155\2\163\1\154\2\145\1\60\1\156"+
-        "\1\154\2\164\1\141\2\145\1\60\1\115\1\156\1\151\1\157\1\145\1\166"+
-        "\1\164\1\uffff\1\60\1\143\2\156\1\123\1\141\1\157\1\156\1\145\1"+
-        "\uffff\1\164\1\155\2\60\1\uffff\1\164\1\151\1\145\1\166\1\145\1"+
-        "\163\1\uffff\1\163\1\uffff\1\166\1\uffff\1\60\1\163\1\151\1\uffff"+
-        "\1\151\1\162\1\163\1\145\2\60\1\151\1\123\1\163\1\uffff\1\163\1"+
-        "\157\1\163\1\157\1\156\1\120\1\155\1\uffff\1\157\1\145\1\163\1\157"+
-        "\1\156\1\163\1\151\1\167\1\60\1\uffff\1\145\1\164\1\60\1\145\1\154"+
-        "\1\156\2\60\1\167\1\160\2\uffff\1\60\1\157\1\60\1\151\1\125\2\60"+
-        "\1\151\1\uffff\1\60\1\157\1\164\1\163\2\60\2\uffff\1\164\1\145\2"+
-        "\60\1\143\1\157\1\162\1\143\2\uffff\1\116\1\144\1\141\1\60\1\156"+
-        "\1\141\1\60\1\144\1\157\1\uffff\2\60\1\uffff\1\164\1\124\1\72\2"+
-        "\uffff\1\157\1\154\1\uffff\1\156\1\uffff\1\144\1\156\2\uffff\1\143"+
-        "\1\uffff\1\156\2\60\2\uffff\1\171\1\141\2\uffff\1\141\1\165\1\151"+
-        "\1\145\2\uffff\1\145\1\162\1\uffff\1\163\1\154\1\uffff\1\145\1\162"+
-        "\2\uffff\1\164\1\151\1\uffff\1\162\1\141\1\163\1\145\1\151\1\145"+
-        "\1\60\2\uffff\1\60\1\162\1\164\1\162\2\uffff\1\115\1\154\1\143\1"+
-        "\60\1\115\1\162\1\153\1\151\1\155\1\153\1\164\1\60\1\162\1\164\1"+
-        "\60\2\uffff\1\143\1\151\1\143\2\uffff\1\60\1\150\1\uffff\1\157\1"+
-        "\163\1\115\1\156\1\145\1\60\1\145\1\uffff\1\60\1\163\1\uffff\1\150"+
-        "\1\157\1\151\1\uffff\1\123\1\144\1\60\1\157\1\147\1\60\1\uffff\1"+
-        "\60\1\uffff\1\60\1\123\2\156\1\164\1\145\1\uffff\1\144\1\163\3\uffff"+
-        "\1\164\1\60\1\147\1\162\1\154\1\145\1\60\1\162\1\uffff\1\60\1\141"+
-        "\1\60\1\154\1\uffff\1\141\1\uffff\1\164\1\uffff\1\60\1\164\1\145"+
-        "\1\uffff\1\145\2\147\1\151\1\171\1\145\1\60\1\163\1\uffff\1\60\1"+
-        "\uffff";
+        "\1\0\1\123\1\157\1\141\1\156\2\141\1\156\1\145\1\111\1\145\1\146"+
+        "\1\156\1\uffff\1\145\4\uffff\1\141\1\162\1\165\1\141\2\76\1\141"+
+        "\1\145\1\157\3\uffff\1\143\1\164\1\52\1\101\2\uffff\2\0\2\uffff"+
+        "\1\123\1\uffff\1\166\1\157\1\145\1\164\1\144\1\145\1\162\1\160\1"+
+        "\154\1\147\1\120\2\162\1\142\1\165\1\145\1\162\1\101\1\146\1\160"+
+        "\1\146\1\164\1\uffff\1\163\1\143\1\145\4\uffff\1\141\1\165\1\163"+
+        "\1\162\1\120\1\141\1\143\2\uffff\1\160\1\161\1\162\3\uffff\1\164"+
+        "\1\141\6\uffff\1\115\1\145\1\165\1\143\1\144\1\164\1\40\1\156\1"+
+        "\153\1\147\1\145\1\165\1\141\1\162\1\166\1\141\1\157\1\162\1\143"+
+        "\1\153\1\143\1\114\1\145\1\154\1\145\1\165\1\157\1\145\1\151\1\145"+
+        "\2\143\1\157\1\141\1\104\2\163\2\151\1\162\1\156\1\153\1\141\1\165"+
+        "\1\153\1\151\1\164\1\157\1\162\1\160\1\145\1\151\2\145\1\105\1\uffff"+
+        "\1\164\1\120\1\145\1\60\1\145\1\156\1\157\1\151\1\164\1\141\1\162"+
+        "\1\143\1\151\1\111\1\143\1\163\1\151\1\154\1\163\1\151\1\162\1\151"+
+        "\1\165\2\162\1\143\2\162\1\141\1\162\1\155\1\165\1\141\1\163\1\141"+
+        "\1\147\1\166\1\157\1\164\1\114\1\142\1\151\1\111\1\157\1\145\1\144"+
+        "\1\156\1\60\1\163\1\154\1\143\1\162\1\uffff\1\157\2\uffff\1\145"+
+        "\1\uffff\1\145\1\157\2\uffff\1\163\1\141\1\171\1\164\1\60\1\uffff"+
+        "\1\60\1\151\1\142\1\143\1\145\1\163\1\144\1\145\1\146\1\164\1\157"+
+        "\1\145\1\151\1\155\1\145\1\151\1\143\1\145\2\162\1\151\1\164\1\151"+
+        "\1\101\1\151\1\162\1\151\1\160\1\154\1\164\1\117\1\154\1\156\1\141"+
+        "\1\147\1\151\1\157\1\151\1\162\1\164\1\151\1\156\1\60\1\145\1\141"+
+        "\1\uffff\1\163\2\145\1\156\1\166\1\162\1\160\1\162\1\60\1\164\1"+
+        "\160\1\125\1\uffff\1\165\1\uffff\1\172\1\141\1\145\1\147\1\153\1"+
+        "\151\1\125\1\151\1\145\1\165\1\160\1\147\1\151\1\143\1\164\1\141"+
+        "\1\156\1\145\1\143\1\155\1\163\1\145\1\162\1\142\1\144\1\160\1\157"+
+        "\1\164\1\145\1\146\1\124\1\155\1\154\1\162\1\164\1\147\1\154\2\145"+
+        "\1\164\1\163\1\uffff\1\154\1\156\1\115\1\60\1\163\1\60\1\145\1\166"+
+        "\1\157\1\153\1\uffff\1\164\1\145\2\156\1\141\1\142\1\60\1\171\1"+
+        "\163\2\156\1\145\1\155\1\162\1\164\1\156\2\164\1\157\1\164\1\143"+
+        "\1\144\2\145\1\60\1\156\1\162\1\165\1\101\1\164\1\163\2\60\1\123"+
+        "\1\162\1\145\1\124\1\145\1\171\1\114\1\151\2\155\1\151\2\60\1\143"+
+        "\1\157\1\60\1\uffff\1\163\1\uffff\1\162\1\151\1\163\1\111\1\145"+
+        "\1\60\1\151\1\143\1\164\1\151\1\171\1\162\1\60\1\uffff\2\60\1\141"+
+        "\1\151\1\144\1\60\1\143\1\141\1\155\1\60\1\151\1\162\1\151\1\145"+
+        "\1\123\1\60\1\156\1\uffff\1\143\1\151\1\164\1\154\2\151\2\uffff"+
+        "\1\145\1\151\1\156\1\151\1\163\1\60\1\151\1\164\1\145\1\116\1\145"+
+        "\2\uffff\1\145\1\144\1\uffff\1\157\1\156\1\143\1\151\1\uffff\1\164"+
+        "\1\162\1\uffff\2\164\1\151\1\154\1\160\1\157\3\uffff\2\164\1\60"+
+        "\1\145\1\60\1\uffff\1\145\1\156\1\145\1\uffff\1\157\1\151\1\157"+
+        "\1\163\1\145\1\154\1\165\1\60\1\uffff\1\164\1\171\1\166\1\151\1"+
+        "\154\1\157\1\164\1\162\1\147\1\164\1\155\1\163\1\uffff\1\155\1\171"+
+        "\1\156\1\60\1\145\1\163\1\115\1\145\1\162\1\141\1\145\1\164\1\145"+
+        "\1\156\1\163\1\151\1\157\1\151\1\145\1\166\1\145\1\163\1\uffff\1"+
+        "\164\1\uffff\1\60\1\143\2\156\1\145\1\60\1\156\1\60\1\162\1\154"+
+        "\1\164\1\uffff\1\123\1\60\1\141\2\157\1\156\1\151\1\166\1\147\1"+
+        "\101\1\145\1\60\1\151\1\60\1\164\1\uffff\1\164\1\60\1\157\1\145"+
+        "\1\154\1\163\1\156\1\120\1\157\1\155\2\60\1\157\1\156\1\164\1\60"+
+        "\1\151\1\125\1\60\1\167\1\60\1\uffff\1\145\1\164\1\60\1\163\1\uffff"+
+        "\1\163\1\uffff\1\166\1\157\1\163\1\145\1\uffff\1\154\1\156\1\167"+
+        "\1\60\1\157\1\151\1\145\1\154\1\60\1\uffff\1\164\1\uffff\1\60\1"+
+        "\167\1\uffff\1\144\1\141\2\60\1\143\2\uffff\1\162\1\116\1\60\2\uffff"+
+        "\1\156\1\141\1\171\1\60\1\uffff\1\144\1\156\1\uffff\1\157\1\uffff"+
+        "\2\60\1\uffff\2\60\1\151\1\143\1\157\1\164\1\124\1\72\1\145\1\uffff"+
+        "\1\156\1\143\1\162\1\154\1\uffff\1\60\1\uffff\1\157\1\145\1\162"+
+        "\1\60\2\uffff\1\145\1\151\3\uffff\1\60\1\154\1\60\1\uffff\1\145"+
+        "\1\151\1\162\4\uffff\1\143\1\141\1\165\1\164\1\151\1\uffff\1\144"+
+        "\1\163\1\145\1\163\1\157\1\uffff\1\162\1\154\1\143\1\uffff\1\115"+
+        "\2\uffff\1\60\1\uffff\1\115\1\uffff\1\162\1\164\1\153\1\145\1\164"+
+        "\1\162\1\151\1\155\4\60\1\167\1\153\1\60\1\150\3\uffff\1\157\1\60"+
+        "\1\163\1\115\1\163\1\151\1\143\1\156\1\145\4\uffff\1\145\1\60\1"+
+        "\uffff\1\123\1\144\1\60\1\uffff\1\60\1\157\1\60\1\157\1\151\1\147"+
+        "\1\60\1\144\1\uffff\1\164\1\145\2\uffff\1\144\1\uffff\2\156\1\163"+
+        "\1\uffff\1\60\1\162\1\154\1\145\1\60\1\147\1\60\1\uffff\1\141\1"+
+        "\60\1\154\1\uffff\1\60\1\uffff\1\164\1\uffff\1\60\1\uffff\1\145"+
+        "\1\uffff\1\147\1\151\1\145\1\60\1\163\1\uffff\1\60\1\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\123\1\145\1\166\1\157\1\171\1\141\1\162\1\164\1\157"+
-        "\1\170\1\156\1\uffff\1\151\2\uffff\1\162\2\uffff\1\157\1\145\2\165"+
-        "\1\141\1\154\1\165\1\171\1\141\1\145\1\141\1\162\1\157\1\164\2\76"+
-        "\1\167\1\162\3\uffff\1\57\1\172\2\uffff\2\uffff\2\uffff\1\123\1"+
-        "\uffff\1\163\1\144\1\146\1\145\1\166\1\163\1\160\1\154\1\147\3\162"+
-        "\1\123\1\160\1\164\1\uffff\2\163\2\uffff\1\157\1\164\2\uffff\1\162"+
-        "\1\163\1\146\1\145\1\162\1\142\1\165\1\145\1\141\1\163\1\141\1\165"+
-        "\1\141\1\163\1\160\1\154\2\143\1\145\1\143\1\162\1\120\1\164\2\uffff"+
-        "\1\120\1\156\1\157\1\166\11\uffff\1\115\2\157\1\172\1\151\1\156"+
-        "\1\145\1\153\1\145\1\165\1\141\1\166\1\141\1\153\1\163\1\114\3\145"+
-        "\1\164\1\143\1\146\1\164\1\153\1\145\1\157\1\165\1\157\1\141\1\104"+
-        "\1\166\1\164\1\162\1\143\1\164\1\145\2\163\1\141\1\156\1\153\1\147"+
-        "\1\145\1\165\1\150\1\153\1\144\1\141\1\151\1\162\1\151\1\162\1\145"+
-        "\1\165\1\145\1\157\1\163\1\151\1\165\1\127\1\uffff\1\143\1\164\1"+
-        "\162\1\120\1\172\1\145\1\156\1\151\1\164\1\123\1\143\1\163\1\151"+
-        "\1\154\4\162\1\151\2\145\1\146\1\162\1\165\1\151\1\155\1\165\1\141"+
-        "\1\151\1\141\1\162\1\143\1\151\1\145\1\126\1\163\1\141\1\142\1\164"+
-        "\1\124\1\145\1\172\1\145\1\141\1\114\1\145\1\154\1\166\1\157\1\166"+
-        "\1\157\1\162\1\160\1\162\1\144\1\151\1\143\1\162\1\145\1\157\2\uffff"+
-        "\1\145\1\uffff\1\157\2\uffff\1\151\1\163\1\156\1\141\1\172\1\uffff"+
-        "\1\106\1\151\1\143\1\145\1\164\1\157\1\145\1\151\1\155\1\145\1\151"+
-        "\1\101\2\151\1\154\1\163\1\162\1\164\1\154\1\157\1\145\2\162\1\160"+
-        "\1\154\1\164\1\143\1\163\1\144\1\145\1\146\1\172\1\146\1\141\1\117"+
-        "\1\154\2\151\1\171\1\164\1\uffff\1\172\1\156\1\157\1\143\1\126\1"+
-        "\141\1\147\1\151\1\156\1\142\2\172\1\156\1\145\1\164\1\141\1\143"+
-        "\1\160\1\166\2\162\1\145\1\172\1\141\1\164\1\uffff\1\165\1\172\1"+
-        "\145\1\147\1\145\1\165\1\160\1\147\1\151\1\143\1\155\1\162\1\142"+
-        "\1\160\1\145\1\163\1\156\1\145\1\157\1\165\1\156\1\143\1\145\1\157"+
-        "\1\164\2\145\1\153\1\151\1\125\1\151\1\uffff\1\146\1\154\1\146\1"+
-        "\151\1\154\1\164\1\160\1\125\1\165\1\uffff\1\151\1\147\1\145\1\141"+
-        "\1\154\1\162\1\164\1\163\1\141\2\uffff\1\141\1\154\1\157\1\164\1"+
-        "\145\1\157\1\145\1\166\1\153\1\156\1\uffff\1\156\1\164\1\156\1\141"+
-        "\1\124\1\171\1\155\1\162\1\164\1\156\2\164\1\145\1\162\1\165\1\164"+
-        "\1\172\1\124\1\172\1\155\1\167\1\162\1\143\1\145\1\155\1\163\3\172"+
-        "\1\163\2\156\1\145\1\157\1\165\1\123\1\164\1\151\1\171\1\145\2\156"+
-        "\1\163\1\114\1\163\1\154\1\124\1\145\1\151\1\172\1\142\1\156\1\172"+
-        "\1\162\1\151\1\117\1\163\1\162\1\151\1\123\2\143\1\145\1\143\1\164"+
-        "\1\171\1\162\1\172\1\163\1\143\1\141\1\155\1\172\1\151\1\156\1\151"+
-        "\1\164\1\151\1\172\1\uffff\1\171\1\uffff\1\172\1\124\1\143\1\145"+
-        "\1\172\1\145\1\151\2\uffff\1\171\1\162\1\172\1\uffff\1\172\1\141"+
-        "\1\151\1\144\1\162\2\145\1\171\1\164\2\172\1\151\1\143\1\155\1\151"+
-        "\1\163\1\165\1\151\1\163\1\145\1\uffff\1\151\1\143\1\uffff\1\171"+
-        "\1\157\1\154\1\165\1\151\1\156\1\143\1\uffff\1\164\1\171\1\145\1"+
-        "\162\1\164\1\151\1\160\1\157\1\uffff\1\145\1\172\1\145\1\156\1\145"+
-        "\1\uffff\1\157\1\164\1\166\1\151\1\157\1\uffff\1\160\1\172\1\145"+
-        "\1\uffff\2\145\1\163\1\172\1\uffff\1\156\1\164\1\160\1\157\2\uffff"+
-        "\2\164\1\172\1\164\1\172\1\162\1\172\1\171\2\uffff\2\164\1\172\1"+
-        "\155\1\157\1\145\1\155\2\163\1\154\2\145\1\172\1\156\1\154\2\164"+
-        "\1\141\2\145\1\172\1\123\1\156\1\151\1\157\1\145\1\166\1\164\1\uffff"+
-        "\1\172\1\143\2\156\1\123\1\141\1\157\1\156\1\145\1\uffff\1\164\1"+
-        "\155\2\172\1\uffff\1\164\1\151\1\145\1\166\1\145\1\163\1\uffff\1"+
-        "\163\1\uffff\1\166\1\uffff\1\172\1\163\1\151\1\uffff\1\151\1\162"+
-        "\1\163\1\145\2\172\1\151\1\123\1\163\1\uffff\1\163\1\157\1\163\1"+
-        "\157\1\156\1\124\1\155\1\uffff\1\157\1\145\1\163\1\157\1\156\1\163"+
-        "\1\151\1\167\1\172\1\uffff\1\145\1\164\1\172\1\145\1\154\1\156\2"+
-        "\172\1\167\1\160\2\uffff\1\172\1\157\1\172\1\151\1\125\2\172\1\151"+
-        "\1\uffff\1\172\1\157\1\164\1\163\2\172\2\uffff\1\164\1\145\2\172"+
-        "\1\143\1\157\1\162\1\143\2\uffff\1\163\1\144\1\141\1\172\1\156\1"+
-        "\141\1\172\1\144\1\157\1\uffff\2\172\1\uffff\1\164\1\124\1\72\2"+
-        "\uffff\1\157\1\154\1\uffff\1\156\1\uffff\1\144\1\156\2\uffff\1\143"+
-        "\1\uffff\1\156\2\172\2\uffff\1\171\1\141\2\uffff\1\141\1\165\1\171"+
-        "\1\145\2\uffff\1\145\1\162\1\uffff\1\163\1\154\1\uffff\1\145\1\162"+
-        "\2\uffff\1\164\1\151\1\uffff\1\162\1\141\1\163\1\145\1\151\1\145"+
-        "\1\172\2\uffff\1\172\1\162\1\164\1\162\2\uffff\1\123\1\154\1\143"+
-        "\1\172\1\115\1\162\1\153\1\151\1\155\1\153\1\164\1\172\1\162\1\164"+
-        "\1\172\2\uffff\1\143\1\151\1\143\2\uffff\1\172\1\150\1\uffff\1\157"+
-        "\1\163\1\115\1\156\1\145\1\172\1\145\1\uffff\1\172\1\163\1\uffff"+
-        "\1\150\1\157\1\151\1\uffff\1\123\1\144\1\172\1\157\1\147\1\172\1"+
-        "\uffff\1\172\1\uffff\1\172\1\123\2\156\1\164\1\145\1\uffff\1\144"+
-        "\1\163\3\uffff\1\164\1\172\1\147\1\162\1\154\1\145\1\172\1\162\1"+
-        "\uffff\1\172\1\141\1\172\1\154\1\uffff\1\141\1\uffff\1\164\1\uffff"+
-        "\1\172\1\164\1\145\1\uffff\1\145\2\147\1\151\1\171\1\145\1\172\1"+
-        "\163\1\uffff\1\172\1\uffff";
+        "\1\uffff\1\123\2\162\1\166\1\171\1\141\1\162\1\165\1\157\1\145"+
+        "\1\170\1\156\1\uffff\1\165\4\uffff\1\154\1\164\1\165\1\141\2\76"+
+        "\1\141\1\145\1\157\3\uffff\1\143\1\164\1\57\1\172\2\uffff\2\uffff"+
+        "\2\uffff\1\123\1\uffff\1\166\2\157\1\164\1\144\1\145\1\163\1\160"+
+        "\1\154\1\147\1\120\2\162\1\142\1\165\1\145\1\162\1\123\1\163\1\160"+
+        "\1\146\1\164\1\uffff\2\163\1\145\4\uffff\1\141\1\165\1\163\1\162"+
+        "\1\120\1\141\1\143\2\uffff\1\160\1\161\1\162\3\uffff\1\164\1\141"+
+        "\6\uffff\1\115\1\145\1\165\1\146\1\144\1\164\1\172\1\156\1\153\1"+
+        "\147\1\145\1\165\1\141\1\162\1\166\1\141\1\164\1\162\1\143\1\153"+
+        "\1\163\1\114\1\145\1\157\1\145\1\165\1\157\1\145\1\157\1\145\1\164"+
+        "\1\143\1\157\1\141\1\104\2\163\2\151\1\162\1\156\1\153\1\141\1\165"+
+        "\1\153\1\151\1\164\1\157\1\162\1\160\1\145\1\151\2\145\1\127\1\uffff"+
+        "\1\164\1\124\1\145\1\172\1\145\1\156\1\157\1\151\1\164\1\141\1\162"+
+        "\1\143\1\151\1\123\1\143\1\163\1\151\1\154\1\163\1\151\1\162\1\151"+
+        "\1\165\2\162\1\143\2\162\1\141\1\162\1\155\1\165\1\141\1\163\1\141"+
+        "\1\147\1\166\1\157\1\164\1\114\1\142\1\151\1\111\1\166\1\145\1\144"+
+        "\1\156\1\172\1\163\1\154\1\143\1\162\1\uffff\1\157\2\uffff\1\145"+
+        "\1\uffff\1\145\1\157\2\uffff\1\163\1\141\1\171\1\164\1\172\1\uffff"+
+        "\1\172\1\151\1\142\1\143\1\145\1\163\1\144\1\145\1\146\1\164\1\157"+
+        "\1\145\1\151\1\155\1\145\1\151\1\143\1\145\2\162\1\151\1\164\1\151"+
+        "\1\101\1\151\1\162\1\151\1\160\1\154\1\164\1\117\1\154\1\156\1\141"+
+        "\1\147\1\151\1\157\1\151\1\162\1\164\1\151\1\156\1\172\1\145\1\141"+
+        "\1\uffff\1\163\2\145\1\156\1\166\1\162\1\160\1\162\1\172\1\164\1"+
+        "\160\1\125\1\uffff\1\165\1\uffff\1\172\1\141\1\145\1\147\1\153\1"+
+        "\151\1\125\1\151\1\145\1\165\1\160\1\147\1\151\1\143\1\164\1\141"+
+        "\1\156\1\145\1\143\1\155\1\163\1\145\1\162\1\142\1\144\1\160\1\157"+
+        "\1\164\1\145\1\146\1\124\1\155\1\154\1\162\1\164\1\147\1\154\2\145"+
+        "\1\164\1\163\1\uffff\1\154\1\156\1\115\1\172\1\163\1\172\1\145\1"+
+        "\166\1\157\1\153\1\uffff\1\164\1\145\2\156\1\141\1\142\1\172\1\171"+
+        "\1\163\2\156\1\145\1\155\1\162\1\164\1\156\2\164\1\157\1\164\1\143"+
+        "\1\144\2\145\1\172\1\156\1\162\1\165\1\101\1\164\1\163\2\172\1\123"+
+        "\1\162\1\145\1\124\1\145\1\171\1\114\1\151\2\155\1\151\2\172\1\143"+
+        "\1\157\1\172\1\uffff\1\163\1\uffff\1\162\1\151\1\163\1\123\1\145"+
+        "\1\172\1\151\1\143\1\164\1\151\1\171\1\162\1\172\1\uffff\2\172\1"+
+        "\141\1\151\1\144\1\172\1\143\1\141\1\155\1\172\1\151\1\162\1\151"+
+        "\1\145\1\123\1\172\1\156\1\uffff\1\143\1\151\1\164\1\154\2\151\2"+
+        "\uffff\1\145\1\151\1\156\1\151\1\163\1\172\1\151\1\164\1\145\1\163"+
+        "\1\145\2\uffff\1\145\1\144\1\uffff\1\157\1\156\1\143\1\151\1\uffff"+
+        "\1\164\1\162\1\uffff\2\164\1\151\1\154\1\160\1\157\3\uffff\2\164"+
+        "\1\172\1\145\1\172\1\uffff\1\145\1\156\1\145\1\uffff\1\157\1\171"+
+        "\1\157\1\163\1\145\1\154\1\165\1\172\1\uffff\1\164\1\171\1\166\1"+
+        "\151\1\154\1\157\1\164\1\162\1\147\1\164\1\155\1\163\1\uffff\1\155"+
+        "\1\171\1\156\1\172\1\145\1\163\1\123\1\145\1\162\1\141\1\145\1\164"+
+        "\1\145\1\156\1\163\1\151\1\157\1\151\1\145\1\166\1\145\1\163\1\uffff"+
+        "\1\164\1\uffff\1\172\1\143\2\156\1\145\1\172\1\156\1\172\1\162\1"+
+        "\154\1\164\1\uffff\1\123\1\172\1\141\2\157\1\156\1\151\1\166\1\147"+
+        "\1\101\1\145\1\172\1\151\1\172\1\164\1\uffff\1\164\1\172\1\157\1"+
+        "\145\1\154\1\163\1\156\1\124\1\157\1\155\2\172\1\157\1\156\1\164"+
+        "\1\172\1\151\1\125\1\172\1\167\1\172\1\uffff\1\145\1\164\1\172\1"+
+        "\163\1\uffff\1\163\1\uffff\1\166\1\157\1\163\1\145\1\uffff\1\154"+
+        "\1\156\1\167\1\172\1\157\1\151\1\145\1\154\1\172\1\uffff\1\164\1"+
+        "\uffff\1\172\1\167\1\uffff\1\144\1\141\2\172\1\143\2\uffff\1\162"+
+        "\1\163\1\172\2\uffff\1\156\1\141\1\171\1\172\1\uffff\1\144\1\156"+
+        "\1\uffff\1\157\1\uffff\2\172\1\uffff\2\172\1\151\1\143\1\157\1\164"+
+        "\1\124\1\72\1\145\1\uffff\1\156\1\143\1\162\1\154\1\uffff\1\172"+
+        "\1\uffff\1\157\1\145\1\162\1\172\2\uffff\1\145\1\171\3\uffff\1\172"+
+        "\1\154\1\172\1\uffff\1\145\1\151\1\162\4\uffff\1\143\1\141\1\165"+
+        "\1\164\1\151\1\uffff\1\144\1\163\1\145\1\163\1\157\1\uffff\1\162"+
+        "\1\154\1\143\1\uffff\1\123\2\uffff\1\172\1\uffff\1\115\1\uffff\1"+
+        "\162\1\164\1\153\1\145\1\164\1\162\1\151\1\155\4\172\1\167\1\153"+
+        "\1\172\1\150\3\uffff\1\157\1\172\1\163\1\115\1\163\1\151\1\143\1"+
+        "\156\1\145\4\uffff\1\145\1\172\1\uffff\1\123\1\144\1\172\1\uffff"+
+        "\1\172\1\157\1\172\1\157\1\151\1\147\1\172\1\144\1\uffff\1\164\1"+
+        "\145\2\uffff\1\144\1\uffff\2\156\1\163\1\uffff\1\172\1\162\1\154"+
+        "\1\145\1\172\1\147\1\172\1\uffff\1\141\1\172\1\154\1\uffff\1\172"+
+        "\1\uffff\1\164\1\uffff\1\172\1\uffff\1\145\1\uffff\1\147\1\171\1"+
+        "\145\1\172\1\163\1\uffff\1\172\1\uffff";
     static final String DFA12_acceptS =
-        "\14\uffff\1\35\1\uffff\1\37\1\40\1\uffff\1\43\1\44\22\uffff\1\140"+
-        "\1\141\1\142\2\uffff\1\151\1\152\2\uffff\1\156\1\157\1\uffff\1\151"+
-        "\17\uffff\1\35\2\uffff\1\37\1\40\2\uffff\1\43\1\44\27\uffff\1\111"+
-        "\1\112\4\uffff\1\140\1\141\1\142\1\154\1\155\1\150\1\152\1\153\1"+
-        "\156\74\uffff\1\144\74\uffff\1\10\1\12\1\uffff\1\21\1\uffff\1\33"+
-        "\1\34\5\uffff\1\101\50\uffff\1\120\31\uffff\1\60\37\uffff\1\146"+
-        "\11\uffff\1\116\11\uffff\1\115\1\123\12\uffff\1\143\117\uffff\1"+
-        "\77\1\uffff\1\100\7\uffff\1\130\1\110\3\uffff\1\117\24\uffff\1\147"+
-        "\2\uffff\1\1\7\uffff\1\24\10\uffff\1\65\5\uffff\1\70\5\uffff\1\42"+
-        "\3\uffff\1\46\4\uffff\1\133\4\uffff\1\126\1\103\10\uffff\1\56\1"+
-        "\61\34\uffff\1\25\11\uffff\1\136\4\uffff\1\132\6\uffff\1\131\1\uffff"+
-        "\1\54\1\uffff\1\104\3\uffff\1\63\11\uffff\1\41\7\uffff\1\121\11"+
-        "\uffff\1\106\12\uffff\1\75\1\50\10\uffff\1\134\6\uffff\1\113\1\145"+
-        "\10\uffff\1\16\1\20\11\uffff\1\23\2\uffff\1\71\3\uffff\1\47\1\64"+
-        "\2\uffff\1\135\1\uffff\1\52\2\uffff\1\124\1\53\1\uffff\1\76\3\uffff"+
-        "\1\105\1\107\2\uffff\1\2\1\31\4\uffff\1\26\1\27\2\uffff\1\7\2\uffff"+
-        "\1\15\2\uffff\1\66\1\72\2\uffff\1\36\7\uffff\1\67\1\102\4\uffff"+
-        "\1\3\1\45\17\uffff\1\62\1\114\3\uffff\1\6\1\13\2\uffff\1\11\7\uffff"+
-        "\1\51\2\uffff\1\55\3\uffff\1\4\6\uffff\1\137\1\uffff\1\122\6\uffff"+
-        "\1\17\2\uffff\1\32\1\57\1\125\10\uffff\1\73\4\uffff\1\30\1\uffff"+
-        "\1\74\1\uffff\1\14\3\uffff\1\22\10\uffff\1\127\1\uffff\1\5";
+        "\15\uffff\1\37\1\uffff\1\41\1\42\1\45\1\46\11\uffff\1\137\1\140"+
+        "\1\141\4\uffff\1\150\1\151\2\uffff\1\155\1\156\1\uffff\1\150\26"+
+        "\uffff\1\37\3\uffff\1\41\1\42\1\45\1\46\7\uffff\1\112\1\113\3\uffff"+
+        "\1\137\1\140\1\141\2\uffff\1\153\1\154\1\147\1\151\1\152\1\155\67"+
+        "\uffff\1\143\64\uffff\1\4\1\uffff\1\10\1\12\1\uffff\1\21\2\uffff"+
+        "\1\35\1\36\5\uffff\1\104\55\uffff\1\122\14\uffff\1\64\1\uffff\1"+
+        "\56\51\uffff\1\145\12\uffff\1\142\61\uffff\1\102\1\uffff\1\103\15"+
+        "\uffff\1\117\21\uffff\1\55\6\uffff\1\127\1\111\13\uffff\1\146\1"+
+        "\1\2\uffff\1\44\4\uffff\1\26\2\uffff\1\65\6\uffff\1\125\1\70\1\106"+
+        "\5\uffff\1\50\3\uffff\1\73\10\uffff\1\132\14\uffff\1\62\26\uffff"+
+        "\1\130\1\uffff\1\27\13\uffff\1\131\17\uffff\1\135\25\uffff\1\100"+
+        "\4\uffff\1\43\1\uffff\1\52\4\uffff\1\120\11\uffff\1\114\1\uffff"+
+        "\1\133\2\uffff\1\144\5\uffff\1\16\1\20\3\uffff\1\63\1\101\4\uffff"+
+        "\1\116\2\uffff\1\123\1\uffff\1\25\2\uffff\1\74\11\uffff\1\51\4\uffff"+
+        "\1\110\1\uffff\1\134\4\uffff\1\67\1\105\2\uffff\1\30\1\31\1\7\3"+
+        "\uffff\1\15\3\uffff\1\71\1\75\1\23\1\33\5\uffff\1\40\5\uffff\1\72"+
+        "\3\uffff\1\3\1\uffff\1\24\1\47\1\uffff\1\66\1\uffff\1\115\20\uffff"+
+        "\1\6\1\13\1\11\11\uffff\1\61\1\53\1\57\1\107\2\uffff\1\2\3\uffff"+
+        "\1\121\10\uffff\1\136\2\uffff\1\17\1\124\1\uffff\1\54\3\uffff\1"+
+        "\34\7\uffff\1\60\3\uffff\1\76\1\uffff\1\32\1\uffff\1\14\1\uffff"+
+        "\1\77\1\uffff\1\22\5\uffff\1\126\1\uffff\1\5";
     static final String DFA12_specialS =
-        "\1\2\53\uffff\1\0\1\1\u031c\uffff}>";
+        "\1\0\44\uffff\1\1\1\2\u02d7\uffff}>";
     static final String[] DFA12_transitionS = {
-            "\11\57\2\56\2\57\1\56\22\57\1\56\1\57\1\54\4\57\1\55\1\45\1"+
-            "\47\2\57\1\46\1\42\1\14\1\50\12\53\3\57\1\41\3\57\1\52\1\35"+
-            "\1\52\1\15\1\12\1\52\1\4\1\52\1\13\1\52\1\1\1\52\1\34\1\52\1"+
-            "\7\1\20\1\52\1\2\1\10\1\5\1\52\1\6\1\11\3\52\1\16\1\57\1\17"+
-            "\1\51\1\52\1\57\1\40\1\27\1\30\1\25\1\3\1\52\1\44\4\52\1\37"+
-            "\2\52\1\43\1\36\1\31\1\24\1\26\1\32\1\52\1\33\1\23\3\52\1\21"+
-            "\1\57\1\22\uff82\57",
-            "\1\60",
-            "\1\62",
-            "\1\64\7\uffff\1\63\7\uffff\1\65",
-            "\1\66",
-            "\1\67\27\uffff\1\70",
-            "\1\71",
-            "\1\72",
-            "\1\73\16\uffff\1\74",
-            "\1\76\45\uffff\1\75",
-            "\1\77",
+            "\11\50\2\47\2\50\1\47\22\50\1\47\1\50\1\45\4\50\1\46\1\34\1"+
+            "\36\2\50\1\35\1\30\1\15\1\41\12\44\3\50\1\27\3\50\1\24\1\26"+
+            "\1\23\1\16\1\13\1\43\1\2\1\43\1\14\1\43\1\1\3\43\1\7\1\3\1\25"+
+            "\1\12\1\10\1\5\1\43\1\6\1\11\3\43\1\17\1\50\1\20\1\42\1\43\1"+
+            "\50\1\37\1\43\1\31\1\43\1\4\14\43\1\32\1\40\3\43\1\33\3\43\1"+
+            "\21\1\50\1\22\uff82\50",
+            "\1\51",
+            "\1\53\2\uffff\1\54",
+            "\1\56\20\uffff\1\55",
+            "\1\57\7\uffff\1\60",
+            "\1\61\27\uffff\1\62",
+            "\1\63",
+            "\1\65\3\uffff\1\64",
+            "\1\66\11\uffff\1\71\1\72\3\uffff\1\67\1\70",
+            "\1\74\45\uffff\1\73",
+            "\1\75",
+            "\1\77\21\uffff\1\76",
             "\1\100",
             "",
-            "\1\103\3\uffff\1\102",
+            "\1\103\3\uffff\1\102\13\uffff\1\104",
             "",
             "",
-            "\1\107\20\uffff\1\106",
             "",
             "",
-            "\1\112",
-            "\1\113",
-            "\1\114\17\uffff\1\115",
-            "\1\116\11\uffff\1\120\1\121\3\uffff\1\122\1\117",
+            "\1\112\12\uffff\1\111",
+            "\1\114\1\113\1\115",
+            "\1\116",
+            "\1\117",
+            "\1\120",
+            "\1\121",
+            "\1\122",
             "\1\123",
-            "\1\125\12\uffff\1\124",
-            "\1\126",
-            "\1\127\27\uffff\1\130",
+            "\1\124",
+            "",
+            "",
+            "",
+            "\1\130",
             "\1\131",
-            "\1\132",
-            "\1\133",
-            "\1\134",
-            "\1\135",
-            "\1\140\16\uffff\1\136\1\uffff\1\137",
+            "\1\132\4\uffff\1\133",
+            "\32\52\4\uffff\1\52\1\uffff\32\52",
+            "",
+            "",
+            "\0\136",
+            "\0\136",
+            "",
+            "",
+            "\1\140",
+            "",
             "\1\141",
             "\1\142",
-            "\1\143\10\uffff\1\144",
-            "\1\146\2\uffff\1\145",
-            "",
-            "",
-            "",
-            "\1\152\4\uffff\1\153",
-            "\32\61\4\uffff\1\61\1\uffff\32\61",
-            "",
-            "",
-            "\0\156",
-            "\0\156",
-            "",
-            "",
+            "\1\144\11\uffff\1\143",
+            "\1\145",
+            "\1\146",
+            "\1\147",
+            "\1\151\1\150",
+            "\1\152",
+            "\1\153",
+            "\1\154",
+            "\1\155",
+            "\1\156",
+            "\1\157",
             "\1\160",
-            "",
-            "\1\161\2\uffff\1\162",
+            "\1\161",
+            "\1\162",
             "\1\163",
-            "\1\164",
-            "\1\165",
-            "\1\166",
-            "\1\167",
-            "\1\170",
-            "\1\171",
-            "\1\172",
+            "\1\164\16\uffff\1\165\2\uffff\1\166",
+            "\1\170\11\uffff\1\167\1\171\1\uffff\1\172",
             "\1\173",
             "\1\174",
             "\1\175",
-            "\1\176\16\uffff\1\177\2\uffff\1\u0080",
-            "\1\u0081",
+            "",
+            "\1\176",
+            "\1\u0080\2\uffff\1\u0081\14\uffff\1\177",
             "\1\u0082",
+            "",
+            "",
+            "",
             "",
             "\1\u0083",
             "\1\u0084",
-            "",
-            "",
             "\1\u0085",
             "\1\u0086",
-            "",
-            "",
             "\1\u0087",
-            "\1\u0088\12\uffff\1\u008a\1\uffff\1\u0089",
-            "\1\u008b\2\uffff\1\u008c",
+            "\1\u0088",
+            "\1\u0089",
+            "",
+            "",
+            "\1\u008a",
+            "\1\u008b",
+            "\1\u008c",
+            "",
+            "",
+            "",
             "\1\u008d",
             "\1\u008e",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\u008f",
             "\1\u0090",
             "\1\u0091",
-            "\1\u0092",
-            "\1\u0093",
+            "\1\u0092\2\uffff\1\u0093",
             "\1\u0094",
-            "\1\u0096\4\uffff\1\u0095",
-            "\1\u0097",
-            "\1\u0099\1\u0098",
+            "\1\u0095",
+            "\1\u0096\17\uffff\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff"+
+            "\32\52",
+            "\1\u0098",
+            "\1\u0099",
             "\1\u009a",
             "\1\u009b",
             "\1\u009c",
@@ -3907,46 +3881,33 @@ public class InternalKanbanmodelLexer extends Lexer {
             "\1\u009e",
             "\1\u009f",
             "\1\u00a0",
-            "\1\u00a1",
-            "\1\u00a2",
-            "",
-            "",
+            "\1\u00a2\4\uffff\1\u00a1",
             "\1\u00a3",
             "\1\u00a4",
             "\1\u00a5",
-            "\1\u00a6",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\u00a7",
-            "\1\u00a9\2\uffff\1\u00a8",
-            "\1\u00aa",
-            "\1\u00ab\17\uffff\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff"+
-            "\32\61",
+            "\1\u00a6\17\uffff\1\u00a7",
+            "\1\u00a8",
+            "\1\u00a9",
+            "\1\u00ab\2\uffff\1\u00aa",
+            "\1\u00ac",
             "\1\u00ad",
             "\1\u00ae",
             "\1\u00af",
-            "\1\u00b0",
-            "\1\u00b1",
+            "\1\u00b1\5\uffff\1\u00b0",
             "\1\u00b2",
-            "\1\u00b3",
-            "\1\u00b4",
+            "\1\u00b4\20\uffff\1\u00b3",
             "\1\u00b5",
             "\1\u00b6",
-            "\1\u00b7\17\uffff\1\u00b8",
+            "\1\u00b7",
+            "\1\u00b8",
             "\1\u00b9",
             "\1\u00ba",
             "\1\u00bb",
             "\1\u00bc",
             "\1\u00bd",
             "\1\u00be",
-            "\1\u00c0\2\uffff\1\u00bf",
+            "\1\u00bf",
+            "\1\u00c0",
             "\1\u00c1",
             "\1\u00c2",
             "\1\u00c3",
@@ -3956,23 +3917,16 @@ public class InternalKanbanmodelLexer extends Lexer {
             "\1\u00c7",
             "\1\u00c8",
             "\1\u00c9",
-            "\1\u00cb\4\uffff\1\u00ca",
-            "\1\u00cc",
-            "\1\u00cd",
-            "\1\u00ce",
-            "\1\u00cf",
-            "\1\u00d0",
-            "\1\u00d1",
-            "\1\u00d2",
-            "\1\u00d3",
-            "\1\u00d4",
-            "\1\u00d5",
+            "\1\u00ca",
+            "\1\u00cb",
+            "\1\u00d4\1\uffff\1\u00cd\3\uffff\1\u00d5\3\uffff\1\u00d1\1"+
+            "\u00cc\1\uffff\1\u00d2\1\u00d0\1\u00ce\1\uffff\1\u00cf\1\u00d3",
+            "",
             "\1\u00d6",
-            "\1\u00d7",
-            "\1\u00d8",
+            "\1\u00d7\3\uffff\1\u00d8",
             "\1\u00d9",
-            "\1\u00da",
-            "\1\u00db",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\22\52\1\u00da\7"+
+            "\52",
             "\1\u00dc",
             "\1\u00dd",
             "\1\u00de",
@@ -3982,22 +3936,28 @@ public class InternalKanbanmodelLexer extends Lexer {
             "\1\u00e2",
             "\1\u00e3",
             "\1\u00e4",
-            "\1\u00e5",
-            "\1\u00e6",
-            "\1\u00ee\1\uffff\1\u00e8\3\uffff\1\u00ef\3\uffff\1\u00ec\2"+
-            "\uffff\1\u00e7\1\u00eb\1\u00e9\1\uffff\1\u00ea\1\u00ed",
-            "",
+            "\1\u00e5\11\uffff\1\u00e6",
+            "\1\u00e7",
+            "\1\u00e8",
+            "\1\u00e9",
+            "\1\u00ea",
+            "\1\u00eb",
+            "\1\u00ec",
+            "\1\u00ed",
+            "\1\u00ee",
+            "\1\u00ef",
             "\1\u00f0",
             "\1\u00f1",
             "\1\u00f2",
             "\1\u00f3",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\22\61\1\u00f4\7"+
-            "\61",
+            "\1\u00f4",
+            "\1\u00f5",
             "\1\u00f6",
             "\1\u00f7",
             "\1\u00f8",
             "\1\u00f9",
-            "\1\u00fa\11\uffff\1\u00fb",
+            "\1\u00fa",
+            "\1\u00fb",
             "\1\u00fc",
             "\1\u00fd",
             "\1\u00fe",
@@ -4006,30 +3966,39 @@ public class InternalKanbanmodelLexer extends Lexer {
             "\1\u0101",
             "\1\u0102",
             "\1\u0103",
-            "\1\u0104",
-            "\1\u0105",
+            "\1\u0105\6\uffff\1\u0104",
             "\1\u0106",
-            "\1\u0107\11\uffff\1\u0109\22\uffff\1\u0108",
+            "\1\u0107",
+            "\1\u0108",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u010a",
             "\1\u010b",
             "\1\u010c",
             "\1\u010d",
+            "",
             "\1\u010e",
+            "",
+            "",
             "\1\u010f",
+            "",
             "\1\u0110",
             "\1\u0111",
+            "",
+            "",
             "\1\u0112",
             "\1\u0113",
             "\1\u0114",
             "\1\u0115",
-            "\1\u0116\20\uffff\1\u0117",
-            "\1\u0118",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "",
+            "\12\52\7\uffff\5\52\1\u0117\24\52\4\uffff\1\52\1\uffff\32"+
+            "\52",
             "\1\u0119",
             "\1\u011a",
             "\1\u011b",
             "\1\u011c",
             "\1\u011d",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u011e",
             "\1\u011f",
             "\1\u0120",
             "\1\u0121",
@@ -4037,7 +4006,8 @@ public class InternalKanbanmodelLexer extends Lexer {
             "\1\u0123",
             "\1\u0124",
             "\1\u0125",
-            "\1\u0127\6\uffff\1\u0126",
+            "\1\u0126",
+            "\1\u0127",
             "\1\u0128",
             "\1\u0129",
             "\1\u012a",
@@ -4048,19 +4018,13 @@ public class InternalKanbanmodelLexer extends Lexer {
             "\1\u012f",
             "\1\u0130",
             "\1\u0131",
-            "",
-            "",
             "\1\u0132",
-            "",
             "\1\u0133",
-            "",
-            "",
             "\1\u0134",
             "\1\u0135",
             "\1\u0136",
             "\1\u0137",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "",
+            "\1\u0138",
             "\1\u0139",
             "\1\u013a",
             "\1\u013b",
@@ -4070,9 +4034,10 @@ public class InternalKanbanmodelLexer extends Lexer {
             "\1\u013f",
             "\1\u0140",
             "\1\u0141",
-            "\1\u0142",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u0143",
             "\1\u0144",
+            "",
             "\1\u0145",
             "\1\u0146",
             "\1\u0147",
@@ -4081,18 +4046,20 @@ public class InternalKanbanmodelLexer extends Lexer {
             "\1\u014a",
             "\1\u014b",
             "\1\u014c",
-            "\1\u014d",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u014e",
             "\1\u014f",
             "\1\u0150",
+            "",
             "\1\u0151",
+            "",
             "\1\u0152",
             "\1\u0153",
             "\1\u0154",
             "\1\u0155",
             "\1\u0156",
             "\1\u0157",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u0158",
             "\1\u0159",
             "\1\u015a",
             "\1\u015b",
@@ -4101,9 +4068,8 @@ public class InternalKanbanmodelLexer extends Lexer {
             "\1\u015e",
             "\1\u015f",
             "\1\u0160",
-            "",
-            "\12\61\7\uffff\5\61\1\u0161\24\61\4\uffff\1\61\1\uffff\32"+
-            "\61",
+            "\1\u0161",
+            "\1\u0162",
             "\1\u0163",
             "\1\u0164",
             "\1\u0165",
@@ -4113,8 +4079,8 @@ public class InternalKanbanmodelLexer extends Lexer {
             "\1\u0169",
             "\1\u016a",
             "\1\u016b",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u016c",
+            "\1\u016d",
             "\1\u016e",
             "\1\u016f",
             "\1\u0170",
@@ -4125,31 +4091,30 @@ public class InternalKanbanmodelLexer extends Lexer {
             "\1\u0175",
             "\1\u0176",
             "\1\u0177",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u0178",
             "\1\u0179",
             "\1\u017a",
             "",
             "\1\u017b",
             "\1\u017c",
             "\1\u017d",
-            "\1\u017e",
-            "\1\u017f",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\22\52\1\u017e\7"+
+            "\52",
             "\1\u0180",
-            "\1\u0181",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u0182",
             "\1\u0183",
             "\1\u0184",
             "\1\u0185",
+            "",
             "\1\u0186",
             "\1\u0187",
             "\1\u0188",
             "\1\u0189",
             "\1\u018a",
             "\1\u018b",
-            "\1\u018c",
-            "\1\u018d",
-            "\1\u018e",
-            "\1\u018f",
+            "\12\52\7\uffff\17\52\1\u018d\3\52\1\u018c\6\52\4\uffff\1\52"+
+            "\1\uffff\22\52\1\u018e\7\52",
             "\1\u0190",
             "\1\u0191",
             "\1\u0192",
@@ -4160,7 +4125,6 @@ public class InternalKanbanmodelLexer extends Lexer {
             "\1\u0197",
             "\1\u0198",
             "\1\u0199",
-            "",
             "\1\u019a",
             "\1\u019b",
             "\1\u019c",
@@ -4168,20 +4132,17 @@ public class InternalKanbanmodelLexer extends Lexer {
             "\1\u019e",
             "\1\u019f",
             "\1\u01a0",
-            "\1\u01a1",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u01a2",
-            "",
             "\1\u01a3",
             "\1\u01a4",
             "\1\u01a5",
             "\1\u01a6",
             "\1\u01a7",
-            "\1\u01a8",
-            "\1\u01a9",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u01aa",
             "\1\u01ab",
-            "",
-            "",
             "\1\u01ac",
             "\1\u01ad",
             "\1\u01ae",
@@ -4191,118 +4152,130 @@ public class InternalKanbanmodelLexer extends Lexer {
             "\1\u01b2",
             "\1\u01b3",
             "\1\u01b4",
-            "\1\u01b5",
-            "",
-            "\1\u01b6",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u01b7",
             "\1\u01b8",
-            "\1\u01b9",
-            "\1\u01bb\3\uffff\1\u01ba",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "",
+            "\1\u01ba",
+            "",
+            "\1\u01bb",
             "\1\u01bc",
             "\1\u01bd",
-            "\1\u01be",
-            "\1\u01bf",
+            "\1\u01bf\11\uffff\1\u01be",
             "\1\u01c0",
-            "\1\u01c1",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u01c2",
             "\1\u01c3",
             "\1\u01c4",
             "\1\u01c5",
             "\1\u01c6",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\22\61\1\u01c7\7"+
-            "\61",
-            "\1\u01c9",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u01c7",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u01cb",
             "\1\u01cc",
             "\1\u01cd",
-            "\1\u01ce",
-            "\1\u01cf",
-            "\1\u01d0",
+            "\12\52\7\uffff\15\52\1\u01ce\14\52\4\uffff\1\52\1\uffff\22"+
+            "\52\1\u01cf\7\52",
             "\1\u01d1",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\17\61\1\u01d5\3\61\1\u01d4\6\61\4\uffff\1\61"+
-            "\1\uffff\22\61\1\u01d6\7\61",
+            "\1\u01d2",
+            "\1\u01d3",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "\1\u01d5",
+            "\1\u01d6",
+            "\1\u01d7",
             "\1\u01d8",
             "\1\u01d9",
-            "\1\u01da",
-            "\1\u01db",
-            "\1\u01dc",
-            "\1\u01dd",
+            "\12\52\7\uffff\1\u01da\15\52\1\u01db\13\52\4\uffff\1\52\1"+
+            "\uffff\22\52\1\u01dc\7\52",
             "\1\u01de",
+            "",
             "\1\u01df",
             "\1\u01e0",
             "\1\u01e1",
             "\1\u01e2",
             "\1\u01e3",
             "\1\u01e4",
+            "",
+            "",
             "\1\u01e5",
             "\1\u01e6",
             "\1\u01e7",
             "\1\u01e8",
             "\1\u01e9",
-            "\1\u01ea",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u01eb",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u01ec",
             "\1\u01ed",
-            "\1\u01ee",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u01ef\44\uffff\1\u01ee",
             "\1\u01f0",
+            "",
+            "",
             "\1\u01f1",
-            "\1\u01f2\15\uffff\1\u01f3",
+            "\1\u01f2",
+            "",
+            "\1\u01f3",
             "\1\u01f4",
             "\1\u01f5",
             "\1\u01f6",
-            "\1\u01f8\11\uffff\1\u01f7",
+            "",
+            "\1\u01f7",
+            "\1\u01f8",
+            "",
             "\1\u01f9",
             "\1\u01fa",
             "\1\u01fb",
             "\1\u01fc",
             "\1\u01fd",
             "\1\u01fe",
+            "",
+            "",
+            "",
             "\1\u01ff",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u0201\44\uffff\1\u0202",
-            "\1\u0203",
+            "\1\u0200",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "\1\u0202",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "",
             "\1\u0204",
             "\1\u0205",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u0206",
+            "",
             "\1\u0207",
-            "\1\u0208",
-            "\1\u0209",
+            "\1\u0208\17\uffff\1\u0209",
             "\1\u020a",
             "\1\u020b",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "",
+            "\1\u020c",
             "\1\u020d",
+            "\1\u020e",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "",
-            "\12\61\7\uffff\15\61\1\u020f\14\61\4\uffff\1\61\1\uffff\22"+
-            "\61\1\u020e\7\61",
+            "\1\u0210",
             "\1\u0211",
             "\1\u0212",
             "\1\u0213",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\22\61\1\u0214\7"+
-            "\61",
+            "\1\u0214",
+            "\1\u0215",
             "\1\u0216",
             "\1\u0217",
-            "",
-            "",
             "\1\u0218",
             "\1\u0219",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u021a",
+            "\1\u021b",
             "",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
             "\1\u021c",
             "\1\u021d",
             "\1\u021e",
-            "\1\u021f",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u0220",
             "\1\u0221",
-            "\1\u0222",
-            "\1\u0223",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u0222\5\uffff\1\u0223",
+            "\1\u0224",
+            "\1\u0225",
             "\1\u0226",
             "\1\u0227",
             "\1\u0228",
@@ -4312,356 +4285,268 @@ public class InternalKanbanmodelLexer extends Lexer {
             "\1\u022c",
             "\1\u022d",
             "\1\u022e",
-            "",
             "\1\u022f",
             "\1\u0230",
+            "\1\u0231",
+            "\1\u0232",
             "",
-            "\1\u0231\17\uffff\1\u0232",
             "\1\u0233",
-            "\1\u0234",
-            "\1\u0235",
+            "",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\22\52\1\u0234\7"+
+            "\52",
             "\1\u0236",
             "\1\u0237",
             "\1\u0238",
-            "",
             "\1\u0239",
-            "\1\u023a",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u023b",
-            "\1\u023c",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u023d",
             "\1\u023e",
             "\1\u023f",
-            "\1\u0240",
             "",
-            "\1\u0241",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u0240",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "\1\u0242",
             "\1\u0243",
             "\1\u0244",
             "\1\u0245",
-            "",
             "\1\u0246",
             "\1\u0247",
             "\1\u0248",
             "\1\u0249",
             "\1\u024a",
-            "",
-            "\1\u024b",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u024d",
-            "",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "\1\u024c",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u024e",
-            "\1\u024f",
-            "\1\u0250",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
             "",
+            "\1\u024f",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "\1\u0251",
             "\1\u0252",
             "\1\u0253",
             "\1\u0254",
             "\1\u0255",
-            "",
-            "",
-            "\1\u0256",
-            "\1\u0257",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u0257\3\uffff\1\u0256",
+            "\1\u0258",
             "\1\u0259",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u025b",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\22\52\1\u025a\7"+
+            "\52",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u025d",
-            "",
-            "",
             "\1\u025e",
             "\1\u025f",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u0261",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\22\52\1\u0260\7"+
+            "\52",
             "\1\u0262",
             "\1\u0263",
-            "\1\u0264",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u0265",
-            "\1\u0266",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "",
             "\1\u0267",
             "\1\u0268",
-            "\1\u0269",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "\1\u026a",
+            "",
             "\1\u026b",
+            "",
             "\1\u026c",
             "\1\u026d",
             "\1\u026e",
             "\1\u026f",
+            "",
             "\1\u0270",
             "\1\u0271",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u0273\5\uffff\1\u0274",
+            "\1\u0272",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "\1\u0274",
             "\1\u0275",
             "\1\u0276",
             "\1\u0277",
-            "\1\u0278",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "",
             "\1\u0279",
-            "\1\u027a",
             "",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\22\61\1\u027b\7"+
-            "\61",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "\1\u027b",
+            "",
+            "\1\u027c",
             "\1\u027d",
-            "\1\u027e",
-            "\1\u027f",
-            "\1\u0280",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\22\52\1\u027e\7"+
+            "\52",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u0281",
+            "",
+            "",
             "\1\u0282",
-            "\1\u0283",
-            "\1\u0284",
+            "\1\u0284\44\uffff\1\u0283",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "",
-            "\1\u0285",
+            "",
             "\1\u0286",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u0287",
+            "\1\u0288",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "",
-            "\1\u0289",
             "\1\u028a",
             "\1\u028b",
+            "",
             "\1\u028c",
-            "\1\u028d",
-            "\1\u028e",
             "",
-            "\1\u028f",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "",
-            "\1\u0290",
-            "",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "\1\u0291",
             "\1\u0292",
             "\1\u0293",
-            "",
             "\1\u0294",
             "\1\u0295",
             "\1\u0296",
             "\1\u0297",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "",
+            "\1\u0298",
+            "\1\u0299",
             "\1\u029a",
             "\1\u029b",
-            "\1\u029c",
+            "",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "",
             "\1\u029d",
             "\1\u029e",
             "\1\u029f",
-            "\1\u02a0",
-            "\1\u02a1",
-            "\1\u02a3\3\uffff\1\u02a2",
-            "\1\u02a4",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "",
-            "\1\u02a5",
+            "",
+            "\1\u02a1",
+            "\1\u02a2\17\uffff\1\u02a3",
+            "",
+            "",
+            "",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\22\52\1\u02a4\7"+
+            "\52",
             "\1\u02a6",
-            "\1\u02a7",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "",
             "\1\u02a8",
             "\1\u02a9",
             "\1\u02aa",
+            "",
+            "",
+            "",
+            "",
             "\1\u02ab",
             "\1\u02ac",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "",
+            "\1\u02ad",
             "\1\u02ae",
             "\1\u02af",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "",
+            "\1\u02b0",
             "\1\u02b1",
             "\1\u02b2",
             "\1\u02b3",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u02b4",
+            "",
+            "\1\u02b5",
             "\1\u02b6",
             "\1\u02b7",
             "",
+            "\1\u02b9\5\uffff\1\u02b8",
             "",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u02b9",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "",
             "\1\u02bb",
-            "\1\u02bc",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u02bf",
             "",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u02bc",
+            "\1\u02bd",
+            "\1\u02be",
+            "\1\u02bf",
+            "\1\u02c0",
             "\1\u02c1",
             "\1\u02c2",
             "\1\u02c3",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "",
-            "",
-            "\1\u02c6",
-            "\1\u02c7",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u02ca",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "\1\u02c8",
+            "\1\u02c9",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u02cb",
+            "",
+            "",
+            "",
             "\1\u02cc",
-            "\1\u02cd",
-            "",
-            "",
-            "\1\u02cf\44\uffff\1\u02ce",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\22\52\1\u02cd\7"+
+            "\52",
+            "\1\u02cf",
             "\1\u02d0",
             "\1\u02d1",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u02d2",
             "\1\u02d3",
             "\1\u02d4",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u02d5",
+            "",
+            "",
+            "",
+            "",
             "\1\u02d6",
-            "\1\u02d7",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u02d8",
+            "\1\u02d9",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "",
-            "\1\u02da",
-            "\1\u02db",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u02dc",
-            "",
-            "",
-            "\1\u02dd",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u02de",
-            "",
             "\1\u02df",
-            "",
             "\1\u02e0",
-            "\1\u02e1",
-            "",
-            "",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u02e2",
             "",
             "\1\u02e3",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\1\u02e4",
             "",
+            "",
+            "\1\u02e5",
             "",
             "\1\u02e6",
             "\1\u02e7",
-            "",
-            "",
             "\1\u02e8",
-            "\1\u02e9",
-            "\1\u02ea\17\uffff\1\u02eb",
+            "",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "\1\u02ea",
+            "\1\u02eb",
             "\1\u02ec",
-            "",
-            "",
-            "\1\u02ed",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u02ee",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "",
-            "\1\u02ef",
             "\1\u02f0",
-            "",
-            "\1\u02f1",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "\1\u02f2",
             "",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             "",
-            "\1\u02f3",
             "\1\u02f4",
             "",
-            "\1\u02f5",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "",
             "\1\u02f6",
+            "",
             "\1\u02f7",
-            "\1\u02f8",
-            "\1\u02f9",
+            "\1\u02f8\17\uffff\1\u02f9",
             "\1\u02fa",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
+            "\1\u02fc",
             "",
-            "",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u02fd",
-            "\1\u02fe",
-            "\1\u02ff",
-            "",
-            "",
-            "\1\u0301\5\uffff\1\u0300",
-            "\1\u0302",
-            "\1\u0303",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u0305",
-            "\1\u0306",
-            "\1\u0307",
-            "\1\u0308",
-            "\1\u0309",
-            "\1\u030a",
-            "\1\u030b",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u030d",
-            "\1\u030e",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "",
-            "",
-            "\1\u0310",
-            "\1\u0311",
-            "\1\u0312",
-            "",
-            "",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u0314",
-            "",
-            "\1\u0315",
-            "\1\u0316",
-            "\1\u0317",
-            "\1\u0318",
-            "\1\u0319",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u031b",
-            "",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u031d",
-            "",
-            "\1\u031e",
-            "\1\u031f",
-            "\1\u0320",
-            "",
-            "\1\u0321",
-            "\1\u0322",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u0324",
-            "\1\u0325",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u0329",
-            "\1\u032a",
-            "\1\u032b",
-            "\1\u032c",
-            "\1\u032d",
-            "",
-            "\1\u032e",
-            "\1\u032f",
-            "",
-            "",
-            "",
-            "\1\u0330",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u0332",
-            "\1\u0333",
-            "\1\u0334",
-            "\1\u0335",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u0337",
-            "",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u0339",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u033b",
-            "",
-            "\1\u033c",
-            "",
-            "\1\u033d",
-            "",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u033f",
-            "\1\u0340",
-            "",
-            "\1\u0341",
-            "\1\u0342",
-            "\1\u0343",
-            "\1\u0344",
-            "\1\u0345",
-            "\1\u0346",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
-            "\1\u0348",
-            "",
-            "\12\61\7\uffff\32\61\4\uffff\1\61\1\uffff\32\61",
+            "\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32\52",
             ""
     };
 
@@ -4695,43 +4580,23 @@ public class InternalKanbanmodelLexer extends Lexer {
             this.transition = DFA12_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | T__114 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA12_44 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA12_44>='\u0000' && LA12_44<='\uFFFF')) ) {s = 110;}
-
-                        else s = 47;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA12_45 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA12_45>='\u0000' && LA12_45<='\uFFFF')) ) {s = 110;}
-
-                        else s = 47;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
                         int LA12_0 = input.LA(1);
 
                         s = -1;
                         if ( (LA12_0=='K') ) {s = 1;}
 
-                        else if ( (LA12_0=='R') ) {s = 2;}
+                        else if ( (LA12_0=='G') ) {s = 2;}
 
-                        else if ( (LA12_0=='e') ) {s = 3;}
+                        else if ( (LA12_0=='P') ) {s = 3;}
 
-                        else if ( (LA12_0=='G') ) {s = 4;}
+                        else if ( (LA12_0=='e') ) {s = 4;}
 
                         else if ( (LA12_0=='T') ) {s = 5;}
 
@@ -4743,81 +4608,87 @@ public class InternalKanbanmodelLexer extends Lexer {
 
                         else if ( (LA12_0=='W') ) {s = 9;}
 
-                        else if ( (LA12_0=='E') ) {s = 10;}
+                        else if ( (LA12_0=='R') ) {s = 10;}
 
-                        else if ( (LA12_0=='I') ) {s = 11;}
+                        else if ( (LA12_0=='E') ) {s = 11;}
 
-                        else if ( (LA12_0=='.') ) {s = 12;}
+                        else if ( (LA12_0=='I') ) {s = 12;}
 
-                        else if ( (LA12_0=='D') ) {s = 13;}
+                        else if ( (LA12_0=='.') ) {s = 13;}
 
-                        else if ( (LA12_0=='[') ) {s = 14;}
+                        else if ( (LA12_0=='D') ) {s = 14;}
 
-                        else if ( (LA12_0==']') ) {s = 15;}
+                        else if ( (LA12_0=='[') ) {s = 15;}
 
-                        else if ( (LA12_0=='P') ) {s = 16;}
+                        else if ( (LA12_0==']') ) {s = 16;}
 
                         else if ( (LA12_0=='{') ) {s = 17;}
 
                         else if ( (LA12_0=='}') ) {s = 18;}
 
-                        else if ( (LA12_0=='w') ) {s = 19;}
+                        else if ( (LA12_0=='C') ) {s = 19;}
 
-                        else if ( (LA12_0=='r') ) {s = 20;}
+                        else if ( (LA12_0=='A') ) {s = 20;}
 
-                        else if ( (LA12_0=='d') ) {s = 21;}
+                        else if ( (LA12_0=='Q') ) {s = 21;}
 
-                        else if ( (LA12_0=='s') ) {s = 22;}
+                        else if ( (LA12_0=='B') ) {s = 22;}
 
-                        else if ( (LA12_0=='b') ) {s = 23;}
+                        else if ( (LA12_0=='=') ) {s = 23;}
 
-                        else if ( (LA12_0=='c') ) {s = 24;}
+                        else if ( (LA12_0=='-') ) {s = 24;}
 
-                        else if ( (LA12_0=='q') ) {s = 25;}
+                        else if ( (LA12_0=='c') ) {s = 25;}
 
-                        else if ( (LA12_0=='t') ) {s = 26;}
+                        else if ( (LA12_0=='r') ) {s = 26;}
 
-                        else if ( (LA12_0=='v') ) {s = 27;}
+                        else if ( (LA12_0=='w') ) {s = 27;}
 
-                        else if ( (LA12_0=='M') ) {s = 28;}
+                        else if ( (LA12_0=='(') ) {s = 28;}
 
-                        else if ( (LA12_0=='B') ) {s = 29;}
+                        else if ( (LA12_0==',') ) {s = 29;}
 
-                        else if ( (LA12_0=='p') ) {s = 30;}
+                        else if ( (LA12_0==')') ) {s = 30;}
 
-                        else if ( (LA12_0=='l') ) {s = 31;}
+                        else if ( (LA12_0=='a') ) {s = 31;}
 
-                        else if ( (LA12_0=='a') ) {s = 32;}
+                        else if ( (LA12_0=='s') ) {s = 32;}
 
-                        else if ( (LA12_0=='=') ) {s = 33;}
+                        else if ( (LA12_0=='/') ) {s = 33;}
 
-                        else if ( (LA12_0=='-') ) {s = 34;}
+                        else if ( (LA12_0=='^') ) {s = 34;}
 
-                        else if ( (LA12_0=='o') ) {s = 35;}
+                        else if ( (LA12_0=='F'||LA12_0=='H'||LA12_0=='J'||(LA12_0>='L' && LA12_0<='N')||LA12_0=='U'||(LA12_0>='X' && LA12_0<='Z')||LA12_0=='_'||LA12_0=='b'||LA12_0=='d'||(LA12_0>='f' && LA12_0<='q')||(LA12_0>='t' && LA12_0<='v')||(LA12_0>='x' && LA12_0<='z')) ) {s = 35;}
 
-                        else if ( (LA12_0=='g') ) {s = 36;}
+                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 36;}
 
-                        else if ( (LA12_0=='(') ) {s = 37;}
+                        else if ( (LA12_0=='\"') ) {s = 37;}
 
-                        else if ( (LA12_0==',') ) {s = 38;}
+                        else if ( (LA12_0=='\'') ) {s = 38;}
 
-                        else if ( (LA12_0==')') ) {s = 39;}
+                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 39;}
 
-                        else if ( (LA12_0=='/') ) {s = 40;}
+                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='*' && LA12_0<='+')||(LA12_0>=':' && LA12_0<='<')||(LA12_0>='>' && LA12_0<='@')||LA12_0=='\\'||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFF')) ) {s = 40;}
 
-                        else if ( (LA12_0=='^') ) {s = 41;}
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA12_37 = input.LA(1);
 
-                        else if ( (LA12_0=='A'||LA12_0=='C'||LA12_0=='F'||LA12_0=='H'||LA12_0=='J'||LA12_0=='L'||LA12_0=='N'||LA12_0=='Q'||LA12_0=='U'||(LA12_0>='X' && LA12_0<='Z')||LA12_0=='_'||LA12_0=='f'||(LA12_0>='h' && LA12_0<='k')||(LA12_0>='m' && LA12_0<='n')||LA12_0=='u'||(LA12_0>='x' && LA12_0<='z')) ) {s = 42;}
+                        s = -1;
+                        if ( ((LA12_37>='\u0000' && LA12_37<='\uFFFF')) ) {s = 94;}
 
-                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 43;}
+                        else s = 40;
 
-                        else if ( (LA12_0=='\"') ) {s = 44;}
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA12_38 = input.LA(1);
 
-                        else if ( (LA12_0=='\'') ) {s = 45;}
+                        s = -1;
+                        if ( ((LA12_38>='\u0000' && LA12_38<='\uFFFF')) ) {s = 94;}
 
-                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 46;}
-
-                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='*' && LA12_0<='+')||(LA12_0>=':' && LA12_0<='<')||(LA12_0>='>' && LA12_0<='@')||LA12_0=='\\'||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFF')) ) {s = 47;}
+                        else s = 40;
 
                         if ( s>=0 ) return s;
                         break;

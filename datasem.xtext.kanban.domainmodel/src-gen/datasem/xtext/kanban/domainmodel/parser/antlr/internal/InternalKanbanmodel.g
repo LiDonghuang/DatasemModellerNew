@@ -117,97 +117,79 @@ ruleKanbanSchedulingSystem returns [EObject current=null]
 	    }
 
 )
-)?(	otherlv_3='Repositories' 
+)?	otherlv_3='GovernanceModel' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getKanbanSchedulingSystemAccess().getRepositoriesKeyword_3_0());
+    	newLeafNode(otherlv_3, grammarAccess.getKanbanSchedulingSystemAccess().getGovernanceModelKeyword_3());
+    }
+	otherlv_4='ProcessModels' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getKanbanSchedulingSystemAccess().getProcessModelsKeyword_4());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getKSSRepositoriesRepositoryParserRuleCall_3_1_0()); 
+	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getProcessModelsProcessModelParserRuleCall_5_0()); 
 	    }
-		lv_KSSRepositories_4_0=ruleRepository		{
+		lv_ProcessModels_5_0=ruleProcessModel		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getKanbanSchedulingSystemRule());
 	        }
        		add(
        			$current, 
-       			"KSSRepositories",
-        		lv_KSSRepositories_4_0, 
-        		"Repository");
+       			"ProcessModels",
+        		lv_ProcessModels_5_0, 
+        		"ProcessModel");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)+	otherlv_5='end Repositories' 
+)+	otherlv_6='end ProcessModels' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getKanbanSchedulingSystemAccess().getEndRepositoriesKeyword_3_2());
+    	newLeafNode(otherlv_6, grammarAccess.getKanbanSchedulingSystemAccess().getEndProcessModelsKeyword_6());
     }
-)?	otherlv_6='GovernanceModel' 
+	otherlv_7='GovernanceSearchStrategies' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getKanbanSchedulingSystemAccess().getGovernanceModelKeyword_4());
+    	newLeafNode(otherlv_7, grammarAccess.getKanbanSchedulingSystemAccess().getGovernanceSearchStrategiesKeyword_7());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getMechanismsMechanismParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getGovernanceSearchStrategiesStrategyParserRuleCall_8_0()); 
 	    }
-		lv_Mechanisms_7_0=ruleMechanism		{
+		lv_GovernanceSearchStrategies_8_0=ruleStrategy		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getKanbanSchedulingSystemRule());
 	        }
        		add(
        			$current, 
-       			"Mechanisms",
-        		lv_Mechanisms_7_0, 
-        		"Mechanism");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)?(	otherlv_8='GovernanceSearchStrategies' 
-    {
-    	newLeafNode(otherlv_8, grammarAccess.getKanbanSchedulingSystemAccess().getGovernanceSearchStrategiesKeyword_6_0());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getKSSSearchStrategiesStrategyParserRuleCall_6_1_0()); 
-	    }
-		lv_KSSSearchStrategies_9_0=ruleStrategy		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getKanbanSchedulingSystemRule());
-	        }
-       		add(
-       			$current, 
-       			"KSSSearchStrategies",
-        		lv_KSSSearchStrategies_9_0, 
+       			"GovernanceSearchStrategies",
+        		lv_GovernanceSearchStrategies_8_0, 
         		"Strategy");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)+	otherlv_10='end GovernanceSearchStrategies' 
+)+	otherlv_9='end GovernanceSearchStrategies' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getKanbanSchedulingSystemAccess().getEndGovernanceSearchStrategiesKeyword_6_2());
+    	newLeafNode(otherlv_9, grammarAccess.getKanbanSchedulingSystemAccess().getEndGovernanceSearchStrategiesKeyword_9());
     }
-)?(	otherlv_11='TaskPatterns' 
+	otherlv_10='TaskPatterns' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getKanbanSchedulingSystemAccess().getTaskPatternsKeyword_7_0());
+    	newLeafNode(otherlv_10, grammarAccess.getKanbanSchedulingSystemAccess().getTaskPatternsKeyword_10());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getKSSTaskPatternsTaskPatternParserRuleCall_7_1_0()); 
+	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getTaskPatternsTaskPatternParserRuleCall_11_0()); 
 	    }
-		lv_KSSTaskPatterns_12_0=ruleTaskPattern		{
+		lv_TaskPatterns_11_0=ruleTaskPattern		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getKanbanSchedulingSystemRule());
 	        }
        		add(
        			$current, 
-       			"KSSTaskPatterns",
-        		lv_KSSTaskPatterns_12_0, 
+       			"TaskPatterns",
+        		lv_TaskPatterns_11_0, 
         		"TaskPattern");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -216,188 +198,214 @@ ruleKanbanSchedulingSystem returns [EObject current=null]
 )+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getKSStaskPatternTypesTaskTypeParserRuleCall_7_2_0()); 
+	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getTaskTypesTaskTypeParserRuleCall_12_0()); 
 	    }
-		lv_KSStaskPatternTypes_13_0=ruleTaskType		{
+		lv_TaskTypes_12_0=ruleTaskType		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getKanbanSchedulingSystemRule());
 	        }
        		add(
        			$current, 
-       			"KSStaskPatternTypes",
-        		lv_KSStaskPatternTypes_13_0, 
+       			"TaskTypes",
+        		lv_TaskTypes_12_0, 
         		"TaskType");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)+	otherlv_14='end TaskPatterns' 
+)+	otherlv_13='end TaskPatterns' 
     {
-    	newLeafNode(otherlv_14, grammarAccess.getKanbanSchedulingSystemAccess().getEndTaskPatternsKeyword_7_3());
+    	newLeafNode(otherlv_13, grammarAccess.getKanbanSchedulingSystemAccess().getEndTaskPatternsKeyword_13());
     }
-)?(	otherlv_15='ValueFunctions' 
+	otherlv_14='ValueFunctions' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getKanbanSchedulingSystemAccess().getValueFunctionsKeyword_8_0());
+    	newLeafNode(otherlv_14, grammarAccess.getKanbanSchedulingSystemAccess().getValueFunctionsKeyword_14());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getKSSValueFunctionsValueFunctionParserRuleCall_8_1_0()); 
+	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getValueFunctionsValueFunctionParserRuleCall_15_0()); 
 	    }
-		lv_KSSValueFunctions_16_0=ruleValueFunction		{
+		lv_ValueFunctions_15_0=ruleValueFunction		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getKanbanSchedulingSystemRule());
 	        }
        		add(
        			$current, 
-       			"KSSValueFunctions",
-        		lv_KSSValueFunctions_16_0, 
+       			"ValueFunctions",
+        		lv_ValueFunctions_15_0, 
         		"ValueFunction");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)+	otherlv_17='end ValueFunctions' 
+)+	otherlv_16='end ValueFunctions' 
     {
-    	newLeafNode(otherlv_17, grammarAccess.getKanbanSchedulingSystemAccess().getEndValueFunctionsKeyword_8_2());
+    	newLeafNode(otherlv_16, grammarAccess.getKanbanSchedulingSystemAccess().getEndValueFunctionsKeyword_16());
     }
-)?	otherlv_18='end GovernanceModel' 
+	otherlv_17='end GovernanceModel' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getKanbanSchedulingSystemAccess().getEndGovernanceModelKeyword_9());
+    	newLeafNode(otherlv_17, grammarAccess.getKanbanSchedulingSystemAccess().getEndGovernanceModelKeyword_17());
     }
-	otherlv_19='OrganizationalModel' 
+	otherlv_18='OrganizationalModel' 
     {
-    	newLeafNode(otherlv_19, grammarAccess.getKanbanSchedulingSystemAccess().getOrganizationalModelKeyword_10());
+    	newLeafNode(otherlv_18, grammarAccess.getKanbanSchedulingSystemAccess().getOrganizationalModelKeyword_18());
     }
-	otherlv_20='ServiceTypes' 
+	otherlv_19='ServiceTypes' 
     {
-    	newLeafNode(otherlv_20, grammarAccess.getKanbanSchedulingSystemAccess().getServiceTypesKeyword_11());
+    	newLeafNode(otherlv_19, grammarAccess.getKanbanSchedulingSystemAccess().getServiceTypesKeyword_19());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getSoSServicesServiceTypeParserRuleCall_12_0()); 
+	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getServiceTypesServiceTypeParserRuleCall_20_0()); 
 	    }
-		lv_SoSServices_21_0=ruleServiceType		{
+		lv_ServiceTypes_20_0=ruleServiceType		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getKanbanSchedulingSystemRule());
 	        }
        		add(
        			$current, 
-       			"SoSServices",
-        		lv_SoSServices_21_0, 
+       			"ServiceTypes",
+        		lv_ServiceTypes_20_0, 
         		"ServiceType");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)+	otherlv_22='end ServiceTypes' 
+)+	otherlv_21='end ServiceTypes' 
     {
-    	newLeafNode(otherlv_22, grammarAccess.getKanbanSchedulingSystemAccess().getEndServiceTypesKeyword_13());
+    	newLeafNode(otherlv_21, grammarAccess.getKanbanSchedulingSystemAccess().getEndServiceTypesKeyword_21());
     }
-	otherlv_23='ServiceProviders' 
+	otherlv_22='ServiceProviders' 
     {
-    	newLeafNode(otherlv_23, grammarAccess.getKanbanSchedulingSystemAccess().getServiceProvidersKeyword_14());
+    	newLeafNode(otherlv_22, grammarAccess.getKanbanSchedulingSystemAccess().getServiceProvidersKeyword_22());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getOrgUnitsServiceProviderParserRuleCall_15_0()); 
+	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getServiceProvidersServiceProviderParserRuleCall_23_0()); 
 	    }
-		lv_orgUnits_24_0=ruleServiceProvider		{
+		lv_ServiceProviders_23_0=ruleServiceProvider		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getKanbanSchedulingSystemRule());
 	        }
        		add(
        			$current, 
-       			"orgUnits",
-        		lv_orgUnits_24_0, 
+       			"ServiceProviders",
+        		lv_ServiceProviders_23_0, 
         		"ServiceProvider");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)+	otherlv_25='end ServiceProviders' 
+)+	otherlv_24='end ServiceProviders' 
     {
-    	newLeafNode(otherlv_25, grammarAccess.getKanbanSchedulingSystemAccess().getEndServiceProvidersKeyword_16());
+    	newLeafNode(otherlv_24, grammarAccess.getKanbanSchedulingSystemAccess().getEndServiceProvidersKeyword_24());
     }
-	otherlv_26='end OrganizationalModel' 
+	otherlv_25='end OrganizationalModel' 
     {
-    	newLeafNode(otherlv_26, grammarAccess.getKanbanSchedulingSystemAccess().getEndOrganizationalModelKeyword_17());
+    	newLeafNode(otherlv_25, grammarAccess.getKanbanSchedulingSystemAccess().getEndOrganizationalModelKeyword_25());
     }
-	otherlv_27='WorkItemNetworkModel' 
+	otherlv_26='WorkItemNetworkModel' 
     {
-    	newLeafNode(otherlv_27, grammarAccess.getKanbanSchedulingSystemAccess().getWorkItemNetworkModelKeyword_18());
+    	newLeafNode(otherlv_26, grammarAccess.getKanbanSchedulingSystemAccess().getWorkItemNetworkModelKeyword_26());
     }
-	otherlv_28='WorkSources' 
+	otherlv_27='Repositories' 
     {
-    	newLeafNode(otherlv_28, grammarAccess.getKanbanSchedulingSystemAccess().getWorkSourcesKeyword_19());
+    	newLeafNode(otherlv_27, grammarAccess.getKanbanSchedulingSystemAccess().getRepositoriesKeyword_27());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getKssSourcesWorkSourceParserRuleCall_20_0()); 
+	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getRepositoriesRepositoryParserRuleCall_28_0()); 
 	    }
-		lv_kssSources_29_0=ruleWorkSource		{
+		lv_Repositories_28_0=ruleRepository		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getKanbanSchedulingSystemRule());
 	        }
        		add(
        			$current, 
-       			"kssSources",
-        		lv_kssSources_29_0, 
+       			"Repositories",
+        		lv_Repositories_28_0, 
+        		"Repository");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)+	otherlv_29='end Repositories' 
+    {
+    	newLeafNode(otherlv_29, grammarAccess.getKanbanSchedulingSystemAccess().getEndRepositoriesKeyword_29());
+    }
+	otherlv_30='WorkSources' 
+    {
+    	newLeafNode(otherlv_30, grammarAccess.getKanbanSchedulingSystemAccess().getWorkSourcesKeyword_30());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getWorkSourcesWorkSourceParserRuleCall_31_0()); 
+	    }
+		lv_WorkSources_31_0=ruleWorkSource		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getKanbanSchedulingSystemRule());
+	        }
+       		add(
+       			$current, 
+       			"WorkSources",
+        		lv_WorkSources_31_0, 
         		"WorkSource");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)+	otherlv_30='end WorkSources' 
+)+	otherlv_32='end WorkSources' 
     {
-    	newLeafNode(otherlv_30, grammarAccess.getKanbanSchedulingSystemAccess().getEndWorkSourcesKeyword_21());
+    	newLeafNode(otherlv_32, grammarAccess.getKanbanSchedulingSystemAccess().getEndWorkSourcesKeyword_32());
     }
-	otherlv_31='WorkItems' 
+	otherlv_33='WorkItems' 
     {
-    	newLeafNode(otherlv_31, grammarAccess.getKanbanSchedulingSystemAccess().getWorkItemsKeyword_22());
+    	newLeafNode(otherlv_33, grammarAccess.getKanbanSchedulingSystemAccess().getWorkItemsKeyword_33());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getKssWItemsWorkItemParserRuleCall_23_0()); 
+	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getWorkItemsWorkItemParserRuleCall_34_0()); 
 	    }
-		lv_kssWItems_32_0=ruleWorkItem		{
+		lv_WorkItems_34_0=ruleWorkItem		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getKanbanSchedulingSystemRule());
 	        }
        		add(
        			$current, 
-       			"kssWItems",
-        		lv_kssWItems_32_0, 
+       			"WorkItems",
+        		lv_WorkItems_34_0, 
         		"WorkItem");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)+	otherlv_33='end WorkItems' 
+)+	otherlv_35='end WorkItems' 
     {
-    	newLeafNode(otherlv_33, grammarAccess.getKanbanSchedulingSystemAccess().getEndWorkItemsKeyword_24());
+    	newLeafNode(otherlv_35, grammarAccess.getKanbanSchedulingSystemAccess().getEndWorkItemsKeyword_35());
     }
-	otherlv_34='end WorkItemNetworkModel' 
+	otherlv_36='end WorkItemNetworkModel' 
     {
-    	newLeafNode(otherlv_34, grammarAccess.getKanbanSchedulingSystemAccess().getEndWorkItemNetworkModelKeyword_25());
+    	newLeafNode(otherlv_36, grammarAccess.getKanbanSchedulingSystemAccess().getEndWorkItemNetworkModelKeyword_36());
     }
-	otherlv_35='ExperimentSettings' 
+	otherlv_37='ExperimentSettings' 
     {
-    	newLeafNode(otherlv_35, grammarAccess.getKanbanSchedulingSystemAccess().getExperimentSettingsKeyword_26());
+    	newLeafNode(otherlv_37, grammarAccess.getKanbanSchedulingSystemAccess().getExperimentSettingsKeyword_37());
     }
-	otherlv_36='Replications' 
+	otherlv_38='Replications' 
     {
-    	newLeafNode(otherlv_36, grammarAccess.getKanbanSchedulingSystemAccess().getReplicationsKeyword_27());
+    	newLeafNode(otherlv_38, grammarAccess.getKanbanSchedulingSystemAccess().getReplicationsKeyword_38());
     }
 (
 (
-		lv_replications_37_0=RULE_INT
+		lv_replications_39_0=RULE_INT
 		{
-			newLeafNode(lv_replications_37_0, grammarAccess.getKanbanSchedulingSystemAccess().getReplicationsINTTerminalRuleCall_28_0()); 
+			newLeafNode(lv_replications_39_0, grammarAccess.getKanbanSchedulingSystemAccess().getReplicationsINTTerminalRuleCall_39_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -406,20 +414,20 @@ ruleKanbanSchedulingSystem returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"replications",
-        		lv_replications_37_0, 
+        		lv_replications_39_0, 
         		"INT");
 	    }
 
 )
-)	otherlv_38='InterArrivalTime' 
+)	otherlv_40='InterArrivalTime' 
     {
-    	newLeafNode(otherlv_38, grammarAccess.getKanbanSchedulingSystemAccess().getInterArrivalTimeKeyword_29());
+    	newLeafNode(otherlv_40, grammarAccess.getKanbanSchedulingSystemAccess().getInterArrivalTimeKeyword_40());
     }
 (
 (
-		lv_interArrivalTime_39_0=RULE_INT
+		lv_interArrivalTime_41_0=RULE_INT
 		{
-			newLeafNode(lv_interArrivalTime_39_0, grammarAccess.getKanbanSchedulingSystemAccess().getInterArrivalTimeINTTerminalRuleCall_30_0()); 
+			newLeafNode(lv_interArrivalTime_41_0, grammarAccess.getKanbanSchedulingSystemAccess().getInterArrivalTimeINTTerminalRuleCall_41_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -428,18 +436,18 @@ ruleKanbanSchedulingSystem returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"interArrivalTime",
-        		lv_interArrivalTime_39_0, 
+        		lv_interArrivalTime_41_0, 
         		"INT");
 	    }
 
 )
-)	otherlv_40='end ExperimentSettings' 
+)	otherlv_42='end ExperimentSettings' 
     {
-    	newLeafNode(otherlv_40, grammarAccess.getKanbanSchedulingSystemAccess().getEndExperimentSettingsKeyword_31());
+    	newLeafNode(otherlv_42, grammarAccess.getKanbanSchedulingSystemAccess().getEndExperimentSettingsKeyword_42());
     }
-	otherlv_41='end KSSModel' 
+	otherlv_43='end KSSModel' 
     {
-    	newLeafNode(otherlv_41, grammarAccess.getKanbanSchedulingSystemAccess().getEndKSSModelKeyword_32());
+    	newLeafNode(otherlv_43, grammarAccess.getKanbanSchedulingSystemAccess().getEndKSSModelKeyword_43());
     }
 )
 ;
@@ -793,7 +801,7 @@ ruleWorkItemProfile returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='workItem' 
+(	otherlv_0='WorkItem' 
     {
     	newLeafNode(otherlv_0, grammarAccess.getWorkItemProfileAccess().getWorkItemKeyword_0());
     }
@@ -841,7 +849,7 @@ ruleWorkItemProfile returns [EObject current=null]
 	    }
 
 )
-))?(	otherlv_5='references' 
+))?(	otherlv_5='References' 
     {
     	newLeafNode(otherlv_5, grammarAccess.getWorkItemProfileAccess().getReferencesKeyword_4_0());
     }
@@ -852,16 +860,16 @@ ruleWorkItemProfile returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getWorkItemProfileAccess().getRefTasksWorkReferenceParserRuleCall_4_2_0()); 
+	        newCompositeNode(grammarAccess.getWorkItemProfileAccess().getReferencesWorkReferenceParserRuleCall_4_2_0()); 
 	    }
-		lv_refTasks_7_0=ruleWorkReference		{
+		lv_references_7_0=ruleWorkReference		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkItemProfileRule());
 	        }
        		add(
        			$current, 
-       			"refTasks",
-        		lv_refTasks_7_0, 
+       			"references",
+        		lv_references_7_0, 
         		"WorkReference");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -871,7 +879,7 @@ ruleWorkItemProfile returns [EObject current=null]
     {
     	newLeafNode(otherlv_8, grammarAccess.getWorkItemProfileAccess().getRightCurlyBracketKeyword_4_3());
     }
-)?(	otherlv_9='decompositions' 
+)?(	otherlv_9='Decompositions' 
     {
     	newLeafNode(otherlv_9, grammarAccess.getWorkItemProfileAccess().getDecompositionsKeyword_5_0());
     }
@@ -882,16 +890,16 @@ ruleWorkItemProfile returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getWorkItemProfileAccess().getDecTasksWorkDecompositionParserRuleCall_5_2_0()); 
+	        newCompositeNode(grammarAccess.getWorkItemProfileAccess().getDecompositionsWorkDecompositionParserRuleCall_5_2_0()); 
 	    }
-		lv_decTasks_11_0=ruleWorkDecomposition		{
+		lv_decompositions_11_0=ruleWorkDecomposition		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkItemProfileRule());
 	        }
        		add(
        			$current, 
-       			"decTasks",
-        		lv_decTasks_11_0, 
+       			"decompositions",
+        		lv_decompositions_11_0, 
         		"WorkDecomposition");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -901,9 +909,9 @@ ruleWorkItemProfile returns [EObject current=null]
     {
     	newLeafNode(otherlv_12, grammarAccess.getWorkItemProfileAccess().getRightCurlyBracketKeyword_5_3());
     }
-)?(	otherlv_13='serviceType' 
+)?(	otherlv_13='RequiredServices' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getWorkItemProfileAccess().getServiceTypeKeyword_6_0());
+    	newLeafNode(otherlv_13, grammarAccess.getWorkItemProfileAccess().getRequiredServicesKeyword_6_0());
     }
 (
 (
@@ -914,63 +922,63 @@ ruleWorkItemProfile returns [EObject current=null]
         }
 	otherlv_14=RULE_ID
 	{
-		newLeafNode(otherlv_14, grammarAccess.getWorkItemProfileAccess().getReqSpecialtiesServiceTypeCrossReference_6_1_0()); 
+		newLeafNode(otherlv_14, grammarAccess.getWorkItemProfileAccess().getRequiredServicesServiceTypeCrossReference_6_1_0()); 
 	}
 
 )
-)+)?(	otherlv_15='baseEfforts' 
+)+)?(	otherlv_15='Efforts' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getWorkItemProfileAccess().getBaseEffortsKeyword_7_0());
+    	newLeafNode(otherlv_15, grammarAccess.getWorkItemProfileAccess().getEffortsKeyword_7_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getWorkItemProfileAccess().getBeffortsNumExpressionParserRuleCall_7_1_0()); 
+	        newCompositeNode(grammarAccess.getWorkItemProfileAccess().getEffortsNumExpressionParserRuleCall_7_1_0()); 
 	    }
-		lv_befforts_16_0=ruleNumExpression		{
+		lv_efforts_16_0=ruleNumExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkItemProfileRule());
 	        }
        		set(
        			$current, 
-       			"befforts",
-        		lv_befforts_16_0, 
+       			"efforts",
+        		lv_efforts_16_0, 
         		"NumExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))?(	otherlv_17='baseValue' 
+))?(	otherlv_17='Value' 
     {
-    	newLeafNode(otherlv_17, grammarAccess.getWorkItemProfileAccess().getBaseValueKeyword_8_0());
+    	newLeafNode(otherlv_17, grammarAccess.getWorkItemProfileAccess().getValueKeyword_8_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getWorkItemProfileAccess().getBvalueNumExpressionParserRuleCall_8_1_0()); 
+	        newCompositeNode(grammarAccess.getWorkItemProfileAccess().getValueNumExpressionParserRuleCall_8_1_0()); 
 	    }
-		lv_bvalue_18_0=ruleNumExpression		{
+		lv_value_18_0=ruleNumExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkItemProfileRule());
 	        }
        		set(
        			$current, 
-       			"bvalue",
-        		lv_bvalue_18_0, 
+       			"value",
+        		lv_value_18_0, 
         		"NumExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))?(	otherlv_19='classOfService' 
+))?(	otherlv_19='ClassOfService' 
     {
     	newLeafNode(otherlv_19, grammarAccess.getWorkItemProfileAccess().getClassOfServiceKeyword_9_0());
     }
 (
 (
-		lv_COS_20_0=RULE_ID
+		lv_classOfService_20_0=RULE_ID
 		{
-			newLeafNode(lv_COS_20_0, grammarAccess.getWorkItemProfileAccess().getCOSIDTerminalRuleCall_9_1_0()); 
+			newLeafNode(lv_classOfService_20_0, grammarAccess.getWorkItemProfileAccess().getClassOfServiceIDTerminalRuleCall_9_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -978,15 +986,45 @@ ruleWorkItemProfile returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"COS",
-        		lv_COS_20_0, 
+       			"classOfService",
+        		lv_classOfService_20_0, 
         		"ID");
 	    }
 
 )
-))?	otherlv_21='}' 
+))?(
+(
+		lv_allowAssignment_21_0=	'AssignmentAllowed' 
     {
-    	newLeafNode(otherlv_21, grammarAccess.getWorkItemProfileAccess().getRightCurlyBracketKeyword_10());
+        newLeafNode(lv_allowAssignment_21_0, grammarAccess.getWorkItemProfileAccess().getAllowAssignmentAssignmentAllowedKeyword_10_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getWorkItemProfileRule());
+	        }
+       		setWithLastConsumed($current, "allowAssignment", true, "AssignmentAllowed");
+	    }
+
+)
+)?(
+(
+		lv_allowDiscard_22_0=	'DiscardAllowed' 
+    {
+        newLeafNode(lv_allowDiscard_22_0, grammarAccess.getWorkItemProfileAccess().getAllowDiscardDiscardAllowedKeyword_11_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getWorkItemProfileRule());
+	        }
+       		setWithLastConsumed($current, "allowDiscard", true, "DiscardAllowed");
+	    }
+
+)
+)?	otherlv_23='}' 
+    {
+    	newLeafNode(otherlv_23, grammarAccess.getWorkItemProfileAccess().getRightCurlyBracketKeyword_12());
     }
 )
 ;
@@ -1009,7 +1047,7 @@ ruleWorkReference returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='workItem' 
+(	otherlv_0='WorkItem' 
     {
     	newLeafNode(otherlv_0, grammarAccess.getWorkReferenceAccess().getWorkItemKeyword_0());
     }
@@ -1026,23 +1064,23 @@ ruleWorkReference returns [EObject current=null]
 	}
 
 )
-)	otherlv_2='quantity' 
+)	otherlv_2='Quantity' 
     {
     	newLeafNode(otherlv_2, grammarAccess.getWorkReferenceAccess().getQuantityKeyword_2());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getWorkReferenceAccess().getAmountNumExpressionParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getWorkReferenceAccess().getQuantityNumExpressionParserRuleCall_3_0()); 
 	    }
-		lv_amount_3_0=ruleNumExpression		{
+		lv_quantity_3_0=ruleNumExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkReferenceRule());
 	        }
        		set(
        			$current, 
-       			"amount",
-        		lv_amount_3_0, 
+       			"quantity",
+        		lv_quantity_3_0, 
         		"NumExpression");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1069,7 +1107,7 @@ ruleWorkDecomposition returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='workItem' 
+(	otherlv_0='WorkItem' 
     {
     	newLeafNode(otherlv_0, grammarAccess.getWorkDecompositionAccess().getWorkItemKeyword_0());
     }
@@ -1086,23 +1124,23 @@ ruleWorkDecomposition returns [EObject current=null]
 	}
 
 )
-)	otherlv_2='quantity' 
+)	otherlv_2='Quantity' 
     {
     	newLeafNode(otherlv_2, grammarAccess.getWorkDecompositionAccess().getQuantityKeyword_2());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getWorkDecompositionAccess().getAmountNumExpressionParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getWorkDecompositionAccess().getQuantityNumExpressionParserRuleCall_3_0()); 
 	    }
-		lv_amount_3_0=ruleNumExpression		{
+		lv_quantity_3_0=ruleNumExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkDecompositionRule());
 	        }
        		set(
        			$current, 
-       			"amount",
-        		lv_amount_3_0, 
+       			"quantity",
+        		lv_quantity_3_0, 
         		"NumExpression");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1133,9 +1171,9 @@ ruleTaskPattern returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='workflowTemplate' 
+(	otherlv_0='TaskPattern' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getTaskPatternAccess().getWorkflowTemplateKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getTaskPatternAccess().getTaskPatternKeyword_0());
     }
 (
 (
@@ -1198,7 +1236,7 @@ ruleTaskPattern returns [EObject current=null]
         }
 	otherlv_7=RULE_ID
 	{
-		newLeafNode(otherlv_7, grammarAccess.getTaskPatternAccess().getTaskpatternTypesTaskTypeCrossReference_4_2_0()); 
+		newLeafNode(otherlv_7, grammarAccess.getTaskPatternAccess().getTaskTypesTaskTypeCrossReference_4_2_0()); 
 	}
 
 )
@@ -1231,7 +1269,7 @@ ruleTaskType returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='taskType' 
+(	otherlv_0='TaskType' 
     {
     	newLeafNode(otherlv_0, grammarAccess.getTaskTypeAccess().getTaskTypeKeyword_0());
     }
@@ -1304,7 +1342,7 @@ ruleValueFunction returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='valueFunction' 
+(	otherlv_0='ValueFunction' 
     {
     	newLeafNode(otherlv_0, grammarAccess.getValueFunctionAccess().getValueFunctionKeyword_0());
     }
@@ -1363,33 +1401,33 @@ ruleValueFunction returns [EObject current=null]
 
 
 
-// Entry rule entryRuleMechanism
-entryRuleMechanism returns [EObject current=null] 
+// Entry rule entryRuleProcessModel
+entryRuleProcessModel returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getMechanismRule()); }
-	 iv_ruleMechanism=ruleMechanism 
-	 { $current=$iv_ruleMechanism.current; } 
+	{ newCompositeNode(grammarAccess.getProcessModelRule()); }
+	 iv_ruleProcessModel=ruleProcessModel 
+	 { $current=$iv_ruleProcessModel.current; } 
 	 EOF 
 ;
 
-// Rule Mechanism
-ruleMechanism returns [EObject current=null] 
+// Rule ProcessModel
+ruleProcessModel returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='Mechanism' 
+(	otherlv_0='ProcessModel' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getMechanismAccess().getMechanismKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getProcessModelAccess().getProcessModelKeyword_0());
     }
 (
 (
 		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_name_1_0, grammarAccess.getMechanismAccess().getNameIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getProcessModelAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getMechanismRule());
+	            $current = createModelElement(grammarAccess.getProcessModelRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -1401,17 +1439,17 @@ ruleMechanism returns [EObject current=null]
 )
 )(	otherlv_2='Description' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getMechanismAccess().getDescriptionKeyword_2_0());
+    	newLeafNode(otherlv_2, grammarAccess.getProcessModelAccess().getDescriptionKeyword_2_0());
     }
 (
 (
 		lv_description_3_0=RULE_STRING
 		{
-			newLeafNode(lv_description_3_0, grammarAccess.getMechanismAccess().getDescriptionSTRINGTerminalRuleCall_2_1_0()); 
+			newLeafNode(lv_description_3_0, grammarAccess.getProcessModelAccess().getDescriptionSTRINGTerminalRuleCall_2_1_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getMechanismRule());
+	            $current = createModelElement(grammarAccess.getProcessModelRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -1421,48 +1459,10 @@ ruleMechanism returns [EObject current=null]
 	    }
 
 )
-))?(	otherlv_4='ProcessType' 
-    {
-    	newLeafNode(otherlv_4, grammarAccess.getMechanismAccess().getProcessTypeKeyword_3_0());
-    }
-(
-(
-		lv_processtype_5_0=RULE_STRING
-		{
-			newLeafNode(lv_processtype_5_0, grammarAccess.getMechanismAccess().getProcesstypeSTRINGTerminalRuleCall_3_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getMechanismRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"processtype",
-        		lv_processtype_5_0, 
-        		"STRING");
-	    }
-
-)
-))(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getMechanismAccess().getStrategiesStrategyParserRuleCall_4_0()); 
-	    }
-		lv_Strategies_6_0=ruleStrategy		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getMechanismRule());
-	        }
-       		add(
-       			$current, 
-       			"Strategies",
-        		lv_Strategies_6_0, 
-        		"Strategy");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)+)
+))?)
 ;
+
+
 
 
 
@@ -2054,7 +2054,7 @@ ruleWorkSource returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='workSource' 
+(	otherlv_0='WorkSource' 
     {
     	newLeafNode(otherlv_0, grammarAccess.getWorkSourceAccess().getWorkSourceKeyword_0());
     }
@@ -2102,7 +2102,7 @@ ruleWorkSource returns [EObject current=null]
 	    }
 
 )
-))?(	otherlv_5='targetUnits' 
+))?(	otherlv_5='TargetUnits' 
     {
     	newLeafNode(otherlv_5, grammarAccess.getWorkSourceAccess().getTargetUnitsKeyword_4_0());
     }
@@ -2170,7 +2170,7 @@ ruleWorkItem returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='workItem' 
+(	otherlv_0='WorkItem' 
     {
     	newLeafNode(otherlv_0, grammarAccess.getWorkItemAccess().getWorkItemKeyword_0());
     }
@@ -2269,7 +2269,7 @@ ruleWorkItem returns [EObject current=null]
 	}
 
 )
-))?(	otherlv_11='predecessors' 
+))?(	otherlv_11='Predecessors' 
     {
     	newLeafNode(otherlv_11, grammarAccess.getWorkItemAccess().getPredecessorsKeyword_7_0());
     }
@@ -2294,7 +2294,7 @@ ruleWorkItem returns [EObject current=null]
     {
     	newLeafNode(otherlv_14, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_7_3());
     }
-)?(	otherlv_15='subtasks' 
+)?(	otherlv_15='Subtasks' 
     {
     	newLeafNode(otherlv_15, grammarAccess.getWorkItemAccess().getSubtasksKeyword_8_0());
     }
@@ -2319,9 +2319,9 @@ ruleWorkItem returns [EObject current=null]
     {
     	newLeafNode(otherlv_18, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_8_3());
     }
-)?(	otherlv_19='causality' 
+)?(	otherlv_19='CausalTriggers' 
     {
-    	newLeafNode(otherlv_19, grammarAccess.getWorkItemAccess().getCausalityKeyword_9_0());
+    	newLeafNode(otherlv_19, grammarAccess.getWorkItemAccess().getCausalTriggersKeyword_9_0());
     }
 (
 (
@@ -2341,9 +2341,9 @@ ruleWorkItem returns [EObject current=null]
 	    }
 
 )
-)*)?(	otherlv_21='serviceType' 
+)*)?(	otherlv_21='RequiredServices' 
     {
-    	newLeafNode(otherlv_21, grammarAccess.getWorkItemAccess().getServiceTypeKeyword_10_0());
+    	newLeafNode(otherlv_21, grammarAccess.getWorkItemAccess().getRequiredServicesKeyword_10_0());
     }
 (
 (
@@ -2354,85 +2354,63 @@ ruleWorkItem returns [EObject current=null]
         }
 	otherlv_22=RULE_ID
 	{
-		newLeafNode(otherlv_22, grammarAccess.getWorkItemAccess().getReqSpecialtiesServiceTypeCrossReference_10_1_0()); 
+		newLeafNode(otherlv_22, grammarAccess.getWorkItemAccess().getRequiredServicesServiceTypeCrossReference_10_1_0()); 
 	}
 
 )
-)+)?(	otherlv_23='baseEfforts' 
+)+)?(	otherlv_23='Efforts' 
     {
-    	newLeafNode(otherlv_23, grammarAccess.getWorkItemAccess().getBaseEffortsKeyword_11_0());
-    }
-(
-(
-		lv_befforts_24_0=RULE_INT
-		{
-			newLeafNode(lv_befforts_24_0, grammarAccess.getWorkItemAccess().getBeffortsINTTerminalRuleCall_11_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getWorkItemRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"befforts",
-        		lv_befforts_24_0, 
-        		"INT");
-	    }
-
-)
-))?(	otherlv_25='baseValue' 
-    {
-    	newLeafNode(otherlv_25, grammarAccess.getWorkItemAccess().getBaseValueKeyword_12_0());
-    }
-(
-(
-		lv_bvalue_26_0=RULE_INT
-		{
-			newLeafNode(lv_bvalue_26_0, grammarAccess.getWorkItemAccess().getBvalueINTTerminalRuleCall_12_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getWorkItemRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"bvalue",
-        		lv_bvalue_26_0, 
-        		"INT");
-	    }
-
-)
-))?(	otherlv_27='localValues' 
-    {
-    	newLeafNode(otherlv_27, grammarAccess.getWorkItemAccess().getLocalValuesKeyword_13_0());
+    	newLeafNode(otherlv_23, grammarAccess.getWorkItemAccess().getEffortsKeyword_11_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getWorkItemAccess().getLvalueLocalValueParserRuleCall_13_1_0()); 
+	        newCompositeNode(grammarAccess.getWorkItemAccess().getEffortsDoubleParserRuleCall_11_1_0()); 
 	    }
-		lv_lvalue_28_0=ruleLocalValue		{
+		lv_efforts_24_0=ruleDouble		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
 	        }
-       		add(
+       		set(
        			$current, 
-       			"lvalue",
-        		lv_lvalue_28_0, 
-        		"LocalValue");
+       			"efforts",
+        		lv_efforts_24_0, 
+        		"Double");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))?(	otherlv_29='classOfService' 
+))?(	otherlv_25='Value' 
     {
-    	newLeafNode(otherlv_29, grammarAccess.getWorkItemAccess().getClassOfServiceKeyword_14_0());
+    	newLeafNode(otherlv_25, grammarAccess.getWorkItemAccess().getValueKeyword_12_0());
     }
 (
 (
-		lv_COS_30_0=RULE_ID
+		{ 
+	        newCompositeNode(grammarAccess.getWorkItemAccess().getValueDoubleParserRuleCall_12_1_0()); 
+	    }
+		lv_value_26_0=ruleDouble		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
+	        }
+       		set(
+       			$current, 
+       			"value",
+        		lv_value_26_0, 
+        		"Double");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?(	otherlv_27='ClassOfService' 
+    {
+    	newLeafNode(otherlv_27, grammarAccess.getWorkItemAccess().getClassOfServiceKeyword_13_0());
+    }
+(
+(
+		lv_classOfService_28_0=RULE_ID
 		{
-			newLeafNode(lv_COS_30_0, grammarAccess.getWorkItemAccess().getCOSIDTerminalRuleCall_14_1_0()); 
+			newLeafNode(lv_classOfService_28_0, grammarAccess.getWorkItemAccess().getClassOfServiceIDTerminalRuleCall_13_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2440,15 +2418,15 @@ ruleWorkItem returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"COS",
-        		lv_COS_30_0, 
+       			"classOfService",
+        		lv_classOfService_28_0, 
         		"ID");
 	    }
 
 )
-))?(	otherlv_31='WorkSource' 
+))?(	otherlv_29='WorkSource' 
     {
-    	newLeafNode(otherlv_31, grammarAccess.getWorkItemAccess().getWorkSourceKeyword_15_0());
+    	newLeafNode(otherlv_29, grammarAccess.getWorkItemAccess().getWorkSourceKeyword_14_0());
     }
 (
 (
@@ -2457,21 +2435,21 @@ ruleWorkItem returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getWorkItemRule());
 	        }
         }
-	otherlv_32=RULE_ID
+	otherlv_30=RULE_ID
 	{
-		newLeafNode(otherlv_32, grammarAccess.getWorkItemAccess().getWItemSourceWorkSourceCrossReference_15_1_0()); 
+		newLeafNode(otherlv_30, grammarAccess.getWorkItemAccess().getWorkSourceWorkSourceCrossReference_14_1_0()); 
 	}
 
 )
-))?(	otherlv_33='arrivalTime' 
+))?(	otherlv_31='ArrivalTime' 
     {
-    	newLeafNode(otherlv_33, grammarAccess.getWorkItemAccess().getArrivalTimeKeyword_16_0());
+    	newLeafNode(otherlv_31, grammarAccess.getWorkItemAccess().getArrivalTimeKeyword_15_0());
     }
 (
 (
-		lv_arrtime_34_0=RULE_INT
+		lv_arrivalTime_32_0=RULE_INT
 		{
-			newLeafNode(lv_arrtime_34_0, grammarAccess.getWorkItemAccess().getArrtimeINTTerminalRuleCall_16_1_0()); 
+			newLeafNode(lv_arrivalTime_32_0, grammarAccess.getWorkItemAccess().getArrivalTimeINTTerminalRuleCall_15_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2479,21 +2457,21 @@ ruleWorkItem returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"arrtime",
-        		lv_arrtime_34_0, 
+       			"arrivalTime",
+        		lv_arrivalTime_32_0, 
         		"INT");
 	    }
 
 )
-))?(	otherlv_35='dueDate' 
+))?(	otherlv_33='DueDate' 
     {
-    	newLeafNode(otherlv_35, grammarAccess.getWorkItemAccess().getDueDateKeyword_17_0());
+    	newLeafNode(otherlv_33, grammarAccess.getWorkItemAccess().getDueDateKeyword_16_0());
     }
 (
 (
-		lv_duedate_36_0=RULE_INT
+		lv_dueDate_34_0=RULE_INT
 		{
-			newLeafNode(lv_duedate_36_0, grammarAccess.getWorkItemAccess().getDuedateINTTerminalRuleCall_17_1_0()); 
+			newLeafNode(lv_dueDate_34_0, grammarAccess.getWorkItemAccess().getDueDateINTTerminalRuleCall_16_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2501,15 +2479,15 @@ ruleWorkItem returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"duedate",
-        		lv_duedate_36_0, 
+       			"dueDate",
+        		lv_dueDate_34_0, 
         		"INT");
 	    }
 
 )
-))?	otherlv_37='}' 
+))?	otherlv_35='}' 
     {
-    	newLeafNode(otherlv_37, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_18());
+    	newLeafNode(otherlv_35, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_17());
     }
 )
 ;
@@ -2562,15 +2540,15 @@ ruleCausality returns [EObject current=null]
     {
     	newLeafNode(otherlv_4, grammarAccess.getCausalityAccess().getRightCurlyBracketKeyword_3());
     }
-(	otherlv_5='atProgress' 
+(	otherlv_5='AtProgress' 
     {
     	newLeafNode(otherlv_5, grammarAccess.getCausalityAccess().getAtProgressKeyword_4_0());
     }
 (
 (
-		lv_tProgress_6_0=RULE_INT
+		lv_atProgress_6_0=RULE_INT
 		{
-			newLeafNode(lv_tProgress_6_0, grammarAccess.getCausalityAccess().getTProgressINTTerminalRuleCall_4_1_0()); 
+			newLeafNode(lv_atProgress_6_0, grammarAccess.getCausalityAccess().getAtProgressINTTerminalRuleCall_4_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2578,21 +2556,21 @@ ruleCausality returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"tProgress",
-        		lv_tProgress_6_0, 
+       			"atProgress",
+        		lv_atProgress_6_0, 
         		"INT");
 	    }
 
 )
-))?(	otherlv_7='onProbability' 
+))?(	otherlv_7='OnProbability' 
     {
     	newLeafNode(otherlv_7, grammarAccess.getCausalityAccess().getOnProbabilityKeyword_5_0());
     }
 (
 (
-		lv_tProbability_8_0=RULE_INT
+		lv_onProbability_8_0=RULE_INT
 		{
-			newLeafNode(lv_tProbability_8_0, grammarAccess.getCausalityAccess().getTProbabilityINTTerminalRuleCall_5_1_0()); 
+			newLeafNode(lv_onProbability_8_0, grammarAccess.getCausalityAccess().getOnProbabilityINTTerminalRuleCall_5_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2600,8 +2578,8 @@ ruleCausality returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"tProbability",
-        		lv_tProbability_8_0, 
+       			"onProbability",
+        		lv_onProbability_8_0, 
         		"INT");
 	    }
 
@@ -2610,64 +2588,6 @@ ruleCausality returns [EObject current=null]
 ;
 
 
-
-
-
-// Entry rule entryRuleLocalValue
-entryRuleLocalValue returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getLocalValueRule()); }
-	 iv_ruleLocalValue=ruleLocalValue 
-	 { $current=$iv_ruleLocalValue.current; } 
-	 EOF 
-;
-
-// Rule LocalValue
-ruleLocalValue returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-((	otherlv_0='owner' 
-    {
-    	newLeafNode(otherlv_0, grammarAccess.getLocalValueAccess().getOwnerKeyword_0_0());
-    }
-(
-(
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getLocalValueRule());
-	        }
-        }
-	otherlv_1=RULE_ID
-	{
-		newLeafNode(otherlv_1, grammarAccess.getLocalValueAccess().getOwnerServiceProviderCrossReference_0_1_0()); 
-	}
-
-)
-))(	otherlv_2='value' 
-    {
-    	newLeafNode(otherlv_2, grammarAccess.getLocalValueAccess().getValueKeyword_1_0());
-    }
-(
-(
-		lv_value_3_0=RULE_INT
-		{
-			newLeafNode(lv_value_3_0, grammarAccess.getLocalValueAccess().getValueINTTerminalRuleCall_1_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getLocalValueRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"value",
-        		lv_value_3_0, 
-        		"INT");
-	    }
-
-)
-)))
-;
 
 
 
@@ -2687,7 +2607,7 @@ ruleServiceType returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='serviceType' 
+(	otherlv_0='ServiceType' 
     {
     	newLeafNode(otherlv_0, grammarAccess.getServiceTypeAccess().getServiceTypeKeyword_0());
     }
@@ -2760,7 +2680,7 @@ ruleService returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='service' 
+(	otherlv_0='Service' 
     {
     	newLeafNode(otherlv_0, grammarAccess.getServiceAccess().getServiceKeyword_0());
     }
@@ -2808,7 +2728,7 @@ ruleService returns [EObject current=null]
 	    }
 
 )
-))?(	otherlv_5='type' 
+))?(	otherlv_5='Type' 
     {
     	newLeafNode(otherlv_5, grammarAccess.getServiceAccess().getTypeKeyword_2_2_0());
     }
@@ -2821,29 +2741,29 @@ ruleService returns [EObject current=null]
         }
 	otherlv_6=RULE_ID
 	{
-		newLeafNode(otherlv_6, grammarAccess.getServiceAccess().getServiceTypeServiceTypeCrossReference_2_2_1_0()); 
+		newLeafNode(otherlv_6, grammarAccess.getServiceAccess().getTypeServiceTypeCrossReference_2_2_1_0()); 
 	}
 
 )
-))(	otherlv_7='efficiency' 
+))(	otherlv_7='Efficiency' 
     {
     	newLeafNode(otherlv_7, grammarAccess.getServiceAccess().getEfficiencyKeyword_2_3_0());
     }
 (
 (
-		lv_efficiency_8_0=RULE_INT
-		{
-			newLeafNode(lv_efficiency_8_0, grammarAccess.getServiceAccess().getEfficiencyINTTerminalRuleCall_2_3_1_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getServiceAccess().getEfficiencyNumExpressionParserRuleCall_2_3_1_0()); 
+	    }
+		lv_efficiency_8_0=ruleNumExpression		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getServiceRule());
+	            $current = createModelElementForParent(grammarAccess.getServiceRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"efficiency",
         		lv_efficiency_8_0, 
-        		"INT");
+        		"NumExpression");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -2872,12 +2792,12 @@ ruleServiceProvider returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((	otherlv_0='serviceProvider' 
+((	otherlv_0='ServiceProvider' 
     {
     	newLeafNode(otherlv_0, grammarAccess.getServiceProviderAccess().getServiceProviderKeyword_0_0());
     }
 
-    |	otherlv_1='group' 
+    |	otherlv_1='Group' 
     {
     	newLeafNode(otherlv_1, grammarAccess.getServiceProviderAccess().getGroupKeyword_0_1());
     }
@@ -2925,7 +2845,7 @@ ruleServiceProvider returns [EObject current=null]
 	    }
 
 )
-))?(	otherlv_6='sourceUnits' 
+))?(	otherlv_6='SourceUnits' 
     {
     	newLeafNode(otherlv_6, grammarAccess.getServiceProviderAccess().getSourceUnitsKeyword_4_0());
     }
@@ -2950,7 +2870,7 @@ ruleServiceProvider returns [EObject current=null]
     {
     	newLeafNode(otherlv_9, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_4_3());
     }
-)?(	otherlv_10='targetUnits' 
+)?(	otherlv_10='TargetUnits' 
     {
     	newLeafNode(otherlv_10, grammarAccess.getServiceProviderAccess().getTargetUnitsKeyword_5_0());
     }
@@ -2975,7 +2895,7 @@ ruleServiceProvider returns [EObject current=null]
     {
     	newLeafNode(otherlv_13, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_5_3());
     }
-)?(	otherlv_14='subordinateUnits' 
+)?(	otherlv_14='SubordinateUnits' 
     {
     	newLeafNode(otherlv_14, grammarAccess.getServiceProviderAccess().getSubordinateUnitsKeyword_6_0());
     }
@@ -3000,7 +2920,7 @@ ruleServiceProvider returns [EObject current=null]
     {
     	newLeafNode(otherlv_17, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_6_3());
     }
-)?(	otherlv_18='services' 
+)?(	otherlv_18='Services' 
     {
     	newLeafNode(otherlv_18, grammarAccess.getServiceProviderAccess().getServicesKeyword_7_0());
     }
@@ -3030,7 +2950,7 @@ ruleServiceProvider returns [EObject current=null]
     {
     	newLeafNode(otherlv_21, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_7_3());
     }
-)?(	otherlv_22='governanceSearchStrategy' 
+)?(	otherlv_22='GovernanceSearchStrategy' 
     {
     	newLeafNode(otherlv_22, grammarAccess.getServiceProviderAccess().getGovernanceSearchStrategyKeyword_8_0());
     }
@@ -3038,7 +2958,7 @@ ruleServiceProvider returns [EObject current=null]
     {
     	newLeafNode(otherlv_23, grammarAccess.getServiceProviderAccess().getLeftCurlyBracketKeyword_8_1());
     }
-	otherlv_24='default' 
+	otherlv_24='Default' 
     {
     	newLeafNode(otherlv_24, grammarAccess.getServiceProviderAccess().getDefaultKeyword_8_2());
     }
@@ -3055,7 +2975,7 @@ ruleServiceProvider returns [EObject current=null]
 	}
 
 )
-)(	otherlv_26='specified' 
+)(	otherlv_26='Specified' 
     {
     	newLeafNode(otherlv_26, grammarAccess.getServiceProviderAccess().getSpecifiedKeyword_8_4_0());
     }
@@ -3161,7 +3081,7 @@ ruleServiceProvider returns [EObject current=null]
     {
     	newLeafNode(otherlv_34, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_8_5());
     }
-)?(	otherlv_35='resources' 
+)?(	otherlv_35='Resources' 
     {
     	newLeafNode(otherlv_35, grammarAccess.getServiceProviderAccess().getResourcesKeyword_9_0());
     }
@@ -3172,9 +3092,9 @@ ruleServiceProvider returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getServiceProviderAccess().getResourcesResourceParserRuleCall_9_2_0()); 
+	        newCompositeNode(grammarAccess.getServiceProviderAccess().getResourcesAssetParserRuleCall_9_2_0()); 
 	    }
-		lv_resources_37_0=ruleResource		{
+		lv_resources_37_0=ruleAsset		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getServiceProviderRule());
 	        }
@@ -3182,7 +3102,7 @@ ruleServiceProvider returns [EObject current=null]
        			$current, 
        			"resources",
         		lv_resources_37_0, 
-        		"Resource");
+        		"Asset");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3202,33 +3122,33 @@ ruleServiceProvider returns [EObject current=null]
 
 
 
-// Entry rule entryRuleResource
-entryRuleResource returns [EObject current=null] 
+// Entry rule entryRuleAsset
+entryRuleAsset returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getResourceRule()); }
-	 iv_ruleResource=ruleResource 
-	 { $current=$iv_ruleResource.current; } 
+	{ newCompositeNode(grammarAccess.getAssetRule()); }
+	 iv_ruleAsset=ruleAsset 
+	 { $current=$iv_ruleAsset.current; } 
 	 EOF 
 ;
 
-// Rule Resource
-ruleResource returns [EObject current=null] 
+// Rule Asset
+ruleAsset returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='resource' 
+(	otherlv_0='Resource' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getResourceAccess().getResourceKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getAssetAccess().getResourceKeyword_0());
     }
 (
 (
 		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_name_1_0, grammarAccess.getResourceAccess().getNameIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getAssetAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getResourceRule());
+	            $current = createModelElement(grammarAccess.getAssetRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -3240,136 +3160,87 @@ ruleResource returns [EObject current=null]
 )
 )	otherlv_2='{' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getResourceAccess().getLeftCurlyBracketKeyword_2());
+    	newLeafNode(otherlv_2, grammarAccess.getAssetAccess().getLeftCurlyBracketKeyword_2());
     }
-(	otherlv_3='Description' 
+(	otherlv_3='Quantity' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getResourceAccess().getDescriptionKeyword_3_0());
+    	newLeafNode(otherlv_3, grammarAccess.getAssetAccess().getQuantityKeyword_3_0());
     }
 (
 (
-		lv_description_4_0=RULE_STRING
+		lv_quantity_4_0=RULE_INT
 		{
-			newLeafNode(lv_description_4_0, grammarAccess.getResourceAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
+			newLeafNode(lv_quantity_4_0, grammarAccess.getAssetAccess().getQuantityINTTerminalRuleCall_3_1_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getResourceRule());
+	            $current = createModelElement(grammarAccess.getAssetRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"quantity",
+        		lv_quantity_4_0, 
+        		"INT");
+	    }
+
+)
+))?(	otherlv_5='Description' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getAssetAccess().getDescriptionKeyword_4_0());
+    }
+(
+(
+		lv_description_6_0=RULE_STRING
+		{
+			newLeafNode(lv_description_6_0, grammarAccess.getAssetAccess().getDescriptionSTRINGTerminalRuleCall_4_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAssetRule());
 	        }
        		setWithLastConsumed(
        			$current, 
        			"description",
-        		lv_description_4_0, 
+        		lv_description_6_0, 
         		"STRING");
 	    }
 
 )
-))?(	otherlv_5='services' 
+))?(	otherlv_7='Services' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getResourceAccess().getServicesKeyword_4_0());
+    	newLeafNode(otherlv_7, grammarAccess.getAssetAccess().getServicesKeyword_5_0());
     }
-	otherlv_6='{' 
+	otherlv_8='{' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getResourceAccess().getLeftCurlyBracketKeyword_4_1());
+    	newLeafNode(otherlv_8, grammarAccess.getAssetAccess().getLeftCurlyBracketKeyword_5_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getResourceAccess().getServicesServiceParserRuleCall_4_2_0()); 
+	        newCompositeNode(grammarAccess.getAssetAccess().getServicesServiceParserRuleCall_5_2_0()); 
 	    }
-		lv_services_7_0=ruleService		{
+		lv_services_9_0=ruleService		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getResourceRule());
+	            $current = createModelElementForParent(grammarAccess.getAssetRule());
 	        }
        		add(
        			$current, 
        			"services",
-        		lv_services_7_0, 
+        		lv_services_9_0, 
         		"Service");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)+	otherlv_8='}' 
+)+	otherlv_10='}' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getResourceAccess().getRightCurlyBracketKeyword_4_3());
+    	newLeafNode(otherlv_10, grammarAccess.getAssetAccess().getRightCurlyBracketKeyword_5_3());
     }
-)?	otherlv_9='}' 
+)?	otherlv_11='}' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getResourceAccess().getRightCurlyBracketKeyword_5());
+    	newLeafNode(otherlv_11, grammarAccess.getAssetAccess().getRightCurlyBracketKeyword_6());
     }
 )
-;
-
-
-
-
-
-
-
-// Entry rule entryRuleSkill
-entryRuleSkill returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getSkillRule()); }
-	 iv_ruleSkill=ruleSkill 
-	 { $current=$iv_ruleSkill.current; } 
-	 EOF 
-;
-
-// Rule Skill
-ruleSkill returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-((
-(
-		lv_name_0_0=RULE_ID
-		{
-			newLeafNode(lv_name_0_0, grammarAccess.getSkillAccess().getNameIDTerminalRuleCall_0_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSkillRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"name",
-        		lv_name_0_0, 
-        		"ID");
-	    }
-
-)
-)(	otherlv_1='{' 
-    {
-    	newLeafNode(otherlv_1, grammarAccess.getSkillAccess().getLeftCurlyBracketKeyword_1_0());
-    }
-(	otherlv_2='Description' 
-    {
-    	newLeafNode(otherlv_2, grammarAccess.getSkillAccess().getDescriptionKeyword_1_1_0());
-    }
-(
-(
-		lv_description_3_0=RULE_STRING
-		{
-			newLeafNode(lv_description_3_0, grammarAccess.getSkillAccess().getDescriptionSTRINGTerminalRuleCall_1_1_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSkillRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"description",
-        		lv_description_3_0, 
-        		"STRING");
-	    }
-
-)
-))?	otherlv_4='}' 
-    {
-    	newLeafNode(otherlv_4, grammarAccess.getSkillAccess().getRightCurlyBracketKeyword_1_2());
-    }
-)?)
 ;
 
 

@@ -156,6 +156,13 @@ public class KanbanmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case KanbanmodelPackage.PROCESS_MODEL:
+      {
+        ProcessModel processModel = (ProcessModel)theEObject;
+        T result = caseProcessModel(processModel);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case KanbanmodelPackage.MECHANISM:
       {
         Mechanism mechanism = (Mechanism)theEObject;
@@ -254,24 +261,10 @@ public class KanbanmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case KanbanmodelPackage.RESOURCE:
-      {
-        Resource resource = (Resource)theEObject;
-        T result = caseResource(resource);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case KanbanmodelPackage.ASSET:
       {
         Asset asset = (Asset)theEObject;
         T result = caseAsset(asset);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case KanbanmodelPackage.SKILL:
-      {
-        Skill skill = (Skill)theEObject;
-        T result = caseSkill(skill);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -542,6 +535,22 @@ public class KanbanmodelSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Process Model</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Process Model</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseProcessModel(ProcessModel object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Mechanism</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -766,22 +775,6 @@ public class KanbanmodelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Resource</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Resource</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseResource(Resource object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Asset</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -793,22 +786,6 @@ public class KanbanmodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAsset(Asset object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Skill</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Skill</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSkill(Skill object)
   {
     return null;
   }

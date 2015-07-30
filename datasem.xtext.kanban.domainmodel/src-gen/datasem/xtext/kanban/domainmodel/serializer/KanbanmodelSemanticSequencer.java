@@ -18,16 +18,15 @@ import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.LocalValue;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.NumExpression;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Provision;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Repository;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Requirement;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Resource;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocation;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcing;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Service;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceType;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Skill;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.State;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Statemachine;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Strategy;
@@ -103,6 +102,9 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case KanbanmodelPackage.NUM_EXPRESSION:
 				sequence_NumExpression(context, (NumExpression) semanticObject); 
 				return; 
+			case KanbanmodelPackage.PROCESS_MODEL:
+				sequence_ProcessModel(context, (ProcessModel) semanticObject); 
+				return; 
 			case KanbanmodelPackage.PROVISION:
 				sequence_Provision(context, (Provision) semanticObject); 
 				return; 
@@ -111,9 +113,6 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 				return; 
 			case KanbanmodelPackage.REQUIREMENT:
 				sequence_Requirement(context, (Requirement) semanticObject); 
-				return; 
-			case KanbanmodelPackage.RESOURCE:
-				sequence_Resource(context, (Resource) semanticObject); 
 				return; 
 			case KanbanmodelPackage.RESOURCE_ALLOCATION:
 				sequence_ResourceAllocation(context, (ResourceAllocation) semanticObject); 
@@ -129,9 +128,6 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 				return; 
 			case KanbanmodelPackage.SERVICE_TYPE:
 				sequence_ServiceType(context, (ServiceType) semanticObject); 
-				return; 
-			case KanbanmodelPackage.SKILL:
-				sequence_Skill(context, (Skill) semanticObject); 
 				return; 
 			case KanbanmodelPackage.STATE:
 				sequence_State(context, (State) semanticObject); 
@@ -190,7 +186,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (name=ID description=STRING? hasSkills+=Skill*)
+	 *     (name=ID quantity=INT? description=STRING? services+=Service*)
 	 */
 	protected void sequence_Asset(EObject context, Asset semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -208,7 +204,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (triggered+=[WorkItem|ID]+ tProgress=INT? tProbability=INT?)
+	 *     (triggered+=[WorkItem|ID]+ atProgress=INT? onProbability=INT?)
 	 */
 	protected void sequence_Causality(EObject context, Causality semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -276,15 +272,16 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     (
 	 *         name=ID 
 	 *         TestItems+=QualifiedName? 
-	 *         KSSRepositories+=Repository* 
-	 *         Mechanisms+=Mechanism? 
-	 *         KSSSearchStrategies+=Strategy* 
-	 *         (KSSTaskPatterns+=TaskPattern+ KSStaskPatternTypes+=TaskType+)? 
-	 *         KSSValueFunctions+=ValueFunction* 
-	 *         SoSServices+=ServiceType+ 
-	 *         orgUnits+=ServiceProvider+ 
-	 *         kssSources+=WorkSource+ 
-	 *         kssWItems+=WorkItem+ 
+	 *         ProcessModels+=ProcessModel+ 
+	 *         GovernanceSearchStrategies+=Strategy+ 
+	 *         TaskPatterns+=TaskPattern+ 
+	 *         TaskTypes+=TaskType+ 
+	 *         ValueFunctions+=ValueFunction+ 
+	 *         ServiceTypes+=ServiceType+ 
+	 *         ServiceProviders+=ServiceProvider+ 
+	 *         Repositories+=Repository+ 
+	 *         WorkSources+=WorkSource+ 
+	 *         WorkItems+=WorkItem+ 
 	 *         replications=INT 
 	 *         interArrivalTime=INT
 	 *     )
@@ -342,6 +339,15 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
+	 *     (name=ID description=STRING?)
+	 */
+	protected void sequence_ProcessModel(EObject context, ProcessModel semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (serviceName=[ServiceType|ID] providers+=[ServiceProvider|ID]*)
 	 */
 	protected void sequence_Provision(EObject context, Provision semanticObject) {
@@ -387,15 +393,6 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (name=ID description=STRING? services+=Service*)
-	 */
-	protected void sequence_Resource(EObject context, Resource semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (
 	 *         name=ID 
 	 *         description=STRING? 
@@ -413,7 +410,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *                 outsourcingRule=ResourceOutsourcing?
 	 *             )?
 	 *         )? 
-	 *         resources+=Resource*
+	 *         resources+=Asset*
 	 *     )
 	 */
 	protected void sequence_ServiceProvider(EObject context, ServiceProvider semanticObject) {
@@ -432,18 +429,9 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (name=ID (description=STRING? serviceType=[ServiceType|ID] efficiency=INT?)?)
+	 *     (name=ID (description=STRING? type=[ServiceType|ID] efficiency=NumExpression?)?)
 	 */
 	protected void sequence_Service(EObject context, Service semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID description=STRING?)
-	 */
-	protected void sequence_Skill(EObject context, Skill semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -485,7 +473,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (name=ID description=STRING? taskpatternTypes+=[TaskType|ID]*)
+	 *     (name=ID description=STRING? taskTypes+=[TaskType|ID]*)
 	 */
 	protected void sequence_TaskPattern(EObject context, TaskPattern semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -564,19 +552,19 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (workItem=[WorkItemProfile|ID] amount=NumExpression)
+	 *     (workItem=[WorkItemProfile|ID] quantity=NumExpression)
 	 */
 	protected void sequence_WorkDecomposition(EObject context, WorkDecomposition semanticObject) {
 		if(errorAcceptor != null) {
 			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.WORK_DECOMPOSITION__WORK_ITEM) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.WORK_DECOMPOSITION__WORK_ITEM));
-			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.WORK_DECOMPOSITION__AMOUNT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.WORK_DECOMPOSITION__AMOUNT));
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.WORK_DECOMPOSITION__QUANTITY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.WORK_DECOMPOSITION__QUANTITY));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getWorkDecompositionAccess().getWorkItemWorkItemProfileIDTerminalRuleCall_1_0_1(), semanticObject.getWorkItem());
-		feeder.accept(grammarAccess.getWorkDecompositionAccess().getAmountNumExpressionParserRuleCall_3_0(), semanticObject.getAmount());
+		feeder.accept(grammarAccess.getWorkDecompositionAccess().getQuantityNumExpressionParserRuleCall_3_0(), semanticObject.getQuantity());
 		feeder.finish();
 	}
 	
@@ -586,12 +574,14 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     (
 	 *         name=ID 
 	 *         description=STRING? 
-	 *         refTasks+=WorkReference* 
-	 *         decTasks+=WorkDecomposition* 
-	 *         reqSpecialties+=[ServiceType|ID]* 
-	 *         befforts=NumExpression? 
-	 *         bvalue=NumExpression? 
-	 *         COS=ID?
+	 *         references+=WorkReference* 
+	 *         decompositions+=WorkDecomposition* 
+	 *         requiredServices+=[ServiceType|ID]* 
+	 *         efforts=NumExpression? 
+	 *         value=NumExpression? 
+	 *         classOfService=ID? 
+	 *         allowAssignment?='AssignmentAllowed'? 
+	 *         allowDiscard?='DiscardAllowed'?
 	 *     )
 	 */
 	protected void sequence_WorkItemProfile(EObject context, WorkItemProfile semanticObject) {
@@ -610,14 +600,13 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *         pTasks+=[WorkItem|ID]* 
 	 *         sTasks+=[WorkItem|ID]* 
 	 *         causalTriggers+=Causality* 
-	 *         reqSpecialties+=[ServiceType|ID]* 
-	 *         befforts=INT? 
-	 *         bvalue=INT? 
-	 *         lvalue+=LocalValue? 
-	 *         COS=ID? 
-	 *         wItemSource=[WorkSource|ID]? 
-	 *         arrtime=INT? 
-	 *         duedate=INT?
+	 *         requiredServices+=[ServiceType|ID]* 
+	 *         efforts=Double? 
+	 *         value=Double? 
+	 *         classOfService=ID? 
+	 *         workSource=[WorkSource|ID]? 
+	 *         arrivalTime=INT? 
+	 *         dueDate=INT?
 	 *     )
 	 */
 	protected void sequence_WorkItem(EObject context, WorkItem semanticObject) {
@@ -643,19 +632,19 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (workItem=[WorkItemProfile|ID] amount=NumExpression)
+	 *     (workItem=[WorkItemProfile|ID] quantity=NumExpression)
 	 */
 	protected void sequence_WorkReference(EObject context, WorkReference semanticObject) {
 		if(errorAcceptor != null) {
 			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.WORK_REFERENCE__WORK_ITEM) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.WORK_REFERENCE__WORK_ITEM));
-			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.WORK_REFERENCE__AMOUNT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.WORK_REFERENCE__AMOUNT));
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.WORK_REFERENCE__QUANTITY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.WORK_REFERENCE__QUANTITY));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getWorkReferenceAccess().getWorkItemWorkItemProfileIDTerminalRuleCall_1_0_1(), semanticObject.getWorkItem());
-		feeder.accept(grammarAccess.getWorkReferenceAccess().getAmountNumExpressionParserRuleCall_3_0(), semanticObject.getAmount());
+		feeder.accept(grammarAccess.getWorkReferenceAccess().getQuantityNumExpressionParserRuleCall_3_0(), semanticObject.getQuantity());
 		feeder.finish();
 	}
 	

@@ -2,8 +2,8 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Asset;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Resource;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocation;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcing;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Service;
@@ -205,7 +205,7 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
    * @generated
    * @ordered
    */
-  protected EList<Resource> resources;
+  protected EList<Asset> resources;
 
   /**
    * <!-- begin-user-doc -->
@@ -618,11 +618,11 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Resource> getResources()
+  public EList<Asset> getResources()
   {
     if (resources == null)
     {
-      resources = new EObjectContainmentEList<Resource>(Resource.class, this, KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES);
+      resources = new EObjectContainmentEList<Asset>(Asset.class, this, KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES);
     }
     return resources;
   }
@@ -749,7 +749,7 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
         return;
       case KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES:
         getResources().clear();
-        getResources().addAll((Collection<? extends Resource>)newValue);
+        getResources().addAll((Collection<? extends Asset>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

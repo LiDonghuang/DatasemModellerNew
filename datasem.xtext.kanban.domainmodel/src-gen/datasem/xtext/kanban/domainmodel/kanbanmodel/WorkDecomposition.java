@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkDecomposition#getWorkItem <em>Work Item</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkDecomposition#getAmount <em>Amount</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkDecomposition#getQuantity <em>Quantity</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,29 +50,29 @@ public interface WorkDecomposition extends EObject
   void setWorkItem(WorkItemProfile value);
 
   /**
-   * Returns the value of the '<em><b>Amount</b></em>' containment reference.
+   * Returns the value of the '<em><b>Quantity</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Amount</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Quantity</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Amount</em>' containment reference.
-   * @see #setAmount(NumExpression)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkDecomposition_Amount()
+   * @return the value of the '<em>Quantity</em>' containment reference.
+   * @see #setQuantity(NumExpression)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkDecomposition_Quantity()
    * @model containment="true"
    * @generated
    */
-  NumExpression getAmount();
+  NumExpression getQuantity();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkDecomposition#getAmount <em>Amount</em>}' containment reference.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkDecomposition#getQuantity <em>Quantity</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Amount</em>' containment reference.
-   * @see #getAmount()
+   * @param value the new value of the '<em>Quantity</em>' containment reference.
+   * @see #getQuantity()
    * @generated
    */
-  void setAmount(NumExpression value);
+  void setQuantity(NumExpression value);
 
 } // WorkDecomposition

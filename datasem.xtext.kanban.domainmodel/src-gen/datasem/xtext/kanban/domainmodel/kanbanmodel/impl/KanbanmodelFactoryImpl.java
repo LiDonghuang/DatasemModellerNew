@@ -76,6 +76,7 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
       case KanbanmodelPackage.TASK_PATTERN: return createTaskPattern();
       case KanbanmodelPackage.TASK_TYPE: return createTaskType();
       case KanbanmodelPackage.VALUE_FUNCTION: return createValueFunction();
+      case KanbanmodelPackage.PROCESS_MODEL: return createProcessModel();
       case KanbanmodelPackage.MECHANISM: return createMechanism();
       case KanbanmodelPackage.STRATEGY: return createStrategy();
       case KanbanmodelPackage.WI_ACCEPTANCE: return createWIAcceptance();
@@ -90,9 +91,7 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
       case KanbanmodelPackage.SERVICE_TYPE: return createServiceType();
       case KanbanmodelPackage.SERVICE: return createService();
       case KanbanmodelPackage.SERVICE_PROVIDER: return createServiceProvider();
-      case KanbanmodelPackage.RESOURCE: return createResource();
       case KanbanmodelPackage.ASSET: return createAsset();
-      case KanbanmodelPackage.SKILL: return createSkill();
       case KanbanmodelPackage.KANBAN_TASK_MODEL: return createKanbanTaskModel();
       case KanbanmodelPackage.CAPABILITY: return createCapability();
       case KanbanmodelPackage.REQUIREMENT: return createRequirement();
@@ -238,6 +237,17 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
   {
     ValueFunctionImpl valueFunction = new ValueFunctionImpl();
     return valueFunction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ProcessModel createProcessModel()
+  {
+    ProcessModelImpl processModel = new ProcessModelImpl();
+    return processModel;
   }
 
   /**
@@ -399,32 +409,10 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
    * <!-- end-user-doc -->
    * @generated
    */
-  public Resource createResource()
-  {
-    ResourceImpl resource = new ResourceImpl();
-    return resource;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Asset createAsset()
   {
     AssetImpl asset = new AssetImpl();
     return asset;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Skill createSkill()
-  {
-    SkillImpl skill = new SkillImpl();
-    return skill;
   }
 
   /**

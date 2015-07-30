@@ -4,7 +4,7 @@ package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Repository;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceType;
@@ -41,16 +41,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getTestItems <em>Test Items</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKSSRepositories <em>KSS Repositories</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getMechanisms <em>Mechanisms</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKSSSearchStrategies <em>KSS Search Strategies</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKSSTaskPatterns <em>KSS Task Patterns</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKSStaskPatternTypes <em>KS Stask Pattern Types</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKSSValueFunctions <em>KSS Value Functions</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getSoSServices <em>So SServices</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getOrgUnits <em>Org Units</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKssSources <em>Kss Sources</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKssWItems <em>Kss WItems</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getProcessModels <em>Process Models</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getGovernanceSearchStrategies <em>Governance Search Strategies</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getTaskPatterns <em>Task Patterns</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getTaskTypes <em>Task Types</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getValueFunctions <em>Value Functions</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getServiceTypes <em>Service Types</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getServiceProviders <em>Service Providers</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getRepositories <em>Repositories</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getWorkSources <em>Work Sources</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getWorkItems <em>Work Items</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getReplications <em>Replications</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getInterArrivalTime <em>Inter Arrival Time</em>}</li>
  * </ul>
@@ -91,104 +91,104 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
   protected EList<String> testItems;
 
   /**
-   * The cached value of the '{@link #getKSSRepositories() <em>KSS Repositories</em>}' containment reference list.
+   * The cached value of the '{@link #getProcessModels() <em>Process Models</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getKSSRepositories()
+   * @see #getProcessModels()
    * @generated
    * @ordered
    */
-  protected EList<Repository> kssRepositories;
+  protected EList<ProcessModel> processModels;
 
   /**
-   * The cached value of the '{@link #getMechanisms() <em>Mechanisms</em>}' containment reference list.
+   * The cached value of the '{@link #getGovernanceSearchStrategies() <em>Governance Search Strategies</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMechanisms()
+   * @see #getGovernanceSearchStrategies()
    * @generated
    * @ordered
    */
-  protected EList<Mechanism> mechanisms;
+  protected EList<Strategy> governanceSearchStrategies;
 
   /**
-   * The cached value of the '{@link #getKSSSearchStrategies() <em>KSS Search Strategies</em>}' containment reference list.
+   * The cached value of the '{@link #getTaskPatterns() <em>Task Patterns</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getKSSSearchStrategies()
+   * @see #getTaskPatterns()
    * @generated
    * @ordered
    */
-  protected EList<Strategy> kssSearchStrategies;
+  protected EList<TaskPattern> taskPatterns;
 
   /**
-   * The cached value of the '{@link #getKSSTaskPatterns() <em>KSS Task Patterns</em>}' containment reference list.
+   * The cached value of the '{@link #getTaskTypes() <em>Task Types</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getKSSTaskPatterns()
+   * @see #getTaskTypes()
    * @generated
    * @ordered
    */
-  protected EList<TaskPattern> kssTaskPatterns;
+  protected EList<TaskType> taskTypes;
 
   /**
-   * The cached value of the '{@link #getKSStaskPatternTypes() <em>KS Stask Pattern Types</em>}' containment reference list.
+   * The cached value of the '{@link #getValueFunctions() <em>Value Functions</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getKSStaskPatternTypes()
+   * @see #getValueFunctions()
    * @generated
    * @ordered
    */
-  protected EList<TaskType> ksStaskPatternTypes;
+  protected EList<ValueFunction> valueFunctions;
 
   /**
-   * The cached value of the '{@link #getKSSValueFunctions() <em>KSS Value Functions</em>}' containment reference list.
+   * The cached value of the '{@link #getServiceTypes() <em>Service Types</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getKSSValueFunctions()
+   * @see #getServiceTypes()
    * @generated
    * @ordered
    */
-  protected EList<ValueFunction> kssValueFunctions;
+  protected EList<ServiceType> serviceTypes;
 
   /**
-   * The cached value of the '{@link #getSoSServices() <em>So SServices</em>}' containment reference list.
+   * The cached value of the '{@link #getServiceProviders() <em>Service Providers</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSoSServices()
+   * @see #getServiceProviders()
    * @generated
    * @ordered
    */
-  protected EList<ServiceType> soSServices;
+  protected EList<ServiceProvider> serviceProviders;
 
   /**
-   * The cached value of the '{@link #getOrgUnits() <em>Org Units</em>}' containment reference list.
+   * The cached value of the '{@link #getRepositories() <em>Repositories</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOrgUnits()
+   * @see #getRepositories()
    * @generated
    * @ordered
    */
-  protected EList<ServiceProvider> orgUnits;
+  protected EList<Repository> repositories;
 
   /**
-   * The cached value of the '{@link #getKssSources() <em>Kss Sources</em>}' containment reference list.
+   * The cached value of the '{@link #getWorkSources() <em>Work Sources</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getKssSources()
+   * @see #getWorkSources()
    * @generated
    * @ordered
    */
-  protected EList<WorkSource> kssSources;
+  protected EList<WorkSource> workSources;
 
   /**
-   * The cached value of the '{@link #getKssWItems() <em>Kss WItems</em>}' containment reference list.
+   * The cached value of the '{@link #getWorkItems() <em>Work Items</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getKssWItems()
+   * @see #getWorkItems()
    * @generated
    * @ordered
    */
-  protected EList<WorkItem> kssWItems;
+  protected EList<WorkItem> workItems;
 
   /**
    * The default value of the '{@link #getReplications() <em>Replications</em>}' attribute.
@@ -293,13 +293,13 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Repository> getKSSRepositories()
+  public EList<ProcessModel> getProcessModels()
   {
-    if (kssRepositories == null)
+    if (processModels == null)
     {
-      kssRepositories = new EObjectContainmentEList<Repository>(Repository.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_REPOSITORIES);
+      processModels = new EObjectContainmentEList<ProcessModel>(ProcessModel.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__PROCESS_MODELS);
     }
-    return kssRepositories;
+    return processModels;
   }
 
   /**
@@ -307,13 +307,13 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Mechanism> getMechanisms()
+  public EList<Strategy> getGovernanceSearchStrategies()
   {
-    if (mechanisms == null)
+    if (governanceSearchStrategies == null)
     {
-      mechanisms = new EObjectContainmentEList<Mechanism>(Mechanism.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__MECHANISMS);
+      governanceSearchStrategies = new EObjectContainmentEList<Strategy>(Strategy.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__GOVERNANCE_SEARCH_STRATEGIES);
     }
-    return mechanisms;
+    return governanceSearchStrategies;
   }
 
   /**
@@ -321,13 +321,13 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Strategy> getKSSSearchStrategies()
+  public EList<TaskPattern> getTaskPatterns()
   {
-    if (kssSearchStrategies == null)
+    if (taskPatterns == null)
     {
-      kssSearchStrategies = new EObjectContainmentEList<Strategy>(Strategy.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SEARCH_STRATEGIES);
+      taskPatterns = new EObjectContainmentEList<TaskPattern>(TaskPattern.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__TASK_PATTERNS);
     }
-    return kssSearchStrategies;
+    return taskPatterns;
   }
 
   /**
@@ -335,13 +335,13 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<TaskPattern> getKSSTaskPatterns()
+  public EList<TaskType> getTaskTypes()
   {
-    if (kssTaskPatterns == null)
+    if (taskTypes == null)
     {
-      kssTaskPatterns = new EObjectContainmentEList<TaskPattern>(TaskPattern.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASK_PATTERNS);
+      taskTypes = new EObjectContainmentEList<TaskType>(TaskType.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__TASK_TYPES);
     }
-    return kssTaskPatterns;
+    return taskTypes;
   }
 
   /**
@@ -349,13 +349,13 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<TaskType> getKSStaskPatternTypes()
+  public EList<ValueFunction> getValueFunctions()
   {
-    if (ksStaskPatternTypes == null)
+    if (valueFunctions == null)
     {
-      ksStaskPatternTypes = new EObjectContainmentEList<TaskType>(TaskType.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KS_STASK_PATTERN_TYPES);
+      valueFunctions = new EObjectContainmentEList<ValueFunction>(ValueFunction.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__VALUE_FUNCTIONS);
     }
-    return ksStaskPatternTypes;
+    return valueFunctions;
   }
 
   /**
@@ -363,13 +363,13 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ValueFunction> getKSSValueFunctions()
+  public EList<ServiceType> getServiceTypes()
   {
-    if (kssValueFunctions == null)
+    if (serviceTypes == null)
     {
-      kssValueFunctions = new EObjectContainmentEList<ValueFunction>(ValueFunction.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_VALUE_FUNCTIONS);
+      serviceTypes = new EObjectContainmentEList<ServiceType>(ServiceType.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICE_TYPES);
     }
-    return kssValueFunctions;
+    return serviceTypes;
   }
 
   /**
@@ -377,13 +377,13 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ServiceType> getSoSServices()
+  public EList<ServiceProvider> getServiceProviders()
   {
-    if (soSServices == null)
+    if (serviceProviders == null)
     {
-      soSServices = new EObjectContainmentEList<ServiceType>(ServiceType.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SO_SSERVICES);
+      serviceProviders = new EObjectContainmentEList<ServiceProvider>(ServiceProvider.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICE_PROVIDERS);
     }
-    return soSServices;
+    return serviceProviders;
   }
 
   /**
@@ -391,13 +391,13 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ServiceProvider> getOrgUnits()
+  public EList<Repository> getRepositories()
   {
-    if (orgUnits == null)
+    if (repositories == null)
     {
-      orgUnits = new EObjectContainmentEList<ServiceProvider>(ServiceProvider.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__ORG_UNITS);
+      repositories = new EObjectContainmentEList<Repository>(Repository.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__REPOSITORIES);
     }
-    return orgUnits;
+    return repositories;
   }
 
   /**
@@ -405,13 +405,13 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<WorkSource> getKssSources()
+  public EList<WorkSource> getWorkSources()
   {
-    if (kssSources == null)
+    if (workSources == null)
     {
-      kssSources = new EObjectContainmentEList<WorkSource>(WorkSource.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SOURCES);
+      workSources = new EObjectContainmentEList<WorkSource>(WorkSource.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_SOURCES);
     }
-    return kssSources;
+    return workSources;
   }
 
   /**
@@ -419,13 +419,13 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<WorkItem> getKssWItems()
+  public EList<WorkItem> getWorkItems()
   {
-    if (kssWItems == null)
+    if (workItems == null)
     {
-      kssWItems = new EObjectContainmentEList<WorkItem>(WorkItem.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WITEMS);
+      workItems = new EObjectContainmentEList<WorkItem>(WorkItem.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_ITEMS);
     }
-    return kssWItems;
+    return workItems;
   }
 
   /**
@@ -484,26 +484,26 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_REPOSITORIES:
-        return ((InternalEList<?>)getKSSRepositories()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__MECHANISMS:
-        return ((InternalEList<?>)getMechanisms()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SEARCH_STRATEGIES:
-        return ((InternalEList<?>)getKSSSearchStrategies()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASK_PATTERNS:
-        return ((InternalEList<?>)getKSSTaskPatterns()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KS_STASK_PATTERN_TYPES:
-        return ((InternalEList<?>)getKSStaskPatternTypes()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_VALUE_FUNCTIONS:
-        return ((InternalEList<?>)getKSSValueFunctions()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SO_SSERVICES:
-        return ((InternalEList<?>)getSoSServices()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__ORG_UNITS:
-        return ((InternalEList<?>)getOrgUnits()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SOURCES:
-        return ((InternalEList<?>)getKssSources()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WITEMS:
-        return ((InternalEList<?>)getKssWItems()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__PROCESS_MODELS:
+        return ((InternalEList<?>)getProcessModels()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__GOVERNANCE_SEARCH_STRATEGIES:
+        return ((InternalEList<?>)getGovernanceSearchStrategies()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__TASK_PATTERNS:
+        return ((InternalEList<?>)getTaskPatterns()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__TASK_TYPES:
+        return ((InternalEList<?>)getTaskTypes()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__VALUE_FUNCTIONS:
+        return ((InternalEList<?>)getValueFunctions()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICE_TYPES:
+        return ((InternalEList<?>)getServiceTypes()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICE_PROVIDERS:
+        return ((InternalEList<?>)getServiceProviders()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__REPOSITORIES:
+        return ((InternalEList<?>)getRepositories()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_SOURCES:
+        return ((InternalEList<?>)getWorkSources()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_ITEMS:
+        return ((InternalEList<?>)getWorkItems()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -522,26 +522,26 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
         return getName();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__TEST_ITEMS:
         return getTestItems();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_REPOSITORIES:
-        return getKSSRepositories();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__MECHANISMS:
-        return getMechanisms();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SEARCH_STRATEGIES:
-        return getKSSSearchStrategies();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASK_PATTERNS:
-        return getKSSTaskPatterns();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KS_STASK_PATTERN_TYPES:
-        return getKSStaskPatternTypes();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_VALUE_FUNCTIONS:
-        return getKSSValueFunctions();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SO_SSERVICES:
-        return getSoSServices();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__ORG_UNITS:
-        return getOrgUnits();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SOURCES:
-        return getKssSources();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WITEMS:
-        return getKssWItems();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__PROCESS_MODELS:
+        return getProcessModels();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__GOVERNANCE_SEARCH_STRATEGIES:
+        return getGovernanceSearchStrategies();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__TASK_PATTERNS:
+        return getTaskPatterns();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__TASK_TYPES:
+        return getTaskTypes();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__VALUE_FUNCTIONS:
+        return getValueFunctions();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICE_TYPES:
+        return getServiceTypes();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICE_PROVIDERS:
+        return getServiceProviders();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__REPOSITORIES:
+        return getRepositories();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_SOURCES:
+        return getWorkSources();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_ITEMS:
+        return getWorkItems();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__REPLICATIONS:
         return getReplications();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__INTER_ARRIVAL_TIME:
@@ -568,45 +568,45 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
         getTestItems().clear();
         getTestItems().addAll((Collection<? extends String>)newValue);
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_REPOSITORIES:
-        getKSSRepositories().clear();
-        getKSSRepositories().addAll((Collection<? extends Repository>)newValue);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__PROCESS_MODELS:
+        getProcessModels().clear();
+        getProcessModels().addAll((Collection<? extends ProcessModel>)newValue);
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__MECHANISMS:
-        getMechanisms().clear();
-        getMechanisms().addAll((Collection<? extends Mechanism>)newValue);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__GOVERNANCE_SEARCH_STRATEGIES:
+        getGovernanceSearchStrategies().clear();
+        getGovernanceSearchStrategies().addAll((Collection<? extends Strategy>)newValue);
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SEARCH_STRATEGIES:
-        getKSSSearchStrategies().clear();
-        getKSSSearchStrategies().addAll((Collection<? extends Strategy>)newValue);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__TASK_PATTERNS:
+        getTaskPatterns().clear();
+        getTaskPatterns().addAll((Collection<? extends TaskPattern>)newValue);
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASK_PATTERNS:
-        getKSSTaskPatterns().clear();
-        getKSSTaskPatterns().addAll((Collection<? extends TaskPattern>)newValue);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__TASK_TYPES:
+        getTaskTypes().clear();
+        getTaskTypes().addAll((Collection<? extends TaskType>)newValue);
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KS_STASK_PATTERN_TYPES:
-        getKSStaskPatternTypes().clear();
-        getKSStaskPatternTypes().addAll((Collection<? extends TaskType>)newValue);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__VALUE_FUNCTIONS:
+        getValueFunctions().clear();
+        getValueFunctions().addAll((Collection<? extends ValueFunction>)newValue);
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_VALUE_FUNCTIONS:
-        getKSSValueFunctions().clear();
-        getKSSValueFunctions().addAll((Collection<? extends ValueFunction>)newValue);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICE_TYPES:
+        getServiceTypes().clear();
+        getServiceTypes().addAll((Collection<? extends ServiceType>)newValue);
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SO_SSERVICES:
-        getSoSServices().clear();
-        getSoSServices().addAll((Collection<? extends ServiceType>)newValue);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICE_PROVIDERS:
+        getServiceProviders().clear();
+        getServiceProviders().addAll((Collection<? extends ServiceProvider>)newValue);
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__ORG_UNITS:
-        getOrgUnits().clear();
-        getOrgUnits().addAll((Collection<? extends ServiceProvider>)newValue);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__REPOSITORIES:
+        getRepositories().clear();
+        getRepositories().addAll((Collection<? extends Repository>)newValue);
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SOURCES:
-        getKssSources().clear();
-        getKssSources().addAll((Collection<? extends WorkSource>)newValue);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_SOURCES:
+        getWorkSources().clear();
+        getWorkSources().addAll((Collection<? extends WorkSource>)newValue);
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WITEMS:
-        getKssWItems().clear();
-        getKssWItems().addAll((Collection<? extends WorkItem>)newValue);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_ITEMS:
+        getWorkItems().clear();
+        getWorkItems().addAll((Collection<? extends WorkItem>)newValue);
         return;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__REPLICATIONS:
         setReplications((Integer)newValue);
@@ -634,35 +634,35 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__TEST_ITEMS:
         getTestItems().clear();
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_REPOSITORIES:
-        getKSSRepositories().clear();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__PROCESS_MODELS:
+        getProcessModels().clear();
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__MECHANISMS:
-        getMechanisms().clear();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__GOVERNANCE_SEARCH_STRATEGIES:
+        getGovernanceSearchStrategies().clear();
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SEARCH_STRATEGIES:
-        getKSSSearchStrategies().clear();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__TASK_PATTERNS:
+        getTaskPatterns().clear();
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASK_PATTERNS:
-        getKSSTaskPatterns().clear();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__TASK_TYPES:
+        getTaskTypes().clear();
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KS_STASK_PATTERN_TYPES:
-        getKSStaskPatternTypes().clear();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__VALUE_FUNCTIONS:
+        getValueFunctions().clear();
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_VALUE_FUNCTIONS:
-        getKSSValueFunctions().clear();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICE_TYPES:
+        getServiceTypes().clear();
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SO_SSERVICES:
-        getSoSServices().clear();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICE_PROVIDERS:
+        getServiceProviders().clear();
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__ORG_UNITS:
-        getOrgUnits().clear();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__REPOSITORIES:
+        getRepositories().clear();
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SOURCES:
-        getKssSources().clear();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_SOURCES:
+        getWorkSources().clear();
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WITEMS:
-        getKssWItems().clear();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_ITEMS:
+        getWorkItems().clear();
         return;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__REPLICATIONS:
         setReplications(REPLICATIONS_EDEFAULT);
@@ -688,26 +688,26 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__TEST_ITEMS:
         return testItems != null && !testItems.isEmpty();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_REPOSITORIES:
-        return kssRepositories != null && !kssRepositories.isEmpty();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__MECHANISMS:
-        return mechanisms != null && !mechanisms.isEmpty();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SEARCH_STRATEGIES:
-        return kssSearchStrategies != null && !kssSearchStrategies.isEmpty();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASK_PATTERNS:
-        return kssTaskPatterns != null && !kssTaskPatterns.isEmpty();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KS_STASK_PATTERN_TYPES:
-        return ksStaskPatternTypes != null && !ksStaskPatternTypes.isEmpty();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_VALUE_FUNCTIONS:
-        return kssValueFunctions != null && !kssValueFunctions.isEmpty();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SO_SSERVICES:
-        return soSServices != null && !soSServices.isEmpty();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__ORG_UNITS:
-        return orgUnits != null && !orgUnits.isEmpty();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SOURCES:
-        return kssSources != null && !kssSources.isEmpty();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WITEMS:
-        return kssWItems != null && !kssWItems.isEmpty();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__PROCESS_MODELS:
+        return processModels != null && !processModels.isEmpty();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__GOVERNANCE_SEARCH_STRATEGIES:
+        return governanceSearchStrategies != null && !governanceSearchStrategies.isEmpty();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__TASK_PATTERNS:
+        return taskPatterns != null && !taskPatterns.isEmpty();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__TASK_TYPES:
+        return taskTypes != null && !taskTypes.isEmpty();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__VALUE_FUNCTIONS:
+        return valueFunctions != null && !valueFunctions.isEmpty();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICE_TYPES:
+        return serviceTypes != null && !serviceTypes.isEmpty();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICE_PROVIDERS:
+        return serviceProviders != null && !serviceProviders.isEmpty();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__REPOSITORIES:
+        return repositories != null && !repositories.isEmpty();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_SOURCES:
+        return workSources != null && !workSources.isEmpty();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_ITEMS:
+        return workItems != null && !workItems.isEmpty();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__REPLICATIONS:
         return replications != REPLICATIONS_EDEFAULT;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__INTER_ARRIVAL_TIME:
