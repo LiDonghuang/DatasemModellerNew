@@ -4,6 +4,7 @@ package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.NumExpression;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkDecomposition;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile;
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemProfileImpl#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemProfileImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemProfileImpl#getProcessModel <em>Process Model</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemProfileImpl#getReferences <em>References</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemProfileImpl#getDecompositions <em>Decompositions</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemProfileImpl#getRequiredServices <em>Required Services</em>}</li>
@@ -89,6 +91,16 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
    * @ordered
    */
   protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getProcessModel() <em>Process Model</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getProcessModel()
+   * @generated
+   * @ordered
+   */
+  protected ProcessModel processModel;
 
   /**
    * The cached value of the '{@link #getReferences() <em>References</em>}' containment reference list.
@@ -265,6 +277,49 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
     description = newDescription;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM_PROFILE__DESCRIPTION, oldDescription, description));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ProcessModel getProcessModel()
+  {
+    if (processModel != null && processModel.eIsProxy())
+    {
+      InternalEObject oldProcessModel = (InternalEObject)processModel;
+      processModel = (ProcessModel)eResolveProxy(oldProcessModel);
+      if (processModel != oldProcessModel)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.WORK_ITEM_PROFILE__PROCESS_MODEL, oldProcessModel, processModel));
+      }
+    }
+    return processModel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ProcessModel basicGetProcessModel()
+  {
+    return processModel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setProcessModel(ProcessModel newProcessModel)
+  {
+    ProcessModel oldProcessModel = processModel;
+    processModel = newProcessModel;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM_PROFILE__PROCESS_MODEL, oldProcessModel, processModel));
   }
 
   /**
@@ -510,6 +565,9 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
         return getName();
       case KanbanmodelPackage.WORK_ITEM_PROFILE__DESCRIPTION:
         return getDescription();
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__PROCESS_MODEL:
+        if (resolve) return getProcessModel();
+        return basicGetProcessModel();
       case KanbanmodelPackage.WORK_ITEM_PROFILE__REFERENCES:
         return getReferences();
       case KanbanmodelPackage.WORK_ITEM_PROFILE__DECOMPOSITIONS:
@@ -546,6 +604,9 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
         return;
       case KanbanmodelPackage.WORK_ITEM_PROFILE__DESCRIPTION:
         setDescription((String)newValue);
+        return;
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__PROCESS_MODEL:
+        setProcessModel((ProcessModel)newValue);
         return;
       case KanbanmodelPackage.WORK_ITEM_PROFILE__REFERENCES:
         getReferences().clear();
@@ -594,6 +655,9 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
       case KanbanmodelPackage.WORK_ITEM_PROFILE__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__PROCESS_MODEL:
+        setProcessModel((ProcessModel)null);
+        return;
       case KanbanmodelPackage.WORK_ITEM_PROFILE__REFERENCES:
         getReferences().clear();
         return;
@@ -636,6 +700,8 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case KanbanmodelPackage.WORK_ITEM_PROFILE__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case KanbanmodelPackage.WORK_ITEM_PROFILE__PROCESS_MODEL:
+        return processModel != null;
       case KanbanmodelPackage.WORK_ITEM_PROFILE__REFERENCES:
         return references != null && !references.isEmpty();
       case KanbanmodelPackage.WORK_ITEM_PROFILE__DECOMPOSITIONS:

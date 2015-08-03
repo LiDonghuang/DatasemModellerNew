@@ -672,7 +672,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItemProfile_References()
+  public EReference getWorkItemProfile_ProcessModel()
   {
     return (EReference)workItemProfileEClass.getEStructuralFeatures().get(2);
   }
@@ -682,7 +682,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItemProfile_Decompositions()
+  public EReference getWorkItemProfile_References()
   {
     return (EReference)workItemProfileEClass.getEStructuralFeatures().get(3);
   }
@@ -692,7 +692,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItemProfile_RequiredServices()
+  public EReference getWorkItemProfile_Decompositions()
   {
     return (EReference)workItemProfileEClass.getEStructuralFeatures().get(4);
   }
@@ -702,7 +702,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItemProfile_Efforts()
+  public EReference getWorkItemProfile_RequiredServices()
   {
     return (EReference)workItemProfileEClass.getEStructuralFeatures().get(5);
   }
@@ -712,7 +712,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItemProfile_Value()
+  public EReference getWorkItemProfile_Efforts()
   {
     return (EReference)workItemProfileEClass.getEStructuralFeatures().get(6);
   }
@@ -722,9 +722,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkItemProfile_ClassOfService()
+  public EReference getWorkItemProfile_Value()
   {
-    return (EAttribute)workItemProfileEClass.getEStructuralFeatures().get(7);
+    return (EReference)workItemProfileEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -732,7 +732,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkItemProfile_AllowAssignment()
+  public EAttribute getWorkItemProfile_ClassOfService()
   {
     return (EAttribute)workItemProfileEClass.getEStructuralFeatures().get(8);
   }
@@ -742,9 +742,19 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkItemProfile_AllowDiscard()
+  public EAttribute getWorkItemProfile_AllowAssignment()
   {
     return (EAttribute)workItemProfileEClass.getEStructuralFeatures().get(9);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getWorkItemProfile_AllowDiscard()
+  {
+    return (EAttribute)workItemProfileEClass.getEStructuralFeatures().get(10);
   }
 
   /**
@@ -2269,6 +2279,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     workItemProfileEClass = createEClass(WORK_ITEM_PROFILE);
     createEAttribute(workItemProfileEClass, WORK_ITEM_PROFILE__NAME);
     createEAttribute(workItemProfileEClass, WORK_ITEM_PROFILE__DESCRIPTION);
+    createEReference(workItemProfileEClass, WORK_ITEM_PROFILE__PROCESS_MODEL);
     createEReference(workItemProfileEClass, WORK_ITEM_PROFILE__REFERENCES);
     createEReference(workItemProfileEClass, WORK_ITEM_PROFILE__DECOMPOSITIONS);
     createEReference(workItemProfileEClass, WORK_ITEM_PROFILE__REQUIRED_SERVICES);
@@ -2521,6 +2532,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEClass(workItemProfileEClass, WorkItemProfile.class, "WorkItemProfile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getWorkItemProfile_Name(), ecorePackage.getEString(), "name", null, 0, 1, WorkItemProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkItemProfile_Description(), ecorePackage.getEString(), "description", null, 0, 1, WorkItemProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkItemProfile_ProcessModel(), this.getProcessModel(), null, "processModel", null, 0, 1, WorkItemProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItemProfile_References(), this.getWorkReference(), null, "references", null, 0, -1, WorkItemProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItemProfile_Decompositions(), this.getWorkDecomposition(), null, "decompositions", null, 0, -1, WorkItemProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItemProfile_RequiredServices(), this.getServiceType(), null, "requiredServices", null, 0, -1, WorkItemProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

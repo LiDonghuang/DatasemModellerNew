@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getDescription <em>Description</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getProcessModel <em>Process Model</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getReferences <em>References</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getDecompositions <em>Decompositions</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getRequiredServices <em>Required Services</em>}</li>
@@ -84,6 +85,32 @@ public interface WorkItemProfile extends EObject
    * @generated
    */
   void setDescription(String value);
+
+  /**
+   * Returns the value of the '<em><b>Process Model</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Process Model</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Process Model</em>' reference.
+   * @see #setProcessModel(ProcessModel)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItemProfile_ProcessModel()
+   * @model
+   * @generated
+   */
+  ProcessModel getProcessModel();
+
+  /**
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getProcessModel <em>Process Model</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Process Model</em>' reference.
+   * @see #getProcessModel()
+   * @generated
+   */
+  void setProcessModel(ProcessModel value);
 
   /**
    * Returns the value of the '<em><b>References</b></em>' containment reference list.

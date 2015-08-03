@@ -574,6 +574,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     (
 	 *         name=ID 
 	 *         description=STRING? 
+	 *         processModel=[ProcessModel|ID]? 
 	 *         references+=WorkReference* 
 	 *         decompositions+=WorkDecomposition* 
 	 *         requiredServices+=[ServiceType|ID]* 

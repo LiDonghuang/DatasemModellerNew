@@ -350,13 +350,22 @@ public interface KanbanmodelPackage extends EPackage
   int WORK_ITEM_PROFILE__DESCRIPTION = 1;
 
   /**
+   * The feature id for the '<em><b>Process Model</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORK_ITEM_PROFILE__PROCESS_MODEL = 2;
+
+  /**
    * The feature id for the '<em><b>References</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WORK_ITEM_PROFILE__REFERENCES = 2;
+  int WORK_ITEM_PROFILE__REFERENCES = 3;
 
   /**
    * The feature id for the '<em><b>Decompositions</b></em>' containment reference list.
@@ -365,7 +374,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM_PROFILE__DECOMPOSITIONS = 3;
+  int WORK_ITEM_PROFILE__DECOMPOSITIONS = 4;
 
   /**
    * The feature id for the '<em><b>Required Services</b></em>' reference list.
@@ -374,7 +383,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM_PROFILE__REQUIRED_SERVICES = 4;
+  int WORK_ITEM_PROFILE__REQUIRED_SERVICES = 5;
 
   /**
    * The feature id for the '<em><b>Efforts</b></em>' containment reference.
@@ -383,7 +392,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM_PROFILE__EFFORTS = 5;
+  int WORK_ITEM_PROFILE__EFFORTS = 6;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -392,7 +401,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM_PROFILE__VALUE = 6;
+  int WORK_ITEM_PROFILE__VALUE = 7;
 
   /**
    * The feature id for the '<em><b>Class Of Service</b></em>' attribute.
@@ -401,7 +410,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM_PROFILE__CLASS_OF_SERVICE = 7;
+  int WORK_ITEM_PROFILE__CLASS_OF_SERVICE = 8;
 
   /**
    * The feature id for the '<em><b>Allow Assignment</b></em>' attribute.
@@ -410,7 +419,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM_PROFILE__ALLOW_ASSIGNMENT = 8;
+  int WORK_ITEM_PROFILE__ALLOW_ASSIGNMENT = 9;
 
   /**
    * The feature id for the '<em><b>Allow Discard</b></em>' attribute.
@@ -419,7 +428,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM_PROFILE__ALLOW_DISCARD = 9;
+  int WORK_ITEM_PROFILE__ALLOW_DISCARD = 10;
 
   /**
    * The number of structural features of the '<em>Work Item Profile</em>' class.
@@ -428,7 +437,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM_PROFILE_FEATURE_COUNT = 10;
+  int WORK_ITEM_PROFILE_FEATURE_COUNT = 11;
 
   /**
    * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkReferenceImpl <em>Work Reference</em>}' class.
@@ -2379,6 +2388,17 @@ public interface KanbanmodelPackage extends EPackage
   EAttribute getWorkItemProfile_Description();
 
   /**
+   * Returns the meta object for the reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getProcessModel <em>Process Model</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Process Model</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getProcessModel()
+   * @see #getWorkItemProfile()
+   * @generated
+   */
+  EReference getWorkItemProfile_ProcessModel();
+
+  /**
    * Returns the meta object for the containment reference list '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getReferences <em>References</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4295,6 +4315,14 @@ public interface KanbanmodelPackage extends EPackage
      * @generated
      */
     EAttribute WORK_ITEM_PROFILE__DESCRIPTION = eINSTANCE.getWorkItemProfile_Description();
+
+    /**
+     * The meta object literal for the '<em><b>Process Model</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WORK_ITEM_PROFILE__PROCESS_MODEL = eINSTANCE.getWorkItemProfile_ProcessModel();
 
     /**
      * The meta object literal for the '<em><b>References</b></em>' containment reference list feature.

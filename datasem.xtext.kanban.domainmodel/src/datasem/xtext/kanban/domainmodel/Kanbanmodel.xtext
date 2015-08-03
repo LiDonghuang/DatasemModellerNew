@@ -81,6 +81,7 @@ generate kanbanmodel "http://www.xtext.datasem/kanban/domainmodel/Kanbanmodel"
 	WorkItemProfile:
 		'WorkItem' name=ID '{'
 		('Description' description=STRING)?
+		('ProcessModel' processModel=[ProcessModel])?
 		('References''{' (references+=WorkReference)+ '}')?
 		('Decompositions' '{' (decompositions+=WorkDecomposition)+ '}')?
 		('RequiredServices' (requiredServices+=[ServiceType])+)?

@@ -39,6 +39,7 @@
     <genClasses ecoreClass="Kanbanmodel.ecore#//WorkItemProfile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//WorkItemProfile/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//WorkItemProfile/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//WorkItemProfile/processModel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//WorkItemProfile/references"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//WorkItemProfile/decompositions"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//WorkItemProfile/requiredServices"/>
