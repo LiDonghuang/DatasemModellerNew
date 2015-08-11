@@ -8,23 +8,23 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Task Pattern</b></em>'.
+ * A representation of the model object '<em><b>Work Item Network</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.TaskPattern#getName <em>Name</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.TaskPattern#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.TaskPattern#getTaskTypes <em>Task Types</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemNetwork#getName <em>Name</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemNetwork#getDescription <em>Description</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemNetwork#getWorkItems <em>Work Items</em>}</li>
  * </ul>
  * </p>
  *
- * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getTaskPattern()
+ * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItemNetwork()
  * @model
  * @generated
  */
-public interface TaskPattern extends EObject
+public interface WorkItemNetwork extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -36,14 +36,14 @@ public interface TaskPattern extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getTaskPattern_Name()
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItemNetwork_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.TaskPattern#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemNetwork#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -62,14 +62,14 @@ public interface TaskPattern extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Description</em>' attribute.
    * @see #setDescription(String)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getTaskPattern_Description()
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItemNetwork_Description()
    * @model
    * @generated
    */
   String getDescription();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.TaskPattern#getDescription <em>Description</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemNetwork#getDescription <em>Description</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Description</em>' attribute.
@@ -79,19 +79,19 @@ public interface TaskPattern extends EObject
   void setDescription(String value);
 
   /**
-   * Returns the value of the '<em><b>Task Types</b></em>' reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.TaskType}.
+   * Returns the value of the '<em><b>Work Items</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Task Types</em>' reference list isn't clear,
+   * If the meaning of the '<em>Work Items</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Task Types</em>' reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getTaskPattern_TaskTypes()
-   * @model
+   * @return the value of the '<em>Work Items</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItemNetwork_WorkItems()
+   * @model containment="true"
    * @generated
    */
-  EList<TaskType> getTaskTypes();
+  EList<WorkItem> getWorkItems();
 
-} // TaskPattern
+} // WorkItemNetwork

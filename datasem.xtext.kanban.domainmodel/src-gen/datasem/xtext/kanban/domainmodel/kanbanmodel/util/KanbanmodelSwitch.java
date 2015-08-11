@@ -93,6 +93,90 @@ public class KanbanmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case KanbanmodelPackage.TASK_HIERARCHY:
+      {
+        TaskHierarchy taskHierarchy = (TaskHierarchy)theEObject;
+        T result = caseTaskHierarchy(taskHierarchy);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.TASK_TYPE:
+      {
+        TaskType taskType = (TaskType)theEObject;
+        T result = caseTaskType(taskType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.VALUE_FUNCTION:
+      {
+        ValueFunction valueFunction = (ValueFunction)theEObject;
+        T result = caseValueFunction(valueFunction);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.PROCESS_MODEL:
+      {
+        ProcessModel processModel = (ProcessModel)theEObject;
+        T result = caseProcessModel(processModel);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.CLASS_OF_SERVICE:
+      {
+        ClassOfService classOfService = (ClassOfService)theEObject;
+        T result = caseClassOfService(classOfService);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.WI_ACCEPTANCE_RULE_TYPE:
+      {
+        WIAcceptanceRuleType wiAcceptanceRuleType = (WIAcceptanceRuleType)theEObject;
+        T result = caseWIAcceptanceRuleType(wiAcceptanceRuleType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.WI_SELECTION_RULE_TYPE:
+      {
+        WISelectionRuleType wiSelectionRuleType = (WISelectionRuleType)theEObject;
+        T result = caseWISelectionRuleType(wiSelectionRuleType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.WI_ASSIGNMENT_RULE_TYPE:
+      {
+        WIAssignmentRuleType wiAssignmentRuleType = (WIAssignmentRuleType)theEObject;
+        T result = caseWIAssignmentRuleType(wiAssignmentRuleType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.RESOURCE_ALLOCATION_RULE_TYPE:
+      {
+        ResourceAllocationRuleType resourceAllocationRuleType = (ResourceAllocationRuleType)theEObject;
+        T result = caseResourceAllocationRuleType(resourceAllocationRuleType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.RESOURCE_OUTSOURCING_RULE_TYPE:
+      {
+        ResourceOutsourcingRuleType resourceOutsourcingRuleType = (ResourceOutsourcingRuleType)theEObject;
+        T result = caseResourceOutsourcingRuleType(resourceOutsourcingRuleType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.MECHANISM:
+      {
+        Mechanism mechanism = (Mechanism)theEObject;
+        T result = caseMechanism(mechanism);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.SERVICE_TYPE:
+      {
+        ServiceType serviceType = (ServiceType)theEObject;
+        T result = caseServiceType(serviceType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case KanbanmodelPackage.REPOSITORY:
       {
         Repository repository = (Repository)theEObject;
@@ -135,45 +219,10 @@ public class KanbanmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case KanbanmodelPackage.TASK_PATTERN:
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY:
       {
-        TaskPattern taskPattern = (TaskPattern)theEObject;
-        T result = caseTaskPattern(taskPattern);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case KanbanmodelPackage.TASK_TYPE:
-      {
-        TaskType taskType = (TaskType)theEObject;
-        T result = caseTaskType(taskType);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case KanbanmodelPackage.VALUE_FUNCTION:
-      {
-        ValueFunction valueFunction = (ValueFunction)theEObject;
-        T result = caseValueFunction(valueFunction);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case KanbanmodelPackage.PROCESS_MODEL:
-      {
-        ProcessModel processModel = (ProcessModel)theEObject;
-        T result = caseProcessModel(processModel);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case KanbanmodelPackage.MECHANISM:
-      {
-        Mechanism mechanism = (Mechanism)theEObject;
-        T result = caseMechanism(mechanism);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case KanbanmodelPackage.STRATEGY:
-      {
-        Strategy strategy = (Strategy)theEObject;
-        T result = caseStrategy(strategy);
+        GovernanceStrategy governanceStrategy = (GovernanceStrategy)theEObject;
+        T result = caseGovernanceStrategy(governanceStrategy);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -226,10 +275,10 @@ public class KanbanmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case KanbanmodelPackage.CAUSALITY:
+      case KanbanmodelPackage.CAUSAL_TRIGGER:
       {
-        Causality causality = (Causality)theEObject;
-        T result = caseCausality(causality);
+        CausalTrigger causalTrigger = (CausalTrigger)theEObject;
+        T result = caseCausalTrigger(causalTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -237,13 +286,6 @@ public class KanbanmodelSwitch<T> extends Switch<T>
       {
         LocalValue localValue = (LocalValue)theEObject;
         T result = caseLocalValue(localValue);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case KanbanmodelPackage.SERVICE_TYPE:
-      {
-        ServiceType serviceType = (ServiceType)theEObject;
-        T result = caseServiceType(serviceType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -272,6 +314,13 @@ public class KanbanmodelSwitch<T> extends Switch<T>
       {
         KanbanTaskModel kanbanTaskModel = (KanbanTaskModel)theEObject;
         T result = caseKanbanTaskModel(kanbanTaskModel);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.WORK_ITEM_NETWORK:
+      {
+        WorkItemNetwork workItemNetwork = (WorkItemNetwork)theEObject;
+        T result = caseWorkItemNetwork(workItemNetwork);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -391,6 +440,198 @@ public class KanbanmodelSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Task Hierarchy</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Task Hierarchy</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTaskHierarchy(TaskHierarchy object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Task Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Task Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTaskType(TaskType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Value Function</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Value Function</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseValueFunction(ValueFunction object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Process Model</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Process Model</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseProcessModel(ProcessModel object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Class Of Service</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Class Of Service</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseClassOfService(ClassOfService object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>WI Acceptance Rule Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>WI Acceptance Rule Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWIAcceptanceRuleType(WIAcceptanceRuleType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>WI Selection Rule Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>WI Selection Rule Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWISelectionRuleType(WISelectionRuleType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>WI Assignment Rule Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>WI Assignment Rule Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWIAssignmentRuleType(WIAssignmentRuleType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Resource Allocation Rule Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Resource Allocation Rule Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseResourceAllocationRuleType(ResourceAllocationRuleType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Resource Outsourcing Rule Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Resource Outsourcing Rule Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseResourceOutsourcingRuleType(ResourceOutsourcingRuleType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Mechanism</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Mechanism</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMechanism(Mechanism object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Service Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Service Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseServiceType(ServiceType object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Repository</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -487,97 +728,17 @@ public class KanbanmodelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Task Pattern</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Governance Strategy</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Task Pattern</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Governance Strategy</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTaskPattern(TaskPattern object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Task Type</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Task Type</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTaskType(TaskType object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Value Function</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Value Function</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseValueFunction(ValueFunction object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Process Model</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Process Model</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseProcessModel(ProcessModel object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Mechanism</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Mechanism</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMechanism(Mechanism object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Strategy</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Strategy</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseStrategy(Strategy object)
+  public T caseGovernanceStrategy(GovernanceStrategy object)
   {
     return null;
   }
@@ -695,17 +856,17 @@ public class KanbanmodelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Causality</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Causal Trigger</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Causality</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Causal Trigger</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseCausality(Causality object)
+  public T caseCausalTrigger(CausalTrigger object)
   {
     return null;
   }
@@ -722,22 +883,6 @@ public class KanbanmodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseLocalValue(LocalValue object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Service Type</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Service Type</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseServiceType(ServiceType object)
   {
     return null;
   }
@@ -802,6 +947,22 @@ public class KanbanmodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseKanbanTaskModel(KanbanTaskModel object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Work Item Network</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Work Item Network</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWorkItemNetwork(WorkItemNetwork object)
   {
     return null;
   }

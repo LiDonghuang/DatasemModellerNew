@@ -14,16 +14,22 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getName <em>Name</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getTestItems <em>Test Items</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getWIAcceptanceRuleTypes <em>WI Acceptance Rule Types</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getWISelectionRuleTypes <em>WI Selection Rule Types</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getWIAssignmentRuleTypes <em>WI Assignment Rule Types</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getResourceAllocationRuleTypes <em>Resource Allocation Rule Types</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getResourceOutsourcingRuleTypes <em>Resource Outsourcing Rule Types</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getProcessModels <em>Process Models</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getGovernanceSearchStrategies <em>Governance Search Strategies</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getTaskPatterns <em>Task Patterns</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getTaskTypes <em>Task Types</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getValueFunctions <em>Value Functions</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getTaskTypes <em>Task Types</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getTaskHierarchy <em>Task Hierarchy</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getClassOfServices <em>Class Of Services</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getServiceTypes <em>Service Types</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getServiceProviders <em>Service Providers</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getGovernanceStrategies <em>Governance Strategies</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getRepositories <em>Repositories</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getName <em>Name</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getPath <em>Path</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getServiceProviders <em>Service Providers</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getWorkSources <em>Work Sources</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getWorkItems <em>Work Items</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getReplications <em>Replications</em>}</li>
@@ -37,6 +43,224 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface KanbanSchedulingSystem extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>WI Acceptance Rule Types</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptanceRuleType}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>WI Acceptance Rule Types</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>WI Acceptance Rule Types</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_WIAcceptanceRuleTypes()
+   * @model containment="true"
+   * @generated
+   */
+  EList<WIAcceptanceRuleType> getWIAcceptanceRuleTypes();
+
+  /**
+   * Returns the value of the '<em><b>WI Selection Rule Types</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.WISelectionRuleType}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>WI Selection Rule Types</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>WI Selection Rule Types</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_WISelectionRuleTypes()
+   * @model containment="true"
+   * @generated
+   */
+  EList<WISelectionRuleType> getWISelectionRuleTypes();
+
+  /**
+   * Returns the value of the '<em><b>WI Assignment Rule Types</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignmentRuleType}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>WI Assignment Rule Types</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>WI Assignment Rule Types</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_WIAssignmentRuleTypes()
+   * @model containment="true"
+   * @generated
+   */
+  EList<WIAssignmentRuleType> getWIAssignmentRuleTypes();
+
+  /**
+   * Returns the value of the '<em><b>Resource Allocation Rule Types</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocationRuleType}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Resource Allocation Rule Types</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Resource Allocation Rule Types</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_ResourceAllocationRuleTypes()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ResourceAllocationRuleType> getResourceAllocationRuleTypes();
+
+  /**
+   * Returns the value of the '<em><b>Resource Outsourcing Rule Types</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcingRuleType}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Resource Outsourcing Rule Types</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Resource Outsourcing Rule Types</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_ResourceOutsourcingRuleTypes()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ResourceOutsourcingRuleType> getResourceOutsourcingRuleTypes();
+
+  /**
+   * Returns the value of the '<em><b>Process Models</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Process Models</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Process Models</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_ProcessModels()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ProcessModel> getProcessModels();
+
+  /**
+   * Returns the value of the '<em><b>Value Functions</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.ValueFunction}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Value Functions</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Value Functions</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_ValueFunctions()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ValueFunction> getValueFunctions();
+
+  /**
+   * Returns the value of the '<em><b>Task Types</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.TaskType}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Task Types</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Task Types</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_TaskTypes()
+   * @model containment="true"
+   * @generated
+   */
+  EList<TaskType> getTaskTypes();
+
+  /**
+   * Returns the value of the '<em><b>Task Hierarchy</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Task Hierarchy</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Task Hierarchy</em>' containment reference.
+   * @see #setTaskHierarchy(TaskHierarchy)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_TaskHierarchy()
+   * @model containment="true"
+   * @generated
+   */
+  TaskHierarchy getTaskHierarchy();
+
+  /**
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getTaskHierarchy <em>Task Hierarchy</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Task Hierarchy</em>' containment reference.
+   * @see #getTaskHierarchy()
+   * @generated
+   */
+  void setTaskHierarchy(TaskHierarchy value);
+
+  /**
+   * Returns the value of the '<em><b>Class Of Services</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Class Of Services</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Class Of Services</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_ClassOfServices()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ClassOfService> getClassOfServices();
+
+  /**
+   * Returns the value of the '<em><b>Service Types</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceType}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Service Types</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Service Types</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_ServiceTypes()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ServiceType> getServiceTypes();
+
+  /**
+   * Returns the value of the '<em><b>Governance Strategies</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Governance Strategies</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Governance Strategies</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_GovernanceStrategies()
+   * @model containment="true"
+   * @generated
+   */
+  EList<GovernanceStrategy> getGovernanceStrategies();
+
+  /**
+   * Returns the value of the '<em><b>Repositories</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.Repository}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Repositories</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Repositories</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_Repositories()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Repository> getRepositories();
+
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -64,116 +288,30 @@ public interface KanbanSchedulingSystem extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Test Items</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Path</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Test Items</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Path</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Test Items</em>' attribute list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_TestItems()
-   * @model unique="false"
+   * @return the value of the '<em>Path</em>' attribute.
+   * @see #setPath(String)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_Path()
+   * @model
    * @generated
    */
-  EList<String> getTestItems();
+  String getPath();
 
   /**
-   * Returns the value of the '<em><b>Process Models</b></em>' containment reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel}.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getPath <em>Path</em>}' attribute.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Process Models</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Process Models</em>' containment reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_ProcessModels()
-   * @model containment="true"
+   * @param value the new value of the '<em>Path</em>' attribute.
+   * @see #getPath()
    * @generated
    */
-  EList<ProcessModel> getProcessModels();
-
-  /**
-   * Returns the value of the '<em><b>Governance Search Strategies</b></em>' containment reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.Strategy}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Governance Search Strategies</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Governance Search Strategies</em>' containment reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_GovernanceSearchStrategies()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Strategy> getGovernanceSearchStrategies();
-
-  /**
-   * Returns the value of the '<em><b>Task Patterns</b></em>' containment reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.TaskPattern}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Task Patterns</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Task Patterns</em>' containment reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_TaskPatterns()
-   * @model containment="true"
-   * @generated
-   */
-  EList<TaskPattern> getTaskPatterns();
-
-  /**
-   * Returns the value of the '<em><b>Task Types</b></em>' containment reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.TaskType}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Task Types</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Task Types</em>' containment reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_TaskTypes()
-   * @model containment="true"
-   * @generated
-   */
-  EList<TaskType> getTaskTypes();
-
-  /**
-   * Returns the value of the '<em><b>Value Functions</b></em>' containment reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.ValueFunction}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Value Functions</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Value Functions</em>' containment reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_ValueFunctions()
-   * @model containment="true"
-   * @generated
-   */
-  EList<ValueFunction> getValueFunctions();
-
-  /**
-   * Returns the value of the '<em><b>Service Types</b></em>' containment reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceType}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Service Types</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Service Types</em>' containment reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_ServiceTypes()
-   * @model containment="true"
-   * @generated
-   */
-  EList<ServiceType> getServiceTypes();
+  void setPath(String value);
 
   /**
    * Returns the value of the '<em><b>Service Providers</b></em>' containment reference list.
@@ -190,22 +328,6 @@ public interface KanbanSchedulingSystem extends EObject
    * @generated
    */
   EList<ServiceProvider> getServiceProviders();
-
-  /**
-   * Returns the value of the '<em><b>Repositories</b></em>' containment reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.Repository}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Repositories</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Repositories</em>' containment reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_Repositories()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Repository> getRepositories();
 
   /**
    * Returns the value of the '<em><b>Work Sources</b></em>' containment reference list.

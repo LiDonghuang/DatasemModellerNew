@@ -2,6 +2,7 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.NumExpression;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel;
@@ -153,24 +154,14 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
   protected NumExpression value;
 
   /**
-   * The default value of the '{@link #getClassOfService() <em>Class Of Service</em>}' attribute.
+   * The cached value of the '{@link #getClassOfService() <em>Class Of Service</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getClassOfService()
    * @generated
    * @ordered
    */
-  protected static final String CLASS_OF_SERVICE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getClassOfService() <em>Class Of Service</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getClassOfService()
-   * @generated
-   * @ordered
-   */
-  protected String classOfService = CLASS_OF_SERVICE_EDEFAULT;
+  protected ClassOfService classOfService;
 
   /**
    * The default value of the '{@link #isAllowAssignment() <em>Allow Assignment</em>}' attribute.
@@ -465,7 +456,27 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getClassOfService()
+  public ClassOfService getClassOfService()
+  {
+    if (classOfService != null && classOfService.eIsProxy())
+    {
+      InternalEObject oldClassOfService = (InternalEObject)classOfService;
+      classOfService = (ClassOfService)eResolveProxy(oldClassOfService);
+      if (classOfService != oldClassOfService)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.WORK_ITEM_PROFILE__CLASS_OF_SERVICE, oldClassOfService, classOfService));
+      }
+    }
+    return classOfService;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ClassOfService basicGetClassOfService()
   {
     return classOfService;
   }
@@ -475,9 +486,9 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setClassOfService(String newClassOfService)
+  public void setClassOfService(ClassOfService newClassOfService)
   {
-    String oldClassOfService = classOfService;
+    ClassOfService oldClassOfService = classOfService;
     classOfService = newClassOfService;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM_PROFILE__CLASS_OF_SERVICE, oldClassOfService, classOfService));
@@ -579,7 +590,8 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
       case KanbanmodelPackage.WORK_ITEM_PROFILE__VALUE:
         return getValue();
       case KanbanmodelPackage.WORK_ITEM_PROFILE__CLASS_OF_SERVICE:
-        return getClassOfService();
+        if (resolve) return getClassOfService();
+        return basicGetClassOfService();
       case KanbanmodelPackage.WORK_ITEM_PROFILE__ALLOW_ASSIGNMENT:
         return isAllowAssignment();
       case KanbanmodelPackage.WORK_ITEM_PROFILE__ALLOW_DISCARD:
@@ -627,7 +639,7 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
         setValue((NumExpression)newValue);
         return;
       case KanbanmodelPackage.WORK_ITEM_PROFILE__CLASS_OF_SERVICE:
-        setClassOfService((String)newValue);
+        setClassOfService((ClassOfService)newValue);
         return;
       case KanbanmodelPackage.WORK_ITEM_PROFILE__ALLOW_ASSIGNMENT:
         setAllowAssignment((Boolean)newValue);
@@ -674,7 +686,7 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
         setValue((NumExpression)null);
         return;
       case KanbanmodelPackage.WORK_ITEM_PROFILE__CLASS_OF_SERVICE:
-        setClassOfService(CLASS_OF_SERVICE_EDEFAULT);
+        setClassOfService((ClassOfService)null);
         return;
       case KanbanmodelPackage.WORK_ITEM_PROFILE__ALLOW_ASSIGNMENT:
         setAllowAssignment(ALLOW_ASSIGNMENT_EDEFAULT);
@@ -713,7 +725,7 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
       case KanbanmodelPackage.WORK_ITEM_PROFILE__VALUE:
         return value != null;
       case KanbanmodelPackage.WORK_ITEM_PROFILE__CLASS_OF_SERVICE:
-        return CLASS_OF_SERVICE_EDEFAULT == null ? classOfService != null : !CLASS_OF_SERVICE_EDEFAULT.equals(classOfService);
+        return classOfService != null;
       case KanbanmodelPackage.WORK_ITEM_PROFILE__ALLOW_ASSIGNMENT:
         return allowAssignment != ALLOW_ASSIGNMENT_EDEFAULT;
       case KanbanmodelPackage.WORK_ITEM_PROFILE__ALLOW_DISCARD:
@@ -737,8 +749,6 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
     result.append(name);
     result.append(", description: ");
     result.append(description);
-    result.append(", classOfService: ");
-    result.append(classOfService);
     result.append(", allowAssignment: ");
     result.append(allowAssignment);
     result.append(", allowDiscard: ");

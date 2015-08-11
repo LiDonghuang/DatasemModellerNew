@@ -97,7 +97,7 @@ public interface Requirement extends EObject
 
   /**
    * Returns the value of the '<em><b>Dependencies</b></em>' containment reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.Causality}.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Dependencies</em>' containment reference list isn't clear,
@@ -109,6 +109,6 @@ public interface Requirement extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Causality> getDependencies();
+  EList<CausalTrigger> getDependencies();
 
 } // Requirement

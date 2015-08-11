@@ -2,9 +2,9 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
+import datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Strategy;
 
 import java.util.Collection;
 
@@ -108,7 +108,7 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
    * @generated
    * @ordered
    */
-  protected EList<Strategy> strategies;
+  protected EList<GovernanceStrategy> strategies;
 
   /**
    * <!-- begin-user-doc -->
@@ -205,11 +205,11 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Strategy> getStrategies()
+  public EList<GovernanceStrategy> getStrategies()
   {
     if (strategies == null)
     {
-      strategies = new EObjectContainmentEList<Strategy>(Strategy.class, this, KanbanmodelPackage.MECHANISM__STRATEGIES);
+      strategies = new EObjectContainmentEList<GovernanceStrategy>(GovernanceStrategy.class, this, KanbanmodelPackage.MECHANISM__STRATEGIES);
     }
     return strategies;
   }
@@ -274,7 +274,7 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
         return;
       case KanbanmodelPackage.MECHANISM__STRATEGIES:
         getStrategies().clear();
-        getStrategies().addAll((Collection<? extends Strategy>)newValue);
+        getStrategies().addAll((Collection<? extends GovernanceStrategy>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

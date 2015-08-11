@@ -50,6 +50,114 @@ public interface KanbanmodelFactory extends EFactory
   Distribution createDistribution();
 
   /**
+   * Returns a new object of class '<em>Task Hierarchy</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Task Hierarchy</em>'.
+   * @generated
+   */
+  TaskHierarchy createTaskHierarchy();
+
+  /**
+   * Returns a new object of class '<em>Task Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Task Type</em>'.
+   * @generated
+   */
+  TaskType createTaskType();
+
+  /**
+   * Returns a new object of class '<em>Value Function</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Value Function</em>'.
+   * @generated
+   */
+  ValueFunction createValueFunction();
+
+  /**
+   * Returns a new object of class '<em>Process Model</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Process Model</em>'.
+   * @generated
+   */
+  ProcessModel createProcessModel();
+
+  /**
+   * Returns a new object of class '<em>Class Of Service</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Class Of Service</em>'.
+   * @generated
+   */
+  ClassOfService createClassOfService();
+
+  /**
+   * Returns a new object of class '<em>WI Acceptance Rule Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>WI Acceptance Rule Type</em>'.
+   * @generated
+   */
+  WIAcceptanceRuleType createWIAcceptanceRuleType();
+
+  /**
+   * Returns a new object of class '<em>WI Selection Rule Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>WI Selection Rule Type</em>'.
+   * @generated
+   */
+  WISelectionRuleType createWISelectionRuleType();
+
+  /**
+   * Returns a new object of class '<em>WI Assignment Rule Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>WI Assignment Rule Type</em>'.
+   * @generated
+   */
+  WIAssignmentRuleType createWIAssignmentRuleType();
+
+  /**
+   * Returns a new object of class '<em>Resource Allocation Rule Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Resource Allocation Rule Type</em>'.
+   * @generated
+   */
+  ResourceAllocationRuleType createResourceAllocationRuleType();
+
+  /**
+   * Returns a new object of class '<em>Resource Outsourcing Rule Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Resource Outsourcing Rule Type</em>'.
+   * @generated
+   */
+  ResourceOutsourcingRuleType createResourceOutsourcingRuleType();
+
+  /**
+   * Returns a new object of class '<em>Mechanism</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mechanism</em>'.
+   * @generated
+   */
+  Mechanism createMechanism();
+
+  /**
+   * Returns a new object of class '<em>Service Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Service Type</em>'.
+   * @generated
+   */
+  ServiceType createServiceType();
+
+  /**
    * Returns a new object of class '<em>Repository</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -104,58 +212,13 @@ public interface KanbanmodelFactory extends EFactory
   WorkCausality createWorkCausality();
 
   /**
-   * Returns a new object of class '<em>Task Pattern</em>'.
+   * Returns a new object of class '<em>Governance Strategy</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Task Pattern</em>'.
+   * @return a new object of class '<em>Governance Strategy</em>'.
    * @generated
    */
-  TaskPattern createTaskPattern();
-
-  /**
-   * Returns a new object of class '<em>Task Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Task Type</em>'.
-   * @generated
-   */
-  TaskType createTaskType();
-
-  /**
-   * Returns a new object of class '<em>Value Function</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Value Function</em>'.
-   * @generated
-   */
-  ValueFunction createValueFunction();
-
-  /**
-   * Returns a new object of class '<em>Process Model</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Process Model</em>'.
-   * @generated
-   */
-  ProcessModel createProcessModel();
-
-  /**
-   * Returns a new object of class '<em>Mechanism</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Mechanism</em>'.
-   * @generated
-   */
-  Mechanism createMechanism();
-
-  /**
-   * Returns a new object of class '<em>Strategy</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Strategy</em>'.
-   * @generated
-   */
-  Strategy createStrategy();
+  GovernanceStrategy createGovernanceStrategy();
 
   /**
    * Returns a new object of class '<em>WI Acceptance</em>'.
@@ -221,13 +284,13 @@ public interface KanbanmodelFactory extends EFactory
   WorkItem createWorkItem();
 
   /**
-   * Returns a new object of class '<em>Causality</em>'.
+   * Returns a new object of class '<em>Causal Trigger</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Causality</em>'.
+   * @return a new object of class '<em>Causal Trigger</em>'.
    * @generated
    */
-  Causality createCausality();
+  CausalTrigger createCausalTrigger();
 
   /**
    * Returns a new object of class '<em>Local Value</em>'.
@@ -237,15 +300,6 @@ public interface KanbanmodelFactory extends EFactory
    * @generated
    */
   LocalValue createLocalValue();
-
-  /**
-   * Returns a new object of class '<em>Service Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Service Type</em>'.
-   * @generated
-   */
-  ServiceType createServiceType();
 
   /**
    * Returns a new object of class '<em>Service</em>'.
@@ -282,6 +336,15 @@ public interface KanbanmodelFactory extends EFactory
    * @generated
    */
   KanbanTaskModel createKanbanTaskModel();
+
+  /**
+   * Returns a new object of class '<em>Work Item Network</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Work Item Network</em>'.
+   * @generated
+   */
+  WorkItemNetwork createWorkItemNetwork();
 
   /**
    * Returns a new object of class '<em>Capability</em>'.

@@ -2,10 +2,9 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
-import datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Requirement;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemNetwork;
 
 import java.util.Collection;
 
@@ -21,26 +20,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Requirement</b></em>'.
+ * An implementation of the model object '<em><b>Work Item Network</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.RequirementImpl#getName <em>Name</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.RequirementImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.RequirementImpl#getRTasks <em>RTasks</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.RequirementImpl#getDependencies <em>Dependencies</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemNetworkImpl#getName <em>Name</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemNetworkImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemNetworkImpl#getWorkItems <em>Work Items</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class RequirementImpl extends MinimalEObjectImpl.Container implements Requirement
+public class WorkItemNetworkImpl extends MinimalEObjectImpl.Container implements WorkItemNetwork
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -83,31 +80,21 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
   protected String description = DESCRIPTION_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getRTasks() <em>RTasks</em>}' reference list.
+   * The cached value of the '{@link #getWorkItems() <em>Work Items</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRTasks()
+   * @see #getWorkItems()
    * @generated
    * @ordered
    */
-  protected EList<WorkItem> rTasks;
-
-  /**
-   * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDependencies()
-   * @generated
-   * @ordered
-   */
-  protected EList<CausalTrigger> dependencies;
+  protected EList<WorkItem> workItems;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected RequirementImpl()
+  protected WorkItemNetworkImpl()
   {
     super();
   }
@@ -120,7 +107,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
   @Override
   protected EClass eStaticClass()
   {
-    return KanbanmodelPackage.Literals.REQUIREMENT;
+    return KanbanmodelPackage.Literals.WORK_ITEM_NETWORK;
   }
 
   /**
@@ -143,7 +130,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.REQUIREMENT__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM_NETWORK__NAME, oldName, name));
   }
 
   /**
@@ -166,7 +153,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
     String oldDescription = description;
     description = newDescription;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.REQUIREMENT__DESCRIPTION, oldDescription, description));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM_NETWORK__DESCRIPTION, oldDescription, description));
   }
 
   /**
@@ -174,27 +161,13 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<WorkItem> getRTasks()
+  public EList<WorkItem> getWorkItems()
   {
-    if (rTasks == null)
+    if (workItems == null)
     {
-      rTasks = new EObjectResolvingEList<WorkItem>(WorkItem.class, this, KanbanmodelPackage.REQUIREMENT__RTASKS);
+      workItems = new EObjectContainmentEList<WorkItem>(WorkItem.class, this, KanbanmodelPackage.WORK_ITEM_NETWORK__WORK_ITEMS);
     }
-    return rTasks;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<CausalTrigger> getDependencies()
-  {
-    if (dependencies == null)
-    {
-      dependencies = new EObjectContainmentEList<CausalTrigger>(CausalTrigger.class, this, KanbanmodelPackage.REQUIREMENT__DEPENDENCIES);
-    }
-    return dependencies;
+    return workItems;
   }
 
   /**
@@ -207,8 +180,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.REQUIREMENT__DEPENDENCIES:
-        return ((InternalEList<?>)getDependencies()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.WORK_ITEM_NETWORK__WORK_ITEMS:
+        return ((InternalEList<?>)getWorkItems()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -223,14 +196,12 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.REQUIREMENT__NAME:
+      case KanbanmodelPackage.WORK_ITEM_NETWORK__NAME:
         return getName();
-      case KanbanmodelPackage.REQUIREMENT__DESCRIPTION:
+      case KanbanmodelPackage.WORK_ITEM_NETWORK__DESCRIPTION:
         return getDescription();
-      case KanbanmodelPackage.REQUIREMENT__RTASKS:
-        return getRTasks();
-      case KanbanmodelPackage.REQUIREMENT__DEPENDENCIES:
-        return getDependencies();
+      case KanbanmodelPackage.WORK_ITEM_NETWORK__WORK_ITEMS:
+        return getWorkItems();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -246,19 +217,15 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.REQUIREMENT__NAME:
+      case KanbanmodelPackage.WORK_ITEM_NETWORK__NAME:
         setName((String)newValue);
         return;
-      case KanbanmodelPackage.REQUIREMENT__DESCRIPTION:
+      case KanbanmodelPackage.WORK_ITEM_NETWORK__DESCRIPTION:
         setDescription((String)newValue);
         return;
-      case KanbanmodelPackage.REQUIREMENT__RTASKS:
-        getRTasks().clear();
-        getRTasks().addAll((Collection<? extends WorkItem>)newValue);
-        return;
-      case KanbanmodelPackage.REQUIREMENT__DEPENDENCIES:
-        getDependencies().clear();
-        getDependencies().addAll((Collection<? extends CausalTrigger>)newValue);
+      case KanbanmodelPackage.WORK_ITEM_NETWORK__WORK_ITEMS:
+        getWorkItems().clear();
+        getWorkItems().addAll((Collection<? extends WorkItem>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -274,17 +241,14 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.REQUIREMENT__NAME:
+      case KanbanmodelPackage.WORK_ITEM_NETWORK__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case KanbanmodelPackage.REQUIREMENT__DESCRIPTION:
+      case KanbanmodelPackage.WORK_ITEM_NETWORK__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case KanbanmodelPackage.REQUIREMENT__RTASKS:
-        getRTasks().clear();
-        return;
-      case KanbanmodelPackage.REQUIREMENT__DEPENDENCIES:
-        getDependencies().clear();
+      case KanbanmodelPackage.WORK_ITEM_NETWORK__WORK_ITEMS:
+        getWorkItems().clear();
         return;
     }
     super.eUnset(featureID);
@@ -300,14 +264,12 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.REQUIREMENT__NAME:
+      case KanbanmodelPackage.WORK_ITEM_NETWORK__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case KanbanmodelPackage.REQUIREMENT__DESCRIPTION:
+      case KanbanmodelPackage.WORK_ITEM_NETWORK__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case KanbanmodelPackage.REQUIREMENT__RTASKS:
-        return rTasks != null && !rTasks.isEmpty();
-      case KanbanmodelPackage.REQUIREMENT__DEPENDENCIES:
-        return dependencies != null && !dependencies.isEmpty();
+      case KanbanmodelPackage.WORK_ITEM_NETWORK__WORK_ITEMS:
+        return workItems != null && !workItems.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -331,4 +293,4 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
     return result.toString();
   }
 
-} //RequirementImpl
+} //WorkItemNetworkImpl

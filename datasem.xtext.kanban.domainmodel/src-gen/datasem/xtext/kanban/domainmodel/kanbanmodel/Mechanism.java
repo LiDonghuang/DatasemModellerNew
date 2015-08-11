@@ -107,7 +107,7 @@ public interface Mechanism extends EObject
 
   /**
    * Returns the value of the '<em><b>Strategies</b></em>' containment reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.Strategy}.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Strategies</em>' containment reference list isn't clear,
@@ -119,6 +119,6 @@ public interface Mechanism extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Strategy> getStrategies();
+  EList<GovernanceStrategy> getStrategies();
 
 } // Mechanism

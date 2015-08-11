@@ -67,18 +67,25 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM: return createKanbanSchedulingSystem();
       case KanbanmodelPackage.NUM_EXPRESSION: return createNumExpression();
       case KanbanmodelPackage.DISTRIBUTION: return createDistribution();
+      case KanbanmodelPackage.TASK_HIERARCHY: return createTaskHierarchy();
+      case KanbanmodelPackage.TASK_TYPE: return createTaskType();
+      case KanbanmodelPackage.VALUE_FUNCTION: return createValueFunction();
+      case KanbanmodelPackage.PROCESS_MODEL: return createProcessModel();
+      case KanbanmodelPackage.CLASS_OF_SERVICE: return createClassOfService();
+      case KanbanmodelPackage.WI_ACCEPTANCE_RULE_TYPE: return createWIAcceptanceRuleType();
+      case KanbanmodelPackage.WI_SELECTION_RULE_TYPE: return createWISelectionRuleType();
+      case KanbanmodelPackage.WI_ASSIGNMENT_RULE_TYPE: return createWIAssignmentRuleType();
+      case KanbanmodelPackage.RESOURCE_ALLOCATION_RULE_TYPE: return createResourceAllocationRuleType();
+      case KanbanmodelPackage.RESOURCE_OUTSOURCING_RULE_TYPE: return createResourceOutsourcingRuleType();
+      case KanbanmodelPackage.MECHANISM: return createMechanism();
+      case KanbanmodelPackage.SERVICE_TYPE: return createServiceType();
       case KanbanmodelPackage.REPOSITORY: return createRepository();
       case KanbanmodelPackage.WORK_ITEM_PROFILE: return createWorkItemProfile();
       case KanbanmodelPackage.WORK_REFERENCE: return createWorkReference();
       case KanbanmodelPackage.WORK_DECOMPOSITION: return createWorkDecomposition();
       case KanbanmodelPackage.WORK_PRECEDENCY: return createWorkPrecedency();
       case KanbanmodelPackage.WORK_CAUSALITY: return createWorkCausality();
-      case KanbanmodelPackage.TASK_PATTERN: return createTaskPattern();
-      case KanbanmodelPackage.TASK_TYPE: return createTaskType();
-      case KanbanmodelPackage.VALUE_FUNCTION: return createValueFunction();
-      case KanbanmodelPackage.PROCESS_MODEL: return createProcessModel();
-      case KanbanmodelPackage.MECHANISM: return createMechanism();
-      case KanbanmodelPackage.STRATEGY: return createStrategy();
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY: return createGovernanceStrategy();
       case KanbanmodelPackage.WI_ACCEPTANCE: return createWIAcceptance();
       case KanbanmodelPackage.WI_SELECTION: return createWISelection();
       case KanbanmodelPackage.WI_ASSIGNMENT: return createWIAssignment();
@@ -86,13 +93,13 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
       case KanbanmodelPackage.RESOURCE_OUTSOURCING: return createResourceOutsourcing();
       case KanbanmodelPackage.WORK_SOURCE: return createWorkSource();
       case KanbanmodelPackage.WORK_ITEM: return createWorkItem();
-      case KanbanmodelPackage.CAUSALITY: return createCausality();
+      case KanbanmodelPackage.CAUSAL_TRIGGER: return createCausalTrigger();
       case KanbanmodelPackage.LOCAL_VALUE: return createLocalValue();
-      case KanbanmodelPackage.SERVICE_TYPE: return createServiceType();
       case KanbanmodelPackage.SERVICE: return createService();
       case KanbanmodelPackage.SERVICE_PROVIDER: return createServiceProvider();
       case KanbanmodelPackage.ASSET: return createAsset();
       case KanbanmodelPackage.KANBAN_TASK_MODEL: return createKanbanTaskModel();
+      case KanbanmodelPackage.WORK_ITEM_NETWORK: return createWorkItemNetwork();
       case KanbanmodelPackage.CAPABILITY: return createCapability();
       case KanbanmodelPackage.REQUIREMENT: return createRequirement();
       case KanbanmodelPackage.ENTITY: return createEntity();
@@ -138,6 +145,138 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
   {
     DistributionImpl distribution = new DistributionImpl();
     return distribution;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TaskHierarchy createTaskHierarchy()
+  {
+    TaskHierarchyImpl taskHierarchy = new TaskHierarchyImpl();
+    return taskHierarchy;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TaskType createTaskType()
+  {
+    TaskTypeImpl taskType = new TaskTypeImpl();
+    return taskType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ValueFunction createValueFunction()
+  {
+    ValueFunctionImpl valueFunction = new ValueFunctionImpl();
+    return valueFunction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ProcessModel createProcessModel()
+  {
+    ProcessModelImpl processModel = new ProcessModelImpl();
+    return processModel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ClassOfService createClassOfService()
+  {
+    ClassOfServiceImpl classOfService = new ClassOfServiceImpl();
+    return classOfService;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WIAcceptanceRuleType createWIAcceptanceRuleType()
+  {
+    WIAcceptanceRuleTypeImpl wiAcceptanceRuleType = new WIAcceptanceRuleTypeImpl();
+    return wiAcceptanceRuleType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WISelectionRuleType createWISelectionRuleType()
+  {
+    WISelectionRuleTypeImpl wiSelectionRuleType = new WISelectionRuleTypeImpl();
+    return wiSelectionRuleType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WIAssignmentRuleType createWIAssignmentRuleType()
+  {
+    WIAssignmentRuleTypeImpl wiAssignmentRuleType = new WIAssignmentRuleTypeImpl();
+    return wiAssignmentRuleType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ResourceAllocationRuleType createResourceAllocationRuleType()
+  {
+    ResourceAllocationRuleTypeImpl resourceAllocationRuleType = new ResourceAllocationRuleTypeImpl();
+    return resourceAllocationRuleType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ResourceOutsourcingRuleType createResourceOutsourcingRuleType()
+  {
+    ResourceOutsourcingRuleTypeImpl resourceOutsourcingRuleType = new ResourceOutsourcingRuleTypeImpl();
+    return resourceOutsourcingRuleType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Mechanism createMechanism()
+  {
+    MechanismImpl mechanism = new MechanismImpl();
+    return mechanism;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ServiceType createServiceType()
+  {
+    ServiceTypeImpl serviceType = new ServiceTypeImpl();
+    return serviceType;
   }
 
   /**
@@ -211,65 +350,10 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
    * <!-- end-user-doc -->
    * @generated
    */
-  public TaskPattern createTaskPattern()
+  public GovernanceStrategy createGovernanceStrategy()
   {
-    TaskPatternImpl taskPattern = new TaskPatternImpl();
-    return taskPattern;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public TaskType createTaskType()
-  {
-    TaskTypeImpl taskType = new TaskTypeImpl();
-    return taskType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ValueFunction createValueFunction()
-  {
-    ValueFunctionImpl valueFunction = new ValueFunctionImpl();
-    return valueFunction;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ProcessModel createProcessModel()
-  {
-    ProcessModelImpl processModel = new ProcessModelImpl();
-    return processModel;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Mechanism createMechanism()
-  {
-    MechanismImpl mechanism = new MechanismImpl();
-    return mechanism;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Strategy createStrategy()
-  {
-    StrategyImpl strategy = new StrategyImpl();
-    return strategy;
+    GovernanceStrategyImpl governanceStrategy = new GovernanceStrategyImpl();
+    return governanceStrategy;
   }
 
   /**
@@ -354,10 +438,10 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
    * <!-- end-user-doc -->
    * @generated
    */
-  public Causality createCausality()
+  public CausalTrigger createCausalTrigger()
   {
-    CausalityImpl causality = new CausalityImpl();
-    return causality;
+    CausalTriggerImpl causalTrigger = new CausalTriggerImpl();
+    return causalTrigger;
   }
 
   /**
@@ -369,17 +453,6 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
   {
     LocalValueImpl localValue = new LocalValueImpl();
     return localValue;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ServiceType createServiceType()
-  {
-    ServiceTypeImpl serviceType = new ServiceTypeImpl();
-    return serviceType;
   }
 
   /**
@@ -424,6 +497,17 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
   {
     KanbanTaskModelImpl kanbanTaskModel = new KanbanTaskModelImpl();
     return kanbanTaskModel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WorkItemNetwork createWorkItemNetwork()
+  {
+    WorkItemNetworkImpl workItemNetwork = new WorkItemNetworkImpl();
+    return workItemNetwork;
   }
 
   /**

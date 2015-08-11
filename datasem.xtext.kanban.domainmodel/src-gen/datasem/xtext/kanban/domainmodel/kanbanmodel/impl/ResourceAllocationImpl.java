@@ -4,10 +4,12 @@ package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocation;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocationRuleType;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -19,7 +21,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ResourceAllocationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ResourceAllocationImpl#getType <em>Type</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ResourceAllocationImpl#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
@@ -29,24 +31,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class ResourceAllocationImpl extends MinimalEObjectImpl.Container implements ResourceAllocation
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getType()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected ResourceAllocationRuleType type;
 
   /**
    * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -94,9 +86,19 @@ public class ResourceAllocationImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public ResourceAllocationRuleType getType()
   {
-    return name;
+    if (type != null && type.eIsProxy())
+    {
+      InternalEObject oldType = (InternalEObject)type;
+      type = (ResourceAllocationRuleType)eResolveProxy(oldType);
+      if (type != oldType)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.RESOURCE_ALLOCATION__TYPE, oldType, type));
+      }
+    }
+    return type;
   }
 
   /**
@@ -104,12 +106,22 @@ public class ResourceAllocationImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public ResourceAllocationRuleType basicGetType()
   {
-    String oldName = name;
-    name = newName;
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setType(ResourceAllocationRuleType newType)
+  {
+    ResourceAllocationRuleType oldType = type;
+    type = newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.RESOURCE_ALLOCATION__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.RESOURCE_ALLOCATION__TYPE, oldType, type));
   }
 
   /**
@@ -145,8 +157,9 @@ public class ResourceAllocationImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.RESOURCE_ALLOCATION__NAME:
-        return getName();
+      case KanbanmodelPackage.RESOURCE_ALLOCATION__TYPE:
+        if (resolve) return getType();
+        return basicGetType();
       case KanbanmodelPackage.RESOURCE_ALLOCATION__DESCRIPTION:
         return getDescription();
     }
@@ -163,8 +176,8 @@ public class ResourceAllocationImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.RESOURCE_ALLOCATION__NAME:
-        setName((String)newValue);
+      case KanbanmodelPackage.RESOURCE_ALLOCATION__TYPE:
+        setType((ResourceAllocationRuleType)newValue);
         return;
       case KanbanmodelPackage.RESOURCE_ALLOCATION__DESCRIPTION:
         setDescription((String)newValue);
@@ -183,8 +196,8 @@ public class ResourceAllocationImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.RESOURCE_ALLOCATION__NAME:
-        setName(NAME_EDEFAULT);
+      case KanbanmodelPackage.RESOURCE_ALLOCATION__TYPE:
+        setType((ResourceAllocationRuleType)null);
         return;
       case KanbanmodelPackage.RESOURCE_ALLOCATION__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
@@ -203,8 +216,8 @@ public class ResourceAllocationImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.RESOURCE_ALLOCATION__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case KanbanmodelPackage.RESOURCE_ALLOCATION__TYPE:
+        return type != null;
       case KanbanmodelPackage.RESOURCE_ALLOCATION__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
     }
@@ -222,9 +235,7 @@ public class ResourceAllocationImpl extends MinimalEObjectImpl.Container impleme
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", description: ");
+    result.append(" (description: ");
     result.append(description);
     result.append(')');
     return result.toString();

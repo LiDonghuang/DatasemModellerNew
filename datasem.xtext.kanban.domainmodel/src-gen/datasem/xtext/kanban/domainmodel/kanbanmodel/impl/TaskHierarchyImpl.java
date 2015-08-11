@@ -3,7 +3,7 @@
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.TaskPattern;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.TaskHierarchy;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.TaskType;
 
 import java.util.Collection;
@@ -21,20 +21,20 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Task Pattern</b></em>'.
+ * An implementation of the model object '<em><b>Task Hierarchy</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.TaskPatternImpl#getName <em>Name</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.TaskPatternImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.TaskPatternImpl#getTaskTypes <em>Task Types</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.TaskHierarchyImpl#getName <em>Name</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.TaskHierarchyImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.TaskHierarchyImpl#getTaskTypes <em>Task Types</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class TaskPatternImpl extends MinimalEObjectImpl.Container implements TaskPattern
+public class TaskHierarchyImpl extends MinimalEObjectImpl.Container implements TaskHierarchy
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -91,7 +91,7 @@ public class TaskPatternImpl extends MinimalEObjectImpl.Container implements Tas
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TaskPatternImpl()
+  protected TaskHierarchyImpl()
   {
     super();
   }
@@ -104,7 +104,7 @@ public class TaskPatternImpl extends MinimalEObjectImpl.Container implements Tas
   @Override
   protected EClass eStaticClass()
   {
-    return KanbanmodelPackage.Literals.TASK_PATTERN;
+    return KanbanmodelPackage.Literals.TASK_HIERARCHY;
   }
 
   /**
@@ -127,7 +127,7 @@ public class TaskPatternImpl extends MinimalEObjectImpl.Container implements Tas
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.TASK_PATTERN__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.TASK_HIERARCHY__NAME, oldName, name));
   }
 
   /**
@@ -150,7 +150,7 @@ public class TaskPatternImpl extends MinimalEObjectImpl.Container implements Tas
     String oldDescription = description;
     description = newDescription;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.TASK_PATTERN__DESCRIPTION, oldDescription, description));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.TASK_HIERARCHY__DESCRIPTION, oldDescription, description));
   }
 
   /**
@@ -162,7 +162,7 @@ public class TaskPatternImpl extends MinimalEObjectImpl.Container implements Tas
   {
     if (taskTypes == null)
     {
-      taskTypes = new EObjectResolvingEList<TaskType>(TaskType.class, this, KanbanmodelPackage.TASK_PATTERN__TASK_TYPES);
+      taskTypes = new EObjectResolvingEList<TaskType>(TaskType.class, this, KanbanmodelPackage.TASK_HIERARCHY__TASK_TYPES);
     }
     return taskTypes;
   }
@@ -177,11 +177,11 @@ public class TaskPatternImpl extends MinimalEObjectImpl.Container implements Tas
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.TASK_PATTERN__NAME:
+      case KanbanmodelPackage.TASK_HIERARCHY__NAME:
         return getName();
-      case KanbanmodelPackage.TASK_PATTERN__DESCRIPTION:
+      case KanbanmodelPackage.TASK_HIERARCHY__DESCRIPTION:
         return getDescription();
-      case KanbanmodelPackage.TASK_PATTERN__TASK_TYPES:
+      case KanbanmodelPackage.TASK_HIERARCHY__TASK_TYPES:
         return getTaskTypes();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -198,13 +198,13 @@ public class TaskPatternImpl extends MinimalEObjectImpl.Container implements Tas
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.TASK_PATTERN__NAME:
+      case KanbanmodelPackage.TASK_HIERARCHY__NAME:
         setName((String)newValue);
         return;
-      case KanbanmodelPackage.TASK_PATTERN__DESCRIPTION:
+      case KanbanmodelPackage.TASK_HIERARCHY__DESCRIPTION:
         setDescription((String)newValue);
         return;
-      case KanbanmodelPackage.TASK_PATTERN__TASK_TYPES:
+      case KanbanmodelPackage.TASK_HIERARCHY__TASK_TYPES:
         getTaskTypes().clear();
         getTaskTypes().addAll((Collection<? extends TaskType>)newValue);
         return;
@@ -222,13 +222,13 @@ public class TaskPatternImpl extends MinimalEObjectImpl.Container implements Tas
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.TASK_PATTERN__NAME:
+      case KanbanmodelPackage.TASK_HIERARCHY__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case KanbanmodelPackage.TASK_PATTERN__DESCRIPTION:
+      case KanbanmodelPackage.TASK_HIERARCHY__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case KanbanmodelPackage.TASK_PATTERN__TASK_TYPES:
+      case KanbanmodelPackage.TASK_HIERARCHY__TASK_TYPES:
         getTaskTypes().clear();
         return;
     }
@@ -245,11 +245,11 @@ public class TaskPatternImpl extends MinimalEObjectImpl.Container implements Tas
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.TASK_PATTERN__NAME:
+      case KanbanmodelPackage.TASK_HIERARCHY__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case KanbanmodelPackage.TASK_PATTERN__DESCRIPTION:
+      case KanbanmodelPackage.TASK_HIERARCHY__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case KanbanmodelPackage.TASK_PATTERN__TASK_TYPES:
+      case KanbanmodelPackage.TASK_HIERARCHY__TASK_TYPES:
         return taskTypes != null && !taskTypes.isEmpty();
     }
     return super.eIsSet(featureID);
@@ -274,4 +274,4 @@ public class TaskPatternImpl extends MinimalEObjectImpl.Container implements Tas
     return result.toString();
   }
 
-} //TaskPatternImpl
+} //TaskHierarchyImpl

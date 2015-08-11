@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'KSSModel'", "'GovernanceModel'", "'ProcessModels'", "'end ProcessModels'", "'GovernanceSearchStrategies'", "'end GovernanceSearchStrategies'", "'TaskPatterns'", "'end TaskPatterns'", "'ValueFunctions'", "'end ValueFunctions'", "'end GovernanceModel'", "'OrganizationalModel'", "'ServiceTypes'", "'end ServiceTypes'", "'ServiceProviders'", "'end ServiceProviders'", "'end OrganizationalModel'", "'WorkItemNetworkModel'", "'Repositories'", "'end Repositories'", "'WorkSources'", "'end WorkSources'", "'WorkItems'", "'end WorkItems'", "'end WorkItemNetworkModel'", "'ExperimentSettings'", "'Replications'", "'InterArrivalTime'", "'end ExperimentSettings'", "'end KSSModel'", "'.'", "'Distribution:'", "'['", "']'", "'Repository'", "'Profiles'", "'{'", "'}'", "'end Repository'", "'WorkItem'", "'Description'", "'ProcessModel'", "'References'", "'Decompositions'", "'RequiredServices'", "'Efforts'", "'Value'", "'ClassOfService'", "'AssignmentAllowed'", "'DiscardAllowed'", "'Quantity'", "'TaskPattern'", "'Types'", "'TaskType'", "'ValueFunction'", "'Strategy'", "'WIAcceptance'", "'BackLogLimit'", "'WIPLimit'", "'WISelection'", "'WIAssignment'", "'ResourceAllocation'", "'ResourceOutsourcing'", "'WorkSource'", "'TargetUnits'", "'Profile'", "'Pattern'", "'Type'", "'Predecessors'", "'Subtasks'", "'CausalTriggers'", "'ArrivalTime'", "'DueDate'", "'=>'", "'->'", "'AtProgress'", "'OnProbability'", "'ServiceType'", "'Service'", "'Efficiency'", "'ServiceProvider'", "'Group'", "'SourceUnits'", "'SubordinateUnits'", "'Services'", "'GovernanceSearchStrategy'", "'Default'", "'Specified'", "'Resources'", "'Resource'", "'capability'", "'requirement'", "'workItems'", "'workItemNetwork'", "'('", "','", "')'", "'events'", "'end'", "'activities'", "'state'", "'actions'", "'/'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'ReservedLibraries'", "'GovernanceLibrary'", "'WIAcceptanceRuleTypes'", "'end WIAcceptanceRuleTypes'", "'WISelectionRuleTypes'", "'end WISelectionRuleTypes'", "'WIAssignmentRuleTypes'", "'end WIAssignmentRuleTypes'", "'ResourceAllocationRuleTypes'", "'end ResourceAllocationRuleTypes'", "'ResourceOutsourcingRuleTypes'", "'end ResourceOutsourcingRuleTypes'", "'end GovernanceLibrary'", "'TaskLibrary'", "'ProcessModels'", "'end ProcessModels'", "'ValueFunctions'", "'end ValueFunctions'", "'end TaskLibrary'", "'end ReservedLibraries'", "'UserLibraries'", "'TaskPattern'", "'end TaskPattern'", "'ClassOfServices'", "'end ClassOfServices'", "'ServiceTypes'", "'end ServiceTypes'", "'GovernanceStrategies'", "'end GovernanceStrategies'", "'Repositories'", "'end Repositories'", "'end UserLibraries'", "'KSSModel'", "'Path'", "'OrganizationalModel'", "'ServiceProviders'", "'end ServiceProviders'", "'end OrganizationalModel'", "'WorkItemNetworkModel'", "'WorkSources'", "'end WorkSources'", "'WorkItems'", "'end WorkItems'", "'end WorkItemNetworkModel'", "'end KSSModel'", "'ExperimentSettings'", "'Replications'", "'InterArrivalTime'", "'end ExperimentSettings'", "'.'", "'Distribution:'", "'['", "']'", "'TaskHierarchy'", "'{'", "'Description'", "'Types'", "'}'", "'TaskType'", "'ValueFunction'", "'ProcessModel'", "'ClassOfService'", "'RuleType'", "'ServiceType'", "'Repository'", "'Profiles'", "'end Repository'", "'WorkItem'", "'References'", "'Decompositions'", "'RequiredServices'", "'Efforts'", "'Value'", "'AssignmentAllowed'", "'DiscardAllowed'", "'Quantity'", "'GovernanceStrategy'", "'WIAcceptance'", "'BackLogLimit'", "'WIPLimit'", "'WISelection'", "'WIAssignment'", "'ResourceAllocation'", "'ResourceOutsourcing'", "'WorkSource'", "'TargetUnits'", "'Profile'", "'Type'", "'Predecessors'", "'Subtasks'", "'CausalTriggers'", "'ArrivalTime'", "'DueDate'", "'=>'", "'->'", "'AtProgress'", "'OnProbability'", "'Efficiency'", "'ServiceProvider'", "'Group'", "'SourceUnits'", "'SubordinateUnits'", "'Services'", "'Resources'", "'Resource'", "'capability'", "'requirement'", "'workItems'", "'workItemNetwork'", "'('", "','", "')'", "'events'", "'end'", "'activities'", "'state'", "'actions'", "'/'"
     };
     public static final int RULE_ID=4;
     public static final int T__29=29;
@@ -66,7 +66,11 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
     public static final int T__89=89;
     public static final int T__88=88;
     public static final int RULE_ML_COMMENT=7;
+    public static final int T__126=126;
+    public static final int T__125=125;
+    public static final int T__128=128;
     public static final int RULE_STRING=6;
+    public static final int T__127=127;
     public static final int T__71=71;
     public static final int T__72=72;
     public static final int T__70=70;
@@ -85,6 +89,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
     public static final int T__65=65;
     public static final int T__62=62;
     public static final int T__63=63;
+    public static final int T__118=118;
+    public static final int T__119=119;
+    public static final int T__116=116;
+    public static final int T__117=117;
+    public static final int T__114=114;
+    public static final int T__115=115;
+    public static final int T__124=124;
+    public static final int T__123=123;
+    public static final int T__122=122;
+    public static final int T__121=121;
+    public static final int T__120=120;
     public static final int T__61=61;
     public static final int T__60=60;
     public static final int T__55=55;
@@ -210,18 +225,19 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleKanbanSchedulingSystem"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:76:1: ruleKanbanSchedulingSystem returns [EObject current=null] : (otherlv_0= 'KSSModel' ( (lv_name_1_0= RULE_ID ) ) ( (lv_TestItems_2_0= ruleQualifiedName ) )? otherlv_3= 'GovernanceModel' otherlv_4= 'ProcessModels' ( (lv_ProcessModels_5_0= ruleProcessModel ) )+ otherlv_6= 'end ProcessModels' otherlv_7= 'GovernanceSearchStrategies' ( (lv_GovernanceSearchStrategies_8_0= ruleStrategy ) )+ otherlv_9= 'end GovernanceSearchStrategies' otherlv_10= 'TaskPatterns' ( (lv_TaskPatterns_11_0= ruleTaskPattern ) )+ ( (lv_TaskTypes_12_0= ruleTaskType ) )+ otherlv_13= 'end TaskPatterns' otherlv_14= 'ValueFunctions' ( (lv_ValueFunctions_15_0= ruleValueFunction ) )+ otherlv_16= 'end ValueFunctions' otherlv_17= 'end GovernanceModel' otherlv_18= 'OrganizationalModel' otherlv_19= 'ServiceTypes' ( (lv_ServiceTypes_20_0= ruleServiceType ) )+ otherlv_21= 'end ServiceTypes' otherlv_22= 'ServiceProviders' ( (lv_ServiceProviders_23_0= ruleServiceProvider ) )+ otherlv_24= 'end ServiceProviders' otherlv_25= 'end OrganizationalModel' otherlv_26= 'WorkItemNetworkModel' otherlv_27= 'Repositories' ( (lv_Repositories_28_0= ruleRepository ) )+ otherlv_29= 'end Repositories' otherlv_30= 'WorkSources' ( (lv_WorkSources_31_0= ruleWorkSource ) )+ otherlv_32= 'end WorkSources' otherlv_33= 'WorkItems' ( (lv_WorkItems_34_0= ruleWorkItem ) )+ otherlv_35= 'end WorkItems' otherlv_36= 'end WorkItemNetworkModel' otherlv_37= 'ExperimentSettings' otherlv_38= 'Replications' ( (lv_replications_39_0= RULE_INT ) ) otherlv_40= 'InterArrivalTime' ( (lv_interArrivalTime_41_0= RULE_INT ) ) otherlv_42= 'end ExperimentSettings' otherlv_43= 'end KSSModel' ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:76:1: ruleKanbanSchedulingSystem returns [EObject current=null] : (otherlv_0= 'ReservedLibraries' otherlv_1= 'GovernanceLibrary' otherlv_2= 'WIAcceptanceRuleTypes' ( (lv_WIAcceptanceRuleTypes_3_0= ruleWIAcceptanceRuleType ) )+ otherlv_4= 'end WIAcceptanceRuleTypes' otherlv_5= 'WISelectionRuleTypes' ( (lv_WISelectionRuleTypes_6_0= ruleWISelectionRuleType ) )+ otherlv_7= 'end WISelectionRuleTypes' otherlv_8= 'WIAssignmentRuleTypes' ( (lv_WIAssignmentRuleTypes_9_0= ruleWIAssignmentRuleType ) )+ otherlv_10= 'end WIAssignmentRuleTypes' otherlv_11= 'ResourceAllocationRuleTypes' ( (lv_ResourceAllocationRuleTypes_12_0= ruleResourceAllocationRuleType ) )+ otherlv_13= 'end ResourceAllocationRuleTypes' otherlv_14= 'ResourceOutsourcingRuleTypes' ( (lv_ResourceOutsourcingRuleTypes_15_0= ruleResourceOutsourcingRuleType ) )+ otherlv_16= 'end ResourceOutsourcingRuleTypes' otherlv_17= 'end GovernanceLibrary' otherlv_18= 'TaskLibrary' otherlv_19= 'ProcessModels' ( (lv_ProcessModels_20_0= ruleProcessModel ) )+ otherlv_21= 'end ProcessModels' otherlv_22= 'ValueFunctions' ( (lv_ValueFunctions_23_0= ruleValueFunction ) )+ otherlv_24= 'end ValueFunctions' otherlv_25= 'end TaskLibrary' otherlv_26= 'end ReservedLibraries' otherlv_27= 'UserLibraries' otherlv_28= 'TaskPattern' ( (lv_TaskTypes_29_0= ruleTaskType ) )+ ( (lv_TaskHierarchy_30_0= ruleTaskHierarchy ) ) otherlv_31= 'end TaskPattern' otherlv_32= 'ClassOfServices' ( (lv_ClassOfServices_33_0= ruleClassOfService ) )+ otherlv_34= 'end ClassOfServices' otherlv_35= 'ServiceTypes' ( (lv_ServiceTypes_36_0= ruleServiceType ) )+ otherlv_37= 'end ServiceTypes' otherlv_38= 'GovernanceStrategies' ( (lv_GovernanceStrategies_39_0= ruleGovernanceStrategy ) )+ otherlv_40= 'end GovernanceStrategies' (otherlv_41= 'Repositories' ( (lv_Repositories_42_0= ruleRepository ) )+ otherlv_43= 'end Repositories' )? otherlv_44= 'end UserLibraries' otherlv_45= 'KSSModel' ( (lv_name_46_0= RULE_ID ) ) (otherlv_47= 'Path' ( (lv_Path_48_0= ruleQualifiedName ) ) )? otherlv_49= 'OrganizationalModel' otherlv_50= 'ServiceProviders' ( (lv_ServiceProviders_51_0= ruleServiceProvider ) )+ otherlv_52= 'end ServiceProviders' otherlv_53= 'end OrganizationalModel' otherlv_54= 'WorkItemNetworkModel' otherlv_55= 'WorkSources' ( (lv_WorkSources_56_0= ruleWorkSource ) )+ otherlv_57= 'end WorkSources' otherlv_58= 'WorkItems' ( (lv_WorkItems_59_0= ruleWorkItem ) )+ otherlv_60= 'end WorkItems' otherlv_61= 'end WorkItemNetworkModel' otherlv_62= 'end KSSModel' otherlv_63= 'ExperimentSettings' otherlv_64= 'Replications' ( (lv_replications_65_0= RULE_INT ) ) otherlv_66= 'InterArrivalTime' ( (lv_interArrivalTime_67_0= RULE_INT ) ) otherlv_68= 'end ExperimentSettings' ) ;
     public final EObject ruleKanbanSchedulingSystem() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token lv_name_1_0=null;
-        Token otherlv_3=null;
+        Token otherlv_1=null;
+        Token otherlv_2=null;
         Token otherlv_4=null;
-        Token otherlv_6=null;
+        Token otherlv_5=null;
         Token otherlv_7=null;
-        Token otherlv_9=null;
+        Token otherlv_8=null;
         Token otherlv_10=null;
+        Token otherlv_11=null;
         Token otherlv_13=null;
         Token otherlv_14=null;
         Token otherlv_16=null;
@@ -234,155 +250,117 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
         Token otherlv_25=null;
         Token otherlv_26=null;
         Token otherlv_27=null;
-        Token otherlv_29=null;
-        Token otherlv_30=null;
+        Token otherlv_28=null;
+        Token otherlv_31=null;
         Token otherlv_32=null;
-        Token otherlv_33=null;
+        Token otherlv_34=null;
         Token otherlv_35=null;
-        Token otherlv_36=null;
         Token otherlv_37=null;
         Token otherlv_38=null;
-        Token lv_replications_39_0=null;
         Token otherlv_40=null;
-        Token lv_interArrivalTime_41_0=null;
-        Token otherlv_42=null;
+        Token otherlv_41=null;
         Token otherlv_43=null;
-        AntlrDatatypeRuleToken lv_TestItems_2_0 = null;
+        Token otherlv_44=null;
+        Token otherlv_45=null;
+        Token lv_name_46_0=null;
+        Token otherlv_47=null;
+        Token otherlv_49=null;
+        Token otherlv_50=null;
+        Token otherlv_52=null;
+        Token otherlv_53=null;
+        Token otherlv_54=null;
+        Token otherlv_55=null;
+        Token otherlv_57=null;
+        Token otherlv_58=null;
+        Token otherlv_60=null;
+        Token otherlv_61=null;
+        Token otherlv_62=null;
+        Token otherlv_63=null;
+        Token otherlv_64=null;
+        Token lv_replications_65_0=null;
+        Token otherlv_66=null;
+        Token lv_interArrivalTime_67_0=null;
+        Token otherlv_68=null;
+        EObject lv_WIAcceptanceRuleTypes_3_0 = null;
 
-        EObject lv_ProcessModels_5_0 = null;
+        EObject lv_WISelectionRuleTypes_6_0 = null;
 
-        EObject lv_GovernanceSearchStrategies_8_0 = null;
+        EObject lv_WIAssignmentRuleTypes_9_0 = null;
 
-        EObject lv_TaskPatterns_11_0 = null;
+        EObject lv_ResourceAllocationRuleTypes_12_0 = null;
 
-        EObject lv_TaskTypes_12_0 = null;
+        EObject lv_ResourceOutsourcingRuleTypes_15_0 = null;
 
-        EObject lv_ValueFunctions_15_0 = null;
+        EObject lv_ProcessModels_20_0 = null;
 
-        EObject lv_ServiceTypes_20_0 = null;
+        EObject lv_ValueFunctions_23_0 = null;
 
-        EObject lv_ServiceProviders_23_0 = null;
+        EObject lv_TaskTypes_29_0 = null;
 
-        EObject lv_Repositories_28_0 = null;
+        EObject lv_TaskHierarchy_30_0 = null;
 
-        EObject lv_WorkSources_31_0 = null;
+        EObject lv_ClassOfServices_33_0 = null;
 
-        EObject lv_WorkItems_34_0 = null;
+        EObject lv_ServiceTypes_36_0 = null;
+
+        EObject lv_GovernanceStrategies_39_0 = null;
+
+        EObject lv_Repositories_42_0 = null;
+
+        AntlrDatatypeRuleToken lv_Path_48_0 = null;
+
+        EObject lv_ServiceProviders_51_0 = null;
+
+        EObject lv_WorkSources_56_0 = null;
+
+        EObject lv_WorkItems_59_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:79:28: ( (otherlv_0= 'KSSModel' ( (lv_name_1_0= RULE_ID ) ) ( (lv_TestItems_2_0= ruleQualifiedName ) )? otherlv_3= 'GovernanceModel' otherlv_4= 'ProcessModels' ( (lv_ProcessModels_5_0= ruleProcessModel ) )+ otherlv_6= 'end ProcessModels' otherlv_7= 'GovernanceSearchStrategies' ( (lv_GovernanceSearchStrategies_8_0= ruleStrategy ) )+ otherlv_9= 'end GovernanceSearchStrategies' otherlv_10= 'TaskPatterns' ( (lv_TaskPatterns_11_0= ruleTaskPattern ) )+ ( (lv_TaskTypes_12_0= ruleTaskType ) )+ otherlv_13= 'end TaskPatterns' otherlv_14= 'ValueFunctions' ( (lv_ValueFunctions_15_0= ruleValueFunction ) )+ otherlv_16= 'end ValueFunctions' otherlv_17= 'end GovernanceModel' otherlv_18= 'OrganizationalModel' otherlv_19= 'ServiceTypes' ( (lv_ServiceTypes_20_0= ruleServiceType ) )+ otherlv_21= 'end ServiceTypes' otherlv_22= 'ServiceProviders' ( (lv_ServiceProviders_23_0= ruleServiceProvider ) )+ otherlv_24= 'end ServiceProviders' otherlv_25= 'end OrganizationalModel' otherlv_26= 'WorkItemNetworkModel' otherlv_27= 'Repositories' ( (lv_Repositories_28_0= ruleRepository ) )+ otherlv_29= 'end Repositories' otherlv_30= 'WorkSources' ( (lv_WorkSources_31_0= ruleWorkSource ) )+ otherlv_32= 'end WorkSources' otherlv_33= 'WorkItems' ( (lv_WorkItems_34_0= ruleWorkItem ) )+ otherlv_35= 'end WorkItems' otherlv_36= 'end WorkItemNetworkModel' otherlv_37= 'ExperimentSettings' otherlv_38= 'Replications' ( (lv_replications_39_0= RULE_INT ) ) otherlv_40= 'InterArrivalTime' ( (lv_interArrivalTime_41_0= RULE_INT ) ) otherlv_42= 'end ExperimentSettings' otherlv_43= 'end KSSModel' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:80:1: (otherlv_0= 'KSSModel' ( (lv_name_1_0= RULE_ID ) ) ( (lv_TestItems_2_0= ruleQualifiedName ) )? otherlv_3= 'GovernanceModel' otherlv_4= 'ProcessModels' ( (lv_ProcessModels_5_0= ruleProcessModel ) )+ otherlv_6= 'end ProcessModels' otherlv_7= 'GovernanceSearchStrategies' ( (lv_GovernanceSearchStrategies_8_0= ruleStrategy ) )+ otherlv_9= 'end GovernanceSearchStrategies' otherlv_10= 'TaskPatterns' ( (lv_TaskPatterns_11_0= ruleTaskPattern ) )+ ( (lv_TaskTypes_12_0= ruleTaskType ) )+ otherlv_13= 'end TaskPatterns' otherlv_14= 'ValueFunctions' ( (lv_ValueFunctions_15_0= ruleValueFunction ) )+ otherlv_16= 'end ValueFunctions' otherlv_17= 'end GovernanceModel' otherlv_18= 'OrganizationalModel' otherlv_19= 'ServiceTypes' ( (lv_ServiceTypes_20_0= ruleServiceType ) )+ otherlv_21= 'end ServiceTypes' otherlv_22= 'ServiceProviders' ( (lv_ServiceProviders_23_0= ruleServiceProvider ) )+ otherlv_24= 'end ServiceProviders' otherlv_25= 'end OrganizationalModel' otherlv_26= 'WorkItemNetworkModel' otherlv_27= 'Repositories' ( (lv_Repositories_28_0= ruleRepository ) )+ otherlv_29= 'end Repositories' otherlv_30= 'WorkSources' ( (lv_WorkSources_31_0= ruleWorkSource ) )+ otherlv_32= 'end WorkSources' otherlv_33= 'WorkItems' ( (lv_WorkItems_34_0= ruleWorkItem ) )+ otherlv_35= 'end WorkItems' otherlv_36= 'end WorkItemNetworkModel' otherlv_37= 'ExperimentSettings' otherlv_38= 'Replications' ( (lv_replications_39_0= RULE_INT ) ) otherlv_40= 'InterArrivalTime' ( (lv_interArrivalTime_41_0= RULE_INT ) ) otherlv_42= 'end ExperimentSettings' otherlv_43= 'end KSSModel' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:79:28: ( (otherlv_0= 'ReservedLibraries' otherlv_1= 'GovernanceLibrary' otherlv_2= 'WIAcceptanceRuleTypes' ( (lv_WIAcceptanceRuleTypes_3_0= ruleWIAcceptanceRuleType ) )+ otherlv_4= 'end WIAcceptanceRuleTypes' otherlv_5= 'WISelectionRuleTypes' ( (lv_WISelectionRuleTypes_6_0= ruleWISelectionRuleType ) )+ otherlv_7= 'end WISelectionRuleTypes' otherlv_8= 'WIAssignmentRuleTypes' ( (lv_WIAssignmentRuleTypes_9_0= ruleWIAssignmentRuleType ) )+ otherlv_10= 'end WIAssignmentRuleTypes' otherlv_11= 'ResourceAllocationRuleTypes' ( (lv_ResourceAllocationRuleTypes_12_0= ruleResourceAllocationRuleType ) )+ otherlv_13= 'end ResourceAllocationRuleTypes' otherlv_14= 'ResourceOutsourcingRuleTypes' ( (lv_ResourceOutsourcingRuleTypes_15_0= ruleResourceOutsourcingRuleType ) )+ otherlv_16= 'end ResourceOutsourcingRuleTypes' otherlv_17= 'end GovernanceLibrary' otherlv_18= 'TaskLibrary' otherlv_19= 'ProcessModels' ( (lv_ProcessModels_20_0= ruleProcessModel ) )+ otherlv_21= 'end ProcessModels' otherlv_22= 'ValueFunctions' ( (lv_ValueFunctions_23_0= ruleValueFunction ) )+ otherlv_24= 'end ValueFunctions' otherlv_25= 'end TaskLibrary' otherlv_26= 'end ReservedLibraries' otherlv_27= 'UserLibraries' otherlv_28= 'TaskPattern' ( (lv_TaskTypes_29_0= ruleTaskType ) )+ ( (lv_TaskHierarchy_30_0= ruleTaskHierarchy ) ) otherlv_31= 'end TaskPattern' otherlv_32= 'ClassOfServices' ( (lv_ClassOfServices_33_0= ruleClassOfService ) )+ otherlv_34= 'end ClassOfServices' otherlv_35= 'ServiceTypes' ( (lv_ServiceTypes_36_0= ruleServiceType ) )+ otherlv_37= 'end ServiceTypes' otherlv_38= 'GovernanceStrategies' ( (lv_GovernanceStrategies_39_0= ruleGovernanceStrategy ) )+ otherlv_40= 'end GovernanceStrategies' (otherlv_41= 'Repositories' ( (lv_Repositories_42_0= ruleRepository ) )+ otherlv_43= 'end Repositories' )? otherlv_44= 'end UserLibraries' otherlv_45= 'KSSModel' ( (lv_name_46_0= RULE_ID ) ) (otherlv_47= 'Path' ( (lv_Path_48_0= ruleQualifiedName ) ) )? otherlv_49= 'OrganizationalModel' otherlv_50= 'ServiceProviders' ( (lv_ServiceProviders_51_0= ruleServiceProvider ) )+ otherlv_52= 'end ServiceProviders' otherlv_53= 'end OrganizationalModel' otherlv_54= 'WorkItemNetworkModel' otherlv_55= 'WorkSources' ( (lv_WorkSources_56_0= ruleWorkSource ) )+ otherlv_57= 'end WorkSources' otherlv_58= 'WorkItems' ( (lv_WorkItems_59_0= ruleWorkItem ) )+ otherlv_60= 'end WorkItems' otherlv_61= 'end WorkItemNetworkModel' otherlv_62= 'end KSSModel' otherlv_63= 'ExperimentSettings' otherlv_64= 'Replications' ( (lv_replications_65_0= RULE_INT ) ) otherlv_66= 'InterArrivalTime' ( (lv_interArrivalTime_67_0= RULE_INT ) ) otherlv_68= 'end ExperimentSettings' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:80:1: (otherlv_0= 'ReservedLibraries' otherlv_1= 'GovernanceLibrary' otherlv_2= 'WIAcceptanceRuleTypes' ( (lv_WIAcceptanceRuleTypes_3_0= ruleWIAcceptanceRuleType ) )+ otherlv_4= 'end WIAcceptanceRuleTypes' otherlv_5= 'WISelectionRuleTypes' ( (lv_WISelectionRuleTypes_6_0= ruleWISelectionRuleType ) )+ otherlv_7= 'end WISelectionRuleTypes' otherlv_8= 'WIAssignmentRuleTypes' ( (lv_WIAssignmentRuleTypes_9_0= ruleWIAssignmentRuleType ) )+ otherlv_10= 'end WIAssignmentRuleTypes' otherlv_11= 'ResourceAllocationRuleTypes' ( (lv_ResourceAllocationRuleTypes_12_0= ruleResourceAllocationRuleType ) )+ otherlv_13= 'end ResourceAllocationRuleTypes' otherlv_14= 'ResourceOutsourcingRuleTypes' ( (lv_ResourceOutsourcingRuleTypes_15_0= ruleResourceOutsourcingRuleType ) )+ otherlv_16= 'end ResourceOutsourcingRuleTypes' otherlv_17= 'end GovernanceLibrary' otherlv_18= 'TaskLibrary' otherlv_19= 'ProcessModels' ( (lv_ProcessModels_20_0= ruleProcessModel ) )+ otherlv_21= 'end ProcessModels' otherlv_22= 'ValueFunctions' ( (lv_ValueFunctions_23_0= ruleValueFunction ) )+ otherlv_24= 'end ValueFunctions' otherlv_25= 'end TaskLibrary' otherlv_26= 'end ReservedLibraries' otherlv_27= 'UserLibraries' otherlv_28= 'TaskPattern' ( (lv_TaskTypes_29_0= ruleTaskType ) )+ ( (lv_TaskHierarchy_30_0= ruleTaskHierarchy ) ) otherlv_31= 'end TaskPattern' otherlv_32= 'ClassOfServices' ( (lv_ClassOfServices_33_0= ruleClassOfService ) )+ otherlv_34= 'end ClassOfServices' otherlv_35= 'ServiceTypes' ( (lv_ServiceTypes_36_0= ruleServiceType ) )+ otherlv_37= 'end ServiceTypes' otherlv_38= 'GovernanceStrategies' ( (lv_GovernanceStrategies_39_0= ruleGovernanceStrategy ) )+ otherlv_40= 'end GovernanceStrategies' (otherlv_41= 'Repositories' ( (lv_Repositories_42_0= ruleRepository ) )+ otherlv_43= 'end Repositories' )? otherlv_44= 'end UserLibraries' otherlv_45= 'KSSModel' ( (lv_name_46_0= RULE_ID ) ) (otherlv_47= 'Path' ( (lv_Path_48_0= ruleQualifiedName ) ) )? otherlv_49= 'OrganizationalModel' otherlv_50= 'ServiceProviders' ( (lv_ServiceProviders_51_0= ruleServiceProvider ) )+ otherlv_52= 'end ServiceProviders' otherlv_53= 'end OrganizationalModel' otherlv_54= 'WorkItemNetworkModel' otherlv_55= 'WorkSources' ( (lv_WorkSources_56_0= ruleWorkSource ) )+ otherlv_57= 'end WorkSources' otherlv_58= 'WorkItems' ( (lv_WorkItems_59_0= ruleWorkItem ) )+ otherlv_60= 'end WorkItems' otherlv_61= 'end WorkItemNetworkModel' otherlv_62= 'end KSSModel' otherlv_63= 'ExperimentSettings' otherlv_64= 'Replications' ( (lv_replications_65_0= RULE_INT ) ) otherlv_66= 'InterArrivalTime' ( (lv_interArrivalTime_67_0= RULE_INT ) ) otherlv_68= 'end ExperimentSettings' )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:80:1: (otherlv_0= 'KSSModel' ( (lv_name_1_0= RULE_ID ) ) ( (lv_TestItems_2_0= ruleQualifiedName ) )? otherlv_3= 'GovernanceModel' otherlv_4= 'ProcessModels' ( (lv_ProcessModels_5_0= ruleProcessModel ) )+ otherlv_6= 'end ProcessModels' otherlv_7= 'GovernanceSearchStrategies' ( (lv_GovernanceSearchStrategies_8_0= ruleStrategy ) )+ otherlv_9= 'end GovernanceSearchStrategies' otherlv_10= 'TaskPatterns' ( (lv_TaskPatterns_11_0= ruleTaskPattern ) )+ ( (lv_TaskTypes_12_0= ruleTaskType ) )+ otherlv_13= 'end TaskPatterns' otherlv_14= 'ValueFunctions' ( (lv_ValueFunctions_15_0= ruleValueFunction ) )+ otherlv_16= 'end ValueFunctions' otherlv_17= 'end GovernanceModel' otherlv_18= 'OrganizationalModel' otherlv_19= 'ServiceTypes' ( (lv_ServiceTypes_20_0= ruleServiceType ) )+ otherlv_21= 'end ServiceTypes' otherlv_22= 'ServiceProviders' ( (lv_ServiceProviders_23_0= ruleServiceProvider ) )+ otherlv_24= 'end ServiceProviders' otherlv_25= 'end OrganizationalModel' otherlv_26= 'WorkItemNetworkModel' otherlv_27= 'Repositories' ( (lv_Repositories_28_0= ruleRepository ) )+ otherlv_29= 'end Repositories' otherlv_30= 'WorkSources' ( (lv_WorkSources_31_0= ruleWorkSource ) )+ otherlv_32= 'end WorkSources' otherlv_33= 'WorkItems' ( (lv_WorkItems_34_0= ruleWorkItem ) )+ otherlv_35= 'end WorkItems' otherlv_36= 'end WorkItemNetworkModel' otherlv_37= 'ExperimentSettings' otherlv_38= 'Replications' ( (lv_replications_39_0= RULE_INT ) ) otherlv_40= 'InterArrivalTime' ( (lv_interArrivalTime_41_0= RULE_INT ) ) otherlv_42= 'end ExperimentSettings' otherlv_43= 'end KSSModel' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:80:3: otherlv_0= 'KSSModel' ( (lv_name_1_0= RULE_ID ) ) ( (lv_TestItems_2_0= ruleQualifiedName ) )? otherlv_3= 'GovernanceModel' otherlv_4= 'ProcessModels' ( (lv_ProcessModels_5_0= ruleProcessModel ) )+ otherlv_6= 'end ProcessModels' otherlv_7= 'GovernanceSearchStrategies' ( (lv_GovernanceSearchStrategies_8_0= ruleStrategy ) )+ otherlv_9= 'end GovernanceSearchStrategies' otherlv_10= 'TaskPatterns' ( (lv_TaskPatterns_11_0= ruleTaskPattern ) )+ ( (lv_TaskTypes_12_0= ruleTaskType ) )+ otherlv_13= 'end TaskPatterns' otherlv_14= 'ValueFunctions' ( (lv_ValueFunctions_15_0= ruleValueFunction ) )+ otherlv_16= 'end ValueFunctions' otherlv_17= 'end GovernanceModel' otherlv_18= 'OrganizationalModel' otherlv_19= 'ServiceTypes' ( (lv_ServiceTypes_20_0= ruleServiceType ) )+ otherlv_21= 'end ServiceTypes' otherlv_22= 'ServiceProviders' ( (lv_ServiceProviders_23_0= ruleServiceProvider ) )+ otherlv_24= 'end ServiceProviders' otherlv_25= 'end OrganizationalModel' otherlv_26= 'WorkItemNetworkModel' otherlv_27= 'Repositories' ( (lv_Repositories_28_0= ruleRepository ) )+ otherlv_29= 'end Repositories' otherlv_30= 'WorkSources' ( (lv_WorkSources_31_0= ruleWorkSource ) )+ otherlv_32= 'end WorkSources' otherlv_33= 'WorkItems' ( (lv_WorkItems_34_0= ruleWorkItem ) )+ otherlv_35= 'end WorkItems' otherlv_36= 'end WorkItemNetworkModel' otherlv_37= 'ExperimentSettings' otherlv_38= 'Replications' ( (lv_replications_39_0= RULE_INT ) ) otherlv_40= 'InterArrivalTime' ( (lv_interArrivalTime_41_0= RULE_INT ) ) otherlv_42= 'end ExperimentSettings' otherlv_43= 'end KSSModel'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:80:1: (otherlv_0= 'ReservedLibraries' otherlv_1= 'GovernanceLibrary' otherlv_2= 'WIAcceptanceRuleTypes' ( (lv_WIAcceptanceRuleTypes_3_0= ruleWIAcceptanceRuleType ) )+ otherlv_4= 'end WIAcceptanceRuleTypes' otherlv_5= 'WISelectionRuleTypes' ( (lv_WISelectionRuleTypes_6_0= ruleWISelectionRuleType ) )+ otherlv_7= 'end WISelectionRuleTypes' otherlv_8= 'WIAssignmentRuleTypes' ( (lv_WIAssignmentRuleTypes_9_0= ruleWIAssignmentRuleType ) )+ otherlv_10= 'end WIAssignmentRuleTypes' otherlv_11= 'ResourceAllocationRuleTypes' ( (lv_ResourceAllocationRuleTypes_12_0= ruleResourceAllocationRuleType ) )+ otherlv_13= 'end ResourceAllocationRuleTypes' otherlv_14= 'ResourceOutsourcingRuleTypes' ( (lv_ResourceOutsourcingRuleTypes_15_0= ruleResourceOutsourcingRuleType ) )+ otherlv_16= 'end ResourceOutsourcingRuleTypes' otherlv_17= 'end GovernanceLibrary' otherlv_18= 'TaskLibrary' otherlv_19= 'ProcessModels' ( (lv_ProcessModels_20_0= ruleProcessModel ) )+ otherlv_21= 'end ProcessModels' otherlv_22= 'ValueFunctions' ( (lv_ValueFunctions_23_0= ruleValueFunction ) )+ otherlv_24= 'end ValueFunctions' otherlv_25= 'end TaskLibrary' otherlv_26= 'end ReservedLibraries' otherlv_27= 'UserLibraries' otherlv_28= 'TaskPattern' ( (lv_TaskTypes_29_0= ruleTaskType ) )+ ( (lv_TaskHierarchy_30_0= ruleTaskHierarchy ) ) otherlv_31= 'end TaskPattern' otherlv_32= 'ClassOfServices' ( (lv_ClassOfServices_33_0= ruleClassOfService ) )+ otherlv_34= 'end ClassOfServices' otherlv_35= 'ServiceTypes' ( (lv_ServiceTypes_36_0= ruleServiceType ) )+ otherlv_37= 'end ServiceTypes' otherlv_38= 'GovernanceStrategies' ( (lv_GovernanceStrategies_39_0= ruleGovernanceStrategy ) )+ otherlv_40= 'end GovernanceStrategies' (otherlv_41= 'Repositories' ( (lv_Repositories_42_0= ruleRepository ) )+ otherlv_43= 'end Repositories' )? otherlv_44= 'end UserLibraries' otherlv_45= 'KSSModel' ( (lv_name_46_0= RULE_ID ) ) (otherlv_47= 'Path' ( (lv_Path_48_0= ruleQualifiedName ) ) )? otherlv_49= 'OrganizationalModel' otherlv_50= 'ServiceProviders' ( (lv_ServiceProviders_51_0= ruleServiceProvider ) )+ otherlv_52= 'end ServiceProviders' otherlv_53= 'end OrganizationalModel' otherlv_54= 'WorkItemNetworkModel' otherlv_55= 'WorkSources' ( (lv_WorkSources_56_0= ruleWorkSource ) )+ otherlv_57= 'end WorkSources' otherlv_58= 'WorkItems' ( (lv_WorkItems_59_0= ruleWorkItem ) )+ otherlv_60= 'end WorkItems' otherlv_61= 'end WorkItemNetworkModel' otherlv_62= 'end KSSModel' otherlv_63= 'ExperimentSettings' otherlv_64= 'Replications' ( (lv_replications_65_0= RULE_INT ) ) otherlv_66= 'InterArrivalTime' ( (lv_interArrivalTime_67_0= RULE_INT ) ) otherlv_68= 'end ExperimentSettings' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:80:3: otherlv_0= 'ReservedLibraries' otherlv_1= 'GovernanceLibrary' otherlv_2= 'WIAcceptanceRuleTypes' ( (lv_WIAcceptanceRuleTypes_3_0= ruleWIAcceptanceRuleType ) )+ otherlv_4= 'end WIAcceptanceRuleTypes' otherlv_5= 'WISelectionRuleTypes' ( (lv_WISelectionRuleTypes_6_0= ruleWISelectionRuleType ) )+ otherlv_7= 'end WISelectionRuleTypes' otherlv_8= 'WIAssignmentRuleTypes' ( (lv_WIAssignmentRuleTypes_9_0= ruleWIAssignmentRuleType ) )+ otherlv_10= 'end WIAssignmentRuleTypes' otherlv_11= 'ResourceAllocationRuleTypes' ( (lv_ResourceAllocationRuleTypes_12_0= ruleResourceAllocationRuleType ) )+ otherlv_13= 'end ResourceAllocationRuleTypes' otherlv_14= 'ResourceOutsourcingRuleTypes' ( (lv_ResourceOutsourcingRuleTypes_15_0= ruleResourceOutsourcingRuleType ) )+ otherlv_16= 'end ResourceOutsourcingRuleTypes' otherlv_17= 'end GovernanceLibrary' otherlv_18= 'TaskLibrary' otherlv_19= 'ProcessModels' ( (lv_ProcessModels_20_0= ruleProcessModel ) )+ otherlv_21= 'end ProcessModels' otherlv_22= 'ValueFunctions' ( (lv_ValueFunctions_23_0= ruleValueFunction ) )+ otherlv_24= 'end ValueFunctions' otherlv_25= 'end TaskLibrary' otherlv_26= 'end ReservedLibraries' otherlv_27= 'UserLibraries' otherlv_28= 'TaskPattern' ( (lv_TaskTypes_29_0= ruleTaskType ) )+ ( (lv_TaskHierarchy_30_0= ruleTaskHierarchy ) ) otherlv_31= 'end TaskPattern' otherlv_32= 'ClassOfServices' ( (lv_ClassOfServices_33_0= ruleClassOfService ) )+ otherlv_34= 'end ClassOfServices' otherlv_35= 'ServiceTypes' ( (lv_ServiceTypes_36_0= ruleServiceType ) )+ otherlv_37= 'end ServiceTypes' otherlv_38= 'GovernanceStrategies' ( (lv_GovernanceStrategies_39_0= ruleGovernanceStrategy ) )+ otherlv_40= 'end GovernanceStrategies' (otherlv_41= 'Repositories' ( (lv_Repositories_42_0= ruleRepository ) )+ otherlv_43= 'end Repositories' )? otherlv_44= 'end UserLibraries' otherlv_45= 'KSSModel' ( (lv_name_46_0= RULE_ID ) ) (otherlv_47= 'Path' ( (lv_Path_48_0= ruleQualifiedName ) ) )? otherlv_49= 'OrganizationalModel' otherlv_50= 'ServiceProviders' ( (lv_ServiceProviders_51_0= ruleServiceProvider ) )+ otherlv_52= 'end ServiceProviders' otherlv_53= 'end OrganizationalModel' otherlv_54= 'WorkItemNetworkModel' otherlv_55= 'WorkSources' ( (lv_WorkSources_56_0= ruleWorkSource ) )+ otherlv_57= 'end WorkSources' otherlv_58= 'WorkItems' ( (lv_WorkItems_59_0= ruleWorkItem ) )+ otherlv_60= 'end WorkItems' otherlv_61= 'end WorkItemNetworkModel' otherlv_62= 'end KSSModel' otherlv_63= 'ExperimentSettings' otherlv_64= 'Replications' ( (lv_replications_65_0= RULE_INT ) ) otherlv_66= 'InterArrivalTime' ( (lv_interArrivalTime_67_0= RULE_INT ) ) otherlv_68= 'end ExperimentSettings'
             {
             otherlv_0=(Token)match(input,11,FOLLOW_11_in_ruleKanbanSchedulingSystem122); 
 
-                	newLeafNode(otherlv_0, grammarAccess.getKanbanSchedulingSystemAccess().getKSSModelKeyword_0());
+                	newLeafNode(otherlv_0, grammarAccess.getKanbanSchedulingSystemAccess().getReservedLibrariesKeyword_0());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:84:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:85:1: (lv_name_1_0= RULE_ID )
-            {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:85:1: (lv_name_1_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:86:3: lv_name_1_0= RULE_ID
-            {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleKanbanSchedulingSystem139); 
+            otherlv_1=(Token)match(input,12,FOLLOW_12_in_ruleKanbanSchedulingSystem134); 
 
-            			newLeafNode(lv_name_1_0, grammarAccess.getKanbanSchedulingSystemAccess().getNameIDTerminalRuleCall_1_0()); 
-            		
-
-            	        if (current==null) {
-            	            current = createModelElement(grammarAccess.getKanbanSchedulingSystemRule());
-            	        }
-                   		setWithLastConsumed(
-                   			current, 
-                   			"name",
-                    		lv_name_1_0, 
-                    		"ID");
-            	    
-
-            }
-
-
-            }
-
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:102:2: ( (lv_TestItems_2_0= ruleQualifiedName ) )?
-            int alt1=2;
-            int LA1_0 = input.LA(1);
-
-            if ( (LA1_0==RULE_ID) ) {
-                alt1=1;
-            }
-            switch (alt1) {
-                case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:103:1: (lv_TestItems_2_0= ruleQualifiedName )
-                    {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:103:1: (lv_TestItems_2_0= ruleQualifiedName )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:104:3: lv_TestItems_2_0= ruleQualifiedName
-                    {
-                     
-                    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getTestItemsQualifiedNameParserRuleCall_2_0()); 
-                    	    
-                    pushFollow(FOLLOW_ruleQualifiedName_in_ruleKanbanSchedulingSystem165);
-                    lv_TestItems_2_0=ruleQualifiedName();
-
-                    state._fsp--;
-
-
-                    	        if (current==null) {
-                    	            current = createModelElementForParent(grammarAccess.getKanbanSchedulingSystemRule());
-                    	        }
-                           		add(
-                           			current, 
-                           			"TestItems",
-                            		lv_TestItems_2_0, 
-                            		"QualifiedName");
-                    	        afterParserOrEnumRuleCall();
-                    	    
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            otherlv_3=(Token)match(input,12,FOLLOW_12_in_ruleKanbanSchedulingSystem178); 
-
-                	newLeafNode(otherlv_3, grammarAccess.getKanbanSchedulingSystemAccess().getGovernanceModelKeyword_3());
+                	newLeafNode(otherlv_1, grammarAccess.getKanbanSchedulingSystemAccess().getGovernanceLibraryKeyword_1());
                 
-            otherlv_4=(Token)match(input,13,FOLLOW_13_in_ruleKanbanSchedulingSystem190); 
+            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleKanbanSchedulingSystem146); 
 
-                	newLeafNode(otherlv_4, grammarAccess.getKanbanSchedulingSystemAccess().getProcessModelsKeyword_4());
+                	newLeafNode(otherlv_2, grammarAccess.getKanbanSchedulingSystemAccess().getWIAcceptanceRuleTypesKeyword_2());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:128:1: ( (lv_ProcessModels_5_0= ruleProcessModel ) )+
-            int cnt2=0;
-            loop2:
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:92:1: ( (lv_WIAcceptanceRuleTypes_3_0= ruleWIAcceptanceRuleType ) )+
+            int cnt1=0;
+            loop1:
             do {
-                int alt2=2;
-                int LA2_0 = input.LA(1);
+                int alt1=2;
+                int LA1_0 = input.LA(1);
 
-                if ( (LA2_0==52) ) {
-                    alt2=1;
+                if ( (LA1_0==73) ) {
+                    alt1=1;
                 }
 
 
-                switch (alt2) {
+                switch (alt1) {
             	case 1 :
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:129:1: (lv_ProcessModels_5_0= ruleProcessModel )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:93:1: (lv_WIAcceptanceRuleTypes_3_0= ruleWIAcceptanceRuleType )
             	    {
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:129:1: (lv_ProcessModels_5_0= ruleProcessModel )
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:130:3: lv_ProcessModels_5_0= ruleProcessModel
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:93:1: (lv_WIAcceptanceRuleTypes_3_0= ruleWIAcceptanceRuleType )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:94:3: lv_WIAcceptanceRuleTypes_3_0= ruleWIAcceptanceRuleType
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getProcessModelsProcessModelParserRuleCall_5_0()); 
+            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getWIAcceptanceRuleTypesWIAcceptanceRuleTypeParserRuleCall_3_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleProcessModel_in_ruleKanbanSchedulingSystem211);
-            	    lv_ProcessModels_5_0=ruleProcessModel();
+            	    pushFollow(FOLLOW_ruleWIAcceptanceRuleType_in_ruleKanbanSchedulingSystem167);
+            	    lv_WIAcceptanceRuleTypes_3_0=ruleWIAcceptanceRuleType();
 
             	    state._fsp--;
 
@@ -392,9 +370,71 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
             	    	        }
             	           		add(
             	           			current, 
-            	           			"ProcessModels",
-            	            		lv_ProcessModels_5_0, 
-            	            		"ProcessModel");
+            	           			"WIAcceptanceRuleTypes",
+            	            		lv_WIAcceptanceRuleTypes_3_0, 
+            	            		"WIAcceptanceRuleType");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt1 >= 1 ) break loop1;
+                        EarlyExitException eee =
+                            new EarlyExitException(1, input);
+                        throw eee;
+                }
+                cnt1++;
+            } while (true);
+
+            otherlv_4=(Token)match(input,14,FOLLOW_14_in_ruleKanbanSchedulingSystem180); 
+
+                	newLeafNode(otherlv_4, grammarAccess.getKanbanSchedulingSystemAccess().getEndWIAcceptanceRuleTypesKeyword_4());
+                
+            otherlv_5=(Token)match(input,15,FOLLOW_15_in_ruleKanbanSchedulingSystem192); 
+
+                	newLeafNode(otherlv_5, grammarAccess.getKanbanSchedulingSystemAccess().getWISelectionRuleTypesKeyword_5());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:118:1: ( (lv_WISelectionRuleTypes_6_0= ruleWISelectionRuleType ) )+
+            int cnt2=0;
+            loop2:
+            do {
+                int alt2=2;
+                int LA2_0 = input.LA(1);
+
+                if ( (LA2_0==73) ) {
+                    alt2=1;
+                }
+
+
+                switch (alt2) {
+            	case 1 :
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:119:1: (lv_WISelectionRuleTypes_6_0= ruleWISelectionRuleType )
+            	    {
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:119:1: (lv_WISelectionRuleTypes_6_0= ruleWISelectionRuleType )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:120:3: lv_WISelectionRuleTypes_6_0= ruleWISelectionRuleType
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getWISelectionRuleTypesWISelectionRuleTypeParserRuleCall_6_0()); 
+            	    	    
+            	    pushFollow(FOLLOW_ruleWISelectionRuleType_in_ruleKanbanSchedulingSystem213);
+            	    lv_WISelectionRuleTypes_6_0=ruleWISelectionRuleType();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getKanbanSchedulingSystemRule());
+            	    	        }
+            	           		add(
+            	           			current, 
+            	           			"WISelectionRuleTypes",
+            	            		lv_WISelectionRuleTypes_6_0, 
+            	            		"WISelectionRuleType");
             	    	        afterParserOrEnumRuleCall();
             	    	    
 
@@ -413,38 +453,38 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                 cnt2++;
             } while (true);
 
-            otherlv_6=(Token)match(input,14,FOLLOW_14_in_ruleKanbanSchedulingSystem224); 
+            otherlv_7=(Token)match(input,16,FOLLOW_16_in_ruleKanbanSchedulingSystem226); 
 
-                	newLeafNode(otherlv_6, grammarAccess.getKanbanSchedulingSystemAccess().getEndProcessModelsKeyword_6());
+                	newLeafNode(otherlv_7, grammarAccess.getKanbanSchedulingSystemAccess().getEndWISelectionRuleTypesKeyword_7());
                 
-            otherlv_7=(Token)match(input,15,FOLLOW_15_in_ruleKanbanSchedulingSystem236); 
+            otherlv_8=(Token)match(input,17,FOLLOW_17_in_ruleKanbanSchedulingSystem238); 
 
-                	newLeafNode(otherlv_7, grammarAccess.getKanbanSchedulingSystemAccess().getGovernanceSearchStrategiesKeyword_7());
+                	newLeafNode(otherlv_8, grammarAccess.getKanbanSchedulingSystemAccess().getWIAssignmentRuleTypesKeyword_8());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:154:1: ( (lv_GovernanceSearchStrategies_8_0= ruleStrategy ) )+
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:144:1: ( (lv_WIAssignmentRuleTypes_9_0= ruleWIAssignmentRuleType ) )+
             int cnt3=0;
             loop3:
             do {
                 int alt3=2;
                 int LA3_0 = input.LA(1);
 
-                if ( (LA3_0==66) ) {
+                if ( (LA3_0==73) ) {
                     alt3=1;
                 }
 
 
                 switch (alt3) {
             	case 1 :
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:155:1: (lv_GovernanceSearchStrategies_8_0= ruleStrategy )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:145:1: (lv_WIAssignmentRuleTypes_9_0= ruleWIAssignmentRuleType )
             	    {
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:155:1: (lv_GovernanceSearchStrategies_8_0= ruleStrategy )
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:156:3: lv_GovernanceSearchStrategies_8_0= ruleStrategy
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:145:1: (lv_WIAssignmentRuleTypes_9_0= ruleWIAssignmentRuleType )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:146:3: lv_WIAssignmentRuleTypes_9_0= ruleWIAssignmentRuleType
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getGovernanceSearchStrategiesStrategyParserRuleCall_8_0()); 
+            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getWIAssignmentRuleTypesWIAssignmentRuleTypeParserRuleCall_9_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleStrategy_in_ruleKanbanSchedulingSystem257);
-            	    lv_GovernanceSearchStrategies_8_0=ruleStrategy();
+            	    pushFollow(FOLLOW_ruleWIAssignmentRuleType_in_ruleKanbanSchedulingSystem259);
+            	    lv_WIAssignmentRuleTypes_9_0=ruleWIAssignmentRuleType();
 
             	    state._fsp--;
 
@@ -454,9 +494,9 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
             	    	        }
             	           		add(
             	           			current, 
-            	           			"GovernanceSearchStrategies",
-            	            		lv_GovernanceSearchStrategies_8_0, 
-            	            		"Strategy");
+            	           			"WIAssignmentRuleTypes",
+            	            		lv_WIAssignmentRuleTypes_9_0, 
+            	            		"WIAssignmentRuleType");
             	    	        afterParserOrEnumRuleCall();
             	    	    
 
@@ -475,38 +515,38 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                 cnt3++;
             } while (true);
 
-            otherlv_9=(Token)match(input,16,FOLLOW_16_in_ruleKanbanSchedulingSystem270); 
+            otherlv_10=(Token)match(input,18,FOLLOW_18_in_ruleKanbanSchedulingSystem272); 
 
-                	newLeafNode(otherlv_9, grammarAccess.getKanbanSchedulingSystemAccess().getEndGovernanceSearchStrategiesKeyword_9());
+                	newLeafNode(otherlv_10, grammarAccess.getKanbanSchedulingSystemAccess().getEndWIAssignmentRuleTypesKeyword_10());
                 
-            otherlv_10=(Token)match(input,17,FOLLOW_17_in_ruleKanbanSchedulingSystem282); 
+            otherlv_11=(Token)match(input,19,FOLLOW_19_in_ruleKanbanSchedulingSystem284); 
 
-                	newLeafNode(otherlv_10, grammarAccess.getKanbanSchedulingSystemAccess().getTaskPatternsKeyword_10());
+                	newLeafNode(otherlv_11, grammarAccess.getKanbanSchedulingSystemAccess().getResourceAllocationRuleTypesKeyword_11());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:180:1: ( (lv_TaskPatterns_11_0= ruleTaskPattern ) )+
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:170:1: ( (lv_ResourceAllocationRuleTypes_12_0= ruleResourceAllocationRuleType ) )+
             int cnt4=0;
             loop4:
             do {
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( (LA4_0==62) ) {
+                if ( (LA4_0==73) ) {
                     alt4=1;
                 }
 
 
                 switch (alt4) {
             	case 1 :
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:181:1: (lv_TaskPatterns_11_0= ruleTaskPattern )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:171:1: (lv_ResourceAllocationRuleTypes_12_0= ruleResourceAllocationRuleType )
             	    {
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:181:1: (lv_TaskPatterns_11_0= ruleTaskPattern )
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:182:3: lv_TaskPatterns_11_0= ruleTaskPattern
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:171:1: (lv_ResourceAllocationRuleTypes_12_0= ruleResourceAllocationRuleType )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:172:3: lv_ResourceAllocationRuleTypes_12_0= ruleResourceAllocationRuleType
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getTaskPatternsTaskPatternParserRuleCall_11_0()); 
+            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getResourceAllocationRuleTypesResourceAllocationRuleTypeParserRuleCall_12_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleTaskPattern_in_ruleKanbanSchedulingSystem303);
-            	    lv_TaskPatterns_11_0=ruleTaskPattern();
+            	    pushFollow(FOLLOW_ruleResourceAllocationRuleType_in_ruleKanbanSchedulingSystem305);
+            	    lv_ResourceAllocationRuleTypes_12_0=ruleResourceAllocationRuleType();
 
             	    state._fsp--;
 
@@ -516,9 +556,9 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
             	    	        }
             	           		add(
             	           			current, 
-            	           			"TaskPatterns",
-            	            		lv_TaskPatterns_11_0, 
-            	            		"TaskPattern");
+            	           			"ResourceAllocationRuleTypes",
+            	            		lv_ResourceAllocationRuleTypes_12_0, 
+            	            		"ResourceAllocationRuleType");
             	    	        afterParserOrEnumRuleCall();
             	    	    
 
@@ -537,30 +577,38 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                 cnt4++;
             } while (true);
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:198:3: ( (lv_TaskTypes_12_0= ruleTaskType ) )+
+            otherlv_13=(Token)match(input,20,FOLLOW_20_in_ruleKanbanSchedulingSystem318); 
+
+                	newLeafNode(otherlv_13, grammarAccess.getKanbanSchedulingSystemAccess().getEndResourceAllocationRuleTypesKeyword_13());
+                
+            otherlv_14=(Token)match(input,21,FOLLOW_21_in_ruleKanbanSchedulingSystem330); 
+
+                	newLeafNode(otherlv_14, grammarAccess.getKanbanSchedulingSystemAccess().getResourceOutsourcingRuleTypesKeyword_14());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:196:1: ( (lv_ResourceOutsourcingRuleTypes_15_0= ruleResourceOutsourcingRuleType ) )+
             int cnt5=0;
             loop5:
             do {
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( (LA5_0==64) ) {
+                if ( (LA5_0==73) ) {
                     alt5=1;
                 }
 
 
                 switch (alt5) {
             	case 1 :
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:199:1: (lv_TaskTypes_12_0= ruleTaskType )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:197:1: (lv_ResourceOutsourcingRuleTypes_15_0= ruleResourceOutsourcingRuleType )
             	    {
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:199:1: (lv_TaskTypes_12_0= ruleTaskType )
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:200:3: lv_TaskTypes_12_0= ruleTaskType
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:197:1: (lv_ResourceOutsourcingRuleTypes_15_0= ruleResourceOutsourcingRuleType )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:198:3: lv_ResourceOutsourcingRuleTypes_15_0= ruleResourceOutsourcingRuleType
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getTaskTypesTaskTypeParserRuleCall_12_0()); 
+            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getResourceOutsourcingRuleTypesResourceOutsourcingRuleTypeParserRuleCall_15_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleTaskType_in_ruleKanbanSchedulingSystem325);
-            	    lv_TaskTypes_12_0=ruleTaskType();
+            	    pushFollow(FOLLOW_ruleResourceOutsourcingRuleType_in_ruleKanbanSchedulingSystem351);
+            	    lv_ResourceOutsourcingRuleTypes_15_0=ruleResourceOutsourcingRuleType();
 
             	    state._fsp--;
 
@@ -570,9 +618,9 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
             	    	        }
             	           		add(
             	           			current, 
-            	           			"TaskTypes",
-            	            		lv_TaskTypes_12_0, 
-            	            		"TaskType");
+            	           			"ResourceOutsourcingRuleTypes",
+            	            		lv_ResourceOutsourcingRuleTypes_15_0, 
+            	            		"ResourceOutsourcingRuleType");
             	    	        afterParserOrEnumRuleCall();
             	    	    
 
@@ -591,38 +639,46 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                 cnt5++;
             } while (true);
 
-            otherlv_13=(Token)match(input,18,FOLLOW_18_in_ruleKanbanSchedulingSystem338); 
+            otherlv_16=(Token)match(input,22,FOLLOW_22_in_ruleKanbanSchedulingSystem364); 
 
-                	newLeafNode(otherlv_13, grammarAccess.getKanbanSchedulingSystemAccess().getEndTaskPatternsKeyword_13());
+                	newLeafNode(otherlv_16, grammarAccess.getKanbanSchedulingSystemAccess().getEndResourceOutsourcingRuleTypesKeyword_16());
                 
-            otherlv_14=(Token)match(input,19,FOLLOW_19_in_ruleKanbanSchedulingSystem350); 
+            otherlv_17=(Token)match(input,23,FOLLOW_23_in_ruleKanbanSchedulingSystem376); 
 
-                	newLeafNode(otherlv_14, grammarAccess.getKanbanSchedulingSystemAccess().getValueFunctionsKeyword_14());
+                	newLeafNode(otherlv_17, grammarAccess.getKanbanSchedulingSystemAccess().getEndGovernanceLibraryKeyword_17());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:224:1: ( (lv_ValueFunctions_15_0= ruleValueFunction ) )+
+            otherlv_18=(Token)match(input,24,FOLLOW_24_in_ruleKanbanSchedulingSystem388); 
+
+                	newLeafNode(otherlv_18, grammarAccess.getKanbanSchedulingSystemAccess().getTaskLibraryKeyword_18());
+                
+            otherlv_19=(Token)match(input,25,FOLLOW_25_in_ruleKanbanSchedulingSystem400); 
+
+                	newLeafNode(otherlv_19, grammarAccess.getKanbanSchedulingSystemAccess().getProcessModelsKeyword_19());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:230:1: ( (lv_ProcessModels_20_0= ruleProcessModel ) )+
             int cnt6=0;
             loop6:
             do {
                 int alt6=2;
                 int LA6_0 = input.LA(1);
 
-                if ( (LA6_0==65) ) {
+                if ( (LA6_0==71) ) {
                     alt6=1;
                 }
 
 
                 switch (alt6) {
             	case 1 :
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:225:1: (lv_ValueFunctions_15_0= ruleValueFunction )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:231:1: (lv_ProcessModels_20_0= ruleProcessModel )
             	    {
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:225:1: (lv_ValueFunctions_15_0= ruleValueFunction )
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:226:3: lv_ValueFunctions_15_0= ruleValueFunction
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:231:1: (lv_ProcessModels_20_0= ruleProcessModel )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:232:3: lv_ProcessModels_20_0= ruleProcessModel
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getValueFunctionsValueFunctionParserRuleCall_15_0()); 
+            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getProcessModelsProcessModelParserRuleCall_20_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleValueFunction_in_ruleKanbanSchedulingSystem371);
-            	    lv_ValueFunctions_15_0=ruleValueFunction();
+            	    pushFollow(FOLLOW_ruleProcessModel_in_ruleKanbanSchedulingSystem421);
+            	    lv_ProcessModels_20_0=ruleProcessModel();
 
             	    state._fsp--;
 
@@ -632,9 +688,9 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
             	    	        }
             	           		add(
             	           			current, 
-            	           			"ValueFunctions",
-            	            		lv_ValueFunctions_15_0, 
-            	            		"ValueFunction");
+            	           			"ProcessModels",
+            	            		lv_ProcessModels_20_0, 
+            	            		"ProcessModel");
             	    	        afterParserOrEnumRuleCall();
             	    	    
 
@@ -653,46 +709,38 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                 cnt6++;
             } while (true);
 
-            otherlv_16=(Token)match(input,20,FOLLOW_20_in_ruleKanbanSchedulingSystem384); 
+            otherlv_21=(Token)match(input,26,FOLLOW_26_in_ruleKanbanSchedulingSystem434); 
 
-                	newLeafNode(otherlv_16, grammarAccess.getKanbanSchedulingSystemAccess().getEndValueFunctionsKeyword_16());
+                	newLeafNode(otherlv_21, grammarAccess.getKanbanSchedulingSystemAccess().getEndProcessModelsKeyword_21());
                 
-            otherlv_17=(Token)match(input,21,FOLLOW_21_in_ruleKanbanSchedulingSystem396); 
+            otherlv_22=(Token)match(input,27,FOLLOW_27_in_ruleKanbanSchedulingSystem446); 
 
-                	newLeafNode(otherlv_17, grammarAccess.getKanbanSchedulingSystemAccess().getEndGovernanceModelKeyword_17());
+                	newLeafNode(otherlv_22, grammarAccess.getKanbanSchedulingSystemAccess().getValueFunctionsKeyword_22());
                 
-            otherlv_18=(Token)match(input,22,FOLLOW_22_in_ruleKanbanSchedulingSystem408); 
-
-                	newLeafNode(otherlv_18, grammarAccess.getKanbanSchedulingSystemAccess().getOrganizationalModelKeyword_18());
-                
-            otherlv_19=(Token)match(input,23,FOLLOW_23_in_ruleKanbanSchedulingSystem420); 
-
-                	newLeafNode(otherlv_19, grammarAccess.getKanbanSchedulingSystemAccess().getServiceTypesKeyword_19());
-                
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:258:1: ( (lv_ServiceTypes_20_0= ruleServiceType ) )+
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:256:1: ( (lv_ValueFunctions_23_0= ruleValueFunction ) )+
             int cnt7=0;
             loop7:
             do {
                 int alt7=2;
                 int LA7_0 = input.LA(1);
 
-                if ( (LA7_0==88) ) {
+                if ( (LA7_0==70) ) {
                     alt7=1;
                 }
 
 
                 switch (alt7) {
             	case 1 :
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:259:1: (lv_ServiceTypes_20_0= ruleServiceType )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:257:1: (lv_ValueFunctions_23_0= ruleValueFunction )
             	    {
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:259:1: (lv_ServiceTypes_20_0= ruleServiceType )
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:260:3: lv_ServiceTypes_20_0= ruleServiceType
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:257:1: (lv_ValueFunctions_23_0= ruleValueFunction )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:258:3: lv_ValueFunctions_23_0= ruleValueFunction
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getServiceTypesServiceTypeParserRuleCall_20_0()); 
+            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getValueFunctionsValueFunctionParserRuleCall_23_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleServiceType_in_ruleKanbanSchedulingSystem441);
-            	    lv_ServiceTypes_20_0=ruleServiceType();
+            	    pushFollow(FOLLOW_ruleValueFunction_in_ruleKanbanSchedulingSystem467);
+            	    lv_ValueFunctions_23_0=ruleValueFunction();
 
             	    state._fsp--;
 
@@ -702,9 +750,9 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
             	    	        }
             	           		add(
             	           			current, 
-            	           			"ServiceTypes",
-            	            		lv_ServiceTypes_20_0, 
-            	            		"ServiceType");
+            	           			"ValueFunctions",
+            	            		lv_ValueFunctions_23_0, 
+            	            		"ValueFunction");
             	    	        afterParserOrEnumRuleCall();
             	    	    
 
@@ -723,38 +771,50 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                 cnt7++;
             } while (true);
 
-            otherlv_21=(Token)match(input,24,FOLLOW_24_in_ruleKanbanSchedulingSystem454); 
+            otherlv_24=(Token)match(input,28,FOLLOW_28_in_ruleKanbanSchedulingSystem480); 
 
-                	newLeafNode(otherlv_21, grammarAccess.getKanbanSchedulingSystemAccess().getEndServiceTypesKeyword_21());
+                	newLeafNode(otherlv_24, grammarAccess.getKanbanSchedulingSystemAccess().getEndValueFunctionsKeyword_24());
                 
-            otherlv_22=(Token)match(input,25,FOLLOW_25_in_ruleKanbanSchedulingSystem466); 
+            otherlv_25=(Token)match(input,29,FOLLOW_29_in_ruleKanbanSchedulingSystem492); 
 
-                	newLeafNode(otherlv_22, grammarAccess.getKanbanSchedulingSystemAccess().getServiceProvidersKeyword_22());
+                	newLeafNode(otherlv_25, grammarAccess.getKanbanSchedulingSystemAccess().getEndTaskLibraryKeyword_25());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:284:1: ( (lv_ServiceProviders_23_0= ruleServiceProvider ) )+
+            otherlv_26=(Token)match(input,30,FOLLOW_30_in_ruleKanbanSchedulingSystem504); 
+
+                	newLeafNode(otherlv_26, grammarAccess.getKanbanSchedulingSystemAccess().getEndReservedLibrariesKeyword_26());
+                
+            otherlv_27=(Token)match(input,31,FOLLOW_31_in_ruleKanbanSchedulingSystem516); 
+
+                	newLeafNode(otherlv_27, grammarAccess.getKanbanSchedulingSystemAccess().getUserLibrariesKeyword_27());
+                
+            otherlv_28=(Token)match(input,32,FOLLOW_32_in_ruleKanbanSchedulingSystem528); 
+
+                	newLeafNode(otherlv_28, grammarAccess.getKanbanSchedulingSystemAccess().getTaskPatternKeyword_28());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:294:1: ( (lv_TaskTypes_29_0= ruleTaskType ) )+
             int cnt8=0;
             loop8:
             do {
                 int alt8=2;
                 int LA8_0 = input.LA(1);
 
-                if ( ((LA8_0>=91 && LA8_0<=92)) ) {
+                if ( (LA8_0==69) ) {
                     alt8=1;
                 }
 
 
                 switch (alt8) {
             	case 1 :
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:285:1: (lv_ServiceProviders_23_0= ruleServiceProvider )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:295:1: (lv_TaskTypes_29_0= ruleTaskType )
             	    {
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:285:1: (lv_ServiceProviders_23_0= ruleServiceProvider )
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:286:3: lv_ServiceProviders_23_0= ruleServiceProvider
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:295:1: (lv_TaskTypes_29_0= ruleTaskType )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:296:3: lv_TaskTypes_29_0= ruleTaskType
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getServiceProvidersServiceProviderParserRuleCall_23_0()); 
+            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getTaskTypesTaskTypeParserRuleCall_29_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleServiceProvider_in_ruleKanbanSchedulingSystem487);
-            	    lv_ServiceProviders_23_0=ruleServiceProvider();
+            	    pushFollow(FOLLOW_ruleTaskType_in_ruleKanbanSchedulingSystem549);
+            	    lv_TaskTypes_29_0=ruleTaskType();
 
             	    state._fsp--;
 
@@ -764,9 +824,9 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
             	    	        }
             	           		add(
             	           			current, 
-            	           			"ServiceProviders",
-            	            		lv_ServiceProviders_23_0, 
-            	            		"ServiceProvider");
+            	           			"TaskTypes",
+            	            		lv_TaskTypes_29_0, 
+            	            		"TaskType");
             	    	        afterParserOrEnumRuleCall();
             	    	    
 
@@ -785,46 +845,69 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                 cnt8++;
             } while (true);
 
-            otherlv_24=(Token)match(input,26,FOLLOW_26_in_ruleKanbanSchedulingSystem500); 
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:312:3: ( (lv_TaskHierarchy_30_0= ruleTaskHierarchy ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:313:1: (lv_TaskHierarchy_30_0= ruleTaskHierarchy )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:313:1: (lv_TaskHierarchy_30_0= ruleTaskHierarchy )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:314:3: lv_TaskHierarchy_30_0= ruleTaskHierarchy
+            {
+             
+            	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getTaskHierarchyTaskHierarchyParserRuleCall_30_0()); 
+            	    
+            pushFollow(FOLLOW_ruleTaskHierarchy_in_ruleKanbanSchedulingSystem571);
+            lv_TaskHierarchy_30_0=ruleTaskHierarchy();
 
-                	newLeafNode(otherlv_24, grammarAccess.getKanbanSchedulingSystemAccess().getEndServiceProvidersKeyword_24());
-                
-            otherlv_25=(Token)match(input,27,FOLLOW_27_in_ruleKanbanSchedulingSystem512); 
+            state._fsp--;
 
-                	newLeafNode(otherlv_25, grammarAccess.getKanbanSchedulingSystemAccess().getEndOrganizationalModelKeyword_25());
-                
-            otherlv_26=(Token)match(input,28,FOLLOW_28_in_ruleKanbanSchedulingSystem524); 
 
-                	newLeafNode(otherlv_26, grammarAccess.getKanbanSchedulingSystemAccess().getWorkItemNetworkModelKeyword_26());
-                
-            otherlv_27=(Token)match(input,29,FOLLOW_29_in_ruleKanbanSchedulingSystem536); 
+            	        if (current==null) {
+            	            current = createModelElementForParent(grammarAccess.getKanbanSchedulingSystemRule());
+            	        }
+                   		set(
+                   			current, 
+                   			"TaskHierarchy",
+                    		lv_TaskHierarchy_30_0, 
+                    		"TaskHierarchy");
+            	        afterParserOrEnumRuleCall();
+            	    
 
-                	newLeafNode(otherlv_27, grammarAccess.getKanbanSchedulingSystemAccess().getRepositoriesKeyword_27());
+            }
+
+
+            }
+
+            otherlv_31=(Token)match(input,33,FOLLOW_33_in_ruleKanbanSchedulingSystem583); 
+
+                	newLeafNode(otherlv_31, grammarAccess.getKanbanSchedulingSystemAccess().getEndTaskPatternKeyword_31());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:318:1: ( (lv_Repositories_28_0= ruleRepository ) )+
+            otherlv_32=(Token)match(input,34,FOLLOW_34_in_ruleKanbanSchedulingSystem595); 
+
+                	newLeafNode(otherlv_32, grammarAccess.getKanbanSchedulingSystemAccess().getClassOfServicesKeyword_32());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:338:1: ( (lv_ClassOfServices_33_0= ruleClassOfService ) )+
             int cnt9=0;
             loop9:
             do {
                 int alt9=2;
                 int LA9_0 = input.LA(1);
 
-                if ( (LA9_0==45) ) {
+                if ( (LA9_0==72) ) {
                     alt9=1;
                 }
 
 
                 switch (alt9) {
             	case 1 :
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:319:1: (lv_Repositories_28_0= ruleRepository )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:339:1: (lv_ClassOfServices_33_0= ruleClassOfService )
             	    {
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:319:1: (lv_Repositories_28_0= ruleRepository )
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:320:3: lv_Repositories_28_0= ruleRepository
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:339:1: (lv_ClassOfServices_33_0= ruleClassOfService )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:340:3: lv_ClassOfServices_33_0= ruleClassOfService
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getRepositoriesRepositoryParserRuleCall_28_0()); 
+            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getClassOfServicesClassOfServiceParserRuleCall_33_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleRepository_in_ruleKanbanSchedulingSystem557);
-            	    lv_Repositories_28_0=ruleRepository();
+            	    pushFollow(FOLLOW_ruleClassOfService_in_ruleKanbanSchedulingSystem616);
+            	    lv_ClassOfServices_33_0=ruleClassOfService();
 
             	    state._fsp--;
 
@@ -834,9 +917,9 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
             	    	        }
             	           		add(
             	           			current, 
-            	           			"Repositories",
-            	            		lv_Repositories_28_0, 
-            	            		"Repository");
+            	           			"ClassOfServices",
+            	            		lv_ClassOfServices_33_0, 
+            	            		"ClassOfService");
             	    	        afterParserOrEnumRuleCall();
             	    	    
 
@@ -855,15 +938,15 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                 cnt9++;
             } while (true);
 
-            otherlv_29=(Token)match(input,30,FOLLOW_30_in_ruleKanbanSchedulingSystem570); 
+            otherlv_34=(Token)match(input,35,FOLLOW_35_in_ruleKanbanSchedulingSystem629); 
 
-                	newLeafNode(otherlv_29, grammarAccess.getKanbanSchedulingSystemAccess().getEndRepositoriesKeyword_29());
+                	newLeafNode(otherlv_34, grammarAccess.getKanbanSchedulingSystemAccess().getEndClassOfServicesKeyword_34());
                 
-            otherlv_30=(Token)match(input,31,FOLLOW_31_in_ruleKanbanSchedulingSystem582); 
+            otherlv_35=(Token)match(input,36,FOLLOW_36_in_ruleKanbanSchedulingSystem641); 
 
-                	newLeafNode(otherlv_30, grammarAccess.getKanbanSchedulingSystemAccess().getWorkSourcesKeyword_30());
+                	newLeafNode(otherlv_35, grammarAccess.getKanbanSchedulingSystemAccess().getServiceTypesKeyword_35());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:344:1: ( (lv_WorkSources_31_0= ruleWorkSource ) )+
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:364:1: ( (lv_ServiceTypes_36_0= ruleServiceType ) )+
             int cnt10=0;
             loop10:
             do {
@@ -877,16 +960,16 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
                 switch (alt10) {
             	case 1 :
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:345:1: (lv_WorkSources_31_0= ruleWorkSource )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:365:1: (lv_ServiceTypes_36_0= ruleServiceType )
             	    {
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:345:1: (lv_WorkSources_31_0= ruleWorkSource )
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:346:3: lv_WorkSources_31_0= ruleWorkSource
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:365:1: (lv_ServiceTypes_36_0= ruleServiceType )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:366:3: lv_ServiceTypes_36_0= ruleServiceType
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getWorkSourcesWorkSourceParserRuleCall_31_0()); 
+            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getServiceTypesServiceTypeParserRuleCall_36_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleWorkSource_in_ruleKanbanSchedulingSystem603);
-            	    lv_WorkSources_31_0=ruleWorkSource();
+            	    pushFollow(FOLLOW_ruleServiceType_in_ruleKanbanSchedulingSystem662);
+            	    lv_ServiceTypes_36_0=ruleServiceType();
 
             	    state._fsp--;
 
@@ -896,9 +979,9 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
             	    	        }
             	           		add(
             	           			current, 
-            	           			"WorkSources",
-            	            		lv_WorkSources_31_0, 
-            	            		"WorkSource");
+            	           			"ServiceTypes",
+            	            		lv_ServiceTypes_36_0, 
+            	            		"ServiceType");
             	    	        afterParserOrEnumRuleCall();
             	    	    
 
@@ -917,38 +1000,38 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                 cnt10++;
             } while (true);
 
-            otherlv_32=(Token)match(input,32,FOLLOW_32_in_ruleKanbanSchedulingSystem616); 
+            otherlv_37=(Token)match(input,37,FOLLOW_37_in_ruleKanbanSchedulingSystem675); 
 
-                	newLeafNode(otherlv_32, grammarAccess.getKanbanSchedulingSystemAccess().getEndWorkSourcesKeyword_32());
+                	newLeafNode(otherlv_37, grammarAccess.getKanbanSchedulingSystemAccess().getEndServiceTypesKeyword_37());
                 
-            otherlv_33=(Token)match(input,33,FOLLOW_33_in_ruleKanbanSchedulingSystem628); 
+            otherlv_38=(Token)match(input,38,FOLLOW_38_in_ruleKanbanSchedulingSystem687); 
 
-                	newLeafNode(otherlv_33, grammarAccess.getKanbanSchedulingSystemAccess().getWorkItemsKeyword_33());
+                	newLeafNode(otherlv_38, grammarAccess.getKanbanSchedulingSystemAccess().getGovernanceStrategiesKeyword_38());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:370:1: ( (lv_WorkItems_34_0= ruleWorkItem ) )+
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:390:1: ( (lv_GovernanceStrategies_39_0= ruleGovernanceStrategy ) )+
             int cnt11=0;
             loop11:
             do {
                 int alt11=2;
                 int LA11_0 = input.LA(1);
 
-                if ( (LA11_0==50) ) {
+                if ( (LA11_0==87) ) {
                     alt11=1;
                 }
 
 
                 switch (alt11) {
             	case 1 :
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:371:1: (lv_WorkItems_34_0= ruleWorkItem )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:391:1: (lv_GovernanceStrategies_39_0= ruleGovernanceStrategy )
             	    {
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:371:1: (lv_WorkItems_34_0= ruleWorkItem )
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:372:3: lv_WorkItems_34_0= ruleWorkItem
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:391:1: (lv_GovernanceStrategies_39_0= ruleGovernanceStrategy )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:392:3: lv_GovernanceStrategies_39_0= ruleGovernanceStrategy
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getWorkItemsWorkItemParserRuleCall_34_0()); 
+            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getGovernanceStrategiesGovernanceStrategyParserRuleCall_39_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleWorkItem_in_ruleKanbanSchedulingSystem649);
-            	    lv_WorkItems_34_0=ruleWorkItem();
+            	    pushFollow(FOLLOW_ruleGovernanceStrategy_in_ruleKanbanSchedulingSystem708);
+            	    lv_GovernanceStrategies_39_0=ruleGovernanceStrategy();
 
             	    state._fsp--;
 
@@ -958,9 +1041,9 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
             	    	        }
             	           		add(
             	           			current, 
-            	           			"WorkItems",
-            	            		lv_WorkItems_34_0, 
-            	            		"WorkItem");
+            	           			"GovernanceStrategies",
+            	            		lv_GovernanceStrategies_39_0, 
+            	            		"GovernanceStrategy");
             	    	        afterParserOrEnumRuleCall();
             	    	    
 
@@ -979,31 +1062,398 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                 cnt11++;
             } while (true);
 
-            otherlv_35=(Token)match(input,34,FOLLOW_34_in_ruleKanbanSchedulingSystem662); 
+            otherlv_40=(Token)match(input,39,FOLLOW_39_in_ruleKanbanSchedulingSystem721); 
 
-                	newLeafNode(otherlv_35, grammarAccess.getKanbanSchedulingSystemAccess().getEndWorkItemsKeyword_35());
+                	newLeafNode(otherlv_40, grammarAccess.getKanbanSchedulingSystemAccess().getEndGovernanceStrategiesKeyword_40());
                 
-            otherlv_36=(Token)match(input,35,FOLLOW_35_in_ruleKanbanSchedulingSystem674); 
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:412:1: (otherlv_41= 'Repositories' ( (lv_Repositories_42_0= ruleRepository ) )+ otherlv_43= 'end Repositories' )?
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-                	newLeafNode(otherlv_36, grammarAccess.getKanbanSchedulingSystemAccess().getEndWorkItemNetworkModelKeyword_36());
-                
-            otherlv_37=(Token)match(input,36,FOLLOW_36_in_ruleKanbanSchedulingSystem686); 
+            if ( (LA13_0==40) ) {
+                alt13=1;
+            }
+            switch (alt13) {
+                case 1 :
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:412:3: otherlv_41= 'Repositories' ( (lv_Repositories_42_0= ruleRepository ) )+ otherlv_43= 'end Repositories'
+                    {
+                    otherlv_41=(Token)match(input,40,FOLLOW_40_in_ruleKanbanSchedulingSystem734); 
 
-                	newLeafNode(otherlv_37, grammarAccess.getKanbanSchedulingSystemAccess().getExperimentSettingsKeyword_37());
-                
-            otherlv_38=(Token)match(input,37,FOLLOW_37_in_ruleKanbanSchedulingSystem698); 
+                        	newLeafNode(otherlv_41, grammarAccess.getKanbanSchedulingSystemAccess().getRepositoriesKeyword_41_0());
+                        
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:416:1: ( (lv_Repositories_42_0= ruleRepository ) )+
+                    int cnt12=0;
+                    loop12:
+                    do {
+                        int alt12=2;
+                        int LA12_0 = input.LA(1);
 
-                	newLeafNode(otherlv_38, grammarAccess.getKanbanSchedulingSystemAccess().getReplicationsKeyword_38());
+                        if ( (LA12_0==75) ) {
+                            alt12=1;
+                        }
+
+
+                        switch (alt12) {
+                    	case 1 :
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:417:1: (lv_Repositories_42_0= ruleRepository )
+                    	    {
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:417:1: (lv_Repositories_42_0= ruleRepository )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:418:3: lv_Repositories_42_0= ruleRepository
+                    	    {
+                    	     
+                    	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getRepositoriesRepositoryParserRuleCall_41_1_0()); 
+                    	    	    
+                    	    pushFollow(FOLLOW_ruleRepository_in_ruleKanbanSchedulingSystem755);
+                    	    lv_Repositories_42_0=ruleRepository();
+
+                    	    state._fsp--;
+
+
+                    	    	        if (current==null) {
+                    	    	            current = createModelElementForParent(grammarAccess.getKanbanSchedulingSystemRule());
+                    	    	        }
+                    	           		add(
+                    	           			current, 
+                    	           			"Repositories",
+                    	            		lv_Repositories_42_0, 
+                    	            		"Repository");
+                    	    	        afterParserOrEnumRuleCall();
+                    	    	    
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    if ( cnt12 >= 1 ) break loop12;
+                                EarlyExitException eee =
+                                    new EarlyExitException(12, input);
+                                throw eee;
+                        }
+                        cnt12++;
+                    } while (true);
+
+                    otherlv_43=(Token)match(input,41,FOLLOW_41_in_ruleKanbanSchedulingSystem768); 
+
+                        	newLeafNode(otherlv_43, grammarAccess.getKanbanSchedulingSystemAccess().getEndRepositoriesKeyword_41_2());
+                        
+
+                    }
+                    break;
+
+            }
+
+            otherlv_44=(Token)match(input,42,FOLLOW_42_in_ruleKanbanSchedulingSystem782); 
+
+                	newLeafNode(otherlv_44, grammarAccess.getKanbanSchedulingSystemAccess().getEndUserLibrariesKeyword_42());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:404:1: ( (lv_replications_39_0= RULE_INT ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:405:1: (lv_replications_39_0= RULE_INT )
+            otherlv_45=(Token)match(input,43,FOLLOW_43_in_ruleKanbanSchedulingSystem794); 
+
+                	newLeafNode(otherlv_45, grammarAccess.getKanbanSchedulingSystemAccess().getKSSModelKeyword_43());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:446:1: ( (lv_name_46_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:447:1: (lv_name_46_0= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:405:1: (lv_replications_39_0= RULE_INT )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:406:3: lv_replications_39_0= RULE_INT
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:447:1: (lv_name_46_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:448:3: lv_name_46_0= RULE_ID
             {
-            lv_replications_39_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleKanbanSchedulingSystem715); 
+            lv_name_46_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleKanbanSchedulingSystem811); 
 
-            			newLeafNode(lv_replications_39_0, grammarAccess.getKanbanSchedulingSystemAccess().getReplicationsINTTerminalRuleCall_39_0()); 
+            			newLeafNode(lv_name_46_0, grammarAccess.getKanbanSchedulingSystemAccess().getNameIDTerminalRuleCall_44_0()); 
+            		
+
+            	        if (current==null) {
+            	            current = createModelElement(grammarAccess.getKanbanSchedulingSystemRule());
+            	        }
+                   		setWithLastConsumed(
+                   			current, 
+                   			"name",
+                    		lv_name_46_0, 
+                    		"ID");
+            	    
+
+            }
+
+
+            }
+
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:464:2: (otherlv_47= 'Path' ( (lv_Path_48_0= ruleQualifiedName ) ) )?
+            int alt14=2;
+            int LA14_0 = input.LA(1);
+
+            if ( (LA14_0==44) ) {
+                alt14=1;
+            }
+            switch (alt14) {
+                case 1 :
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:464:4: otherlv_47= 'Path' ( (lv_Path_48_0= ruleQualifiedName ) )
+                    {
+                    otherlv_47=(Token)match(input,44,FOLLOW_44_in_ruleKanbanSchedulingSystem829); 
+
+                        	newLeafNode(otherlv_47, grammarAccess.getKanbanSchedulingSystemAccess().getPathKeyword_45_0());
+                        
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:468:1: ( (lv_Path_48_0= ruleQualifiedName ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:469:1: (lv_Path_48_0= ruleQualifiedName )
+                    {
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:469:1: (lv_Path_48_0= ruleQualifiedName )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:470:3: lv_Path_48_0= ruleQualifiedName
+                    {
+                     
+                    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getPathQualifiedNameParserRuleCall_45_1_0()); 
+                    	    
+                    pushFollow(FOLLOW_ruleQualifiedName_in_ruleKanbanSchedulingSystem850);
+                    lv_Path_48_0=ruleQualifiedName();
+
+                    state._fsp--;
+
+
+                    	        if (current==null) {
+                    	            current = createModelElementForParent(grammarAccess.getKanbanSchedulingSystemRule());
+                    	        }
+                           		set(
+                           			current, 
+                           			"Path",
+                            		lv_Path_48_0, 
+                            		"QualifiedName");
+                    	        afterParserOrEnumRuleCall();
+                    	    
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            otherlv_49=(Token)match(input,45,FOLLOW_45_in_ruleKanbanSchedulingSystem864); 
+
+                	newLeafNode(otherlv_49, grammarAccess.getKanbanSchedulingSystemAccess().getOrganizationalModelKeyword_46());
+                
+            otherlv_50=(Token)match(input,46,FOLLOW_46_in_ruleKanbanSchedulingSystem876); 
+
+                	newLeafNode(otherlv_50, grammarAccess.getKanbanSchedulingSystemAccess().getServiceProvidersKeyword_47());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:494:1: ( (lv_ServiceProviders_51_0= ruleServiceProvider ) )+
+            int cnt15=0;
+            loop15:
+            do {
+                int alt15=2;
+                int LA15_0 = input.LA(1);
+
+                if ( ((LA15_0>=109 && LA15_0<=110)) ) {
+                    alt15=1;
+                }
+
+
+                switch (alt15) {
+            	case 1 :
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:495:1: (lv_ServiceProviders_51_0= ruleServiceProvider )
+            	    {
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:495:1: (lv_ServiceProviders_51_0= ruleServiceProvider )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:496:3: lv_ServiceProviders_51_0= ruleServiceProvider
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getServiceProvidersServiceProviderParserRuleCall_48_0()); 
+            	    	    
+            	    pushFollow(FOLLOW_ruleServiceProvider_in_ruleKanbanSchedulingSystem897);
+            	    lv_ServiceProviders_51_0=ruleServiceProvider();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getKanbanSchedulingSystemRule());
+            	    	        }
+            	           		add(
+            	           			current, 
+            	           			"ServiceProviders",
+            	            		lv_ServiceProviders_51_0, 
+            	            		"ServiceProvider");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt15 >= 1 ) break loop15;
+                        EarlyExitException eee =
+                            new EarlyExitException(15, input);
+                        throw eee;
+                }
+                cnt15++;
+            } while (true);
+
+            otherlv_52=(Token)match(input,47,FOLLOW_47_in_ruleKanbanSchedulingSystem910); 
+
+                	newLeafNode(otherlv_52, grammarAccess.getKanbanSchedulingSystemAccess().getEndServiceProvidersKeyword_49());
+                
+            otherlv_53=(Token)match(input,48,FOLLOW_48_in_ruleKanbanSchedulingSystem922); 
+
+                	newLeafNode(otherlv_53, grammarAccess.getKanbanSchedulingSystemAccess().getEndOrganizationalModelKeyword_50());
+                
+            otherlv_54=(Token)match(input,49,FOLLOW_49_in_ruleKanbanSchedulingSystem934); 
+
+                	newLeafNode(otherlv_54, grammarAccess.getKanbanSchedulingSystemAccess().getWorkItemNetworkModelKeyword_51());
+                
+            otherlv_55=(Token)match(input,50,FOLLOW_50_in_ruleKanbanSchedulingSystem946); 
+
+                	newLeafNode(otherlv_55, grammarAccess.getKanbanSchedulingSystemAccess().getWorkSourcesKeyword_52());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:528:1: ( (lv_WorkSources_56_0= ruleWorkSource ) )+
+            int cnt16=0;
+            loop16:
+            do {
+                int alt16=2;
+                int LA16_0 = input.LA(1);
+
+                if ( (LA16_0==95) ) {
+                    alt16=1;
+                }
+
+
+                switch (alt16) {
+            	case 1 :
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:529:1: (lv_WorkSources_56_0= ruleWorkSource )
+            	    {
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:529:1: (lv_WorkSources_56_0= ruleWorkSource )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:530:3: lv_WorkSources_56_0= ruleWorkSource
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getWorkSourcesWorkSourceParserRuleCall_53_0()); 
+            	    	    
+            	    pushFollow(FOLLOW_ruleWorkSource_in_ruleKanbanSchedulingSystem967);
+            	    lv_WorkSources_56_0=ruleWorkSource();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getKanbanSchedulingSystemRule());
+            	    	        }
+            	           		add(
+            	           			current, 
+            	           			"WorkSources",
+            	            		lv_WorkSources_56_0, 
+            	            		"WorkSource");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt16 >= 1 ) break loop16;
+                        EarlyExitException eee =
+                            new EarlyExitException(16, input);
+                        throw eee;
+                }
+                cnt16++;
+            } while (true);
+
+            otherlv_57=(Token)match(input,51,FOLLOW_51_in_ruleKanbanSchedulingSystem980); 
+
+                	newLeafNode(otherlv_57, grammarAccess.getKanbanSchedulingSystemAccess().getEndWorkSourcesKeyword_54());
+                
+            otherlv_58=(Token)match(input,52,FOLLOW_52_in_ruleKanbanSchedulingSystem992); 
+
+                	newLeafNode(otherlv_58, grammarAccess.getKanbanSchedulingSystemAccess().getWorkItemsKeyword_55());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:554:1: ( (lv_WorkItems_59_0= ruleWorkItem ) )+
+            int cnt17=0;
+            loop17:
+            do {
+                int alt17=2;
+                int LA17_0 = input.LA(1);
+
+                if ( (LA17_0==78) ) {
+                    alt17=1;
+                }
+
+
+                switch (alt17) {
+            	case 1 :
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:555:1: (lv_WorkItems_59_0= ruleWorkItem )
+            	    {
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:555:1: (lv_WorkItems_59_0= ruleWorkItem )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:556:3: lv_WorkItems_59_0= ruleWorkItem
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getKanbanSchedulingSystemAccess().getWorkItemsWorkItemParserRuleCall_56_0()); 
+            	    	    
+            	    pushFollow(FOLLOW_ruleWorkItem_in_ruleKanbanSchedulingSystem1013);
+            	    lv_WorkItems_59_0=ruleWorkItem();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getKanbanSchedulingSystemRule());
+            	    	        }
+            	           		add(
+            	           			current, 
+            	           			"WorkItems",
+            	            		lv_WorkItems_59_0, 
+            	            		"WorkItem");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt17 >= 1 ) break loop17;
+                        EarlyExitException eee =
+                            new EarlyExitException(17, input);
+                        throw eee;
+                }
+                cnt17++;
+            } while (true);
+
+            otherlv_60=(Token)match(input,53,FOLLOW_53_in_ruleKanbanSchedulingSystem1026); 
+
+                	newLeafNode(otherlv_60, grammarAccess.getKanbanSchedulingSystemAccess().getEndWorkItemsKeyword_57());
+                
+            otherlv_61=(Token)match(input,54,FOLLOW_54_in_ruleKanbanSchedulingSystem1038); 
+
+                	newLeafNode(otherlv_61, grammarAccess.getKanbanSchedulingSystemAccess().getEndWorkItemNetworkModelKeyword_58());
+                
+            otherlv_62=(Token)match(input,55,FOLLOW_55_in_ruleKanbanSchedulingSystem1050); 
+
+                	newLeafNode(otherlv_62, grammarAccess.getKanbanSchedulingSystemAccess().getEndKSSModelKeyword_59());
+                
+            otherlv_63=(Token)match(input,56,FOLLOW_56_in_ruleKanbanSchedulingSystem1062); 
+
+                	newLeafNode(otherlv_63, grammarAccess.getKanbanSchedulingSystemAccess().getExperimentSettingsKeyword_60());
+                
+            otherlv_64=(Token)match(input,57,FOLLOW_57_in_ruleKanbanSchedulingSystem1074); 
+
+                	newLeafNode(otherlv_64, grammarAccess.getKanbanSchedulingSystemAccess().getReplicationsKeyword_61());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:592:1: ( (lv_replications_65_0= RULE_INT ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:593:1: (lv_replications_65_0= RULE_INT )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:593:1: (lv_replications_65_0= RULE_INT )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:594:3: lv_replications_65_0= RULE_INT
+            {
+            lv_replications_65_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleKanbanSchedulingSystem1091); 
+
+            			newLeafNode(lv_replications_65_0, grammarAccess.getKanbanSchedulingSystemAccess().getReplicationsINTTerminalRuleCall_62_0()); 
             		
 
             	        if (current==null) {
@@ -1012,7 +1462,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                    		setWithLastConsumed(
                    			current, 
                    			"replications",
-                    		lv_replications_39_0, 
+                    		lv_replications_65_0, 
                     		"INT");
             	    
 
@@ -1021,19 +1471,19 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_40=(Token)match(input,38,FOLLOW_38_in_ruleKanbanSchedulingSystem732); 
+            otherlv_66=(Token)match(input,58,FOLLOW_58_in_ruleKanbanSchedulingSystem1108); 
 
-                	newLeafNode(otherlv_40, grammarAccess.getKanbanSchedulingSystemAccess().getInterArrivalTimeKeyword_40());
+                	newLeafNode(otherlv_66, grammarAccess.getKanbanSchedulingSystemAccess().getInterArrivalTimeKeyword_63());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:426:1: ( (lv_interArrivalTime_41_0= RULE_INT ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:427:1: (lv_interArrivalTime_41_0= RULE_INT )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:614:1: ( (lv_interArrivalTime_67_0= RULE_INT ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:615:1: (lv_interArrivalTime_67_0= RULE_INT )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:427:1: (lv_interArrivalTime_41_0= RULE_INT )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:428:3: lv_interArrivalTime_41_0= RULE_INT
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:615:1: (lv_interArrivalTime_67_0= RULE_INT )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:616:3: lv_interArrivalTime_67_0= RULE_INT
             {
-            lv_interArrivalTime_41_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleKanbanSchedulingSystem749); 
+            lv_interArrivalTime_67_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleKanbanSchedulingSystem1125); 
 
-            			newLeafNode(lv_interArrivalTime_41_0, grammarAccess.getKanbanSchedulingSystemAccess().getInterArrivalTimeINTTerminalRuleCall_41_0()); 
+            			newLeafNode(lv_interArrivalTime_67_0, grammarAccess.getKanbanSchedulingSystemAccess().getInterArrivalTimeINTTerminalRuleCall_64_0()); 
             		
 
             	        if (current==null) {
@@ -1042,7 +1492,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                    		setWithLastConsumed(
                    			current, 
                    			"interArrivalTime",
-                    		lv_interArrivalTime_41_0, 
+                    		lv_interArrivalTime_67_0, 
                     		"INT");
             	    
 
@@ -1051,13 +1501,9 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_42=(Token)match(input,39,FOLLOW_39_in_ruleKanbanSchedulingSystem766); 
+            otherlv_68=(Token)match(input,59,FOLLOW_59_in_ruleKanbanSchedulingSystem1142); 
 
-                	newLeafNode(otherlv_42, grammarAccess.getKanbanSchedulingSystemAccess().getEndExperimentSettingsKeyword_42());
-                
-            otherlv_43=(Token)match(input,40,FOLLOW_40_in_ruleKanbanSchedulingSystem778); 
-
-                	newLeafNode(otherlv_43, grammarAccess.getKanbanSchedulingSystemAccess().getEndKSSModelKeyword_43());
+                	newLeafNode(otherlv_68, grammarAccess.getKanbanSchedulingSystemAccess().getEndExperimentSettingsKeyword_65());
                 
 
             }
@@ -1080,7 +1526,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleQualifiedName"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:460:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:644:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
     public final String entryRuleQualifiedName() throws RecognitionException {
         String current = null;
 
@@ -1088,17 +1534,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:461:2: (iv_ruleQualifiedName= ruleQualifiedName EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:462:2: iv_ruleQualifiedName= ruleQualifiedName EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:645:2: (iv_ruleQualifiedName= ruleQualifiedName EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:646:2: iv_ruleQualifiedName= ruleQualifiedName EOF
             {
              newCompositeNode(grammarAccess.getQualifiedNameRule()); 
-            pushFollow(FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName815);
+            pushFollow(FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName1179);
             iv_ruleQualifiedName=ruleQualifiedName();
 
             state._fsp--;
 
              current =iv_ruleQualifiedName.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedName826); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedName1190); 
 
             }
 
@@ -1116,7 +1562,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQualifiedName"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:469:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:653:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
     public final AntlrDatatypeRuleToken ruleQualifiedName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1127,40 +1573,40 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:472:28: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:473:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:656:28: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:657:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:473:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:473:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:657:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:657:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
             {
-            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName866); 
+            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName1230); 
 
             		current.merge(this_ID_0);
                 
              
                 newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:480:1: (kw= '.' this_ID_2= RULE_ID )*
-            loop12:
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:664:1: (kw= '.' this_ID_2= RULE_ID )*
+            loop18:
             do {
-                int alt12=2;
-                int LA12_0 = input.LA(1);
+                int alt18=2;
+                int LA18_0 = input.LA(1);
 
-                if ( (LA12_0==41) ) {
-                    alt12=1;
+                if ( (LA18_0==60) ) {
+                    alt18=1;
                 }
 
 
-                switch (alt12) {
+                switch (alt18) {
             	case 1 :
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:481:2: kw= '.' this_ID_2= RULE_ID
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:665:2: kw= '.' this_ID_2= RULE_ID
             	    {
-            	    kw=(Token)match(input,41,FOLLOW_41_in_ruleQualifiedName885); 
+            	    kw=(Token)match(input,60,FOLLOW_60_in_ruleQualifiedName1249); 
 
             	            current.merge(kw);
             	            newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
             	        
-            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName900); 
+            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName1264); 
 
             	    		current.merge(this_ID_2);
             	        
@@ -1172,7 +1618,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop12;
+            	    break loop18;
                 }
             } while (true);
 
@@ -1197,7 +1643,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDouble"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:501:1: entryRuleDouble returns [String current=null] : iv_ruleDouble= ruleDouble EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:685:1: entryRuleDouble returns [String current=null] : iv_ruleDouble= ruleDouble EOF ;
     public final String entryRuleDouble() throws RecognitionException {
         String current = null;
 
@@ -1205,17 +1651,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:502:2: (iv_ruleDouble= ruleDouble EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:503:2: iv_ruleDouble= ruleDouble EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:686:2: (iv_ruleDouble= ruleDouble EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:687:2: iv_ruleDouble= ruleDouble EOF
             {
              newCompositeNode(grammarAccess.getDoubleRule()); 
-            pushFollow(FOLLOW_ruleDouble_in_entryRuleDouble948);
+            pushFollow(FOLLOW_ruleDouble_in_entryRuleDouble1312);
             iv_ruleDouble=ruleDouble();
 
             state._fsp--;
 
              current =iv_ruleDouble.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDouble959); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDouble1323); 
 
             }
 
@@ -1233,7 +1679,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDouble"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:510:1: ruleDouble returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_INT_0= RULE_INT (kw= '.' this_INT_2= RULE_INT )? ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:694:1: ruleDouble returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_INT_0= RULE_INT (kw= '.' this_INT_2= RULE_INT )? ) ;
     public final AntlrDatatypeRuleToken ruleDouble() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1244,36 +1690,36 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:513:28: ( (this_INT_0= RULE_INT (kw= '.' this_INT_2= RULE_INT )? ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:514:1: (this_INT_0= RULE_INT (kw= '.' this_INT_2= RULE_INT )? )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:697:28: ( (this_INT_0= RULE_INT (kw= '.' this_INT_2= RULE_INT )? ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:698:1: (this_INT_0= RULE_INT (kw= '.' this_INT_2= RULE_INT )? )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:514:1: (this_INT_0= RULE_INT (kw= '.' this_INT_2= RULE_INT )? )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:514:6: this_INT_0= RULE_INT (kw= '.' this_INT_2= RULE_INT )?
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:698:1: (this_INT_0= RULE_INT (kw= '.' this_INT_2= RULE_INT )? )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:698:6: this_INT_0= RULE_INT (kw= '.' this_INT_2= RULE_INT )?
             {
-            this_INT_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleDouble999); 
+            this_INT_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleDouble1363); 
 
             		current.merge(this_INT_0);
                 
              
                 newLeafNode(this_INT_0, grammarAccess.getDoubleAccess().getINTTerminalRuleCall_0()); 
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:521:1: (kw= '.' this_INT_2= RULE_INT )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:705:1: (kw= '.' this_INT_2= RULE_INT )?
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            if ( (LA13_0==41) ) {
-                alt13=1;
+            if ( (LA19_0==60) ) {
+                alt19=1;
             }
-            switch (alt13) {
+            switch (alt19) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:522:2: kw= '.' this_INT_2= RULE_INT
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:706:2: kw= '.' this_INT_2= RULE_INT
                     {
-                    kw=(Token)match(input,41,FOLLOW_41_in_ruleDouble1018); 
+                    kw=(Token)match(input,60,FOLLOW_60_in_ruleDouble1382); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getDoubleAccess().getFullStopKeyword_1_0()); 
                         
-                    this_INT_2=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleDouble1033); 
+                    this_INT_2=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleDouble1397); 
 
                     		current.merge(this_INT_2);
                         
@@ -1307,7 +1753,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNumExpression"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:542:1: entryRuleNumExpression returns [EObject current=null] : iv_ruleNumExpression= ruleNumExpression EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:726:1: entryRuleNumExpression returns [EObject current=null] : iv_ruleNumExpression= ruleNumExpression EOF ;
     public final EObject entryRuleNumExpression() throws RecognitionException {
         EObject current = null;
 
@@ -1315,17 +1761,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:543:2: (iv_ruleNumExpression= ruleNumExpression EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:544:2: iv_ruleNumExpression= ruleNumExpression EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:727:2: (iv_ruleNumExpression= ruleNumExpression EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:728:2: iv_ruleNumExpression= ruleNumExpression EOF
             {
              newCompositeNode(grammarAccess.getNumExpressionRule()); 
-            pushFollow(FOLLOW_ruleNumExpression_in_entryRuleNumExpression1080);
+            pushFollow(FOLLOW_ruleNumExpression_in_entryRuleNumExpression1444);
             iv_ruleNumExpression=ruleNumExpression();
 
             state._fsp--;
 
              current =iv_ruleNumExpression; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNumExpression1090); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNumExpression1454); 
 
             }
 
@@ -1343,7 +1789,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNumExpression"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:551:1: ruleNumExpression returns [EObject current=null] : ( ( (lv_numValue_0_0= ruleDouble ) )? ( ( (lv_distribution_1_0= 'Distribution:' ) ) ( (lv_numDist_2_0= ruleDistribution ) ) )? ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:735:1: ruleNumExpression returns [EObject current=null] : ( ( (lv_numValue_0_0= ruleDouble ) )? ( ( (lv_distribution_1_0= 'Distribution:' ) ) ( (lv_numDist_2_0= ruleDistribution ) ) )? ) ;
     public final EObject ruleNumExpression() throws RecognitionException {
         EObject current = null;
 
@@ -1356,30 +1802,30 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:554:28: ( ( ( (lv_numValue_0_0= ruleDouble ) )? ( ( (lv_distribution_1_0= 'Distribution:' ) ) ( (lv_numDist_2_0= ruleDistribution ) ) )? ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:555:1: ( ( (lv_numValue_0_0= ruleDouble ) )? ( ( (lv_distribution_1_0= 'Distribution:' ) ) ( (lv_numDist_2_0= ruleDistribution ) ) )? )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:738:28: ( ( ( (lv_numValue_0_0= ruleDouble ) )? ( ( (lv_distribution_1_0= 'Distribution:' ) ) ( (lv_numDist_2_0= ruleDistribution ) ) )? ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:739:1: ( ( (lv_numValue_0_0= ruleDouble ) )? ( ( (lv_distribution_1_0= 'Distribution:' ) ) ( (lv_numDist_2_0= ruleDistribution ) ) )? )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:555:1: ( ( (lv_numValue_0_0= ruleDouble ) )? ( ( (lv_distribution_1_0= 'Distribution:' ) ) ( (lv_numDist_2_0= ruleDistribution ) ) )? )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:555:2: ( (lv_numValue_0_0= ruleDouble ) )? ( ( (lv_distribution_1_0= 'Distribution:' ) ) ( (lv_numDist_2_0= ruleDistribution ) ) )?
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:739:1: ( ( (lv_numValue_0_0= ruleDouble ) )? ( ( (lv_distribution_1_0= 'Distribution:' ) ) ( (lv_numDist_2_0= ruleDistribution ) ) )? )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:739:2: ( (lv_numValue_0_0= ruleDouble ) )? ( ( (lv_distribution_1_0= 'Distribution:' ) ) ( (lv_numDist_2_0= ruleDistribution ) ) )?
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:555:2: ( (lv_numValue_0_0= ruleDouble ) )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:739:2: ( (lv_numValue_0_0= ruleDouble ) )?
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            if ( (LA14_0==RULE_INT) ) {
-                alt14=1;
+            if ( (LA20_0==RULE_INT) ) {
+                alt20=1;
             }
-            switch (alt14) {
+            switch (alt20) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:556:1: (lv_numValue_0_0= ruleDouble )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:740:1: (lv_numValue_0_0= ruleDouble )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:556:1: (lv_numValue_0_0= ruleDouble )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:557:3: lv_numValue_0_0= ruleDouble
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:740:1: (lv_numValue_0_0= ruleDouble )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:741:3: lv_numValue_0_0= ruleDouble
                     {
                      
                     	        newCompositeNode(grammarAccess.getNumExpressionAccess().getNumValueDoubleParserRuleCall_0_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleDouble_in_ruleNumExpression1136);
+                    pushFollow(FOLLOW_ruleDouble_in_ruleNumExpression1500);
                     lv_numValue_0_0=ruleDouble();
 
                     state._fsp--;
@@ -1404,24 +1850,24 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:573:3: ( ( (lv_distribution_1_0= 'Distribution:' ) ) ( (lv_numDist_2_0= ruleDistribution ) ) )?
-            int alt15=2;
-            int LA15_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:757:3: ( ( (lv_distribution_1_0= 'Distribution:' ) ) ( (lv_numDist_2_0= ruleDistribution ) ) )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            if ( (LA15_0==42) ) {
-                alt15=1;
+            if ( (LA21_0==61) ) {
+                alt21=1;
             }
-            switch (alt15) {
+            switch (alt21) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:573:4: ( (lv_distribution_1_0= 'Distribution:' ) ) ( (lv_numDist_2_0= ruleDistribution ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:757:4: ( (lv_distribution_1_0= 'Distribution:' ) ) ( (lv_numDist_2_0= ruleDistribution ) )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:573:4: ( (lv_distribution_1_0= 'Distribution:' ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:574:1: (lv_distribution_1_0= 'Distribution:' )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:757:4: ( (lv_distribution_1_0= 'Distribution:' ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:758:1: (lv_distribution_1_0= 'Distribution:' )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:574:1: (lv_distribution_1_0= 'Distribution:' )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:575:3: lv_distribution_1_0= 'Distribution:'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:758:1: (lv_distribution_1_0= 'Distribution:' )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:759:3: lv_distribution_1_0= 'Distribution:'
                     {
-                    lv_distribution_1_0=(Token)match(input,42,FOLLOW_42_in_ruleNumExpression1156); 
+                    lv_distribution_1_0=(Token)match(input,61,FOLLOW_61_in_ruleNumExpression1520); 
 
                             newLeafNode(lv_distribution_1_0, grammarAccess.getNumExpressionAccess().getDistributionDistributionKeyword_1_0_0());
                         
@@ -1437,16 +1883,16 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:588:2: ( (lv_numDist_2_0= ruleDistribution ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:589:1: (lv_numDist_2_0= ruleDistribution )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:772:2: ( (lv_numDist_2_0= ruleDistribution ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:773:1: (lv_numDist_2_0= ruleDistribution )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:589:1: (lv_numDist_2_0= ruleDistribution )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:590:3: lv_numDist_2_0= ruleDistribution
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:773:1: (lv_numDist_2_0= ruleDistribution )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:774:3: lv_numDist_2_0= ruleDistribution
                     {
                      
                     	        newCompositeNode(grammarAccess.getNumExpressionAccess().getNumDistDistributionParserRuleCall_1_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleDistribution_in_ruleNumExpression1190);
+                    pushFollow(FOLLOW_ruleDistribution_in_ruleNumExpression1554);
                     lv_numDist_2_0=ruleDistribution();
 
                     state._fsp--;
@@ -1495,7 +1941,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleParameter"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:614:1: entryRuleParameter returns [String current=null] : iv_ruleParameter= ruleParameter EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:798:1: entryRuleParameter returns [String current=null] : iv_ruleParameter= ruleParameter EOF ;
     public final String entryRuleParameter() throws RecognitionException {
         String current = null;
 
@@ -1503,17 +1949,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:615:2: (iv_ruleParameter= ruleParameter EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:616:2: iv_ruleParameter= ruleParameter EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:799:2: (iv_ruleParameter= ruleParameter EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:800:2: iv_ruleParameter= ruleParameter EOF
             {
              newCompositeNode(grammarAccess.getParameterRule()); 
-            pushFollow(FOLLOW_ruleParameter_in_entryRuleParameter1229);
+            pushFollow(FOLLOW_ruleParameter_in_entryRuleParameter1593);
             iv_ruleParameter=ruleParameter();
 
             state._fsp--;
 
              current =iv_ruleParameter.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleParameter1240); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleParameter1604); 
 
             }
 
@@ -1531,7 +1977,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleParameter"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:623:1: ruleParameter returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_Double_0= ruleDouble | this_ID_1= RULE_ID ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:807:1: ruleParameter returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_Double_0= ruleDouble | this_ID_1= RULE_ID ) ;
     public final AntlrDatatypeRuleToken ruleParameter() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1542,33 +1988,33 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:626:28: ( (this_Double_0= ruleDouble | this_ID_1= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:627:1: (this_Double_0= ruleDouble | this_ID_1= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:810:28: ( (this_Double_0= ruleDouble | this_ID_1= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:811:1: (this_Double_0= ruleDouble | this_ID_1= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:627:1: (this_Double_0= ruleDouble | this_ID_1= RULE_ID )
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:811:1: (this_Double_0= ruleDouble | this_ID_1= RULE_ID )
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( (LA16_0==RULE_INT) ) {
-                alt16=1;
+            if ( (LA22_0==RULE_INT) ) {
+                alt22=1;
             }
-            else if ( (LA16_0==RULE_ID) ) {
-                alt16=2;
+            else if ( (LA22_0==RULE_ID) ) {
+                alt22=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 16, 0, input);
+                    new NoViableAltException("", 22, 0, input);
 
                 throw nvae;
             }
-            switch (alt16) {
+            switch (alt22) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:628:5: this_Double_0= ruleDouble
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:812:5: this_Double_0= ruleDouble
                     {
                      
                             newCompositeNode(grammarAccess.getParameterAccess().getDoubleParserRuleCall_0()); 
                         
-                    pushFollow(FOLLOW_ruleDouble_in_ruleParameter1287);
+                    pushFollow(FOLLOW_ruleDouble_in_ruleParameter1651);
                     this_Double_0=ruleDouble();
 
                     state._fsp--;
@@ -1583,9 +2029,9 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:639:10: this_ID_1= RULE_ID
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:823:10: this_ID_1= RULE_ID
                     {
-                    this_ID_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleParameter1313); 
+                    this_ID_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleParameter1677); 
 
                     		current.merge(this_ID_1);
                         
@@ -1616,7 +2062,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDistribution"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:654:1: entryRuleDistribution returns [EObject current=null] : iv_ruleDistribution= ruleDistribution EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:838:1: entryRuleDistribution returns [EObject current=null] : iv_ruleDistribution= ruleDistribution EOF ;
     public final EObject entryRuleDistribution() throws RecognitionException {
         EObject current = null;
 
@@ -1624,17 +2070,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:655:2: (iv_ruleDistribution= ruleDistribution EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:656:2: iv_ruleDistribution= ruleDistribution EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:839:2: (iv_ruleDistribution= ruleDistribution EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:840:2: iv_ruleDistribution= ruleDistribution EOF
             {
              newCompositeNode(grammarAccess.getDistributionRule()); 
-            pushFollow(FOLLOW_ruleDistribution_in_entryRuleDistribution1358);
+            pushFollow(FOLLOW_ruleDistribution_in_entryRuleDistribution1722);
             iv_ruleDistribution=ruleDistribution();
 
             state._fsp--;
 
              current =iv_ruleDistribution; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDistribution1368); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDistribution1732); 
 
             }
 
@@ -1652,7 +2098,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDistribution"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:663:1: ruleDistribution returns [EObject current=null] : ( ( (lv_type_0_0= RULE_ID ) ) otherlv_1= '[' ( (lv_parameters_2_0= ruleParameter ) )* otherlv_3= ']' ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:847:1: ruleDistribution returns [EObject current=null] : ( ( (lv_type_0_0= RULE_ID ) ) otherlv_1= '[' ( (lv_parameters_2_0= ruleParameter ) )* otherlv_3= ']' ) ;
     public final EObject ruleDistribution() throws RecognitionException {
         EObject current = null;
 
@@ -1665,19 +2111,19 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:666:28: ( ( ( (lv_type_0_0= RULE_ID ) ) otherlv_1= '[' ( (lv_parameters_2_0= ruleParameter ) )* otherlv_3= ']' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:667:1: ( ( (lv_type_0_0= RULE_ID ) ) otherlv_1= '[' ( (lv_parameters_2_0= ruleParameter ) )* otherlv_3= ']' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:850:28: ( ( ( (lv_type_0_0= RULE_ID ) ) otherlv_1= '[' ( (lv_parameters_2_0= ruleParameter ) )* otherlv_3= ']' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:851:1: ( ( (lv_type_0_0= RULE_ID ) ) otherlv_1= '[' ( (lv_parameters_2_0= ruleParameter ) )* otherlv_3= ']' )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:667:1: ( ( (lv_type_0_0= RULE_ID ) ) otherlv_1= '[' ( (lv_parameters_2_0= ruleParameter ) )* otherlv_3= ']' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:667:2: ( (lv_type_0_0= RULE_ID ) ) otherlv_1= '[' ( (lv_parameters_2_0= ruleParameter ) )* otherlv_3= ']'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:851:1: ( ( (lv_type_0_0= RULE_ID ) ) otherlv_1= '[' ( (lv_parameters_2_0= ruleParameter ) )* otherlv_3= ']' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:851:2: ( (lv_type_0_0= RULE_ID ) ) otherlv_1= '[' ( (lv_parameters_2_0= ruleParameter ) )* otherlv_3= ']'
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:667:2: ( (lv_type_0_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:668:1: (lv_type_0_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:851:2: ( (lv_type_0_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:852:1: (lv_type_0_0= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:668:1: (lv_type_0_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:669:3: lv_type_0_0= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:852:1: (lv_type_0_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:853:3: lv_type_0_0= RULE_ID
             {
-            lv_type_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDistribution1410); 
+            lv_type_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDistribution1774); 
 
             			newLeafNode(lv_type_0_0, grammarAccess.getDistributionAccess().getTypeIDTerminalRuleCall_0_0()); 
             		
@@ -1697,32 +2143,32 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,43,FOLLOW_43_in_ruleDistribution1427); 
+            otherlv_1=(Token)match(input,62,FOLLOW_62_in_ruleDistribution1791); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getDistributionAccess().getLeftSquareBracketKeyword_1());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:689:1: ( (lv_parameters_2_0= ruleParameter ) )*
-            loop17:
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:873:1: ( (lv_parameters_2_0= ruleParameter ) )*
+            loop23:
             do {
-                int alt17=2;
-                int LA17_0 = input.LA(1);
+                int alt23=2;
+                int LA23_0 = input.LA(1);
 
-                if ( ((LA17_0>=RULE_ID && LA17_0<=RULE_INT)) ) {
-                    alt17=1;
+                if ( ((LA23_0>=RULE_ID && LA23_0<=RULE_INT)) ) {
+                    alt23=1;
                 }
 
 
-                switch (alt17) {
+                switch (alt23) {
             	case 1 :
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:690:1: (lv_parameters_2_0= ruleParameter )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:874:1: (lv_parameters_2_0= ruleParameter )
             	    {
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:690:1: (lv_parameters_2_0= ruleParameter )
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:691:3: lv_parameters_2_0= ruleParameter
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:874:1: (lv_parameters_2_0= ruleParameter )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:875:3: lv_parameters_2_0= ruleParameter
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getDistributionAccess().getParametersParameterParserRuleCall_2_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleParameter_in_ruleDistribution1448);
+            	    pushFollow(FOLLOW_ruleParameter_in_ruleDistribution1812);
             	    lv_parameters_2_0=ruleParameter();
 
             	    state._fsp--;
@@ -1746,11 +2192,11 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop17;
+            	    break loop23;
                 }
             } while (true);
 
-            otherlv_3=(Token)match(input,44,FOLLOW_44_in_ruleDistribution1461); 
+            otherlv_3=(Token)match(input,63,FOLLOW_63_in_ruleDistribution1825); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getDistributionAccess().getRightSquareBracketKeyword_3());
                 
@@ -1774,8 +2220,1884 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleDistribution"
 
 
+    // $ANTLR start "entryRuleTaskHierarchy"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:903:1: entryRuleTaskHierarchy returns [EObject current=null] : iv_ruleTaskHierarchy= ruleTaskHierarchy EOF ;
+    public final EObject entryRuleTaskHierarchy() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleTaskHierarchy = null;
+
+
+        try {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:904:2: (iv_ruleTaskHierarchy= ruleTaskHierarchy EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:905:2: iv_ruleTaskHierarchy= ruleTaskHierarchy EOF
+            {
+             newCompositeNode(grammarAccess.getTaskHierarchyRule()); 
+            pushFollow(FOLLOW_ruleTaskHierarchy_in_entryRuleTaskHierarchy1861);
+            iv_ruleTaskHierarchy=ruleTaskHierarchy();
+
+            state._fsp--;
+
+             current =iv_ruleTaskHierarchy; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTaskHierarchy1871); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleTaskHierarchy"
+
+
+    // $ANTLR start "ruleTaskHierarchy"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:912:1: ruleTaskHierarchy returns [EObject current=null] : (otherlv_0= 'TaskHierarchy' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'Types' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )? otherlv_9= '}' ) ;
+    public final EObject ruleTaskHierarchy() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token lv_name_1_0=null;
+        Token otherlv_2=null;
+        Token otherlv_3=null;
+        Token lv_description_4_0=null;
+        Token otherlv_5=null;
+        Token otherlv_6=null;
+        Token otherlv_7=null;
+        Token otherlv_8=null;
+        Token otherlv_9=null;
+
+         enterRule(); 
+            
+        try {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:915:28: ( (otherlv_0= 'TaskHierarchy' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'Types' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )? otherlv_9= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:916:1: (otherlv_0= 'TaskHierarchy' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'Types' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )? otherlv_9= '}' )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:916:1: (otherlv_0= 'TaskHierarchy' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'Types' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )? otherlv_9= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:916:3: otherlv_0= 'TaskHierarchy' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'Types' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )? otherlv_9= '}'
+            {
+            otherlv_0=(Token)match(input,64,FOLLOW_64_in_ruleTaskHierarchy1908); 
+
+                	newLeafNode(otherlv_0, grammarAccess.getTaskHierarchyAccess().getTaskHierarchyKeyword_0());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:920:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:921:1: (lv_name_1_0= RULE_ID )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:921:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:922:3: lv_name_1_0= RULE_ID
+            {
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTaskHierarchy1925); 
+
+            			newLeafNode(lv_name_1_0, grammarAccess.getTaskHierarchyAccess().getNameIDTerminalRuleCall_1_0()); 
+            		
+
+            	        if (current==null) {
+            	            current = createModelElement(grammarAccess.getTaskHierarchyRule());
+            	        }
+                   		setWithLastConsumed(
+                   			current, 
+                   			"name",
+                    		lv_name_1_0, 
+                    		"ID");
+            	    
+
+            }
+
+
+            }
+
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleTaskHierarchy1942); 
+
+                	newLeafNode(otherlv_2, grammarAccess.getTaskHierarchyAccess().getLeftCurlyBracketKeyword_2());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:942:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
+            int alt24=2;
+            int LA24_0 = input.LA(1);
+
+            if ( (LA24_0==66) ) {
+                alt24=1;
+            }
+            switch (alt24) {
+                case 1 :
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:942:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
+                    {
+                    otherlv_3=(Token)match(input,66,FOLLOW_66_in_ruleTaskHierarchy1955); 
+
+                        	newLeafNode(otherlv_3, grammarAccess.getTaskHierarchyAccess().getDescriptionKeyword_3_0());
+                        
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:946:1: ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:947:1: (lv_description_4_0= RULE_STRING )
+                    {
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:947:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:948:3: lv_description_4_0= RULE_STRING
+                    {
+                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleTaskHierarchy1972); 
+
+                    			newLeafNode(lv_description_4_0, grammarAccess.getTaskHierarchyAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
+                    		
+
+                    	        if (current==null) {
+                    	            current = createModelElement(grammarAccess.getTaskHierarchyRule());
+                    	        }
+                           		setWithLastConsumed(
+                           			current, 
+                           			"description",
+                            		lv_description_4_0, 
+                            		"STRING");
+                    	    
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:964:4: (otherlv_5= 'Types' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )?
+            int alt26=2;
+            int LA26_0 = input.LA(1);
+
+            if ( (LA26_0==67) ) {
+                alt26=1;
+            }
+            switch (alt26) {
+                case 1 :
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:964:6: otherlv_5= 'Types' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}'
+                    {
+                    otherlv_5=(Token)match(input,67,FOLLOW_67_in_ruleTaskHierarchy1992); 
+
+                        	newLeafNode(otherlv_5, grammarAccess.getTaskHierarchyAccess().getTypesKeyword_4_0());
+                        
+                    otherlv_6=(Token)match(input,65,FOLLOW_65_in_ruleTaskHierarchy2004); 
+
+                        	newLeafNode(otherlv_6, grammarAccess.getTaskHierarchyAccess().getLeftCurlyBracketKeyword_4_1());
+                        
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:972:1: ( (otherlv_7= RULE_ID ) )+
+                    int cnt25=0;
+                    loop25:
+                    do {
+                        int alt25=2;
+                        int LA25_0 = input.LA(1);
+
+                        if ( (LA25_0==RULE_ID) ) {
+                            alt25=1;
+                        }
+
+
+                        switch (alt25) {
+                    	case 1 :
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:973:1: (otherlv_7= RULE_ID )
+                    	    {
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:973:1: (otherlv_7= RULE_ID )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:974:3: otherlv_7= RULE_ID
+                    	    {
+
+                    	    			if (current==null) {
+                    	    	            current = createModelElement(grammarAccess.getTaskHierarchyRule());
+                    	    	        }
+                    	            
+                    	    otherlv_7=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTaskHierarchy2024); 
+
+                    	    		newLeafNode(otherlv_7, grammarAccess.getTaskHierarchyAccess().getTaskTypesTaskTypeCrossReference_4_2_0()); 
+                    	    	
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    if ( cnt25 >= 1 ) break loop25;
+                                EarlyExitException eee =
+                                    new EarlyExitException(25, input);
+                                throw eee;
+                        }
+                        cnt25++;
+                    } while (true);
+
+                    otherlv_8=(Token)match(input,68,FOLLOW_68_in_ruleTaskHierarchy2037); 
+
+                        	newLeafNode(otherlv_8, grammarAccess.getTaskHierarchyAccess().getRightCurlyBracketKeyword_4_3());
+                        
+
+                    }
+                    break;
+
+            }
+
+            otherlv_9=(Token)match(input,68,FOLLOW_68_in_ruleTaskHierarchy2051); 
+
+                	newLeafNode(otherlv_9, grammarAccess.getTaskHierarchyAccess().getRightCurlyBracketKeyword_5());
+                
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleTaskHierarchy"
+
+
+    // $ANTLR start "entryRuleTaskType"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1001:1: entryRuleTaskType returns [EObject current=null] : iv_ruleTaskType= ruleTaskType EOF ;
+    public final EObject entryRuleTaskType() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleTaskType = null;
+
+
+        try {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1002:2: (iv_ruleTaskType= ruleTaskType EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1003:2: iv_ruleTaskType= ruleTaskType EOF
+            {
+             newCompositeNode(grammarAccess.getTaskTypeRule()); 
+            pushFollow(FOLLOW_ruleTaskType_in_entryRuleTaskType2087);
+            iv_ruleTaskType=ruleTaskType();
+
+            state._fsp--;
+
+             current =iv_ruleTaskType; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTaskType2097); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleTaskType"
+
+
+    // $ANTLR start "ruleTaskType"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1010:1: ruleTaskType returns [EObject current=null] : (otherlv_0= 'TaskType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) ;
+    public final EObject ruleTaskType() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token lv_name_1_0=null;
+        Token otherlv_2=null;
+        Token otherlv_3=null;
+        Token lv_description_4_0=null;
+        Token otherlv_5=null;
+
+         enterRule(); 
+            
+        try {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1013:28: ( (otherlv_0= 'TaskType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1014:1: (otherlv_0= 'TaskType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1014:1: (otherlv_0= 'TaskType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1014:3: otherlv_0= 'TaskType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}'
+            {
+            otherlv_0=(Token)match(input,69,FOLLOW_69_in_ruleTaskType2134); 
+
+                	newLeafNode(otherlv_0, grammarAccess.getTaskTypeAccess().getTaskTypeKeyword_0());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1018:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1019:1: (lv_name_1_0= RULE_ID )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1019:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1020:3: lv_name_1_0= RULE_ID
+            {
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTaskType2151); 
+
+            			newLeafNode(lv_name_1_0, grammarAccess.getTaskTypeAccess().getNameIDTerminalRuleCall_1_0()); 
+            		
+
+            	        if (current==null) {
+            	            current = createModelElement(grammarAccess.getTaskTypeRule());
+            	        }
+                   		setWithLastConsumed(
+                   			current, 
+                   			"name",
+                    		lv_name_1_0, 
+                    		"ID");
+            	    
+
+            }
+
+
+            }
+
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleTaskType2168); 
+
+                	newLeafNode(otherlv_2, grammarAccess.getTaskTypeAccess().getLeftCurlyBracketKeyword_2());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1040:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
+            int alt27=2;
+            int LA27_0 = input.LA(1);
+
+            if ( (LA27_0==66) ) {
+                alt27=1;
+            }
+            switch (alt27) {
+                case 1 :
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1040:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
+                    {
+                    otherlv_3=(Token)match(input,66,FOLLOW_66_in_ruleTaskType2181); 
+
+                        	newLeafNode(otherlv_3, grammarAccess.getTaskTypeAccess().getDescriptionKeyword_3_0());
+                        
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1044:1: ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1045:1: (lv_description_4_0= RULE_STRING )
+                    {
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1045:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1046:3: lv_description_4_0= RULE_STRING
+                    {
+                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleTaskType2198); 
+
+                    			newLeafNode(lv_description_4_0, grammarAccess.getTaskTypeAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
+                    		
+
+                    	        if (current==null) {
+                    	            current = createModelElement(grammarAccess.getTaskTypeRule());
+                    	        }
+                           		setWithLastConsumed(
+                           			current, 
+                           			"description",
+                            		lv_description_4_0, 
+                            		"STRING");
+                    	    
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            otherlv_5=(Token)match(input,68,FOLLOW_68_in_ruleTaskType2217); 
+
+                	newLeafNode(otherlv_5, grammarAccess.getTaskTypeAccess().getRightCurlyBracketKeyword_4());
+                
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleTaskType"
+
+
+    // $ANTLR start "entryRuleValueFunction"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1074:1: entryRuleValueFunction returns [EObject current=null] : iv_ruleValueFunction= ruleValueFunction EOF ;
+    public final EObject entryRuleValueFunction() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleValueFunction = null;
+
+
+        try {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1075:2: (iv_ruleValueFunction= ruleValueFunction EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1076:2: iv_ruleValueFunction= ruleValueFunction EOF
+            {
+             newCompositeNode(grammarAccess.getValueFunctionRule()); 
+            pushFollow(FOLLOW_ruleValueFunction_in_entryRuleValueFunction2253);
+            iv_ruleValueFunction=ruleValueFunction();
+
+            state._fsp--;
+
+             current =iv_ruleValueFunction; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleValueFunction2263); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleValueFunction"
+
+
+    // $ANTLR start "ruleValueFunction"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1083:1: ruleValueFunction returns [EObject current=null] : (otherlv_0= 'ValueFunction' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) ;
+    public final EObject ruleValueFunction() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token lv_name_1_0=null;
+        Token otherlv_2=null;
+        Token otherlv_3=null;
+        Token lv_description_4_0=null;
+        Token otherlv_5=null;
+
+         enterRule(); 
+            
+        try {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1086:28: ( (otherlv_0= 'ValueFunction' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1087:1: (otherlv_0= 'ValueFunction' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1087:1: (otherlv_0= 'ValueFunction' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1087:3: otherlv_0= 'ValueFunction' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}'
+            {
+            otherlv_0=(Token)match(input,70,FOLLOW_70_in_ruleValueFunction2300); 
+
+                	newLeafNode(otherlv_0, grammarAccess.getValueFunctionAccess().getValueFunctionKeyword_0());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1091:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1092:1: (lv_name_1_0= RULE_ID )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1092:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1093:3: lv_name_1_0= RULE_ID
+            {
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleValueFunction2317); 
+
+            			newLeafNode(lv_name_1_0, grammarAccess.getValueFunctionAccess().getNameIDTerminalRuleCall_1_0()); 
+            		
+
+            	        if (current==null) {
+            	            current = createModelElement(grammarAccess.getValueFunctionRule());
+            	        }
+                   		setWithLastConsumed(
+                   			current, 
+                   			"name",
+                    		lv_name_1_0, 
+                    		"ID");
+            	    
+
+            }
+
+
+            }
+
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleValueFunction2334); 
+
+                	newLeafNode(otherlv_2, grammarAccess.getValueFunctionAccess().getLeftCurlyBracketKeyword_2());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1113:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
+            int alt28=2;
+            int LA28_0 = input.LA(1);
+
+            if ( (LA28_0==66) ) {
+                alt28=1;
+            }
+            switch (alt28) {
+                case 1 :
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1113:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
+                    {
+                    otherlv_3=(Token)match(input,66,FOLLOW_66_in_ruleValueFunction2347); 
+
+                        	newLeafNode(otherlv_3, grammarAccess.getValueFunctionAccess().getDescriptionKeyword_3_0());
+                        
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1117:1: ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1118:1: (lv_description_4_0= RULE_STRING )
+                    {
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1118:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1119:3: lv_description_4_0= RULE_STRING
+                    {
+                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleValueFunction2364); 
+
+                    			newLeafNode(lv_description_4_0, grammarAccess.getValueFunctionAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
+                    		
+
+                    	        if (current==null) {
+                    	            current = createModelElement(grammarAccess.getValueFunctionRule());
+                    	        }
+                           		setWithLastConsumed(
+                           			current, 
+                           			"description",
+                            		lv_description_4_0, 
+                            		"STRING");
+                    	    
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            otherlv_5=(Token)match(input,68,FOLLOW_68_in_ruleValueFunction2383); 
+
+                	newLeafNode(otherlv_5, grammarAccess.getValueFunctionAccess().getRightCurlyBracketKeyword_4());
+                
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleValueFunction"
+
+
+    // $ANTLR start "entryRuleProcessModel"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1147:1: entryRuleProcessModel returns [EObject current=null] : iv_ruleProcessModel= ruleProcessModel EOF ;
+    public final EObject entryRuleProcessModel() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleProcessModel = null;
+
+
+        try {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1148:2: (iv_ruleProcessModel= ruleProcessModel EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1149:2: iv_ruleProcessModel= ruleProcessModel EOF
+            {
+             newCompositeNode(grammarAccess.getProcessModelRule()); 
+            pushFollow(FOLLOW_ruleProcessModel_in_entryRuleProcessModel2419);
+            iv_ruleProcessModel=ruleProcessModel();
+
+            state._fsp--;
+
+             current =iv_ruleProcessModel; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleProcessModel2429); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleProcessModel"
+
+
+    // $ANTLR start "ruleProcessModel"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1156:1: ruleProcessModel returns [EObject current=null] : (otherlv_0= 'ProcessModel' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) ;
+    public final EObject ruleProcessModel() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token lv_name_1_0=null;
+        Token otherlv_2=null;
+        Token otherlv_3=null;
+        Token lv_description_4_0=null;
+        Token otherlv_5=null;
+
+         enterRule(); 
+            
+        try {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1159:28: ( (otherlv_0= 'ProcessModel' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1160:1: (otherlv_0= 'ProcessModel' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1160:1: (otherlv_0= 'ProcessModel' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1160:3: otherlv_0= 'ProcessModel' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}'
+            {
+            otherlv_0=(Token)match(input,71,FOLLOW_71_in_ruleProcessModel2466); 
+
+                	newLeafNode(otherlv_0, grammarAccess.getProcessModelAccess().getProcessModelKeyword_0());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1164:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1165:1: (lv_name_1_0= RULE_ID )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1165:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1166:3: lv_name_1_0= RULE_ID
+            {
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleProcessModel2483); 
+
+            			newLeafNode(lv_name_1_0, grammarAccess.getProcessModelAccess().getNameIDTerminalRuleCall_1_0()); 
+            		
+
+            	        if (current==null) {
+            	            current = createModelElement(grammarAccess.getProcessModelRule());
+            	        }
+                   		setWithLastConsumed(
+                   			current, 
+                   			"name",
+                    		lv_name_1_0, 
+                    		"ID");
+            	    
+
+            }
+
+
+            }
+
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleProcessModel2500); 
+
+                	newLeafNode(otherlv_2, grammarAccess.getProcessModelAccess().getLeftCurlyBracketKeyword_2());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1186:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
+            int alt29=2;
+            int LA29_0 = input.LA(1);
+
+            if ( (LA29_0==66) ) {
+                alt29=1;
+            }
+            switch (alt29) {
+                case 1 :
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1186:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
+                    {
+                    otherlv_3=(Token)match(input,66,FOLLOW_66_in_ruleProcessModel2513); 
+
+                        	newLeafNode(otherlv_3, grammarAccess.getProcessModelAccess().getDescriptionKeyword_3_0());
+                        
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1190:1: ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1191:1: (lv_description_4_0= RULE_STRING )
+                    {
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1191:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1192:3: lv_description_4_0= RULE_STRING
+                    {
+                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleProcessModel2530); 
+
+                    			newLeafNode(lv_description_4_0, grammarAccess.getProcessModelAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
+                    		
+
+                    	        if (current==null) {
+                    	            current = createModelElement(grammarAccess.getProcessModelRule());
+                    	        }
+                           		setWithLastConsumed(
+                           			current, 
+                           			"description",
+                            		lv_description_4_0, 
+                            		"STRING");
+                    	    
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            otherlv_5=(Token)match(input,68,FOLLOW_68_in_ruleProcessModel2549); 
+
+                	newLeafNode(otherlv_5, grammarAccess.getProcessModelAccess().getRightCurlyBracketKeyword_4());
+                
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleProcessModel"
+
+
+    // $ANTLR start "entryRuleClassOfService"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1220:1: entryRuleClassOfService returns [EObject current=null] : iv_ruleClassOfService= ruleClassOfService EOF ;
+    public final EObject entryRuleClassOfService() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleClassOfService = null;
+
+
+        try {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1221:2: (iv_ruleClassOfService= ruleClassOfService EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1222:2: iv_ruleClassOfService= ruleClassOfService EOF
+            {
+             newCompositeNode(grammarAccess.getClassOfServiceRule()); 
+            pushFollow(FOLLOW_ruleClassOfService_in_entryRuleClassOfService2585);
+            iv_ruleClassOfService=ruleClassOfService();
+
+            state._fsp--;
+
+             current =iv_ruleClassOfService; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleClassOfService2595); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleClassOfService"
+
+
+    // $ANTLR start "ruleClassOfService"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1229:1: ruleClassOfService returns [EObject current=null] : (otherlv_0= 'ClassOfService' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) ;
+    public final EObject ruleClassOfService() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token lv_name_1_0=null;
+        Token otherlv_2=null;
+        Token otherlv_3=null;
+        Token lv_description_4_0=null;
+        Token otherlv_5=null;
+
+         enterRule(); 
+            
+        try {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1232:28: ( (otherlv_0= 'ClassOfService' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1233:1: (otherlv_0= 'ClassOfService' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1233:1: (otherlv_0= 'ClassOfService' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1233:3: otherlv_0= 'ClassOfService' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}'
+            {
+            otherlv_0=(Token)match(input,72,FOLLOW_72_in_ruleClassOfService2632); 
+
+                	newLeafNode(otherlv_0, grammarAccess.getClassOfServiceAccess().getClassOfServiceKeyword_0());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1237:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1238:1: (lv_name_1_0= RULE_ID )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1238:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1239:3: lv_name_1_0= RULE_ID
+            {
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleClassOfService2649); 
+
+            			newLeafNode(lv_name_1_0, grammarAccess.getClassOfServiceAccess().getNameIDTerminalRuleCall_1_0()); 
+            		
+
+            	        if (current==null) {
+            	            current = createModelElement(grammarAccess.getClassOfServiceRule());
+            	        }
+                   		setWithLastConsumed(
+                   			current, 
+                   			"name",
+                    		lv_name_1_0, 
+                    		"ID");
+            	    
+
+            }
+
+
+            }
+
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleClassOfService2666); 
+
+                	newLeafNode(otherlv_2, grammarAccess.getClassOfServiceAccess().getLeftCurlyBracketKeyword_2());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1259:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
+            int alt30=2;
+            int LA30_0 = input.LA(1);
+
+            if ( (LA30_0==66) ) {
+                alt30=1;
+            }
+            switch (alt30) {
+                case 1 :
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1259:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
+                    {
+                    otherlv_3=(Token)match(input,66,FOLLOW_66_in_ruleClassOfService2679); 
+
+                        	newLeafNode(otherlv_3, grammarAccess.getClassOfServiceAccess().getDescriptionKeyword_3_0());
+                        
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1263:1: ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1264:1: (lv_description_4_0= RULE_STRING )
+                    {
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1264:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1265:3: lv_description_4_0= RULE_STRING
+                    {
+                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleClassOfService2696); 
+
+                    			newLeafNode(lv_description_4_0, grammarAccess.getClassOfServiceAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
+                    		
+
+                    	        if (current==null) {
+                    	            current = createModelElement(grammarAccess.getClassOfServiceRule());
+                    	        }
+                           		setWithLastConsumed(
+                           			current, 
+                           			"description",
+                            		lv_description_4_0, 
+                            		"STRING");
+                    	    
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            otherlv_5=(Token)match(input,68,FOLLOW_68_in_ruleClassOfService2715); 
+
+                	newLeafNode(otherlv_5, grammarAccess.getClassOfServiceAccess().getRightCurlyBracketKeyword_4());
+                
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleClassOfService"
+
+
+    // $ANTLR start "entryRuleWIAcceptanceRuleType"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1293:1: entryRuleWIAcceptanceRuleType returns [EObject current=null] : iv_ruleWIAcceptanceRuleType= ruleWIAcceptanceRuleType EOF ;
+    public final EObject entryRuleWIAcceptanceRuleType() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleWIAcceptanceRuleType = null;
+
+
+        try {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1294:2: (iv_ruleWIAcceptanceRuleType= ruleWIAcceptanceRuleType EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1295:2: iv_ruleWIAcceptanceRuleType= ruleWIAcceptanceRuleType EOF
+            {
+             newCompositeNode(grammarAccess.getWIAcceptanceRuleTypeRule()); 
+            pushFollow(FOLLOW_ruleWIAcceptanceRuleType_in_entryRuleWIAcceptanceRuleType2751);
+            iv_ruleWIAcceptanceRuleType=ruleWIAcceptanceRuleType();
+
+            state._fsp--;
+
+             current =iv_ruleWIAcceptanceRuleType; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleWIAcceptanceRuleType2761); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleWIAcceptanceRuleType"
+
+
+    // $ANTLR start "ruleWIAcceptanceRuleType"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1302:1: ruleWIAcceptanceRuleType returns [EObject current=null] : (otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) ;
+    public final EObject ruleWIAcceptanceRuleType() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token lv_name_1_0=null;
+        Token otherlv_2=null;
+        Token otherlv_3=null;
+        Token lv_description_4_0=null;
+        Token otherlv_5=null;
+
+         enterRule(); 
+            
+        try {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1305:28: ( (otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1306:1: (otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1306:1: (otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1306:3: otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}'
+            {
+            otherlv_0=(Token)match(input,73,FOLLOW_73_in_ruleWIAcceptanceRuleType2798); 
+
+                	newLeafNode(otherlv_0, grammarAccess.getWIAcceptanceRuleTypeAccess().getRuleTypeKeyword_0());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1310:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1311:1: (lv_name_1_0= RULE_ID )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1311:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1312:3: lv_name_1_0= RULE_ID
+            {
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWIAcceptanceRuleType2815); 
+
+            			newLeafNode(lv_name_1_0, grammarAccess.getWIAcceptanceRuleTypeAccess().getNameIDTerminalRuleCall_1_0()); 
+            		
+
+            	        if (current==null) {
+            	            current = createModelElement(grammarAccess.getWIAcceptanceRuleTypeRule());
+            	        }
+                   		setWithLastConsumed(
+                   			current, 
+                   			"name",
+                    		lv_name_1_0, 
+                    		"ID");
+            	    
+
+            }
+
+
+            }
+
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleWIAcceptanceRuleType2832); 
+
+                	newLeafNode(otherlv_2, grammarAccess.getWIAcceptanceRuleTypeAccess().getLeftCurlyBracketKeyword_2());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1332:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
+            int alt31=2;
+            int LA31_0 = input.LA(1);
+
+            if ( (LA31_0==66) ) {
+                alt31=1;
+            }
+            switch (alt31) {
+                case 1 :
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1332:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
+                    {
+                    otherlv_3=(Token)match(input,66,FOLLOW_66_in_ruleWIAcceptanceRuleType2845); 
+
+                        	newLeafNode(otherlv_3, grammarAccess.getWIAcceptanceRuleTypeAccess().getDescriptionKeyword_3_0());
+                        
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1336:1: ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1337:1: (lv_description_4_0= RULE_STRING )
+                    {
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1337:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1338:3: lv_description_4_0= RULE_STRING
+                    {
+                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleWIAcceptanceRuleType2862); 
+
+                    			newLeafNode(lv_description_4_0, grammarAccess.getWIAcceptanceRuleTypeAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
+                    		
+
+                    	        if (current==null) {
+                    	            current = createModelElement(grammarAccess.getWIAcceptanceRuleTypeRule());
+                    	        }
+                           		setWithLastConsumed(
+                           			current, 
+                           			"description",
+                            		lv_description_4_0, 
+                            		"STRING");
+                    	    
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            otherlv_5=(Token)match(input,68,FOLLOW_68_in_ruleWIAcceptanceRuleType2881); 
+
+                	newLeafNode(otherlv_5, grammarAccess.getWIAcceptanceRuleTypeAccess().getRightCurlyBracketKeyword_4());
+                
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleWIAcceptanceRuleType"
+
+
+    // $ANTLR start "entryRuleWISelectionRuleType"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1366:1: entryRuleWISelectionRuleType returns [EObject current=null] : iv_ruleWISelectionRuleType= ruleWISelectionRuleType EOF ;
+    public final EObject entryRuleWISelectionRuleType() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleWISelectionRuleType = null;
+
+
+        try {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1367:2: (iv_ruleWISelectionRuleType= ruleWISelectionRuleType EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1368:2: iv_ruleWISelectionRuleType= ruleWISelectionRuleType EOF
+            {
+             newCompositeNode(grammarAccess.getWISelectionRuleTypeRule()); 
+            pushFollow(FOLLOW_ruleWISelectionRuleType_in_entryRuleWISelectionRuleType2917);
+            iv_ruleWISelectionRuleType=ruleWISelectionRuleType();
+
+            state._fsp--;
+
+             current =iv_ruleWISelectionRuleType; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleWISelectionRuleType2927); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleWISelectionRuleType"
+
+
+    // $ANTLR start "ruleWISelectionRuleType"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1375:1: ruleWISelectionRuleType returns [EObject current=null] : (otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) ;
+    public final EObject ruleWISelectionRuleType() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token lv_name_1_0=null;
+        Token otherlv_2=null;
+        Token otherlv_3=null;
+        Token lv_description_4_0=null;
+        Token otherlv_5=null;
+
+         enterRule(); 
+            
+        try {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1378:28: ( (otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1379:1: (otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1379:1: (otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1379:3: otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}'
+            {
+            otherlv_0=(Token)match(input,73,FOLLOW_73_in_ruleWISelectionRuleType2964); 
+
+                	newLeafNode(otherlv_0, grammarAccess.getWISelectionRuleTypeAccess().getRuleTypeKeyword_0());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1383:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1384:1: (lv_name_1_0= RULE_ID )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1384:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1385:3: lv_name_1_0= RULE_ID
+            {
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWISelectionRuleType2981); 
+
+            			newLeafNode(lv_name_1_0, grammarAccess.getWISelectionRuleTypeAccess().getNameIDTerminalRuleCall_1_0()); 
+            		
+
+            	        if (current==null) {
+            	            current = createModelElement(grammarAccess.getWISelectionRuleTypeRule());
+            	        }
+                   		setWithLastConsumed(
+                   			current, 
+                   			"name",
+                    		lv_name_1_0, 
+                    		"ID");
+            	    
+
+            }
+
+
+            }
+
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleWISelectionRuleType2998); 
+
+                	newLeafNode(otherlv_2, grammarAccess.getWISelectionRuleTypeAccess().getLeftCurlyBracketKeyword_2());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1405:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
+            int alt32=2;
+            int LA32_0 = input.LA(1);
+
+            if ( (LA32_0==66) ) {
+                alt32=1;
+            }
+            switch (alt32) {
+                case 1 :
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1405:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
+                    {
+                    otherlv_3=(Token)match(input,66,FOLLOW_66_in_ruleWISelectionRuleType3011); 
+
+                        	newLeafNode(otherlv_3, grammarAccess.getWISelectionRuleTypeAccess().getDescriptionKeyword_3_0());
+                        
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1409:1: ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1410:1: (lv_description_4_0= RULE_STRING )
+                    {
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1410:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1411:3: lv_description_4_0= RULE_STRING
+                    {
+                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleWISelectionRuleType3028); 
+
+                    			newLeafNode(lv_description_4_0, grammarAccess.getWISelectionRuleTypeAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
+                    		
+
+                    	        if (current==null) {
+                    	            current = createModelElement(grammarAccess.getWISelectionRuleTypeRule());
+                    	        }
+                           		setWithLastConsumed(
+                           			current, 
+                           			"description",
+                            		lv_description_4_0, 
+                            		"STRING");
+                    	    
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            otherlv_5=(Token)match(input,68,FOLLOW_68_in_ruleWISelectionRuleType3047); 
+
+                	newLeafNode(otherlv_5, grammarAccess.getWISelectionRuleTypeAccess().getRightCurlyBracketKeyword_4());
+                
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleWISelectionRuleType"
+
+
+    // $ANTLR start "entryRuleWIAssignmentRuleType"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1439:1: entryRuleWIAssignmentRuleType returns [EObject current=null] : iv_ruleWIAssignmentRuleType= ruleWIAssignmentRuleType EOF ;
+    public final EObject entryRuleWIAssignmentRuleType() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleWIAssignmentRuleType = null;
+
+
+        try {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1440:2: (iv_ruleWIAssignmentRuleType= ruleWIAssignmentRuleType EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1441:2: iv_ruleWIAssignmentRuleType= ruleWIAssignmentRuleType EOF
+            {
+             newCompositeNode(grammarAccess.getWIAssignmentRuleTypeRule()); 
+            pushFollow(FOLLOW_ruleWIAssignmentRuleType_in_entryRuleWIAssignmentRuleType3083);
+            iv_ruleWIAssignmentRuleType=ruleWIAssignmentRuleType();
+
+            state._fsp--;
+
+             current =iv_ruleWIAssignmentRuleType; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleWIAssignmentRuleType3093); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleWIAssignmentRuleType"
+
+
+    // $ANTLR start "ruleWIAssignmentRuleType"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1448:1: ruleWIAssignmentRuleType returns [EObject current=null] : (otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) ;
+    public final EObject ruleWIAssignmentRuleType() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token lv_name_1_0=null;
+        Token otherlv_2=null;
+        Token otherlv_3=null;
+        Token lv_description_4_0=null;
+        Token otherlv_5=null;
+
+         enterRule(); 
+            
+        try {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1451:28: ( (otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1452:1: (otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1452:1: (otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1452:3: otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}'
+            {
+            otherlv_0=(Token)match(input,73,FOLLOW_73_in_ruleWIAssignmentRuleType3130); 
+
+                	newLeafNode(otherlv_0, grammarAccess.getWIAssignmentRuleTypeAccess().getRuleTypeKeyword_0());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1456:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1457:1: (lv_name_1_0= RULE_ID )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1457:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1458:3: lv_name_1_0= RULE_ID
+            {
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWIAssignmentRuleType3147); 
+
+            			newLeafNode(lv_name_1_0, grammarAccess.getWIAssignmentRuleTypeAccess().getNameIDTerminalRuleCall_1_0()); 
+            		
+
+            	        if (current==null) {
+            	            current = createModelElement(grammarAccess.getWIAssignmentRuleTypeRule());
+            	        }
+                   		setWithLastConsumed(
+                   			current, 
+                   			"name",
+                    		lv_name_1_0, 
+                    		"ID");
+            	    
+
+            }
+
+
+            }
+
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleWIAssignmentRuleType3164); 
+
+                	newLeafNode(otherlv_2, grammarAccess.getWIAssignmentRuleTypeAccess().getLeftCurlyBracketKeyword_2());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1478:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
+            int alt33=2;
+            int LA33_0 = input.LA(1);
+
+            if ( (LA33_0==66) ) {
+                alt33=1;
+            }
+            switch (alt33) {
+                case 1 :
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1478:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
+                    {
+                    otherlv_3=(Token)match(input,66,FOLLOW_66_in_ruleWIAssignmentRuleType3177); 
+
+                        	newLeafNode(otherlv_3, grammarAccess.getWIAssignmentRuleTypeAccess().getDescriptionKeyword_3_0());
+                        
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1482:1: ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1483:1: (lv_description_4_0= RULE_STRING )
+                    {
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1483:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1484:3: lv_description_4_0= RULE_STRING
+                    {
+                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleWIAssignmentRuleType3194); 
+
+                    			newLeafNode(lv_description_4_0, grammarAccess.getWIAssignmentRuleTypeAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
+                    		
+
+                    	        if (current==null) {
+                    	            current = createModelElement(grammarAccess.getWIAssignmentRuleTypeRule());
+                    	        }
+                           		setWithLastConsumed(
+                           			current, 
+                           			"description",
+                            		lv_description_4_0, 
+                            		"STRING");
+                    	    
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            otherlv_5=(Token)match(input,68,FOLLOW_68_in_ruleWIAssignmentRuleType3213); 
+
+                	newLeafNode(otherlv_5, grammarAccess.getWIAssignmentRuleTypeAccess().getRightCurlyBracketKeyword_4());
+                
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleWIAssignmentRuleType"
+
+
+    // $ANTLR start "entryRuleResourceAllocationRuleType"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1512:1: entryRuleResourceAllocationRuleType returns [EObject current=null] : iv_ruleResourceAllocationRuleType= ruleResourceAllocationRuleType EOF ;
+    public final EObject entryRuleResourceAllocationRuleType() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleResourceAllocationRuleType = null;
+
+
+        try {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1513:2: (iv_ruleResourceAllocationRuleType= ruleResourceAllocationRuleType EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1514:2: iv_ruleResourceAllocationRuleType= ruleResourceAllocationRuleType EOF
+            {
+             newCompositeNode(grammarAccess.getResourceAllocationRuleTypeRule()); 
+            pushFollow(FOLLOW_ruleResourceAllocationRuleType_in_entryRuleResourceAllocationRuleType3249);
+            iv_ruleResourceAllocationRuleType=ruleResourceAllocationRuleType();
+
+            state._fsp--;
+
+             current =iv_ruleResourceAllocationRuleType; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleResourceAllocationRuleType3259); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleResourceAllocationRuleType"
+
+
+    // $ANTLR start "ruleResourceAllocationRuleType"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1521:1: ruleResourceAllocationRuleType returns [EObject current=null] : (otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) ;
+    public final EObject ruleResourceAllocationRuleType() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token lv_name_1_0=null;
+        Token otherlv_2=null;
+        Token otherlv_3=null;
+        Token lv_description_4_0=null;
+        Token otherlv_5=null;
+
+         enterRule(); 
+            
+        try {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1524:28: ( (otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1525:1: (otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1525:1: (otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1525:3: otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}'
+            {
+            otherlv_0=(Token)match(input,73,FOLLOW_73_in_ruleResourceAllocationRuleType3296); 
+
+                	newLeafNode(otherlv_0, grammarAccess.getResourceAllocationRuleTypeAccess().getRuleTypeKeyword_0());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1529:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1530:1: (lv_name_1_0= RULE_ID )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1530:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1531:3: lv_name_1_0= RULE_ID
+            {
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleResourceAllocationRuleType3313); 
+
+            			newLeafNode(lv_name_1_0, grammarAccess.getResourceAllocationRuleTypeAccess().getNameIDTerminalRuleCall_1_0()); 
+            		
+
+            	        if (current==null) {
+            	            current = createModelElement(grammarAccess.getResourceAllocationRuleTypeRule());
+            	        }
+                   		setWithLastConsumed(
+                   			current, 
+                   			"name",
+                    		lv_name_1_0, 
+                    		"ID");
+            	    
+
+            }
+
+
+            }
+
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleResourceAllocationRuleType3330); 
+
+                	newLeafNode(otherlv_2, grammarAccess.getResourceAllocationRuleTypeAccess().getLeftCurlyBracketKeyword_2());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1551:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
+            int alt34=2;
+            int LA34_0 = input.LA(1);
+
+            if ( (LA34_0==66) ) {
+                alt34=1;
+            }
+            switch (alt34) {
+                case 1 :
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1551:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
+                    {
+                    otherlv_3=(Token)match(input,66,FOLLOW_66_in_ruleResourceAllocationRuleType3343); 
+
+                        	newLeafNode(otherlv_3, grammarAccess.getResourceAllocationRuleTypeAccess().getDescriptionKeyword_3_0());
+                        
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1555:1: ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1556:1: (lv_description_4_0= RULE_STRING )
+                    {
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1556:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1557:3: lv_description_4_0= RULE_STRING
+                    {
+                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleResourceAllocationRuleType3360); 
+
+                    			newLeafNode(lv_description_4_0, grammarAccess.getResourceAllocationRuleTypeAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
+                    		
+
+                    	        if (current==null) {
+                    	            current = createModelElement(grammarAccess.getResourceAllocationRuleTypeRule());
+                    	        }
+                           		setWithLastConsumed(
+                           			current, 
+                           			"description",
+                            		lv_description_4_0, 
+                            		"STRING");
+                    	    
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            otherlv_5=(Token)match(input,68,FOLLOW_68_in_ruleResourceAllocationRuleType3379); 
+
+                	newLeafNode(otherlv_5, grammarAccess.getResourceAllocationRuleTypeAccess().getRightCurlyBracketKeyword_4());
+                
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleResourceAllocationRuleType"
+
+
+    // $ANTLR start "entryRuleResourceOutsourcingRuleType"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1585:1: entryRuleResourceOutsourcingRuleType returns [EObject current=null] : iv_ruleResourceOutsourcingRuleType= ruleResourceOutsourcingRuleType EOF ;
+    public final EObject entryRuleResourceOutsourcingRuleType() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleResourceOutsourcingRuleType = null;
+
+
+        try {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1586:2: (iv_ruleResourceOutsourcingRuleType= ruleResourceOutsourcingRuleType EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1587:2: iv_ruleResourceOutsourcingRuleType= ruleResourceOutsourcingRuleType EOF
+            {
+             newCompositeNode(grammarAccess.getResourceOutsourcingRuleTypeRule()); 
+            pushFollow(FOLLOW_ruleResourceOutsourcingRuleType_in_entryRuleResourceOutsourcingRuleType3415);
+            iv_ruleResourceOutsourcingRuleType=ruleResourceOutsourcingRuleType();
+
+            state._fsp--;
+
+             current =iv_ruleResourceOutsourcingRuleType; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleResourceOutsourcingRuleType3425); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleResourceOutsourcingRuleType"
+
+
+    // $ANTLR start "ruleResourceOutsourcingRuleType"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1594:1: ruleResourceOutsourcingRuleType returns [EObject current=null] : (otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) ;
+    public final EObject ruleResourceOutsourcingRuleType() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token lv_name_1_0=null;
+        Token otherlv_2=null;
+        Token otherlv_3=null;
+        Token lv_description_4_0=null;
+        Token otherlv_5=null;
+
+         enterRule(); 
+            
+        try {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1597:28: ( (otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1598:1: (otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1598:1: (otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1598:3: otherlv_0= 'RuleType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}'
+            {
+            otherlv_0=(Token)match(input,73,FOLLOW_73_in_ruleResourceOutsourcingRuleType3462); 
+
+                	newLeafNode(otherlv_0, grammarAccess.getResourceOutsourcingRuleTypeAccess().getRuleTypeKeyword_0());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1602:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1603:1: (lv_name_1_0= RULE_ID )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1603:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1604:3: lv_name_1_0= RULE_ID
+            {
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleResourceOutsourcingRuleType3479); 
+
+            			newLeafNode(lv_name_1_0, grammarAccess.getResourceOutsourcingRuleTypeAccess().getNameIDTerminalRuleCall_1_0()); 
+            		
+
+            	        if (current==null) {
+            	            current = createModelElement(grammarAccess.getResourceOutsourcingRuleTypeRule());
+            	        }
+                   		setWithLastConsumed(
+                   			current, 
+                   			"name",
+                    		lv_name_1_0, 
+                    		"ID");
+            	    
+
+            }
+
+
+            }
+
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleResourceOutsourcingRuleType3496); 
+
+                	newLeafNode(otherlv_2, grammarAccess.getResourceOutsourcingRuleTypeAccess().getLeftCurlyBracketKeyword_2());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1624:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
+            int alt35=2;
+            int LA35_0 = input.LA(1);
+
+            if ( (LA35_0==66) ) {
+                alt35=1;
+            }
+            switch (alt35) {
+                case 1 :
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1624:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
+                    {
+                    otherlv_3=(Token)match(input,66,FOLLOW_66_in_ruleResourceOutsourcingRuleType3509); 
+
+                        	newLeafNode(otherlv_3, grammarAccess.getResourceOutsourcingRuleTypeAccess().getDescriptionKeyword_3_0());
+                        
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1628:1: ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1629:1: (lv_description_4_0= RULE_STRING )
+                    {
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1629:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1630:3: lv_description_4_0= RULE_STRING
+                    {
+                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleResourceOutsourcingRuleType3526); 
+
+                    			newLeafNode(lv_description_4_0, grammarAccess.getResourceOutsourcingRuleTypeAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
+                    		
+
+                    	        if (current==null) {
+                    	            current = createModelElement(grammarAccess.getResourceOutsourcingRuleTypeRule());
+                    	        }
+                           		setWithLastConsumed(
+                           			current, 
+                           			"description",
+                            		lv_description_4_0, 
+                            		"STRING");
+                    	    
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            otherlv_5=(Token)match(input,68,FOLLOW_68_in_ruleResourceOutsourcingRuleType3545); 
+
+                	newLeafNode(otherlv_5, grammarAccess.getResourceOutsourcingRuleTypeAccess().getRightCurlyBracketKeyword_4());
+                
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleResourceOutsourcingRuleType"
+
+
+    // $ANTLR start "entryRuleServiceType"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1660:1: entryRuleServiceType returns [EObject current=null] : iv_ruleServiceType= ruleServiceType EOF ;
+    public final EObject entryRuleServiceType() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleServiceType = null;
+
+
+        try {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1661:2: (iv_ruleServiceType= ruleServiceType EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1662:2: iv_ruleServiceType= ruleServiceType EOF
+            {
+             newCompositeNode(grammarAccess.getServiceTypeRule()); 
+            pushFollow(FOLLOW_ruleServiceType_in_entryRuleServiceType3583);
+            iv_ruleServiceType=ruleServiceType();
+
+            state._fsp--;
+
+             current =iv_ruleServiceType; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleServiceType3593); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleServiceType"
+
+
+    // $ANTLR start "ruleServiceType"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1669:1: ruleServiceType returns [EObject current=null] : (otherlv_0= 'ServiceType' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )? ) ;
+    public final EObject ruleServiceType() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token lv_name_1_0=null;
+        Token otherlv_2=null;
+        Token otherlv_3=null;
+        Token lv_description_4_0=null;
+        Token otherlv_5=null;
+
+         enterRule(); 
+            
+        try {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1672:28: ( (otherlv_0= 'ServiceType' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )? ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1673:1: (otherlv_0= 'ServiceType' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )? )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1673:1: (otherlv_0= 'ServiceType' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )? )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1673:3: otherlv_0= 'ServiceType' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )?
+            {
+            otherlv_0=(Token)match(input,74,FOLLOW_74_in_ruleServiceType3630); 
+
+                	newLeafNode(otherlv_0, grammarAccess.getServiceTypeAccess().getServiceTypeKeyword_0());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1677:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1678:1: (lv_name_1_0= RULE_ID )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1678:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1679:3: lv_name_1_0= RULE_ID
+            {
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleServiceType3647); 
+
+            			newLeafNode(lv_name_1_0, grammarAccess.getServiceTypeAccess().getNameIDTerminalRuleCall_1_0()); 
+            		
+
+            	        if (current==null) {
+            	            current = createModelElement(grammarAccess.getServiceTypeRule());
+            	        }
+                   		setWithLastConsumed(
+                   			current, 
+                   			"name",
+                    		lv_name_1_0, 
+                    		"ID");
+            	    
+
+            }
+
+
+            }
+
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1695:2: (otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )?
+            int alt37=2;
+            int LA37_0 = input.LA(1);
+
+            if ( (LA37_0==65) ) {
+                alt37=1;
+            }
+            switch (alt37) {
+                case 1 :
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1695:4: otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}'
+                    {
+                    otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleServiceType3665); 
+
+                        	newLeafNode(otherlv_2, grammarAccess.getServiceTypeAccess().getLeftCurlyBracketKeyword_2_0());
+                        
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1699:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
+                    int alt36=2;
+                    int LA36_0 = input.LA(1);
+
+                    if ( (LA36_0==66) ) {
+                        alt36=1;
+                    }
+                    switch (alt36) {
+                        case 1 :
+                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1699:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
+                            {
+                            otherlv_3=(Token)match(input,66,FOLLOW_66_in_ruleServiceType3678); 
+
+                                	newLeafNode(otherlv_3, grammarAccess.getServiceTypeAccess().getDescriptionKeyword_2_1_0());
+                                
+                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1703:1: ( (lv_description_4_0= RULE_STRING ) )
+                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1704:1: (lv_description_4_0= RULE_STRING )
+                            {
+                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1704:1: (lv_description_4_0= RULE_STRING )
+                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1705:3: lv_description_4_0= RULE_STRING
+                            {
+                            lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleServiceType3695); 
+
+                            			newLeafNode(lv_description_4_0, grammarAccess.getServiceTypeAccess().getDescriptionSTRINGTerminalRuleCall_2_1_1_0()); 
+                            		
+
+                            	        if (current==null) {
+                            	            current = createModelElement(grammarAccess.getServiceTypeRule());
+                            	        }
+                                   		setWithLastConsumed(
+                                   			current, 
+                                   			"description",
+                                    		lv_description_4_0, 
+                                    		"STRING");
+                            	    
+
+                            }
+
+
+                            }
+
+
+                            }
+                            break;
+
+                    }
+
+                    otherlv_5=(Token)match(input,68,FOLLOW_68_in_ruleServiceType3714); 
+
+                        	newLeafNode(otherlv_5, grammarAccess.getServiceTypeAccess().getRightCurlyBracketKeyword_2_2());
+                        
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleServiceType"
+
+
     // $ANTLR start "entryRuleRepository"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:719:1: entryRuleRepository returns [EObject current=null] : iv_ruleRepository= ruleRepository EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1733:1: entryRuleRepository returns [EObject current=null] : iv_ruleRepository= ruleRepository EOF ;
     public final EObject entryRuleRepository() throws RecognitionException {
         EObject current = null;
 
@@ -1783,17 +4105,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:720:2: (iv_ruleRepository= ruleRepository EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:721:2: iv_ruleRepository= ruleRepository EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1734:2: (iv_ruleRepository= ruleRepository EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1735:2: iv_ruleRepository= ruleRepository EOF
             {
              newCompositeNode(grammarAccess.getRepositoryRule()); 
-            pushFollow(FOLLOW_ruleRepository_in_entryRuleRepository1497);
+            pushFollow(FOLLOW_ruleRepository_in_entryRuleRepository3752);
             iv_ruleRepository=ruleRepository();
 
             state._fsp--;
 
              current =iv_ruleRepository; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRepository1507); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRepository3762); 
 
             }
 
@@ -1811,7 +4133,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRepository"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:728:1: ruleRepository returns [EObject current=null] : (otherlv_0= 'Repository' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Profiles' otherlv_3= '{' ( (lv_profiles_4_0= ruleWorkItemProfile ) )* otherlv_5= '}' otherlv_6= 'end Repository' ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1742:1: ruleRepository returns [EObject current=null] : (otherlv_0= 'Repository' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Profiles' otherlv_3= '{' ( (lv_profiles_4_0= ruleWorkItemProfile ) )* otherlv_5= '}' otherlv_6= 'end Repository' ) ;
     public final EObject ruleRepository() throws RecognitionException {
         EObject current = null;
 
@@ -1827,28 +4149,28 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:731:28: ( (otherlv_0= 'Repository' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Profiles' otherlv_3= '{' ( (lv_profiles_4_0= ruleWorkItemProfile ) )* otherlv_5= '}' otherlv_6= 'end Repository' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:732:1: (otherlv_0= 'Repository' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Profiles' otherlv_3= '{' ( (lv_profiles_4_0= ruleWorkItemProfile ) )* otherlv_5= '}' otherlv_6= 'end Repository' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1745:28: ( (otherlv_0= 'Repository' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Profiles' otherlv_3= '{' ( (lv_profiles_4_0= ruleWorkItemProfile ) )* otherlv_5= '}' otherlv_6= 'end Repository' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1746:1: (otherlv_0= 'Repository' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Profiles' otherlv_3= '{' ( (lv_profiles_4_0= ruleWorkItemProfile ) )* otherlv_5= '}' otherlv_6= 'end Repository' )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:732:1: (otherlv_0= 'Repository' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Profiles' otherlv_3= '{' ( (lv_profiles_4_0= ruleWorkItemProfile ) )* otherlv_5= '}' otherlv_6= 'end Repository' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:732:3: otherlv_0= 'Repository' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Profiles' otherlv_3= '{' ( (lv_profiles_4_0= ruleWorkItemProfile ) )* otherlv_5= '}' otherlv_6= 'end Repository'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1746:1: (otherlv_0= 'Repository' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Profiles' otherlv_3= '{' ( (lv_profiles_4_0= ruleWorkItemProfile ) )* otherlv_5= '}' otherlv_6= 'end Repository' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1746:3: otherlv_0= 'Repository' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Profiles' otherlv_3= '{' ( (lv_profiles_4_0= ruleWorkItemProfile ) )* otherlv_5= '}' otherlv_6= 'end Repository'
             {
-            otherlv_0=(Token)match(input,45,FOLLOW_45_in_ruleRepository1544); 
+            otherlv_0=(Token)match(input,75,FOLLOW_75_in_ruleRepository3799); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getRepositoryAccess().getRepositoryKeyword_0());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:736:1: ( (otherlv_1= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:737:1: (otherlv_1= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1750:1: ( (otherlv_1= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1751:1: (otherlv_1= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:737:1: (otherlv_1= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:738:3: otherlv_1= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1751:1: (otherlv_1= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1752:3: otherlv_1= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getRepositoryRule());
             	        }
                     
-            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleRepository1564); 
+            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleRepository3819); 
 
             		newLeafNode(otherlv_1, grammarAccess.getRepositoryAccess().getTypeTaskTypeCrossReference_1_0()); 
             	
@@ -1858,36 +4180,36 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,46,FOLLOW_46_in_ruleRepository1576); 
+            otherlv_2=(Token)match(input,76,FOLLOW_76_in_ruleRepository3831); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getRepositoryAccess().getProfilesKeyword_2());
                 
-            otherlv_3=(Token)match(input,47,FOLLOW_47_in_ruleRepository1588); 
+            otherlv_3=(Token)match(input,65,FOLLOW_65_in_ruleRepository3843); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getRepositoryAccess().getLeftCurlyBracketKeyword_3());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:757:1: ( (lv_profiles_4_0= ruleWorkItemProfile ) )*
-            loop18:
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1771:1: ( (lv_profiles_4_0= ruleWorkItemProfile ) )*
+            loop38:
             do {
-                int alt18=2;
-                int LA18_0 = input.LA(1);
+                int alt38=2;
+                int LA38_0 = input.LA(1);
 
-                if ( (LA18_0==50) ) {
-                    alt18=1;
+                if ( (LA38_0==78) ) {
+                    alt38=1;
                 }
 
 
-                switch (alt18) {
+                switch (alt38) {
             	case 1 :
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:758:1: (lv_profiles_4_0= ruleWorkItemProfile )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1772:1: (lv_profiles_4_0= ruleWorkItemProfile )
             	    {
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:758:1: (lv_profiles_4_0= ruleWorkItemProfile )
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:759:3: lv_profiles_4_0= ruleWorkItemProfile
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1772:1: (lv_profiles_4_0= ruleWorkItemProfile )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1773:3: lv_profiles_4_0= ruleWorkItemProfile
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getRepositoryAccess().getProfilesWorkItemProfileParserRuleCall_4_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleWorkItemProfile_in_ruleRepository1609);
+            	    pushFollow(FOLLOW_ruleWorkItemProfile_in_ruleRepository3864);
             	    lv_profiles_4_0=ruleWorkItemProfile();
 
             	    state._fsp--;
@@ -1911,15 +4233,15 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop18;
+            	    break loop38;
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,48,FOLLOW_48_in_ruleRepository1622); 
+            otherlv_5=(Token)match(input,68,FOLLOW_68_in_ruleRepository3877); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getRepositoryAccess().getRightCurlyBracketKeyword_5());
                 
-            otherlv_6=(Token)match(input,49,FOLLOW_49_in_ruleRepository1634); 
+            otherlv_6=(Token)match(input,77,FOLLOW_77_in_ruleRepository3889); 
 
                 	newLeafNode(otherlv_6, grammarAccess.getRepositoryAccess().getEndRepositoryKeyword_6());
                 
@@ -1944,7 +4266,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleWorkItemProfile"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:791:1: entryRuleWorkItemProfile returns [EObject current=null] : iv_ruleWorkItemProfile= ruleWorkItemProfile EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1805:1: entryRuleWorkItemProfile returns [EObject current=null] : iv_ruleWorkItemProfile= ruleWorkItemProfile EOF ;
     public final EObject entryRuleWorkItemProfile() throws RecognitionException {
         EObject current = null;
 
@@ -1952,17 +4274,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:792:2: (iv_ruleWorkItemProfile= ruleWorkItemProfile EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:793:2: iv_ruleWorkItemProfile= ruleWorkItemProfile EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1806:2: (iv_ruleWorkItemProfile= ruleWorkItemProfile EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1807:2: iv_ruleWorkItemProfile= ruleWorkItemProfile EOF
             {
              newCompositeNode(grammarAccess.getWorkItemProfileRule()); 
-            pushFollow(FOLLOW_ruleWorkItemProfile_in_entryRuleWorkItemProfile1670);
+            pushFollow(FOLLOW_ruleWorkItemProfile_in_entryRuleWorkItemProfile3925);
             iv_ruleWorkItemProfile=ruleWorkItemProfile();
 
             state._fsp--;
 
              current =iv_ruleWorkItemProfile; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleWorkItemProfile1680); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleWorkItemProfile3935); 
 
             }
 
@@ -1980,7 +4302,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleWorkItemProfile"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:800:1: ruleWorkItemProfile returns [EObject current=null] : (otherlv_0= 'WorkItem' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'ProcessModel' ( (otherlv_6= RULE_ID ) ) )? (otherlv_7= 'References' otherlv_8= '{' ( (lv_references_9_0= ruleWorkReference ) )+ otherlv_10= '}' )? (otherlv_11= 'Decompositions' otherlv_12= '{' ( (lv_decompositions_13_0= ruleWorkDecomposition ) )+ otherlv_14= '}' )? (otherlv_15= 'RequiredServices' ( (otherlv_16= RULE_ID ) )+ )? (otherlv_17= 'Efforts' ( (lv_efforts_18_0= ruleNumExpression ) ) )? (otherlv_19= 'Value' ( (lv_value_20_0= ruleNumExpression ) ) )? (otherlv_21= 'ClassOfService' ( (lv_classOfService_22_0= RULE_ID ) ) )? ( (lv_allowAssignment_23_0= 'AssignmentAllowed' ) )? ( (lv_allowDiscard_24_0= 'DiscardAllowed' ) )? otherlv_25= '}' ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1814:1: ruleWorkItemProfile returns [EObject current=null] : (otherlv_0= 'WorkItem' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'ProcessModel' ( (otherlv_6= RULE_ID ) ) )? (otherlv_7= 'References' otherlv_8= '{' ( (lv_references_9_0= ruleWorkReference ) )+ otherlv_10= '}' )? (otherlv_11= 'Decompositions' otherlv_12= '{' ( (lv_decompositions_13_0= ruleWorkDecomposition ) )+ otherlv_14= '}' )? (otherlv_15= 'RequiredServices' ( (otherlv_16= RULE_ID ) )+ )? (otherlv_17= 'Efforts' ( (lv_efforts_18_0= ruleNumExpression ) ) )? (otherlv_19= 'Value' ( (lv_value_20_0= ruleNumExpression ) ) )? (otherlv_21= 'ClassOfService' ( (otherlv_22= RULE_ID ) ) )? ( (lv_allowAssignment_23_0= 'AssignmentAllowed' ) )? ( (lv_allowDiscard_24_0= 'DiscardAllowed' ) )? otherlv_25= '}' ) ;
     public final EObject ruleWorkItemProfile() throws RecognitionException {
         EObject current = null;
 
@@ -2002,7 +4324,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
         Token otherlv_17=null;
         Token otherlv_19=null;
         Token otherlv_21=null;
-        Token lv_classOfService_22_0=null;
+        Token otherlv_22=null;
         Token lv_allowAssignment_23_0=null;
         Token lv_allowDiscard_24_0=null;
         Token otherlv_25=null;
@@ -2018,23 +4340,23 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:803:28: ( (otherlv_0= 'WorkItem' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'ProcessModel' ( (otherlv_6= RULE_ID ) ) )? (otherlv_7= 'References' otherlv_8= '{' ( (lv_references_9_0= ruleWorkReference ) )+ otherlv_10= '}' )? (otherlv_11= 'Decompositions' otherlv_12= '{' ( (lv_decompositions_13_0= ruleWorkDecomposition ) )+ otherlv_14= '}' )? (otherlv_15= 'RequiredServices' ( (otherlv_16= RULE_ID ) )+ )? (otherlv_17= 'Efforts' ( (lv_efforts_18_0= ruleNumExpression ) ) )? (otherlv_19= 'Value' ( (lv_value_20_0= ruleNumExpression ) ) )? (otherlv_21= 'ClassOfService' ( (lv_classOfService_22_0= RULE_ID ) ) )? ( (lv_allowAssignment_23_0= 'AssignmentAllowed' ) )? ( (lv_allowDiscard_24_0= 'DiscardAllowed' ) )? otherlv_25= '}' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:804:1: (otherlv_0= 'WorkItem' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'ProcessModel' ( (otherlv_6= RULE_ID ) ) )? (otherlv_7= 'References' otherlv_8= '{' ( (lv_references_9_0= ruleWorkReference ) )+ otherlv_10= '}' )? (otherlv_11= 'Decompositions' otherlv_12= '{' ( (lv_decompositions_13_0= ruleWorkDecomposition ) )+ otherlv_14= '}' )? (otherlv_15= 'RequiredServices' ( (otherlv_16= RULE_ID ) )+ )? (otherlv_17= 'Efforts' ( (lv_efforts_18_0= ruleNumExpression ) ) )? (otherlv_19= 'Value' ( (lv_value_20_0= ruleNumExpression ) ) )? (otherlv_21= 'ClassOfService' ( (lv_classOfService_22_0= RULE_ID ) ) )? ( (lv_allowAssignment_23_0= 'AssignmentAllowed' ) )? ( (lv_allowDiscard_24_0= 'DiscardAllowed' ) )? otherlv_25= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1817:28: ( (otherlv_0= 'WorkItem' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'ProcessModel' ( (otherlv_6= RULE_ID ) ) )? (otherlv_7= 'References' otherlv_8= '{' ( (lv_references_9_0= ruleWorkReference ) )+ otherlv_10= '}' )? (otherlv_11= 'Decompositions' otherlv_12= '{' ( (lv_decompositions_13_0= ruleWorkDecomposition ) )+ otherlv_14= '}' )? (otherlv_15= 'RequiredServices' ( (otherlv_16= RULE_ID ) )+ )? (otherlv_17= 'Efforts' ( (lv_efforts_18_0= ruleNumExpression ) ) )? (otherlv_19= 'Value' ( (lv_value_20_0= ruleNumExpression ) ) )? (otherlv_21= 'ClassOfService' ( (otherlv_22= RULE_ID ) ) )? ( (lv_allowAssignment_23_0= 'AssignmentAllowed' ) )? ( (lv_allowDiscard_24_0= 'DiscardAllowed' ) )? otherlv_25= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1818:1: (otherlv_0= 'WorkItem' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'ProcessModel' ( (otherlv_6= RULE_ID ) ) )? (otherlv_7= 'References' otherlv_8= '{' ( (lv_references_9_0= ruleWorkReference ) )+ otherlv_10= '}' )? (otherlv_11= 'Decompositions' otherlv_12= '{' ( (lv_decompositions_13_0= ruleWorkDecomposition ) )+ otherlv_14= '}' )? (otherlv_15= 'RequiredServices' ( (otherlv_16= RULE_ID ) )+ )? (otherlv_17= 'Efforts' ( (lv_efforts_18_0= ruleNumExpression ) ) )? (otherlv_19= 'Value' ( (lv_value_20_0= ruleNumExpression ) ) )? (otherlv_21= 'ClassOfService' ( (otherlv_22= RULE_ID ) ) )? ( (lv_allowAssignment_23_0= 'AssignmentAllowed' ) )? ( (lv_allowDiscard_24_0= 'DiscardAllowed' ) )? otherlv_25= '}' )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:804:1: (otherlv_0= 'WorkItem' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'ProcessModel' ( (otherlv_6= RULE_ID ) ) )? (otherlv_7= 'References' otherlv_8= '{' ( (lv_references_9_0= ruleWorkReference ) )+ otherlv_10= '}' )? (otherlv_11= 'Decompositions' otherlv_12= '{' ( (lv_decompositions_13_0= ruleWorkDecomposition ) )+ otherlv_14= '}' )? (otherlv_15= 'RequiredServices' ( (otherlv_16= RULE_ID ) )+ )? (otherlv_17= 'Efforts' ( (lv_efforts_18_0= ruleNumExpression ) ) )? (otherlv_19= 'Value' ( (lv_value_20_0= ruleNumExpression ) ) )? (otherlv_21= 'ClassOfService' ( (lv_classOfService_22_0= RULE_ID ) ) )? ( (lv_allowAssignment_23_0= 'AssignmentAllowed' ) )? ( (lv_allowDiscard_24_0= 'DiscardAllowed' ) )? otherlv_25= '}' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:804:3: otherlv_0= 'WorkItem' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'ProcessModel' ( (otherlv_6= RULE_ID ) ) )? (otherlv_7= 'References' otherlv_8= '{' ( (lv_references_9_0= ruleWorkReference ) )+ otherlv_10= '}' )? (otherlv_11= 'Decompositions' otherlv_12= '{' ( (lv_decompositions_13_0= ruleWorkDecomposition ) )+ otherlv_14= '}' )? (otherlv_15= 'RequiredServices' ( (otherlv_16= RULE_ID ) )+ )? (otherlv_17= 'Efforts' ( (lv_efforts_18_0= ruleNumExpression ) ) )? (otherlv_19= 'Value' ( (lv_value_20_0= ruleNumExpression ) ) )? (otherlv_21= 'ClassOfService' ( (lv_classOfService_22_0= RULE_ID ) ) )? ( (lv_allowAssignment_23_0= 'AssignmentAllowed' ) )? ( (lv_allowDiscard_24_0= 'DiscardAllowed' ) )? otherlv_25= '}'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1818:1: (otherlv_0= 'WorkItem' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'ProcessModel' ( (otherlv_6= RULE_ID ) ) )? (otherlv_7= 'References' otherlv_8= '{' ( (lv_references_9_0= ruleWorkReference ) )+ otherlv_10= '}' )? (otherlv_11= 'Decompositions' otherlv_12= '{' ( (lv_decompositions_13_0= ruleWorkDecomposition ) )+ otherlv_14= '}' )? (otherlv_15= 'RequiredServices' ( (otherlv_16= RULE_ID ) )+ )? (otherlv_17= 'Efforts' ( (lv_efforts_18_0= ruleNumExpression ) ) )? (otherlv_19= 'Value' ( (lv_value_20_0= ruleNumExpression ) ) )? (otherlv_21= 'ClassOfService' ( (otherlv_22= RULE_ID ) ) )? ( (lv_allowAssignment_23_0= 'AssignmentAllowed' ) )? ( (lv_allowDiscard_24_0= 'DiscardAllowed' ) )? otherlv_25= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1818:3: otherlv_0= 'WorkItem' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'ProcessModel' ( (otherlv_6= RULE_ID ) ) )? (otherlv_7= 'References' otherlv_8= '{' ( (lv_references_9_0= ruleWorkReference ) )+ otherlv_10= '}' )? (otherlv_11= 'Decompositions' otherlv_12= '{' ( (lv_decompositions_13_0= ruleWorkDecomposition ) )+ otherlv_14= '}' )? (otherlv_15= 'RequiredServices' ( (otherlv_16= RULE_ID ) )+ )? (otherlv_17= 'Efforts' ( (lv_efforts_18_0= ruleNumExpression ) ) )? (otherlv_19= 'Value' ( (lv_value_20_0= ruleNumExpression ) ) )? (otherlv_21= 'ClassOfService' ( (otherlv_22= RULE_ID ) ) )? ( (lv_allowAssignment_23_0= 'AssignmentAllowed' ) )? ( (lv_allowDiscard_24_0= 'DiscardAllowed' ) )? otherlv_25= '}'
             {
-            otherlv_0=(Token)match(input,50,FOLLOW_50_in_ruleWorkItemProfile1717); 
+            otherlv_0=(Token)match(input,78,FOLLOW_78_in_ruleWorkItemProfile3972); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getWorkItemProfileAccess().getWorkItemKeyword_0());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:808:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:809:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1822:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1823:1: (lv_name_1_0= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:809:1: (lv_name_1_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:810:3: lv_name_1_0= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1823:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1824:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItemProfile1734); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItemProfile3989); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getWorkItemProfileAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -2054,32 +4376,32 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,47,FOLLOW_47_in_ruleWorkItemProfile1751); 
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleWorkItemProfile4006); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getWorkItemProfileAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:830:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1844:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
+            int alt39=2;
+            int LA39_0 = input.LA(1);
 
-            if ( (LA19_0==51) ) {
-                alt19=1;
+            if ( (LA39_0==66) ) {
+                alt39=1;
             }
-            switch (alt19) {
+            switch (alt39) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:830:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1844:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
                     {
-                    otherlv_3=(Token)match(input,51,FOLLOW_51_in_ruleWorkItemProfile1764); 
+                    otherlv_3=(Token)match(input,66,FOLLOW_66_in_ruleWorkItemProfile4019); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getWorkItemProfileAccess().getDescriptionKeyword_3_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:834:1: ( (lv_description_4_0= RULE_STRING ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:835:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1848:1: ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1849:1: (lv_description_4_0= RULE_STRING )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:835:1: (lv_description_4_0= RULE_STRING )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:836:3: lv_description_4_0= RULE_STRING
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1849:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1850:3: lv_description_4_0= RULE_STRING
                     {
-                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleWorkItemProfile1781); 
+                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleWorkItemProfile4036); 
 
                     			newLeafNode(lv_description_4_0, grammarAccess.getWorkItemProfileAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
                     		
@@ -2105,33 +4427,33 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:852:4: (otherlv_5= 'ProcessModel' ( (otherlv_6= RULE_ID ) ) )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1866:4: (otherlv_5= 'ProcessModel' ( (otherlv_6= RULE_ID ) ) )?
+            int alt40=2;
+            int LA40_0 = input.LA(1);
 
-            if ( (LA20_0==52) ) {
-                alt20=1;
+            if ( (LA40_0==71) ) {
+                alt40=1;
             }
-            switch (alt20) {
+            switch (alt40) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:852:6: otherlv_5= 'ProcessModel' ( (otherlv_6= RULE_ID ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1866:6: otherlv_5= 'ProcessModel' ( (otherlv_6= RULE_ID ) )
                     {
-                    otherlv_5=(Token)match(input,52,FOLLOW_52_in_ruleWorkItemProfile1801); 
+                    otherlv_5=(Token)match(input,71,FOLLOW_71_in_ruleWorkItemProfile4056); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getWorkItemProfileAccess().getProcessModelKeyword_4_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:856:1: ( (otherlv_6= RULE_ID ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:857:1: (otherlv_6= RULE_ID )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1870:1: ( (otherlv_6= RULE_ID ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1871:1: (otherlv_6= RULE_ID )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:857:1: (otherlv_6= RULE_ID )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:858:3: otherlv_6= RULE_ID
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1871:1: (otherlv_6= RULE_ID )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1872:3: otherlv_6= RULE_ID
                     {
 
                     			if (current==null) {
                     	            current = createModelElement(grammarAccess.getWorkItemProfileRule());
                     	        }
                             
-                    otherlv_6=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItemProfile1821); 
+                    otherlv_6=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItemProfile4076); 
 
                     		newLeafNode(otherlv_6, grammarAccess.getWorkItemProfileAccess().getProcessModelProcessModelCrossReference_4_1_0()); 
                     	
@@ -2147,48 +4469,48 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:869:4: (otherlv_7= 'References' otherlv_8= '{' ( (lv_references_9_0= ruleWorkReference ) )+ otherlv_10= '}' )?
-            int alt22=2;
-            int LA22_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1883:4: (otherlv_7= 'References' otherlv_8= '{' ( (lv_references_9_0= ruleWorkReference ) )+ otherlv_10= '}' )?
+            int alt42=2;
+            int LA42_0 = input.LA(1);
 
-            if ( (LA22_0==53) ) {
-                alt22=1;
+            if ( (LA42_0==79) ) {
+                alt42=1;
             }
-            switch (alt22) {
+            switch (alt42) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:869:6: otherlv_7= 'References' otherlv_8= '{' ( (lv_references_9_0= ruleWorkReference ) )+ otherlv_10= '}'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1883:6: otherlv_7= 'References' otherlv_8= '{' ( (lv_references_9_0= ruleWorkReference ) )+ otherlv_10= '}'
                     {
-                    otherlv_7=(Token)match(input,53,FOLLOW_53_in_ruleWorkItemProfile1836); 
+                    otherlv_7=(Token)match(input,79,FOLLOW_79_in_ruleWorkItemProfile4091); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getWorkItemProfileAccess().getReferencesKeyword_5_0());
                         
-                    otherlv_8=(Token)match(input,47,FOLLOW_47_in_ruleWorkItemProfile1848); 
+                    otherlv_8=(Token)match(input,65,FOLLOW_65_in_ruleWorkItemProfile4103); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getWorkItemProfileAccess().getLeftCurlyBracketKeyword_5_1());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:877:1: ( (lv_references_9_0= ruleWorkReference ) )+
-                    int cnt21=0;
-                    loop21:
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1891:1: ( (lv_references_9_0= ruleWorkReference ) )+
+                    int cnt41=0;
+                    loop41:
                     do {
-                        int alt21=2;
-                        int LA21_0 = input.LA(1);
+                        int alt41=2;
+                        int LA41_0 = input.LA(1);
 
-                        if ( (LA21_0==50) ) {
-                            alt21=1;
+                        if ( (LA41_0==78) ) {
+                            alt41=1;
                         }
 
 
-                        switch (alt21) {
+                        switch (alt41) {
                     	case 1 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:878:1: (lv_references_9_0= ruleWorkReference )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1892:1: (lv_references_9_0= ruleWorkReference )
                     	    {
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:878:1: (lv_references_9_0= ruleWorkReference )
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:879:3: lv_references_9_0= ruleWorkReference
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1892:1: (lv_references_9_0= ruleWorkReference )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1893:3: lv_references_9_0= ruleWorkReference
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getWorkItemProfileAccess().getReferencesWorkReferenceParserRuleCall_5_2_0()); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleWorkReference_in_ruleWorkItemProfile1869);
+                    	    pushFollow(FOLLOW_ruleWorkReference_in_ruleWorkItemProfile4124);
                     	    lv_references_9_0=ruleWorkReference();
 
                     	    state._fsp--;
@@ -2212,15 +4534,15 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt21 >= 1 ) break loop21;
+                    	    if ( cnt41 >= 1 ) break loop41;
                                 EarlyExitException eee =
-                                    new EarlyExitException(21, input);
+                                    new EarlyExitException(41, input);
                                 throw eee;
                         }
-                        cnt21++;
+                        cnt41++;
                     } while (true);
 
-                    otherlv_10=(Token)match(input,48,FOLLOW_48_in_ruleWorkItemProfile1882); 
+                    otherlv_10=(Token)match(input,68,FOLLOW_68_in_ruleWorkItemProfile4137); 
 
                         	newLeafNode(otherlv_10, grammarAccess.getWorkItemProfileAccess().getRightCurlyBracketKeyword_5_3());
                         
@@ -2230,48 +4552,48 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:899:3: (otherlv_11= 'Decompositions' otherlv_12= '{' ( (lv_decompositions_13_0= ruleWorkDecomposition ) )+ otherlv_14= '}' )?
-            int alt24=2;
-            int LA24_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1913:3: (otherlv_11= 'Decompositions' otherlv_12= '{' ( (lv_decompositions_13_0= ruleWorkDecomposition ) )+ otherlv_14= '}' )?
+            int alt44=2;
+            int LA44_0 = input.LA(1);
 
-            if ( (LA24_0==54) ) {
-                alt24=1;
+            if ( (LA44_0==80) ) {
+                alt44=1;
             }
-            switch (alt24) {
+            switch (alt44) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:899:5: otherlv_11= 'Decompositions' otherlv_12= '{' ( (lv_decompositions_13_0= ruleWorkDecomposition ) )+ otherlv_14= '}'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1913:5: otherlv_11= 'Decompositions' otherlv_12= '{' ( (lv_decompositions_13_0= ruleWorkDecomposition ) )+ otherlv_14= '}'
                     {
-                    otherlv_11=(Token)match(input,54,FOLLOW_54_in_ruleWorkItemProfile1897); 
+                    otherlv_11=(Token)match(input,80,FOLLOW_80_in_ruleWorkItemProfile4152); 
 
                         	newLeafNode(otherlv_11, grammarAccess.getWorkItemProfileAccess().getDecompositionsKeyword_6_0());
                         
-                    otherlv_12=(Token)match(input,47,FOLLOW_47_in_ruleWorkItemProfile1909); 
+                    otherlv_12=(Token)match(input,65,FOLLOW_65_in_ruleWorkItemProfile4164); 
 
                         	newLeafNode(otherlv_12, grammarAccess.getWorkItemProfileAccess().getLeftCurlyBracketKeyword_6_1());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:907:1: ( (lv_decompositions_13_0= ruleWorkDecomposition ) )+
-                    int cnt23=0;
-                    loop23:
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1921:1: ( (lv_decompositions_13_0= ruleWorkDecomposition ) )+
+                    int cnt43=0;
+                    loop43:
                     do {
-                        int alt23=2;
-                        int LA23_0 = input.LA(1);
+                        int alt43=2;
+                        int LA43_0 = input.LA(1);
 
-                        if ( (LA23_0==50) ) {
-                            alt23=1;
+                        if ( (LA43_0==78) ) {
+                            alt43=1;
                         }
 
 
-                        switch (alt23) {
+                        switch (alt43) {
                     	case 1 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:908:1: (lv_decompositions_13_0= ruleWorkDecomposition )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1922:1: (lv_decompositions_13_0= ruleWorkDecomposition )
                     	    {
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:908:1: (lv_decompositions_13_0= ruleWorkDecomposition )
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:909:3: lv_decompositions_13_0= ruleWorkDecomposition
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1922:1: (lv_decompositions_13_0= ruleWorkDecomposition )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1923:3: lv_decompositions_13_0= ruleWorkDecomposition
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getWorkItemProfileAccess().getDecompositionsWorkDecompositionParserRuleCall_6_2_0()); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleWorkDecomposition_in_ruleWorkItemProfile1930);
+                    	    pushFollow(FOLLOW_ruleWorkDecomposition_in_ruleWorkItemProfile4185);
                     	    lv_decompositions_13_0=ruleWorkDecomposition();
 
                     	    state._fsp--;
@@ -2295,15 +4617,15 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt23 >= 1 ) break loop23;
+                    	    if ( cnt43 >= 1 ) break loop43;
                                 EarlyExitException eee =
-                                    new EarlyExitException(23, input);
+                                    new EarlyExitException(43, input);
                                 throw eee;
                         }
-                        cnt23++;
+                        cnt43++;
                     } while (true);
 
-                    otherlv_14=(Token)match(input,48,FOLLOW_48_in_ruleWorkItemProfile1943); 
+                    otherlv_14=(Token)match(input,68,FOLLOW_68_in_ruleWorkItemProfile4198); 
 
                         	newLeafNode(otherlv_14, grammarAccess.getWorkItemProfileAccess().getRightCurlyBracketKeyword_6_3());
                         
@@ -2313,46 +4635,46 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:929:3: (otherlv_15= 'RequiredServices' ( (otherlv_16= RULE_ID ) )+ )?
-            int alt26=2;
-            int LA26_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1943:3: (otherlv_15= 'RequiredServices' ( (otherlv_16= RULE_ID ) )+ )?
+            int alt46=2;
+            int LA46_0 = input.LA(1);
 
-            if ( (LA26_0==55) ) {
-                alt26=1;
+            if ( (LA46_0==81) ) {
+                alt46=1;
             }
-            switch (alt26) {
+            switch (alt46) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:929:5: otherlv_15= 'RequiredServices' ( (otherlv_16= RULE_ID ) )+
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1943:5: otherlv_15= 'RequiredServices' ( (otherlv_16= RULE_ID ) )+
                     {
-                    otherlv_15=(Token)match(input,55,FOLLOW_55_in_ruleWorkItemProfile1958); 
+                    otherlv_15=(Token)match(input,81,FOLLOW_81_in_ruleWorkItemProfile4213); 
 
                         	newLeafNode(otherlv_15, grammarAccess.getWorkItemProfileAccess().getRequiredServicesKeyword_7_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:933:1: ( (otherlv_16= RULE_ID ) )+
-                    int cnt25=0;
-                    loop25:
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1947:1: ( (otherlv_16= RULE_ID ) )+
+                    int cnt45=0;
+                    loop45:
                     do {
-                        int alt25=2;
-                        int LA25_0 = input.LA(1);
+                        int alt45=2;
+                        int LA45_0 = input.LA(1);
 
-                        if ( (LA25_0==RULE_ID) ) {
-                            alt25=1;
+                        if ( (LA45_0==RULE_ID) ) {
+                            alt45=1;
                         }
 
 
-                        switch (alt25) {
+                        switch (alt45) {
                     	case 1 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:934:1: (otherlv_16= RULE_ID )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1948:1: (otherlv_16= RULE_ID )
                     	    {
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:934:1: (otherlv_16= RULE_ID )
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:935:3: otherlv_16= RULE_ID
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1948:1: (otherlv_16= RULE_ID )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1949:3: otherlv_16= RULE_ID
                     	    {
 
                     	    			if (current==null) {
                     	    	            current = createModelElement(grammarAccess.getWorkItemProfileRule());
                     	    	        }
                     	            
-                    	    otherlv_16=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItemProfile1978); 
+                    	    otherlv_16=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItemProfile4233); 
 
                     	    		newLeafNode(otherlv_16, grammarAccess.getWorkItemProfileAccess().getRequiredServicesServiceTypeCrossReference_7_1_0()); 
                     	    	
@@ -2364,12 +4686,12 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt25 >= 1 ) break loop25;
+                    	    if ( cnt45 >= 1 ) break loop45;
                                 EarlyExitException eee =
-                                    new EarlyExitException(25, input);
+                                    new EarlyExitException(45, input);
                                 throw eee;
                         }
-                        cnt25++;
+                        cnt45++;
                     } while (true);
 
 
@@ -2378,31 +4700,31 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:946:5: (otherlv_17= 'Efforts' ( (lv_efforts_18_0= ruleNumExpression ) ) )?
-            int alt27=2;
-            int LA27_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1960:5: (otherlv_17= 'Efforts' ( (lv_efforts_18_0= ruleNumExpression ) ) )?
+            int alt47=2;
+            int LA47_0 = input.LA(1);
 
-            if ( (LA27_0==56) ) {
-                alt27=1;
+            if ( (LA47_0==82) ) {
+                alt47=1;
             }
-            switch (alt27) {
+            switch (alt47) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:946:7: otherlv_17= 'Efforts' ( (lv_efforts_18_0= ruleNumExpression ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1960:7: otherlv_17= 'Efforts' ( (lv_efforts_18_0= ruleNumExpression ) )
                     {
-                    otherlv_17=(Token)match(input,56,FOLLOW_56_in_ruleWorkItemProfile1994); 
+                    otherlv_17=(Token)match(input,82,FOLLOW_82_in_ruleWorkItemProfile4249); 
 
                         	newLeafNode(otherlv_17, grammarAccess.getWorkItemProfileAccess().getEffortsKeyword_8_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:950:1: ( (lv_efforts_18_0= ruleNumExpression ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:951:1: (lv_efforts_18_0= ruleNumExpression )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1964:1: ( (lv_efforts_18_0= ruleNumExpression ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1965:1: (lv_efforts_18_0= ruleNumExpression )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:951:1: (lv_efforts_18_0= ruleNumExpression )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:952:3: lv_efforts_18_0= ruleNumExpression
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1965:1: (lv_efforts_18_0= ruleNumExpression )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1966:3: lv_efforts_18_0= ruleNumExpression
                     {
                      
                     	        newCompositeNode(grammarAccess.getWorkItemProfileAccess().getEffortsNumExpressionParserRuleCall_8_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleNumExpression_in_ruleWorkItemProfile2015);
+                    pushFollow(FOLLOW_ruleNumExpression_in_ruleWorkItemProfile4270);
                     lv_efforts_18_0=ruleNumExpression();
 
                     state._fsp--;
@@ -2430,31 +4752,31 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:968:4: (otherlv_19= 'Value' ( (lv_value_20_0= ruleNumExpression ) ) )?
-            int alt28=2;
-            int LA28_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1982:4: (otherlv_19= 'Value' ( (lv_value_20_0= ruleNumExpression ) ) )?
+            int alt48=2;
+            int LA48_0 = input.LA(1);
 
-            if ( (LA28_0==57) ) {
-                alt28=1;
+            if ( (LA48_0==83) ) {
+                alt48=1;
             }
-            switch (alt28) {
+            switch (alt48) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:968:6: otherlv_19= 'Value' ( (lv_value_20_0= ruleNumExpression ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1982:6: otherlv_19= 'Value' ( (lv_value_20_0= ruleNumExpression ) )
                     {
-                    otherlv_19=(Token)match(input,57,FOLLOW_57_in_ruleWorkItemProfile2030); 
+                    otherlv_19=(Token)match(input,83,FOLLOW_83_in_ruleWorkItemProfile4285); 
 
                         	newLeafNode(otherlv_19, grammarAccess.getWorkItemProfileAccess().getValueKeyword_9_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:972:1: ( (lv_value_20_0= ruleNumExpression ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:973:1: (lv_value_20_0= ruleNumExpression )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1986:1: ( (lv_value_20_0= ruleNumExpression ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1987:1: (lv_value_20_0= ruleNumExpression )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:973:1: (lv_value_20_0= ruleNumExpression )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:974:3: lv_value_20_0= ruleNumExpression
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1987:1: (lv_value_20_0= ruleNumExpression )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1988:3: lv_value_20_0= ruleNumExpression
                     {
                      
                     	        newCompositeNode(grammarAccess.getWorkItemProfileAccess().getValueNumExpressionParserRuleCall_9_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleNumExpression_in_ruleWorkItemProfile2051);
+                    pushFollow(FOLLOW_ruleNumExpression_in_ruleWorkItemProfile4306);
                     lv_value_20_0=ruleNumExpression();
 
                     state._fsp--;
@@ -2482,41 +4804,36 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:990:4: (otherlv_21= 'ClassOfService' ( (lv_classOfService_22_0= RULE_ID ) ) )?
-            int alt29=2;
-            int LA29_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2004:4: (otherlv_21= 'ClassOfService' ( (otherlv_22= RULE_ID ) ) )?
+            int alt49=2;
+            int LA49_0 = input.LA(1);
 
-            if ( (LA29_0==58) ) {
-                alt29=1;
+            if ( (LA49_0==72) ) {
+                alt49=1;
             }
-            switch (alt29) {
+            switch (alt49) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:990:6: otherlv_21= 'ClassOfService' ( (lv_classOfService_22_0= RULE_ID ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2004:6: otherlv_21= 'ClassOfService' ( (otherlv_22= RULE_ID ) )
                     {
-                    otherlv_21=(Token)match(input,58,FOLLOW_58_in_ruleWorkItemProfile2066); 
+                    otherlv_21=(Token)match(input,72,FOLLOW_72_in_ruleWorkItemProfile4321); 
 
                         	newLeafNode(otherlv_21, grammarAccess.getWorkItemProfileAccess().getClassOfServiceKeyword_10_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:994:1: ( (lv_classOfService_22_0= RULE_ID ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:995:1: (lv_classOfService_22_0= RULE_ID )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2008:1: ( (otherlv_22= RULE_ID ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2009:1: (otherlv_22= RULE_ID )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:995:1: (lv_classOfService_22_0= RULE_ID )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:996:3: lv_classOfService_22_0= RULE_ID
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2009:1: (otherlv_22= RULE_ID )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2010:3: otherlv_22= RULE_ID
                     {
-                    lv_classOfService_22_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItemProfile2083); 
 
-                    			newLeafNode(lv_classOfService_22_0, grammarAccess.getWorkItemProfileAccess().getClassOfServiceIDTerminalRuleCall_10_1_0()); 
-                    		
-
-                    	        if (current==null) {
+                    			if (current==null) {
                     	            current = createModelElement(grammarAccess.getWorkItemProfileRule());
                     	        }
-                           		setWithLastConsumed(
-                           			current, 
-                           			"classOfService",
-                            		lv_classOfService_22_0, 
-                            		"ID");
-                    	    
+                            
+                    otherlv_22=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItemProfile4341); 
+
+                    		newLeafNode(otherlv_22, grammarAccess.getWorkItemProfileAccess().getClassOfServiceClassOfServiceCrossReference_10_1_0()); 
+                    	
 
                     }
 
@@ -2529,21 +4846,21 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1012:4: ( (lv_allowAssignment_23_0= 'AssignmentAllowed' ) )?
-            int alt30=2;
-            int LA30_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2021:4: ( (lv_allowAssignment_23_0= 'AssignmentAllowed' ) )?
+            int alt50=2;
+            int LA50_0 = input.LA(1);
 
-            if ( (LA30_0==59) ) {
-                alt30=1;
+            if ( (LA50_0==84) ) {
+                alt50=1;
             }
-            switch (alt30) {
+            switch (alt50) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1013:1: (lv_allowAssignment_23_0= 'AssignmentAllowed' )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2022:1: (lv_allowAssignment_23_0= 'AssignmentAllowed' )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1013:1: (lv_allowAssignment_23_0= 'AssignmentAllowed' )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1014:3: lv_allowAssignment_23_0= 'AssignmentAllowed'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2022:1: (lv_allowAssignment_23_0= 'AssignmentAllowed' )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2023:3: lv_allowAssignment_23_0= 'AssignmentAllowed'
                     {
-                    lv_allowAssignment_23_0=(Token)match(input,59,FOLLOW_59_in_ruleWorkItemProfile2108); 
+                    lv_allowAssignment_23_0=(Token)match(input,84,FOLLOW_84_in_ruleWorkItemProfile4361); 
 
                             newLeafNode(lv_allowAssignment_23_0, grammarAccess.getWorkItemProfileAccess().getAllowAssignmentAssignmentAllowedKeyword_11_0());
                         
@@ -2562,21 +4879,21 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1027:3: ( (lv_allowDiscard_24_0= 'DiscardAllowed' ) )?
-            int alt31=2;
-            int LA31_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2036:3: ( (lv_allowDiscard_24_0= 'DiscardAllowed' ) )?
+            int alt51=2;
+            int LA51_0 = input.LA(1);
 
-            if ( (LA31_0==60) ) {
-                alt31=1;
+            if ( (LA51_0==85) ) {
+                alt51=1;
             }
-            switch (alt31) {
+            switch (alt51) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1028:1: (lv_allowDiscard_24_0= 'DiscardAllowed' )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2037:1: (lv_allowDiscard_24_0= 'DiscardAllowed' )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1028:1: (lv_allowDiscard_24_0= 'DiscardAllowed' )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1029:3: lv_allowDiscard_24_0= 'DiscardAllowed'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2037:1: (lv_allowDiscard_24_0= 'DiscardAllowed' )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2038:3: lv_allowDiscard_24_0= 'DiscardAllowed'
                     {
-                    lv_allowDiscard_24_0=(Token)match(input,60,FOLLOW_60_in_ruleWorkItemProfile2140); 
+                    lv_allowDiscard_24_0=(Token)match(input,85,FOLLOW_85_in_ruleWorkItemProfile4393); 
 
                             newLeafNode(lv_allowDiscard_24_0, grammarAccess.getWorkItemProfileAccess().getAllowDiscardDiscardAllowedKeyword_12_0());
                         
@@ -2595,7 +4912,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_25=(Token)match(input,48,FOLLOW_48_in_ruleWorkItemProfile2166); 
+            otherlv_25=(Token)match(input,68,FOLLOW_68_in_ruleWorkItemProfile4419); 
 
                 	newLeafNode(otherlv_25, grammarAccess.getWorkItemProfileAccess().getRightCurlyBracketKeyword_13());
                 
@@ -2620,7 +4937,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleWorkReference"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1054:1: entryRuleWorkReference returns [EObject current=null] : iv_ruleWorkReference= ruleWorkReference EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2063:1: entryRuleWorkReference returns [EObject current=null] : iv_ruleWorkReference= ruleWorkReference EOF ;
     public final EObject entryRuleWorkReference() throws RecognitionException {
         EObject current = null;
 
@@ -2628,17 +4945,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1055:2: (iv_ruleWorkReference= ruleWorkReference EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1056:2: iv_ruleWorkReference= ruleWorkReference EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2064:2: (iv_ruleWorkReference= ruleWorkReference EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2065:2: iv_ruleWorkReference= ruleWorkReference EOF
             {
              newCompositeNode(grammarAccess.getWorkReferenceRule()); 
-            pushFollow(FOLLOW_ruleWorkReference_in_entryRuleWorkReference2202);
+            pushFollow(FOLLOW_ruleWorkReference_in_entryRuleWorkReference4455);
             iv_ruleWorkReference=ruleWorkReference();
 
             state._fsp--;
 
              current =iv_ruleWorkReference; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleWorkReference2212); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleWorkReference4465); 
 
             }
 
@@ -2656,7 +4973,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleWorkReference"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1063:1: ruleWorkReference returns [EObject current=null] : (otherlv_0= 'WorkItem' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Quantity' ( (lv_quantity_3_0= ruleNumExpression ) ) ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2072:1: ruleWorkReference returns [EObject current=null] : (otherlv_0= 'WorkItem' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Quantity' ( (lv_quantity_3_0= ruleNumExpression ) ) ) ;
     public final EObject ruleWorkReference() throws RecognitionException {
         EObject current = null;
 
@@ -2669,28 +4986,28 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1066:28: ( (otherlv_0= 'WorkItem' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Quantity' ( (lv_quantity_3_0= ruleNumExpression ) ) ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1067:1: (otherlv_0= 'WorkItem' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Quantity' ( (lv_quantity_3_0= ruleNumExpression ) ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2075:28: ( (otherlv_0= 'WorkItem' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Quantity' ( (lv_quantity_3_0= ruleNumExpression ) ) ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2076:1: (otherlv_0= 'WorkItem' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Quantity' ( (lv_quantity_3_0= ruleNumExpression ) ) )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1067:1: (otherlv_0= 'WorkItem' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Quantity' ( (lv_quantity_3_0= ruleNumExpression ) ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1067:3: otherlv_0= 'WorkItem' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Quantity' ( (lv_quantity_3_0= ruleNumExpression ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2076:1: (otherlv_0= 'WorkItem' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Quantity' ( (lv_quantity_3_0= ruleNumExpression ) ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2076:3: otherlv_0= 'WorkItem' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Quantity' ( (lv_quantity_3_0= ruleNumExpression ) )
             {
-            otherlv_0=(Token)match(input,50,FOLLOW_50_in_ruleWorkReference2249); 
+            otherlv_0=(Token)match(input,78,FOLLOW_78_in_ruleWorkReference4502); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getWorkReferenceAccess().getWorkItemKeyword_0());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1071:1: ( (otherlv_1= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1072:1: (otherlv_1= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2080:1: ( (otherlv_1= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2081:1: (otherlv_1= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1072:1: (otherlv_1= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1073:3: otherlv_1= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2081:1: (otherlv_1= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2082:3: otherlv_1= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getWorkReferenceRule());
             	        }
                     
-            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkReference2269); 
+            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkReference4522); 
 
             		newLeafNode(otherlv_1, grammarAccess.getWorkReferenceAccess().getWorkItemWorkItemProfileCrossReference_1_0()); 
             	
@@ -2700,20 +5017,20 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,61,FOLLOW_61_in_ruleWorkReference2281); 
+            otherlv_2=(Token)match(input,86,FOLLOW_86_in_ruleWorkReference4534); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getWorkReferenceAccess().getQuantityKeyword_2());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1088:1: ( (lv_quantity_3_0= ruleNumExpression ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1089:1: (lv_quantity_3_0= ruleNumExpression )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2097:1: ( (lv_quantity_3_0= ruleNumExpression ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2098:1: (lv_quantity_3_0= ruleNumExpression )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1089:1: (lv_quantity_3_0= ruleNumExpression )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1090:3: lv_quantity_3_0= ruleNumExpression
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2098:1: (lv_quantity_3_0= ruleNumExpression )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2099:3: lv_quantity_3_0= ruleNumExpression
             {
              
             	        newCompositeNode(grammarAccess.getWorkReferenceAccess().getQuantityNumExpressionParserRuleCall_3_0()); 
             	    
-            pushFollow(FOLLOW_ruleNumExpression_in_ruleWorkReference2302);
+            pushFollow(FOLLOW_ruleNumExpression_in_ruleWorkReference4555);
             lv_quantity_3_0=ruleNumExpression();
 
             state._fsp--;
@@ -2756,7 +5073,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleWorkDecomposition"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1114:1: entryRuleWorkDecomposition returns [EObject current=null] : iv_ruleWorkDecomposition= ruleWorkDecomposition EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2123:1: entryRuleWorkDecomposition returns [EObject current=null] : iv_ruleWorkDecomposition= ruleWorkDecomposition EOF ;
     public final EObject entryRuleWorkDecomposition() throws RecognitionException {
         EObject current = null;
 
@@ -2764,17 +5081,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1115:2: (iv_ruleWorkDecomposition= ruleWorkDecomposition EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1116:2: iv_ruleWorkDecomposition= ruleWorkDecomposition EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2124:2: (iv_ruleWorkDecomposition= ruleWorkDecomposition EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2125:2: iv_ruleWorkDecomposition= ruleWorkDecomposition EOF
             {
              newCompositeNode(grammarAccess.getWorkDecompositionRule()); 
-            pushFollow(FOLLOW_ruleWorkDecomposition_in_entryRuleWorkDecomposition2338);
+            pushFollow(FOLLOW_ruleWorkDecomposition_in_entryRuleWorkDecomposition4591);
             iv_ruleWorkDecomposition=ruleWorkDecomposition();
 
             state._fsp--;
 
              current =iv_ruleWorkDecomposition; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleWorkDecomposition2348); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleWorkDecomposition4601); 
 
             }
 
@@ -2792,7 +5109,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleWorkDecomposition"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1123:1: ruleWorkDecomposition returns [EObject current=null] : (otherlv_0= 'WorkItem' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Quantity' ( (lv_quantity_3_0= ruleNumExpression ) ) ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2132:1: ruleWorkDecomposition returns [EObject current=null] : (otherlv_0= 'WorkItem' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Quantity' ( (lv_quantity_3_0= ruleNumExpression ) ) ) ;
     public final EObject ruleWorkDecomposition() throws RecognitionException {
         EObject current = null;
 
@@ -2805,28 +5122,28 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1126:28: ( (otherlv_0= 'WorkItem' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Quantity' ( (lv_quantity_3_0= ruleNumExpression ) ) ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1127:1: (otherlv_0= 'WorkItem' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Quantity' ( (lv_quantity_3_0= ruleNumExpression ) ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2135:28: ( (otherlv_0= 'WorkItem' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Quantity' ( (lv_quantity_3_0= ruleNumExpression ) ) ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2136:1: (otherlv_0= 'WorkItem' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Quantity' ( (lv_quantity_3_0= ruleNumExpression ) ) )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1127:1: (otherlv_0= 'WorkItem' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Quantity' ( (lv_quantity_3_0= ruleNumExpression ) ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1127:3: otherlv_0= 'WorkItem' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Quantity' ( (lv_quantity_3_0= ruleNumExpression ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2136:1: (otherlv_0= 'WorkItem' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Quantity' ( (lv_quantity_3_0= ruleNumExpression ) ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2136:3: otherlv_0= 'WorkItem' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Quantity' ( (lv_quantity_3_0= ruleNumExpression ) )
             {
-            otherlv_0=(Token)match(input,50,FOLLOW_50_in_ruleWorkDecomposition2385); 
+            otherlv_0=(Token)match(input,78,FOLLOW_78_in_ruleWorkDecomposition4638); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getWorkDecompositionAccess().getWorkItemKeyword_0());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1131:1: ( (otherlv_1= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1132:1: (otherlv_1= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2140:1: ( (otherlv_1= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2141:1: (otherlv_1= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1132:1: (otherlv_1= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1133:3: otherlv_1= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2141:1: (otherlv_1= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2142:3: otherlv_1= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getWorkDecompositionRule());
             	        }
                     
-            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkDecomposition2405); 
+            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkDecomposition4658); 
 
             		newLeafNode(otherlv_1, grammarAccess.getWorkDecompositionAccess().getWorkItemWorkItemProfileCrossReference_1_0()); 
             	
@@ -2836,20 +5153,20 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,61,FOLLOW_61_in_ruleWorkDecomposition2417); 
+            otherlv_2=(Token)match(input,86,FOLLOW_86_in_ruleWorkDecomposition4670); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getWorkDecompositionAccess().getQuantityKeyword_2());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1148:1: ( (lv_quantity_3_0= ruleNumExpression ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1149:1: (lv_quantity_3_0= ruleNumExpression )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2157:1: ( (lv_quantity_3_0= ruleNumExpression ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2158:1: (lv_quantity_3_0= ruleNumExpression )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1149:1: (lv_quantity_3_0= ruleNumExpression )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1150:3: lv_quantity_3_0= ruleNumExpression
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2158:1: (lv_quantity_3_0= ruleNumExpression )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2159:3: lv_quantity_3_0= ruleNumExpression
             {
              
             	        newCompositeNode(grammarAccess.getWorkDecompositionAccess().getQuantityNumExpressionParserRuleCall_3_0()); 
             	    
-            pushFollow(FOLLOW_ruleNumExpression_in_ruleWorkDecomposition2438);
+            pushFollow(FOLLOW_ruleNumExpression_in_ruleWorkDecomposition4691);
             lv_quantity_3_0=ruleNumExpression();
 
             state._fsp--;
@@ -2891,26 +5208,26 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleWorkDecomposition"
 
 
-    // $ANTLR start "entryRuleTaskPattern"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1178:1: entryRuleTaskPattern returns [EObject current=null] : iv_ruleTaskPattern= ruleTaskPattern EOF ;
-    public final EObject entryRuleTaskPattern() throws RecognitionException {
+    // $ANTLR start "entryRuleGovernanceStrategy"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2187:1: entryRuleGovernanceStrategy returns [EObject current=null] : iv_ruleGovernanceStrategy= ruleGovernanceStrategy EOF ;
+    public final EObject entryRuleGovernanceStrategy() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleTaskPattern = null;
+        EObject iv_ruleGovernanceStrategy = null;
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1179:2: (iv_ruleTaskPattern= ruleTaskPattern EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1180:2: iv_ruleTaskPattern= ruleTaskPattern EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2188:2: (iv_ruleGovernanceStrategy= ruleGovernanceStrategy EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2189:2: iv_ruleGovernanceStrategy= ruleGovernanceStrategy EOF
             {
-             newCompositeNode(grammarAccess.getTaskPatternRule()); 
-            pushFollow(FOLLOW_ruleTaskPattern_in_entryRuleTaskPattern2478);
-            iv_ruleTaskPattern=ruleTaskPattern();
+             newCompositeNode(grammarAccess.getGovernanceStrategyRule()); 
+            pushFollow(FOLLOW_ruleGovernanceStrategy_in_entryRuleGovernanceStrategy4731);
+            iv_ruleGovernanceStrategy=ruleGovernanceStrategy();
 
             state._fsp--;
 
-             current =iv_ruleTaskPattern; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTaskPattern2488); 
+             current =iv_ruleGovernanceStrategy; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGovernanceStrategy4741); 
 
             }
 
@@ -2924,737 +5241,12 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleTaskPattern"
+    // $ANTLR end "entryRuleGovernanceStrategy"
 
 
-    // $ANTLR start "ruleTaskPattern"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1187:1: ruleTaskPattern returns [EObject current=null] : (otherlv_0= 'TaskPattern' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'Types' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )? otherlv_9= '}' ) ;
-    public final EObject ruleTaskPattern() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_0=null;
-        Token lv_name_1_0=null;
-        Token otherlv_2=null;
-        Token otherlv_3=null;
-        Token lv_description_4_0=null;
-        Token otherlv_5=null;
-        Token otherlv_6=null;
-        Token otherlv_7=null;
-        Token otherlv_8=null;
-        Token otherlv_9=null;
-
-         enterRule(); 
-            
-        try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1190:28: ( (otherlv_0= 'TaskPattern' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'Types' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )? otherlv_9= '}' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1191:1: (otherlv_0= 'TaskPattern' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'Types' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )? otherlv_9= '}' )
-            {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1191:1: (otherlv_0= 'TaskPattern' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'Types' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )? otherlv_9= '}' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1191:3: otherlv_0= 'TaskPattern' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'Types' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )? otherlv_9= '}'
-            {
-            otherlv_0=(Token)match(input,62,FOLLOW_62_in_ruleTaskPattern2525); 
-
-                	newLeafNode(otherlv_0, grammarAccess.getTaskPatternAccess().getTaskPatternKeyword_0());
-                
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1195:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1196:1: (lv_name_1_0= RULE_ID )
-            {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1196:1: (lv_name_1_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1197:3: lv_name_1_0= RULE_ID
-            {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTaskPattern2542); 
-
-            			newLeafNode(lv_name_1_0, grammarAccess.getTaskPatternAccess().getNameIDTerminalRuleCall_1_0()); 
-            		
-
-            	        if (current==null) {
-            	            current = createModelElement(grammarAccess.getTaskPatternRule());
-            	        }
-                   		setWithLastConsumed(
-                   			current, 
-                   			"name",
-                    		lv_name_1_0, 
-                    		"ID");
-            	    
-
-            }
-
-
-            }
-
-            otherlv_2=(Token)match(input,47,FOLLOW_47_in_ruleTaskPattern2559); 
-
-                	newLeafNode(otherlv_2, grammarAccess.getTaskPatternAccess().getLeftCurlyBracketKeyword_2());
-                
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1217:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
-            int alt32=2;
-            int LA32_0 = input.LA(1);
-
-            if ( (LA32_0==51) ) {
-                alt32=1;
-            }
-            switch (alt32) {
-                case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1217:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
-                    {
-                    otherlv_3=(Token)match(input,51,FOLLOW_51_in_ruleTaskPattern2572); 
-
-                        	newLeafNode(otherlv_3, grammarAccess.getTaskPatternAccess().getDescriptionKeyword_3_0());
-                        
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1221:1: ( (lv_description_4_0= RULE_STRING ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1222:1: (lv_description_4_0= RULE_STRING )
-                    {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1222:1: (lv_description_4_0= RULE_STRING )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1223:3: lv_description_4_0= RULE_STRING
-                    {
-                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleTaskPattern2589); 
-
-                    			newLeafNode(lv_description_4_0, grammarAccess.getTaskPatternAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
-                    		
-
-                    	        if (current==null) {
-                    	            current = createModelElement(grammarAccess.getTaskPatternRule());
-                    	        }
-                           		setWithLastConsumed(
-                           			current, 
-                           			"description",
-                            		lv_description_4_0, 
-                            		"STRING");
-                    	    
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1239:4: (otherlv_5= 'Types' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )?
-            int alt34=2;
-            int LA34_0 = input.LA(1);
-
-            if ( (LA34_0==63) ) {
-                alt34=1;
-            }
-            switch (alt34) {
-                case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1239:6: otherlv_5= 'Types' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}'
-                    {
-                    otherlv_5=(Token)match(input,63,FOLLOW_63_in_ruleTaskPattern2609); 
-
-                        	newLeafNode(otherlv_5, grammarAccess.getTaskPatternAccess().getTypesKeyword_4_0());
-                        
-                    otherlv_6=(Token)match(input,47,FOLLOW_47_in_ruleTaskPattern2621); 
-
-                        	newLeafNode(otherlv_6, grammarAccess.getTaskPatternAccess().getLeftCurlyBracketKeyword_4_1());
-                        
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1247:1: ( (otherlv_7= RULE_ID ) )+
-                    int cnt33=0;
-                    loop33:
-                    do {
-                        int alt33=2;
-                        int LA33_0 = input.LA(1);
-
-                        if ( (LA33_0==RULE_ID) ) {
-                            alt33=1;
-                        }
-
-
-                        switch (alt33) {
-                    	case 1 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1248:1: (otherlv_7= RULE_ID )
-                    	    {
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1248:1: (otherlv_7= RULE_ID )
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1249:3: otherlv_7= RULE_ID
-                    	    {
-
-                    	    			if (current==null) {
-                    	    	            current = createModelElement(grammarAccess.getTaskPatternRule());
-                    	    	        }
-                    	            
-                    	    otherlv_7=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTaskPattern2641); 
-
-                    	    		newLeafNode(otherlv_7, grammarAccess.getTaskPatternAccess().getTaskTypesTaskTypeCrossReference_4_2_0()); 
-                    	    	
-
-                    	    }
-
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    if ( cnt33 >= 1 ) break loop33;
-                                EarlyExitException eee =
-                                    new EarlyExitException(33, input);
-                                throw eee;
-                        }
-                        cnt33++;
-                    } while (true);
-
-                    otherlv_8=(Token)match(input,48,FOLLOW_48_in_ruleTaskPattern2654); 
-
-                        	newLeafNode(otherlv_8, grammarAccess.getTaskPatternAccess().getRightCurlyBracketKeyword_4_3());
-                        
-
-                    }
-                    break;
-
-            }
-
-            otherlv_9=(Token)match(input,48,FOLLOW_48_in_ruleTaskPattern2668); 
-
-                	newLeafNode(otherlv_9, grammarAccess.getTaskPatternAccess().getRightCurlyBracketKeyword_5());
-                
-
-            }
-
-
-            }
-
-             leaveRule(); 
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleTaskPattern"
-
-
-    // $ANTLR start "entryRuleTaskType"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1276:1: entryRuleTaskType returns [EObject current=null] : iv_ruleTaskType= ruleTaskType EOF ;
-    public final EObject entryRuleTaskType() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleTaskType = null;
-
-
-        try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1277:2: (iv_ruleTaskType= ruleTaskType EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1278:2: iv_ruleTaskType= ruleTaskType EOF
-            {
-             newCompositeNode(grammarAccess.getTaskTypeRule()); 
-            pushFollow(FOLLOW_ruleTaskType_in_entryRuleTaskType2704);
-            iv_ruleTaskType=ruleTaskType();
-
-            state._fsp--;
-
-             current =iv_ruleTaskType; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTaskType2714); 
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleTaskType"
-
-
-    // $ANTLR start "ruleTaskType"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1285:1: ruleTaskType returns [EObject current=null] : (otherlv_0= 'TaskType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) ;
-    public final EObject ruleTaskType() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_0=null;
-        Token lv_name_1_0=null;
-        Token otherlv_2=null;
-        Token otherlv_3=null;
-        Token lv_description_4_0=null;
-        Token otherlv_5=null;
-
-         enterRule(); 
-            
-        try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1288:28: ( (otherlv_0= 'TaskType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1289:1: (otherlv_0= 'TaskType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
-            {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1289:1: (otherlv_0= 'TaskType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1289:3: otherlv_0= 'TaskType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}'
-            {
-            otherlv_0=(Token)match(input,64,FOLLOW_64_in_ruleTaskType2751); 
-
-                	newLeafNode(otherlv_0, grammarAccess.getTaskTypeAccess().getTaskTypeKeyword_0());
-                
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1293:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1294:1: (lv_name_1_0= RULE_ID )
-            {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1294:1: (lv_name_1_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1295:3: lv_name_1_0= RULE_ID
-            {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTaskType2768); 
-
-            			newLeafNode(lv_name_1_0, grammarAccess.getTaskTypeAccess().getNameIDTerminalRuleCall_1_0()); 
-            		
-
-            	        if (current==null) {
-            	            current = createModelElement(grammarAccess.getTaskTypeRule());
-            	        }
-                   		setWithLastConsumed(
-                   			current, 
-                   			"name",
-                    		lv_name_1_0, 
-                    		"ID");
-            	    
-
-            }
-
-
-            }
-
-            otherlv_2=(Token)match(input,47,FOLLOW_47_in_ruleTaskType2785); 
-
-                	newLeafNode(otherlv_2, grammarAccess.getTaskTypeAccess().getLeftCurlyBracketKeyword_2());
-                
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1315:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
-            int alt35=2;
-            int LA35_0 = input.LA(1);
-
-            if ( (LA35_0==51) ) {
-                alt35=1;
-            }
-            switch (alt35) {
-                case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1315:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
-                    {
-                    otherlv_3=(Token)match(input,51,FOLLOW_51_in_ruleTaskType2798); 
-
-                        	newLeafNode(otherlv_3, grammarAccess.getTaskTypeAccess().getDescriptionKeyword_3_0());
-                        
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1319:1: ( (lv_description_4_0= RULE_STRING ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1320:1: (lv_description_4_0= RULE_STRING )
-                    {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1320:1: (lv_description_4_0= RULE_STRING )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1321:3: lv_description_4_0= RULE_STRING
-                    {
-                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleTaskType2815); 
-
-                    			newLeafNode(lv_description_4_0, grammarAccess.getTaskTypeAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
-                    		
-
-                    	        if (current==null) {
-                    	            current = createModelElement(grammarAccess.getTaskTypeRule());
-                    	        }
-                           		setWithLastConsumed(
-                           			current, 
-                           			"description",
-                            		lv_description_4_0, 
-                            		"STRING");
-                    	    
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            otherlv_5=(Token)match(input,48,FOLLOW_48_in_ruleTaskType2834); 
-
-                	newLeafNode(otherlv_5, grammarAccess.getTaskTypeAccess().getRightCurlyBracketKeyword_4());
-                
-
-            }
-
-
-            }
-
-             leaveRule(); 
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleTaskType"
-
-
-    // $ANTLR start "entryRuleValueFunction"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1349:1: entryRuleValueFunction returns [EObject current=null] : iv_ruleValueFunction= ruleValueFunction EOF ;
-    public final EObject entryRuleValueFunction() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleValueFunction = null;
-
-
-        try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1350:2: (iv_ruleValueFunction= ruleValueFunction EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1351:2: iv_ruleValueFunction= ruleValueFunction EOF
-            {
-             newCompositeNode(grammarAccess.getValueFunctionRule()); 
-            pushFollow(FOLLOW_ruleValueFunction_in_entryRuleValueFunction2870);
-            iv_ruleValueFunction=ruleValueFunction();
-
-            state._fsp--;
-
-             current =iv_ruleValueFunction; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleValueFunction2880); 
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleValueFunction"
-
-
-    // $ANTLR start "ruleValueFunction"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1358:1: ruleValueFunction returns [EObject current=null] : (otherlv_0= 'ValueFunction' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) ;
-    public final EObject ruleValueFunction() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_0=null;
-        Token lv_name_1_0=null;
-        Token otherlv_2=null;
-        Token otherlv_3=null;
-        Token lv_description_4_0=null;
-        Token otherlv_5=null;
-
-         enterRule(); 
-            
-        try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1361:28: ( (otherlv_0= 'ValueFunction' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1362:1: (otherlv_0= 'ValueFunction' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
-            {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1362:1: (otherlv_0= 'ValueFunction' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1362:3: otherlv_0= 'ValueFunction' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}'
-            {
-            otherlv_0=(Token)match(input,65,FOLLOW_65_in_ruleValueFunction2917); 
-
-                	newLeafNode(otherlv_0, grammarAccess.getValueFunctionAccess().getValueFunctionKeyword_0());
-                
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1366:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1367:1: (lv_name_1_0= RULE_ID )
-            {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1367:1: (lv_name_1_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1368:3: lv_name_1_0= RULE_ID
-            {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleValueFunction2934); 
-
-            			newLeafNode(lv_name_1_0, grammarAccess.getValueFunctionAccess().getNameIDTerminalRuleCall_1_0()); 
-            		
-
-            	        if (current==null) {
-            	            current = createModelElement(grammarAccess.getValueFunctionRule());
-            	        }
-                   		setWithLastConsumed(
-                   			current, 
-                   			"name",
-                    		lv_name_1_0, 
-                    		"ID");
-            	    
-
-            }
-
-
-            }
-
-            otherlv_2=(Token)match(input,47,FOLLOW_47_in_ruleValueFunction2951); 
-
-                	newLeafNode(otherlv_2, grammarAccess.getValueFunctionAccess().getLeftCurlyBracketKeyword_2());
-                
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1388:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
-            int alt36=2;
-            int LA36_0 = input.LA(1);
-
-            if ( (LA36_0==51) ) {
-                alt36=1;
-            }
-            switch (alt36) {
-                case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1388:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
-                    {
-                    otherlv_3=(Token)match(input,51,FOLLOW_51_in_ruleValueFunction2964); 
-
-                        	newLeafNode(otherlv_3, grammarAccess.getValueFunctionAccess().getDescriptionKeyword_3_0());
-                        
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1392:1: ( (lv_description_4_0= RULE_STRING ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1393:1: (lv_description_4_0= RULE_STRING )
-                    {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1393:1: (lv_description_4_0= RULE_STRING )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1394:3: lv_description_4_0= RULE_STRING
-                    {
-                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleValueFunction2981); 
-
-                    			newLeafNode(lv_description_4_0, grammarAccess.getValueFunctionAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
-                    		
-
-                    	        if (current==null) {
-                    	            current = createModelElement(grammarAccess.getValueFunctionRule());
-                    	        }
-                           		setWithLastConsumed(
-                           			current, 
-                           			"description",
-                            		lv_description_4_0, 
-                            		"STRING");
-                    	    
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            otherlv_5=(Token)match(input,48,FOLLOW_48_in_ruleValueFunction3000); 
-
-                	newLeafNode(otherlv_5, grammarAccess.getValueFunctionAccess().getRightCurlyBracketKeyword_4());
-                
-
-            }
-
-
-            }
-
-             leaveRule(); 
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleValueFunction"
-
-
-    // $ANTLR start "entryRuleProcessModel"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1422:1: entryRuleProcessModel returns [EObject current=null] : iv_ruleProcessModel= ruleProcessModel EOF ;
-    public final EObject entryRuleProcessModel() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleProcessModel = null;
-
-
-        try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1423:2: (iv_ruleProcessModel= ruleProcessModel EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1424:2: iv_ruleProcessModel= ruleProcessModel EOF
-            {
-             newCompositeNode(grammarAccess.getProcessModelRule()); 
-            pushFollow(FOLLOW_ruleProcessModel_in_entryRuleProcessModel3036);
-            iv_ruleProcessModel=ruleProcessModel();
-
-            state._fsp--;
-
-             current =iv_ruleProcessModel; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleProcessModel3046); 
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleProcessModel"
-
-
-    // $ANTLR start "ruleProcessModel"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1431:1: ruleProcessModel returns [EObject current=null] : (otherlv_0= 'ProcessModel' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) ;
-    public final EObject ruleProcessModel() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_0=null;
-        Token lv_name_1_0=null;
-        Token otherlv_2=null;
-        Token otherlv_3=null;
-        Token lv_description_4_0=null;
-        Token otherlv_5=null;
-
-         enterRule(); 
-            
-        try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1434:28: ( (otherlv_0= 'ProcessModel' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1435:1: (otherlv_0= 'ProcessModel' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
-            {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1435:1: (otherlv_0= 'ProcessModel' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1435:3: otherlv_0= 'ProcessModel' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}'
-            {
-            otherlv_0=(Token)match(input,52,FOLLOW_52_in_ruleProcessModel3083); 
-
-                	newLeafNode(otherlv_0, grammarAccess.getProcessModelAccess().getProcessModelKeyword_0());
-                
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1439:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1440:1: (lv_name_1_0= RULE_ID )
-            {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1440:1: (lv_name_1_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1441:3: lv_name_1_0= RULE_ID
-            {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleProcessModel3100); 
-
-            			newLeafNode(lv_name_1_0, grammarAccess.getProcessModelAccess().getNameIDTerminalRuleCall_1_0()); 
-            		
-
-            	        if (current==null) {
-            	            current = createModelElement(grammarAccess.getProcessModelRule());
-            	        }
-                   		setWithLastConsumed(
-                   			current, 
-                   			"name",
-                    		lv_name_1_0, 
-                    		"ID");
-            	    
-
-            }
-
-
-            }
-
-            otherlv_2=(Token)match(input,47,FOLLOW_47_in_ruleProcessModel3117); 
-
-                	newLeafNode(otherlv_2, grammarAccess.getProcessModelAccess().getLeftCurlyBracketKeyword_2());
-                
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1461:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
-            int alt37=2;
-            int LA37_0 = input.LA(1);
-
-            if ( (LA37_0==51) ) {
-                alt37=1;
-            }
-            switch (alt37) {
-                case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1461:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
-                    {
-                    otherlv_3=(Token)match(input,51,FOLLOW_51_in_ruleProcessModel3130); 
-
-                        	newLeafNode(otherlv_3, grammarAccess.getProcessModelAccess().getDescriptionKeyword_3_0());
-                        
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1465:1: ( (lv_description_4_0= RULE_STRING ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1466:1: (lv_description_4_0= RULE_STRING )
-                    {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1466:1: (lv_description_4_0= RULE_STRING )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1467:3: lv_description_4_0= RULE_STRING
-                    {
-                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleProcessModel3147); 
-
-                    			newLeafNode(lv_description_4_0, grammarAccess.getProcessModelAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
-                    		
-
-                    	        if (current==null) {
-                    	            current = createModelElement(grammarAccess.getProcessModelRule());
-                    	        }
-                           		setWithLastConsumed(
-                           			current, 
-                           			"description",
-                            		lv_description_4_0, 
-                            		"STRING");
-                    	    
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            otherlv_5=(Token)match(input,48,FOLLOW_48_in_ruleProcessModel3166); 
-
-                	newLeafNode(otherlv_5, grammarAccess.getProcessModelAccess().getRightCurlyBracketKeyword_4());
-                
-
-            }
-
-
-            }
-
-             leaveRule(); 
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleProcessModel"
-
-
-    // $ANTLR start "entryRuleStrategy"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1497:1: entryRuleStrategy returns [EObject current=null] : iv_ruleStrategy= ruleStrategy EOF ;
-    public final EObject entryRuleStrategy() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleStrategy = null;
-
-
-        try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1498:2: (iv_ruleStrategy= ruleStrategy EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1499:2: iv_ruleStrategy= ruleStrategy EOF
-            {
-             newCompositeNode(grammarAccess.getStrategyRule()); 
-            pushFollow(FOLLOW_ruleStrategy_in_entryRuleStrategy3204);
-            iv_ruleStrategy=ruleStrategy();
-
-            state._fsp--;
-
-             current =iv_ruleStrategy; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleStrategy3214); 
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleStrategy"
-
-
-    // $ANTLR start "ruleStrategy"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1506:1: ruleStrategy returns [EObject current=null] : (otherlv_0= 'Strategy' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? ( (lv_WIAcceptanceRule_5_0= ruleWIAcceptance ) ) ( (lv_WISelectionRule_6_0= ruleWISelection ) ) ( (lv_WIAssignmentRule_7_0= ruleWIAssignment ) ) ( (lv_ResourceAllocationRule_8_0= ruleResourceAllocation ) ) ( (lv_ResourceOutsourcingRule_9_0= ruleResourceOutsourcing ) ) otherlv_10= '}' ) ;
-    public final EObject ruleStrategy() throws RecognitionException {
+    // $ANTLR start "ruleGovernanceStrategy"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2196:1: ruleGovernanceStrategy returns [EObject current=null] : (otherlv_0= 'GovernanceStrategy' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? ( (lv_WIAcceptanceRule_5_0= ruleWIAcceptance ) ) ( (lv_WISelectionRule_6_0= ruleWISelection ) ) ( (lv_WIAssignmentRule_7_0= ruleWIAssignment ) ) ( (lv_ResourceAllocationRule_8_0= ruleResourceAllocation ) ) ( (lv_ResourceOutsourcingRule_9_0= ruleResourceOutsourcing ) ) otherlv_10= '}' ) ;
+    public final EObject ruleGovernanceStrategy() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -3677,29 +5269,29 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1509:28: ( (otherlv_0= 'Strategy' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? ( (lv_WIAcceptanceRule_5_0= ruleWIAcceptance ) ) ( (lv_WISelectionRule_6_0= ruleWISelection ) ) ( (lv_WIAssignmentRule_7_0= ruleWIAssignment ) ) ( (lv_ResourceAllocationRule_8_0= ruleResourceAllocation ) ) ( (lv_ResourceOutsourcingRule_9_0= ruleResourceOutsourcing ) ) otherlv_10= '}' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1510:1: (otherlv_0= 'Strategy' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? ( (lv_WIAcceptanceRule_5_0= ruleWIAcceptance ) ) ( (lv_WISelectionRule_6_0= ruleWISelection ) ) ( (lv_WIAssignmentRule_7_0= ruleWIAssignment ) ) ( (lv_ResourceAllocationRule_8_0= ruleResourceAllocation ) ) ( (lv_ResourceOutsourcingRule_9_0= ruleResourceOutsourcing ) ) otherlv_10= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2199:28: ( (otherlv_0= 'GovernanceStrategy' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? ( (lv_WIAcceptanceRule_5_0= ruleWIAcceptance ) ) ( (lv_WISelectionRule_6_0= ruleWISelection ) ) ( (lv_WIAssignmentRule_7_0= ruleWIAssignment ) ) ( (lv_ResourceAllocationRule_8_0= ruleResourceAllocation ) ) ( (lv_ResourceOutsourcingRule_9_0= ruleResourceOutsourcing ) ) otherlv_10= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2200:1: (otherlv_0= 'GovernanceStrategy' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? ( (lv_WIAcceptanceRule_5_0= ruleWIAcceptance ) ) ( (lv_WISelectionRule_6_0= ruleWISelection ) ) ( (lv_WIAssignmentRule_7_0= ruleWIAssignment ) ) ( (lv_ResourceAllocationRule_8_0= ruleResourceAllocation ) ) ( (lv_ResourceOutsourcingRule_9_0= ruleResourceOutsourcing ) ) otherlv_10= '}' )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1510:1: (otherlv_0= 'Strategy' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? ( (lv_WIAcceptanceRule_5_0= ruleWIAcceptance ) ) ( (lv_WISelectionRule_6_0= ruleWISelection ) ) ( (lv_WIAssignmentRule_7_0= ruleWIAssignment ) ) ( (lv_ResourceAllocationRule_8_0= ruleResourceAllocation ) ) ( (lv_ResourceOutsourcingRule_9_0= ruleResourceOutsourcing ) ) otherlv_10= '}' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1510:3: otherlv_0= 'Strategy' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? ( (lv_WIAcceptanceRule_5_0= ruleWIAcceptance ) ) ( (lv_WISelectionRule_6_0= ruleWISelection ) ) ( (lv_WIAssignmentRule_7_0= ruleWIAssignment ) ) ( (lv_ResourceAllocationRule_8_0= ruleResourceAllocation ) ) ( (lv_ResourceOutsourcingRule_9_0= ruleResourceOutsourcing ) ) otherlv_10= '}'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2200:1: (otherlv_0= 'GovernanceStrategy' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? ( (lv_WIAcceptanceRule_5_0= ruleWIAcceptance ) ) ( (lv_WISelectionRule_6_0= ruleWISelection ) ) ( (lv_WIAssignmentRule_7_0= ruleWIAssignment ) ) ( (lv_ResourceAllocationRule_8_0= ruleResourceAllocation ) ) ( (lv_ResourceOutsourcingRule_9_0= ruleResourceOutsourcing ) ) otherlv_10= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2200:3: otherlv_0= 'GovernanceStrategy' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? ( (lv_WIAcceptanceRule_5_0= ruleWIAcceptance ) ) ( (lv_WISelectionRule_6_0= ruleWISelection ) ) ( (lv_WIAssignmentRule_7_0= ruleWIAssignment ) ) ( (lv_ResourceAllocationRule_8_0= ruleResourceAllocation ) ) ( (lv_ResourceOutsourcingRule_9_0= ruleResourceOutsourcing ) ) otherlv_10= '}'
             {
-            otherlv_0=(Token)match(input,66,FOLLOW_66_in_ruleStrategy3251); 
+            otherlv_0=(Token)match(input,87,FOLLOW_87_in_ruleGovernanceStrategy4778); 
 
-                	newLeafNode(otherlv_0, grammarAccess.getStrategyAccess().getStrategyKeyword_0());
+                	newLeafNode(otherlv_0, grammarAccess.getGovernanceStrategyAccess().getGovernanceStrategyKeyword_0());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1514:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1515:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2204:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2205:1: (lv_name_1_0= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1515:1: (lv_name_1_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1516:3: lv_name_1_0= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2205:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2206:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleStrategy3268); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleGovernanceStrategy4795); 
 
-            			newLeafNode(lv_name_1_0, grammarAccess.getStrategyAccess().getNameIDTerminalRuleCall_1_0()); 
+            			newLeafNode(lv_name_1_0, grammarAccess.getGovernanceStrategyAccess().getNameIDTerminalRuleCall_1_0()); 
             		
 
             	        if (current==null) {
-            	            current = createModelElement(grammarAccess.getStrategyRule());
+            	            current = createModelElement(grammarAccess.getGovernanceStrategyRule());
             	        }
                    		setWithLastConsumed(
                    			current, 
@@ -3713,38 +5305,38 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,47,FOLLOW_47_in_ruleStrategy3285); 
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleGovernanceStrategy4812); 
 
-                	newLeafNode(otherlv_2, grammarAccess.getStrategyAccess().getLeftCurlyBracketKeyword_2());
+                	newLeafNode(otherlv_2, grammarAccess.getGovernanceStrategyAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1536:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
-            int alt38=2;
-            int LA38_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2226:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
+            int alt52=2;
+            int LA52_0 = input.LA(1);
 
-            if ( (LA38_0==51) ) {
-                alt38=1;
+            if ( (LA52_0==66) ) {
+                alt52=1;
             }
-            switch (alt38) {
+            switch (alt52) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1536:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2226:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
                     {
-                    otherlv_3=(Token)match(input,51,FOLLOW_51_in_ruleStrategy3298); 
+                    otherlv_3=(Token)match(input,66,FOLLOW_66_in_ruleGovernanceStrategy4825); 
 
-                        	newLeafNode(otherlv_3, grammarAccess.getStrategyAccess().getDescriptionKeyword_3_0());
+                        	newLeafNode(otherlv_3, grammarAccess.getGovernanceStrategyAccess().getDescriptionKeyword_3_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1540:1: ( (lv_description_4_0= RULE_STRING ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1541:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2230:1: ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2231:1: (lv_description_4_0= RULE_STRING )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1541:1: (lv_description_4_0= RULE_STRING )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1542:3: lv_description_4_0= RULE_STRING
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2231:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2232:3: lv_description_4_0= RULE_STRING
                     {
-                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStrategy3315); 
+                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleGovernanceStrategy4842); 
 
-                    			newLeafNode(lv_description_4_0, grammarAccess.getStrategyAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
+                    			newLeafNode(lv_description_4_0, grammarAccess.getGovernanceStrategyAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
                     		
 
                     	        if (current==null) {
-                    	            current = createModelElement(grammarAccess.getStrategyRule());
+                    	            current = createModelElement(grammarAccess.getGovernanceStrategyRule());
                     	        }
                            		setWithLastConsumed(
                            			current, 
@@ -3764,23 +5356,23 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1558:4: ( (lv_WIAcceptanceRule_5_0= ruleWIAcceptance ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1559:1: (lv_WIAcceptanceRule_5_0= ruleWIAcceptance )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2248:4: ( (lv_WIAcceptanceRule_5_0= ruleWIAcceptance ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2249:1: (lv_WIAcceptanceRule_5_0= ruleWIAcceptance )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1559:1: (lv_WIAcceptanceRule_5_0= ruleWIAcceptance )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1560:3: lv_WIAcceptanceRule_5_0= ruleWIAcceptance
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2249:1: (lv_WIAcceptanceRule_5_0= ruleWIAcceptance )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2250:3: lv_WIAcceptanceRule_5_0= ruleWIAcceptance
             {
              
-            	        newCompositeNode(grammarAccess.getStrategyAccess().getWIAcceptanceRuleWIAcceptanceParserRuleCall_4_0()); 
+            	        newCompositeNode(grammarAccess.getGovernanceStrategyAccess().getWIAcceptanceRuleWIAcceptanceParserRuleCall_4_0()); 
             	    
-            pushFollow(FOLLOW_ruleWIAcceptance_in_ruleStrategy3343);
+            pushFollow(FOLLOW_ruleWIAcceptance_in_ruleGovernanceStrategy4870);
             lv_WIAcceptanceRule_5_0=ruleWIAcceptance();
 
             state._fsp--;
 
 
             	        if (current==null) {
-            	            current = createModelElementForParent(grammarAccess.getStrategyRule());
+            	            current = createModelElementForParent(grammarAccess.getGovernanceStrategyRule());
             	        }
                    		set(
                    			current, 
@@ -3795,23 +5387,23 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1576:2: ( (lv_WISelectionRule_6_0= ruleWISelection ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1577:1: (lv_WISelectionRule_6_0= ruleWISelection )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2266:2: ( (lv_WISelectionRule_6_0= ruleWISelection ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2267:1: (lv_WISelectionRule_6_0= ruleWISelection )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1577:1: (lv_WISelectionRule_6_0= ruleWISelection )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1578:3: lv_WISelectionRule_6_0= ruleWISelection
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2267:1: (lv_WISelectionRule_6_0= ruleWISelection )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2268:3: lv_WISelectionRule_6_0= ruleWISelection
             {
              
-            	        newCompositeNode(grammarAccess.getStrategyAccess().getWISelectionRuleWISelectionParserRuleCall_5_0()); 
+            	        newCompositeNode(grammarAccess.getGovernanceStrategyAccess().getWISelectionRuleWISelectionParserRuleCall_5_0()); 
             	    
-            pushFollow(FOLLOW_ruleWISelection_in_ruleStrategy3364);
+            pushFollow(FOLLOW_ruleWISelection_in_ruleGovernanceStrategy4891);
             lv_WISelectionRule_6_0=ruleWISelection();
 
             state._fsp--;
 
 
             	        if (current==null) {
-            	            current = createModelElementForParent(grammarAccess.getStrategyRule());
+            	            current = createModelElementForParent(grammarAccess.getGovernanceStrategyRule());
             	        }
                    		set(
                    			current, 
@@ -3826,23 +5418,23 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1594:2: ( (lv_WIAssignmentRule_7_0= ruleWIAssignment ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1595:1: (lv_WIAssignmentRule_7_0= ruleWIAssignment )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2284:2: ( (lv_WIAssignmentRule_7_0= ruleWIAssignment ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2285:1: (lv_WIAssignmentRule_7_0= ruleWIAssignment )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1595:1: (lv_WIAssignmentRule_7_0= ruleWIAssignment )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1596:3: lv_WIAssignmentRule_7_0= ruleWIAssignment
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2285:1: (lv_WIAssignmentRule_7_0= ruleWIAssignment )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2286:3: lv_WIAssignmentRule_7_0= ruleWIAssignment
             {
              
-            	        newCompositeNode(grammarAccess.getStrategyAccess().getWIAssignmentRuleWIAssignmentParserRuleCall_6_0()); 
+            	        newCompositeNode(grammarAccess.getGovernanceStrategyAccess().getWIAssignmentRuleWIAssignmentParserRuleCall_6_0()); 
             	    
-            pushFollow(FOLLOW_ruleWIAssignment_in_ruleStrategy3385);
+            pushFollow(FOLLOW_ruleWIAssignment_in_ruleGovernanceStrategy4912);
             lv_WIAssignmentRule_7_0=ruleWIAssignment();
 
             state._fsp--;
 
 
             	        if (current==null) {
-            	            current = createModelElementForParent(grammarAccess.getStrategyRule());
+            	            current = createModelElementForParent(grammarAccess.getGovernanceStrategyRule());
             	        }
                    		set(
                    			current, 
@@ -3857,23 +5449,23 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1612:2: ( (lv_ResourceAllocationRule_8_0= ruleResourceAllocation ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1613:1: (lv_ResourceAllocationRule_8_0= ruleResourceAllocation )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2302:2: ( (lv_ResourceAllocationRule_8_0= ruleResourceAllocation ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2303:1: (lv_ResourceAllocationRule_8_0= ruleResourceAllocation )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1613:1: (lv_ResourceAllocationRule_8_0= ruleResourceAllocation )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1614:3: lv_ResourceAllocationRule_8_0= ruleResourceAllocation
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2303:1: (lv_ResourceAllocationRule_8_0= ruleResourceAllocation )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2304:3: lv_ResourceAllocationRule_8_0= ruleResourceAllocation
             {
              
-            	        newCompositeNode(grammarAccess.getStrategyAccess().getResourceAllocationRuleResourceAllocationParserRuleCall_7_0()); 
+            	        newCompositeNode(grammarAccess.getGovernanceStrategyAccess().getResourceAllocationRuleResourceAllocationParserRuleCall_7_0()); 
             	    
-            pushFollow(FOLLOW_ruleResourceAllocation_in_ruleStrategy3406);
+            pushFollow(FOLLOW_ruleResourceAllocation_in_ruleGovernanceStrategy4933);
             lv_ResourceAllocationRule_8_0=ruleResourceAllocation();
 
             state._fsp--;
 
 
             	        if (current==null) {
-            	            current = createModelElementForParent(grammarAccess.getStrategyRule());
+            	            current = createModelElementForParent(grammarAccess.getGovernanceStrategyRule());
             	        }
                    		set(
                    			current, 
@@ -3888,23 +5480,23 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1630:2: ( (lv_ResourceOutsourcingRule_9_0= ruleResourceOutsourcing ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1631:1: (lv_ResourceOutsourcingRule_9_0= ruleResourceOutsourcing )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2320:2: ( (lv_ResourceOutsourcingRule_9_0= ruleResourceOutsourcing ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2321:1: (lv_ResourceOutsourcingRule_9_0= ruleResourceOutsourcing )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1631:1: (lv_ResourceOutsourcingRule_9_0= ruleResourceOutsourcing )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1632:3: lv_ResourceOutsourcingRule_9_0= ruleResourceOutsourcing
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2321:1: (lv_ResourceOutsourcingRule_9_0= ruleResourceOutsourcing )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2322:3: lv_ResourceOutsourcingRule_9_0= ruleResourceOutsourcing
             {
              
-            	        newCompositeNode(grammarAccess.getStrategyAccess().getResourceOutsourcingRuleResourceOutsourcingParserRuleCall_8_0()); 
+            	        newCompositeNode(grammarAccess.getGovernanceStrategyAccess().getResourceOutsourcingRuleResourceOutsourcingParserRuleCall_8_0()); 
             	    
-            pushFollow(FOLLOW_ruleResourceOutsourcing_in_ruleStrategy3427);
+            pushFollow(FOLLOW_ruleResourceOutsourcing_in_ruleGovernanceStrategy4954);
             lv_ResourceOutsourcingRule_9_0=ruleResourceOutsourcing();
 
             state._fsp--;
 
 
             	        if (current==null) {
-            	            current = createModelElementForParent(grammarAccess.getStrategyRule());
+            	            current = createModelElementForParent(grammarAccess.getGovernanceStrategyRule());
             	        }
                    		set(
                    			current, 
@@ -3919,9 +5511,9 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_10=(Token)match(input,48,FOLLOW_48_in_ruleStrategy3439); 
+            otherlv_10=(Token)match(input,68,FOLLOW_68_in_ruleGovernanceStrategy4966); 
 
-                	newLeafNode(otherlv_10, grammarAccess.getStrategyAccess().getRightCurlyBracketKeyword_9());
+                	newLeafNode(otherlv_10, grammarAccess.getGovernanceStrategyAccess().getRightCurlyBracketKeyword_9());
                 
 
             }
@@ -3940,11 +5532,11 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleStrategy"
+    // $ANTLR end "ruleGovernanceStrategy"
 
 
     // $ANTLR start "entryRuleWIAcceptance"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1660:1: entryRuleWIAcceptance returns [EObject current=null] : iv_ruleWIAcceptance= ruleWIAcceptance EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2350:1: entryRuleWIAcceptance returns [EObject current=null] : iv_ruleWIAcceptance= ruleWIAcceptance EOF ;
     public final EObject entryRuleWIAcceptance() throws RecognitionException {
         EObject current = null;
 
@@ -3952,17 +5544,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1661:2: (iv_ruleWIAcceptance= ruleWIAcceptance EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1662:2: iv_ruleWIAcceptance= ruleWIAcceptance EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2351:2: (iv_ruleWIAcceptance= ruleWIAcceptance EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2352:2: iv_ruleWIAcceptance= ruleWIAcceptance EOF
             {
              newCompositeNode(grammarAccess.getWIAcceptanceRule()); 
-            pushFollow(FOLLOW_ruleWIAcceptance_in_entryRuleWIAcceptance3475);
+            pushFollow(FOLLOW_ruleWIAcceptance_in_entryRuleWIAcceptance5002);
             iv_ruleWIAcceptance=ruleWIAcceptance();
 
             state._fsp--;
 
              current =iv_ruleWIAcceptance; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleWIAcceptance3485); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleWIAcceptance5012); 
 
             }
 
@@ -3980,12 +5572,12 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleWIAcceptance"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1669:1: ruleWIAcceptance returns [EObject current=null] : (otherlv_0= 'WIAcceptance' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'BackLogLimit' ( (lv_backlogQLimit_6_0= RULE_INT ) ) )? (otherlv_7= 'WIPLimit' ( (lv_readyQLimit_8_0= RULE_INT ) ) )? otherlv_9= '}' ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2359:1: ruleWIAcceptance returns [EObject current=null] : (otherlv_0= 'WIAcceptance' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'BackLogLimit' ( (lv_backlogQLimit_6_0= RULE_INT ) ) )? (otherlv_7= 'WIPLimit' ( (lv_readyQLimit_8_0= RULE_INT ) ) )? otherlv_9= '}' ) ;
     public final EObject ruleWIAcceptance() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token lv_name_1_0=null;
+        Token otherlv_1=null;
         Token otherlv_2=null;
         Token otherlv_3=null;
         Token lv_description_4_0=null;
@@ -3998,68 +5590,63 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1672:28: ( (otherlv_0= 'WIAcceptance' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'BackLogLimit' ( (lv_backlogQLimit_6_0= RULE_INT ) ) )? (otherlv_7= 'WIPLimit' ( (lv_readyQLimit_8_0= RULE_INT ) ) )? otherlv_9= '}' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1673:1: (otherlv_0= 'WIAcceptance' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'BackLogLimit' ( (lv_backlogQLimit_6_0= RULE_INT ) ) )? (otherlv_7= 'WIPLimit' ( (lv_readyQLimit_8_0= RULE_INT ) ) )? otherlv_9= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2362:28: ( (otherlv_0= 'WIAcceptance' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'BackLogLimit' ( (lv_backlogQLimit_6_0= RULE_INT ) ) )? (otherlv_7= 'WIPLimit' ( (lv_readyQLimit_8_0= RULE_INT ) ) )? otherlv_9= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2363:1: (otherlv_0= 'WIAcceptance' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'BackLogLimit' ( (lv_backlogQLimit_6_0= RULE_INT ) ) )? (otherlv_7= 'WIPLimit' ( (lv_readyQLimit_8_0= RULE_INT ) ) )? otherlv_9= '}' )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1673:1: (otherlv_0= 'WIAcceptance' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'BackLogLimit' ( (lv_backlogQLimit_6_0= RULE_INT ) ) )? (otherlv_7= 'WIPLimit' ( (lv_readyQLimit_8_0= RULE_INT ) ) )? otherlv_9= '}' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1673:3: otherlv_0= 'WIAcceptance' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'BackLogLimit' ( (lv_backlogQLimit_6_0= RULE_INT ) ) )? (otherlv_7= 'WIPLimit' ( (lv_readyQLimit_8_0= RULE_INT ) ) )? otherlv_9= '}'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2363:1: (otherlv_0= 'WIAcceptance' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'BackLogLimit' ( (lv_backlogQLimit_6_0= RULE_INT ) ) )? (otherlv_7= 'WIPLimit' ( (lv_readyQLimit_8_0= RULE_INT ) ) )? otherlv_9= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2363:3: otherlv_0= 'WIAcceptance' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'BackLogLimit' ( (lv_backlogQLimit_6_0= RULE_INT ) ) )? (otherlv_7= 'WIPLimit' ( (lv_readyQLimit_8_0= RULE_INT ) ) )? otherlv_9= '}'
             {
-            otherlv_0=(Token)match(input,67,FOLLOW_67_in_ruleWIAcceptance3522); 
+            otherlv_0=(Token)match(input,88,FOLLOW_88_in_ruleWIAcceptance5049); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getWIAcceptanceAccess().getWIAcceptanceKeyword_0());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1677:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1678:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2367:1: ( (otherlv_1= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2368:1: (otherlv_1= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1678:1: (lv_name_1_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1679:3: lv_name_1_0= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2368:1: (otherlv_1= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2369:3: otherlv_1= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWIAcceptance3539); 
 
-            			newLeafNode(lv_name_1_0, grammarAccess.getWIAcceptanceAccess().getNameIDTerminalRuleCall_1_0()); 
-            		
-
-            	        if (current==null) {
+            			if (current==null) {
             	            current = createModelElement(grammarAccess.getWIAcceptanceRule());
             	        }
-                   		setWithLastConsumed(
-                   			current, 
-                   			"name",
-                    		lv_name_1_0, 
-                    		"ID");
-            	    
+                    
+            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWIAcceptance5069); 
+
+            		newLeafNode(otherlv_1, grammarAccess.getWIAcceptanceAccess().getTypeWIAcceptanceRuleTypeCrossReference_1_0()); 
+            	
 
             }
 
 
             }
 
-            otherlv_2=(Token)match(input,47,FOLLOW_47_in_ruleWIAcceptance3556); 
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleWIAcceptance5081); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getWIAcceptanceAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1699:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
-            int alt39=2;
-            int LA39_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2384:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
+            int alt53=2;
+            int LA53_0 = input.LA(1);
 
-            if ( (LA39_0==51) ) {
-                alt39=1;
+            if ( (LA53_0==66) ) {
+                alt53=1;
             }
-            switch (alt39) {
+            switch (alt53) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1699:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2384:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
                     {
-                    otherlv_3=(Token)match(input,51,FOLLOW_51_in_ruleWIAcceptance3569); 
+                    otherlv_3=(Token)match(input,66,FOLLOW_66_in_ruleWIAcceptance5094); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getWIAcceptanceAccess().getDescriptionKeyword_3_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1703:1: ( (lv_description_4_0= RULE_STRING ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1704:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2388:1: ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2389:1: (lv_description_4_0= RULE_STRING )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1704:1: (lv_description_4_0= RULE_STRING )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1705:3: lv_description_4_0= RULE_STRING
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2389:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2390:3: lv_description_4_0= RULE_STRING
                     {
-                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleWIAcceptance3586); 
+                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleWIAcceptance5111); 
 
                     			newLeafNode(lv_description_4_0, grammarAccess.getWIAcceptanceAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
                     		
@@ -4085,28 +5672,28 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1721:4: (otherlv_5= 'BackLogLimit' ( (lv_backlogQLimit_6_0= RULE_INT ) ) )?
-            int alt40=2;
-            int LA40_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2406:4: (otherlv_5= 'BackLogLimit' ( (lv_backlogQLimit_6_0= RULE_INT ) ) )?
+            int alt54=2;
+            int LA54_0 = input.LA(1);
 
-            if ( (LA40_0==68) ) {
-                alt40=1;
+            if ( (LA54_0==89) ) {
+                alt54=1;
             }
-            switch (alt40) {
+            switch (alt54) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1721:6: otherlv_5= 'BackLogLimit' ( (lv_backlogQLimit_6_0= RULE_INT ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2406:6: otherlv_5= 'BackLogLimit' ( (lv_backlogQLimit_6_0= RULE_INT ) )
                     {
-                    otherlv_5=(Token)match(input,68,FOLLOW_68_in_ruleWIAcceptance3606); 
+                    otherlv_5=(Token)match(input,89,FOLLOW_89_in_ruleWIAcceptance5131); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getWIAcceptanceAccess().getBackLogLimitKeyword_4_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1725:1: ( (lv_backlogQLimit_6_0= RULE_INT ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1726:1: (lv_backlogQLimit_6_0= RULE_INT )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2410:1: ( (lv_backlogQLimit_6_0= RULE_INT ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2411:1: (lv_backlogQLimit_6_0= RULE_INT )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1726:1: (lv_backlogQLimit_6_0= RULE_INT )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1727:3: lv_backlogQLimit_6_0= RULE_INT
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2411:1: (lv_backlogQLimit_6_0= RULE_INT )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2412:3: lv_backlogQLimit_6_0= RULE_INT
                     {
-                    lv_backlogQLimit_6_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleWIAcceptance3623); 
+                    lv_backlogQLimit_6_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleWIAcceptance5148); 
 
                     			newLeafNode(lv_backlogQLimit_6_0, grammarAccess.getWIAcceptanceAccess().getBacklogQLimitINTTerminalRuleCall_4_1_0()); 
                     		
@@ -4132,28 +5719,28 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1743:4: (otherlv_7= 'WIPLimit' ( (lv_readyQLimit_8_0= RULE_INT ) ) )?
-            int alt41=2;
-            int LA41_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2428:4: (otherlv_7= 'WIPLimit' ( (lv_readyQLimit_8_0= RULE_INT ) ) )?
+            int alt55=2;
+            int LA55_0 = input.LA(1);
 
-            if ( (LA41_0==69) ) {
-                alt41=1;
+            if ( (LA55_0==90) ) {
+                alt55=1;
             }
-            switch (alt41) {
+            switch (alt55) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1743:6: otherlv_7= 'WIPLimit' ( (lv_readyQLimit_8_0= RULE_INT ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2428:6: otherlv_7= 'WIPLimit' ( (lv_readyQLimit_8_0= RULE_INT ) )
                     {
-                    otherlv_7=(Token)match(input,69,FOLLOW_69_in_ruleWIAcceptance3643); 
+                    otherlv_7=(Token)match(input,90,FOLLOW_90_in_ruleWIAcceptance5168); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getWIAcceptanceAccess().getWIPLimitKeyword_5_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1747:1: ( (lv_readyQLimit_8_0= RULE_INT ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1748:1: (lv_readyQLimit_8_0= RULE_INT )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2432:1: ( (lv_readyQLimit_8_0= RULE_INT ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2433:1: (lv_readyQLimit_8_0= RULE_INT )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1748:1: (lv_readyQLimit_8_0= RULE_INT )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1749:3: lv_readyQLimit_8_0= RULE_INT
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2433:1: (lv_readyQLimit_8_0= RULE_INT )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2434:3: lv_readyQLimit_8_0= RULE_INT
                     {
-                    lv_readyQLimit_8_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleWIAcceptance3660); 
+                    lv_readyQLimit_8_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleWIAcceptance5185); 
 
                     			newLeafNode(lv_readyQLimit_8_0, grammarAccess.getWIAcceptanceAccess().getReadyQLimitINTTerminalRuleCall_5_1_0()); 
                     		
@@ -4179,7 +5766,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_9=(Token)match(input,48,FOLLOW_48_in_ruleWIAcceptance3679); 
+            otherlv_9=(Token)match(input,68,FOLLOW_68_in_ruleWIAcceptance5204); 
 
                 	newLeafNode(otherlv_9, grammarAccess.getWIAcceptanceAccess().getRightCurlyBracketKeyword_6());
                 
@@ -4204,7 +5791,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleWISelection"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1777:1: entryRuleWISelection returns [EObject current=null] : iv_ruleWISelection= ruleWISelection EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2462:1: entryRuleWISelection returns [EObject current=null] : iv_ruleWISelection= ruleWISelection EOF ;
     public final EObject entryRuleWISelection() throws RecognitionException {
         EObject current = null;
 
@@ -4212,17 +5799,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1778:2: (iv_ruleWISelection= ruleWISelection EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1779:2: iv_ruleWISelection= ruleWISelection EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2463:2: (iv_ruleWISelection= ruleWISelection EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2464:2: iv_ruleWISelection= ruleWISelection EOF
             {
              newCompositeNode(grammarAccess.getWISelectionRule()); 
-            pushFollow(FOLLOW_ruleWISelection_in_entryRuleWISelection3715);
+            pushFollow(FOLLOW_ruleWISelection_in_entryRuleWISelection5240);
             iv_ruleWISelection=ruleWISelection();
 
             state._fsp--;
 
              current =iv_ruleWISelection; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleWISelection3725); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleWISelection5250); 
 
             }
 
@@ -4240,12 +5827,12 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleWISelection"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1786:1: ruleWISelection returns [EObject current=null] : (otherlv_0= 'WISelection' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2471:1: ruleWISelection returns [EObject current=null] : (otherlv_0= 'WISelection' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) ;
     public final EObject ruleWISelection() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token lv_name_1_0=null;
+        Token otherlv_1=null;
         Token otherlv_2=null;
         Token otherlv_3=null;
         Token lv_description_4_0=null;
@@ -4254,68 +5841,63 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1789:28: ( (otherlv_0= 'WISelection' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1790:1: (otherlv_0= 'WISelection' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2474:28: ( (otherlv_0= 'WISelection' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2475:1: (otherlv_0= 'WISelection' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1790:1: (otherlv_0= 'WISelection' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1790:3: otherlv_0= 'WISelection' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2475:1: (otherlv_0= 'WISelection' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2475:3: otherlv_0= 'WISelection' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}'
             {
-            otherlv_0=(Token)match(input,70,FOLLOW_70_in_ruleWISelection3762); 
+            otherlv_0=(Token)match(input,91,FOLLOW_91_in_ruleWISelection5287); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getWISelectionAccess().getWISelectionKeyword_0());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1794:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1795:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2479:1: ( (otherlv_1= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2480:1: (otherlv_1= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1795:1: (lv_name_1_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1796:3: lv_name_1_0= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2480:1: (otherlv_1= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2481:3: otherlv_1= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWISelection3779); 
 
-            			newLeafNode(lv_name_1_0, grammarAccess.getWISelectionAccess().getNameIDTerminalRuleCall_1_0()); 
-            		
-
-            	        if (current==null) {
+            			if (current==null) {
             	            current = createModelElement(grammarAccess.getWISelectionRule());
             	        }
-                   		setWithLastConsumed(
-                   			current, 
-                   			"name",
-                    		lv_name_1_0, 
-                    		"ID");
-            	    
+                    
+            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWISelection5307); 
+
+            		newLeafNode(otherlv_1, grammarAccess.getWISelectionAccess().getTypeWISelectionRuleTypeCrossReference_1_0()); 
+            	
 
             }
 
 
             }
 
-            otherlv_2=(Token)match(input,47,FOLLOW_47_in_ruleWISelection3796); 
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleWISelection5319); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getWISelectionAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1816:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
-            int alt42=2;
-            int LA42_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2496:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
+            int alt56=2;
+            int LA56_0 = input.LA(1);
 
-            if ( (LA42_0==51) ) {
-                alt42=1;
+            if ( (LA56_0==66) ) {
+                alt56=1;
             }
-            switch (alt42) {
+            switch (alt56) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1816:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2496:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
                     {
-                    otherlv_3=(Token)match(input,51,FOLLOW_51_in_ruleWISelection3809); 
+                    otherlv_3=(Token)match(input,66,FOLLOW_66_in_ruleWISelection5332); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getWISelectionAccess().getDescriptionKeyword_3_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1820:1: ( (lv_description_4_0= RULE_STRING ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1821:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2500:1: ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2501:1: (lv_description_4_0= RULE_STRING )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1821:1: (lv_description_4_0= RULE_STRING )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1822:3: lv_description_4_0= RULE_STRING
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2501:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2502:3: lv_description_4_0= RULE_STRING
                     {
-                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleWISelection3826); 
+                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleWISelection5349); 
 
                     			newLeafNode(lv_description_4_0, grammarAccess.getWISelectionAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
                     		
@@ -4341,7 +5923,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,48,FOLLOW_48_in_ruleWISelection3845); 
+            otherlv_5=(Token)match(input,68,FOLLOW_68_in_ruleWISelection5368); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getWISelectionAccess().getRightCurlyBracketKeyword_4());
                 
@@ -4366,7 +5948,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleWIAssignment"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1850:1: entryRuleWIAssignment returns [EObject current=null] : iv_ruleWIAssignment= ruleWIAssignment EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2530:1: entryRuleWIAssignment returns [EObject current=null] : iv_ruleWIAssignment= ruleWIAssignment EOF ;
     public final EObject entryRuleWIAssignment() throws RecognitionException {
         EObject current = null;
 
@@ -4374,17 +5956,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1851:2: (iv_ruleWIAssignment= ruleWIAssignment EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1852:2: iv_ruleWIAssignment= ruleWIAssignment EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2531:2: (iv_ruleWIAssignment= ruleWIAssignment EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2532:2: iv_ruleWIAssignment= ruleWIAssignment EOF
             {
              newCompositeNode(grammarAccess.getWIAssignmentRule()); 
-            pushFollow(FOLLOW_ruleWIAssignment_in_entryRuleWIAssignment3881);
+            pushFollow(FOLLOW_ruleWIAssignment_in_entryRuleWIAssignment5404);
             iv_ruleWIAssignment=ruleWIAssignment();
 
             state._fsp--;
 
              current =iv_ruleWIAssignment; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleWIAssignment3891); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleWIAssignment5414); 
 
             }
 
@@ -4402,12 +5984,12 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleWIAssignment"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1859:1: ruleWIAssignment returns [EObject current=null] : (otherlv_0= 'WIAssignment' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2539:1: ruleWIAssignment returns [EObject current=null] : (otherlv_0= 'WIAssignment' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) ;
     public final EObject ruleWIAssignment() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token lv_name_1_0=null;
+        Token otherlv_1=null;
         Token otherlv_2=null;
         Token otherlv_3=null;
         Token lv_description_4_0=null;
@@ -4416,68 +5998,63 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1862:28: ( (otherlv_0= 'WIAssignment' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1863:1: (otherlv_0= 'WIAssignment' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2542:28: ( (otherlv_0= 'WIAssignment' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2543:1: (otherlv_0= 'WIAssignment' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1863:1: (otherlv_0= 'WIAssignment' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1863:3: otherlv_0= 'WIAssignment' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2543:1: (otherlv_0= 'WIAssignment' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2543:3: otherlv_0= 'WIAssignment' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}'
             {
-            otherlv_0=(Token)match(input,71,FOLLOW_71_in_ruleWIAssignment3928); 
+            otherlv_0=(Token)match(input,92,FOLLOW_92_in_ruleWIAssignment5451); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getWIAssignmentAccess().getWIAssignmentKeyword_0());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1867:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1868:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2547:1: ( (otherlv_1= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2548:1: (otherlv_1= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1868:1: (lv_name_1_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1869:3: lv_name_1_0= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2548:1: (otherlv_1= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2549:3: otherlv_1= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWIAssignment3945); 
 
-            			newLeafNode(lv_name_1_0, grammarAccess.getWIAssignmentAccess().getNameIDTerminalRuleCall_1_0()); 
-            		
-
-            	        if (current==null) {
+            			if (current==null) {
             	            current = createModelElement(grammarAccess.getWIAssignmentRule());
             	        }
-                   		setWithLastConsumed(
-                   			current, 
-                   			"name",
-                    		lv_name_1_0, 
-                    		"ID");
-            	    
+                    
+            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWIAssignment5471); 
+
+            		newLeafNode(otherlv_1, grammarAccess.getWIAssignmentAccess().getTypeWIAssignmentRuleTypeCrossReference_1_0()); 
+            	
 
             }
 
 
             }
 
-            otherlv_2=(Token)match(input,47,FOLLOW_47_in_ruleWIAssignment3962); 
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleWIAssignment5483); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getWIAssignmentAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1889:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
-            int alt43=2;
-            int LA43_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2564:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
+            int alt57=2;
+            int LA57_0 = input.LA(1);
 
-            if ( (LA43_0==51) ) {
-                alt43=1;
+            if ( (LA57_0==66) ) {
+                alt57=1;
             }
-            switch (alt43) {
+            switch (alt57) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1889:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2564:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
                     {
-                    otherlv_3=(Token)match(input,51,FOLLOW_51_in_ruleWIAssignment3975); 
+                    otherlv_3=(Token)match(input,66,FOLLOW_66_in_ruleWIAssignment5496); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getWIAssignmentAccess().getDescriptionKeyword_3_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1893:1: ( (lv_description_4_0= RULE_STRING ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1894:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2568:1: ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2569:1: (lv_description_4_0= RULE_STRING )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1894:1: (lv_description_4_0= RULE_STRING )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1895:3: lv_description_4_0= RULE_STRING
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2569:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2570:3: lv_description_4_0= RULE_STRING
                     {
-                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleWIAssignment3992); 
+                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleWIAssignment5513); 
 
                     			newLeafNode(lv_description_4_0, grammarAccess.getWIAssignmentAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
                     		
@@ -4503,7 +6080,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,48,FOLLOW_48_in_ruleWIAssignment4011); 
+            otherlv_5=(Token)match(input,68,FOLLOW_68_in_ruleWIAssignment5532); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getWIAssignmentAccess().getRightCurlyBracketKeyword_4());
                 
@@ -4528,7 +6105,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleResourceAllocation"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1923:1: entryRuleResourceAllocation returns [EObject current=null] : iv_ruleResourceAllocation= ruleResourceAllocation EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2598:1: entryRuleResourceAllocation returns [EObject current=null] : iv_ruleResourceAllocation= ruleResourceAllocation EOF ;
     public final EObject entryRuleResourceAllocation() throws RecognitionException {
         EObject current = null;
 
@@ -4536,17 +6113,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1924:2: (iv_ruleResourceAllocation= ruleResourceAllocation EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1925:2: iv_ruleResourceAllocation= ruleResourceAllocation EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2599:2: (iv_ruleResourceAllocation= ruleResourceAllocation EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2600:2: iv_ruleResourceAllocation= ruleResourceAllocation EOF
             {
              newCompositeNode(grammarAccess.getResourceAllocationRule()); 
-            pushFollow(FOLLOW_ruleResourceAllocation_in_entryRuleResourceAllocation4047);
+            pushFollow(FOLLOW_ruleResourceAllocation_in_entryRuleResourceAllocation5568);
             iv_ruleResourceAllocation=ruleResourceAllocation();
 
             state._fsp--;
 
              current =iv_ruleResourceAllocation; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleResourceAllocation4057); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleResourceAllocation5578); 
 
             }
 
@@ -4564,12 +6141,12 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleResourceAllocation"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1932:1: ruleResourceAllocation returns [EObject current=null] : (otherlv_0= 'ResourceAllocation' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2607:1: ruleResourceAllocation returns [EObject current=null] : (otherlv_0= 'ResourceAllocation' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) ;
     public final EObject ruleResourceAllocation() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token lv_name_1_0=null;
+        Token otherlv_1=null;
         Token otherlv_2=null;
         Token otherlv_3=null;
         Token lv_description_4_0=null;
@@ -4578,68 +6155,63 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1935:28: ( (otherlv_0= 'ResourceAllocation' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1936:1: (otherlv_0= 'ResourceAllocation' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2610:28: ( (otherlv_0= 'ResourceAllocation' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2611:1: (otherlv_0= 'ResourceAllocation' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1936:1: (otherlv_0= 'ResourceAllocation' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1936:3: otherlv_0= 'ResourceAllocation' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2611:1: (otherlv_0= 'ResourceAllocation' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2611:3: otherlv_0= 'ResourceAllocation' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}'
             {
-            otherlv_0=(Token)match(input,72,FOLLOW_72_in_ruleResourceAllocation4094); 
+            otherlv_0=(Token)match(input,93,FOLLOW_93_in_ruleResourceAllocation5615); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getResourceAllocationAccess().getResourceAllocationKeyword_0());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1940:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1941:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2615:1: ( (otherlv_1= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2616:1: (otherlv_1= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1941:1: (lv_name_1_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1942:3: lv_name_1_0= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2616:1: (otherlv_1= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2617:3: otherlv_1= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleResourceAllocation4111); 
 
-            			newLeafNode(lv_name_1_0, grammarAccess.getResourceAllocationAccess().getNameIDTerminalRuleCall_1_0()); 
-            		
-
-            	        if (current==null) {
+            			if (current==null) {
             	            current = createModelElement(grammarAccess.getResourceAllocationRule());
             	        }
-                   		setWithLastConsumed(
-                   			current, 
-                   			"name",
-                    		lv_name_1_0, 
-                    		"ID");
-            	    
+                    
+            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleResourceAllocation5635); 
+
+            		newLeafNode(otherlv_1, grammarAccess.getResourceAllocationAccess().getTypeResourceAllocationRuleTypeCrossReference_1_0()); 
+            	
 
             }
 
 
             }
 
-            otherlv_2=(Token)match(input,47,FOLLOW_47_in_ruleResourceAllocation4128); 
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleResourceAllocation5647); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getResourceAllocationAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1962:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
-            int alt44=2;
-            int LA44_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2632:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
+            int alt58=2;
+            int LA58_0 = input.LA(1);
 
-            if ( (LA44_0==51) ) {
-                alt44=1;
+            if ( (LA58_0==66) ) {
+                alt58=1;
             }
-            switch (alt44) {
+            switch (alt58) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1962:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2632:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
                     {
-                    otherlv_3=(Token)match(input,51,FOLLOW_51_in_ruleResourceAllocation4141); 
+                    otherlv_3=(Token)match(input,66,FOLLOW_66_in_ruleResourceAllocation5660); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getResourceAllocationAccess().getDescriptionKeyword_3_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1966:1: ( (lv_description_4_0= RULE_STRING ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1967:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2636:1: ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2637:1: (lv_description_4_0= RULE_STRING )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1967:1: (lv_description_4_0= RULE_STRING )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1968:3: lv_description_4_0= RULE_STRING
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2637:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2638:3: lv_description_4_0= RULE_STRING
                     {
-                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleResourceAllocation4158); 
+                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleResourceAllocation5677); 
 
                     			newLeafNode(lv_description_4_0, grammarAccess.getResourceAllocationAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
                     		
@@ -4665,7 +6237,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,48,FOLLOW_48_in_ruleResourceAllocation4177); 
+            otherlv_5=(Token)match(input,68,FOLLOW_68_in_ruleResourceAllocation5696); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getResourceAllocationAccess().getRightCurlyBracketKeyword_4());
                 
@@ -4690,7 +6262,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleResourceOutsourcing"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1996:1: entryRuleResourceOutsourcing returns [EObject current=null] : iv_ruleResourceOutsourcing= ruleResourceOutsourcing EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2666:1: entryRuleResourceOutsourcing returns [EObject current=null] : iv_ruleResourceOutsourcing= ruleResourceOutsourcing EOF ;
     public final EObject entryRuleResourceOutsourcing() throws RecognitionException {
         EObject current = null;
 
@@ -4698,17 +6270,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1997:2: (iv_ruleResourceOutsourcing= ruleResourceOutsourcing EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:1998:2: iv_ruleResourceOutsourcing= ruleResourceOutsourcing EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2667:2: (iv_ruleResourceOutsourcing= ruleResourceOutsourcing EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2668:2: iv_ruleResourceOutsourcing= ruleResourceOutsourcing EOF
             {
              newCompositeNode(grammarAccess.getResourceOutsourcingRule()); 
-            pushFollow(FOLLOW_ruleResourceOutsourcing_in_entryRuleResourceOutsourcing4213);
+            pushFollow(FOLLOW_ruleResourceOutsourcing_in_entryRuleResourceOutsourcing5732);
             iv_ruleResourceOutsourcing=ruleResourceOutsourcing();
 
             state._fsp--;
 
              current =iv_ruleResourceOutsourcing; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleResourceOutsourcing4223); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleResourceOutsourcing5742); 
 
             }
 
@@ -4726,12 +6298,12 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleResourceOutsourcing"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2005:1: ruleResourceOutsourcing returns [EObject current=null] : (otherlv_0= 'ResourceOutsourcing' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2675:1: ruleResourceOutsourcing returns [EObject current=null] : (otherlv_0= 'ResourceOutsourcing' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) ;
     public final EObject ruleResourceOutsourcing() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token lv_name_1_0=null;
+        Token otherlv_1=null;
         Token otherlv_2=null;
         Token otherlv_3=null;
         Token lv_description_4_0=null;
@@ -4740,68 +6312,63 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2008:28: ( (otherlv_0= 'ResourceOutsourcing' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2009:1: (otherlv_0= 'ResourceOutsourcing' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2678:28: ( (otherlv_0= 'ResourceOutsourcing' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2679:1: (otherlv_0= 'ResourceOutsourcing' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2009:1: (otherlv_0= 'ResourceOutsourcing' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2009:3: otherlv_0= 'ResourceOutsourcing' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2679:1: (otherlv_0= 'ResourceOutsourcing' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2679:3: otherlv_0= 'ResourceOutsourcing' ( (otherlv_1= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}'
             {
-            otherlv_0=(Token)match(input,73,FOLLOW_73_in_ruleResourceOutsourcing4260); 
+            otherlv_0=(Token)match(input,94,FOLLOW_94_in_ruleResourceOutsourcing5779); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getResourceOutsourcingAccess().getResourceOutsourcingKeyword_0());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2013:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2014:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2683:1: ( (otherlv_1= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2684:1: (otherlv_1= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2014:1: (lv_name_1_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2015:3: lv_name_1_0= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2684:1: (otherlv_1= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2685:3: otherlv_1= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleResourceOutsourcing4277); 
 
-            			newLeafNode(lv_name_1_0, grammarAccess.getResourceOutsourcingAccess().getNameIDTerminalRuleCall_1_0()); 
-            		
-
-            	        if (current==null) {
+            			if (current==null) {
             	            current = createModelElement(grammarAccess.getResourceOutsourcingRule());
             	        }
-                   		setWithLastConsumed(
-                   			current, 
-                   			"name",
-                    		lv_name_1_0, 
-                    		"ID");
-            	    
+                    
+            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleResourceOutsourcing5799); 
+
+            		newLeafNode(otherlv_1, grammarAccess.getResourceOutsourcingAccess().getTypeResourceOutsourcingRuleTypeCrossReference_1_0()); 
+            	
 
             }
 
 
             }
 
-            otherlv_2=(Token)match(input,47,FOLLOW_47_in_ruleResourceOutsourcing4294); 
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleResourceOutsourcing5811); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getResourceOutsourcingAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2035:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
-            int alt45=2;
-            int LA45_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2700:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
+            int alt59=2;
+            int LA59_0 = input.LA(1);
 
-            if ( (LA45_0==51) ) {
-                alt45=1;
+            if ( (LA59_0==66) ) {
+                alt59=1;
             }
-            switch (alt45) {
+            switch (alt59) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2035:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2700:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
                     {
-                    otherlv_3=(Token)match(input,51,FOLLOW_51_in_ruleResourceOutsourcing4307); 
+                    otherlv_3=(Token)match(input,66,FOLLOW_66_in_ruleResourceOutsourcing5824); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getResourceOutsourcingAccess().getDescriptionKeyword_3_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2039:1: ( (lv_description_4_0= RULE_STRING ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2040:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2704:1: ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2705:1: (lv_description_4_0= RULE_STRING )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2040:1: (lv_description_4_0= RULE_STRING )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2041:3: lv_description_4_0= RULE_STRING
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2705:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2706:3: lv_description_4_0= RULE_STRING
                     {
-                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleResourceOutsourcing4324); 
+                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleResourceOutsourcing5841); 
 
                     			newLeafNode(lv_description_4_0, grammarAccess.getResourceOutsourcingAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
                     		
@@ -4827,7 +6394,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,48,FOLLOW_48_in_ruleResourceOutsourcing4343); 
+            otherlv_5=(Token)match(input,68,FOLLOW_68_in_ruleResourceOutsourcing5860); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getResourceOutsourcingAccess().getRightCurlyBracketKeyword_4());
                 
@@ -4852,7 +6419,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleWorkSource"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2069:1: entryRuleWorkSource returns [EObject current=null] : iv_ruleWorkSource= ruleWorkSource EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2734:1: entryRuleWorkSource returns [EObject current=null] : iv_ruleWorkSource= ruleWorkSource EOF ;
     public final EObject entryRuleWorkSource() throws RecognitionException {
         EObject current = null;
 
@@ -4860,17 +6427,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2070:2: (iv_ruleWorkSource= ruleWorkSource EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2071:2: iv_ruleWorkSource= ruleWorkSource EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2735:2: (iv_ruleWorkSource= ruleWorkSource EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2736:2: iv_ruleWorkSource= ruleWorkSource EOF
             {
              newCompositeNode(grammarAccess.getWorkSourceRule()); 
-            pushFollow(FOLLOW_ruleWorkSource_in_entryRuleWorkSource4379);
+            pushFollow(FOLLOW_ruleWorkSource_in_entryRuleWorkSource5896);
             iv_ruleWorkSource=ruleWorkSource();
 
             state._fsp--;
 
              current =iv_ruleWorkSource; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleWorkSource4389); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleWorkSource5906); 
 
             }
 
@@ -4888,7 +6455,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleWorkSource"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2078:1: ruleWorkSource returns [EObject current=null] : (otherlv_0= 'WorkSource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'TargetUnits' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )? ( (lv_assignmentRule_9_0= ruleWIAssignment ) )? otherlv_10= '}' ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2743:1: ruleWorkSource returns [EObject current=null] : (otherlv_0= 'WorkSource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'TargetUnits' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )? ( (lv_assignmentRule_9_0= ruleWIAssignment ) )? otherlv_10= '}' ) ;
     public final EObject ruleWorkSource() throws RecognitionException {
         EObject current = null;
 
@@ -4908,23 +6475,23 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2081:28: ( (otherlv_0= 'WorkSource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'TargetUnits' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )? ( (lv_assignmentRule_9_0= ruleWIAssignment ) )? otherlv_10= '}' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2082:1: (otherlv_0= 'WorkSource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'TargetUnits' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )? ( (lv_assignmentRule_9_0= ruleWIAssignment ) )? otherlv_10= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2746:28: ( (otherlv_0= 'WorkSource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'TargetUnits' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )? ( (lv_assignmentRule_9_0= ruleWIAssignment ) )? otherlv_10= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2747:1: (otherlv_0= 'WorkSource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'TargetUnits' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )? ( (lv_assignmentRule_9_0= ruleWIAssignment ) )? otherlv_10= '}' )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2082:1: (otherlv_0= 'WorkSource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'TargetUnits' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )? ( (lv_assignmentRule_9_0= ruleWIAssignment ) )? otherlv_10= '}' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2082:3: otherlv_0= 'WorkSource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'TargetUnits' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )? ( (lv_assignmentRule_9_0= ruleWIAssignment ) )? otherlv_10= '}'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2747:1: (otherlv_0= 'WorkSource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'TargetUnits' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )? ( (lv_assignmentRule_9_0= ruleWIAssignment ) )? otherlv_10= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2747:3: otherlv_0= 'WorkSource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'TargetUnits' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )? ( (lv_assignmentRule_9_0= ruleWIAssignment ) )? otherlv_10= '}'
             {
-            otherlv_0=(Token)match(input,74,FOLLOW_74_in_ruleWorkSource4426); 
+            otherlv_0=(Token)match(input,95,FOLLOW_95_in_ruleWorkSource5943); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getWorkSourceAccess().getWorkSourceKeyword_0());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2086:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2087:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2751:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2752:1: (lv_name_1_0= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2087:1: (lv_name_1_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2088:3: lv_name_1_0= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2752:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2753:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkSource4443); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkSource5960); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getWorkSourceAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -4944,32 +6511,32 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,47,FOLLOW_47_in_ruleWorkSource4460); 
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleWorkSource5977); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getWorkSourceAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2108:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
-            int alt46=2;
-            int LA46_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2773:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
+            int alt60=2;
+            int LA60_0 = input.LA(1);
 
-            if ( (LA46_0==51) ) {
-                alt46=1;
+            if ( (LA60_0==66) ) {
+                alt60=1;
             }
-            switch (alt46) {
+            switch (alt60) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2108:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2773:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
                     {
-                    otherlv_3=(Token)match(input,51,FOLLOW_51_in_ruleWorkSource4473); 
+                    otherlv_3=(Token)match(input,66,FOLLOW_66_in_ruleWorkSource5990); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getWorkSourceAccess().getDescriptionKeyword_3_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2112:1: ( (lv_description_4_0= RULE_STRING ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2113:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2777:1: ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2778:1: (lv_description_4_0= RULE_STRING )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2113:1: (lv_description_4_0= RULE_STRING )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2114:3: lv_description_4_0= RULE_STRING
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2778:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2779:3: lv_description_4_0= RULE_STRING
                     {
-                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleWorkSource4490); 
+                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleWorkSource6007); 
 
                     			newLeafNode(lv_description_4_0, grammarAccess.getWorkSourceAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
                     		
@@ -4995,50 +6562,50 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2130:4: (otherlv_5= 'TargetUnits' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )?
-            int alt48=2;
-            int LA48_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2795:4: (otherlv_5= 'TargetUnits' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )?
+            int alt62=2;
+            int LA62_0 = input.LA(1);
 
-            if ( (LA48_0==75) ) {
-                alt48=1;
+            if ( (LA62_0==96) ) {
+                alt62=1;
             }
-            switch (alt48) {
+            switch (alt62) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2130:6: otherlv_5= 'TargetUnits' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2795:6: otherlv_5= 'TargetUnits' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}'
                     {
-                    otherlv_5=(Token)match(input,75,FOLLOW_75_in_ruleWorkSource4510); 
+                    otherlv_5=(Token)match(input,96,FOLLOW_96_in_ruleWorkSource6027); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getWorkSourceAccess().getTargetUnitsKeyword_4_0());
                         
-                    otherlv_6=(Token)match(input,47,FOLLOW_47_in_ruleWorkSource4522); 
+                    otherlv_6=(Token)match(input,65,FOLLOW_65_in_ruleWorkSource6039); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getWorkSourceAccess().getLeftCurlyBracketKeyword_4_1());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2138:1: ( (otherlv_7= RULE_ID ) )+
-                    int cnt47=0;
-                    loop47:
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2803:1: ( (otherlv_7= RULE_ID ) )+
+                    int cnt61=0;
+                    loop61:
                     do {
-                        int alt47=2;
-                        int LA47_0 = input.LA(1);
+                        int alt61=2;
+                        int LA61_0 = input.LA(1);
 
-                        if ( (LA47_0==RULE_ID) ) {
-                            alt47=1;
+                        if ( (LA61_0==RULE_ID) ) {
+                            alt61=1;
                         }
 
 
-                        switch (alt47) {
+                        switch (alt61) {
                     	case 1 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2139:1: (otherlv_7= RULE_ID )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2804:1: (otherlv_7= RULE_ID )
                     	    {
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2139:1: (otherlv_7= RULE_ID )
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2140:3: otherlv_7= RULE_ID
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2804:1: (otherlv_7= RULE_ID )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2805:3: otherlv_7= RULE_ID
                     	    {
 
                     	    			if (current==null) {
                     	    	            current = createModelElement(grammarAccess.getWorkSourceRule());
                     	    	        }
                     	            
-                    	    otherlv_7=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkSource4542); 
+                    	    otherlv_7=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkSource6059); 
 
                     	    		newLeafNode(otherlv_7, grammarAccess.getWorkSourceAccess().getTargetUnitsServiceProviderCrossReference_4_2_0()); 
                     	    	
@@ -5050,15 +6617,15 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt47 >= 1 ) break loop47;
+                    	    if ( cnt61 >= 1 ) break loop61;
                                 EarlyExitException eee =
-                                    new EarlyExitException(47, input);
+                                    new EarlyExitException(61, input);
                                 throw eee;
                         }
-                        cnt47++;
+                        cnt61++;
                     } while (true);
 
-                    otherlv_8=(Token)match(input,48,FOLLOW_48_in_ruleWorkSource4555); 
+                    otherlv_8=(Token)match(input,68,FOLLOW_68_in_ruleWorkSource6072); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getWorkSourceAccess().getRightCurlyBracketKeyword_4_3());
                         
@@ -5068,24 +6635,24 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2155:3: ( (lv_assignmentRule_9_0= ruleWIAssignment ) )?
-            int alt49=2;
-            int LA49_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2820:3: ( (lv_assignmentRule_9_0= ruleWIAssignment ) )?
+            int alt63=2;
+            int LA63_0 = input.LA(1);
 
-            if ( (LA49_0==71) ) {
-                alt49=1;
+            if ( (LA63_0==92) ) {
+                alt63=1;
             }
-            switch (alt49) {
+            switch (alt63) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2156:1: (lv_assignmentRule_9_0= ruleWIAssignment )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2821:1: (lv_assignmentRule_9_0= ruleWIAssignment )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2156:1: (lv_assignmentRule_9_0= ruleWIAssignment )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2157:3: lv_assignmentRule_9_0= ruleWIAssignment
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2821:1: (lv_assignmentRule_9_0= ruleWIAssignment )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2822:3: lv_assignmentRule_9_0= ruleWIAssignment
                     {
                      
                     	        newCompositeNode(grammarAccess.getWorkSourceAccess().getAssignmentRuleWIAssignmentParserRuleCall_5_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleWIAssignment_in_ruleWorkSource4578);
+                    pushFollow(FOLLOW_ruleWIAssignment_in_ruleWorkSource6095);
                     lv_assignmentRule_9_0=ruleWIAssignment();
 
                     state._fsp--;
@@ -5110,7 +6677,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_10=(Token)match(input,48,FOLLOW_48_in_ruleWorkSource4591); 
+            otherlv_10=(Token)match(input,68,FOLLOW_68_in_ruleWorkSource6108); 
 
                 	newLeafNode(otherlv_10, grammarAccess.getWorkSourceAccess().getRightCurlyBracketKeyword_6());
                 
@@ -5135,7 +6702,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleWorkItem"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2185:1: entryRuleWorkItem returns [EObject current=null] : iv_ruleWorkItem= ruleWorkItem EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2850:1: entryRuleWorkItem returns [EObject current=null] : iv_ruleWorkItem= ruleWorkItem EOF ;
     public final EObject entryRuleWorkItem() throws RecognitionException {
         EObject current = null;
 
@@ -5143,17 +6710,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2186:2: (iv_ruleWorkItem= ruleWorkItem EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2187:2: iv_ruleWorkItem= ruleWorkItem EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2851:2: (iv_ruleWorkItem= ruleWorkItem EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2852:2: iv_ruleWorkItem= ruleWorkItem EOF
             {
              newCompositeNode(grammarAccess.getWorkItemRule()); 
-            pushFollow(FOLLOW_ruleWorkItem_in_entryRuleWorkItem4627);
+            pushFollow(FOLLOW_ruleWorkItem_in_entryRuleWorkItem6144);
             iv_ruleWorkItem=ruleWorkItem();
 
             state._fsp--;
 
              current =iv_ruleWorkItem; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleWorkItem4637); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleWorkItem6154); 
 
             }
 
@@ -5171,7 +6738,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleWorkItem"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2194:1: ruleWorkItem returns [EObject current=null] : (otherlv_0= 'WorkItem' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Profile' ( (otherlv_4= RULE_ID ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? (otherlv_7= 'Pattern' ( (otherlv_8= RULE_ID ) ) )? (otherlv_9= 'Type' ( (otherlv_10= RULE_ID ) ) )? (otherlv_11= 'Predecessors' otherlv_12= '{' ( (otherlv_13= RULE_ID ) )+ otherlv_14= '}' )? (otherlv_15= 'Subtasks' otherlv_16= '{' ( (otherlv_17= RULE_ID ) )+ otherlv_18= '}' )? (otherlv_19= 'CausalTriggers' ( (lv_causalTriggers_20_0= ruleCausality ) )* )? (otherlv_21= 'RequiredServices' ( (otherlv_22= RULE_ID ) )+ )? (otherlv_23= 'Efforts' ( (lv_efforts_24_0= ruleDouble ) ) )? (otherlv_25= 'Value' ( (lv_value_26_0= ruleDouble ) ) )? (otherlv_27= 'ClassOfService' ( (lv_classOfService_28_0= RULE_ID ) ) )? (otherlv_29= 'WorkSource' ( (otherlv_30= RULE_ID ) ) )? (otherlv_31= 'ArrivalTime' ( (lv_arrivalTime_32_0= RULE_INT ) ) )? (otherlv_33= 'DueDate' ( (lv_dueDate_34_0= RULE_INT ) ) )? otherlv_35= '}' ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2859:1: ruleWorkItem returns [EObject current=null] : (otherlv_0= 'WorkItem' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Profile' ( (otherlv_4= RULE_ID ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? (otherlv_7= 'Type' ( (otherlv_8= RULE_ID ) ) )? (otherlv_9= 'Predecessors' otherlv_10= '{' ( (otherlv_11= RULE_ID ) )+ otherlv_12= '}' )? (otherlv_13= 'Subtasks' otherlv_14= '{' ( (otherlv_15= RULE_ID ) )+ otherlv_16= '}' )? (otherlv_17= 'CausalTriggers' ( (lv_causalTriggers_18_0= ruleCausalTrigger ) )* )? (otherlv_19= 'RequiredServices' ( (otherlv_20= RULE_ID ) )+ )? (otherlv_21= 'Efforts' ( (lv_efforts_22_0= RULE_INT ) ) )? (otherlv_23= 'Value' ( (lv_value_24_0= RULE_INT ) ) )? (otherlv_25= 'ClassOfService' ( (otherlv_26= RULE_ID ) ) )? (otherlv_27= 'WorkSource' ( (otherlv_28= RULE_ID ) ) )? (otherlv_29= 'ArrivalTime' ( (lv_arrivalTime_30_0= RULE_INT ) ) )? (otherlv_31= 'DueDate' ( (lv_dueDate_32_0= RULE_INT ) ) )? otherlv_33= '}' ) ;
     public final EObject ruleWorkItem() throws RecognitionException {
         EObject current = null;
 
@@ -5193,48 +6760,44 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
         Token otherlv_15=null;
         Token otherlv_16=null;
         Token otherlv_17=null;
-        Token otherlv_18=null;
         Token otherlv_19=null;
+        Token otherlv_20=null;
         Token otherlv_21=null;
-        Token otherlv_22=null;
+        Token lv_efforts_22_0=null;
         Token otherlv_23=null;
+        Token lv_value_24_0=null;
         Token otherlv_25=null;
+        Token otherlv_26=null;
         Token otherlv_27=null;
-        Token lv_classOfService_28_0=null;
+        Token otherlv_28=null;
         Token otherlv_29=null;
-        Token otherlv_30=null;
+        Token lv_arrivalTime_30_0=null;
         Token otherlv_31=null;
-        Token lv_arrivalTime_32_0=null;
+        Token lv_dueDate_32_0=null;
         Token otherlv_33=null;
-        Token lv_dueDate_34_0=null;
-        Token otherlv_35=null;
-        EObject lv_causalTriggers_20_0 = null;
-
-        AntlrDatatypeRuleToken lv_efforts_24_0 = null;
-
-        AntlrDatatypeRuleToken lv_value_26_0 = null;
+        EObject lv_causalTriggers_18_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2197:28: ( (otherlv_0= 'WorkItem' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Profile' ( (otherlv_4= RULE_ID ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? (otherlv_7= 'Pattern' ( (otherlv_8= RULE_ID ) ) )? (otherlv_9= 'Type' ( (otherlv_10= RULE_ID ) ) )? (otherlv_11= 'Predecessors' otherlv_12= '{' ( (otherlv_13= RULE_ID ) )+ otherlv_14= '}' )? (otherlv_15= 'Subtasks' otherlv_16= '{' ( (otherlv_17= RULE_ID ) )+ otherlv_18= '}' )? (otherlv_19= 'CausalTriggers' ( (lv_causalTriggers_20_0= ruleCausality ) )* )? (otherlv_21= 'RequiredServices' ( (otherlv_22= RULE_ID ) )+ )? (otherlv_23= 'Efforts' ( (lv_efforts_24_0= ruleDouble ) ) )? (otherlv_25= 'Value' ( (lv_value_26_0= ruleDouble ) ) )? (otherlv_27= 'ClassOfService' ( (lv_classOfService_28_0= RULE_ID ) ) )? (otherlv_29= 'WorkSource' ( (otherlv_30= RULE_ID ) ) )? (otherlv_31= 'ArrivalTime' ( (lv_arrivalTime_32_0= RULE_INT ) ) )? (otherlv_33= 'DueDate' ( (lv_dueDate_34_0= RULE_INT ) ) )? otherlv_35= '}' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2198:1: (otherlv_0= 'WorkItem' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Profile' ( (otherlv_4= RULE_ID ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? (otherlv_7= 'Pattern' ( (otherlv_8= RULE_ID ) ) )? (otherlv_9= 'Type' ( (otherlv_10= RULE_ID ) ) )? (otherlv_11= 'Predecessors' otherlv_12= '{' ( (otherlv_13= RULE_ID ) )+ otherlv_14= '}' )? (otherlv_15= 'Subtasks' otherlv_16= '{' ( (otherlv_17= RULE_ID ) )+ otherlv_18= '}' )? (otherlv_19= 'CausalTriggers' ( (lv_causalTriggers_20_0= ruleCausality ) )* )? (otherlv_21= 'RequiredServices' ( (otherlv_22= RULE_ID ) )+ )? (otherlv_23= 'Efforts' ( (lv_efforts_24_0= ruleDouble ) ) )? (otherlv_25= 'Value' ( (lv_value_26_0= ruleDouble ) ) )? (otherlv_27= 'ClassOfService' ( (lv_classOfService_28_0= RULE_ID ) ) )? (otherlv_29= 'WorkSource' ( (otherlv_30= RULE_ID ) ) )? (otherlv_31= 'ArrivalTime' ( (lv_arrivalTime_32_0= RULE_INT ) ) )? (otherlv_33= 'DueDate' ( (lv_dueDate_34_0= RULE_INT ) ) )? otherlv_35= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2862:28: ( (otherlv_0= 'WorkItem' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Profile' ( (otherlv_4= RULE_ID ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? (otherlv_7= 'Type' ( (otherlv_8= RULE_ID ) ) )? (otherlv_9= 'Predecessors' otherlv_10= '{' ( (otherlv_11= RULE_ID ) )+ otherlv_12= '}' )? (otherlv_13= 'Subtasks' otherlv_14= '{' ( (otherlv_15= RULE_ID ) )+ otherlv_16= '}' )? (otherlv_17= 'CausalTriggers' ( (lv_causalTriggers_18_0= ruleCausalTrigger ) )* )? (otherlv_19= 'RequiredServices' ( (otherlv_20= RULE_ID ) )+ )? (otherlv_21= 'Efforts' ( (lv_efforts_22_0= RULE_INT ) ) )? (otherlv_23= 'Value' ( (lv_value_24_0= RULE_INT ) ) )? (otherlv_25= 'ClassOfService' ( (otherlv_26= RULE_ID ) ) )? (otherlv_27= 'WorkSource' ( (otherlv_28= RULE_ID ) ) )? (otherlv_29= 'ArrivalTime' ( (lv_arrivalTime_30_0= RULE_INT ) ) )? (otherlv_31= 'DueDate' ( (lv_dueDate_32_0= RULE_INT ) ) )? otherlv_33= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2863:1: (otherlv_0= 'WorkItem' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Profile' ( (otherlv_4= RULE_ID ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? (otherlv_7= 'Type' ( (otherlv_8= RULE_ID ) ) )? (otherlv_9= 'Predecessors' otherlv_10= '{' ( (otherlv_11= RULE_ID ) )+ otherlv_12= '}' )? (otherlv_13= 'Subtasks' otherlv_14= '{' ( (otherlv_15= RULE_ID ) )+ otherlv_16= '}' )? (otherlv_17= 'CausalTriggers' ( (lv_causalTriggers_18_0= ruleCausalTrigger ) )* )? (otherlv_19= 'RequiredServices' ( (otherlv_20= RULE_ID ) )+ )? (otherlv_21= 'Efforts' ( (lv_efforts_22_0= RULE_INT ) ) )? (otherlv_23= 'Value' ( (lv_value_24_0= RULE_INT ) ) )? (otherlv_25= 'ClassOfService' ( (otherlv_26= RULE_ID ) ) )? (otherlv_27= 'WorkSource' ( (otherlv_28= RULE_ID ) ) )? (otherlv_29= 'ArrivalTime' ( (lv_arrivalTime_30_0= RULE_INT ) ) )? (otherlv_31= 'DueDate' ( (lv_dueDate_32_0= RULE_INT ) ) )? otherlv_33= '}' )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2198:1: (otherlv_0= 'WorkItem' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Profile' ( (otherlv_4= RULE_ID ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? (otherlv_7= 'Pattern' ( (otherlv_8= RULE_ID ) ) )? (otherlv_9= 'Type' ( (otherlv_10= RULE_ID ) ) )? (otherlv_11= 'Predecessors' otherlv_12= '{' ( (otherlv_13= RULE_ID ) )+ otherlv_14= '}' )? (otherlv_15= 'Subtasks' otherlv_16= '{' ( (otherlv_17= RULE_ID ) )+ otherlv_18= '}' )? (otherlv_19= 'CausalTriggers' ( (lv_causalTriggers_20_0= ruleCausality ) )* )? (otherlv_21= 'RequiredServices' ( (otherlv_22= RULE_ID ) )+ )? (otherlv_23= 'Efforts' ( (lv_efforts_24_0= ruleDouble ) ) )? (otherlv_25= 'Value' ( (lv_value_26_0= ruleDouble ) ) )? (otherlv_27= 'ClassOfService' ( (lv_classOfService_28_0= RULE_ID ) ) )? (otherlv_29= 'WorkSource' ( (otherlv_30= RULE_ID ) ) )? (otherlv_31= 'ArrivalTime' ( (lv_arrivalTime_32_0= RULE_INT ) ) )? (otherlv_33= 'DueDate' ( (lv_dueDate_34_0= RULE_INT ) ) )? otherlv_35= '}' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2198:3: otherlv_0= 'WorkItem' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Profile' ( (otherlv_4= RULE_ID ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? (otherlv_7= 'Pattern' ( (otherlv_8= RULE_ID ) ) )? (otherlv_9= 'Type' ( (otherlv_10= RULE_ID ) ) )? (otherlv_11= 'Predecessors' otherlv_12= '{' ( (otherlv_13= RULE_ID ) )+ otherlv_14= '}' )? (otherlv_15= 'Subtasks' otherlv_16= '{' ( (otherlv_17= RULE_ID ) )+ otherlv_18= '}' )? (otherlv_19= 'CausalTriggers' ( (lv_causalTriggers_20_0= ruleCausality ) )* )? (otherlv_21= 'RequiredServices' ( (otherlv_22= RULE_ID ) )+ )? (otherlv_23= 'Efforts' ( (lv_efforts_24_0= ruleDouble ) ) )? (otherlv_25= 'Value' ( (lv_value_26_0= ruleDouble ) ) )? (otherlv_27= 'ClassOfService' ( (lv_classOfService_28_0= RULE_ID ) ) )? (otherlv_29= 'WorkSource' ( (otherlv_30= RULE_ID ) ) )? (otherlv_31= 'ArrivalTime' ( (lv_arrivalTime_32_0= RULE_INT ) ) )? (otherlv_33= 'DueDate' ( (lv_dueDate_34_0= RULE_INT ) ) )? otherlv_35= '}'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2863:1: (otherlv_0= 'WorkItem' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Profile' ( (otherlv_4= RULE_ID ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? (otherlv_7= 'Type' ( (otherlv_8= RULE_ID ) ) )? (otherlv_9= 'Predecessors' otherlv_10= '{' ( (otherlv_11= RULE_ID ) )+ otherlv_12= '}' )? (otherlv_13= 'Subtasks' otherlv_14= '{' ( (otherlv_15= RULE_ID ) )+ otherlv_16= '}' )? (otherlv_17= 'CausalTriggers' ( (lv_causalTriggers_18_0= ruleCausalTrigger ) )* )? (otherlv_19= 'RequiredServices' ( (otherlv_20= RULE_ID ) )+ )? (otherlv_21= 'Efforts' ( (lv_efforts_22_0= RULE_INT ) ) )? (otherlv_23= 'Value' ( (lv_value_24_0= RULE_INT ) ) )? (otherlv_25= 'ClassOfService' ( (otherlv_26= RULE_ID ) ) )? (otherlv_27= 'WorkSource' ( (otherlv_28= RULE_ID ) ) )? (otherlv_29= 'ArrivalTime' ( (lv_arrivalTime_30_0= RULE_INT ) ) )? (otherlv_31= 'DueDate' ( (lv_dueDate_32_0= RULE_INT ) ) )? otherlv_33= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2863:3: otherlv_0= 'WorkItem' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Profile' ( (otherlv_4= RULE_ID ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? (otherlv_7= 'Type' ( (otherlv_8= RULE_ID ) ) )? (otherlv_9= 'Predecessors' otherlv_10= '{' ( (otherlv_11= RULE_ID ) )+ otherlv_12= '}' )? (otherlv_13= 'Subtasks' otherlv_14= '{' ( (otherlv_15= RULE_ID ) )+ otherlv_16= '}' )? (otherlv_17= 'CausalTriggers' ( (lv_causalTriggers_18_0= ruleCausalTrigger ) )* )? (otherlv_19= 'RequiredServices' ( (otherlv_20= RULE_ID ) )+ )? (otherlv_21= 'Efforts' ( (lv_efforts_22_0= RULE_INT ) ) )? (otherlv_23= 'Value' ( (lv_value_24_0= RULE_INT ) ) )? (otherlv_25= 'ClassOfService' ( (otherlv_26= RULE_ID ) ) )? (otherlv_27= 'WorkSource' ( (otherlv_28= RULE_ID ) ) )? (otherlv_29= 'ArrivalTime' ( (lv_arrivalTime_30_0= RULE_INT ) ) )? (otherlv_31= 'DueDate' ( (lv_dueDate_32_0= RULE_INT ) ) )? otherlv_33= '}'
             {
-            otherlv_0=(Token)match(input,50,FOLLOW_50_in_ruleWorkItem4674); 
+            otherlv_0=(Token)match(input,78,FOLLOW_78_in_ruleWorkItem6191); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getWorkItemAccess().getWorkItemKeyword_0());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2202:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2203:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2867:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2868:1: (lv_name_1_0= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2203:1: (lv_name_1_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2204:3: lv_name_1_0= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2868:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2869:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItem4691); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItem6208); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getWorkItemAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -5254,37 +6817,37 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,47,FOLLOW_47_in_ruleWorkItem4708); 
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleWorkItem6225); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2224:1: (otherlv_3= 'Profile' ( (otherlv_4= RULE_ID ) ) )?
-            int alt50=2;
-            int LA50_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2889:1: (otherlv_3= 'Profile' ( (otherlv_4= RULE_ID ) ) )?
+            int alt64=2;
+            int LA64_0 = input.LA(1);
 
-            if ( (LA50_0==76) ) {
-                alt50=1;
+            if ( (LA64_0==97) ) {
+                alt64=1;
             }
-            switch (alt50) {
+            switch (alt64) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2224:3: otherlv_3= 'Profile' ( (otherlv_4= RULE_ID ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2889:3: otherlv_3= 'Profile' ( (otherlv_4= RULE_ID ) )
                     {
-                    otherlv_3=(Token)match(input,76,FOLLOW_76_in_ruleWorkItem4721); 
+                    otherlv_3=(Token)match(input,97,FOLLOW_97_in_ruleWorkItem6238); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getWorkItemAccess().getProfileKeyword_3_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2228:1: ( (otherlv_4= RULE_ID ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2229:1: (otherlv_4= RULE_ID )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2893:1: ( (otherlv_4= RULE_ID ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2894:1: (otherlv_4= RULE_ID )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2229:1: (otherlv_4= RULE_ID )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2230:3: otherlv_4= RULE_ID
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2894:1: (otherlv_4= RULE_ID )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2895:3: otherlv_4= RULE_ID
                     {
 
                     			if (current==null) {
                     	            current = createModelElement(grammarAccess.getWorkItemRule());
                     	        }
                             
-                    otherlv_4=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItem4741); 
+                    otherlv_4=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItem6258); 
 
                     		newLeafNode(otherlv_4, grammarAccess.getWorkItemAccess().getProfileWorkItemProfileCrossReference_3_1_0()); 
                     	
@@ -5300,28 +6863,28 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2241:4: (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )?
-            int alt51=2;
-            int LA51_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2906:4: (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )?
+            int alt65=2;
+            int LA65_0 = input.LA(1);
 
-            if ( (LA51_0==51) ) {
-                alt51=1;
+            if ( (LA65_0==66) ) {
+                alt65=1;
             }
-            switch (alt51) {
+            switch (alt65) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2241:6: otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2906:6: otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) )
                     {
-                    otherlv_5=(Token)match(input,51,FOLLOW_51_in_ruleWorkItem4756); 
+                    otherlv_5=(Token)match(input,66,FOLLOW_66_in_ruleWorkItem6273); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getWorkItemAccess().getDescriptionKeyword_4_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2245:1: ( (lv_description_6_0= RULE_STRING ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2246:1: (lv_description_6_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2910:1: ( (lv_description_6_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2911:1: (lv_description_6_0= RULE_STRING )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2246:1: (lv_description_6_0= RULE_STRING )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2247:3: lv_description_6_0= RULE_STRING
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2911:1: (lv_description_6_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2912:3: lv_description_6_0= RULE_STRING
                     {
-                    lv_description_6_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleWorkItem4773); 
+                    lv_description_6_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleWorkItem6290); 
 
                     			newLeafNode(lv_description_6_0, grammarAccess.getWorkItemAccess().getDescriptionSTRINGTerminalRuleCall_4_1_0()); 
                     		
@@ -5347,35 +6910,35 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2263:4: (otherlv_7= 'Pattern' ( (otherlv_8= RULE_ID ) ) )?
-            int alt52=2;
-            int LA52_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2928:4: (otherlv_7= 'Type' ( (otherlv_8= RULE_ID ) ) )?
+            int alt66=2;
+            int LA66_0 = input.LA(1);
 
-            if ( (LA52_0==77) ) {
-                alt52=1;
+            if ( (LA66_0==98) ) {
+                alt66=1;
             }
-            switch (alt52) {
+            switch (alt66) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2263:6: otherlv_7= 'Pattern' ( (otherlv_8= RULE_ID ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2928:6: otherlv_7= 'Type' ( (otherlv_8= RULE_ID ) )
                     {
-                    otherlv_7=(Token)match(input,77,FOLLOW_77_in_ruleWorkItem4793); 
+                    otherlv_7=(Token)match(input,98,FOLLOW_98_in_ruleWorkItem6310); 
 
-                        	newLeafNode(otherlv_7, grammarAccess.getWorkItemAccess().getPatternKeyword_5_0());
+                        	newLeafNode(otherlv_7, grammarAccess.getWorkItemAccess().getTypeKeyword_5_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2267:1: ( (otherlv_8= RULE_ID ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2268:1: (otherlv_8= RULE_ID )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2932:1: ( (otherlv_8= RULE_ID ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2933:1: (otherlv_8= RULE_ID )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2268:1: (otherlv_8= RULE_ID )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2269:3: otherlv_8= RULE_ID
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2933:1: (otherlv_8= RULE_ID )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2934:3: otherlv_8= RULE_ID
                     {
 
                     			if (current==null) {
                     	            current = createModelElement(grammarAccess.getWorkItemRule());
                     	        }
                             
-                    otherlv_8=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItem4813); 
+                    otherlv_8=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItem6330); 
 
-                    		newLeafNode(otherlv_8, grammarAccess.getWorkItemAccess().getPatternTaskPatternCrossReference_5_1_0()); 
+                    		newLeafNode(otherlv_8, grammarAccess.getWorkItemAccess().getTypeTaskTypeCrossReference_5_1_0()); 
                     	
 
                     }
@@ -5389,94 +6952,52 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2280:4: (otherlv_9= 'Type' ( (otherlv_10= RULE_ID ) ) )?
-            int alt53=2;
-            int LA53_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2945:4: (otherlv_9= 'Predecessors' otherlv_10= '{' ( (otherlv_11= RULE_ID ) )+ otherlv_12= '}' )?
+            int alt68=2;
+            int LA68_0 = input.LA(1);
 
-            if ( (LA53_0==78) ) {
-                alt53=1;
+            if ( (LA68_0==99) ) {
+                alt68=1;
             }
-            switch (alt53) {
+            switch (alt68) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2280:6: otherlv_9= 'Type' ( (otherlv_10= RULE_ID ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2945:6: otherlv_9= 'Predecessors' otherlv_10= '{' ( (otherlv_11= RULE_ID ) )+ otherlv_12= '}'
                     {
-                    otherlv_9=(Token)match(input,78,FOLLOW_78_in_ruleWorkItem4828); 
+                    otherlv_9=(Token)match(input,99,FOLLOW_99_in_ruleWorkItem6345); 
 
-                        	newLeafNode(otherlv_9, grammarAccess.getWorkItemAccess().getTypeKeyword_6_0());
+                        	newLeafNode(otherlv_9, grammarAccess.getWorkItemAccess().getPredecessorsKeyword_6_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2284:1: ( (otherlv_10= RULE_ID ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2285:1: (otherlv_10= RULE_ID )
-                    {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2285:1: (otherlv_10= RULE_ID )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2286:3: otherlv_10= RULE_ID
-                    {
+                    otherlv_10=(Token)match(input,65,FOLLOW_65_in_ruleWorkItem6357); 
 
-                    			if (current==null) {
-                    	            current = createModelElement(grammarAccess.getWorkItemRule());
-                    	        }
-                            
-                    otherlv_10=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItem4848); 
-
-                    		newLeafNode(otherlv_10, grammarAccess.getWorkItemAccess().getPatternTypeTaskTypeCrossReference_6_1_0()); 
-                    	
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2297:4: (otherlv_11= 'Predecessors' otherlv_12= '{' ( (otherlv_13= RULE_ID ) )+ otherlv_14= '}' )?
-            int alt55=2;
-            int LA55_0 = input.LA(1);
-
-            if ( (LA55_0==79) ) {
-                alt55=1;
-            }
-            switch (alt55) {
-                case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2297:6: otherlv_11= 'Predecessors' otherlv_12= '{' ( (otherlv_13= RULE_ID ) )+ otherlv_14= '}'
-                    {
-                    otherlv_11=(Token)match(input,79,FOLLOW_79_in_ruleWorkItem4863); 
-
-                        	newLeafNode(otherlv_11, grammarAccess.getWorkItemAccess().getPredecessorsKeyword_7_0());
+                        	newLeafNode(otherlv_10, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_6_1());
                         
-                    otherlv_12=(Token)match(input,47,FOLLOW_47_in_ruleWorkItem4875); 
-
-                        	newLeafNode(otherlv_12, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_7_1());
-                        
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2305:1: ( (otherlv_13= RULE_ID ) )+
-                    int cnt54=0;
-                    loop54:
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2953:1: ( (otherlv_11= RULE_ID ) )+
+                    int cnt67=0;
+                    loop67:
                     do {
-                        int alt54=2;
-                        int LA54_0 = input.LA(1);
+                        int alt67=2;
+                        int LA67_0 = input.LA(1);
 
-                        if ( (LA54_0==RULE_ID) ) {
-                            alt54=1;
+                        if ( (LA67_0==RULE_ID) ) {
+                            alt67=1;
                         }
 
 
-                        switch (alt54) {
+                        switch (alt67) {
                     	case 1 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2306:1: (otherlv_13= RULE_ID )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2954:1: (otherlv_11= RULE_ID )
                     	    {
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2306:1: (otherlv_13= RULE_ID )
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2307:3: otherlv_13= RULE_ID
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2954:1: (otherlv_11= RULE_ID )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2955:3: otherlv_11= RULE_ID
                     	    {
 
                     	    			if (current==null) {
                     	    	            current = createModelElement(grammarAccess.getWorkItemRule());
                     	    	        }
                     	            
-                    	    otherlv_13=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItem4895); 
+                    	    otherlv_11=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItem6377); 
 
-                    	    		newLeafNode(otherlv_13, grammarAccess.getWorkItemAccess().getPTasksWorkItemCrossReference_7_2_0()); 
+                    	    		newLeafNode(otherlv_11, grammarAccess.getWorkItemAccess().getPTasksWorkItemCrossReference_6_2_0()); 
                     	    	
 
                     	    }
@@ -5486,17 +7007,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt54 >= 1 ) break loop54;
+                    	    if ( cnt67 >= 1 ) break loop67;
                                 EarlyExitException eee =
-                                    new EarlyExitException(54, input);
+                                    new EarlyExitException(67, input);
                                 throw eee;
                         }
-                        cnt54++;
+                        cnt67++;
                     } while (true);
 
-                    otherlv_14=(Token)match(input,48,FOLLOW_48_in_ruleWorkItem4908); 
+                    otherlv_12=(Token)match(input,68,FOLLOW_68_in_ruleWorkItem6390); 
 
-                        	newLeafNode(otherlv_14, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_7_3());
+                        	newLeafNode(otherlv_12, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_6_3());
                         
 
                     }
@@ -5504,52 +7025,52 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2322:3: (otherlv_15= 'Subtasks' otherlv_16= '{' ( (otherlv_17= RULE_ID ) )+ otherlv_18= '}' )?
-            int alt57=2;
-            int LA57_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2970:3: (otherlv_13= 'Subtasks' otherlv_14= '{' ( (otherlv_15= RULE_ID ) )+ otherlv_16= '}' )?
+            int alt70=2;
+            int LA70_0 = input.LA(1);
 
-            if ( (LA57_0==80) ) {
-                alt57=1;
+            if ( (LA70_0==100) ) {
+                alt70=1;
             }
-            switch (alt57) {
+            switch (alt70) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2322:5: otherlv_15= 'Subtasks' otherlv_16= '{' ( (otherlv_17= RULE_ID ) )+ otherlv_18= '}'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2970:5: otherlv_13= 'Subtasks' otherlv_14= '{' ( (otherlv_15= RULE_ID ) )+ otherlv_16= '}'
                     {
-                    otherlv_15=(Token)match(input,80,FOLLOW_80_in_ruleWorkItem4923); 
+                    otherlv_13=(Token)match(input,100,FOLLOW_100_in_ruleWorkItem6405); 
 
-                        	newLeafNode(otherlv_15, grammarAccess.getWorkItemAccess().getSubtasksKeyword_8_0());
+                        	newLeafNode(otherlv_13, grammarAccess.getWorkItemAccess().getSubtasksKeyword_7_0());
                         
-                    otherlv_16=(Token)match(input,47,FOLLOW_47_in_ruleWorkItem4935); 
+                    otherlv_14=(Token)match(input,65,FOLLOW_65_in_ruleWorkItem6417); 
 
-                        	newLeafNode(otherlv_16, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_8_1());
+                        	newLeafNode(otherlv_14, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_7_1());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2330:1: ( (otherlv_17= RULE_ID ) )+
-                    int cnt56=0;
-                    loop56:
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2978:1: ( (otherlv_15= RULE_ID ) )+
+                    int cnt69=0;
+                    loop69:
                     do {
-                        int alt56=2;
-                        int LA56_0 = input.LA(1);
+                        int alt69=2;
+                        int LA69_0 = input.LA(1);
 
-                        if ( (LA56_0==RULE_ID) ) {
-                            alt56=1;
+                        if ( (LA69_0==RULE_ID) ) {
+                            alt69=1;
                         }
 
 
-                        switch (alt56) {
+                        switch (alt69) {
                     	case 1 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2331:1: (otherlv_17= RULE_ID )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2979:1: (otherlv_15= RULE_ID )
                     	    {
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2331:1: (otherlv_17= RULE_ID )
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2332:3: otherlv_17= RULE_ID
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2979:1: (otherlv_15= RULE_ID )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2980:3: otherlv_15= RULE_ID
                     	    {
 
                     	    			if (current==null) {
                     	    	            current = createModelElement(grammarAccess.getWorkItemRule());
                     	    	        }
                     	            
-                    	    otherlv_17=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItem4955); 
+                    	    otherlv_15=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItem6437); 
 
-                    	    		newLeafNode(otherlv_17, grammarAccess.getWorkItemAccess().getSTasksWorkItemCrossReference_8_2_0()); 
+                    	    		newLeafNode(otherlv_15, grammarAccess.getWorkItemAccess().getSTasksWorkItemCrossReference_7_2_0()); 
                     	    	
 
                     	    }
@@ -5559,17 +7080,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt56 >= 1 ) break loop56;
+                    	    if ( cnt69 >= 1 ) break loop69;
                                 EarlyExitException eee =
-                                    new EarlyExitException(56, input);
+                                    new EarlyExitException(69, input);
                                 throw eee;
                         }
-                        cnt56++;
+                        cnt69++;
                     } while (true);
 
-                    otherlv_18=(Token)match(input,48,FOLLOW_48_in_ruleWorkItem4968); 
+                    otherlv_16=(Token)match(input,68,FOLLOW_68_in_ruleWorkItem6450); 
 
-                        	newLeafNode(otherlv_18, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_8_3());
+                        	newLeafNode(otherlv_16, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_7_3());
                         
 
                     }
@@ -5577,44 +7098,44 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2347:3: (otherlv_19= 'CausalTriggers' ( (lv_causalTriggers_20_0= ruleCausality ) )* )?
-            int alt59=2;
-            int LA59_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2995:3: (otherlv_17= 'CausalTriggers' ( (lv_causalTriggers_18_0= ruleCausalTrigger ) )* )?
+            int alt72=2;
+            int LA72_0 = input.LA(1);
 
-            if ( (LA59_0==81) ) {
-                alt59=1;
+            if ( (LA72_0==101) ) {
+                alt72=1;
             }
-            switch (alt59) {
+            switch (alt72) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2347:5: otherlv_19= 'CausalTriggers' ( (lv_causalTriggers_20_0= ruleCausality ) )*
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2995:5: otherlv_17= 'CausalTriggers' ( (lv_causalTriggers_18_0= ruleCausalTrigger ) )*
                     {
-                    otherlv_19=(Token)match(input,81,FOLLOW_81_in_ruleWorkItem4983); 
+                    otherlv_17=(Token)match(input,101,FOLLOW_101_in_ruleWorkItem6465); 
 
-                        	newLeafNode(otherlv_19, grammarAccess.getWorkItemAccess().getCausalTriggersKeyword_9_0());
+                        	newLeafNode(otherlv_17, grammarAccess.getWorkItemAccess().getCausalTriggersKeyword_8_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2351:1: ( (lv_causalTriggers_20_0= ruleCausality ) )*
-                    loop58:
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2999:1: ( (lv_causalTriggers_18_0= ruleCausalTrigger ) )*
+                    loop71:
                     do {
-                        int alt58=2;
-                        int LA58_0 = input.LA(1);
+                        int alt71=2;
+                        int LA71_0 = input.LA(1);
 
-                        if ( ((LA58_0>=84 && LA58_0<=85)) ) {
-                            alt58=1;
+                        if ( ((LA71_0>=104 && LA71_0<=105)) ) {
+                            alt71=1;
                         }
 
 
-                        switch (alt58) {
+                        switch (alt71) {
                     	case 1 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2352:1: (lv_causalTriggers_20_0= ruleCausality )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3000:1: (lv_causalTriggers_18_0= ruleCausalTrigger )
                     	    {
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2352:1: (lv_causalTriggers_20_0= ruleCausality )
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2353:3: lv_causalTriggers_20_0= ruleCausality
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3000:1: (lv_causalTriggers_18_0= ruleCausalTrigger )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3001:3: lv_causalTriggers_18_0= ruleCausalTrigger
                     	    {
                     	     
-                    	    	        newCompositeNode(grammarAccess.getWorkItemAccess().getCausalTriggersCausalityParserRuleCall_9_1_0()); 
+                    	    	        newCompositeNode(grammarAccess.getWorkItemAccess().getCausalTriggersCausalTriggerParserRuleCall_8_1_0()); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleCausality_in_ruleWorkItem5004);
-                    	    lv_causalTriggers_20_0=ruleCausality();
+                    	    pushFollow(FOLLOW_ruleCausalTrigger_in_ruleWorkItem6486);
+                    	    lv_causalTriggers_18_0=ruleCausalTrigger();
 
                     	    state._fsp--;
 
@@ -5625,8 +7146,8 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	           		add(
                     	           			current, 
                     	           			"causalTriggers",
-                    	            		lv_causalTriggers_20_0, 
-                    	            		"Causality");
+                    	            		lv_causalTriggers_18_0, 
+                    	            		"CausalTrigger");
                     	    	        afterParserOrEnumRuleCall();
                     	    	    
 
@@ -5637,7 +7158,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop58;
+                    	    break loop71;
                         }
                     } while (true);
 
@@ -5647,48 +7168,48 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2369:5: (otherlv_21= 'RequiredServices' ( (otherlv_22= RULE_ID ) )+ )?
-            int alt61=2;
-            int LA61_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3017:5: (otherlv_19= 'RequiredServices' ( (otherlv_20= RULE_ID ) )+ )?
+            int alt74=2;
+            int LA74_0 = input.LA(1);
 
-            if ( (LA61_0==55) ) {
-                alt61=1;
+            if ( (LA74_0==81) ) {
+                alt74=1;
             }
-            switch (alt61) {
+            switch (alt74) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2369:7: otherlv_21= 'RequiredServices' ( (otherlv_22= RULE_ID ) )+
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3017:7: otherlv_19= 'RequiredServices' ( (otherlv_20= RULE_ID ) )+
                     {
-                    otherlv_21=(Token)match(input,55,FOLLOW_55_in_ruleWorkItem5020); 
+                    otherlv_19=(Token)match(input,81,FOLLOW_81_in_ruleWorkItem6502); 
 
-                        	newLeafNode(otherlv_21, grammarAccess.getWorkItemAccess().getRequiredServicesKeyword_10_0());
+                        	newLeafNode(otherlv_19, grammarAccess.getWorkItemAccess().getRequiredServicesKeyword_9_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2373:1: ( (otherlv_22= RULE_ID ) )+
-                    int cnt60=0;
-                    loop60:
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3021:1: ( (otherlv_20= RULE_ID ) )+
+                    int cnt73=0;
+                    loop73:
                     do {
-                        int alt60=2;
-                        int LA60_0 = input.LA(1);
+                        int alt73=2;
+                        int LA73_0 = input.LA(1);
 
-                        if ( (LA60_0==RULE_ID) ) {
-                            alt60=1;
+                        if ( (LA73_0==RULE_ID) ) {
+                            alt73=1;
                         }
 
 
-                        switch (alt60) {
+                        switch (alt73) {
                     	case 1 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2374:1: (otherlv_22= RULE_ID )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3022:1: (otherlv_20= RULE_ID )
                     	    {
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2374:1: (otherlv_22= RULE_ID )
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2375:3: otherlv_22= RULE_ID
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3022:1: (otherlv_20= RULE_ID )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3023:3: otherlv_20= RULE_ID
                     	    {
 
                     	    			if (current==null) {
                     	    	            current = createModelElement(grammarAccess.getWorkItemRule());
                     	    	        }
                     	            
-                    	    otherlv_22=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItem5040); 
+                    	    otherlv_20=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItem6522); 
 
-                    	    		newLeafNode(otherlv_22, grammarAccess.getWorkItemAccess().getRequiredServicesServiceTypeCrossReference_10_1_0()); 
+                    	    		newLeafNode(otherlv_20, grammarAccess.getWorkItemAccess().getRequiredServicesServiceTypeCrossReference_9_1_0()); 
                     	    	
 
                     	    }
@@ -5698,12 +7219,12 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt60 >= 1 ) break loop60;
+                    	    if ( cnt73 >= 1 ) break loop73;
                                 EarlyExitException eee =
-                                    new EarlyExitException(60, input);
+                                    new EarlyExitException(73, input);
                                 throw eee;
                         }
-                        cnt60++;
+                        cnt73++;
                     } while (true);
 
 
@@ -5712,134 +7233,30 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2386:5: (otherlv_23= 'Efforts' ( (lv_efforts_24_0= ruleDouble ) ) )?
-            int alt62=2;
-            int LA62_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3034:5: (otherlv_21= 'Efforts' ( (lv_efforts_22_0= RULE_INT ) ) )?
+            int alt75=2;
+            int LA75_0 = input.LA(1);
 
-            if ( (LA62_0==56) ) {
-                alt62=1;
+            if ( (LA75_0==82) ) {
+                alt75=1;
             }
-            switch (alt62) {
+            switch (alt75) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2386:7: otherlv_23= 'Efforts' ( (lv_efforts_24_0= ruleDouble ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3034:7: otherlv_21= 'Efforts' ( (lv_efforts_22_0= RULE_INT ) )
                     {
-                    otherlv_23=(Token)match(input,56,FOLLOW_56_in_ruleWorkItem5056); 
+                    otherlv_21=(Token)match(input,82,FOLLOW_82_in_ruleWorkItem6538); 
 
-                        	newLeafNode(otherlv_23, grammarAccess.getWorkItemAccess().getEffortsKeyword_11_0());
+                        	newLeafNode(otherlv_21, grammarAccess.getWorkItemAccess().getEffortsKeyword_10_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2390:1: ( (lv_efforts_24_0= ruleDouble ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2391:1: (lv_efforts_24_0= ruleDouble )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3038:1: ( (lv_efforts_22_0= RULE_INT ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3039:1: (lv_efforts_22_0= RULE_INT )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2391:1: (lv_efforts_24_0= ruleDouble )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2392:3: lv_efforts_24_0= ruleDouble
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3039:1: (lv_efforts_22_0= RULE_INT )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3040:3: lv_efforts_22_0= RULE_INT
                     {
-                     
-                    	        newCompositeNode(grammarAccess.getWorkItemAccess().getEffortsDoubleParserRuleCall_11_1_0()); 
-                    	    
-                    pushFollow(FOLLOW_ruleDouble_in_ruleWorkItem5077);
-                    lv_efforts_24_0=ruleDouble();
+                    lv_efforts_22_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleWorkItem6555); 
 
-                    state._fsp--;
-
-
-                    	        if (current==null) {
-                    	            current = createModelElementForParent(grammarAccess.getWorkItemRule());
-                    	        }
-                           		set(
-                           			current, 
-                           			"efforts",
-                            		lv_efforts_24_0, 
-                            		"Double");
-                    	        afterParserOrEnumRuleCall();
-                    	    
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2408:4: (otherlv_25= 'Value' ( (lv_value_26_0= ruleDouble ) ) )?
-            int alt63=2;
-            int LA63_0 = input.LA(1);
-
-            if ( (LA63_0==57) ) {
-                alt63=1;
-            }
-            switch (alt63) {
-                case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2408:6: otherlv_25= 'Value' ( (lv_value_26_0= ruleDouble ) )
-                    {
-                    otherlv_25=(Token)match(input,57,FOLLOW_57_in_ruleWorkItem5092); 
-
-                        	newLeafNode(otherlv_25, grammarAccess.getWorkItemAccess().getValueKeyword_12_0());
-                        
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2412:1: ( (lv_value_26_0= ruleDouble ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2413:1: (lv_value_26_0= ruleDouble )
-                    {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2413:1: (lv_value_26_0= ruleDouble )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2414:3: lv_value_26_0= ruleDouble
-                    {
-                     
-                    	        newCompositeNode(grammarAccess.getWorkItemAccess().getValueDoubleParserRuleCall_12_1_0()); 
-                    	    
-                    pushFollow(FOLLOW_ruleDouble_in_ruleWorkItem5113);
-                    lv_value_26_0=ruleDouble();
-
-                    state._fsp--;
-
-
-                    	        if (current==null) {
-                    	            current = createModelElementForParent(grammarAccess.getWorkItemRule());
-                    	        }
-                           		set(
-                           			current, 
-                           			"value",
-                            		lv_value_26_0, 
-                            		"Double");
-                    	        afterParserOrEnumRuleCall();
-                    	    
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2430:4: (otherlv_27= 'ClassOfService' ( (lv_classOfService_28_0= RULE_ID ) ) )?
-            int alt64=2;
-            int LA64_0 = input.LA(1);
-
-            if ( (LA64_0==58) ) {
-                alt64=1;
-            }
-            switch (alt64) {
-                case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2430:6: otherlv_27= 'ClassOfService' ( (lv_classOfService_28_0= RULE_ID ) )
-                    {
-                    otherlv_27=(Token)match(input,58,FOLLOW_58_in_ruleWorkItem5128); 
-
-                        	newLeafNode(otherlv_27, grammarAccess.getWorkItemAccess().getClassOfServiceKeyword_13_0());
-                        
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2434:1: ( (lv_classOfService_28_0= RULE_ID ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2435:1: (lv_classOfService_28_0= RULE_ID )
-                    {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2435:1: (lv_classOfService_28_0= RULE_ID )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2436:3: lv_classOfService_28_0= RULE_ID
-                    {
-                    lv_classOfService_28_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItem5145); 
-
-                    			newLeafNode(lv_classOfService_28_0, grammarAccess.getWorkItemAccess().getClassOfServiceIDTerminalRuleCall_13_1_0()); 
+                    			newLeafNode(lv_efforts_22_0, grammarAccess.getWorkItemAccess().getEffortsINTTerminalRuleCall_10_1_0()); 
                     		
 
                     	        if (current==null) {
@@ -5847,9 +7264,9 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	        }
                            		setWithLastConsumed(
                            			current, 
-                           			"classOfService",
-                            		lv_classOfService_28_0, 
-                            		"ID");
+                           			"efforts",
+                            		lv_efforts_22_0, 
+                            		"INT");
                     	    
 
                     }
@@ -5863,35 +7280,82 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2452:4: (otherlv_29= 'WorkSource' ( (otherlv_30= RULE_ID ) ) )?
-            int alt65=2;
-            int LA65_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3056:4: (otherlv_23= 'Value' ( (lv_value_24_0= RULE_INT ) ) )?
+            int alt76=2;
+            int LA76_0 = input.LA(1);
 
-            if ( (LA65_0==74) ) {
-                alt65=1;
+            if ( (LA76_0==83) ) {
+                alt76=1;
             }
-            switch (alt65) {
+            switch (alt76) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2452:6: otherlv_29= 'WorkSource' ( (otherlv_30= RULE_ID ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3056:6: otherlv_23= 'Value' ( (lv_value_24_0= RULE_INT ) )
                     {
-                    otherlv_29=(Token)match(input,74,FOLLOW_74_in_ruleWorkItem5165); 
+                    otherlv_23=(Token)match(input,83,FOLLOW_83_in_ruleWorkItem6575); 
 
-                        	newLeafNode(otherlv_29, grammarAccess.getWorkItemAccess().getWorkSourceKeyword_14_0());
+                        	newLeafNode(otherlv_23, grammarAccess.getWorkItemAccess().getValueKeyword_11_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2456:1: ( (otherlv_30= RULE_ID ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2457:1: (otherlv_30= RULE_ID )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3060:1: ( (lv_value_24_0= RULE_INT ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3061:1: (lv_value_24_0= RULE_INT )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2457:1: (otherlv_30= RULE_ID )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2458:3: otherlv_30= RULE_ID
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3061:1: (lv_value_24_0= RULE_INT )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3062:3: lv_value_24_0= RULE_INT
+                    {
+                    lv_value_24_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleWorkItem6592); 
+
+                    			newLeafNode(lv_value_24_0, grammarAccess.getWorkItemAccess().getValueINTTerminalRuleCall_11_1_0()); 
+                    		
+
+                    	        if (current==null) {
+                    	            current = createModelElement(grammarAccess.getWorkItemRule());
+                    	        }
+                           		setWithLastConsumed(
+                           			current, 
+                           			"value",
+                            		lv_value_24_0, 
+                            		"INT");
+                    	    
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3078:4: (otherlv_25= 'ClassOfService' ( (otherlv_26= RULE_ID ) ) )?
+            int alt77=2;
+            int LA77_0 = input.LA(1);
+
+            if ( (LA77_0==72) ) {
+                alt77=1;
+            }
+            switch (alt77) {
+                case 1 :
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3078:6: otherlv_25= 'ClassOfService' ( (otherlv_26= RULE_ID ) )
+                    {
+                    otherlv_25=(Token)match(input,72,FOLLOW_72_in_ruleWorkItem6612); 
+
+                        	newLeafNode(otherlv_25, grammarAccess.getWorkItemAccess().getClassOfServiceKeyword_12_0());
+                        
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3082:1: ( (otherlv_26= RULE_ID ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3083:1: (otherlv_26= RULE_ID )
+                    {
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3083:1: (otherlv_26= RULE_ID )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3084:3: otherlv_26= RULE_ID
                     {
 
                     			if (current==null) {
                     	            current = createModelElement(grammarAccess.getWorkItemRule());
                     	        }
                             
-                    otherlv_30=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItem5185); 
+                    otherlv_26=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItem6632); 
 
-                    		newLeafNode(otherlv_30, grammarAccess.getWorkItemAccess().getWorkSourceWorkSourceCrossReference_14_1_0()); 
+                    		newLeafNode(otherlv_26, grammarAccess.getWorkItemAccess().getClassOfServiceClassOfServiceCrossReference_12_1_0()); 
                     	
 
                     }
@@ -5905,30 +7369,72 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2469:4: (otherlv_31= 'ArrivalTime' ( (lv_arrivalTime_32_0= RULE_INT ) ) )?
-            int alt66=2;
-            int LA66_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3095:4: (otherlv_27= 'WorkSource' ( (otherlv_28= RULE_ID ) ) )?
+            int alt78=2;
+            int LA78_0 = input.LA(1);
 
-            if ( (LA66_0==82) ) {
-                alt66=1;
+            if ( (LA78_0==95) ) {
+                alt78=1;
             }
-            switch (alt66) {
+            switch (alt78) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2469:6: otherlv_31= 'ArrivalTime' ( (lv_arrivalTime_32_0= RULE_INT ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3095:6: otherlv_27= 'WorkSource' ( (otherlv_28= RULE_ID ) )
                     {
-                    otherlv_31=(Token)match(input,82,FOLLOW_82_in_ruleWorkItem5200); 
+                    otherlv_27=(Token)match(input,95,FOLLOW_95_in_ruleWorkItem6647); 
 
-                        	newLeafNode(otherlv_31, grammarAccess.getWorkItemAccess().getArrivalTimeKeyword_15_0());
+                        	newLeafNode(otherlv_27, grammarAccess.getWorkItemAccess().getWorkSourceKeyword_13_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2473:1: ( (lv_arrivalTime_32_0= RULE_INT ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2474:1: (lv_arrivalTime_32_0= RULE_INT )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3099:1: ( (otherlv_28= RULE_ID ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3100:1: (otherlv_28= RULE_ID )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2474:1: (lv_arrivalTime_32_0= RULE_INT )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2475:3: lv_arrivalTime_32_0= RULE_INT
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3100:1: (otherlv_28= RULE_ID )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3101:3: otherlv_28= RULE_ID
                     {
-                    lv_arrivalTime_32_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleWorkItem5217); 
 
-                    			newLeafNode(lv_arrivalTime_32_0, grammarAccess.getWorkItemAccess().getArrivalTimeINTTerminalRuleCall_15_1_0()); 
+                    			if (current==null) {
+                    	            current = createModelElement(grammarAccess.getWorkItemRule());
+                    	        }
+                            
+                    otherlv_28=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWorkItem6667); 
+
+                    		newLeafNode(otherlv_28, grammarAccess.getWorkItemAccess().getWorkSourceWorkSourceCrossReference_13_1_0()); 
+                    	
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3112:4: (otherlv_29= 'ArrivalTime' ( (lv_arrivalTime_30_0= RULE_INT ) ) )?
+            int alt79=2;
+            int LA79_0 = input.LA(1);
+
+            if ( (LA79_0==102) ) {
+                alt79=1;
+            }
+            switch (alt79) {
+                case 1 :
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3112:6: otherlv_29= 'ArrivalTime' ( (lv_arrivalTime_30_0= RULE_INT ) )
+                    {
+                    otherlv_29=(Token)match(input,102,FOLLOW_102_in_ruleWorkItem6682); 
+
+                        	newLeafNode(otherlv_29, grammarAccess.getWorkItemAccess().getArrivalTimeKeyword_14_0());
+                        
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3116:1: ( (lv_arrivalTime_30_0= RULE_INT ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3117:1: (lv_arrivalTime_30_0= RULE_INT )
+                    {
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3117:1: (lv_arrivalTime_30_0= RULE_INT )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3118:3: lv_arrivalTime_30_0= RULE_INT
+                    {
+                    lv_arrivalTime_30_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleWorkItem6699); 
+
+                    			newLeafNode(lv_arrivalTime_30_0, grammarAccess.getWorkItemAccess().getArrivalTimeINTTerminalRuleCall_14_1_0()); 
                     		
 
                     	        if (current==null) {
@@ -5937,7 +7443,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                            		setWithLastConsumed(
                            			current, 
                            			"arrivalTime",
-                            		lv_arrivalTime_32_0, 
+                            		lv_arrivalTime_30_0, 
                             		"INT");
                     	    
 
@@ -5952,30 +7458,30 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2491:4: (otherlv_33= 'DueDate' ( (lv_dueDate_34_0= RULE_INT ) ) )?
-            int alt67=2;
-            int LA67_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3134:4: (otherlv_31= 'DueDate' ( (lv_dueDate_32_0= RULE_INT ) ) )?
+            int alt80=2;
+            int LA80_0 = input.LA(1);
 
-            if ( (LA67_0==83) ) {
-                alt67=1;
+            if ( (LA80_0==103) ) {
+                alt80=1;
             }
-            switch (alt67) {
+            switch (alt80) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2491:6: otherlv_33= 'DueDate' ( (lv_dueDate_34_0= RULE_INT ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3134:6: otherlv_31= 'DueDate' ( (lv_dueDate_32_0= RULE_INT ) )
                     {
-                    otherlv_33=(Token)match(input,83,FOLLOW_83_in_ruleWorkItem5237); 
+                    otherlv_31=(Token)match(input,103,FOLLOW_103_in_ruleWorkItem6719); 
 
-                        	newLeafNode(otherlv_33, grammarAccess.getWorkItemAccess().getDueDateKeyword_16_0());
+                        	newLeafNode(otherlv_31, grammarAccess.getWorkItemAccess().getDueDateKeyword_15_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2495:1: ( (lv_dueDate_34_0= RULE_INT ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2496:1: (lv_dueDate_34_0= RULE_INT )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3138:1: ( (lv_dueDate_32_0= RULE_INT ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3139:1: (lv_dueDate_32_0= RULE_INT )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2496:1: (lv_dueDate_34_0= RULE_INT )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2497:3: lv_dueDate_34_0= RULE_INT
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3139:1: (lv_dueDate_32_0= RULE_INT )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3140:3: lv_dueDate_32_0= RULE_INT
                     {
-                    lv_dueDate_34_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleWorkItem5254); 
+                    lv_dueDate_32_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleWorkItem6736); 
 
-                    			newLeafNode(lv_dueDate_34_0, grammarAccess.getWorkItemAccess().getDueDateINTTerminalRuleCall_16_1_0()); 
+                    			newLeafNode(lv_dueDate_32_0, grammarAccess.getWorkItemAccess().getDueDateINTTerminalRuleCall_15_1_0()); 
                     		
 
                     	        if (current==null) {
@@ -5984,7 +7490,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                            		setWithLastConsumed(
                            			current, 
                            			"dueDate",
-                            		lv_dueDate_34_0, 
+                            		lv_dueDate_32_0, 
                             		"INT");
                     	    
 
@@ -5999,9 +7505,9 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_35=(Token)match(input,48,FOLLOW_48_in_ruleWorkItem5273); 
+            otherlv_33=(Token)match(input,68,FOLLOW_68_in_ruleWorkItem6755); 
 
-                	newLeafNode(otherlv_35, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_17());
+                	newLeafNode(otherlv_33, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_16());
                 
 
             }
@@ -6023,26 +7529,26 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleWorkItem"
 
 
-    // $ANTLR start "entryRuleCausality"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2525:1: entryRuleCausality returns [EObject current=null] : iv_ruleCausality= ruleCausality EOF ;
-    public final EObject entryRuleCausality() throws RecognitionException {
+    // $ANTLR start "entryRuleCausalTrigger"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3168:1: entryRuleCausalTrigger returns [EObject current=null] : iv_ruleCausalTrigger= ruleCausalTrigger EOF ;
+    public final EObject entryRuleCausalTrigger() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleCausality = null;
+        EObject iv_ruleCausalTrigger = null;
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2526:2: (iv_ruleCausality= ruleCausality EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2527:2: iv_ruleCausality= ruleCausality EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3169:2: (iv_ruleCausalTrigger= ruleCausalTrigger EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3170:2: iv_ruleCausalTrigger= ruleCausalTrigger EOF
             {
-             newCompositeNode(grammarAccess.getCausalityRule()); 
-            pushFollow(FOLLOW_ruleCausality_in_entryRuleCausality5309);
-            iv_ruleCausality=ruleCausality();
+             newCompositeNode(grammarAccess.getCausalTriggerRule()); 
+            pushFollow(FOLLOW_ruleCausalTrigger_in_entryRuleCausalTrigger6791);
+            iv_ruleCausalTrigger=ruleCausalTrigger();
 
             state._fsp--;
 
-             current =iv_ruleCausality; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCausality5319); 
+             current =iv_ruleCausalTrigger; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCausalTrigger6801); 
 
             }
 
@@ -6056,12 +7562,12 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleCausality"
+    // $ANTLR end "entryRuleCausalTrigger"
 
 
-    // $ANTLR start "ruleCausality"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2534:1: ruleCausality returns [EObject current=null] : ( (otherlv_0= '=>' | otherlv_1= '->' ) otherlv_2= '{' ( (otherlv_3= RULE_ID ) )+ otherlv_4= '}' (otherlv_5= 'AtProgress' ( (lv_atProgress_6_0= RULE_INT ) ) )? (otherlv_7= 'OnProbability' ( (lv_onProbability_8_0= RULE_INT ) ) )? ) ;
-    public final EObject ruleCausality() throws RecognitionException {
+    // $ANTLR start "ruleCausalTrigger"
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3177:1: ruleCausalTrigger returns [EObject current=null] : ( (otherlv_0= '=>' | otherlv_1= '->' ) otherlv_2= '{' ( (otherlv_3= RULE_ID ) )+ otherlv_4= '}' (otherlv_5= 'AtProgress' ( (lv_atProgress_6_0= RULE_INT ) ) )? (otherlv_7= 'OnProbability' ( (lv_onProbability_8_0= RULE_INT ) ) )? ) ;
+    public final EObject ruleCausalTrigger() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -6077,45 +7583,45 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2537:28: ( ( (otherlv_0= '=>' | otherlv_1= '->' ) otherlv_2= '{' ( (otherlv_3= RULE_ID ) )+ otherlv_4= '}' (otherlv_5= 'AtProgress' ( (lv_atProgress_6_0= RULE_INT ) ) )? (otherlv_7= 'OnProbability' ( (lv_onProbability_8_0= RULE_INT ) ) )? ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2538:1: ( (otherlv_0= '=>' | otherlv_1= '->' ) otherlv_2= '{' ( (otherlv_3= RULE_ID ) )+ otherlv_4= '}' (otherlv_5= 'AtProgress' ( (lv_atProgress_6_0= RULE_INT ) ) )? (otherlv_7= 'OnProbability' ( (lv_onProbability_8_0= RULE_INT ) ) )? )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3180:28: ( ( (otherlv_0= '=>' | otherlv_1= '->' ) otherlv_2= '{' ( (otherlv_3= RULE_ID ) )+ otherlv_4= '}' (otherlv_5= 'AtProgress' ( (lv_atProgress_6_0= RULE_INT ) ) )? (otherlv_7= 'OnProbability' ( (lv_onProbability_8_0= RULE_INT ) ) )? ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3181:1: ( (otherlv_0= '=>' | otherlv_1= '->' ) otherlv_2= '{' ( (otherlv_3= RULE_ID ) )+ otherlv_4= '}' (otherlv_5= 'AtProgress' ( (lv_atProgress_6_0= RULE_INT ) ) )? (otherlv_7= 'OnProbability' ( (lv_onProbability_8_0= RULE_INT ) ) )? )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2538:1: ( (otherlv_0= '=>' | otherlv_1= '->' ) otherlv_2= '{' ( (otherlv_3= RULE_ID ) )+ otherlv_4= '}' (otherlv_5= 'AtProgress' ( (lv_atProgress_6_0= RULE_INT ) ) )? (otherlv_7= 'OnProbability' ( (lv_onProbability_8_0= RULE_INT ) ) )? )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2538:2: (otherlv_0= '=>' | otherlv_1= '->' ) otherlv_2= '{' ( (otherlv_3= RULE_ID ) )+ otherlv_4= '}' (otherlv_5= 'AtProgress' ( (lv_atProgress_6_0= RULE_INT ) ) )? (otherlv_7= 'OnProbability' ( (lv_onProbability_8_0= RULE_INT ) ) )?
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3181:1: ( (otherlv_0= '=>' | otherlv_1= '->' ) otherlv_2= '{' ( (otherlv_3= RULE_ID ) )+ otherlv_4= '}' (otherlv_5= 'AtProgress' ( (lv_atProgress_6_0= RULE_INT ) ) )? (otherlv_7= 'OnProbability' ( (lv_onProbability_8_0= RULE_INT ) ) )? )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3181:2: (otherlv_0= '=>' | otherlv_1= '->' ) otherlv_2= '{' ( (otherlv_3= RULE_ID ) )+ otherlv_4= '}' (otherlv_5= 'AtProgress' ( (lv_atProgress_6_0= RULE_INT ) ) )? (otherlv_7= 'OnProbability' ( (lv_onProbability_8_0= RULE_INT ) ) )?
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2538:2: (otherlv_0= '=>' | otherlv_1= '->' )
-            int alt68=2;
-            int LA68_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3181:2: (otherlv_0= '=>' | otherlv_1= '->' )
+            int alt81=2;
+            int LA81_0 = input.LA(1);
 
-            if ( (LA68_0==84) ) {
-                alt68=1;
+            if ( (LA81_0==104) ) {
+                alt81=1;
             }
-            else if ( (LA68_0==85) ) {
-                alt68=2;
+            else if ( (LA81_0==105) ) {
+                alt81=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 68, 0, input);
+                    new NoViableAltException("", 81, 0, input);
 
                 throw nvae;
             }
-            switch (alt68) {
+            switch (alt81) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2538:4: otherlv_0= '=>'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3181:4: otherlv_0= '=>'
                     {
-                    otherlv_0=(Token)match(input,84,FOLLOW_84_in_ruleCausality5357); 
+                    otherlv_0=(Token)match(input,104,FOLLOW_104_in_ruleCausalTrigger6839); 
 
-                        	newLeafNode(otherlv_0, grammarAccess.getCausalityAccess().getEqualsSignGreaterThanSignKeyword_0_0());
+                        	newLeafNode(otherlv_0, grammarAccess.getCausalTriggerAccess().getEqualsSignGreaterThanSignKeyword_0_0());
                         
 
                     }
                     break;
                 case 2 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2543:7: otherlv_1= '->'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3186:7: otherlv_1= '->'
                     {
-                    otherlv_1=(Token)match(input,85,FOLLOW_85_in_ruleCausality5375); 
+                    otherlv_1=(Token)match(input,105,FOLLOW_105_in_ruleCausalTrigger6857); 
 
-                        	newLeafNode(otherlv_1, grammarAccess.getCausalityAccess().getHyphenMinusGreaterThanSignKeyword_0_1());
+                        	newLeafNode(otherlv_1, grammarAccess.getCausalTriggerAccess().getHyphenMinusGreaterThanSignKeyword_0_1());
                         
 
                     }
@@ -6123,37 +7629,37 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,47,FOLLOW_47_in_ruleCausality5388); 
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleCausalTrigger6870); 
 
-                	newLeafNode(otherlv_2, grammarAccess.getCausalityAccess().getLeftCurlyBracketKeyword_1());
+                	newLeafNode(otherlv_2, grammarAccess.getCausalTriggerAccess().getLeftCurlyBracketKeyword_1());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2551:1: ( (otherlv_3= RULE_ID ) )+
-            int cnt69=0;
-            loop69:
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3194:1: ( (otherlv_3= RULE_ID ) )+
+            int cnt82=0;
+            loop82:
             do {
-                int alt69=2;
-                int LA69_0 = input.LA(1);
+                int alt82=2;
+                int LA82_0 = input.LA(1);
 
-                if ( (LA69_0==RULE_ID) ) {
-                    alt69=1;
+                if ( (LA82_0==RULE_ID) ) {
+                    alt82=1;
                 }
 
 
-                switch (alt69) {
+                switch (alt82) {
             	case 1 :
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2552:1: (otherlv_3= RULE_ID )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3195:1: (otherlv_3= RULE_ID )
             	    {
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2552:1: (otherlv_3= RULE_ID )
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2553:3: otherlv_3= RULE_ID
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3195:1: (otherlv_3= RULE_ID )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3196:3: otherlv_3= RULE_ID
             	    {
 
             	    			if (current==null) {
-            	    	            current = createModelElement(grammarAccess.getCausalityRule());
+            	    	            current = createModelElement(grammarAccess.getCausalTriggerRule());
             	    	        }
             	            
-            	    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCausality5408); 
+            	    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCausalTrigger6890); 
 
-            	    		newLeafNode(otherlv_3, grammarAccess.getCausalityAccess().getTriggeredWorkItemCrossReference_2_0()); 
+            	    		newLeafNode(otherlv_3, grammarAccess.getCausalTriggerAccess().getTriggeredWorkItemCrossReference_2_0()); 
             	    	
 
             	    }
@@ -6163,46 +7669,46 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt69 >= 1 ) break loop69;
+            	    if ( cnt82 >= 1 ) break loop82;
                         EarlyExitException eee =
-                            new EarlyExitException(69, input);
+                            new EarlyExitException(82, input);
                         throw eee;
                 }
-                cnt69++;
+                cnt82++;
             } while (true);
 
-            otherlv_4=(Token)match(input,48,FOLLOW_48_in_ruleCausality5421); 
+            otherlv_4=(Token)match(input,68,FOLLOW_68_in_ruleCausalTrigger6903); 
 
-                	newLeafNode(otherlv_4, grammarAccess.getCausalityAccess().getRightCurlyBracketKeyword_3());
+                	newLeafNode(otherlv_4, grammarAccess.getCausalTriggerAccess().getRightCurlyBracketKeyword_3());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2568:1: (otherlv_5= 'AtProgress' ( (lv_atProgress_6_0= RULE_INT ) ) )?
-            int alt70=2;
-            int LA70_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3211:1: (otherlv_5= 'AtProgress' ( (lv_atProgress_6_0= RULE_INT ) ) )?
+            int alt83=2;
+            int LA83_0 = input.LA(1);
 
-            if ( (LA70_0==86) ) {
-                alt70=1;
+            if ( (LA83_0==106) ) {
+                alt83=1;
             }
-            switch (alt70) {
+            switch (alt83) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2568:3: otherlv_5= 'AtProgress' ( (lv_atProgress_6_0= RULE_INT ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3211:3: otherlv_5= 'AtProgress' ( (lv_atProgress_6_0= RULE_INT ) )
                     {
-                    otherlv_5=(Token)match(input,86,FOLLOW_86_in_ruleCausality5434); 
+                    otherlv_5=(Token)match(input,106,FOLLOW_106_in_ruleCausalTrigger6916); 
 
-                        	newLeafNode(otherlv_5, grammarAccess.getCausalityAccess().getAtProgressKeyword_4_0());
+                        	newLeafNode(otherlv_5, grammarAccess.getCausalTriggerAccess().getAtProgressKeyword_4_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2572:1: ( (lv_atProgress_6_0= RULE_INT ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2573:1: (lv_atProgress_6_0= RULE_INT )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3215:1: ( (lv_atProgress_6_0= RULE_INT ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3216:1: (lv_atProgress_6_0= RULE_INT )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2573:1: (lv_atProgress_6_0= RULE_INT )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2574:3: lv_atProgress_6_0= RULE_INT
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3216:1: (lv_atProgress_6_0= RULE_INT )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3217:3: lv_atProgress_6_0= RULE_INT
                     {
-                    lv_atProgress_6_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleCausality5451); 
+                    lv_atProgress_6_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleCausalTrigger6933); 
 
-                    			newLeafNode(lv_atProgress_6_0, grammarAccess.getCausalityAccess().getAtProgressINTTerminalRuleCall_4_1_0()); 
+                    			newLeafNode(lv_atProgress_6_0, grammarAccess.getCausalTriggerAccess().getAtProgressINTTerminalRuleCall_4_1_0()); 
                     		
 
                     	        if (current==null) {
-                    	            current = createModelElement(grammarAccess.getCausalityRule());
+                    	            current = createModelElement(grammarAccess.getCausalTriggerRule());
                     	        }
                            		setWithLastConsumed(
                            			current, 
@@ -6222,34 +7728,34 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2590:4: (otherlv_7= 'OnProbability' ( (lv_onProbability_8_0= RULE_INT ) ) )?
-            int alt71=2;
-            int LA71_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3233:4: (otherlv_7= 'OnProbability' ( (lv_onProbability_8_0= RULE_INT ) ) )?
+            int alt84=2;
+            int LA84_0 = input.LA(1);
 
-            if ( (LA71_0==87) ) {
-                alt71=1;
+            if ( (LA84_0==107) ) {
+                alt84=1;
             }
-            switch (alt71) {
+            switch (alt84) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2590:6: otherlv_7= 'OnProbability' ( (lv_onProbability_8_0= RULE_INT ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3233:6: otherlv_7= 'OnProbability' ( (lv_onProbability_8_0= RULE_INT ) )
                     {
-                    otherlv_7=(Token)match(input,87,FOLLOW_87_in_ruleCausality5471); 
+                    otherlv_7=(Token)match(input,107,FOLLOW_107_in_ruleCausalTrigger6953); 
 
-                        	newLeafNode(otherlv_7, grammarAccess.getCausalityAccess().getOnProbabilityKeyword_5_0());
+                        	newLeafNode(otherlv_7, grammarAccess.getCausalTriggerAccess().getOnProbabilityKeyword_5_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2594:1: ( (lv_onProbability_8_0= RULE_INT ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2595:1: (lv_onProbability_8_0= RULE_INT )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3237:1: ( (lv_onProbability_8_0= RULE_INT ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3238:1: (lv_onProbability_8_0= RULE_INT )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2595:1: (lv_onProbability_8_0= RULE_INT )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2596:3: lv_onProbability_8_0= RULE_INT
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3238:1: (lv_onProbability_8_0= RULE_INT )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3239:3: lv_onProbability_8_0= RULE_INT
                     {
-                    lv_onProbability_8_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleCausality5488); 
+                    lv_onProbability_8_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleCausalTrigger6970); 
 
-                    			newLeafNode(lv_onProbability_8_0, grammarAccess.getCausalityAccess().getOnProbabilityINTTerminalRuleCall_5_1_0()); 
+                    			newLeafNode(lv_onProbability_8_0, grammarAccess.getCausalTriggerAccess().getOnProbabilityINTTerminalRuleCall_5_1_0()); 
                     		
 
                     	        if (current==null) {
-                    	            current = createModelElement(grammarAccess.getCausalityRule());
+                    	            current = createModelElement(grammarAccess.getCausalTriggerRule());
                     	        }
                            		setWithLastConsumed(
                            			current, 
@@ -6286,190 +7792,11 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleCausality"
-
-
-    // $ANTLR start "entryRuleServiceType"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2622:1: entryRuleServiceType returns [EObject current=null] : iv_ruleServiceType= ruleServiceType EOF ;
-    public final EObject entryRuleServiceType() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleServiceType = null;
-
-
-        try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2623:2: (iv_ruleServiceType= ruleServiceType EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2624:2: iv_ruleServiceType= ruleServiceType EOF
-            {
-             newCompositeNode(grammarAccess.getServiceTypeRule()); 
-            pushFollow(FOLLOW_ruleServiceType_in_entryRuleServiceType5533);
-            iv_ruleServiceType=ruleServiceType();
-
-            state._fsp--;
-
-             current =iv_ruleServiceType; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleServiceType5543); 
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleServiceType"
-
-
-    // $ANTLR start "ruleServiceType"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2631:1: ruleServiceType returns [EObject current=null] : (otherlv_0= 'ServiceType' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )? ) ;
-    public final EObject ruleServiceType() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_0=null;
-        Token lv_name_1_0=null;
-        Token otherlv_2=null;
-        Token otherlv_3=null;
-        Token lv_description_4_0=null;
-        Token otherlv_5=null;
-
-         enterRule(); 
-            
-        try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2634:28: ( (otherlv_0= 'ServiceType' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )? ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2635:1: (otherlv_0= 'ServiceType' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )? )
-            {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2635:1: (otherlv_0= 'ServiceType' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )? )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2635:3: otherlv_0= 'ServiceType' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )?
-            {
-            otherlv_0=(Token)match(input,88,FOLLOW_88_in_ruleServiceType5580); 
-
-                	newLeafNode(otherlv_0, grammarAccess.getServiceTypeAccess().getServiceTypeKeyword_0());
-                
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2639:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2640:1: (lv_name_1_0= RULE_ID )
-            {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2640:1: (lv_name_1_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2641:3: lv_name_1_0= RULE_ID
-            {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleServiceType5597); 
-
-            			newLeafNode(lv_name_1_0, grammarAccess.getServiceTypeAccess().getNameIDTerminalRuleCall_1_0()); 
-            		
-
-            	        if (current==null) {
-            	            current = createModelElement(grammarAccess.getServiceTypeRule());
-            	        }
-                   		setWithLastConsumed(
-                   			current, 
-                   			"name",
-                    		lv_name_1_0, 
-                    		"ID");
-            	    
-
-            }
-
-
-            }
-
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2657:2: (otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}' )?
-            int alt73=2;
-            int LA73_0 = input.LA(1);
-
-            if ( (LA73_0==47) ) {
-                alt73=1;
-            }
-            switch (alt73) {
-                case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2657:4: otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? otherlv_5= '}'
-                    {
-                    otherlv_2=(Token)match(input,47,FOLLOW_47_in_ruleServiceType5615); 
-
-                        	newLeafNode(otherlv_2, grammarAccess.getServiceTypeAccess().getLeftCurlyBracketKeyword_2_0());
-                        
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2661:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
-                    int alt72=2;
-                    int LA72_0 = input.LA(1);
-
-                    if ( (LA72_0==51) ) {
-                        alt72=1;
-                    }
-                    switch (alt72) {
-                        case 1 :
-                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2661:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
-                            {
-                            otherlv_3=(Token)match(input,51,FOLLOW_51_in_ruleServiceType5628); 
-
-                                	newLeafNode(otherlv_3, grammarAccess.getServiceTypeAccess().getDescriptionKeyword_2_1_0());
-                                
-                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2665:1: ( (lv_description_4_0= RULE_STRING ) )
-                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2666:1: (lv_description_4_0= RULE_STRING )
-                            {
-                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2666:1: (lv_description_4_0= RULE_STRING )
-                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2667:3: lv_description_4_0= RULE_STRING
-                            {
-                            lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleServiceType5645); 
-
-                            			newLeafNode(lv_description_4_0, grammarAccess.getServiceTypeAccess().getDescriptionSTRINGTerminalRuleCall_2_1_1_0()); 
-                            		
-
-                            	        if (current==null) {
-                            	            current = createModelElement(grammarAccess.getServiceTypeRule());
-                            	        }
-                                   		setWithLastConsumed(
-                                   			current, 
-                                   			"description",
-                                    		lv_description_4_0, 
-                                    		"STRING");
-                            	    
-
-                            }
-
-
-                            }
-
-
-                            }
-                            break;
-
-                    }
-
-                    otherlv_5=(Token)match(input,48,FOLLOW_48_in_ruleServiceType5664); 
-
-                        	newLeafNode(otherlv_5, grammarAccess.getServiceTypeAccess().getRightCurlyBracketKeyword_2_2());
-                        
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            }
-
-             leaveRule(); 
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleServiceType"
+    // $ANTLR end "ruleCausalTrigger"
 
 
     // $ANTLR start "entryRuleService"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2695:1: entryRuleService returns [EObject current=null] : iv_ruleService= ruleService EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3265:1: entryRuleService returns [EObject current=null] : iv_ruleService= ruleService EOF ;
     public final EObject entryRuleService() throws RecognitionException {
         EObject current = null;
 
@@ -6477,17 +7804,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2696:2: (iv_ruleService= ruleService EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2697:2: iv_ruleService= ruleService EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3266:2: (iv_ruleService= ruleService EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3267:2: iv_ruleService= ruleService EOF
             {
              newCompositeNode(grammarAccess.getServiceRule()); 
-            pushFollow(FOLLOW_ruleService_in_entryRuleService5702);
+            pushFollow(FOLLOW_ruleService_in_entryRuleService7015);
             iv_ruleService=ruleService();
 
             state._fsp--;
 
              current =iv_ruleService; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleService5712); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleService7025); 
 
             }
 
@@ -6505,44 +7832,62 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleService"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2704:1: ruleService returns [EObject current=null] : (otherlv_0= 'Service' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'Type' ( (otherlv_6= RULE_ID ) ) ) (otherlv_7= 'Efficiency' ( (lv_efficiency_8_0= ruleNumExpression ) ) )? otherlv_9= '}' )? ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3274:1: ruleService returns [EObject current=null] : (otherlv_0= 'Type' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Efficiency' ( (lv_efficiency_3_0= RULE_INT ) ) ) ;
     public final EObject ruleService() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token lv_name_1_0=null;
+        Token otherlv_1=null;
         Token otherlv_2=null;
-        Token otherlv_3=null;
-        Token lv_description_4_0=null;
-        Token otherlv_5=null;
-        Token otherlv_6=null;
-        Token otherlv_7=null;
-        Token otherlv_9=null;
-        EObject lv_efficiency_8_0 = null;
-
+        Token lv_efficiency_3_0=null;
 
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2707:28: ( (otherlv_0= 'Service' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'Type' ( (otherlv_6= RULE_ID ) ) ) (otherlv_7= 'Efficiency' ( (lv_efficiency_8_0= ruleNumExpression ) ) )? otherlv_9= '}' )? ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2708:1: (otherlv_0= 'Service' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'Type' ( (otherlv_6= RULE_ID ) ) ) (otherlv_7= 'Efficiency' ( (lv_efficiency_8_0= ruleNumExpression ) ) )? otherlv_9= '}' )? )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3277:28: ( (otherlv_0= 'Type' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Efficiency' ( (lv_efficiency_3_0= RULE_INT ) ) ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3278:1: (otherlv_0= 'Type' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Efficiency' ( (lv_efficiency_3_0= RULE_INT ) ) )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2708:1: (otherlv_0= 'Service' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'Type' ( (otherlv_6= RULE_ID ) ) ) (otherlv_7= 'Efficiency' ( (lv_efficiency_8_0= ruleNumExpression ) ) )? otherlv_9= '}' )? )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2708:3: otherlv_0= 'Service' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'Type' ( (otherlv_6= RULE_ID ) ) ) (otherlv_7= 'Efficiency' ( (lv_efficiency_8_0= ruleNumExpression ) ) )? otherlv_9= '}' )?
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3278:1: (otherlv_0= 'Type' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Efficiency' ( (lv_efficiency_3_0= RULE_INT ) ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3278:3: otherlv_0= 'Type' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'Efficiency' ( (lv_efficiency_3_0= RULE_INT ) )
             {
-            otherlv_0=(Token)match(input,89,FOLLOW_89_in_ruleService5749); 
+            otherlv_0=(Token)match(input,98,FOLLOW_98_in_ruleService7062); 
 
-                	newLeafNode(otherlv_0, grammarAccess.getServiceAccess().getServiceKeyword_0());
+                	newLeafNode(otherlv_0, grammarAccess.getServiceAccess().getTypeKeyword_0());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2712:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2713:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3282:1: ( (otherlv_1= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3283:1: (otherlv_1= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2713:1: (lv_name_1_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2714:3: lv_name_1_0= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3283:1: (otherlv_1= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3284:3: otherlv_1= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleService5766); 
 
-            			newLeafNode(lv_name_1_0, grammarAccess.getServiceAccess().getNameIDTerminalRuleCall_1_0()); 
+            			if (current==null) {
+            	            current = createModelElement(grammarAccess.getServiceRule());
+            	        }
+                    
+            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleService7082); 
+
+            		newLeafNode(otherlv_1, grammarAccess.getServiceAccess().getTypeServiceTypeCrossReference_1_0()); 
+            	
+
+            }
+
+
+            }
+
+            otherlv_2=(Token)match(input,108,FOLLOW_108_in_ruleService7094); 
+
+                	newLeafNode(otherlv_2, grammarAccess.getServiceAccess().getEfficiencyKeyword_2());
+                
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3299:1: ( (lv_efficiency_3_0= RULE_INT ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3300:1: (lv_efficiency_3_0= RULE_INT )
+            {
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3300:1: (lv_efficiency_3_0= RULE_INT )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3301:3: lv_efficiency_3_0= RULE_INT
+            {
+            lv_efficiency_3_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleService7111); 
+
+            			newLeafNode(lv_efficiency_3_0, grammarAccess.getServiceAccess().getEfficiencyINTTerminalRuleCall_3_0()); 
             		
 
             	        if (current==null) {
@@ -6550,168 +7895,13 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
             	        }
                    		setWithLastConsumed(
                    			current, 
-                   			"name",
-                    		lv_name_1_0, 
-                    		"ID");
+                   			"efficiency",
+                    		lv_efficiency_3_0, 
+                    		"INT");
             	    
 
             }
 
-
-            }
-
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2730:2: (otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'Type' ( (otherlv_6= RULE_ID ) ) ) (otherlv_7= 'Efficiency' ( (lv_efficiency_8_0= ruleNumExpression ) ) )? otherlv_9= '}' )?
-            int alt76=2;
-            int LA76_0 = input.LA(1);
-
-            if ( (LA76_0==47) ) {
-                alt76=1;
-            }
-            switch (alt76) {
-                case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2730:4: otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'Type' ( (otherlv_6= RULE_ID ) ) ) (otherlv_7= 'Efficiency' ( (lv_efficiency_8_0= ruleNumExpression ) ) )? otherlv_9= '}'
-                    {
-                    otherlv_2=(Token)match(input,47,FOLLOW_47_in_ruleService5784); 
-
-                        	newLeafNode(otherlv_2, grammarAccess.getServiceAccess().getLeftCurlyBracketKeyword_2_0());
-                        
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2734:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
-                    int alt74=2;
-                    int LA74_0 = input.LA(1);
-
-                    if ( (LA74_0==51) ) {
-                        alt74=1;
-                    }
-                    switch (alt74) {
-                        case 1 :
-                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2734:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
-                            {
-                            otherlv_3=(Token)match(input,51,FOLLOW_51_in_ruleService5797); 
-
-                                	newLeafNode(otherlv_3, grammarAccess.getServiceAccess().getDescriptionKeyword_2_1_0());
-                                
-                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2738:1: ( (lv_description_4_0= RULE_STRING ) )
-                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2739:1: (lv_description_4_0= RULE_STRING )
-                            {
-                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2739:1: (lv_description_4_0= RULE_STRING )
-                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2740:3: lv_description_4_0= RULE_STRING
-                            {
-                            lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleService5814); 
-
-                            			newLeafNode(lv_description_4_0, grammarAccess.getServiceAccess().getDescriptionSTRINGTerminalRuleCall_2_1_1_0()); 
-                            		
-
-                            	        if (current==null) {
-                            	            current = createModelElement(grammarAccess.getServiceRule());
-                            	        }
-                                   		setWithLastConsumed(
-                                   			current, 
-                                   			"description",
-                                    		lv_description_4_0, 
-                                    		"STRING");
-                            	    
-
-                            }
-
-
-                            }
-
-
-                            }
-                            break;
-
-                    }
-
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2756:4: (otherlv_5= 'Type' ( (otherlv_6= RULE_ID ) ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2756:6: otherlv_5= 'Type' ( (otherlv_6= RULE_ID ) )
-                    {
-                    otherlv_5=(Token)match(input,78,FOLLOW_78_in_ruleService5834); 
-
-                        	newLeafNode(otherlv_5, grammarAccess.getServiceAccess().getTypeKeyword_2_2_0());
-                        
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2760:1: ( (otherlv_6= RULE_ID ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2761:1: (otherlv_6= RULE_ID )
-                    {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2761:1: (otherlv_6= RULE_ID )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2762:3: otherlv_6= RULE_ID
-                    {
-
-                    			if (current==null) {
-                    	            current = createModelElement(grammarAccess.getServiceRule());
-                    	        }
-                            
-                    otherlv_6=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleService5854); 
-
-                    		newLeafNode(otherlv_6, grammarAccess.getServiceAccess().getTypeServiceTypeCrossReference_2_2_1_0()); 
-                    	
-
-                    }
-
-
-                    }
-
-
-                    }
-
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2773:3: (otherlv_7= 'Efficiency' ( (lv_efficiency_8_0= ruleNumExpression ) ) )?
-                    int alt75=2;
-                    int LA75_0 = input.LA(1);
-
-                    if ( (LA75_0==90) ) {
-                        alt75=1;
-                    }
-                    switch (alt75) {
-                        case 1 :
-                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2773:5: otherlv_7= 'Efficiency' ( (lv_efficiency_8_0= ruleNumExpression ) )
-                            {
-                            otherlv_7=(Token)match(input,90,FOLLOW_90_in_ruleService5868); 
-
-                                	newLeafNode(otherlv_7, grammarAccess.getServiceAccess().getEfficiencyKeyword_2_3_0());
-                                
-                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2777:1: ( (lv_efficiency_8_0= ruleNumExpression ) )
-                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2778:1: (lv_efficiency_8_0= ruleNumExpression )
-                            {
-                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2778:1: (lv_efficiency_8_0= ruleNumExpression )
-                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2779:3: lv_efficiency_8_0= ruleNumExpression
-                            {
-                             
-                            	        newCompositeNode(grammarAccess.getServiceAccess().getEfficiencyNumExpressionParserRuleCall_2_3_1_0()); 
-                            	    
-                            pushFollow(FOLLOW_ruleNumExpression_in_ruleService5889);
-                            lv_efficiency_8_0=ruleNumExpression();
-
-                            state._fsp--;
-
-
-                            	        if (current==null) {
-                            	            current = createModelElementForParent(grammarAccess.getServiceRule());
-                            	        }
-                                   		set(
-                                   			current, 
-                                   			"efficiency",
-                                    		lv_efficiency_8_0, 
-                                    		"NumExpression");
-                            	        afterParserOrEnumRuleCall();
-                            	    
-
-                            }
-
-
-                            }
-
-
-                            }
-                            break;
-
-                    }
-
-                    otherlv_9=(Token)match(input,48,FOLLOW_48_in_ruleService5903); 
-
-                        	newLeafNode(otherlv_9, grammarAccess.getServiceAccess().getRightCurlyBracketKeyword_2_4());
-                        
-
-                    }
-                    break;
 
             }
 
@@ -6736,7 +7926,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleServiceProvider"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2807:1: entryRuleServiceProvider returns [EObject current=null] : iv_ruleServiceProvider= ruleServiceProvider EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3325:1: entryRuleServiceProvider returns [EObject current=null] : iv_ruleServiceProvider= ruleServiceProvider EOF ;
     public final EObject entryRuleServiceProvider() throws RecognitionException {
         EObject current = null;
 
@@ -6744,17 +7934,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2808:2: (iv_ruleServiceProvider= ruleServiceProvider EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2809:2: iv_ruleServiceProvider= ruleServiceProvider EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3326:2: (iv_ruleServiceProvider= ruleServiceProvider EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3327:2: iv_ruleServiceProvider= ruleServiceProvider EOF
             {
              newCompositeNode(grammarAccess.getServiceProviderRule()); 
-            pushFollow(FOLLOW_ruleServiceProvider_in_entryRuleServiceProvider5941);
+            pushFollow(FOLLOW_ruleServiceProvider_in_entryRuleServiceProvider7152);
             iv_ruleServiceProvider=ruleServiceProvider();
 
             state._fsp--;
 
              current =iv_ruleServiceProvider; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleServiceProvider5951); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleServiceProvider7162); 
 
             }
 
@@ -6772,7 +7962,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleServiceProvider"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2816:1: ruleServiceProvider returns [EObject current=null] : ( (otherlv_0= 'ServiceProvider' | otherlv_1= 'Group' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'Description' ( (lv_description_5_0= RULE_STRING ) ) )? (otherlv_6= 'SourceUnits' otherlv_7= '{' ( (otherlv_8= RULE_ID ) )+ otherlv_9= '}' )? (otherlv_10= 'TargetUnits' otherlv_11= '{' ( (otherlv_12= RULE_ID ) )+ otherlv_13= '}' )? (otherlv_14= 'SubordinateUnits' otherlv_15= '{' ( (otherlv_16= RULE_ID ) )+ otherlv_17= '}' )? (otherlv_18= 'Services' otherlv_19= '{' ( (lv_services_20_0= ruleService ) )+ otherlv_21= '}' )? (otherlv_22= 'GovernanceSearchStrategy' otherlv_23= '{' otherlv_24= 'Default' ( (otherlv_25= RULE_ID ) ) (otherlv_26= 'Specified' otherlv_27= '{' ( (lv_acceptanceRule_28_0= ruleWIAcceptance ) )? ( (lv_selectionRule_29_0= ruleWISelection ) )? ( (lv_assignmentRule_30_0= ruleWIAssignment ) )? ( (lv_allocationRule_31_0= ruleResourceAllocation ) )? ( (lv_outsourcingRule_32_0= ruleResourceOutsourcing ) )? otherlv_33= '}' )? otherlv_34= '}' )? (otherlv_35= 'Resources' otherlv_36= '{' ( (lv_resources_37_0= ruleAsset ) )+ otherlv_38= '}' )? otherlv_39= '}' ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3334:1: ruleServiceProvider returns [EObject current=null] : ( (otherlv_0= 'ServiceProvider' | otherlv_1= 'Group' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'Description' ( (lv_description_5_0= RULE_STRING ) ) )? (otherlv_6= 'SourceUnits' otherlv_7= '{' ( (otherlv_8= RULE_ID ) )+ otherlv_9= '}' )? (otherlv_10= 'TargetUnits' otherlv_11= '{' ( (otherlv_12= RULE_ID ) )+ otherlv_13= '}' )? (otherlv_14= 'SubordinateUnits' otherlv_15= '{' ( (otherlv_16= RULE_ID ) )+ otherlv_17= '}' )? (otherlv_18= 'Services' otherlv_19= '{' ( (lv_services_20_0= ruleService ) )+ otherlv_21= '}' )? (otherlv_22= 'GovernanceStrategy' otherlv_23= '{' ( (otherlv_24= RULE_ID ) ) otherlv_25= '}' )? (otherlv_26= 'Resources' otherlv_27= '{' ( (lv_resources_28_0= ruleAsset ) )+ otherlv_29= '}' )? otherlv_30= '}' ) ;
     public final EObject ruleServiceProvider() throws RecognitionException {
         EObject current = null;
 
@@ -6803,57 +7993,43 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
         Token otherlv_25=null;
         Token otherlv_26=null;
         Token otherlv_27=null;
-        Token otherlv_33=null;
-        Token otherlv_34=null;
-        Token otherlv_35=null;
-        Token otherlv_36=null;
-        Token otherlv_38=null;
-        Token otherlv_39=null;
+        Token otherlv_29=null;
+        Token otherlv_30=null;
         EObject lv_services_20_0 = null;
 
-        EObject lv_acceptanceRule_28_0 = null;
-
-        EObject lv_selectionRule_29_0 = null;
-
-        EObject lv_assignmentRule_30_0 = null;
-
-        EObject lv_allocationRule_31_0 = null;
-
-        EObject lv_outsourcingRule_32_0 = null;
-
-        EObject lv_resources_37_0 = null;
+        EObject lv_resources_28_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2819:28: ( ( (otherlv_0= 'ServiceProvider' | otherlv_1= 'Group' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'Description' ( (lv_description_5_0= RULE_STRING ) ) )? (otherlv_6= 'SourceUnits' otherlv_7= '{' ( (otherlv_8= RULE_ID ) )+ otherlv_9= '}' )? (otherlv_10= 'TargetUnits' otherlv_11= '{' ( (otherlv_12= RULE_ID ) )+ otherlv_13= '}' )? (otherlv_14= 'SubordinateUnits' otherlv_15= '{' ( (otherlv_16= RULE_ID ) )+ otherlv_17= '}' )? (otherlv_18= 'Services' otherlv_19= '{' ( (lv_services_20_0= ruleService ) )+ otherlv_21= '}' )? (otherlv_22= 'GovernanceSearchStrategy' otherlv_23= '{' otherlv_24= 'Default' ( (otherlv_25= RULE_ID ) ) (otherlv_26= 'Specified' otherlv_27= '{' ( (lv_acceptanceRule_28_0= ruleWIAcceptance ) )? ( (lv_selectionRule_29_0= ruleWISelection ) )? ( (lv_assignmentRule_30_0= ruleWIAssignment ) )? ( (lv_allocationRule_31_0= ruleResourceAllocation ) )? ( (lv_outsourcingRule_32_0= ruleResourceOutsourcing ) )? otherlv_33= '}' )? otherlv_34= '}' )? (otherlv_35= 'Resources' otherlv_36= '{' ( (lv_resources_37_0= ruleAsset ) )+ otherlv_38= '}' )? otherlv_39= '}' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2820:1: ( (otherlv_0= 'ServiceProvider' | otherlv_1= 'Group' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'Description' ( (lv_description_5_0= RULE_STRING ) ) )? (otherlv_6= 'SourceUnits' otherlv_7= '{' ( (otherlv_8= RULE_ID ) )+ otherlv_9= '}' )? (otherlv_10= 'TargetUnits' otherlv_11= '{' ( (otherlv_12= RULE_ID ) )+ otherlv_13= '}' )? (otherlv_14= 'SubordinateUnits' otherlv_15= '{' ( (otherlv_16= RULE_ID ) )+ otherlv_17= '}' )? (otherlv_18= 'Services' otherlv_19= '{' ( (lv_services_20_0= ruleService ) )+ otherlv_21= '}' )? (otherlv_22= 'GovernanceSearchStrategy' otherlv_23= '{' otherlv_24= 'Default' ( (otherlv_25= RULE_ID ) ) (otherlv_26= 'Specified' otherlv_27= '{' ( (lv_acceptanceRule_28_0= ruleWIAcceptance ) )? ( (lv_selectionRule_29_0= ruleWISelection ) )? ( (lv_assignmentRule_30_0= ruleWIAssignment ) )? ( (lv_allocationRule_31_0= ruleResourceAllocation ) )? ( (lv_outsourcingRule_32_0= ruleResourceOutsourcing ) )? otherlv_33= '}' )? otherlv_34= '}' )? (otherlv_35= 'Resources' otherlv_36= '{' ( (lv_resources_37_0= ruleAsset ) )+ otherlv_38= '}' )? otherlv_39= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3337:28: ( ( (otherlv_0= 'ServiceProvider' | otherlv_1= 'Group' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'Description' ( (lv_description_5_0= RULE_STRING ) ) )? (otherlv_6= 'SourceUnits' otherlv_7= '{' ( (otherlv_8= RULE_ID ) )+ otherlv_9= '}' )? (otherlv_10= 'TargetUnits' otherlv_11= '{' ( (otherlv_12= RULE_ID ) )+ otherlv_13= '}' )? (otherlv_14= 'SubordinateUnits' otherlv_15= '{' ( (otherlv_16= RULE_ID ) )+ otherlv_17= '}' )? (otherlv_18= 'Services' otherlv_19= '{' ( (lv_services_20_0= ruleService ) )+ otherlv_21= '}' )? (otherlv_22= 'GovernanceStrategy' otherlv_23= '{' ( (otherlv_24= RULE_ID ) ) otherlv_25= '}' )? (otherlv_26= 'Resources' otherlv_27= '{' ( (lv_resources_28_0= ruleAsset ) )+ otherlv_29= '}' )? otherlv_30= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3338:1: ( (otherlv_0= 'ServiceProvider' | otherlv_1= 'Group' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'Description' ( (lv_description_5_0= RULE_STRING ) ) )? (otherlv_6= 'SourceUnits' otherlv_7= '{' ( (otherlv_8= RULE_ID ) )+ otherlv_9= '}' )? (otherlv_10= 'TargetUnits' otherlv_11= '{' ( (otherlv_12= RULE_ID ) )+ otherlv_13= '}' )? (otherlv_14= 'SubordinateUnits' otherlv_15= '{' ( (otherlv_16= RULE_ID ) )+ otherlv_17= '}' )? (otherlv_18= 'Services' otherlv_19= '{' ( (lv_services_20_0= ruleService ) )+ otherlv_21= '}' )? (otherlv_22= 'GovernanceStrategy' otherlv_23= '{' ( (otherlv_24= RULE_ID ) ) otherlv_25= '}' )? (otherlv_26= 'Resources' otherlv_27= '{' ( (lv_resources_28_0= ruleAsset ) )+ otherlv_29= '}' )? otherlv_30= '}' )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2820:1: ( (otherlv_0= 'ServiceProvider' | otherlv_1= 'Group' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'Description' ( (lv_description_5_0= RULE_STRING ) ) )? (otherlv_6= 'SourceUnits' otherlv_7= '{' ( (otherlv_8= RULE_ID ) )+ otherlv_9= '}' )? (otherlv_10= 'TargetUnits' otherlv_11= '{' ( (otherlv_12= RULE_ID ) )+ otherlv_13= '}' )? (otherlv_14= 'SubordinateUnits' otherlv_15= '{' ( (otherlv_16= RULE_ID ) )+ otherlv_17= '}' )? (otherlv_18= 'Services' otherlv_19= '{' ( (lv_services_20_0= ruleService ) )+ otherlv_21= '}' )? (otherlv_22= 'GovernanceSearchStrategy' otherlv_23= '{' otherlv_24= 'Default' ( (otherlv_25= RULE_ID ) ) (otherlv_26= 'Specified' otherlv_27= '{' ( (lv_acceptanceRule_28_0= ruleWIAcceptance ) )? ( (lv_selectionRule_29_0= ruleWISelection ) )? ( (lv_assignmentRule_30_0= ruleWIAssignment ) )? ( (lv_allocationRule_31_0= ruleResourceAllocation ) )? ( (lv_outsourcingRule_32_0= ruleResourceOutsourcing ) )? otherlv_33= '}' )? otherlv_34= '}' )? (otherlv_35= 'Resources' otherlv_36= '{' ( (lv_resources_37_0= ruleAsset ) )+ otherlv_38= '}' )? otherlv_39= '}' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2820:2: (otherlv_0= 'ServiceProvider' | otherlv_1= 'Group' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'Description' ( (lv_description_5_0= RULE_STRING ) ) )? (otherlv_6= 'SourceUnits' otherlv_7= '{' ( (otherlv_8= RULE_ID ) )+ otherlv_9= '}' )? (otherlv_10= 'TargetUnits' otherlv_11= '{' ( (otherlv_12= RULE_ID ) )+ otherlv_13= '}' )? (otherlv_14= 'SubordinateUnits' otherlv_15= '{' ( (otherlv_16= RULE_ID ) )+ otherlv_17= '}' )? (otherlv_18= 'Services' otherlv_19= '{' ( (lv_services_20_0= ruleService ) )+ otherlv_21= '}' )? (otherlv_22= 'GovernanceSearchStrategy' otherlv_23= '{' otherlv_24= 'Default' ( (otherlv_25= RULE_ID ) ) (otherlv_26= 'Specified' otherlv_27= '{' ( (lv_acceptanceRule_28_0= ruleWIAcceptance ) )? ( (lv_selectionRule_29_0= ruleWISelection ) )? ( (lv_assignmentRule_30_0= ruleWIAssignment ) )? ( (lv_allocationRule_31_0= ruleResourceAllocation ) )? ( (lv_outsourcingRule_32_0= ruleResourceOutsourcing ) )? otherlv_33= '}' )? otherlv_34= '}' )? (otherlv_35= 'Resources' otherlv_36= '{' ( (lv_resources_37_0= ruleAsset ) )+ otherlv_38= '}' )? otherlv_39= '}'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3338:1: ( (otherlv_0= 'ServiceProvider' | otherlv_1= 'Group' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'Description' ( (lv_description_5_0= RULE_STRING ) ) )? (otherlv_6= 'SourceUnits' otherlv_7= '{' ( (otherlv_8= RULE_ID ) )+ otherlv_9= '}' )? (otherlv_10= 'TargetUnits' otherlv_11= '{' ( (otherlv_12= RULE_ID ) )+ otherlv_13= '}' )? (otherlv_14= 'SubordinateUnits' otherlv_15= '{' ( (otherlv_16= RULE_ID ) )+ otherlv_17= '}' )? (otherlv_18= 'Services' otherlv_19= '{' ( (lv_services_20_0= ruleService ) )+ otherlv_21= '}' )? (otherlv_22= 'GovernanceStrategy' otherlv_23= '{' ( (otherlv_24= RULE_ID ) ) otherlv_25= '}' )? (otherlv_26= 'Resources' otherlv_27= '{' ( (lv_resources_28_0= ruleAsset ) )+ otherlv_29= '}' )? otherlv_30= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3338:2: (otherlv_0= 'ServiceProvider' | otherlv_1= 'Group' ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'Description' ( (lv_description_5_0= RULE_STRING ) ) )? (otherlv_6= 'SourceUnits' otherlv_7= '{' ( (otherlv_8= RULE_ID ) )+ otherlv_9= '}' )? (otherlv_10= 'TargetUnits' otherlv_11= '{' ( (otherlv_12= RULE_ID ) )+ otherlv_13= '}' )? (otherlv_14= 'SubordinateUnits' otherlv_15= '{' ( (otherlv_16= RULE_ID ) )+ otherlv_17= '}' )? (otherlv_18= 'Services' otherlv_19= '{' ( (lv_services_20_0= ruleService ) )+ otherlv_21= '}' )? (otherlv_22= 'GovernanceStrategy' otherlv_23= '{' ( (otherlv_24= RULE_ID ) ) otherlv_25= '}' )? (otherlv_26= 'Resources' otherlv_27= '{' ( (lv_resources_28_0= ruleAsset ) )+ otherlv_29= '}' )? otherlv_30= '}'
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2820:2: (otherlv_0= 'ServiceProvider' | otherlv_1= 'Group' )
-            int alt77=2;
-            int LA77_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3338:2: (otherlv_0= 'ServiceProvider' | otherlv_1= 'Group' )
+            int alt85=2;
+            int LA85_0 = input.LA(1);
 
-            if ( (LA77_0==91) ) {
-                alt77=1;
+            if ( (LA85_0==109) ) {
+                alt85=1;
             }
-            else if ( (LA77_0==92) ) {
-                alt77=2;
+            else if ( (LA85_0==110) ) {
+                alt85=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 77, 0, input);
+                    new NoViableAltException("", 85, 0, input);
 
                 throw nvae;
             }
-            switch (alt77) {
+            switch (alt85) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2820:4: otherlv_0= 'ServiceProvider'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3338:4: otherlv_0= 'ServiceProvider'
                     {
-                    otherlv_0=(Token)match(input,91,FOLLOW_91_in_ruleServiceProvider5989); 
+                    otherlv_0=(Token)match(input,109,FOLLOW_109_in_ruleServiceProvider7200); 
 
                         	newLeafNode(otherlv_0, grammarAccess.getServiceProviderAccess().getServiceProviderKeyword_0_0());
                         
@@ -6861,9 +8037,9 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2825:7: otherlv_1= 'Group'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3343:7: otherlv_1= 'Group'
                     {
-                    otherlv_1=(Token)match(input,92,FOLLOW_92_in_ruleServiceProvider6007); 
+                    otherlv_1=(Token)match(input,110,FOLLOW_110_in_ruleServiceProvider7218); 
 
                         	newLeafNode(otherlv_1, grammarAccess.getServiceProviderAccess().getGroupKeyword_0_1());
                         
@@ -6873,13 +8049,13 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2829:2: ( (lv_name_2_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2830:1: (lv_name_2_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3347:2: ( (lv_name_2_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3348:1: (lv_name_2_0= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2830:1: (lv_name_2_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2831:3: lv_name_2_0= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3348:1: (lv_name_2_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3349:3: lv_name_2_0= RULE_ID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleServiceProvider6025); 
+            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleServiceProvider7236); 
 
             			newLeafNode(lv_name_2_0, grammarAccess.getServiceProviderAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -6899,32 +8075,32 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,47,FOLLOW_47_in_ruleServiceProvider6042); 
+            otherlv_3=(Token)match(input,65,FOLLOW_65_in_ruleServiceProvider7253); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getServiceProviderAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2851:1: (otherlv_4= 'Description' ( (lv_description_5_0= RULE_STRING ) ) )?
-            int alt78=2;
-            int LA78_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3369:1: (otherlv_4= 'Description' ( (lv_description_5_0= RULE_STRING ) ) )?
+            int alt86=2;
+            int LA86_0 = input.LA(1);
 
-            if ( (LA78_0==51) ) {
-                alt78=1;
+            if ( (LA86_0==66) ) {
+                alt86=1;
             }
-            switch (alt78) {
+            switch (alt86) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2851:3: otherlv_4= 'Description' ( (lv_description_5_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3369:3: otherlv_4= 'Description' ( (lv_description_5_0= RULE_STRING ) )
                     {
-                    otherlv_4=(Token)match(input,51,FOLLOW_51_in_ruleServiceProvider6055); 
+                    otherlv_4=(Token)match(input,66,FOLLOW_66_in_ruleServiceProvider7266); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getServiceProviderAccess().getDescriptionKeyword_3_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2855:1: ( (lv_description_5_0= RULE_STRING ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2856:1: (lv_description_5_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3373:1: ( (lv_description_5_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3374:1: (lv_description_5_0= RULE_STRING )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2856:1: (lv_description_5_0= RULE_STRING )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2857:3: lv_description_5_0= RULE_STRING
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3374:1: (lv_description_5_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3375:3: lv_description_5_0= RULE_STRING
                     {
-                    lv_description_5_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleServiceProvider6072); 
+                    lv_description_5_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleServiceProvider7283); 
 
                     			newLeafNode(lv_description_5_0, grammarAccess.getServiceProviderAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
                     		
@@ -6950,50 +8126,50 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2873:4: (otherlv_6= 'SourceUnits' otherlv_7= '{' ( (otherlv_8= RULE_ID ) )+ otherlv_9= '}' )?
-            int alt80=2;
-            int LA80_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3391:4: (otherlv_6= 'SourceUnits' otherlv_7= '{' ( (otherlv_8= RULE_ID ) )+ otherlv_9= '}' )?
+            int alt88=2;
+            int LA88_0 = input.LA(1);
 
-            if ( (LA80_0==93) ) {
-                alt80=1;
+            if ( (LA88_0==111) ) {
+                alt88=1;
             }
-            switch (alt80) {
+            switch (alt88) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2873:6: otherlv_6= 'SourceUnits' otherlv_7= '{' ( (otherlv_8= RULE_ID ) )+ otherlv_9= '}'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3391:6: otherlv_6= 'SourceUnits' otherlv_7= '{' ( (otherlv_8= RULE_ID ) )+ otherlv_9= '}'
                     {
-                    otherlv_6=(Token)match(input,93,FOLLOW_93_in_ruleServiceProvider6092); 
+                    otherlv_6=(Token)match(input,111,FOLLOW_111_in_ruleServiceProvider7303); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getServiceProviderAccess().getSourceUnitsKeyword_4_0());
                         
-                    otherlv_7=(Token)match(input,47,FOLLOW_47_in_ruleServiceProvider6104); 
+                    otherlv_7=(Token)match(input,65,FOLLOW_65_in_ruleServiceProvider7315); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getServiceProviderAccess().getLeftCurlyBracketKeyword_4_1());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2881:1: ( (otherlv_8= RULE_ID ) )+
-                    int cnt79=0;
-                    loop79:
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3399:1: ( (otherlv_8= RULE_ID ) )+
+                    int cnt87=0;
+                    loop87:
                     do {
-                        int alt79=2;
-                        int LA79_0 = input.LA(1);
+                        int alt87=2;
+                        int LA87_0 = input.LA(1);
 
-                        if ( (LA79_0==RULE_ID) ) {
-                            alt79=1;
+                        if ( (LA87_0==RULE_ID) ) {
+                            alt87=1;
                         }
 
 
-                        switch (alt79) {
+                        switch (alt87) {
                     	case 1 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2882:1: (otherlv_8= RULE_ID )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3400:1: (otherlv_8= RULE_ID )
                     	    {
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2882:1: (otherlv_8= RULE_ID )
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2883:3: otherlv_8= RULE_ID
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3400:1: (otherlv_8= RULE_ID )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3401:3: otherlv_8= RULE_ID
                     	    {
 
                     	    			if (current==null) {
                     	    	            current = createModelElement(grammarAccess.getServiceProviderRule());
                     	    	        }
                     	            
-                    	    otherlv_8=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleServiceProvider6124); 
+                    	    otherlv_8=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleServiceProvider7335); 
 
                     	    		newLeafNode(otherlv_8, grammarAccess.getServiceProviderAccess().getSourceUnitsServiceProviderCrossReference_4_2_0()); 
                     	    	
@@ -7005,15 +8181,15 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt79 >= 1 ) break loop79;
+                    	    if ( cnt87 >= 1 ) break loop87;
                                 EarlyExitException eee =
-                                    new EarlyExitException(79, input);
+                                    new EarlyExitException(87, input);
                                 throw eee;
                         }
-                        cnt79++;
+                        cnt87++;
                     } while (true);
 
-                    otherlv_9=(Token)match(input,48,FOLLOW_48_in_ruleServiceProvider6137); 
+                    otherlv_9=(Token)match(input,68,FOLLOW_68_in_ruleServiceProvider7348); 
 
                         	newLeafNode(otherlv_9, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_4_3());
                         
@@ -7023,50 +8199,50 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2898:3: (otherlv_10= 'TargetUnits' otherlv_11= '{' ( (otherlv_12= RULE_ID ) )+ otherlv_13= '}' )?
-            int alt82=2;
-            int LA82_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3416:3: (otherlv_10= 'TargetUnits' otherlv_11= '{' ( (otherlv_12= RULE_ID ) )+ otherlv_13= '}' )?
+            int alt90=2;
+            int LA90_0 = input.LA(1);
 
-            if ( (LA82_0==75) ) {
-                alt82=1;
+            if ( (LA90_0==96) ) {
+                alt90=1;
             }
-            switch (alt82) {
+            switch (alt90) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2898:5: otherlv_10= 'TargetUnits' otherlv_11= '{' ( (otherlv_12= RULE_ID ) )+ otherlv_13= '}'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3416:5: otherlv_10= 'TargetUnits' otherlv_11= '{' ( (otherlv_12= RULE_ID ) )+ otherlv_13= '}'
                     {
-                    otherlv_10=(Token)match(input,75,FOLLOW_75_in_ruleServiceProvider6152); 
+                    otherlv_10=(Token)match(input,96,FOLLOW_96_in_ruleServiceProvider7363); 
 
                         	newLeafNode(otherlv_10, grammarAccess.getServiceProviderAccess().getTargetUnitsKeyword_5_0());
                         
-                    otherlv_11=(Token)match(input,47,FOLLOW_47_in_ruleServiceProvider6164); 
+                    otherlv_11=(Token)match(input,65,FOLLOW_65_in_ruleServiceProvider7375); 
 
                         	newLeafNode(otherlv_11, grammarAccess.getServiceProviderAccess().getLeftCurlyBracketKeyword_5_1());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2906:1: ( (otherlv_12= RULE_ID ) )+
-                    int cnt81=0;
-                    loop81:
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3424:1: ( (otherlv_12= RULE_ID ) )+
+                    int cnt89=0;
+                    loop89:
                     do {
-                        int alt81=2;
-                        int LA81_0 = input.LA(1);
+                        int alt89=2;
+                        int LA89_0 = input.LA(1);
 
-                        if ( (LA81_0==RULE_ID) ) {
-                            alt81=1;
+                        if ( (LA89_0==RULE_ID) ) {
+                            alt89=1;
                         }
 
 
-                        switch (alt81) {
+                        switch (alt89) {
                     	case 1 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2907:1: (otherlv_12= RULE_ID )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3425:1: (otherlv_12= RULE_ID )
                     	    {
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2907:1: (otherlv_12= RULE_ID )
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2908:3: otherlv_12= RULE_ID
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3425:1: (otherlv_12= RULE_ID )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3426:3: otherlv_12= RULE_ID
                     	    {
 
                     	    			if (current==null) {
                     	    	            current = createModelElement(grammarAccess.getServiceProviderRule());
                     	    	        }
                     	            
-                    	    otherlv_12=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleServiceProvider6184); 
+                    	    otherlv_12=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleServiceProvider7395); 
 
                     	    		newLeafNode(otherlv_12, grammarAccess.getServiceProviderAccess().getTargetUnitsServiceProviderCrossReference_5_2_0()); 
                     	    	
@@ -7078,15 +8254,15 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt81 >= 1 ) break loop81;
+                    	    if ( cnt89 >= 1 ) break loop89;
                                 EarlyExitException eee =
-                                    new EarlyExitException(81, input);
+                                    new EarlyExitException(89, input);
                                 throw eee;
                         }
-                        cnt81++;
+                        cnt89++;
                     } while (true);
 
-                    otherlv_13=(Token)match(input,48,FOLLOW_48_in_ruleServiceProvider6197); 
+                    otherlv_13=(Token)match(input,68,FOLLOW_68_in_ruleServiceProvider7408); 
 
                         	newLeafNode(otherlv_13, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_5_3());
                         
@@ -7096,50 +8272,50 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2923:3: (otherlv_14= 'SubordinateUnits' otherlv_15= '{' ( (otherlv_16= RULE_ID ) )+ otherlv_17= '}' )?
-            int alt84=2;
-            int LA84_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3441:3: (otherlv_14= 'SubordinateUnits' otherlv_15= '{' ( (otherlv_16= RULE_ID ) )+ otherlv_17= '}' )?
+            int alt92=2;
+            int LA92_0 = input.LA(1);
 
-            if ( (LA84_0==94) ) {
-                alt84=1;
+            if ( (LA92_0==112) ) {
+                alt92=1;
             }
-            switch (alt84) {
+            switch (alt92) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2923:5: otherlv_14= 'SubordinateUnits' otherlv_15= '{' ( (otherlv_16= RULE_ID ) )+ otherlv_17= '}'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3441:5: otherlv_14= 'SubordinateUnits' otherlv_15= '{' ( (otherlv_16= RULE_ID ) )+ otherlv_17= '}'
                     {
-                    otherlv_14=(Token)match(input,94,FOLLOW_94_in_ruleServiceProvider6212); 
+                    otherlv_14=(Token)match(input,112,FOLLOW_112_in_ruleServiceProvider7423); 
 
                         	newLeafNode(otherlv_14, grammarAccess.getServiceProviderAccess().getSubordinateUnitsKeyword_6_0());
                         
-                    otherlv_15=(Token)match(input,47,FOLLOW_47_in_ruleServiceProvider6224); 
+                    otherlv_15=(Token)match(input,65,FOLLOW_65_in_ruleServiceProvider7435); 
 
                         	newLeafNode(otherlv_15, grammarAccess.getServiceProviderAccess().getLeftCurlyBracketKeyword_6_1());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2931:1: ( (otherlv_16= RULE_ID ) )+
-                    int cnt83=0;
-                    loop83:
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3449:1: ( (otherlv_16= RULE_ID ) )+
+                    int cnt91=0;
+                    loop91:
                     do {
-                        int alt83=2;
-                        int LA83_0 = input.LA(1);
+                        int alt91=2;
+                        int LA91_0 = input.LA(1);
 
-                        if ( (LA83_0==RULE_ID) ) {
-                            alt83=1;
+                        if ( (LA91_0==RULE_ID) ) {
+                            alt91=1;
                         }
 
 
-                        switch (alt83) {
+                        switch (alt91) {
                     	case 1 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2932:1: (otherlv_16= RULE_ID )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3450:1: (otherlv_16= RULE_ID )
                     	    {
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2932:1: (otherlv_16= RULE_ID )
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2933:3: otherlv_16= RULE_ID
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3450:1: (otherlv_16= RULE_ID )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3451:3: otherlv_16= RULE_ID
                     	    {
 
                     	    			if (current==null) {
                     	    	            current = createModelElement(grammarAccess.getServiceProviderRule());
                     	    	        }
                     	            
-                    	    otherlv_16=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleServiceProvider6244); 
+                    	    otherlv_16=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleServiceProvider7455); 
 
                     	    		newLeafNode(otherlv_16, grammarAccess.getServiceProviderAccess().getSubordinateUnitsServiceProviderCrossReference_6_2_0()); 
                     	    	
@@ -7151,15 +8327,15 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt83 >= 1 ) break loop83;
+                    	    if ( cnt91 >= 1 ) break loop91;
                                 EarlyExitException eee =
-                                    new EarlyExitException(83, input);
+                                    new EarlyExitException(91, input);
                                 throw eee;
                         }
-                        cnt83++;
+                        cnt91++;
                     } while (true);
 
-                    otherlv_17=(Token)match(input,48,FOLLOW_48_in_ruleServiceProvider6257); 
+                    otherlv_17=(Token)match(input,68,FOLLOW_68_in_ruleServiceProvider7468); 
 
                         	newLeafNode(otherlv_17, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_6_3());
                         
@@ -7169,48 +8345,48 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2948:3: (otherlv_18= 'Services' otherlv_19= '{' ( (lv_services_20_0= ruleService ) )+ otherlv_21= '}' )?
-            int alt86=2;
-            int LA86_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3466:3: (otherlv_18= 'Services' otherlv_19= '{' ( (lv_services_20_0= ruleService ) )+ otherlv_21= '}' )?
+            int alt94=2;
+            int LA94_0 = input.LA(1);
 
-            if ( (LA86_0==95) ) {
-                alt86=1;
+            if ( (LA94_0==113) ) {
+                alt94=1;
             }
-            switch (alt86) {
+            switch (alt94) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2948:5: otherlv_18= 'Services' otherlv_19= '{' ( (lv_services_20_0= ruleService ) )+ otherlv_21= '}'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3466:5: otherlv_18= 'Services' otherlv_19= '{' ( (lv_services_20_0= ruleService ) )+ otherlv_21= '}'
                     {
-                    otherlv_18=(Token)match(input,95,FOLLOW_95_in_ruleServiceProvider6272); 
+                    otherlv_18=(Token)match(input,113,FOLLOW_113_in_ruleServiceProvider7483); 
 
                         	newLeafNode(otherlv_18, grammarAccess.getServiceProviderAccess().getServicesKeyword_7_0());
                         
-                    otherlv_19=(Token)match(input,47,FOLLOW_47_in_ruleServiceProvider6284); 
+                    otherlv_19=(Token)match(input,65,FOLLOW_65_in_ruleServiceProvider7495); 
 
                         	newLeafNode(otherlv_19, grammarAccess.getServiceProviderAccess().getLeftCurlyBracketKeyword_7_1());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2956:1: ( (lv_services_20_0= ruleService ) )+
-                    int cnt85=0;
-                    loop85:
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3474:1: ( (lv_services_20_0= ruleService ) )+
+                    int cnt93=0;
+                    loop93:
                     do {
-                        int alt85=2;
-                        int LA85_0 = input.LA(1);
+                        int alt93=2;
+                        int LA93_0 = input.LA(1);
 
-                        if ( (LA85_0==89) ) {
-                            alt85=1;
+                        if ( (LA93_0==98) ) {
+                            alt93=1;
                         }
 
 
-                        switch (alt85) {
+                        switch (alt93) {
                     	case 1 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2957:1: (lv_services_20_0= ruleService )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3475:1: (lv_services_20_0= ruleService )
                     	    {
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2957:1: (lv_services_20_0= ruleService )
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2958:3: lv_services_20_0= ruleService
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3475:1: (lv_services_20_0= ruleService )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3476:3: lv_services_20_0= ruleService
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getServiceProviderAccess().getServicesServiceParserRuleCall_7_2_0()); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleService_in_ruleServiceProvider6305);
+                    	    pushFollow(FOLLOW_ruleService_in_ruleServiceProvider7516);
                     	    lv_services_20_0=ruleService();
 
                     	    state._fsp--;
@@ -7234,15 +8410,15 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt85 >= 1 ) break loop85;
+                    	    if ( cnt93 >= 1 ) break loop93;
                                 EarlyExitException eee =
-                                    new EarlyExitException(85, input);
+                                    new EarlyExitException(93, input);
                                 throw eee;
                         }
-                        cnt85++;
+                        cnt93++;
                     } while (true);
 
-                    otherlv_21=(Token)match(input,48,FOLLOW_48_in_ruleServiceProvider6318); 
+                    otherlv_21=(Token)match(input,68,FOLLOW_68_in_ruleServiceProvider7529); 
 
                         	newLeafNode(otherlv_21, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_7_3());
                         
@@ -7252,43 +8428,39 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2978:3: (otherlv_22= 'GovernanceSearchStrategy' otherlv_23= '{' otherlv_24= 'Default' ( (otherlv_25= RULE_ID ) ) (otherlv_26= 'Specified' otherlv_27= '{' ( (lv_acceptanceRule_28_0= ruleWIAcceptance ) )? ( (lv_selectionRule_29_0= ruleWISelection ) )? ( (lv_assignmentRule_30_0= ruleWIAssignment ) )? ( (lv_allocationRule_31_0= ruleResourceAllocation ) )? ( (lv_outsourcingRule_32_0= ruleResourceOutsourcing ) )? otherlv_33= '}' )? otherlv_34= '}' )?
-            int alt93=2;
-            int LA93_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3496:3: (otherlv_22= 'GovernanceStrategy' otherlv_23= '{' ( (otherlv_24= RULE_ID ) ) otherlv_25= '}' )?
+            int alt95=2;
+            int LA95_0 = input.LA(1);
 
-            if ( (LA93_0==96) ) {
-                alt93=1;
+            if ( (LA95_0==87) ) {
+                alt95=1;
             }
-            switch (alt93) {
+            switch (alt95) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2978:5: otherlv_22= 'GovernanceSearchStrategy' otherlv_23= '{' otherlv_24= 'Default' ( (otherlv_25= RULE_ID ) ) (otherlv_26= 'Specified' otherlv_27= '{' ( (lv_acceptanceRule_28_0= ruleWIAcceptance ) )? ( (lv_selectionRule_29_0= ruleWISelection ) )? ( (lv_assignmentRule_30_0= ruleWIAssignment ) )? ( (lv_allocationRule_31_0= ruleResourceAllocation ) )? ( (lv_outsourcingRule_32_0= ruleResourceOutsourcing ) )? otherlv_33= '}' )? otherlv_34= '}'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3496:5: otherlv_22= 'GovernanceStrategy' otherlv_23= '{' ( (otherlv_24= RULE_ID ) ) otherlv_25= '}'
                     {
-                    otherlv_22=(Token)match(input,96,FOLLOW_96_in_ruleServiceProvider6333); 
+                    otherlv_22=(Token)match(input,87,FOLLOW_87_in_ruleServiceProvider7544); 
 
-                        	newLeafNode(otherlv_22, grammarAccess.getServiceProviderAccess().getGovernanceSearchStrategyKeyword_8_0());
+                        	newLeafNode(otherlv_22, grammarAccess.getServiceProviderAccess().getGovernanceStrategyKeyword_8_0());
                         
-                    otherlv_23=(Token)match(input,47,FOLLOW_47_in_ruleServiceProvider6345); 
+                    otherlv_23=(Token)match(input,65,FOLLOW_65_in_ruleServiceProvider7556); 
 
                         	newLeafNode(otherlv_23, grammarAccess.getServiceProviderAccess().getLeftCurlyBracketKeyword_8_1());
                         
-                    otherlv_24=(Token)match(input,97,FOLLOW_97_in_ruleServiceProvider6357); 
-
-                        	newLeafNode(otherlv_24, grammarAccess.getServiceProviderAccess().getDefaultKeyword_8_2());
-                        
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2990:1: ( (otherlv_25= RULE_ID ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2991:1: (otherlv_25= RULE_ID )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3504:1: ( (otherlv_24= RULE_ID ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3505:1: (otherlv_24= RULE_ID )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2991:1: (otherlv_25= RULE_ID )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:2992:3: otherlv_25= RULE_ID
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3505:1: (otherlv_24= RULE_ID )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3506:3: otherlv_24= RULE_ID
                     {
 
                     			if (current==null) {
                     	            current = createModelElement(grammarAccess.getServiceProviderRule());
                     	        }
                             
-                    otherlv_25=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleServiceProvider6377); 
+                    otherlv_24=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleServiceProvider7576); 
 
-                    		newLeafNode(otherlv_25, grammarAccess.getServiceProviderAccess().getDefaultStrategyStrategyCrossReference_8_3_0()); 
+                    		newLeafNode(otherlv_24, grammarAccess.getServiceProviderAccess().getGovernanceStrategyGovernanceStrategyCrossReference_8_2_0()); 
                     	
 
                     }
@@ -7296,248 +8468,9 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3003:2: (otherlv_26= 'Specified' otherlv_27= '{' ( (lv_acceptanceRule_28_0= ruleWIAcceptance ) )? ( (lv_selectionRule_29_0= ruleWISelection ) )? ( (lv_assignmentRule_30_0= ruleWIAssignment ) )? ( (lv_allocationRule_31_0= ruleResourceAllocation ) )? ( (lv_outsourcingRule_32_0= ruleResourceOutsourcing ) )? otherlv_33= '}' )?
-                    int alt92=2;
-                    int LA92_0 = input.LA(1);
+                    otherlv_25=(Token)match(input,68,FOLLOW_68_in_ruleServiceProvider7588); 
 
-                    if ( (LA92_0==98) ) {
-                        alt92=1;
-                    }
-                    switch (alt92) {
-                        case 1 :
-                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3003:4: otherlv_26= 'Specified' otherlv_27= '{' ( (lv_acceptanceRule_28_0= ruleWIAcceptance ) )? ( (lv_selectionRule_29_0= ruleWISelection ) )? ( (lv_assignmentRule_30_0= ruleWIAssignment ) )? ( (lv_allocationRule_31_0= ruleResourceAllocation ) )? ( (lv_outsourcingRule_32_0= ruleResourceOutsourcing ) )? otherlv_33= '}'
-                            {
-                            otherlv_26=(Token)match(input,98,FOLLOW_98_in_ruleServiceProvider6390); 
-
-                                	newLeafNode(otherlv_26, grammarAccess.getServiceProviderAccess().getSpecifiedKeyword_8_4_0());
-                                
-                            otherlv_27=(Token)match(input,47,FOLLOW_47_in_ruleServiceProvider6402); 
-
-                                	newLeafNode(otherlv_27, grammarAccess.getServiceProviderAccess().getLeftCurlyBracketKeyword_8_4_1());
-                                
-                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3011:1: ( (lv_acceptanceRule_28_0= ruleWIAcceptance ) )?
-                            int alt87=2;
-                            int LA87_0 = input.LA(1);
-
-                            if ( (LA87_0==67) ) {
-                                alt87=1;
-                            }
-                            switch (alt87) {
-                                case 1 :
-                                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3012:1: (lv_acceptanceRule_28_0= ruleWIAcceptance )
-                                    {
-                                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3012:1: (lv_acceptanceRule_28_0= ruleWIAcceptance )
-                                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3013:3: lv_acceptanceRule_28_0= ruleWIAcceptance
-                                    {
-                                     
-                                    	        newCompositeNode(grammarAccess.getServiceProviderAccess().getAcceptanceRuleWIAcceptanceParserRuleCall_8_4_2_0()); 
-                                    	    
-                                    pushFollow(FOLLOW_ruleWIAcceptance_in_ruleServiceProvider6423);
-                                    lv_acceptanceRule_28_0=ruleWIAcceptance();
-
-                                    state._fsp--;
-
-
-                                    	        if (current==null) {
-                                    	            current = createModelElementForParent(grammarAccess.getServiceProviderRule());
-                                    	        }
-                                           		set(
-                                           			current, 
-                                           			"acceptanceRule",
-                                            		lv_acceptanceRule_28_0, 
-                                            		"WIAcceptance");
-                                    	        afterParserOrEnumRuleCall();
-                                    	    
-
-                                    }
-
-
-                                    }
-                                    break;
-
-                            }
-
-                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3029:3: ( (lv_selectionRule_29_0= ruleWISelection ) )?
-                            int alt88=2;
-                            int LA88_0 = input.LA(1);
-
-                            if ( (LA88_0==70) ) {
-                                alt88=1;
-                            }
-                            switch (alt88) {
-                                case 1 :
-                                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3030:1: (lv_selectionRule_29_0= ruleWISelection )
-                                    {
-                                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3030:1: (lv_selectionRule_29_0= ruleWISelection )
-                                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3031:3: lv_selectionRule_29_0= ruleWISelection
-                                    {
-                                     
-                                    	        newCompositeNode(grammarAccess.getServiceProviderAccess().getSelectionRuleWISelectionParserRuleCall_8_4_3_0()); 
-                                    	    
-                                    pushFollow(FOLLOW_ruleWISelection_in_ruleServiceProvider6445);
-                                    lv_selectionRule_29_0=ruleWISelection();
-
-                                    state._fsp--;
-
-
-                                    	        if (current==null) {
-                                    	            current = createModelElementForParent(grammarAccess.getServiceProviderRule());
-                                    	        }
-                                           		set(
-                                           			current, 
-                                           			"selectionRule",
-                                            		lv_selectionRule_29_0, 
-                                            		"WISelection");
-                                    	        afterParserOrEnumRuleCall();
-                                    	    
-
-                                    }
-
-
-                                    }
-                                    break;
-
-                            }
-
-                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3047:3: ( (lv_assignmentRule_30_0= ruleWIAssignment ) )?
-                            int alt89=2;
-                            int LA89_0 = input.LA(1);
-
-                            if ( (LA89_0==71) ) {
-                                alt89=1;
-                            }
-                            switch (alt89) {
-                                case 1 :
-                                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3048:1: (lv_assignmentRule_30_0= ruleWIAssignment )
-                                    {
-                                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3048:1: (lv_assignmentRule_30_0= ruleWIAssignment )
-                                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3049:3: lv_assignmentRule_30_0= ruleWIAssignment
-                                    {
-                                     
-                                    	        newCompositeNode(grammarAccess.getServiceProviderAccess().getAssignmentRuleWIAssignmentParserRuleCall_8_4_4_0()); 
-                                    	    
-                                    pushFollow(FOLLOW_ruleWIAssignment_in_ruleServiceProvider6467);
-                                    lv_assignmentRule_30_0=ruleWIAssignment();
-
-                                    state._fsp--;
-
-
-                                    	        if (current==null) {
-                                    	            current = createModelElementForParent(grammarAccess.getServiceProviderRule());
-                                    	        }
-                                           		set(
-                                           			current, 
-                                           			"assignmentRule",
-                                            		lv_assignmentRule_30_0, 
-                                            		"WIAssignment");
-                                    	        afterParserOrEnumRuleCall();
-                                    	    
-
-                                    }
-
-
-                                    }
-                                    break;
-
-                            }
-
-                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3065:3: ( (lv_allocationRule_31_0= ruleResourceAllocation ) )?
-                            int alt90=2;
-                            int LA90_0 = input.LA(1);
-
-                            if ( (LA90_0==72) ) {
-                                alt90=1;
-                            }
-                            switch (alt90) {
-                                case 1 :
-                                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3066:1: (lv_allocationRule_31_0= ruleResourceAllocation )
-                                    {
-                                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3066:1: (lv_allocationRule_31_0= ruleResourceAllocation )
-                                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3067:3: lv_allocationRule_31_0= ruleResourceAllocation
-                                    {
-                                     
-                                    	        newCompositeNode(grammarAccess.getServiceProviderAccess().getAllocationRuleResourceAllocationParserRuleCall_8_4_5_0()); 
-                                    	    
-                                    pushFollow(FOLLOW_ruleResourceAllocation_in_ruleServiceProvider6489);
-                                    lv_allocationRule_31_0=ruleResourceAllocation();
-
-                                    state._fsp--;
-
-
-                                    	        if (current==null) {
-                                    	            current = createModelElementForParent(grammarAccess.getServiceProviderRule());
-                                    	        }
-                                           		set(
-                                           			current, 
-                                           			"allocationRule",
-                                            		lv_allocationRule_31_0, 
-                                            		"ResourceAllocation");
-                                    	        afterParserOrEnumRuleCall();
-                                    	    
-
-                                    }
-
-
-                                    }
-                                    break;
-
-                            }
-
-                            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3083:3: ( (lv_outsourcingRule_32_0= ruleResourceOutsourcing ) )?
-                            int alt91=2;
-                            int LA91_0 = input.LA(1);
-
-                            if ( (LA91_0==73) ) {
-                                alt91=1;
-                            }
-                            switch (alt91) {
-                                case 1 :
-                                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3084:1: (lv_outsourcingRule_32_0= ruleResourceOutsourcing )
-                                    {
-                                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3084:1: (lv_outsourcingRule_32_0= ruleResourceOutsourcing )
-                                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3085:3: lv_outsourcingRule_32_0= ruleResourceOutsourcing
-                                    {
-                                     
-                                    	        newCompositeNode(grammarAccess.getServiceProviderAccess().getOutsourcingRuleResourceOutsourcingParserRuleCall_8_4_6_0()); 
-                                    	    
-                                    pushFollow(FOLLOW_ruleResourceOutsourcing_in_ruleServiceProvider6511);
-                                    lv_outsourcingRule_32_0=ruleResourceOutsourcing();
-
-                                    state._fsp--;
-
-
-                                    	        if (current==null) {
-                                    	            current = createModelElementForParent(grammarAccess.getServiceProviderRule());
-                                    	        }
-                                           		set(
-                                           			current, 
-                                           			"outsourcingRule",
-                                            		lv_outsourcingRule_32_0, 
-                                            		"ResourceOutsourcing");
-                                    	        afterParserOrEnumRuleCall();
-                                    	    
-
-                                    }
-
-
-                                    }
-                                    break;
-
-                            }
-
-                            otherlv_33=(Token)match(input,48,FOLLOW_48_in_ruleServiceProvider6524); 
-
-                                	newLeafNode(otherlv_33, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_8_4_7());
-                                
-
-                            }
-                            break;
-
-                    }
-
-                    otherlv_34=(Token)match(input,48,FOLLOW_48_in_ruleServiceProvider6538); 
-
-                        	newLeafNode(otherlv_34, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_8_5());
+                        	newLeafNode(otherlv_25, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_8_3());
                         
 
                     }
@@ -7545,49 +8478,49 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3109:3: (otherlv_35= 'Resources' otherlv_36= '{' ( (lv_resources_37_0= ruleAsset ) )+ otherlv_38= '}' )?
-            int alt95=2;
-            int LA95_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3521:3: (otherlv_26= 'Resources' otherlv_27= '{' ( (lv_resources_28_0= ruleAsset ) )+ otherlv_29= '}' )?
+            int alt97=2;
+            int LA97_0 = input.LA(1);
 
-            if ( (LA95_0==99) ) {
-                alt95=1;
+            if ( (LA97_0==114) ) {
+                alt97=1;
             }
-            switch (alt95) {
+            switch (alt97) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3109:5: otherlv_35= 'Resources' otherlv_36= '{' ( (lv_resources_37_0= ruleAsset ) )+ otherlv_38= '}'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3521:5: otherlv_26= 'Resources' otherlv_27= '{' ( (lv_resources_28_0= ruleAsset ) )+ otherlv_29= '}'
                     {
-                    otherlv_35=(Token)match(input,99,FOLLOW_99_in_ruleServiceProvider6553); 
+                    otherlv_26=(Token)match(input,114,FOLLOW_114_in_ruleServiceProvider7603); 
 
-                        	newLeafNode(otherlv_35, grammarAccess.getServiceProviderAccess().getResourcesKeyword_9_0());
+                        	newLeafNode(otherlv_26, grammarAccess.getServiceProviderAccess().getResourcesKeyword_9_0());
                         
-                    otherlv_36=(Token)match(input,47,FOLLOW_47_in_ruleServiceProvider6565); 
+                    otherlv_27=(Token)match(input,65,FOLLOW_65_in_ruleServiceProvider7615); 
 
-                        	newLeafNode(otherlv_36, grammarAccess.getServiceProviderAccess().getLeftCurlyBracketKeyword_9_1());
+                        	newLeafNode(otherlv_27, grammarAccess.getServiceProviderAccess().getLeftCurlyBracketKeyword_9_1());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3117:1: ( (lv_resources_37_0= ruleAsset ) )+
-                    int cnt94=0;
-                    loop94:
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3529:1: ( (lv_resources_28_0= ruleAsset ) )+
+                    int cnt96=0;
+                    loop96:
                     do {
-                        int alt94=2;
-                        int LA94_0 = input.LA(1);
+                        int alt96=2;
+                        int LA96_0 = input.LA(1);
 
-                        if ( (LA94_0==100) ) {
-                            alt94=1;
+                        if ( (LA96_0==115) ) {
+                            alt96=1;
                         }
 
 
-                        switch (alt94) {
+                        switch (alt96) {
                     	case 1 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3118:1: (lv_resources_37_0= ruleAsset )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3530:1: (lv_resources_28_0= ruleAsset )
                     	    {
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3118:1: (lv_resources_37_0= ruleAsset )
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3119:3: lv_resources_37_0= ruleAsset
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3530:1: (lv_resources_28_0= ruleAsset )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3531:3: lv_resources_28_0= ruleAsset
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getServiceProviderAccess().getResourcesAssetParserRuleCall_9_2_0()); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleAsset_in_ruleServiceProvider6586);
-                    	    lv_resources_37_0=ruleAsset();
+                    	    pushFollow(FOLLOW_ruleAsset_in_ruleServiceProvider7636);
+                    	    lv_resources_28_0=ruleAsset();
 
                     	    state._fsp--;
 
@@ -7598,7 +8531,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	           		add(
                     	           			current, 
                     	           			"resources",
-                    	            		lv_resources_37_0, 
+                    	            		lv_resources_28_0, 
                     	            		"Asset");
                     	    	        afterParserOrEnumRuleCall();
                     	    	    
@@ -7610,17 +8543,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt94 >= 1 ) break loop94;
+                    	    if ( cnt96 >= 1 ) break loop96;
                                 EarlyExitException eee =
-                                    new EarlyExitException(94, input);
+                                    new EarlyExitException(96, input);
                                 throw eee;
                         }
-                        cnt94++;
+                        cnt96++;
                     } while (true);
 
-                    otherlv_38=(Token)match(input,48,FOLLOW_48_in_ruleServiceProvider6599); 
+                    otherlv_29=(Token)match(input,68,FOLLOW_68_in_ruleServiceProvider7649); 
 
-                        	newLeafNode(otherlv_38, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_9_3());
+                        	newLeafNode(otherlv_29, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_9_3());
                         
 
                     }
@@ -7628,9 +8561,9 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_39=(Token)match(input,48,FOLLOW_48_in_ruleServiceProvider6613); 
+            otherlv_30=(Token)match(input,68,FOLLOW_68_in_ruleServiceProvider7663); 
 
-                	newLeafNode(otherlv_39, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_10());
+                	newLeafNode(otherlv_30, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_10());
                 
 
             }
@@ -7653,7 +8586,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAsset"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3151:1: entryRuleAsset returns [EObject current=null] : iv_ruleAsset= ruleAsset EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3563:1: entryRuleAsset returns [EObject current=null] : iv_ruleAsset= ruleAsset EOF ;
     public final EObject entryRuleAsset() throws RecognitionException {
         EObject current = null;
 
@@ -7661,17 +8594,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3152:2: (iv_ruleAsset= ruleAsset EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3153:2: iv_ruleAsset= ruleAsset EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3564:2: (iv_ruleAsset= ruleAsset EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3565:2: iv_ruleAsset= ruleAsset EOF
             {
              newCompositeNode(grammarAccess.getAssetRule()); 
-            pushFollow(FOLLOW_ruleAsset_in_entryRuleAsset6649);
+            pushFollow(FOLLOW_ruleAsset_in_entryRuleAsset7699);
             iv_ruleAsset=ruleAsset();
 
             state._fsp--;
 
              current =iv_ruleAsset; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAsset6659); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAsset7709); 
 
             }
 
@@ -7689,7 +8622,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAsset"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3160:1: ruleAsset returns [EObject current=null] : (otherlv_0= 'Resource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Quantity' ( (lv_quantity_4_0= RULE_INT ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? (otherlv_7= 'Services' otherlv_8= '{' ( (lv_services_9_0= ruleService ) )+ otherlv_10= '}' )? otherlv_11= '}' ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3572:1: ruleAsset returns [EObject current=null] : (otherlv_0= 'Resource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Quantity' ( (lv_quantity_4_0= RULE_INT ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? (otherlv_7= 'Services' otherlv_8= '{' ( (lv_services_9_0= ruleService ) )+ otherlv_10= '}' )? otherlv_11= '}' ) ;
     public final EObject ruleAsset() throws RecognitionException {
         EObject current = null;
 
@@ -7710,23 +8643,23 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3163:28: ( (otherlv_0= 'Resource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Quantity' ( (lv_quantity_4_0= RULE_INT ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? (otherlv_7= 'Services' otherlv_8= '{' ( (lv_services_9_0= ruleService ) )+ otherlv_10= '}' )? otherlv_11= '}' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3164:1: (otherlv_0= 'Resource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Quantity' ( (lv_quantity_4_0= RULE_INT ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? (otherlv_7= 'Services' otherlv_8= '{' ( (lv_services_9_0= ruleService ) )+ otherlv_10= '}' )? otherlv_11= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3575:28: ( (otherlv_0= 'Resource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Quantity' ( (lv_quantity_4_0= RULE_INT ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? (otherlv_7= 'Services' otherlv_8= '{' ( (lv_services_9_0= ruleService ) )+ otherlv_10= '}' )? otherlv_11= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3576:1: (otherlv_0= 'Resource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Quantity' ( (lv_quantity_4_0= RULE_INT ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? (otherlv_7= 'Services' otherlv_8= '{' ( (lv_services_9_0= ruleService ) )+ otherlv_10= '}' )? otherlv_11= '}' )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3164:1: (otherlv_0= 'Resource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Quantity' ( (lv_quantity_4_0= RULE_INT ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? (otherlv_7= 'Services' otherlv_8= '{' ( (lv_services_9_0= ruleService ) )+ otherlv_10= '}' )? otherlv_11= '}' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3164:3: otherlv_0= 'Resource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Quantity' ( (lv_quantity_4_0= RULE_INT ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? (otherlv_7= 'Services' otherlv_8= '{' ( (lv_services_9_0= ruleService ) )+ otherlv_10= '}' )? otherlv_11= '}'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3576:1: (otherlv_0= 'Resource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Quantity' ( (lv_quantity_4_0= RULE_INT ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? (otherlv_7= 'Services' otherlv_8= '{' ( (lv_services_9_0= ruleService ) )+ otherlv_10= '}' )? otherlv_11= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3576:3: otherlv_0= 'Resource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Quantity' ( (lv_quantity_4_0= RULE_INT ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? (otherlv_7= 'Services' otherlv_8= '{' ( (lv_services_9_0= ruleService ) )+ otherlv_10= '}' )? otherlv_11= '}'
             {
-            otherlv_0=(Token)match(input,100,FOLLOW_100_in_ruleAsset6696); 
+            otherlv_0=(Token)match(input,115,FOLLOW_115_in_ruleAsset7746); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getAssetAccess().getResourceKeyword_0());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3168:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3169:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3580:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3581:1: (lv_name_1_0= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3169:1: (lv_name_1_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3170:3: lv_name_1_0= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3581:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3582:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAsset6713); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAsset7763); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getAssetAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -7746,32 +8679,32 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,47,FOLLOW_47_in_ruleAsset6730); 
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleAsset7780); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getAssetAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3190:1: (otherlv_3= 'Quantity' ( (lv_quantity_4_0= RULE_INT ) ) )?
-            int alt96=2;
-            int LA96_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3602:1: (otherlv_3= 'Quantity' ( (lv_quantity_4_0= RULE_INT ) ) )?
+            int alt98=2;
+            int LA98_0 = input.LA(1);
 
-            if ( (LA96_0==61) ) {
-                alt96=1;
+            if ( (LA98_0==86) ) {
+                alt98=1;
             }
-            switch (alt96) {
+            switch (alt98) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3190:3: otherlv_3= 'Quantity' ( (lv_quantity_4_0= RULE_INT ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3602:3: otherlv_3= 'Quantity' ( (lv_quantity_4_0= RULE_INT ) )
                     {
-                    otherlv_3=(Token)match(input,61,FOLLOW_61_in_ruleAsset6743); 
+                    otherlv_3=(Token)match(input,86,FOLLOW_86_in_ruleAsset7793); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getAssetAccess().getQuantityKeyword_3_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3194:1: ( (lv_quantity_4_0= RULE_INT ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3195:1: (lv_quantity_4_0= RULE_INT )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3606:1: ( (lv_quantity_4_0= RULE_INT ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3607:1: (lv_quantity_4_0= RULE_INT )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3195:1: (lv_quantity_4_0= RULE_INT )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3196:3: lv_quantity_4_0= RULE_INT
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3607:1: (lv_quantity_4_0= RULE_INT )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3608:3: lv_quantity_4_0= RULE_INT
                     {
-                    lv_quantity_4_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleAsset6760); 
+                    lv_quantity_4_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleAsset7810); 
 
                     			newLeafNode(lv_quantity_4_0, grammarAccess.getAssetAccess().getQuantityINTTerminalRuleCall_3_1_0()); 
                     		
@@ -7797,28 +8730,28 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3212:4: (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )?
-            int alt97=2;
-            int LA97_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3624:4: (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )?
+            int alt99=2;
+            int LA99_0 = input.LA(1);
 
-            if ( (LA97_0==51) ) {
-                alt97=1;
+            if ( (LA99_0==66) ) {
+                alt99=1;
             }
-            switch (alt97) {
+            switch (alt99) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3212:6: otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3624:6: otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) )
                     {
-                    otherlv_5=(Token)match(input,51,FOLLOW_51_in_ruleAsset6780); 
+                    otherlv_5=(Token)match(input,66,FOLLOW_66_in_ruleAsset7830); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getAssetAccess().getDescriptionKeyword_4_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3216:1: ( (lv_description_6_0= RULE_STRING ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3217:1: (lv_description_6_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3628:1: ( (lv_description_6_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3629:1: (lv_description_6_0= RULE_STRING )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3217:1: (lv_description_6_0= RULE_STRING )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3218:3: lv_description_6_0= RULE_STRING
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3629:1: (lv_description_6_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3630:3: lv_description_6_0= RULE_STRING
                     {
-                    lv_description_6_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleAsset6797); 
+                    lv_description_6_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleAsset7847); 
 
                     			newLeafNode(lv_description_6_0, grammarAccess.getAssetAccess().getDescriptionSTRINGTerminalRuleCall_4_1_0()); 
                     		
@@ -7844,48 +8777,48 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3234:4: (otherlv_7= 'Services' otherlv_8= '{' ( (lv_services_9_0= ruleService ) )+ otherlv_10= '}' )?
-            int alt99=2;
-            int LA99_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3646:4: (otherlv_7= 'Services' otherlv_8= '{' ( (lv_services_9_0= ruleService ) )+ otherlv_10= '}' )?
+            int alt101=2;
+            int LA101_0 = input.LA(1);
 
-            if ( (LA99_0==95) ) {
-                alt99=1;
+            if ( (LA101_0==113) ) {
+                alt101=1;
             }
-            switch (alt99) {
+            switch (alt101) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3234:6: otherlv_7= 'Services' otherlv_8= '{' ( (lv_services_9_0= ruleService ) )+ otherlv_10= '}'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3646:6: otherlv_7= 'Services' otherlv_8= '{' ( (lv_services_9_0= ruleService ) )+ otherlv_10= '}'
                     {
-                    otherlv_7=(Token)match(input,95,FOLLOW_95_in_ruleAsset6817); 
+                    otherlv_7=(Token)match(input,113,FOLLOW_113_in_ruleAsset7867); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getAssetAccess().getServicesKeyword_5_0());
                         
-                    otherlv_8=(Token)match(input,47,FOLLOW_47_in_ruleAsset6829); 
+                    otherlv_8=(Token)match(input,65,FOLLOW_65_in_ruleAsset7879); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getAssetAccess().getLeftCurlyBracketKeyword_5_1());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3242:1: ( (lv_services_9_0= ruleService ) )+
-                    int cnt98=0;
-                    loop98:
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3654:1: ( (lv_services_9_0= ruleService ) )+
+                    int cnt100=0;
+                    loop100:
                     do {
-                        int alt98=2;
-                        int LA98_0 = input.LA(1);
+                        int alt100=2;
+                        int LA100_0 = input.LA(1);
 
-                        if ( (LA98_0==89) ) {
-                            alt98=1;
+                        if ( (LA100_0==98) ) {
+                            alt100=1;
                         }
 
 
-                        switch (alt98) {
+                        switch (alt100) {
                     	case 1 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3243:1: (lv_services_9_0= ruleService )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3655:1: (lv_services_9_0= ruleService )
                     	    {
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3243:1: (lv_services_9_0= ruleService )
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3244:3: lv_services_9_0= ruleService
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3655:1: (lv_services_9_0= ruleService )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3656:3: lv_services_9_0= ruleService
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getAssetAccess().getServicesServiceParserRuleCall_5_2_0()); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleService_in_ruleAsset6850);
+                    	    pushFollow(FOLLOW_ruleService_in_ruleAsset7900);
                     	    lv_services_9_0=ruleService();
 
                     	    state._fsp--;
@@ -7909,15 +8842,15 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt98 >= 1 ) break loop98;
+                    	    if ( cnt100 >= 1 ) break loop100;
                                 EarlyExitException eee =
-                                    new EarlyExitException(98, input);
+                                    new EarlyExitException(100, input);
                                 throw eee;
                         }
-                        cnt98++;
+                        cnt100++;
                     } while (true);
 
-                    otherlv_10=(Token)match(input,48,FOLLOW_48_in_ruleAsset6863); 
+                    otherlv_10=(Token)match(input,68,FOLLOW_68_in_ruleAsset7913); 
 
                         	newLeafNode(otherlv_10, grammarAccess.getAssetAccess().getRightCurlyBracketKeyword_5_3());
                         
@@ -7927,7 +8860,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_11=(Token)match(input,48,FOLLOW_48_in_ruleAsset6877); 
+            otherlv_11=(Token)match(input,68,FOLLOW_68_in_ruleAsset7927); 
 
                 	newLeafNode(otherlv_11, grammarAccess.getAssetAccess().getRightCurlyBracketKeyword_6());
                 
@@ -7952,7 +8885,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCapability"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3278:1: entryRuleCapability returns [EObject current=null] : iv_ruleCapability= ruleCapability EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3692:1: entryRuleCapability returns [EObject current=null] : iv_ruleCapability= ruleCapability EOF ;
     public final EObject entryRuleCapability() throws RecognitionException {
         EObject current = null;
 
@@ -7960,17 +8893,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3279:2: (iv_ruleCapability= ruleCapability EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3280:2: iv_ruleCapability= ruleCapability EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3693:2: (iv_ruleCapability= ruleCapability EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3694:2: iv_ruleCapability= ruleCapability EOF
             {
              newCompositeNode(grammarAccess.getCapabilityRule()); 
-            pushFollow(FOLLOW_ruleCapability_in_entryRuleCapability6915);
+            pushFollow(FOLLOW_ruleCapability_in_entryRuleCapability7967);
             iv_ruleCapability=ruleCapability();
 
             state._fsp--;
 
              current =iv_ruleCapability; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCapability6925); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCapability7977); 
 
             }
 
@@ -7988,7 +8921,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCapability"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3287:1: ruleCapability returns [EObject current=null] : (otherlv_0= 'capability' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? ( (lv_reqs_5_0= ruleRequirement ) )+ otherlv_6= '}' ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3701:1: ruleCapability returns [EObject current=null] : (otherlv_0= 'capability' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? ( (lv_reqs_5_0= ruleRequirement ) )+ otherlv_6= '}' ) ;
     public final EObject ruleCapability() throws RecognitionException {
         EObject current = null;
 
@@ -8004,23 +8937,23 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3290:28: ( (otherlv_0= 'capability' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? ( (lv_reqs_5_0= ruleRequirement ) )+ otherlv_6= '}' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3291:1: (otherlv_0= 'capability' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? ( (lv_reqs_5_0= ruleRequirement ) )+ otherlv_6= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3704:28: ( (otherlv_0= 'capability' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? ( (lv_reqs_5_0= ruleRequirement ) )+ otherlv_6= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3705:1: (otherlv_0= 'capability' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? ( (lv_reqs_5_0= ruleRequirement ) )+ otherlv_6= '}' )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3291:1: (otherlv_0= 'capability' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? ( (lv_reqs_5_0= ruleRequirement ) )+ otherlv_6= '}' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3291:3: otherlv_0= 'capability' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? ( (lv_reqs_5_0= ruleRequirement ) )+ otherlv_6= '}'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3705:1: (otherlv_0= 'capability' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? ( (lv_reqs_5_0= ruleRequirement ) )+ otherlv_6= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3705:3: otherlv_0= 'capability' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? ( (lv_reqs_5_0= ruleRequirement ) )+ otherlv_6= '}'
             {
-            otherlv_0=(Token)match(input,101,FOLLOW_101_in_ruleCapability6962); 
+            otherlv_0=(Token)match(input,116,FOLLOW_116_in_ruleCapability8014); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getCapabilityAccess().getCapabilityKeyword_0());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3295:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3296:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3709:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3710:1: (lv_name_1_0= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3296:1: (lv_name_1_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3297:3: lv_name_1_0= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3710:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3711:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCapability6979); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCapability8031); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getCapabilityAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -8040,32 +8973,32 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,47,FOLLOW_47_in_ruleCapability6996); 
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleCapability8048); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getCapabilityAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3317:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
-            int alt100=2;
-            int LA100_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3731:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
+            int alt102=2;
+            int LA102_0 = input.LA(1);
 
-            if ( (LA100_0==51) ) {
-                alt100=1;
+            if ( (LA102_0==66) ) {
+                alt102=1;
             }
-            switch (alt100) {
+            switch (alt102) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3317:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3731:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
                     {
-                    otherlv_3=(Token)match(input,51,FOLLOW_51_in_ruleCapability7009); 
+                    otherlv_3=(Token)match(input,66,FOLLOW_66_in_ruleCapability8061); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getCapabilityAccess().getDescriptionKeyword_3_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3321:1: ( (lv_description_4_0= RULE_STRING ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3322:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3735:1: ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3736:1: (lv_description_4_0= RULE_STRING )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3322:1: (lv_description_4_0= RULE_STRING )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3323:3: lv_description_4_0= RULE_STRING
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3736:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3737:3: lv_description_4_0= RULE_STRING
                     {
-                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleCapability7026); 
+                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleCapability8078); 
 
                     			newLeafNode(lv_description_4_0, grammarAccess.getCapabilityAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
                     		
@@ -8091,29 +9024,29 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3339:4: ( (lv_reqs_5_0= ruleRequirement ) )+
-            int cnt101=0;
-            loop101:
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3753:4: ( (lv_reqs_5_0= ruleRequirement ) )+
+            int cnt103=0;
+            loop103:
             do {
-                int alt101=2;
-                int LA101_0 = input.LA(1);
+                int alt103=2;
+                int LA103_0 = input.LA(1);
 
-                if ( (LA101_0==102) ) {
-                    alt101=1;
+                if ( (LA103_0==117) ) {
+                    alt103=1;
                 }
 
 
-                switch (alt101) {
+                switch (alt103) {
             	case 1 :
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3340:1: (lv_reqs_5_0= ruleRequirement )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3754:1: (lv_reqs_5_0= ruleRequirement )
             	    {
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3340:1: (lv_reqs_5_0= ruleRequirement )
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3341:3: lv_reqs_5_0= ruleRequirement
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3754:1: (lv_reqs_5_0= ruleRequirement )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3755:3: lv_reqs_5_0= ruleRequirement
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getCapabilityAccess().getReqsRequirementParserRuleCall_4_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleRequirement_in_ruleCapability7054);
+            	    pushFollow(FOLLOW_ruleRequirement_in_ruleCapability8106);
             	    lv_reqs_5_0=ruleRequirement();
 
             	    state._fsp--;
@@ -8137,15 +9070,15 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt101 >= 1 ) break loop101;
+            	    if ( cnt103 >= 1 ) break loop103;
                         EarlyExitException eee =
-                            new EarlyExitException(101, input);
+                            new EarlyExitException(103, input);
                         throw eee;
                 }
-                cnt101++;
+                cnt103++;
             } while (true);
 
-            otherlv_6=(Token)match(input,48,FOLLOW_48_in_ruleCapability7067); 
+            otherlv_6=(Token)match(input,68,FOLLOW_68_in_ruleCapability8119); 
 
                 	newLeafNode(otherlv_6, grammarAccess.getCapabilityAccess().getRightCurlyBracketKeyword_5());
                 
@@ -8170,7 +9103,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRequirement"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3369:1: entryRuleRequirement returns [EObject current=null] : iv_ruleRequirement= ruleRequirement EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3783:1: entryRuleRequirement returns [EObject current=null] : iv_ruleRequirement= ruleRequirement EOF ;
     public final EObject entryRuleRequirement() throws RecognitionException {
         EObject current = null;
 
@@ -8178,17 +9111,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3370:2: (iv_ruleRequirement= ruleRequirement EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3371:2: iv_ruleRequirement= ruleRequirement EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3784:2: (iv_ruleRequirement= ruleRequirement EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3785:2: iv_ruleRequirement= ruleRequirement EOF
             {
              newCompositeNode(grammarAccess.getRequirementRule()); 
-            pushFollow(FOLLOW_ruleRequirement_in_entryRuleRequirement7103);
+            pushFollow(FOLLOW_ruleRequirement_in_entryRuleRequirement8155);
             iv_ruleRequirement=ruleRequirement();
 
             state._fsp--;
 
              current =iv_ruleRequirement; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRequirement7113); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRequirement8165); 
 
             }
 
@@ -8206,7 +9139,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRequirement"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3378:1: ruleRequirement returns [EObject current=null] : (otherlv_0= 'requirement' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'workItems' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' ) (otherlv_9= 'workItemNetwork' ( (lv_dependencies_10_0= ruleCausality ) )* )? otherlv_11= '}' ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3792:1: ruleRequirement returns [EObject current=null] : (otherlv_0= 'requirement' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'workItems' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' ) (otherlv_9= 'workItemNetwork' ( (lv_dependencies_10_0= ruleCausalTrigger ) )* )? otherlv_11= '}' ) ;
     public final EObject ruleRequirement() throws RecognitionException {
         EObject current = null;
 
@@ -8227,23 +9160,23 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3381:28: ( (otherlv_0= 'requirement' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'workItems' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' ) (otherlv_9= 'workItemNetwork' ( (lv_dependencies_10_0= ruleCausality ) )* )? otherlv_11= '}' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3382:1: (otherlv_0= 'requirement' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'workItems' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' ) (otherlv_9= 'workItemNetwork' ( (lv_dependencies_10_0= ruleCausality ) )* )? otherlv_11= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3795:28: ( (otherlv_0= 'requirement' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'workItems' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' ) (otherlv_9= 'workItemNetwork' ( (lv_dependencies_10_0= ruleCausalTrigger ) )* )? otherlv_11= '}' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3796:1: (otherlv_0= 'requirement' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'workItems' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' ) (otherlv_9= 'workItemNetwork' ( (lv_dependencies_10_0= ruleCausalTrigger ) )* )? otherlv_11= '}' )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3382:1: (otherlv_0= 'requirement' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'workItems' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' ) (otherlv_9= 'workItemNetwork' ( (lv_dependencies_10_0= ruleCausality ) )* )? otherlv_11= '}' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3382:3: otherlv_0= 'requirement' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'workItems' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' ) (otherlv_9= 'workItemNetwork' ( (lv_dependencies_10_0= ruleCausality ) )* )? otherlv_11= '}'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3796:1: (otherlv_0= 'requirement' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'workItems' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' ) (otherlv_9= 'workItemNetwork' ( (lv_dependencies_10_0= ruleCausalTrigger ) )* )? otherlv_11= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3796:3: otherlv_0= 'requirement' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )? (otherlv_5= 'workItems' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' ) (otherlv_9= 'workItemNetwork' ( (lv_dependencies_10_0= ruleCausalTrigger ) )* )? otherlv_11= '}'
             {
-            otherlv_0=(Token)match(input,102,FOLLOW_102_in_ruleRequirement7150); 
+            otherlv_0=(Token)match(input,117,FOLLOW_117_in_ruleRequirement8202); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getRequirementAccess().getRequirementKeyword_0());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3386:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3387:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3800:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3801:1: (lv_name_1_0= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3387:1: (lv_name_1_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3388:3: lv_name_1_0= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3801:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3802:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleRequirement7167); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleRequirement8219); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getRequirementAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -8263,32 +9196,32 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,47,FOLLOW_47_in_ruleRequirement7184); 
+            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleRequirement8236); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getRequirementAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3408:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
-            int alt102=2;
-            int LA102_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3822:1: (otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) ) )?
+            int alt104=2;
+            int LA104_0 = input.LA(1);
 
-            if ( (LA102_0==51) ) {
-                alt102=1;
+            if ( (LA104_0==66) ) {
+                alt104=1;
             }
-            switch (alt102) {
+            switch (alt104) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3408:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3822:3: otherlv_3= 'Description' ( (lv_description_4_0= RULE_STRING ) )
                     {
-                    otherlv_3=(Token)match(input,51,FOLLOW_51_in_ruleRequirement7197); 
+                    otherlv_3=(Token)match(input,66,FOLLOW_66_in_ruleRequirement8249); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getRequirementAccess().getDescriptionKeyword_3_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3412:1: ( (lv_description_4_0= RULE_STRING ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3413:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3826:1: ( (lv_description_4_0= RULE_STRING ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3827:1: (lv_description_4_0= RULE_STRING )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3413:1: (lv_description_4_0= RULE_STRING )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3414:3: lv_description_4_0= RULE_STRING
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3827:1: (lv_description_4_0= RULE_STRING )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3828:3: lv_description_4_0= RULE_STRING
                     {
-                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleRequirement7214); 
+                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleRequirement8266); 
 
                     			newLeafNode(lv_description_4_0, grammarAccess.getRequirementAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
                     		
@@ -8314,42 +9247,42 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3430:4: (otherlv_5= 'workItems' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3430:6: otherlv_5= 'workItems' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3844:4: (otherlv_5= 'workItems' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3844:6: otherlv_5= 'workItems' otherlv_6= '{' ( (otherlv_7= RULE_ID ) )+ otherlv_8= '}'
             {
-            otherlv_5=(Token)match(input,103,FOLLOW_103_in_ruleRequirement7234); 
+            otherlv_5=(Token)match(input,118,FOLLOW_118_in_ruleRequirement8286); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getRequirementAccess().getWorkItemsKeyword_4_0());
                 
-            otherlv_6=(Token)match(input,47,FOLLOW_47_in_ruleRequirement7246); 
+            otherlv_6=(Token)match(input,65,FOLLOW_65_in_ruleRequirement8298); 
 
                 	newLeafNode(otherlv_6, grammarAccess.getRequirementAccess().getLeftCurlyBracketKeyword_4_1());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3438:1: ( (otherlv_7= RULE_ID ) )+
-            int cnt103=0;
-            loop103:
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3852:1: ( (otherlv_7= RULE_ID ) )+
+            int cnt105=0;
+            loop105:
             do {
-                int alt103=2;
-                int LA103_0 = input.LA(1);
+                int alt105=2;
+                int LA105_0 = input.LA(1);
 
-                if ( (LA103_0==RULE_ID) ) {
-                    alt103=1;
+                if ( (LA105_0==RULE_ID) ) {
+                    alt105=1;
                 }
 
 
-                switch (alt103) {
+                switch (alt105) {
             	case 1 :
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3439:1: (otherlv_7= RULE_ID )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3853:1: (otherlv_7= RULE_ID )
             	    {
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3439:1: (otherlv_7= RULE_ID )
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3440:3: otherlv_7= RULE_ID
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3853:1: (otherlv_7= RULE_ID )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3854:3: otherlv_7= RULE_ID
             	    {
 
             	    			if (current==null) {
             	    	            current = createModelElement(grammarAccess.getRequirementRule());
             	    	        }
             	            
-            	    otherlv_7=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleRequirement7266); 
+            	    otherlv_7=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleRequirement8318); 
 
             	    		newLeafNode(otherlv_7, grammarAccess.getRequirementAccess().getRTasksWorkItemCrossReference_4_2_0()); 
             	    	
@@ -8361,59 +9294,59 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt103 >= 1 ) break loop103;
+            	    if ( cnt105 >= 1 ) break loop105;
                         EarlyExitException eee =
-                            new EarlyExitException(103, input);
+                            new EarlyExitException(105, input);
                         throw eee;
                 }
-                cnt103++;
+                cnt105++;
             } while (true);
 
-            otherlv_8=(Token)match(input,48,FOLLOW_48_in_ruleRequirement7279); 
+            otherlv_8=(Token)match(input,68,FOLLOW_68_in_ruleRequirement8331); 
 
                 	newLeafNode(otherlv_8, grammarAccess.getRequirementAccess().getRightCurlyBracketKeyword_4_3());
                 
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3455:2: (otherlv_9= 'workItemNetwork' ( (lv_dependencies_10_0= ruleCausality ) )* )?
-            int alt105=2;
-            int LA105_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3869:2: (otherlv_9= 'workItemNetwork' ( (lv_dependencies_10_0= ruleCausalTrigger ) )* )?
+            int alt107=2;
+            int LA107_0 = input.LA(1);
 
-            if ( (LA105_0==104) ) {
-                alt105=1;
+            if ( (LA107_0==119) ) {
+                alt107=1;
             }
-            switch (alt105) {
+            switch (alt107) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3455:4: otherlv_9= 'workItemNetwork' ( (lv_dependencies_10_0= ruleCausality ) )*
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3869:4: otherlv_9= 'workItemNetwork' ( (lv_dependencies_10_0= ruleCausalTrigger ) )*
                     {
-                    otherlv_9=(Token)match(input,104,FOLLOW_104_in_ruleRequirement7293); 
+                    otherlv_9=(Token)match(input,119,FOLLOW_119_in_ruleRequirement8345); 
 
                         	newLeafNode(otherlv_9, grammarAccess.getRequirementAccess().getWorkItemNetworkKeyword_5_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3459:1: ( (lv_dependencies_10_0= ruleCausality ) )*
-                    loop104:
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3873:1: ( (lv_dependencies_10_0= ruleCausalTrigger ) )*
+                    loop106:
                     do {
-                        int alt104=2;
-                        int LA104_0 = input.LA(1);
+                        int alt106=2;
+                        int LA106_0 = input.LA(1);
 
-                        if ( ((LA104_0>=84 && LA104_0<=85)) ) {
-                            alt104=1;
+                        if ( ((LA106_0>=104 && LA106_0<=105)) ) {
+                            alt106=1;
                         }
 
 
-                        switch (alt104) {
+                        switch (alt106) {
                     	case 1 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3460:1: (lv_dependencies_10_0= ruleCausality )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3874:1: (lv_dependencies_10_0= ruleCausalTrigger )
                     	    {
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3460:1: (lv_dependencies_10_0= ruleCausality )
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3461:3: lv_dependencies_10_0= ruleCausality
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3874:1: (lv_dependencies_10_0= ruleCausalTrigger )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3875:3: lv_dependencies_10_0= ruleCausalTrigger
                     	    {
                     	     
-                    	    	        newCompositeNode(grammarAccess.getRequirementAccess().getDependenciesCausalityParserRuleCall_5_1_0()); 
+                    	    	        newCompositeNode(grammarAccess.getRequirementAccess().getDependenciesCausalTriggerParserRuleCall_5_1_0()); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleCausality_in_ruleRequirement7314);
-                    	    lv_dependencies_10_0=ruleCausality();
+                    	    pushFollow(FOLLOW_ruleCausalTrigger_in_ruleRequirement8366);
+                    	    lv_dependencies_10_0=ruleCausalTrigger();
 
                     	    state._fsp--;
 
@@ -8425,7 +9358,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	           			current, 
                     	           			"dependencies",
                     	            		lv_dependencies_10_0, 
-                    	            		"Causality");
+                    	            		"CausalTrigger");
                     	    	        afterParserOrEnumRuleCall();
                     	    	    
 
@@ -8436,7 +9369,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop104;
+                    	    break loop106;
                         }
                     } while (true);
 
@@ -8446,7 +9379,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_11=(Token)match(input,48,FOLLOW_48_in_ruleRequirement7329); 
+            otherlv_11=(Token)match(input,68,FOLLOW_68_in_ruleRequirement8381); 
 
                 	newLeafNode(otherlv_11, grammarAccess.getRequirementAccess().getRightCurlyBracketKeyword_6());
                 
@@ -8471,7 +9404,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleProvision"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3491:1: entryRuleProvision returns [EObject current=null] : iv_ruleProvision= ruleProvision EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3905:1: entryRuleProvision returns [EObject current=null] : iv_ruleProvision= ruleProvision EOF ;
     public final EObject entryRuleProvision() throws RecognitionException {
         EObject current = null;
 
@@ -8479,17 +9412,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3492:2: (iv_ruleProvision= ruleProvision EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3493:2: iv_ruleProvision= ruleProvision EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3906:2: (iv_ruleProvision= ruleProvision EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3907:2: iv_ruleProvision= ruleProvision EOF
             {
              newCompositeNode(grammarAccess.getProvisionRule()); 
-            pushFollow(FOLLOW_ruleProvision_in_entryRuleProvision7367);
+            pushFollow(FOLLOW_ruleProvision_in_entryRuleProvision8419);
             iv_ruleProvision=ruleProvision();
 
             state._fsp--;
 
              current =iv_ruleProvision; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleProvision7377); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleProvision8429); 
 
             }
 
@@ -8507,7 +9440,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleProvision"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3500:1: ruleProvision returns [EObject current=null] : (otherlv_0= '(' ( (otherlv_1= RULE_ID ) ) otherlv_2= ',' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}' otherlv_6= ')' ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3914:1: ruleProvision returns [EObject current=null] : (otherlv_0= '(' ( (otherlv_1= RULE_ID ) ) otherlv_2= ',' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}' otherlv_6= ')' ) ;
     public final EObject ruleProvision() throws RecognitionException {
         EObject current = null;
 
@@ -8522,28 +9455,28 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3503:28: ( (otherlv_0= '(' ( (otherlv_1= RULE_ID ) ) otherlv_2= ',' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}' otherlv_6= ')' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3504:1: (otherlv_0= '(' ( (otherlv_1= RULE_ID ) ) otherlv_2= ',' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}' otherlv_6= ')' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3917:28: ( (otherlv_0= '(' ( (otherlv_1= RULE_ID ) ) otherlv_2= ',' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}' otherlv_6= ')' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3918:1: (otherlv_0= '(' ( (otherlv_1= RULE_ID ) ) otherlv_2= ',' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}' otherlv_6= ')' )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3504:1: (otherlv_0= '(' ( (otherlv_1= RULE_ID ) ) otherlv_2= ',' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}' otherlv_6= ')' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3504:3: otherlv_0= '(' ( (otherlv_1= RULE_ID ) ) otherlv_2= ',' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}' otherlv_6= ')'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3918:1: (otherlv_0= '(' ( (otherlv_1= RULE_ID ) ) otherlv_2= ',' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}' otherlv_6= ')' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3918:3: otherlv_0= '(' ( (otherlv_1= RULE_ID ) ) otherlv_2= ',' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )* otherlv_5= '}' otherlv_6= ')'
             {
-            otherlv_0=(Token)match(input,105,FOLLOW_105_in_ruleProvision7414); 
+            otherlv_0=(Token)match(input,120,FOLLOW_120_in_ruleProvision8466); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getProvisionAccess().getLeftParenthesisKeyword_0());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3508:1: ( (otherlv_1= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3509:1: (otherlv_1= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3922:1: ( (otherlv_1= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3923:1: (otherlv_1= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3509:1: (otherlv_1= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3510:3: otherlv_1= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3923:1: (otherlv_1= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3924:3: otherlv_1= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getProvisionRule());
             	        }
                     
-            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleProvision7434); 
+            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleProvision8486); 
 
             		newLeafNode(otherlv_1, grammarAccess.getProvisionAccess().getServiceNameServiceTypeCrossReference_1_0()); 
             	
@@ -8553,38 +9486,38 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,106,FOLLOW_106_in_ruleProvision7446); 
+            otherlv_2=(Token)match(input,121,FOLLOW_121_in_ruleProvision8498); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getProvisionAccess().getCommaKeyword_2());
                 
-            otherlv_3=(Token)match(input,47,FOLLOW_47_in_ruleProvision7458); 
+            otherlv_3=(Token)match(input,65,FOLLOW_65_in_ruleProvision8510); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getProvisionAccess().getLeftCurlyBracketKeyword_3());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3529:1: ( (otherlv_4= RULE_ID ) )*
-            loop106:
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3943:1: ( (otherlv_4= RULE_ID ) )*
+            loop108:
             do {
-                int alt106=2;
-                int LA106_0 = input.LA(1);
+                int alt108=2;
+                int LA108_0 = input.LA(1);
 
-                if ( (LA106_0==RULE_ID) ) {
-                    alt106=1;
+                if ( (LA108_0==RULE_ID) ) {
+                    alt108=1;
                 }
 
 
-                switch (alt106) {
+                switch (alt108) {
             	case 1 :
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3530:1: (otherlv_4= RULE_ID )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3944:1: (otherlv_4= RULE_ID )
             	    {
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3530:1: (otherlv_4= RULE_ID )
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3531:3: otherlv_4= RULE_ID
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3944:1: (otherlv_4= RULE_ID )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3945:3: otherlv_4= RULE_ID
             	    {
 
             	    			if (current==null) {
             	    	            current = createModelElement(grammarAccess.getProvisionRule());
             	    	        }
             	            
-            	    otherlv_4=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleProvision7478); 
+            	    otherlv_4=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleProvision8530); 
 
             	    		newLeafNode(otherlv_4, grammarAccess.getProvisionAccess().getProvidersServiceProviderCrossReference_4_0()); 
             	    	
@@ -8596,15 +9529,15 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop106;
+            	    break loop108;
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,48,FOLLOW_48_in_ruleProvision7491); 
+            otherlv_5=(Token)match(input,68,FOLLOW_68_in_ruleProvision8543); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getProvisionAccess().getRightCurlyBracketKeyword_5());
                 
-            otherlv_6=(Token)match(input,107,FOLLOW_107_in_ruleProvision7503); 
+            otherlv_6=(Token)match(input,122,FOLLOW_122_in_ruleProvision8555); 
 
                 	newLeafNode(otherlv_6, grammarAccess.getProvisionAccess().getRightParenthesisKeyword_6());
                 
@@ -8629,7 +9562,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStatemachine"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3558:1: entryRuleStatemachine returns [EObject current=null] : iv_ruleStatemachine= ruleStatemachine EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3972:1: entryRuleStatemachine returns [EObject current=null] : iv_ruleStatemachine= ruleStatemachine EOF ;
     public final EObject entryRuleStatemachine() throws RecognitionException {
         EObject current = null;
 
@@ -8637,17 +9570,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3559:2: (iv_ruleStatemachine= ruleStatemachine EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3560:2: iv_ruleStatemachine= ruleStatemachine EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3973:2: (iv_ruleStatemachine= ruleStatemachine EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3974:2: iv_ruleStatemachine= ruleStatemachine EOF
             {
              newCompositeNode(grammarAccess.getStatemachineRule()); 
-            pushFollow(FOLLOW_ruleStatemachine_in_entryRuleStatemachine7539);
+            pushFollow(FOLLOW_ruleStatemachine_in_entryRuleStatemachine8591);
             iv_ruleStatemachine=ruleStatemachine();
 
             state._fsp--;
 
              current =iv_ruleStatemachine; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleStatemachine7549); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleStatemachine8601); 
 
             }
 
@@ -8665,7 +9598,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStatemachine"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3567:1: ruleStatemachine returns [EObject current=null] : ( () (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )+ otherlv_3= 'end' )? (otherlv_4= 'activities' ( (lv_commands_5_0= ruleCommand ) )+ otherlv_6= 'end' )? ( (lv_states_7_0= ruleState ) )* ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3981:1: ruleStatemachine returns [EObject current=null] : ( () (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )+ otherlv_3= 'end' )? (otherlv_4= 'activities' ( (lv_commands_5_0= ruleCommand ) )+ otherlv_6= 'end' )? ( (lv_states_7_0= ruleState ) )* ) ;
     public final EObject ruleStatemachine() throws RecognitionException {
         EObject current = null;
 
@@ -8683,14 +9616,14 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3570:28: ( ( () (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )+ otherlv_3= 'end' )? (otherlv_4= 'activities' ( (lv_commands_5_0= ruleCommand ) )+ otherlv_6= 'end' )? ( (lv_states_7_0= ruleState ) )* ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3571:1: ( () (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )+ otherlv_3= 'end' )? (otherlv_4= 'activities' ( (lv_commands_5_0= ruleCommand ) )+ otherlv_6= 'end' )? ( (lv_states_7_0= ruleState ) )* )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3984:28: ( ( () (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )+ otherlv_3= 'end' )? (otherlv_4= 'activities' ( (lv_commands_5_0= ruleCommand ) )+ otherlv_6= 'end' )? ( (lv_states_7_0= ruleState ) )* ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3985:1: ( () (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )+ otherlv_3= 'end' )? (otherlv_4= 'activities' ( (lv_commands_5_0= ruleCommand ) )+ otherlv_6= 'end' )? ( (lv_states_7_0= ruleState ) )* )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3571:1: ( () (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )+ otherlv_3= 'end' )? (otherlv_4= 'activities' ( (lv_commands_5_0= ruleCommand ) )+ otherlv_6= 'end' )? ( (lv_states_7_0= ruleState ) )* )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3571:2: () (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )+ otherlv_3= 'end' )? (otherlv_4= 'activities' ( (lv_commands_5_0= ruleCommand ) )+ otherlv_6= 'end' )? ( (lv_states_7_0= ruleState ) )*
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3985:1: ( () (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )+ otherlv_3= 'end' )? (otherlv_4= 'activities' ( (lv_commands_5_0= ruleCommand ) )+ otherlv_6= 'end' )? ( (lv_states_7_0= ruleState ) )* )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3985:2: () (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )+ otherlv_3= 'end' )? (otherlv_4= 'activities' ( (lv_commands_5_0= ruleCommand ) )+ otherlv_6= 'end' )? ( (lv_states_7_0= ruleState ) )*
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3571:2: ()
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3572:5: 
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3985:2: ()
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3986:5: 
             {
 
                     current = forceCreateModelElement(
@@ -8700,44 +9633,44 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3577:2: (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )+ otherlv_3= 'end' )?
-            int alt108=2;
-            int LA108_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3991:2: (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )+ otherlv_3= 'end' )?
+            int alt110=2;
+            int LA110_0 = input.LA(1);
 
-            if ( (LA108_0==108) ) {
-                alt108=1;
+            if ( (LA110_0==123) ) {
+                alt110=1;
             }
-            switch (alt108) {
+            switch (alt110) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3577:4: otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )+ otherlv_3= 'end'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3991:4: otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )+ otherlv_3= 'end'
                     {
-                    otherlv_1=(Token)match(input,108,FOLLOW_108_in_ruleStatemachine7596); 
+                    otherlv_1=(Token)match(input,123,FOLLOW_123_in_ruleStatemachine8648); 
 
                         	newLeafNode(otherlv_1, grammarAccess.getStatemachineAccess().getEventsKeyword_1_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3581:1: ( (lv_events_2_0= ruleEvent ) )+
-                    int cnt107=0;
-                    loop107:
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3995:1: ( (lv_events_2_0= ruleEvent ) )+
+                    int cnt109=0;
+                    loop109:
                     do {
-                        int alt107=2;
-                        int LA107_0 = input.LA(1);
+                        int alt109=2;
+                        int LA109_0 = input.LA(1);
 
-                        if ( (LA107_0==RULE_ID) ) {
-                            alt107=1;
+                        if ( (LA109_0==RULE_ID) ) {
+                            alt109=1;
                         }
 
 
-                        switch (alt107) {
+                        switch (alt109) {
                     	case 1 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3582:1: (lv_events_2_0= ruleEvent )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3996:1: (lv_events_2_0= ruleEvent )
                     	    {
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3582:1: (lv_events_2_0= ruleEvent )
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3583:3: lv_events_2_0= ruleEvent
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3996:1: (lv_events_2_0= ruleEvent )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3997:3: lv_events_2_0= ruleEvent
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getStatemachineAccess().getEventsEventParserRuleCall_1_1_0()); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleEvent_in_ruleStatemachine7617);
+                    	    pushFollow(FOLLOW_ruleEvent_in_ruleStatemachine8669);
                     	    lv_events_2_0=ruleEvent();
 
                     	    state._fsp--;
@@ -8761,15 +9694,15 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt107 >= 1 ) break loop107;
+                    	    if ( cnt109 >= 1 ) break loop109;
                                 EarlyExitException eee =
-                                    new EarlyExitException(107, input);
+                                    new EarlyExitException(109, input);
                                 throw eee;
                         }
-                        cnt107++;
+                        cnt109++;
                     } while (true);
 
-                    otherlv_3=(Token)match(input,109,FOLLOW_109_in_ruleStatemachine7630); 
+                    otherlv_3=(Token)match(input,124,FOLLOW_124_in_ruleStatemachine8682); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getStatemachineAccess().getEndKeyword_1_2());
                         
@@ -8779,44 +9712,44 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3603:3: (otherlv_4= 'activities' ( (lv_commands_5_0= ruleCommand ) )+ otherlv_6= 'end' )?
-            int alt110=2;
-            int LA110_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4017:3: (otherlv_4= 'activities' ( (lv_commands_5_0= ruleCommand ) )+ otherlv_6= 'end' )?
+            int alt112=2;
+            int LA112_0 = input.LA(1);
 
-            if ( (LA110_0==110) ) {
-                alt110=1;
+            if ( (LA112_0==125) ) {
+                alt112=1;
             }
-            switch (alt110) {
+            switch (alt112) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3603:5: otherlv_4= 'activities' ( (lv_commands_5_0= ruleCommand ) )+ otherlv_6= 'end'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4017:5: otherlv_4= 'activities' ( (lv_commands_5_0= ruleCommand ) )+ otherlv_6= 'end'
                     {
-                    otherlv_4=(Token)match(input,110,FOLLOW_110_in_ruleStatemachine7645); 
+                    otherlv_4=(Token)match(input,125,FOLLOW_125_in_ruleStatemachine8697); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getStatemachineAccess().getActivitiesKeyword_2_0());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3607:1: ( (lv_commands_5_0= ruleCommand ) )+
-                    int cnt109=0;
-                    loop109:
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4021:1: ( (lv_commands_5_0= ruleCommand ) )+
+                    int cnt111=0;
+                    loop111:
                     do {
-                        int alt109=2;
-                        int LA109_0 = input.LA(1);
+                        int alt111=2;
+                        int LA111_0 = input.LA(1);
 
-                        if ( (LA109_0==RULE_ID) ) {
-                            alt109=1;
+                        if ( (LA111_0==RULE_ID) ) {
+                            alt111=1;
                         }
 
 
-                        switch (alt109) {
+                        switch (alt111) {
                     	case 1 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3608:1: (lv_commands_5_0= ruleCommand )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4022:1: (lv_commands_5_0= ruleCommand )
                     	    {
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3608:1: (lv_commands_5_0= ruleCommand )
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3609:3: lv_commands_5_0= ruleCommand
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4022:1: (lv_commands_5_0= ruleCommand )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4023:3: lv_commands_5_0= ruleCommand
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getStatemachineAccess().getCommandsCommandParserRuleCall_2_1_0()); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleCommand_in_ruleStatemachine7666);
+                    	    pushFollow(FOLLOW_ruleCommand_in_ruleStatemachine8718);
                     	    lv_commands_5_0=ruleCommand();
 
                     	    state._fsp--;
@@ -8840,15 +9773,15 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt109 >= 1 ) break loop109;
+                    	    if ( cnt111 >= 1 ) break loop111;
                                 EarlyExitException eee =
-                                    new EarlyExitException(109, input);
+                                    new EarlyExitException(111, input);
                                 throw eee;
                         }
-                        cnt109++;
+                        cnt111++;
                     } while (true);
 
-                    otherlv_6=(Token)match(input,109,FOLLOW_109_in_ruleStatemachine7679); 
+                    otherlv_6=(Token)match(input,124,FOLLOW_124_in_ruleStatemachine8731); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getStatemachineAccess().getEndKeyword_2_2());
                         
@@ -8858,28 +9791,28 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3629:3: ( (lv_states_7_0= ruleState ) )*
-            loop111:
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4043:3: ( (lv_states_7_0= ruleState ) )*
+            loop113:
             do {
-                int alt111=2;
-                int LA111_0 = input.LA(1);
+                int alt113=2;
+                int LA113_0 = input.LA(1);
 
-                if ( (LA111_0==111) ) {
-                    alt111=1;
+                if ( (LA113_0==126) ) {
+                    alt113=1;
                 }
 
 
-                switch (alt111) {
+                switch (alt113) {
             	case 1 :
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3630:1: (lv_states_7_0= ruleState )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4044:1: (lv_states_7_0= ruleState )
             	    {
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3630:1: (lv_states_7_0= ruleState )
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3631:3: lv_states_7_0= ruleState
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4044:1: (lv_states_7_0= ruleState )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4045:3: lv_states_7_0= ruleState
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getStatemachineAccess().getStatesStateParserRuleCall_3_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleState_in_ruleStatemachine7702);
+            	    pushFollow(FOLLOW_ruleState_in_ruleStatemachine8754);
             	    lv_states_7_0=ruleState();
 
             	    state._fsp--;
@@ -8903,7 +9836,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop111;
+            	    break loop113;
                 }
             } while (true);
 
@@ -8928,7 +9861,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEvent"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3655:1: entryRuleEvent returns [EObject current=null] : iv_ruleEvent= ruleEvent EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4069:1: entryRuleEvent returns [EObject current=null] : iv_ruleEvent= ruleEvent EOF ;
     public final EObject entryRuleEvent() throws RecognitionException {
         EObject current = null;
 
@@ -8936,17 +9869,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3656:2: (iv_ruleEvent= ruleEvent EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3657:2: iv_ruleEvent= ruleEvent EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4070:2: (iv_ruleEvent= ruleEvent EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4071:2: iv_ruleEvent= ruleEvent EOF
             {
              newCompositeNode(grammarAccess.getEventRule()); 
-            pushFollow(FOLLOW_ruleEvent_in_entryRuleEvent7739);
+            pushFollow(FOLLOW_ruleEvent_in_entryRuleEvent8791);
             iv_ruleEvent=ruleEvent();
 
             state._fsp--;
 
              current =iv_ruleEvent; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleEvent7749); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleEvent8801); 
 
             }
 
@@ -8964,7 +9897,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEvent"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3664:1: ruleEvent returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4078:1: ruleEvent returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) ) ;
     public final EObject ruleEvent() throws RecognitionException {
         EObject current = null;
 
@@ -8974,19 +9907,19 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3667:28: ( ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3668:1: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4081:28: ( ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4082:1: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3668:1: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3668:2: ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4082:1: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4082:2: ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3668:2: ( (lv_name_0_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3669:1: (lv_name_0_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4082:2: ( (lv_name_0_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4083:1: (lv_name_0_0= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3669:1: (lv_name_0_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3670:3: lv_name_0_0= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4083:1: (lv_name_0_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4084:3: lv_name_0_0= RULE_ID
             {
-            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEvent7791); 
+            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEvent8843); 
 
             			newLeafNode(lv_name_0_0, grammarAccess.getEventAccess().getNameIDTerminalRuleCall_0_0()); 
             		
@@ -9006,13 +9939,13 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3686:2: ( (lv_code_1_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3687:1: (lv_code_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4100:2: ( (lv_code_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4101:1: (lv_code_1_0= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3687:1: (lv_code_1_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3688:3: lv_code_1_0= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4101:1: (lv_code_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4102:3: lv_code_1_0= RULE_ID
             {
-            lv_code_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEvent7813); 
+            lv_code_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEvent8865); 
 
             			newLeafNode(lv_code_1_0, grammarAccess.getEventAccess().getCodeIDTerminalRuleCall_1_0()); 
             		
@@ -9053,7 +9986,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCommand"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3712:1: entryRuleCommand returns [EObject current=null] : iv_ruleCommand= ruleCommand EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4126:1: entryRuleCommand returns [EObject current=null] : iv_ruleCommand= ruleCommand EOF ;
     public final EObject entryRuleCommand() throws RecognitionException {
         EObject current = null;
 
@@ -9061,17 +9994,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3713:2: (iv_ruleCommand= ruleCommand EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3714:2: iv_ruleCommand= ruleCommand EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4127:2: (iv_ruleCommand= ruleCommand EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4128:2: iv_ruleCommand= ruleCommand EOF
             {
              newCompositeNode(grammarAccess.getCommandRule()); 
-            pushFollow(FOLLOW_ruleCommand_in_entryRuleCommand7854);
+            pushFollow(FOLLOW_ruleCommand_in_entryRuleCommand8906);
             iv_ruleCommand=ruleCommand();
 
             state._fsp--;
 
              current =iv_ruleCommand; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCommand7864); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCommand8916); 
 
             }
 
@@ -9089,7 +10022,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCommand"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3721:1: ruleCommand returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4135:1: ruleCommand returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) ) ;
     public final EObject ruleCommand() throws RecognitionException {
         EObject current = null;
 
@@ -9099,19 +10032,19 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3724:28: ( ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3725:1: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4138:28: ( ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4139:1: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3725:1: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3725:2: ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4139:1: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4139:2: ( (lv_name_0_0= RULE_ID ) ) ( (lv_code_1_0= RULE_ID ) )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3725:2: ( (lv_name_0_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3726:1: (lv_name_0_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4139:2: ( (lv_name_0_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4140:1: (lv_name_0_0= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3726:1: (lv_name_0_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3727:3: lv_name_0_0= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4140:1: (lv_name_0_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4141:3: lv_name_0_0= RULE_ID
             {
-            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCommand7906); 
+            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCommand8958); 
 
             			newLeafNode(lv_name_0_0, grammarAccess.getCommandAccess().getNameIDTerminalRuleCall_0_0()); 
             		
@@ -9131,13 +10064,13 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3743:2: ( (lv_code_1_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3744:1: (lv_code_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4157:2: ( (lv_code_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4158:1: (lv_code_1_0= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3744:1: (lv_code_1_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3745:3: lv_code_1_0= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4158:1: (lv_code_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4159:3: lv_code_1_0= RULE_ID
             {
-            lv_code_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCommand7928); 
+            lv_code_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCommand8980); 
 
             			newLeafNode(lv_code_1_0, grammarAccess.getCommandAccess().getCodeIDTerminalRuleCall_1_0()); 
             		
@@ -9178,7 +10111,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleState"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3769:1: entryRuleState returns [EObject current=null] : iv_ruleState= ruleState EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4183:1: entryRuleState returns [EObject current=null] : iv_ruleState= ruleState EOF ;
     public final EObject entryRuleState() throws RecognitionException {
         EObject current = null;
 
@@ -9186,17 +10119,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3770:2: (iv_ruleState= ruleState EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3771:2: iv_ruleState= ruleState EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4184:2: (iv_ruleState= ruleState EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4185:2: iv_ruleState= ruleState EOF
             {
              newCompositeNode(grammarAccess.getStateRule()); 
-            pushFollow(FOLLOW_ruleState_in_entryRuleState7969);
+            pushFollow(FOLLOW_ruleState_in_entryRuleState9021);
             iv_ruleState=ruleState();
 
             state._fsp--;
 
              current =iv_ruleState; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleState7979); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleState9031); 
 
             }
 
@@ -9214,7 +10147,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleState"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3778:1: ruleState returns [EObject current=null] : (otherlv_0= 'state' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'actions' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )+ otherlv_5= '}' )? ( (lv_transitions_6_0= ruleTransition ) )* otherlv_7= 'end' ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4192:1: ruleState returns [EObject current=null] : (otherlv_0= 'state' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'actions' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )+ otherlv_5= '}' )? ( (lv_transitions_6_0= ruleTransition ) )* otherlv_7= 'end' ) ;
     public final EObject ruleState() throws RecognitionException {
         EObject current = null;
 
@@ -9231,23 +10164,23 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3781:28: ( (otherlv_0= 'state' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'actions' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )+ otherlv_5= '}' )? ( (lv_transitions_6_0= ruleTransition ) )* otherlv_7= 'end' ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3782:1: (otherlv_0= 'state' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'actions' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )+ otherlv_5= '}' )? ( (lv_transitions_6_0= ruleTransition ) )* otherlv_7= 'end' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4195:28: ( (otherlv_0= 'state' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'actions' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )+ otherlv_5= '}' )? ( (lv_transitions_6_0= ruleTransition ) )* otherlv_7= 'end' ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4196:1: (otherlv_0= 'state' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'actions' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )+ otherlv_5= '}' )? ( (lv_transitions_6_0= ruleTransition ) )* otherlv_7= 'end' )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3782:1: (otherlv_0= 'state' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'actions' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )+ otherlv_5= '}' )? ( (lv_transitions_6_0= ruleTransition ) )* otherlv_7= 'end' )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3782:3: otherlv_0= 'state' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'actions' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )+ otherlv_5= '}' )? ( (lv_transitions_6_0= ruleTransition ) )* otherlv_7= 'end'
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4196:1: (otherlv_0= 'state' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'actions' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )+ otherlv_5= '}' )? ( (lv_transitions_6_0= ruleTransition ) )* otherlv_7= 'end' )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4196:3: otherlv_0= 'state' ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= 'actions' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )+ otherlv_5= '}' )? ( (lv_transitions_6_0= ruleTransition ) )* otherlv_7= 'end'
             {
-            otherlv_0=(Token)match(input,111,FOLLOW_111_in_ruleState8016); 
+            otherlv_0=(Token)match(input,126,FOLLOW_126_in_ruleState9068); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getStateAccess().getStateKeyword_0());
                 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3786:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3787:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4200:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4201:1: (lv_name_1_0= RULE_ID )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3787:1: (lv_name_1_0= RULE_ID )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3788:3: lv_name_1_0= RULE_ID
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4201:1: (lv_name_1_0= RULE_ID )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4202:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleState8033); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleState9085); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getStateAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -9267,50 +10200,50 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3804:2: (otherlv_2= 'actions' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )+ otherlv_5= '}' )?
-            int alt113=2;
-            int LA113_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4218:2: (otherlv_2= 'actions' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )+ otherlv_5= '}' )?
+            int alt115=2;
+            int LA115_0 = input.LA(1);
 
-            if ( (LA113_0==112) ) {
-                alt113=1;
+            if ( (LA115_0==127) ) {
+                alt115=1;
             }
-            switch (alt113) {
+            switch (alt115) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3804:4: otherlv_2= 'actions' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )+ otherlv_5= '}'
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4218:4: otherlv_2= 'actions' otherlv_3= '{' ( (otherlv_4= RULE_ID ) )+ otherlv_5= '}'
                     {
-                    otherlv_2=(Token)match(input,112,FOLLOW_112_in_ruleState8051); 
+                    otherlv_2=(Token)match(input,127,FOLLOW_127_in_ruleState9103); 
 
                         	newLeafNode(otherlv_2, grammarAccess.getStateAccess().getActionsKeyword_2_0());
                         
-                    otherlv_3=(Token)match(input,47,FOLLOW_47_in_ruleState8063); 
+                    otherlv_3=(Token)match(input,65,FOLLOW_65_in_ruleState9115); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_2_1());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3812:1: ( (otherlv_4= RULE_ID ) )+
-                    int cnt112=0;
-                    loop112:
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4226:1: ( (otherlv_4= RULE_ID ) )+
+                    int cnt114=0;
+                    loop114:
                     do {
-                        int alt112=2;
-                        int LA112_0 = input.LA(1);
+                        int alt114=2;
+                        int LA114_0 = input.LA(1);
 
-                        if ( (LA112_0==RULE_ID) ) {
-                            alt112=1;
+                        if ( (LA114_0==RULE_ID) ) {
+                            alt114=1;
                         }
 
 
-                        switch (alt112) {
+                        switch (alt114) {
                     	case 1 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3813:1: (otherlv_4= RULE_ID )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4227:1: (otherlv_4= RULE_ID )
                     	    {
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3813:1: (otherlv_4= RULE_ID )
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3814:3: otherlv_4= RULE_ID
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4227:1: (otherlv_4= RULE_ID )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4228:3: otherlv_4= RULE_ID
                     	    {
 
                     	    			if (current==null) {
                     	    	            current = createModelElement(grammarAccess.getStateRule());
                     	    	        }
                     	            
-                    	    otherlv_4=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleState8083); 
+                    	    otherlv_4=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleState9135); 
 
                     	    		newLeafNode(otherlv_4, grammarAccess.getStateAccess().getActionsCommandCrossReference_2_2_0()); 
                     	    	
@@ -9322,15 +10255,15 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt112 >= 1 ) break loop112;
+                    	    if ( cnt114 >= 1 ) break loop114;
                                 EarlyExitException eee =
-                                    new EarlyExitException(112, input);
+                                    new EarlyExitException(114, input);
                                 throw eee;
                         }
-                        cnt112++;
+                        cnt114++;
                     } while (true);
 
-                    otherlv_5=(Token)match(input,48,FOLLOW_48_in_ruleState8096); 
+                    otherlv_5=(Token)match(input,68,FOLLOW_68_in_ruleState9148); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_2_3());
                         
@@ -9340,28 +10273,28 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3829:3: ( (lv_transitions_6_0= ruleTransition ) )*
-            loop114:
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4243:3: ( (lv_transitions_6_0= ruleTransition ) )*
+            loop116:
             do {
-                int alt114=2;
-                int LA114_0 = input.LA(1);
+                int alt116=2;
+                int LA116_0 = input.LA(1);
 
-                if ( (LA114_0==RULE_ID) ) {
-                    alt114=1;
+                if ( (LA116_0==RULE_ID) ) {
+                    alt116=1;
                 }
 
 
-                switch (alt114) {
+                switch (alt116) {
             	case 1 :
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3830:1: (lv_transitions_6_0= ruleTransition )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4244:1: (lv_transitions_6_0= ruleTransition )
             	    {
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3830:1: (lv_transitions_6_0= ruleTransition )
-            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3831:3: lv_transitions_6_0= ruleTransition
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4244:1: (lv_transitions_6_0= ruleTransition )
+            	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4245:3: lv_transitions_6_0= ruleTransition
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_3_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleTransition_in_ruleState8119);
+            	    pushFollow(FOLLOW_ruleTransition_in_ruleState9171);
             	    lv_transitions_6_0=ruleTransition();
 
             	    state._fsp--;
@@ -9385,11 +10318,11 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop114;
+            	    break loop116;
                 }
             } while (true);
 
-            otherlv_7=(Token)match(input,109,FOLLOW_109_in_ruleState8132); 
+            otherlv_7=(Token)match(input,124,FOLLOW_124_in_ruleState9184); 
 
                 	newLeafNode(otherlv_7, grammarAccess.getStateAccess().getEndKeyword_4());
                 
@@ -9414,7 +10347,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTransition"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3859:1: entryRuleTransition returns [EObject current=null] : iv_ruleTransition= ruleTransition EOF ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4273:1: entryRuleTransition returns [EObject current=null] : iv_ruleTransition= ruleTransition EOF ;
     public final EObject entryRuleTransition() throws RecognitionException {
         EObject current = null;
 
@@ -9422,17 +10355,17 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3860:2: (iv_ruleTransition= ruleTransition EOF )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3861:2: iv_ruleTransition= ruleTransition EOF
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4274:2: (iv_ruleTransition= ruleTransition EOF )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4275:2: iv_ruleTransition= ruleTransition EOF
             {
              newCompositeNode(grammarAccess.getTransitionRule()); 
-            pushFollow(FOLLOW_ruleTransition_in_entryRuleTransition8168);
+            pushFollow(FOLLOW_ruleTransition_in_entryRuleTransition9220);
             iv_ruleTransition=ruleTransition();
 
             state._fsp--;
 
              current =iv_ruleTransition; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTransition8178); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTransition9230); 
 
             }
 
@@ -9450,7 +10383,7 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTransition"
-    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3868:1: ruleTransition returns [EObject current=null] : ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) ) | ( ( (otherlv_3= RULE_ID ) ) otherlv_4= '/' otherlv_5= '[' ( (otherlv_6= RULE_ID ) )+ otherlv_7= ']' otherlv_8= '=>' ( (otherlv_9= RULE_ID ) ) ) ) ;
+    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4282:1: ruleTransition returns [EObject current=null] : ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) ) | ( ( (otherlv_3= RULE_ID ) ) otherlv_4= '/' otherlv_5= '[' ( (otherlv_6= RULE_ID ) )+ otherlv_7= ']' otherlv_8= '=>' ( (otherlv_9= RULE_ID ) ) ) ) ;
     public final EObject ruleTransition() throws RecognitionException {
         EObject current = null;
 
@@ -9468,54 +10401,54 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3871:28: ( ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) ) | ( ( (otherlv_3= RULE_ID ) ) otherlv_4= '/' otherlv_5= '[' ( (otherlv_6= RULE_ID ) )+ otherlv_7= ']' otherlv_8= '=>' ( (otherlv_9= RULE_ID ) ) ) ) )
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3872:1: ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) ) | ( ( (otherlv_3= RULE_ID ) ) otherlv_4= '/' otherlv_5= '[' ( (otherlv_6= RULE_ID ) )+ otherlv_7= ']' otherlv_8= '=>' ( (otherlv_9= RULE_ID ) ) ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4285:28: ( ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) ) | ( ( (otherlv_3= RULE_ID ) ) otherlv_4= '/' otherlv_5= '[' ( (otherlv_6= RULE_ID ) )+ otherlv_7= ']' otherlv_8= '=>' ( (otherlv_9= RULE_ID ) ) ) ) )
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4286:1: ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) ) | ( ( (otherlv_3= RULE_ID ) ) otherlv_4= '/' otherlv_5= '[' ( (otherlv_6= RULE_ID ) )+ otherlv_7= ']' otherlv_8= '=>' ( (otherlv_9= RULE_ID ) ) ) )
             {
-            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3872:1: ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) ) | ( ( (otherlv_3= RULE_ID ) ) otherlv_4= '/' otherlv_5= '[' ( (otherlv_6= RULE_ID ) )+ otherlv_7= ']' otherlv_8= '=>' ( (otherlv_9= RULE_ID ) ) ) )
-            int alt116=2;
-            int LA116_0 = input.LA(1);
+            // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4286:1: ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) ) | ( ( (otherlv_3= RULE_ID ) ) otherlv_4= '/' otherlv_5= '[' ( (otherlv_6= RULE_ID ) )+ otherlv_7= ']' otherlv_8= '=>' ( (otherlv_9= RULE_ID ) ) ) )
+            int alt118=2;
+            int LA118_0 = input.LA(1);
 
-            if ( (LA116_0==RULE_ID) ) {
-                int LA116_1 = input.LA(2);
+            if ( (LA118_0==RULE_ID) ) {
+                int LA118_1 = input.LA(2);
 
-                if ( (LA116_1==113) ) {
-                    alt116=2;
+                if ( (LA118_1==104) ) {
+                    alt118=1;
                 }
-                else if ( (LA116_1==84) ) {
-                    alt116=1;
+                else if ( (LA118_1==128) ) {
+                    alt118=2;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 116, 1, input);
+                        new NoViableAltException("", 118, 1, input);
 
                     throw nvae;
                 }
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 116, 0, input);
+                    new NoViableAltException("", 118, 0, input);
 
                 throw nvae;
             }
-            switch (alt116) {
+            switch (alt118) {
                 case 1 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3872:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4286:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3872:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3872:3: ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4286:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4286:3: ( (otherlv_0= RULE_ID ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3872:3: ( (otherlv_0= RULE_ID ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3873:1: (otherlv_0= RULE_ID )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4286:3: ( (otherlv_0= RULE_ID ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4287:1: (otherlv_0= RULE_ID )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3873:1: (otherlv_0= RULE_ID )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3874:3: otherlv_0= RULE_ID
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4287:1: (otherlv_0= RULE_ID )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4288:3: otherlv_0= RULE_ID
                     {
 
                     			if (current==null) {
                     	            current = createModelElement(grammarAccess.getTransitionRule());
                     	        }
                             
-                    otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTransition8224); 
+                    otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTransition9276); 
 
                     		newLeafNode(otherlv_0, grammarAccess.getTransitionAccess().getEventEventCrossReference_0_0_0()); 
                     	
@@ -9525,22 +10458,22 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_1=(Token)match(input,84,FOLLOW_84_in_ruleTransition8236); 
+                    otherlv_1=(Token)match(input,104,FOLLOW_104_in_ruleTransition9288); 
 
                         	newLeafNode(otherlv_1, grammarAccess.getTransitionAccess().getEqualsSignGreaterThanSignKeyword_0_1());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3889:1: ( (otherlv_2= RULE_ID ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3890:1: (otherlv_2= RULE_ID )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4303:1: ( (otherlv_2= RULE_ID ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4304:1: (otherlv_2= RULE_ID )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3890:1: (otherlv_2= RULE_ID )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3891:3: otherlv_2= RULE_ID
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4304:1: (otherlv_2= RULE_ID )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4305:3: otherlv_2= RULE_ID
                     {
 
                     			if (current==null) {
                     	            current = createModelElement(grammarAccess.getTransitionRule());
                     	        }
                             
-                    otherlv_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTransition8256); 
+                    otherlv_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTransition9308); 
 
                     		newLeafNode(otherlv_2, grammarAccess.getTransitionAccess().getStateStateCrossReference_0_2_0()); 
                     	
@@ -9557,23 +10490,23 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3903:6: ( ( (otherlv_3= RULE_ID ) ) otherlv_4= '/' otherlv_5= '[' ( (otherlv_6= RULE_ID ) )+ otherlv_7= ']' otherlv_8= '=>' ( (otherlv_9= RULE_ID ) ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4317:6: ( ( (otherlv_3= RULE_ID ) ) otherlv_4= '/' otherlv_5= '[' ( (otherlv_6= RULE_ID ) )+ otherlv_7= ']' otherlv_8= '=>' ( (otherlv_9= RULE_ID ) ) )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3903:6: ( ( (otherlv_3= RULE_ID ) ) otherlv_4= '/' otherlv_5= '[' ( (otherlv_6= RULE_ID ) )+ otherlv_7= ']' otherlv_8= '=>' ( (otherlv_9= RULE_ID ) ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3903:7: ( (otherlv_3= RULE_ID ) ) otherlv_4= '/' otherlv_5= '[' ( (otherlv_6= RULE_ID ) )+ otherlv_7= ']' otherlv_8= '=>' ( (otherlv_9= RULE_ID ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4317:6: ( ( (otherlv_3= RULE_ID ) ) otherlv_4= '/' otherlv_5= '[' ( (otherlv_6= RULE_ID ) )+ otherlv_7= ']' otherlv_8= '=>' ( (otherlv_9= RULE_ID ) ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4317:7: ( (otherlv_3= RULE_ID ) ) otherlv_4= '/' otherlv_5= '[' ( (otherlv_6= RULE_ID ) )+ otherlv_7= ']' otherlv_8= '=>' ( (otherlv_9= RULE_ID ) )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3903:7: ( (otherlv_3= RULE_ID ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3904:1: (otherlv_3= RULE_ID )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4317:7: ( (otherlv_3= RULE_ID ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4318:1: (otherlv_3= RULE_ID )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3904:1: (otherlv_3= RULE_ID )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3905:3: otherlv_3= RULE_ID
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4318:1: (otherlv_3= RULE_ID )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4319:3: otherlv_3= RULE_ID
                     {
 
                     			if (current==null) {
                     	            current = createModelElement(grammarAccess.getTransitionRule());
                     	        }
                             
-                    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTransition8284); 
+                    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTransition9336); 
 
                     		newLeafNode(otherlv_3, grammarAccess.getTransitionAccess().getEventEventCrossReference_1_0_0()); 
                     	
@@ -9583,39 +10516,39 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_4=(Token)match(input,113,FOLLOW_113_in_ruleTransition8296); 
+                    otherlv_4=(Token)match(input,128,FOLLOW_128_in_ruleTransition9348); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getTransitionAccess().getSolidusKeyword_1_1());
                         
-                    otherlv_5=(Token)match(input,43,FOLLOW_43_in_ruleTransition8308); 
+                    otherlv_5=(Token)match(input,62,FOLLOW_62_in_ruleTransition9360); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getTransitionAccess().getLeftSquareBracketKeyword_1_2());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3924:1: ( (otherlv_6= RULE_ID ) )+
-                    int cnt115=0;
-                    loop115:
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4338:1: ( (otherlv_6= RULE_ID ) )+
+                    int cnt117=0;
+                    loop117:
                     do {
-                        int alt115=2;
-                        int LA115_0 = input.LA(1);
+                        int alt117=2;
+                        int LA117_0 = input.LA(1);
 
-                        if ( (LA115_0==RULE_ID) ) {
-                            alt115=1;
+                        if ( (LA117_0==RULE_ID) ) {
+                            alt117=1;
                         }
 
 
-                        switch (alt115) {
+                        switch (alt117) {
                     	case 1 :
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3925:1: (otherlv_6= RULE_ID )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4339:1: (otherlv_6= RULE_ID )
                     	    {
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3925:1: (otherlv_6= RULE_ID )
-                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3926:3: otherlv_6= RULE_ID
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4339:1: (otherlv_6= RULE_ID )
+                    	    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4340:3: otherlv_6= RULE_ID
                     	    {
 
                     	    			if (current==null) {
                     	    	            current = createModelElement(grammarAccess.getTransitionRule());
                     	    	        }
                     	            
-                    	    otherlv_6=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTransition8328); 
+                    	    otherlv_6=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTransition9380); 
 
                     	    		newLeafNode(otherlv_6, grammarAccess.getTransitionAccess().getEventactionsCommandCrossReference_1_3_0()); 
                     	    	
@@ -9627,34 +10560,34 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt115 >= 1 ) break loop115;
+                    	    if ( cnt117 >= 1 ) break loop117;
                                 EarlyExitException eee =
-                                    new EarlyExitException(115, input);
+                                    new EarlyExitException(117, input);
                                 throw eee;
                         }
-                        cnt115++;
+                        cnt117++;
                     } while (true);
 
-                    otherlv_7=(Token)match(input,44,FOLLOW_44_in_ruleTransition8341); 
+                    otherlv_7=(Token)match(input,63,FOLLOW_63_in_ruleTransition9393); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getTransitionAccess().getRightSquareBracketKeyword_1_4());
                         
-                    otherlv_8=(Token)match(input,84,FOLLOW_84_in_ruleTransition8353); 
+                    otherlv_8=(Token)match(input,104,FOLLOW_104_in_ruleTransition9405); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getTransitionAccess().getEqualsSignGreaterThanSignKeyword_1_5());
                         
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3945:1: ( (otherlv_9= RULE_ID ) )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3946:1: (otherlv_9= RULE_ID )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4359:1: ( (otherlv_9= RULE_ID ) )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4360:1: (otherlv_9= RULE_ID )
                     {
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3946:1: (otherlv_9= RULE_ID )
-                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:3947:3: otherlv_9= RULE_ID
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4360:1: (otherlv_9= RULE_ID )
+                    // ../datasem.xtext.kanban.domainmodel/src-gen/datasem/xtext/kanban/domainmodel/parser/antlr/internal/InternalKanbanmodel.g:4361:3: otherlv_9= RULE_ID
                     {
 
                     			if (current==null) {
                     	            current = createModelElement(grammarAccess.getTransitionRule());
                     	        }
                             
-                    otherlv_9=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTransition8373); 
+                    otherlv_9=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTransition9425); 
 
                     		newLeafNode(otherlv_9, grammarAccess.getTransitionAccess().getStateStateCrossReference_1_6_0()); 
                     	
@@ -9696,425 +10629,481 @@ public class InternalKanbanmodelParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_ruleKanbanSchedulingSystem_in_entryRuleKanbanSchedulingSystem75 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleKanbanSchedulingSystem85 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_11_in_ruleKanbanSchedulingSystem122 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleKanbanSchedulingSystem139 = new BitSet(new long[]{0x0000000000001010L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleKanbanSchedulingSystem165 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleKanbanSchedulingSystem178 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleKanbanSchedulingSystem190 = new BitSet(new long[]{0x0010000000000000L});
-    public static final BitSet FOLLOW_ruleProcessModel_in_ruleKanbanSchedulingSystem211 = new BitSet(new long[]{0x0010000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleKanbanSchedulingSystem224 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleKanbanSchedulingSystem236 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_ruleStrategy_in_ruleKanbanSchedulingSystem257 = new BitSet(new long[]{0x0000000000010000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_16_in_ruleKanbanSchedulingSystem270 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleKanbanSchedulingSystem282 = new BitSet(new long[]{0x4000000000000000L});
-    public static final BitSet FOLLOW_ruleTaskPattern_in_ruleKanbanSchedulingSystem303 = new BitSet(new long[]{0x4000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_ruleTaskType_in_ruleKanbanSchedulingSystem325 = new BitSet(new long[]{0x0000000000040000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_18_in_ruleKanbanSchedulingSystem338 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_ruleKanbanSchedulingSystem350 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValueFunction_in_ruleKanbanSchedulingSystem371 = new BitSet(new long[]{0x0000000000100000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_ruleKanbanSchedulingSystem384 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleKanbanSchedulingSystem396 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_22_in_ruleKanbanSchedulingSystem408 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_23_in_ruleKanbanSchedulingSystem420 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_ruleServiceType_in_ruleKanbanSchedulingSystem441 = new BitSet(new long[]{0x0000000001000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_ruleKanbanSchedulingSystem454 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_25_in_ruleKanbanSchedulingSystem466 = new BitSet(new long[]{0x0000000000000000L,0x0000000018000000L});
-    public static final BitSet FOLLOW_ruleServiceProvider_in_ruleKanbanSchedulingSystem487 = new BitSet(new long[]{0x0000000004000000L,0x0000000018000000L});
-    public static final BitSet FOLLOW_26_in_ruleKanbanSchedulingSystem500 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_27_in_ruleKanbanSchedulingSystem512 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_28_in_ruleKanbanSchedulingSystem524 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_29_in_ruleKanbanSchedulingSystem536 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_ruleRepository_in_ruleKanbanSchedulingSystem557 = new BitSet(new long[]{0x0000200040000000L});
-    public static final BitSet FOLLOW_30_in_ruleKanbanSchedulingSystem570 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_31_in_ruleKanbanSchedulingSystem582 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000400L});
-    public static final BitSet FOLLOW_ruleWorkSource_in_ruleKanbanSchedulingSystem603 = new BitSet(new long[]{0x0000000100000000L,0x0000000000000400L});
-    public static final BitSet FOLLOW_32_in_ruleKanbanSchedulingSystem616 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_33_in_ruleKanbanSchedulingSystem628 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_ruleWorkItem_in_ruleKanbanSchedulingSystem649 = new BitSet(new long[]{0x0004000400000000L});
-    public static final BitSet FOLLOW_34_in_ruleKanbanSchedulingSystem662 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_35_in_ruleKanbanSchedulingSystem674 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_36_in_ruleKanbanSchedulingSystem686 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_37_in_ruleKanbanSchedulingSystem698 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleKanbanSchedulingSystem715 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_38_in_ruleKanbanSchedulingSystem732 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleKanbanSchedulingSystem749 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_39_in_ruleKanbanSchedulingSystem766 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_40_in_ruleKanbanSchedulingSystem778 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName815 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName826 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName866 = new BitSet(new long[]{0x0000020000000002L});
-    public static final BitSet FOLLOW_41_in_ruleQualifiedName885 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName900 = new BitSet(new long[]{0x0000020000000002L});
-    public static final BitSet FOLLOW_ruleDouble_in_entryRuleDouble948 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDouble959 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleDouble999 = new BitSet(new long[]{0x0000020000000002L});
-    public static final BitSet FOLLOW_41_in_ruleDouble1018 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleDouble1033 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumExpression_in_entryRuleNumExpression1080 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNumExpression1090 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDouble_in_ruleNumExpression1136 = new BitSet(new long[]{0x0000040000000002L});
-    public static final BitSet FOLLOW_42_in_ruleNumExpression1156 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleDistribution_in_ruleNumExpression1190 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParameter_in_entryRuleParameter1229 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleParameter1240 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDouble_in_ruleParameter1287 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleParameter1313 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDistribution_in_entryRuleDistribution1358 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDistribution1368 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDistribution1410 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_43_in_ruleDistribution1427 = new BitSet(new long[]{0x0000100000000030L});
-    public static final BitSet FOLLOW_ruleParameter_in_ruleDistribution1448 = new BitSet(new long[]{0x0000100000000030L});
-    public static final BitSet FOLLOW_44_in_ruleDistribution1461 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRepository_in_entryRuleRepository1497 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRepository1507 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleRepository1544 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleRepository1564 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_46_in_ruleRepository1576 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleRepository1588 = new BitSet(new long[]{0x0005000000000000L});
-    public static final BitSet FOLLOW_ruleWorkItemProfile_in_ruleRepository1609 = new BitSet(new long[]{0x0005000000000000L});
-    public static final BitSet FOLLOW_48_in_ruleRepository1622 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_49_in_ruleRepository1634 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleWorkItemProfile_in_entryRuleWorkItemProfile1670 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleWorkItemProfile1680 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleWorkItemProfile1717 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItemProfile1734 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleWorkItemProfile1751 = new BitSet(new long[]{0x1FF9000000000000L});
-    public static final BitSet FOLLOW_51_in_ruleWorkItemProfile1764 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleWorkItemProfile1781 = new BitSet(new long[]{0x1FF1000000000000L});
-    public static final BitSet FOLLOW_52_in_ruleWorkItemProfile1801 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItemProfile1821 = new BitSet(new long[]{0x1FE1000000000000L});
-    public static final BitSet FOLLOW_53_in_ruleWorkItemProfile1836 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleWorkItemProfile1848 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_ruleWorkReference_in_ruleWorkItemProfile1869 = new BitSet(new long[]{0x0005000000000000L});
-    public static final BitSet FOLLOW_48_in_ruleWorkItemProfile1882 = new BitSet(new long[]{0x1FC1000000000000L});
-    public static final BitSet FOLLOW_54_in_ruleWorkItemProfile1897 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleWorkItemProfile1909 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_ruleWorkDecomposition_in_ruleWorkItemProfile1930 = new BitSet(new long[]{0x0005000000000000L});
-    public static final BitSet FOLLOW_48_in_ruleWorkItemProfile1943 = new BitSet(new long[]{0x1F81000000000000L});
-    public static final BitSet FOLLOW_55_in_ruleWorkItemProfile1958 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItemProfile1978 = new BitSet(new long[]{0x1F01000000000010L});
-    public static final BitSet FOLLOW_56_in_ruleWorkItemProfile1994 = new BitSet(new long[]{0x1E01040000000020L});
-    public static final BitSet FOLLOW_ruleNumExpression_in_ruleWorkItemProfile2015 = new BitSet(new long[]{0x1E01000000000000L});
-    public static final BitSet FOLLOW_57_in_ruleWorkItemProfile2030 = new BitSet(new long[]{0x1C01040000000020L});
-    public static final BitSet FOLLOW_ruleNumExpression_in_ruleWorkItemProfile2051 = new BitSet(new long[]{0x1C01000000000000L});
-    public static final BitSet FOLLOW_58_in_ruleWorkItemProfile2066 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItemProfile2083 = new BitSet(new long[]{0x1801000000000000L});
-    public static final BitSet FOLLOW_59_in_ruleWorkItemProfile2108 = new BitSet(new long[]{0x1001000000000000L});
-    public static final BitSet FOLLOW_60_in_ruleWorkItemProfile2140 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_48_in_ruleWorkItemProfile2166 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleWorkReference_in_entryRuleWorkReference2202 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleWorkReference2212 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleWorkReference2249 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkReference2269 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_61_in_ruleWorkReference2281 = new BitSet(new long[]{0x0000040000000020L});
-    public static final BitSet FOLLOW_ruleNumExpression_in_ruleWorkReference2302 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleWorkDecomposition_in_entryRuleWorkDecomposition2338 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleWorkDecomposition2348 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleWorkDecomposition2385 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkDecomposition2405 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_61_in_ruleWorkDecomposition2417 = new BitSet(new long[]{0x0000040000000020L});
-    public static final BitSet FOLLOW_ruleNumExpression_in_ruleWorkDecomposition2438 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTaskPattern_in_entryRuleTaskPattern2478 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTaskPattern2488 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_62_in_ruleTaskPattern2525 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleTaskPattern2542 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleTaskPattern2559 = new BitSet(new long[]{0x8009000000000000L});
-    public static final BitSet FOLLOW_51_in_ruleTaskPattern2572 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleTaskPattern2589 = new BitSet(new long[]{0x8001000000000000L});
-    public static final BitSet FOLLOW_63_in_ruleTaskPattern2609 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleTaskPattern2621 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleTaskPattern2641 = new BitSet(new long[]{0x0001000000000010L});
-    public static final BitSet FOLLOW_48_in_ruleTaskPattern2654 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_48_in_ruleTaskPattern2668 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTaskType_in_entryRuleTaskType2704 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTaskType2714 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_ruleTaskType2751 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleTaskType2768 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleTaskType2785 = new BitSet(new long[]{0x0009000000000000L});
-    public static final BitSet FOLLOW_51_in_ruleTaskType2798 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleTaskType2815 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_48_in_ruleTaskType2834 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValueFunction_in_entryRuleValueFunction2870 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleValueFunction2880 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_65_in_ruleValueFunction2917 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleValueFunction2934 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleValueFunction2951 = new BitSet(new long[]{0x0009000000000000L});
-    public static final BitSet FOLLOW_51_in_ruleValueFunction2964 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleValueFunction2981 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_48_in_ruleValueFunction3000 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleProcessModel_in_entryRuleProcessModel3036 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleProcessModel3046 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_ruleProcessModel3083 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleProcessModel3100 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleProcessModel3117 = new BitSet(new long[]{0x0009000000000000L});
-    public static final BitSet FOLLOW_51_in_ruleProcessModel3130 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleProcessModel3147 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_48_in_ruleProcessModel3166 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStrategy_in_entryRuleStrategy3204 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleStrategy3214 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_66_in_ruleStrategy3251 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleStrategy3268 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleStrategy3285 = new BitSet(new long[]{0x0008000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_51_in_ruleStrategy3298 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleStrategy3315 = new BitSet(new long[]{0x0008000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_ruleWIAcceptance_in_ruleStrategy3343 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_ruleWISelection_in_ruleStrategy3364 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_ruleWIAssignment_in_ruleStrategy3385 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-    public static final BitSet FOLLOW_ruleResourceAllocation_in_ruleStrategy3406 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_ruleResourceOutsourcing_in_ruleStrategy3427 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_48_in_ruleStrategy3439 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleWIAcceptance_in_entryRuleWIAcceptance3475 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleWIAcceptance3485 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_67_in_ruleWIAcceptance3522 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleWIAcceptance3539 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleWIAcceptance3556 = new BitSet(new long[]{0x0009000000000000L,0x0000000000000030L});
-    public static final BitSet FOLLOW_51_in_ruleWIAcceptance3569 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleWIAcceptance3586 = new BitSet(new long[]{0x0001000000000000L,0x0000000000000030L});
-    public static final BitSet FOLLOW_68_in_ruleWIAcceptance3606 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleWIAcceptance3623 = new BitSet(new long[]{0x0001000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_69_in_ruleWIAcceptance3643 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleWIAcceptance3660 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_48_in_ruleWIAcceptance3679 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleWISelection_in_entryRuleWISelection3715 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleWISelection3725 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_70_in_ruleWISelection3762 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleWISelection3779 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleWISelection3796 = new BitSet(new long[]{0x0009000000000000L});
-    public static final BitSet FOLLOW_51_in_ruleWISelection3809 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleWISelection3826 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_48_in_ruleWISelection3845 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleWIAssignment_in_entryRuleWIAssignment3881 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleWIAssignment3891 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_71_in_ruleWIAssignment3928 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleWIAssignment3945 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleWIAssignment3962 = new BitSet(new long[]{0x0009000000000000L});
-    public static final BitSet FOLLOW_51_in_ruleWIAssignment3975 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleWIAssignment3992 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_48_in_ruleWIAssignment4011 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleResourceAllocation_in_entryRuleResourceAllocation4047 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleResourceAllocation4057 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_72_in_ruleResourceAllocation4094 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleResourceAllocation4111 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleResourceAllocation4128 = new BitSet(new long[]{0x0009000000000000L});
-    public static final BitSet FOLLOW_51_in_ruleResourceAllocation4141 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleResourceAllocation4158 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_48_in_ruleResourceAllocation4177 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleResourceOutsourcing_in_entryRuleResourceOutsourcing4213 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleResourceOutsourcing4223 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_73_in_ruleResourceOutsourcing4260 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleResourceOutsourcing4277 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleResourceOutsourcing4294 = new BitSet(new long[]{0x0009000000000000L});
-    public static final BitSet FOLLOW_51_in_ruleResourceOutsourcing4307 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleResourceOutsourcing4324 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_48_in_ruleResourceOutsourcing4343 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleWorkSource_in_entryRuleWorkSource4379 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleWorkSource4389 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_74_in_ruleWorkSource4426 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkSource4443 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleWorkSource4460 = new BitSet(new long[]{0x0009000000000000L,0x0000000000000880L});
-    public static final BitSet FOLLOW_51_in_ruleWorkSource4473 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleWorkSource4490 = new BitSet(new long[]{0x0001000000000000L,0x0000000000000880L});
-    public static final BitSet FOLLOW_75_in_ruleWorkSource4510 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleWorkSource4522 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkSource4542 = new BitSet(new long[]{0x0001000000000010L});
-    public static final BitSet FOLLOW_48_in_ruleWorkSource4555 = new BitSet(new long[]{0x0001000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_ruleWIAssignment_in_ruleWorkSource4578 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_48_in_ruleWorkSource4591 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleWorkItem_in_entryRuleWorkItem4627 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleWorkItem4637 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleWorkItem4674 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItem4691 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleWorkItem4708 = new BitSet(new long[]{0x0789000000000000L,0x00000000000FF400L});
-    public static final BitSet FOLLOW_76_in_ruleWorkItem4721 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItem4741 = new BitSet(new long[]{0x0789000000000000L,0x00000000000FE400L});
-    public static final BitSet FOLLOW_51_in_ruleWorkItem4756 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleWorkItem4773 = new BitSet(new long[]{0x0781000000000000L,0x00000000000FE400L});
-    public static final BitSet FOLLOW_77_in_ruleWorkItem4793 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItem4813 = new BitSet(new long[]{0x0781000000000000L,0x00000000000FC400L});
-    public static final BitSet FOLLOW_78_in_ruleWorkItem4828 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItem4848 = new BitSet(new long[]{0x0781000000000000L,0x00000000000F8400L});
-    public static final BitSet FOLLOW_79_in_ruleWorkItem4863 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleWorkItem4875 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItem4895 = new BitSet(new long[]{0x0001000000000010L});
-    public static final BitSet FOLLOW_48_in_ruleWorkItem4908 = new BitSet(new long[]{0x0781000000000000L,0x00000000000F0400L});
-    public static final BitSet FOLLOW_80_in_ruleWorkItem4923 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleWorkItem4935 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItem4955 = new BitSet(new long[]{0x0001000000000010L});
-    public static final BitSet FOLLOW_48_in_ruleWorkItem4968 = new BitSet(new long[]{0x0781000000000000L,0x00000000000E0400L});
-    public static final BitSet FOLLOW_81_in_ruleWorkItem4983 = new BitSet(new long[]{0x0781000000000000L,0x00000000003C0400L});
-    public static final BitSet FOLLOW_ruleCausality_in_ruleWorkItem5004 = new BitSet(new long[]{0x0781000000000000L,0x00000000003C0400L});
-    public static final BitSet FOLLOW_55_in_ruleWorkItem5020 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItem5040 = new BitSet(new long[]{0x0701000000000010L,0x00000000000C0400L});
-    public static final BitSet FOLLOW_56_in_ruleWorkItem5056 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ruleDouble_in_ruleWorkItem5077 = new BitSet(new long[]{0x0601000000000000L,0x00000000000C0400L});
-    public static final BitSet FOLLOW_57_in_ruleWorkItem5092 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ruleDouble_in_ruleWorkItem5113 = new BitSet(new long[]{0x0401000000000000L,0x00000000000C0400L});
-    public static final BitSet FOLLOW_58_in_ruleWorkItem5128 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItem5145 = new BitSet(new long[]{0x0001000000000000L,0x00000000000C0400L});
-    public static final BitSet FOLLOW_74_in_ruleWorkItem5165 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItem5185 = new BitSet(new long[]{0x0001000000000000L,0x00000000000C0000L});
-    public static final BitSet FOLLOW_82_in_ruleWorkItem5200 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleWorkItem5217 = new BitSet(new long[]{0x0001000000000000L,0x0000000000080000L});
-    public static final BitSet FOLLOW_83_in_ruleWorkItem5237 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleWorkItem5254 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_48_in_ruleWorkItem5273 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCausality_in_entryRuleCausality5309 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCausality5319 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_84_in_ruleCausality5357 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_85_in_ruleCausality5375 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleCausality5388 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleCausality5408 = new BitSet(new long[]{0x0001000000000010L});
-    public static final BitSet FOLLOW_48_in_ruleCausality5421 = new BitSet(new long[]{0x0000000000000002L,0x0000000000C00000L});
-    public static final BitSet FOLLOW_86_in_ruleCausality5434 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleCausality5451 = new BitSet(new long[]{0x0000000000000002L,0x0000000000800000L});
-    public static final BitSet FOLLOW_87_in_ruleCausality5471 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleCausality5488 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleServiceType_in_entryRuleServiceType5533 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleServiceType5543 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_88_in_ruleServiceType5580 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleServiceType5597 = new BitSet(new long[]{0x0000800000000002L});
-    public static final BitSet FOLLOW_47_in_ruleServiceType5615 = new BitSet(new long[]{0x0009000000000000L});
-    public static final BitSet FOLLOW_51_in_ruleServiceType5628 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleServiceType5645 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_48_in_ruleServiceType5664 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleService_in_entryRuleService5702 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleService5712 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_89_in_ruleService5749 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleService5766 = new BitSet(new long[]{0x0000800000000002L});
-    public static final BitSet FOLLOW_47_in_ruleService5784 = new BitSet(new long[]{0x0008000000000000L,0x0000000000004000L});
-    public static final BitSet FOLLOW_51_in_ruleService5797 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleService5814 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004000L});
-    public static final BitSet FOLLOW_78_in_ruleService5834 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleService5854 = new BitSet(new long[]{0x0001000000000000L,0x0000000004000000L});
-    public static final BitSet FOLLOW_90_in_ruleService5868 = new BitSet(new long[]{0x0001040000000020L});
-    public static final BitSet FOLLOW_ruleNumExpression_in_ruleService5889 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_48_in_ruleService5903 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleServiceProvider_in_entryRuleServiceProvider5941 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleServiceProvider5951 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_91_in_ruleServiceProvider5989 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_92_in_ruleServiceProvider6007 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleServiceProvider6025 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleServiceProvider6042 = new BitSet(new long[]{0x0009000000000000L,0x00000009E0000800L});
-    public static final BitSet FOLLOW_51_in_ruleServiceProvider6055 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleServiceProvider6072 = new BitSet(new long[]{0x0001000000000000L,0x00000009E0000800L});
-    public static final BitSet FOLLOW_93_in_ruleServiceProvider6092 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleServiceProvider6104 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleServiceProvider6124 = new BitSet(new long[]{0x0001000000000010L});
-    public static final BitSet FOLLOW_48_in_ruleServiceProvider6137 = new BitSet(new long[]{0x0001000000000000L,0x00000009C0000800L});
-    public static final BitSet FOLLOW_75_in_ruleServiceProvider6152 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleServiceProvider6164 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleServiceProvider6184 = new BitSet(new long[]{0x0001000000000010L});
-    public static final BitSet FOLLOW_48_in_ruleServiceProvider6197 = new BitSet(new long[]{0x0001000000000000L,0x00000009C0000000L});
-    public static final BitSet FOLLOW_94_in_ruleServiceProvider6212 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleServiceProvider6224 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleServiceProvider6244 = new BitSet(new long[]{0x0001000000000010L});
-    public static final BitSet FOLLOW_48_in_ruleServiceProvider6257 = new BitSet(new long[]{0x0001000000000000L,0x0000000980000000L});
-    public static final BitSet FOLLOW_95_in_ruleServiceProvider6272 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleServiceProvider6284 = new BitSet(new long[]{0x0000000000000000L,0x0000000002000000L});
-    public static final BitSet FOLLOW_ruleService_in_ruleServiceProvider6305 = new BitSet(new long[]{0x0001000000000000L,0x0000000002000000L});
-    public static final BitSet FOLLOW_48_in_ruleServiceProvider6318 = new BitSet(new long[]{0x0001000000000000L,0x0000000900000000L});
-    public static final BitSet FOLLOW_96_in_ruleServiceProvider6333 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleServiceProvider6345 = new BitSet(new long[]{0x0000000000000000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_97_in_ruleServiceProvider6357 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleServiceProvider6377 = new BitSet(new long[]{0x0001000000000000L,0x0000000400000000L});
-    public static final BitSet FOLLOW_98_in_ruleServiceProvider6390 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleServiceProvider6402 = new BitSet(new long[]{0x0009000000000000L,0x00000000000003C8L});
-    public static final BitSet FOLLOW_ruleWIAcceptance_in_ruleServiceProvider6423 = new BitSet(new long[]{0x0001000000000000L,0x00000000000003C0L});
-    public static final BitSet FOLLOW_ruleWISelection_in_ruleServiceProvider6445 = new BitSet(new long[]{0x0001000000000000L,0x0000000000000380L});
-    public static final BitSet FOLLOW_ruleWIAssignment_in_ruleServiceProvider6467 = new BitSet(new long[]{0x0001000000000000L,0x0000000000000300L});
-    public static final BitSet FOLLOW_ruleResourceAllocation_in_ruleServiceProvider6489 = new BitSet(new long[]{0x0001000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_ruleResourceOutsourcing_in_ruleServiceProvider6511 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_48_in_ruleServiceProvider6524 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_48_in_ruleServiceProvider6538 = new BitSet(new long[]{0x0001000000000000L,0x0000000800000000L});
-    public static final BitSet FOLLOW_99_in_ruleServiceProvider6553 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleServiceProvider6565 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_ruleAsset_in_ruleServiceProvider6586 = new BitSet(new long[]{0x0001000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_48_in_ruleServiceProvider6599 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_48_in_ruleServiceProvider6613 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAsset_in_entryRuleAsset6649 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAsset6659 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_100_in_ruleAsset6696 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleAsset6713 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleAsset6730 = new BitSet(new long[]{0x2009000000000000L,0x0000000080000000L});
-    public static final BitSet FOLLOW_61_in_ruleAsset6743 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleAsset6760 = new BitSet(new long[]{0x0009000000000000L,0x0000000080000000L});
-    public static final BitSet FOLLOW_51_in_ruleAsset6780 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleAsset6797 = new BitSet(new long[]{0x0001000000000000L,0x0000000080000000L});
-    public static final BitSet FOLLOW_95_in_ruleAsset6817 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleAsset6829 = new BitSet(new long[]{0x0000000000000000L,0x0000000002000000L});
-    public static final BitSet FOLLOW_ruleService_in_ruleAsset6850 = new BitSet(new long[]{0x0001000000000000L,0x0000000002000000L});
-    public static final BitSet FOLLOW_48_in_ruleAsset6863 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_48_in_ruleAsset6877 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCapability_in_entryRuleCapability6915 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCapability6925 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_101_in_ruleCapability6962 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleCapability6979 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleCapability6996 = new BitSet(new long[]{0x0008000000000000L,0x0000004000000000L});
-    public static final BitSet FOLLOW_51_in_ruleCapability7009 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleCapability7026 = new BitSet(new long[]{0x0008000000000000L,0x0000004000000000L});
-    public static final BitSet FOLLOW_ruleRequirement_in_ruleCapability7054 = new BitSet(new long[]{0x0009000000000000L,0x0000004000000000L});
-    public static final BitSet FOLLOW_48_in_ruleCapability7067 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRequirement_in_entryRuleRequirement7103 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRequirement7113 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_102_in_ruleRequirement7150 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleRequirement7167 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleRequirement7184 = new BitSet(new long[]{0x0008000000000000L,0x0000008000000000L});
-    public static final BitSet FOLLOW_51_in_ruleRequirement7197 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleRequirement7214 = new BitSet(new long[]{0x0000000000000000L,0x0000008000000000L});
-    public static final BitSet FOLLOW_103_in_ruleRequirement7234 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleRequirement7246 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleRequirement7266 = new BitSet(new long[]{0x0001000000000010L});
-    public static final BitSet FOLLOW_48_in_ruleRequirement7279 = new BitSet(new long[]{0x0001000000000000L,0x0000010000000000L});
-    public static final BitSet FOLLOW_104_in_ruleRequirement7293 = new BitSet(new long[]{0x0001000000000000L,0x0000000000300000L});
-    public static final BitSet FOLLOW_ruleCausality_in_ruleRequirement7314 = new BitSet(new long[]{0x0001000000000000L,0x0000000000300000L});
-    public static final BitSet FOLLOW_48_in_ruleRequirement7329 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleProvision_in_entryRuleProvision7367 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleProvision7377 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_105_in_ruleProvision7414 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleProvision7434 = new BitSet(new long[]{0x0000000000000000L,0x0000040000000000L});
-    public static final BitSet FOLLOW_106_in_ruleProvision7446 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleProvision7458 = new BitSet(new long[]{0x0001000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleProvision7478 = new BitSet(new long[]{0x0001000000000010L});
-    public static final BitSet FOLLOW_48_in_ruleProvision7491 = new BitSet(new long[]{0x0000000000000000L,0x0000080000000000L});
-    public static final BitSet FOLLOW_107_in_ruleProvision7503 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStatemachine_in_entryRuleStatemachine7539 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleStatemachine7549 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_108_in_ruleStatemachine7596 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleEvent_in_ruleStatemachine7617 = new BitSet(new long[]{0x0000000000000010L,0x0000200000000000L});
-    public static final BitSet FOLLOW_109_in_ruleStatemachine7630 = new BitSet(new long[]{0x0000000000000002L,0x0000C00000000000L});
-    public static final BitSet FOLLOW_110_in_ruleStatemachine7645 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleCommand_in_ruleStatemachine7666 = new BitSet(new long[]{0x0000000000000010L,0x0000200000000000L});
-    public static final BitSet FOLLOW_109_in_ruleStatemachine7679 = new BitSet(new long[]{0x0000000000000002L,0x0000800000000000L});
-    public static final BitSet FOLLOW_ruleState_in_ruleStatemachine7702 = new BitSet(new long[]{0x0000000000000002L,0x0000800000000000L});
-    public static final BitSet FOLLOW_ruleEvent_in_entryRuleEvent7739 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleEvent7749 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleEvent7791 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleEvent7813 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCommand_in_entryRuleCommand7854 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCommand7864 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleCommand7906 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleCommand7928 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleState_in_entryRuleState7969 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleState7979 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_111_in_ruleState8016 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleState8033 = new BitSet(new long[]{0x0000000000000010L,0x0001200000000000L});
-    public static final BitSet FOLLOW_112_in_ruleState8051 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleState8063 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleState8083 = new BitSet(new long[]{0x0001000000000010L});
-    public static final BitSet FOLLOW_48_in_ruleState8096 = new BitSet(new long[]{0x0000000000000010L,0x0000200000000000L});
-    public static final BitSet FOLLOW_ruleTransition_in_ruleState8119 = new BitSet(new long[]{0x0000000000000010L,0x0000200000000000L});
-    public static final BitSet FOLLOW_109_in_ruleState8132 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTransition_in_entryRuleTransition8168 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTransition8178 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleTransition8224 = new BitSet(new long[]{0x0000000000000000L,0x0000000000100000L});
-    public static final BitSet FOLLOW_84_in_ruleTransition8236 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleTransition8256 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleTransition8284 = new BitSet(new long[]{0x0000000000000000L,0x0002000000000000L});
-    public static final BitSet FOLLOW_113_in_ruleTransition8296 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_43_in_ruleTransition8308 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleTransition8328 = new BitSet(new long[]{0x0000100000000010L});
-    public static final BitSet FOLLOW_44_in_ruleTransition8341 = new BitSet(new long[]{0x0000000000000000L,0x0000000000100000L});
-    public static final BitSet FOLLOW_84_in_ruleTransition8353 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleTransition8373 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_11_in_ruleKanbanSchedulingSystem122 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleKanbanSchedulingSystem134 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleKanbanSchedulingSystem146 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_ruleWIAcceptanceRuleType_in_ruleKanbanSchedulingSystem167 = new BitSet(new long[]{0x0000000000004000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_14_in_ruleKanbanSchedulingSystem180 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleKanbanSchedulingSystem192 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_ruleWISelectionRuleType_in_ruleKanbanSchedulingSystem213 = new BitSet(new long[]{0x0000000000010000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_16_in_ruleKanbanSchedulingSystem226 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleKanbanSchedulingSystem238 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_ruleWIAssignmentRuleType_in_ruleKanbanSchedulingSystem259 = new BitSet(new long[]{0x0000000000040000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_18_in_ruleKanbanSchedulingSystem272 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_ruleKanbanSchedulingSystem284 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_ruleResourceAllocationRuleType_in_ruleKanbanSchedulingSystem305 = new BitSet(new long[]{0x0000000000100000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_20_in_ruleKanbanSchedulingSystem318 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_ruleKanbanSchedulingSystem330 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_ruleResourceOutsourcingRuleType_in_ruleKanbanSchedulingSystem351 = new BitSet(new long[]{0x0000000000400000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_22_in_ruleKanbanSchedulingSystem364 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_23_in_ruleKanbanSchedulingSystem376 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_24_in_ruleKanbanSchedulingSystem388 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_25_in_ruleKanbanSchedulingSystem400 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_ruleProcessModel_in_ruleKanbanSchedulingSystem421 = new BitSet(new long[]{0x0000000004000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_26_in_ruleKanbanSchedulingSystem434 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_27_in_ruleKanbanSchedulingSystem446 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_ruleValueFunction_in_ruleKanbanSchedulingSystem467 = new BitSet(new long[]{0x0000000010000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_28_in_ruleKanbanSchedulingSystem480 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_29_in_ruleKanbanSchedulingSystem492 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_30_in_ruleKanbanSchedulingSystem504 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_31_in_ruleKanbanSchedulingSystem516 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_32_in_ruleKanbanSchedulingSystem528 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleTaskType_in_ruleKanbanSchedulingSystem549 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000021L});
+    public static final BitSet FOLLOW_ruleTaskHierarchy_in_ruleKanbanSchedulingSystem571 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_33_in_ruleKanbanSchedulingSystem583 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_34_in_ruleKanbanSchedulingSystem595 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_ruleClassOfService_in_ruleKanbanSchedulingSystem616 = new BitSet(new long[]{0x0000000800000000L,0x0000000000000100L});
+    public static final BitSet FOLLOW_35_in_ruleKanbanSchedulingSystem629 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_36_in_ruleKanbanSchedulingSystem641 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000400L});
+    public static final BitSet FOLLOW_ruleServiceType_in_ruleKanbanSchedulingSystem662 = new BitSet(new long[]{0x0000002000000000L,0x0000000000000400L});
+    public static final BitSet FOLLOW_37_in_ruleKanbanSchedulingSystem675 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_38_in_ruleKanbanSchedulingSystem687 = new BitSet(new long[]{0x0000000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_ruleGovernanceStrategy_in_ruleKanbanSchedulingSystem708 = new BitSet(new long[]{0x0000008000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_39_in_ruleKanbanSchedulingSystem721 = new BitSet(new long[]{0x0000050000000000L});
+    public static final BitSet FOLLOW_40_in_ruleKanbanSchedulingSystem734 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_ruleRepository_in_ruleKanbanSchedulingSystem755 = new BitSet(new long[]{0x0000020000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_41_in_ruleKanbanSchedulingSystem768 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_42_in_ruleKanbanSchedulingSystem782 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_43_in_ruleKanbanSchedulingSystem794 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleKanbanSchedulingSystem811 = new BitSet(new long[]{0x0000300000000000L});
+    public static final BitSet FOLLOW_44_in_ruleKanbanSchedulingSystem829 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleKanbanSchedulingSystem850 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_45_in_ruleKanbanSchedulingSystem864 = new BitSet(new long[]{0x0000400000000000L});
+    public static final BitSet FOLLOW_46_in_ruleKanbanSchedulingSystem876 = new BitSet(new long[]{0x0000000000000000L,0x0000600000000000L});
+    public static final BitSet FOLLOW_ruleServiceProvider_in_ruleKanbanSchedulingSystem897 = new BitSet(new long[]{0x0000800000000000L,0x0000600000000000L});
+    public static final BitSet FOLLOW_47_in_ruleKanbanSchedulingSystem910 = new BitSet(new long[]{0x0001000000000000L});
+    public static final BitSet FOLLOW_48_in_ruleKanbanSchedulingSystem922 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_49_in_ruleKanbanSchedulingSystem934 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_50_in_ruleKanbanSchedulingSystem946 = new BitSet(new long[]{0x0000000000000000L,0x0000000080000000L});
+    public static final BitSet FOLLOW_ruleWorkSource_in_ruleKanbanSchedulingSystem967 = new BitSet(new long[]{0x0008000000000000L,0x0000000080000000L});
+    public static final BitSet FOLLOW_51_in_ruleKanbanSchedulingSystem980 = new BitSet(new long[]{0x0010000000000000L});
+    public static final BitSet FOLLOW_52_in_ruleKanbanSchedulingSystem992 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004000L});
+    public static final BitSet FOLLOW_ruleWorkItem_in_ruleKanbanSchedulingSystem1013 = new BitSet(new long[]{0x0020000000000000L,0x0000000000004000L});
+    public static final BitSet FOLLOW_53_in_ruleKanbanSchedulingSystem1026 = new BitSet(new long[]{0x0040000000000000L});
+    public static final BitSet FOLLOW_54_in_ruleKanbanSchedulingSystem1038 = new BitSet(new long[]{0x0080000000000000L});
+    public static final BitSet FOLLOW_55_in_ruleKanbanSchedulingSystem1050 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_56_in_ruleKanbanSchedulingSystem1062 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_57_in_ruleKanbanSchedulingSystem1074 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleKanbanSchedulingSystem1091 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_58_in_ruleKanbanSchedulingSystem1108 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleKanbanSchedulingSystem1125 = new BitSet(new long[]{0x0800000000000000L});
+    public static final BitSet FOLLOW_59_in_ruleKanbanSchedulingSystem1142 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName1179 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName1190 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName1230 = new BitSet(new long[]{0x1000000000000002L});
+    public static final BitSet FOLLOW_60_in_ruleQualifiedName1249 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName1264 = new BitSet(new long[]{0x1000000000000002L});
+    public static final BitSet FOLLOW_ruleDouble_in_entryRuleDouble1312 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDouble1323 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleDouble1363 = new BitSet(new long[]{0x1000000000000002L});
+    public static final BitSet FOLLOW_60_in_ruleDouble1382 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleDouble1397 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumExpression_in_entryRuleNumExpression1444 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNumExpression1454 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDouble_in_ruleNumExpression1500 = new BitSet(new long[]{0x2000000000000002L});
+    public static final BitSet FOLLOW_61_in_ruleNumExpression1520 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleDistribution_in_ruleNumExpression1554 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParameter_in_entryRuleParameter1593 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleParameter1604 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDouble_in_ruleParameter1651 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleParameter1677 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDistribution_in_entryRuleDistribution1722 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDistribution1732 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDistribution1774 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_62_in_ruleDistribution1791 = new BitSet(new long[]{0x8000000000000030L});
+    public static final BitSet FOLLOW_ruleParameter_in_ruleDistribution1812 = new BitSet(new long[]{0x8000000000000030L});
+    public static final BitSet FOLLOW_63_in_ruleDistribution1825 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTaskHierarchy_in_entryRuleTaskHierarchy1861 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTaskHierarchy1871 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_ruleTaskHierarchy1908 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleTaskHierarchy1925 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleTaskHierarchy1942 = new BitSet(new long[]{0x0000000000000000L,0x000000000000001CL});
+    public static final BitSet FOLLOW_66_in_ruleTaskHierarchy1955 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleTaskHierarchy1972 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_67_in_ruleTaskHierarchy1992 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleTaskHierarchy2004 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleTaskHierarchy2024 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleTaskHierarchy2037 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleTaskHierarchy2051 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTaskType_in_entryRuleTaskType2087 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTaskType2097 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_69_in_ruleTaskType2134 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleTaskType2151 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleTaskType2168 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000014L});
+    public static final BitSet FOLLOW_66_in_ruleTaskType2181 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleTaskType2198 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleTaskType2217 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValueFunction_in_entryRuleValueFunction2253 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleValueFunction2263 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_70_in_ruleValueFunction2300 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleValueFunction2317 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleValueFunction2334 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000014L});
+    public static final BitSet FOLLOW_66_in_ruleValueFunction2347 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleValueFunction2364 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleValueFunction2383 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleProcessModel_in_entryRuleProcessModel2419 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleProcessModel2429 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_71_in_ruleProcessModel2466 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleProcessModel2483 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleProcessModel2500 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000014L});
+    public static final BitSet FOLLOW_66_in_ruleProcessModel2513 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleProcessModel2530 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleProcessModel2549 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleClassOfService_in_entryRuleClassOfService2585 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleClassOfService2595 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_72_in_ruleClassOfService2632 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleClassOfService2649 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleClassOfService2666 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000014L});
+    public static final BitSet FOLLOW_66_in_ruleClassOfService2679 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleClassOfService2696 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleClassOfService2715 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleWIAcceptanceRuleType_in_entryRuleWIAcceptanceRuleType2751 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleWIAcceptanceRuleType2761 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_73_in_ruleWIAcceptanceRuleType2798 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWIAcceptanceRuleType2815 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleWIAcceptanceRuleType2832 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000014L});
+    public static final BitSet FOLLOW_66_in_ruleWIAcceptanceRuleType2845 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleWIAcceptanceRuleType2862 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleWIAcceptanceRuleType2881 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleWISelectionRuleType_in_entryRuleWISelectionRuleType2917 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleWISelectionRuleType2927 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_73_in_ruleWISelectionRuleType2964 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWISelectionRuleType2981 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleWISelectionRuleType2998 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000014L});
+    public static final BitSet FOLLOW_66_in_ruleWISelectionRuleType3011 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleWISelectionRuleType3028 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleWISelectionRuleType3047 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleWIAssignmentRuleType_in_entryRuleWIAssignmentRuleType3083 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleWIAssignmentRuleType3093 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_73_in_ruleWIAssignmentRuleType3130 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWIAssignmentRuleType3147 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleWIAssignmentRuleType3164 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000014L});
+    public static final BitSet FOLLOW_66_in_ruleWIAssignmentRuleType3177 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleWIAssignmentRuleType3194 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleWIAssignmentRuleType3213 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleResourceAllocationRuleType_in_entryRuleResourceAllocationRuleType3249 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleResourceAllocationRuleType3259 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_73_in_ruleResourceAllocationRuleType3296 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleResourceAllocationRuleType3313 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleResourceAllocationRuleType3330 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000014L});
+    public static final BitSet FOLLOW_66_in_ruleResourceAllocationRuleType3343 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleResourceAllocationRuleType3360 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleResourceAllocationRuleType3379 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleResourceOutsourcingRuleType_in_entryRuleResourceOutsourcingRuleType3415 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleResourceOutsourcingRuleType3425 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_73_in_ruleResourceOutsourcingRuleType3462 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleResourceOutsourcingRuleType3479 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleResourceOutsourcingRuleType3496 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000014L});
+    public static final BitSet FOLLOW_66_in_ruleResourceOutsourcingRuleType3509 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleResourceOutsourcingRuleType3526 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleResourceOutsourcingRuleType3545 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleServiceType_in_entryRuleServiceType3583 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleServiceType3593 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_74_in_ruleServiceType3630 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleServiceType3647 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleServiceType3665 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000014L});
+    public static final BitSet FOLLOW_66_in_ruleServiceType3678 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleServiceType3695 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleServiceType3714 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRepository_in_entryRuleRepository3752 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRepository3762 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_75_in_ruleRepository3799 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleRepository3819 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_76_in_ruleRepository3831 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleRepository3843 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004010L});
+    public static final BitSet FOLLOW_ruleWorkItemProfile_in_ruleRepository3864 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004010L});
+    public static final BitSet FOLLOW_68_in_ruleRepository3877 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
+    public static final BitSet FOLLOW_77_in_ruleRepository3889 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleWorkItemProfile_in_entryRuleWorkItemProfile3925 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleWorkItemProfile3935 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_78_in_ruleWorkItemProfile3972 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItemProfile3989 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleWorkItemProfile4006 = new BitSet(new long[]{0x0000000000000000L,0x00000000003F8194L});
+    public static final BitSet FOLLOW_66_in_ruleWorkItemProfile4019 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleWorkItemProfile4036 = new BitSet(new long[]{0x0000000000000000L,0x00000000003F8190L});
+    public static final BitSet FOLLOW_71_in_ruleWorkItemProfile4056 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItemProfile4076 = new BitSet(new long[]{0x0000000000000000L,0x00000000003F8110L});
+    public static final BitSet FOLLOW_79_in_ruleWorkItemProfile4091 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleWorkItemProfile4103 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004000L});
+    public static final BitSet FOLLOW_ruleWorkReference_in_ruleWorkItemProfile4124 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004010L});
+    public static final BitSet FOLLOW_68_in_ruleWorkItemProfile4137 = new BitSet(new long[]{0x0000000000000000L,0x00000000003F0110L});
+    public static final BitSet FOLLOW_80_in_ruleWorkItemProfile4152 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleWorkItemProfile4164 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004000L});
+    public static final BitSet FOLLOW_ruleWorkDecomposition_in_ruleWorkItemProfile4185 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004010L});
+    public static final BitSet FOLLOW_68_in_ruleWorkItemProfile4198 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0110L});
+    public static final BitSet FOLLOW_81_in_ruleWorkItemProfile4213 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItemProfile4233 = new BitSet(new long[]{0x0000000000000010L,0x00000000003C0110L});
+    public static final BitSet FOLLOW_82_in_ruleWorkItemProfile4249 = new BitSet(new long[]{0x2000000000000020L,0x0000000000380110L});
+    public static final BitSet FOLLOW_ruleNumExpression_in_ruleWorkItemProfile4270 = new BitSet(new long[]{0x0000000000000000L,0x0000000000380110L});
+    public static final BitSet FOLLOW_83_in_ruleWorkItemProfile4285 = new BitSet(new long[]{0x2000000000000020L,0x0000000000300110L});
+    public static final BitSet FOLLOW_ruleNumExpression_in_ruleWorkItemProfile4306 = new BitSet(new long[]{0x0000000000000000L,0x0000000000300110L});
+    public static final BitSet FOLLOW_72_in_ruleWorkItemProfile4321 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItemProfile4341 = new BitSet(new long[]{0x0000000000000000L,0x0000000000300010L});
+    public static final BitSet FOLLOW_84_in_ruleWorkItemProfile4361 = new BitSet(new long[]{0x0000000000000000L,0x0000000000200010L});
+    public static final BitSet FOLLOW_85_in_ruleWorkItemProfile4393 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleWorkItemProfile4419 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleWorkReference_in_entryRuleWorkReference4455 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleWorkReference4465 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_78_in_ruleWorkReference4502 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkReference4522 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_86_in_ruleWorkReference4534 = new BitSet(new long[]{0x2000000000000020L});
+    public static final BitSet FOLLOW_ruleNumExpression_in_ruleWorkReference4555 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleWorkDecomposition_in_entryRuleWorkDecomposition4591 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleWorkDecomposition4601 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_78_in_ruleWorkDecomposition4638 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkDecomposition4658 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_86_in_ruleWorkDecomposition4670 = new BitSet(new long[]{0x2000000000000020L});
+    public static final BitSet FOLLOW_ruleNumExpression_in_ruleWorkDecomposition4691 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGovernanceStrategy_in_entryRuleGovernanceStrategy4731 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGovernanceStrategy4741 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_87_in_ruleGovernanceStrategy4778 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleGovernanceStrategy4795 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleGovernanceStrategy4812 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000004L});
+    public static final BitSet FOLLOW_66_in_ruleGovernanceStrategy4825 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleGovernanceStrategy4842 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000004L});
+    public static final BitSet FOLLOW_ruleWIAcceptance_in_ruleGovernanceStrategy4870 = new BitSet(new long[]{0x0000000000000000L,0x0000000008000000L});
+    public static final BitSet FOLLOW_ruleWISelection_in_ruleGovernanceStrategy4891 = new BitSet(new long[]{0x0000000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_ruleWIAssignment_in_ruleGovernanceStrategy4912 = new BitSet(new long[]{0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_ruleResourceAllocation_in_ruleGovernanceStrategy4933 = new BitSet(new long[]{0x0000000000000000L,0x0000000040000000L});
+    public static final BitSet FOLLOW_ruleResourceOutsourcing_in_ruleGovernanceStrategy4954 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleGovernanceStrategy4966 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleWIAcceptance_in_entryRuleWIAcceptance5002 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleWIAcceptance5012 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_88_in_ruleWIAcceptance5049 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWIAcceptance5069 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleWIAcceptance5081 = new BitSet(new long[]{0x0000000000000000L,0x0000000006000014L});
+    public static final BitSet FOLLOW_66_in_ruleWIAcceptance5094 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleWIAcceptance5111 = new BitSet(new long[]{0x0000000000000000L,0x0000000006000010L});
+    public static final BitSet FOLLOW_89_in_ruleWIAcceptance5131 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleWIAcceptance5148 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000010L});
+    public static final BitSet FOLLOW_90_in_ruleWIAcceptance5168 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleWIAcceptance5185 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleWIAcceptance5204 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleWISelection_in_entryRuleWISelection5240 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleWISelection5250 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_91_in_ruleWISelection5287 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWISelection5307 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleWISelection5319 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000014L});
+    public static final BitSet FOLLOW_66_in_ruleWISelection5332 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleWISelection5349 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleWISelection5368 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleWIAssignment_in_entryRuleWIAssignment5404 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleWIAssignment5414 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_92_in_ruleWIAssignment5451 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWIAssignment5471 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleWIAssignment5483 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000014L});
+    public static final BitSet FOLLOW_66_in_ruleWIAssignment5496 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleWIAssignment5513 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleWIAssignment5532 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleResourceAllocation_in_entryRuleResourceAllocation5568 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleResourceAllocation5578 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_93_in_ruleResourceAllocation5615 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleResourceAllocation5635 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleResourceAllocation5647 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000014L});
+    public static final BitSet FOLLOW_66_in_ruleResourceAllocation5660 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleResourceAllocation5677 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleResourceAllocation5696 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleResourceOutsourcing_in_entryRuleResourceOutsourcing5732 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleResourceOutsourcing5742 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_94_in_ruleResourceOutsourcing5779 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleResourceOutsourcing5799 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleResourceOutsourcing5811 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000014L});
+    public static final BitSet FOLLOW_66_in_ruleResourceOutsourcing5824 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleResourceOutsourcing5841 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleResourceOutsourcing5860 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleWorkSource_in_entryRuleWorkSource5896 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleWorkSource5906 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_95_in_ruleWorkSource5943 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkSource5960 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleWorkSource5977 = new BitSet(new long[]{0x0000000000000000L,0x0000000110000014L});
+    public static final BitSet FOLLOW_66_in_ruleWorkSource5990 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleWorkSource6007 = new BitSet(new long[]{0x0000000000000000L,0x0000000110000010L});
+    public static final BitSet FOLLOW_96_in_ruleWorkSource6027 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleWorkSource6039 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkSource6059 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleWorkSource6072 = new BitSet(new long[]{0x0000000000000000L,0x0000000010000010L});
+    public static final BitSet FOLLOW_ruleWIAssignment_in_ruleWorkSource6095 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleWorkSource6108 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleWorkItem_in_entryRuleWorkItem6144 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleWorkItem6154 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_78_in_ruleWorkItem6191 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItem6208 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleWorkItem6225 = new BitSet(new long[]{0x0000000000000000L,0x000000FE800E0114L});
+    public static final BitSet FOLLOW_97_in_ruleWorkItem6238 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItem6258 = new BitSet(new long[]{0x0000000000000000L,0x000000FC800E0114L});
+    public static final BitSet FOLLOW_66_in_ruleWorkItem6273 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleWorkItem6290 = new BitSet(new long[]{0x0000000000000000L,0x000000FC800E0110L});
+    public static final BitSet FOLLOW_98_in_ruleWorkItem6310 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItem6330 = new BitSet(new long[]{0x0000000000000000L,0x000000F8800E0110L});
+    public static final BitSet FOLLOW_99_in_ruleWorkItem6345 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleWorkItem6357 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItem6377 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleWorkItem6390 = new BitSet(new long[]{0x0000000000000000L,0x000000F0800E0110L});
+    public static final BitSet FOLLOW_100_in_ruleWorkItem6405 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleWorkItem6417 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItem6437 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleWorkItem6450 = new BitSet(new long[]{0x0000000000000000L,0x000000E0800E0110L});
+    public static final BitSet FOLLOW_101_in_ruleWorkItem6465 = new BitSet(new long[]{0x0000000000000000L,0x000003C0800E0110L});
+    public static final BitSet FOLLOW_ruleCausalTrigger_in_ruleWorkItem6486 = new BitSet(new long[]{0x0000000000000000L,0x000003C0800E0110L});
+    public static final BitSet FOLLOW_81_in_ruleWorkItem6502 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItem6522 = new BitSet(new long[]{0x0000000000000010L,0x000000C0800C0110L});
+    public static final BitSet FOLLOW_82_in_ruleWorkItem6538 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleWorkItem6555 = new BitSet(new long[]{0x0000000000000000L,0x000000C080080110L});
+    public static final BitSet FOLLOW_83_in_ruleWorkItem6575 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleWorkItem6592 = new BitSet(new long[]{0x0000000000000000L,0x000000C080000110L});
+    public static final BitSet FOLLOW_72_in_ruleWorkItem6612 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItem6632 = new BitSet(new long[]{0x0000000000000000L,0x000000C080000010L});
+    public static final BitSet FOLLOW_95_in_ruleWorkItem6647 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWorkItem6667 = new BitSet(new long[]{0x0000000000000000L,0x000000C000000010L});
+    public static final BitSet FOLLOW_102_in_ruleWorkItem6682 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleWorkItem6699 = new BitSet(new long[]{0x0000000000000000L,0x0000008000000010L});
+    public static final BitSet FOLLOW_103_in_ruleWorkItem6719 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleWorkItem6736 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleWorkItem6755 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCausalTrigger_in_entryRuleCausalTrigger6791 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCausalTrigger6801 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_104_in_ruleCausalTrigger6839 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_105_in_ruleCausalTrigger6857 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleCausalTrigger6870 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleCausalTrigger6890 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleCausalTrigger6903 = new BitSet(new long[]{0x0000000000000002L,0x00000C0000000000L});
+    public static final BitSet FOLLOW_106_in_ruleCausalTrigger6916 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleCausalTrigger6933 = new BitSet(new long[]{0x0000000000000002L,0x0000080000000000L});
+    public static final BitSet FOLLOW_107_in_ruleCausalTrigger6953 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleCausalTrigger6970 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleService_in_entryRuleService7015 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleService7025 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_98_in_ruleService7062 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleService7082 = new BitSet(new long[]{0x0000000000000000L,0x0000100000000000L});
+    public static final BitSet FOLLOW_108_in_ruleService7094 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleService7111 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleServiceProvider_in_entryRuleServiceProvider7152 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleServiceProvider7162 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_109_in_ruleServiceProvider7200 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_110_in_ruleServiceProvider7218 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleServiceProvider7236 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleServiceProvider7253 = new BitSet(new long[]{0x0000000000000000L,0x0007800100800014L});
+    public static final BitSet FOLLOW_66_in_ruleServiceProvider7266 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleServiceProvider7283 = new BitSet(new long[]{0x0000000000000000L,0x0007800100800010L});
+    public static final BitSet FOLLOW_111_in_ruleServiceProvider7303 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleServiceProvider7315 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleServiceProvider7335 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleServiceProvider7348 = new BitSet(new long[]{0x0000000000000000L,0x0007000100800010L});
+    public static final BitSet FOLLOW_96_in_ruleServiceProvider7363 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleServiceProvider7375 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleServiceProvider7395 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleServiceProvider7408 = new BitSet(new long[]{0x0000000000000000L,0x0007000000800010L});
+    public static final BitSet FOLLOW_112_in_ruleServiceProvider7423 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleServiceProvider7435 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleServiceProvider7455 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleServiceProvider7468 = new BitSet(new long[]{0x0000000000000000L,0x0006000000800010L});
+    public static final BitSet FOLLOW_113_in_ruleServiceProvider7483 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleServiceProvider7495 = new BitSet(new long[]{0x0000000000000000L,0x0000000400000000L});
+    public static final BitSet FOLLOW_ruleService_in_ruleServiceProvider7516 = new BitSet(new long[]{0x0000000000000000L,0x0000000400000010L});
+    public static final BitSet FOLLOW_68_in_ruleServiceProvider7529 = new BitSet(new long[]{0x0000000000000000L,0x0004000000800010L});
+    public static final BitSet FOLLOW_87_in_ruleServiceProvider7544 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleServiceProvider7556 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleServiceProvider7576 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleServiceProvider7588 = new BitSet(new long[]{0x0000000000000000L,0x0004000000000010L});
+    public static final BitSet FOLLOW_114_in_ruleServiceProvider7603 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleServiceProvider7615 = new BitSet(new long[]{0x0000000000000000L,0x0008000000000000L});
+    public static final BitSet FOLLOW_ruleAsset_in_ruleServiceProvider7636 = new BitSet(new long[]{0x0000000000000000L,0x0008000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleServiceProvider7649 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleServiceProvider7663 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAsset_in_entryRuleAsset7699 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAsset7709 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_115_in_ruleAsset7746 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleAsset7763 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleAsset7780 = new BitSet(new long[]{0x0000000000000000L,0x0002000000400014L});
+    public static final BitSet FOLLOW_86_in_ruleAsset7793 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleAsset7810 = new BitSet(new long[]{0x0000000000000000L,0x0002000000000014L});
+    public static final BitSet FOLLOW_66_in_ruleAsset7830 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleAsset7847 = new BitSet(new long[]{0x0000000000000000L,0x0002000000000010L});
+    public static final BitSet FOLLOW_113_in_ruleAsset7867 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleAsset7879 = new BitSet(new long[]{0x0000000000000000L,0x0000000400000000L});
+    public static final BitSet FOLLOW_ruleService_in_ruleAsset7900 = new BitSet(new long[]{0x0000000000000000L,0x0000000400000010L});
+    public static final BitSet FOLLOW_68_in_ruleAsset7913 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleAsset7927 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCapability_in_entryRuleCapability7967 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCapability7977 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_116_in_ruleCapability8014 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleCapability8031 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleCapability8048 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000004L});
+    public static final BitSet FOLLOW_66_in_ruleCapability8061 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleCapability8078 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000004L});
+    public static final BitSet FOLLOW_ruleRequirement_in_ruleCapability8106 = new BitSet(new long[]{0x0000000000000000L,0x0020000000000014L});
+    public static final BitSet FOLLOW_68_in_ruleCapability8119 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRequirement_in_entryRuleRequirement8155 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRequirement8165 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_117_in_ruleRequirement8202 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleRequirement8219 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleRequirement8236 = new BitSet(new long[]{0x0000000000000000L,0x0040000000000004L});
+    public static final BitSet FOLLOW_66_in_ruleRequirement8249 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleRequirement8266 = new BitSet(new long[]{0x0000000000000000L,0x0040000000000000L});
+    public static final BitSet FOLLOW_118_in_ruleRequirement8286 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleRequirement8298 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleRequirement8318 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleRequirement8331 = new BitSet(new long[]{0x0000000000000000L,0x0080000000000010L});
+    public static final BitSet FOLLOW_119_in_ruleRequirement8345 = new BitSet(new long[]{0x0000000000000000L,0x0000030000000010L});
+    public static final BitSet FOLLOW_ruleCausalTrigger_in_ruleRequirement8366 = new BitSet(new long[]{0x0000000000000000L,0x0000030000000010L});
+    public static final BitSet FOLLOW_68_in_ruleRequirement8381 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleProvision_in_entryRuleProvision8419 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleProvision8429 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_120_in_ruleProvision8466 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleProvision8486 = new BitSet(new long[]{0x0000000000000000L,0x0200000000000000L});
+    public static final BitSet FOLLOW_121_in_ruleProvision8498 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleProvision8510 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleProvision8530 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleProvision8543 = new BitSet(new long[]{0x0000000000000000L,0x0400000000000000L});
+    public static final BitSet FOLLOW_122_in_ruleProvision8555 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStatemachine_in_entryRuleStatemachine8591 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleStatemachine8601 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_123_in_ruleStatemachine8648 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleEvent_in_ruleStatemachine8669 = new BitSet(new long[]{0x0000000000000010L,0x1000000000000000L});
+    public static final BitSet FOLLOW_124_in_ruleStatemachine8682 = new BitSet(new long[]{0x0000000000000002L,0x6000000000000000L});
+    public static final BitSet FOLLOW_125_in_ruleStatemachine8697 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleCommand_in_ruleStatemachine8718 = new BitSet(new long[]{0x0000000000000010L,0x1000000000000000L});
+    public static final BitSet FOLLOW_124_in_ruleStatemachine8731 = new BitSet(new long[]{0x0000000000000002L,0x4000000000000000L});
+    public static final BitSet FOLLOW_ruleState_in_ruleStatemachine8754 = new BitSet(new long[]{0x0000000000000002L,0x4000000000000000L});
+    public static final BitSet FOLLOW_ruleEvent_in_entryRuleEvent8791 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleEvent8801 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleEvent8843 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleEvent8865 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCommand_in_entryRuleCommand8906 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCommand8916 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleCommand8958 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleCommand8980 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleState_in_entryRuleState9021 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleState9031 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_126_in_ruleState9068 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleState9085 = new BitSet(new long[]{0x0000000000000010L,0x9000000000000000L});
+    public static final BitSet FOLLOW_127_in_ruleState9103 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleState9115 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleState9135 = new BitSet(new long[]{0x0000000000000010L,0x0000000000000010L});
+    public static final BitSet FOLLOW_68_in_ruleState9148 = new BitSet(new long[]{0x0000000000000010L,0x1000000000000000L});
+    public static final BitSet FOLLOW_ruleTransition_in_ruleState9171 = new BitSet(new long[]{0x0000000000000010L,0x1000000000000000L});
+    public static final BitSet FOLLOW_124_in_ruleState9184 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTransition_in_entryRuleTransition9220 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTransition9230 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleTransition9276 = new BitSet(new long[]{0x0000000000000000L,0x0000010000000000L});
+    public static final BitSet FOLLOW_104_in_ruleTransition9288 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleTransition9308 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleTransition9336 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_128_in_ruleTransition9348 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_62_in_ruleTransition9360 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleTransition9380 = new BitSet(new long[]{0x8000000000000010L});
+    public static final BitSet FOLLOW_63_in_ruleTransition9393 = new BitSet(new long[]{0x0000000000000000L,0x0000010000000000L});
+    public static final BitSet FOLLOW_104_in_ruleTransition9405 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleTransition9425 = new BitSet(new long[]{0x0000000000000002L});
 
 }

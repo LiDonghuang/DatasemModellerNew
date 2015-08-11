@@ -23,83 +23,39 @@ class KanbanmodelGenerator implements IGenerator {
 //				.map[name]
 //				.join(', '))
 	fsa.generateFile("KSS-Scenario.xml", compile(resource))	
+	fsa.generateFile("UserLibraries.xml", compileUserLibraries(resource))	
 	}
 
-	def compile(Resource res) '''
-		«FOR km : res.allContents.toIterable.filter(KanbanSchedulingSystem)»
-		<KSSModel>
-		«km.name»
-		
-		<GovernanceModel>
-			<GovernanceSearchStrategies>
-				«FOR stg : res.allContents.toIterable.filter(Strategy)» 
-				<Strategy>
-					<Name>«stg.name»</Name>
-					<Description>«stg.description»</Description>					
-					<AcceptanceRule>«stg.getWIAcceptanceRule.name»</AcceptanceRule>
-					<SelectionRule>«stg.getWISelectionRule.name»</SelectionRule>
-					<AssignmentRule>«stg.getWIAssignmentRule.name»</AssignmentRule>
-					<AllocationRule>«stg.getResourceAllocationRule.name»</AllocationRule>
-					<OutsourcingRule>«stg.getResourceOutsourcingRule.name»</OutsourcingRule>
-				</Strategy>
-				«ENDFOR»
-			</GovernanceSearchStrategies>
-			<TaskPatterns>
-				«FOR tp : res.allContents.toIterable.filter(TaskPattern)» 
-				<TaskPattern>
-					<Name>«tp.name»</Name>
-					<Description>«tp.description»</Description>
-					<Types>
-						«FOR tt :tp.getTaskTypes()» 
-						<Type>
-						<Name>«tt.name»</Name>
-						<Description>«tt.description»</Description>
-						</Type>
-						«ENDFOR»	
-					</Types>	
-				«ENDFOR»
-				</TaskPattern>
-			</TaskPatterns>
-			<ValueFunctions>
-				«FOR vf : res.allContents.toIterable.filter(ValueFunction)» 
-				<ValueFunction>
-					<Name>«vf.name»</Name>
-					<Description>«vf.description»</Description>
-				</ValueFunction>
-				«ENDFOR»
-			</ValueFunctions>
-		</GovernanceModel>
-		
-		
-		<OrganizationalModel>
-			<ServiceTypes>
-			«FOR stype : res.allContents.toIterable.filter(ServiceType)» 
-				«printServiceType(stype)»
-			«ENDFOR»
-			</ServiceTypes>
-			<ServiceProvidersList>
-			«FOR sp : res.allContents.toIterable.filter(ServiceProvider)»  
-				«printServiceProvider(sp)»
-			«ENDFOR»
-			</ServiceProvidersList>
+
+
+	def compile(Resource res) '''	
+
+
+	<KSSModel>
+	«FOR km : res.allContents.toIterable.filter(KanbanSchedulingSystem)»		
+		<FileName>«km.name»</FileName>
+		<FilePath>«km.path»</FilePath>
+			
+		<OrganizationalModel>	
+		<ServiceProviders>
+		«FOR sp : res.allContents.toIterable.filter(ServiceProvider)»  
+			«printServiceProvider(sp)»
+		«ENDFOR»
+		</ServiceProviders>
 		</OrganizationalModel>
 		
-		
-		<WorkItemRepositories>
-		«FOR repository : res.allContents.toIterable.filter(Repository)»
-			«printRepository(repository)»
-		«ENDFOR»
-		</WorkItemRepositories>
-		
 		<WorkItemNetworkModel>
+		<WorkSources>
 		«FOR ws : res.allContents.toIterable.filter(WorkSource)»
 			«printWorkSource(ws)»
-		«ENDFOR»		
+		«ENDFOR»	
+		</WorkSources>	
+		<WorkItems>
 		«FOR wi : res.allContents.toIterable.filter(WorkItem)»
 			«printWorkItem(wi)»
 		«ENDFOR»
+		</WorkItems>
 		</WorkItemNetworkModel>
-		
 		
 	«ENDFOR»
 	</KSSModel>
@@ -119,7 +75,7 @@ class KanbanmodelGenerator implements IGenerator {
 			«ENDIF»	
 		«ENDIF»
 	'''
-	
+
 //	def sampleDistribution(NumExpression e) {
 //		val value = 0.00
 //		if (e.numDist.getType().matches("normal")) {}
@@ -141,12 +97,8 @@ class KanbanmodelGenerator implements IGenerator {
 	
 	def printService(Service s) '''
 			<Service>
-				<Name>«s.name»</Name>
-				<Description>«s.description»</Description>
 				<Type>«s.getType().name»</Type>
-				<Efficiency>
-					«printNumExpression(s.efficiency)»
-				</Efficiency>
+				<Efficiency>«s.efficiency»</Efficiency>
 			</Service>
 	'''
 	
@@ -166,56 +118,62 @@ class KanbanmodelGenerator implements IGenerator {
 			<ServiceProvider>
 				<Name>«sp.name»</Name>
 				<Description>«sp.description»</Description>
-				<SourceUnits>
-				«FOR su : sp.getSourceUnits()»
-					<SourceUnit>«su.name»</SourceUnit>
-				«ENDFOR»
-				</SourceUnits>
+«««				<SourceUnits>
+«««				«FOR su : sp.getSourceUnits()»
+«««					<SourceUnit>«su.name»</SourceUnit>
+«««				«ENDFOR»
+«««				</SourceUnits>
 				<TargetUnits>
 				«FOR tu : sp.getTargetUnits()»
 					<TargetUnit>«tu.name»</TargetUnit>
 				«ENDFOR»
 				</TargetUnits>
-				<SubordinateUnits>
-				«FOR subu : sp.getSubordinateUnits()» 
-					<SubordinateUnit>«subu.name»</SubordinateUnit>
-				«ENDFOR»
-				</SubordinateUnits>	
+«««				<SubordinateUnits>
+«««				«FOR subu : sp.getSubordinateUnits()» 
+«««					<SubordinateUnit>«subu.name»</SubordinateUnit>
+«««				«ENDFOR»
+«««				</SubordinateUnits>	
 				<Services>
 				«FOR s : sp.getServices()» 
 					«printService(s)»
 				«ENDFOR»	
 				</Services>	
-				<GovernanceSearchStrategy>						
-					<Default>«sp.getDefaultStrategy().getName()»</Default>
-					<Specified>
-					«IF sp.getAcceptanceRule() != null»
-						<AcceptanceRule>«sp.getAcceptanceRule().name»</AcceptanceRule>						
-					«ELSE»
-						<AcceptanceRule>«"null"»</AcceptanceRule>
-					«ENDIF»
-					«IF sp.getSelectionRule() != null»
-						<SelectionRule>«sp.getSelectionRule().name»</SelectionRule>						
-					«ELSE»
-						<SelectionRule>«"null"»</SelectionRule>
-					«ENDIF»
-					«IF sp.getAssignmentRule() != null»
-						<AssignmentRule>«sp.getAssignmentRule().name»</AssignmentRule>						
-					«ELSE»
-						<AssignmentRule>«"null"»</AssignmentRule>
-					«ENDIF»
-					«IF sp.getAllocationRule() != null»
-						<AllocationRule>«sp.getAllocationRule().name»</AllocationRule>						
-					«ELSE»
-						<AllocationRule>«"null"»</AllocationRule>
-					«ENDIF»
-					«IF sp.getOutsourcingRule() != null»
-						<OutsourcingRule>«sp.getOutsourcingRule().name»</OutsourcingRule>						
-					«ELSE»
-						<OutsourcingRule>«"null"»</OutsourcingRule>
-					«ENDIF»
-					</Specified>
-				</GovernanceSearchStrategy>	
+				<GovernanceStrategy>
+					<Name>«sp.governanceStrategy.name»</Name>		
+					<AcceptanceRule>«sp.governanceStrategy.getWIAcceptanceRule.type.name»</AcceptanceRule>
+					<SelectionRule>«sp.governanceStrategy.getWISelectionRule.type.name»</SelectionRule>
+					<AssignmentRule>«sp.governanceStrategy.getWIAssignmentRule.type.name»</AssignmentRule>
+					<AllocationRule>«sp.governanceStrategy.getResourceAllocationRule.type.name»</AllocationRule>
+					<OutsourcingRule>«sp.governanceStrategy.getResourceOutsourcingRule.type.name»</OutsourcingRule>						
+«««					<Default>«sp.getDefaultStrategy().getName()»</Default>
+«««					<Specified>
+«««					«IF sp.getAcceptanceRule() != null»
+«««						<AcceptanceRule>«sp.getAcceptanceRule().name»</AcceptanceRule>						
+«««					«ELSE»
+«««						<AcceptanceRule>«"null"»</AcceptanceRule>
+«««					«ENDIF»
+«««					«IF sp.getSelectionRule() != null»
+«««						<SelectionRule>«sp.getSelectionRule().name»</SelectionRule>						
+«««					«ELSE»
+«««						<SelectionRule>«"null"»</SelectionRule>
+«««					«ENDIF»
+«««					«IF sp.getAssignmentRule() != null»
+«««						<AssignmentRule>«sp.getAssignmentRule().name»</AssignmentRule>						
+«««					«ELSE»
+«««						<AssignmentRule>«"null"»</AssignmentRule>
+«««					«ENDIF»
+«««					«IF sp.getAllocationRule() != null»
+«««						<AllocationRule>«sp.getAllocationRule().name»</AllocationRule>						
+«««					«ELSE»
+«««						<AllocationRule>«"null"»</AllocationRule>
+«««					«ENDIF»
+«««					«IF sp.getOutsourcingRule() != null»
+«««						<OutsourcingRule>«sp.getOutsourcingRule().name»</OutsourcingRule>						
+«««					«ELSE»
+«««						<OutsourcingRule>«"null"»</OutsourcingRule>
+«««					«ENDIF»
+«««					</Specified>
+				</GovernanceStrategy>	
 				<Resources>
 				«FOR r : sp.getResources()» 
 					«printResource(r)»
@@ -233,7 +191,7 @@ class KanbanmodelGenerator implements IGenerator {
 				«ENDFOR»
 				</TargetUnits>
 				«IF ws.getAssignmentRule() != null»
-				<AssignmentRule>«ws.getAssignmentRule().name»</AssignmentRule>						
+				<AssignmentRule>«ws.getAssignmentRule().type»</AssignmentRule>						
 				«ELSE»
 				<AssignmentRule>«"null"»</AssignmentRule>
 				«ENDIF»				
@@ -304,10 +262,8 @@ class KanbanmodelGenerator implements IGenerator {
 	def printWorkItem(WorkItem wi) '''
 			<WorkItem>
 				<Name>«wi.name»</Name>
-				<Profile>«wi.profile.name»</Profile>
 				<Description>«wi.description»</Description>
-				<Pattern>«wi.getPattern().name»</Pattern>
-				<Type>«wi.getPatternType.name»</Type>					
+				<Type>«wi.getType.name»</Type>					
 				<Predecessors>
 				«FOR ptask : wi.getPTasks()»
 					<Predecessor>«ptask.name»</Predecessor>
@@ -318,34 +274,101 @@ class KanbanmodelGenerator implements IGenerator {
 					<Subtask>«stask.name»</Subtask>
 				«ENDFOR»	
 				</Subtasks>
-				<Causalities>
+				<CausalTriggers>
 				«FOR cs : wi.getCausalTriggers()»
-					<Causality>
+					<CausalTrigger>
 					«FOR ttask : cs.getTriggered()»
 						<Triggered>«ttask.name»</Triggered>
 					«ENDFOR»
 						<AtProgress>«cs.getAtProgress»</AtProgress>
 						<OnProbability>«cs.getOnProbability»</OnProbability>
-					</Causality>
+					</CausalTrigger>
 				«ENDFOR»	
-				</Causalities>
+				</CausalTriggers>
 				<RequiredServices>
 				«FOR rs : wi.getRequiredServices()»	
 				<ServiceType>«rs.name»</ServiceType>
 				«ENDFOR»
 				</RequiredServices>
-				<ClassOfService>«wi.classOfService»</ClassOfService>
+				<ClassOfService>«wi.classOfService.name»</ClassOfService>
 				<Efforts>«wi.efforts»</Efforts>
 				<Value>«wi.value»</Value>	
 				«IF wi.getWorkSource() != null» 
-				<WorkSource>«wi.getWorkSource().name»</WorkSource>
+				<Source>«wi.getWorkSource().name»</Source>
 				«ELSE»
-				<WorkSource>«"null"»</WorkSource>
+				<Source>«"null"»</Source>
 				 «ENDIF»
 				<ArrivalTime>«wi.arrivalTime»</ArrivalTime>
 				<DueDate>«wi.dueDate»</DueDate>
 			</WorkItem>
 	'''
-
+	
+	
+	def compileUserLibraries(Resource res) '''
+		<UserLibraries>
+		
+			<TaskPattern>
+			«FOR th : res.allContents.toIterable.filter(TaskHierarchy)» 
+				<TaskHierarchy>
+					<Name>«th.name»</Name>
+					<Description>«th.description»</Description>
+					<Types>
+						«FOR tt :th.getTaskTypes()» 
+						<Type>
+						<Name>«tt.name»</Name>
+						<Description>«tt.description»</Description>
+						</Type>
+						«ENDFOR»	
+					</Types>	
+				</TaskHierarchy>
+			«ENDFOR»
+			</TaskPattern>
+			
+			<ClassOfServices>
+			«FOR cos : res.allContents.toIterable.filter(ClassOfService)» 
+				<ClassOfService>
+				<Name>«cos.name»</Name>
+				<Description>«cos.description»</Description>	
+				</ClassOfService>			
+			«ENDFOR»
+			</ClassOfServices>
+			
+			<ServiceTypes>
+			«FOR stype : res.allContents.toIterable.filter(ServiceType)» 
+				«printServiceType(stype)»
+			«ENDFOR»
+			</ServiceTypes>
+			
+			<GovernanceStrategies>
+				«FOR stg : res.allContents.toIterable.filter(GovernanceStrategy)» 
+				<GovernanceStrategy>
+					<Name>«stg.name»</Name>
+					<Description>«stg.description»</Description>					
+					<AcceptanceRule>«stg.getWIAcceptanceRule.type.name»</AcceptanceRule>
+					<SelectionRule>«stg.getWISelectionRule.type.name»</SelectionRule>
+					<AssignmentRule>«stg.getWIAssignmentRule.type.name»</AssignmentRule>
+					<AllocationRule>«stg.getResourceAllocationRule.type.name»</AllocationRule>
+					<OutsourcingRule>«stg.getResourceOutsourcingRule.type.name»</OutsourcingRule>
+				</GovernanceStrategy>
+				«ENDFOR»
+			</GovernanceStrategies>
+			
+			<WorkItemRepositories>
+			«FOR repository : res.allContents.toIterable.filter(Repository)»
+				«printRepository(repository)»
+			«ENDFOR»
+			</WorkItemRepositories>
+		
+			<ValueFunctions>
+				«FOR vf : res.allContents.toIterable.filter(ValueFunction)» 
+				<ValueFunction>
+					<Name>«vf.name»</Name>
+					<Description>«vf.description»</Description>
+				</ValueFunction>
+				«ENDFOR»
+			</ValueFunctions>
+				
+		</UserLibraries>
+	'''	
 }
 

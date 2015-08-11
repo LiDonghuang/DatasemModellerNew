@@ -6,27 +6,27 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Strategy</b></em>'.
+ * A representation of the model object '<em><b>Governance Strategy</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Strategy#getName <em>Name</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Strategy#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWIAcceptanceRule <em>WI Acceptance Rule</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWISelectionRule <em>WI Selection Rule</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWIAssignmentRule <em>WI Assignment Rule</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Strategy#getResourceAllocationRule <em>Resource Allocation Rule</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Strategy#getResourceOutsourcingRule <em>Resource Outsourcing Rule</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getName <em>Name</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getDescription <em>Description</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getWIAcceptanceRule <em>WI Acceptance Rule</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getWISelectionRule <em>WI Selection Rule</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getWIAssignmentRule <em>WI Assignment Rule</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getResourceAllocationRule <em>Resource Allocation Rule</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getResourceOutsourcingRule <em>Resource Outsourcing Rule</em>}</li>
  * </ul>
  * </p>
  *
- * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy()
+ * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy()
  * @model
  * @generated
  */
-public interface Strategy extends EObject
+public interface GovernanceStrategy extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -38,14 +38,14 @@ public interface Strategy extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_Name()
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Strategy#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -64,14 +64,14 @@ public interface Strategy extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Description</em>' attribute.
    * @see #setDescription(String)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_Description()
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_Description()
    * @model
    * @generated
    */
   String getDescription();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Strategy#getDescription <em>Description</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getDescription <em>Description</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Description</em>' attribute.
@@ -90,14 +90,14 @@ public interface Strategy extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>WI Acceptance Rule</em>' containment reference.
    * @see #setWIAcceptanceRule(WIAcceptance)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_WIAcceptanceRule()
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_WIAcceptanceRule()
    * @model containment="true"
    * @generated
    */
   WIAcceptance getWIAcceptanceRule();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWIAcceptanceRule <em>WI Acceptance Rule</em>}' containment reference.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getWIAcceptanceRule <em>WI Acceptance Rule</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>WI Acceptance Rule</em>' containment reference.
@@ -116,14 +116,14 @@ public interface Strategy extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>WI Selection Rule</em>' containment reference.
    * @see #setWISelectionRule(WISelection)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_WISelectionRule()
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_WISelectionRule()
    * @model containment="true"
    * @generated
    */
   WISelection getWISelectionRule();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWISelectionRule <em>WI Selection Rule</em>}' containment reference.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getWISelectionRule <em>WI Selection Rule</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>WI Selection Rule</em>' containment reference.
@@ -142,14 +142,14 @@ public interface Strategy extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>WI Assignment Rule</em>' containment reference.
    * @see #setWIAssignmentRule(WIAssignment)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_WIAssignmentRule()
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_WIAssignmentRule()
    * @model containment="true"
    * @generated
    */
   WIAssignment getWIAssignmentRule();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWIAssignmentRule <em>WI Assignment Rule</em>}' containment reference.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getWIAssignmentRule <em>WI Assignment Rule</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>WI Assignment Rule</em>' containment reference.
@@ -168,14 +168,14 @@ public interface Strategy extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Resource Allocation Rule</em>' containment reference.
    * @see #setResourceAllocationRule(ResourceAllocation)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_ResourceAllocationRule()
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_ResourceAllocationRule()
    * @model containment="true"
    * @generated
    */
   ResourceAllocation getResourceAllocationRule();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Strategy#getResourceAllocationRule <em>Resource Allocation Rule</em>}' containment reference.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getResourceAllocationRule <em>Resource Allocation Rule</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Resource Allocation Rule</em>' containment reference.
@@ -194,14 +194,14 @@ public interface Strategy extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Resource Outsourcing Rule</em>' containment reference.
    * @see #setResourceOutsourcingRule(ResourceOutsourcing)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_ResourceOutsourcingRule()
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_ResourceOutsourcingRule()
    * @model containment="true"
    * @generated
    */
   ResourceOutsourcing getResourceOutsourcingRule();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Strategy#getResourceOutsourcingRule <em>Resource Outsourcing Rule</em>}' containment reference.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getResourceOutsourcingRule <em>Resource Outsourcing Rule</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Resource Outsourcing Rule</em>' containment reference.
@@ -210,4 +210,4 @@ public interface Strategy extends EObject
    */
   void setResourceOutsourcingRule(ResourceOutsourcing value);
 
-} // Strategy
+} // GovernanceStrategy

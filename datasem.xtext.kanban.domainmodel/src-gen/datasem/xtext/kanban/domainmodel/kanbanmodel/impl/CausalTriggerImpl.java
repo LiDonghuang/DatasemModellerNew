@@ -2,7 +2,7 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Causality;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem;
 
@@ -21,20 +21,20 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Causality</b></em>'.
+ * An implementation of the model object '<em><b>Causal Trigger</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.CausalityImpl#getTriggered <em>Triggered</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.CausalityImpl#getAtProgress <em>At Progress</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.CausalityImpl#getOnProbability <em>On Probability</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.CausalTriggerImpl#getTriggered <em>Triggered</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.CausalTriggerImpl#getAtProgress <em>At Progress</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.CausalTriggerImpl#getOnProbability <em>On Probability</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class CausalityImpl extends MinimalEObjectImpl.Container implements Causality
+public class CausalTriggerImpl extends MinimalEObjectImpl.Container implements CausalTrigger
 {
   /**
    * The cached value of the '{@link #getTriggered() <em>Triggered</em>}' reference list.
@@ -91,7 +91,7 @@ public class CausalityImpl extends MinimalEObjectImpl.Container implements Causa
    * <!-- end-user-doc -->
    * @generated
    */
-  protected CausalityImpl()
+  protected CausalTriggerImpl()
   {
     super();
   }
@@ -104,7 +104,7 @@ public class CausalityImpl extends MinimalEObjectImpl.Container implements Causa
   @Override
   protected EClass eStaticClass()
   {
-    return KanbanmodelPackage.Literals.CAUSALITY;
+    return KanbanmodelPackage.Literals.CAUSAL_TRIGGER;
   }
 
   /**
@@ -116,7 +116,7 @@ public class CausalityImpl extends MinimalEObjectImpl.Container implements Causa
   {
     if (triggered == null)
     {
-      triggered = new EObjectResolvingEList<WorkItem>(WorkItem.class, this, KanbanmodelPackage.CAUSALITY__TRIGGERED);
+      triggered = new EObjectResolvingEList<WorkItem>(WorkItem.class, this, KanbanmodelPackage.CAUSAL_TRIGGER__TRIGGERED);
     }
     return triggered;
   }
@@ -141,7 +141,7 @@ public class CausalityImpl extends MinimalEObjectImpl.Container implements Causa
     int oldAtProgress = atProgress;
     atProgress = newAtProgress;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CAUSALITY__AT_PROGRESS, oldAtProgress, atProgress));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CAUSAL_TRIGGER__AT_PROGRESS, oldAtProgress, atProgress));
   }
 
   /**
@@ -164,7 +164,7 @@ public class CausalityImpl extends MinimalEObjectImpl.Container implements Causa
     int oldOnProbability = onProbability;
     onProbability = newOnProbability;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CAUSALITY__ON_PROBABILITY, oldOnProbability, onProbability));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CAUSAL_TRIGGER__ON_PROBABILITY, oldOnProbability, onProbability));
   }
 
   /**
@@ -177,11 +177,11 @@ public class CausalityImpl extends MinimalEObjectImpl.Container implements Causa
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.CAUSALITY__TRIGGERED:
+      case KanbanmodelPackage.CAUSAL_TRIGGER__TRIGGERED:
         return getTriggered();
-      case KanbanmodelPackage.CAUSALITY__AT_PROGRESS:
+      case KanbanmodelPackage.CAUSAL_TRIGGER__AT_PROGRESS:
         return getAtProgress();
-      case KanbanmodelPackage.CAUSALITY__ON_PROBABILITY:
+      case KanbanmodelPackage.CAUSAL_TRIGGER__ON_PROBABILITY:
         return getOnProbability();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -198,14 +198,14 @@ public class CausalityImpl extends MinimalEObjectImpl.Container implements Causa
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.CAUSALITY__TRIGGERED:
+      case KanbanmodelPackage.CAUSAL_TRIGGER__TRIGGERED:
         getTriggered().clear();
         getTriggered().addAll((Collection<? extends WorkItem>)newValue);
         return;
-      case KanbanmodelPackage.CAUSALITY__AT_PROGRESS:
+      case KanbanmodelPackage.CAUSAL_TRIGGER__AT_PROGRESS:
         setAtProgress((Integer)newValue);
         return;
-      case KanbanmodelPackage.CAUSALITY__ON_PROBABILITY:
+      case KanbanmodelPackage.CAUSAL_TRIGGER__ON_PROBABILITY:
         setOnProbability((Integer)newValue);
         return;
     }
@@ -222,13 +222,13 @@ public class CausalityImpl extends MinimalEObjectImpl.Container implements Causa
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.CAUSALITY__TRIGGERED:
+      case KanbanmodelPackage.CAUSAL_TRIGGER__TRIGGERED:
         getTriggered().clear();
         return;
-      case KanbanmodelPackage.CAUSALITY__AT_PROGRESS:
+      case KanbanmodelPackage.CAUSAL_TRIGGER__AT_PROGRESS:
         setAtProgress(AT_PROGRESS_EDEFAULT);
         return;
-      case KanbanmodelPackage.CAUSALITY__ON_PROBABILITY:
+      case KanbanmodelPackage.CAUSAL_TRIGGER__ON_PROBABILITY:
         setOnProbability(ON_PROBABILITY_EDEFAULT);
         return;
     }
@@ -245,11 +245,11 @@ public class CausalityImpl extends MinimalEObjectImpl.Container implements Causa
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.CAUSALITY__TRIGGERED:
+      case KanbanmodelPackage.CAUSAL_TRIGGER__TRIGGERED:
         return triggered != null && !triggered.isEmpty();
-      case KanbanmodelPackage.CAUSALITY__AT_PROGRESS:
+      case KanbanmodelPackage.CAUSAL_TRIGGER__AT_PROGRESS:
         return atProgress != AT_PROGRESS_EDEFAULT;
-      case KanbanmodelPackage.CAUSALITY__ON_PROBABILITY:
+      case KanbanmodelPackage.CAUSAL_TRIGGER__ON_PROBABILITY:
         return onProbability != ON_PROBABILITY_EDEFAULT;
     }
     return super.eIsSet(featureID);
@@ -274,4 +274,4 @@ public class CausalityImpl extends MinimalEObjectImpl.Container implements Causa
     return result.toString();
   }
 
-} //CausalityImpl
+} //CausalTriggerImpl

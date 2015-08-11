@@ -8,23 +8,23 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Causality</b></em>'.
+ * A representation of the model object '<em><b>Causal Trigger</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Causality#getTriggered <em>Triggered</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Causality#getAtProgress <em>At Progress</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Causality#getOnProbability <em>On Probability</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger#getTriggered <em>Triggered</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger#getAtProgress <em>At Progress</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger#getOnProbability <em>On Probability</em>}</li>
  * </ul>
  * </p>
  *
- * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getCausality()
+ * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getCausalTrigger()
  * @model
  * @generated
  */
-public interface Causality extends EObject
+public interface CausalTrigger extends EObject
 {
   /**
    * Returns the value of the '<em><b>Triggered</b></em>' reference list.
@@ -36,7 +36,7 @@ public interface Causality extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Triggered</em>' reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getCausality_Triggered()
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getCausalTrigger_Triggered()
    * @model
    * @generated
    */
@@ -52,14 +52,14 @@ public interface Causality extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>At Progress</em>' attribute.
    * @see #setAtProgress(int)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getCausality_AtProgress()
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getCausalTrigger_AtProgress()
    * @model
    * @generated
    */
   int getAtProgress();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Causality#getAtProgress <em>At Progress</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger#getAtProgress <em>At Progress</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>At Progress</em>' attribute.
@@ -78,14 +78,14 @@ public interface Causality extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>On Probability</em>' attribute.
    * @see #setOnProbability(int)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getCausality_OnProbability()
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getCausalTrigger_OnProbability()
    * @model
    * @generated
    */
   int getOnProbability();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Causality#getOnProbability <em>On Probability</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger#getOnProbability <em>On Probability</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>On Probability</em>' attribute.
@@ -94,4 +94,4 @@ public interface Causality extends EObject
    */
   void setOnProbability(int value);
 
-} // Causality
+} // CausalTrigger

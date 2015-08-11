@@ -2,10 +2,10 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Causality;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceType;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.TaskPattern;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.TaskType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile;
@@ -38,8 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getProfile <em>Profile</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getPattern <em>Pattern</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getPatternType <em>Pattern Type</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getType <em>Type</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getPTasks <em>PTasks</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getSTasks <em>STasks</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getCausalTriggers <em>Causal Triggers</em>}</li>
@@ -108,24 +107,14 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
   protected String description = DESCRIPTION_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getPattern() <em>Pattern</em>}' reference.
+   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPattern()
+   * @see #getType()
    * @generated
    * @ordered
    */
-  protected TaskPattern pattern;
-
-  /**
-   * The cached value of the '{@link #getPatternType() <em>Pattern Type</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPatternType()
-   * @generated
-   * @ordered
-   */
-  protected TaskType patternType;
+  protected TaskType type;
 
   /**
    * The cached value of the '{@link #getPTasks() <em>PTasks</em>}' reference list.
@@ -155,7 +144,7 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * @generated
    * @ordered
    */
-  protected EList<Causality> causalTriggers;
+  protected EList<CausalTrigger> causalTriggers;
 
   /**
    * The cached value of the '{@link #getRequiredServices() <em>Required Services</em>}' reference list.
@@ -175,7 +164,7 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * @generated
    * @ordered
    */
-  protected static final String EFFORTS_EDEFAULT = null;
+  protected static final int EFFORTS_EDEFAULT = 0;
 
   /**
    * The cached value of the '{@link #getEfforts() <em>Efforts</em>}' attribute.
@@ -185,7 +174,7 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * @generated
    * @ordered
    */
-  protected String efforts = EFFORTS_EDEFAULT;
+  protected int efforts = EFFORTS_EDEFAULT;
 
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -195,7 +184,7 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * @generated
    * @ordered
    */
-  protected static final String VALUE_EDEFAULT = null;
+  protected static final int VALUE_EDEFAULT = 0;
 
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -205,27 +194,17 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * @generated
    * @ordered
    */
-  protected String value = VALUE_EDEFAULT;
+  protected int value = VALUE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getClassOfService() <em>Class Of Service</em>}' attribute.
+   * The cached value of the '{@link #getClassOfService() <em>Class Of Service</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getClassOfService()
    * @generated
    * @ordered
    */
-  protected static final String CLASS_OF_SERVICE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getClassOfService() <em>Class Of Service</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getClassOfService()
-   * @generated
-   * @ordered
-   */
-  protected String classOfService = CLASS_OF_SERVICE_EDEFAULT;
+  protected ClassOfService classOfService;
 
   /**
    * The cached value of the '{@link #getWorkSource() <em>Work Source</em>}' reference.
@@ -392,19 +371,19 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public TaskPattern getPattern()
+  public TaskType getType()
   {
-    if (pattern != null && pattern.eIsProxy())
+    if (type != null && type.eIsProxy())
     {
-      InternalEObject oldPattern = (InternalEObject)pattern;
-      pattern = (TaskPattern)eResolveProxy(oldPattern);
-      if (pattern != oldPattern)
+      InternalEObject oldType = (InternalEObject)type;
+      type = (TaskType)eResolveProxy(oldType);
+      if (type != oldType)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.WORK_ITEM__PATTERN, oldPattern, pattern));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.WORK_ITEM__TYPE, oldType, type));
       }
     }
-    return pattern;
+    return type;
   }
 
   /**
@@ -412,9 +391,9 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public TaskPattern basicGetPattern()
+  public TaskType basicGetType()
   {
-    return pattern;
+    return type;
   }
 
   /**
@@ -422,55 +401,12 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPattern(TaskPattern newPattern)
+  public void setType(TaskType newType)
   {
-    TaskPattern oldPattern = pattern;
-    pattern = newPattern;
+    TaskType oldType = type;
+    type = newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__PATTERN, oldPattern, pattern));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public TaskType getPatternType()
-  {
-    if (patternType != null && patternType.eIsProxy())
-    {
-      InternalEObject oldPatternType = (InternalEObject)patternType;
-      patternType = (TaskType)eResolveProxy(oldPatternType);
-      if (patternType != oldPatternType)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.WORK_ITEM__PATTERN_TYPE, oldPatternType, patternType));
-      }
-    }
-    return patternType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public TaskType basicGetPatternType()
-  {
-    return patternType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPatternType(TaskType newPatternType)
-  {
-    TaskType oldPatternType = patternType;
-    patternType = newPatternType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__PATTERN_TYPE, oldPatternType, patternType));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__TYPE, oldType, type));
   }
 
   /**
@@ -506,11 +442,11 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Causality> getCausalTriggers()
+  public EList<CausalTrigger> getCausalTriggers()
   {
     if (causalTriggers == null)
     {
-      causalTriggers = new EObjectContainmentEList<Causality>(Causality.class, this, KanbanmodelPackage.WORK_ITEM__CAUSAL_TRIGGERS);
+      causalTriggers = new EObjectContainmentEList<CausalTrigger>(CausalTrigger.class, this, KanbanmodelPackage.WORK_ITEM__CAUSAL_TRIGGERS);
     }
     return causalTriggers;
   }
@@ -534,7 +470,7 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getEfforts()
+  public int getEfforts()
   {
     return efforts;
   }
@@ -544,9 +480,9 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setEfforts(String newEfforts)
+  public void setEfforts(int newEfforts)
   {
-    String oldEfforts = efforts;
+    int oldEfforts = efforts;
     efforts = newEfforts;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__EFFORTS, oldEfforts, efforts));
@@ -557,7 +493,7 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValue()
+  public int getValue()
   {
     return value;
   }
@@ -567,9 +503,9 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(String newValue)
+  public void setValue(int newValue)
   {
-    String oldValue = value;
+    int oldValue = value;
     value = newValue;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__VALUE, oldValue, value));
@@ -580,7 +516,27 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getClassOfService()
+  public ClassOfService getClassOfService()
+  {
+    if (classOfService != null && classOfService.eIsProxy())
+    {
+      InternalEObject oldClassOfService = (InternalEObject)classOfService;
+      classOfService = (ClassOfService)eResolveProxy(oldClassOfService);
+      if (classOfService != oldClassOfService)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.WORK_ITEM__CLASS_OF_SERVICE, oldClassOfService, classOfService));
+      }
+    }
+    return classOfService;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ClassOfService basicGetClassOfService()
   {
     return classOfService;
   }
@@ -590,9 +546,9 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setClassOfService(String newClassOfService)
+  public void setClassOfService(ClassOfService newClassOfService)
   {
-    String oldClassOfService = classOfService;
+    ClassOfService oldClassOfService = classOfService;
     classOfService = newClassOfService;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__CLASS_OF_SERVICE, oldClassOfService, classOfService));
@@ -720,12 +676,9 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         return basicGetProfile();
       case KanbanmodelPackage.WORK_ITEM__DESCRIPTION:
         return getDescription();
-      case KanbanmodelPackage.WORK_ITEM__PATTERN:
-        if (resolve) return getPattern();
-        return basicGetPattern();
-      case KanbanmodelPackage.WORK_ITEM__PATTERN_TYPE:
-        if (resolve) return getPatternType();
-        return basicGetPatternType();
+      case KanbanmodelPackage.WORK_ITEM__TYPE:
+        if (resolve) return getType();
+        return basicGetType();
       case KanbanmodelPackage.WORK_ITEM__PTASKS:
         return getPTasks();
       case KanbanmodelPackage.WORK_ITEM__STASKS:
@@ -739,7 +692,8 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
       case KanbanmodelPackage.WORK_ITEM__VALUE:
         return getValue();
       case KanbanmodelPackage.WORK_ITEM__CLASS_OF_SERVICE:
-        return getClassOfService();
+        if (resolve) return getClassOfService();
+        return basicGetClassOfService();
       case KanbanmodelPackage.WORK_ITEM__WORK_SOURCE:
         if (resolve) return getWorkSource();
         return basicGetWorkSource();
@@ -771,11 +725,8 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
       case KanbanmodelPackage.WORK_ITEM__DESCRIPTION:
         setDescription((String)newValue);
         return;
-      case KanbanmodelPackage.WORK_ITEM__PATTERN:
-        setPattern((TaskPattern)newValue);
-        return;
-      case KanbanmodelPackage.WORK_ITEM__PATTERN_TYPE:
-        setPatternType((TaskType)newValue);
+      case KanbanmodelPackage.WORK_ITEM__TYPE:
+        setType((TaskType)newValue);
         return;
       case KanbanmodelPackage.WORK_ITEM__PTASKS:
         getPTasks().clear();
@@ -787,20 +738,20 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         return;
       case KanbanmodelPackage.WORK_ITEM__CAUSAL_TRIGGERS:
         getCausalTriggers().clear();
-        getCausalTriggers().addAll((Collection<? extends Causality>)newValue);
+        getCausalTriggers().addAll((Collection<? extends CausalTrigger>)newValue);
         return;
       case KanbanmodelPackage.WORK_ITEM__REQUIRED_SERVICES:
         getRequiredServices().clear();
         getRequiredServices().addAll((Collection<? extends ServiceType>)newValue);
         return;
       case KanbanmodelPackage.WORK_ITEM__EFFORTS:
-        setEfforts((String)newValue);
+        setEfforts((Integer)newValue);
         return;
       case KanbanmodelPackage.WORK_ITEM__VALUE:
-        setValue((String)newValue);
+        setValue((Integer)newValue);
         return;
       case KanbanmodelPackage.WORK_ITEM__CLASS_OF_SERVICE:
-        setClassOfService((String)newValue);
+        setClassOfService((ClassOfService)newValue);
         return;
       case KanbanmodelPackage.WORK_ITEM__WORK_SOURCE:
         setWorkSource((WorkSource)newValue);
@@ -834,11 +785,8 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
       case KanbanmodelPackage.WORK_ITEM__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case KanbanmodelPackage.WORK_ITEM__PATTERN:
-        setPattern((TaskPattern)null);
-        return;
-      case KanbanmodelPackage.WORK_ITEM__PATTERN_TYPE:
-        setPatternType((TaskType)null);
+      case KanbanmodelPackage.WORK_ITEM__TYPE:
+        setType((TaskType)null);
         return;
       case KanbanmodelPackage.WORK_ITEM__PTASKS:
         getPTasks().clear();
@@ -859,7 +807,7 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         setValue(VALUE_EDEFAULT);
         return;
       case KanbanmodelPackage.WORK_ITEM__CLASS_OF_SERVICE:
-        setClassOfService(CLASS_OF_SERVICE_EDEFAULT);
+        setClassOfService((ClassOfService)null);
         return;
       case KanbanmodelPackage.WORK_ITEM__WORK_SOURCE:
         setWorkSource((WorkSource)null);
@@ -890,10 +838,8 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         return profile != null;
       case KanbanmodelPackage.WORK_ITEM__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case KanbanmodelPackage.WORK_ITEM__PATTERN:
-        return pattern != null;
-      case KanbanmodelPackage.WORK_ITEM__PATTERN_TYPE:
-        return patternType != null;
+      case KanbanmodelPackage.WORK_ITEM__TYPE:
+        return type != null;
       case KanbanmodelPackage.WORK_ITEM__PTASKS:
         return pTasks != null && !pTasks.isEmpty();
       case KanbanmodelPackage.WORK_ITEM__STASKS:
@@ -903,11 +849,11 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
       case KanbanmodelPackage.WORK_ITEM__REQUIRED_SERVICES:
         return requiredServices != null && !requiredServices.isEmpty();
       case KanbanmodelPackage.WORK_ITEM__EFFORTS:
-        return EFFORTS_EDEFAULT == null ? efforts != null : !EFFORTS_EDEFAULT.equals(efforts);
+        return efforts != EFFORTS_EDEFAULT;
       case KanbanmodelPackage.WORK_ITEM__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+        return value != VALUE_EDEFAULT;
       case KanbanmodelPackage.WORK_ITEM__CLASS_OF_SERVICE:
-        return CLASS_OF_SERVICE_EDEFAULT == null ? classOfService != null : !CLASS_OF_SERVICE_EDEFAULT.equals(classOfService);
+        return classOfService != null;
       case KanbanmodelPackage.WORK_ITEM__WORK_SOURCE:
         return workSource != null;
       case KanbanmodelPackage.WORK_ITEM__ARRIVAL_TIME:
@@ -937,8 +883,6 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
     result.append(efforts);
     result.append(", value: ");
     result.append(value);
-    result.append(", classOfService: ");
-    result.append(classOfService);
     result.append(", arrivalTime: ");
     result.append(arrivalTime);
     result.append(", dueDate: ");

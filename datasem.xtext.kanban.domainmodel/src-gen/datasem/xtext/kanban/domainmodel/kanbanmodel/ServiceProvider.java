@@ -20,12 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getTargetUnits <em>Target Units</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getSubordinateUnits <em>Subordinate Units</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getServices <em>Services</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getDefaultStrategy <em>Default Strategy</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getAcceptanceRule <em>Acceptance Rule</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getSelectionRule <em>Selection Rule</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getAssignmentRule <em>Assignment Rule</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getAllocationRule <em>Allocation Rule</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getOutsourcingRule <em>Outsourcing Rule</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getGovernanceStrategy <em>Governance Strategy</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getResources <em>Resources</em>}</li>
  * </ul>
  * </p>
@@ -153,160 +148,30 @@ public interface ServiceProvider extends EObject
   EList<Service> getServices();
 
   /**
-   * Returns the value of the '<em><b>Default Strategy</b></em>' reference.
+   * Returns the value of the '<em><b>Governance Strategy</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Default Strategy</em>' reference isn't clear,
+   * If the meaning of the '<em>Governance Strategy</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Default Strategy</em>' reference.
-   * @see #setDefaultStrategy(Strategy)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getServiceProvider_DefaultStrategy()
+   * @return the value of the '<em>Governance Strategy</em>' reference.
+   * @see #setGovernanceStrategy(GovernanceStrategy)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getServiceProvider_GovernanceStrategy()
    * @model
    * @generated
    */
-  Strategy getDefaultStrategy();
+  GovernanceStrategy getGovernanceStrategy();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getDefaultStrategy <em>Default Strategy</em>}' reference.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getGovernanceStrategy <em>Governance Strategy</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Default Strategy</em>' reference.
-   * @see #getDefaultStrategy()
+   * @param value the new value of the '<em>Governance Strategy</em>' reference.
+   * @see #getGovernanceStrategy()
    * @generated
    */
-  void setDefaultStrategy(Strategy value);
-
-  /**
-   * Returns the value of the '<em><b>Acceptance Rule</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Acceptance Rule</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Acceptance Rule</em>' containment reference.
-   * @see #setAcceptanceRule(WIAcceptance)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getServiceProvider_AcceptanceRule()
-   * @model containment="true"
-   * @generated
-   */
-  WIAcceptance getAcceptanceRule();
-
-  /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getAcceptanceRule <em>Acceptance Rule</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Acceptance Rule</em>' containment reference.
-   * @see #getAcceptanceRule()
-   * @generated
-   */
-  void setAcceptanceRule(WIAcceptance value);
-
-  /**
-   * Returns the value of the '<em><b>Selection Rule</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Selection Rule</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Selection Rule</em>' containment reference.
-   * @see #setSelectionRule(WISelection)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getServiceProvider_SelectionRule()
-   * @model containment="true"
-   * @generated
-   */
-  WISelection getSelectionRule();
-
-  /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getSelectionRule <em>Selection Rule</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Selection Rule</em>' containment reference.
-   * @see #getSelectionRule()
-   * @generated
-   */
-  void setSelectionRule(WISelection value);
-
-  /**
-   * Returns the value of the '<em><b>Assignment Rule</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Assignment Rule</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Assignment Rule</em>' containment reference.
-   * @see #setAssignmentRule(WIAssignment)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getServiceProvider_AssignmentRule()
-   * @model containment="true"
-   * @generated
-   */
-  WIAssignment getAssignmentRule();
-
-  /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getAssignmentRule <em>Assignment Rule</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Assignment Rule</em>' containment reference.
-   * @see #getAssignmentRule()
-   * @generated
-   */
-  void setAssignmentRule(WIAssignment value);
-
-  /**
-   * Returns the value of the '<em><b>Allocation Rule</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Allocation Rule</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Allocation Rule</em>' containment reference.
-   * @see #setAllocationRule(ResourceAllocation)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getServiceProvider_AllocationRule()
-   * @model containment="true"
-   * @generated
-   */
-  ResourceAllocation getAllocationRule();
-
-  /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getAllocationRule <em>Allocation Rule</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Allocation Rule</em>' containment reference.
-   * @see #getAllocationRule()
-   * @generated
-   */
-  void setAllocationRule(ResourceAllocation value);
-
-  /**
-   * Returns the value of the '<em><b>Outsourcing Rule</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Outsourcing Rule</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Outsourcing Rule</em>' containment reference.
-   * @see #setOutsourcingRule(ResourceOutsourcing)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getServiceProvider_OutsourcingRule()
-   * @model containment="true"
-   * @generated
-   */
-  ResourceOutsourcing getOutsourcingRule();
-
-  /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getOutsourcingRule <em>Outsourcing Rule</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Outsourcing Rule</em>' containment reference.
-   * @see #getOutsourcingRule()
-   * @generated
-   */
-  void setOutsourcingRule(ResourceOutsourcing value);
+  void setGovernanceStrategy(GovernanceStrategy value);
 
   /**
    * Returns the value of the '<em><b>Resources</b></em>' containment reference list.

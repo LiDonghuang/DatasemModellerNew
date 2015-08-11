@@ -3,42 +3,50 @@
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignment;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignmentRuleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcingRuleType;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>WI Assignment</b></em>'.
+ * An implementation of the model object '<em><b>Resource Outsourcing Rule Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WIAssignmentImpl#getType <em>Type</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WIAssignmentImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ResourceOutsourcingRuleTypeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ResourceOutsourcingRuleTypeImpl#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class WIAssignmentImpl extends MinimalEObjectImpl.Container implements WIAssignment
+public class ResourceOutsourcingRuleTypeImpl extends MinimalEObjectImpl.Container implements ResourceOutsourcingRuleType
 {
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected WIAssignmentRuleType type;
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -65,7 +73,7 @@ public class WIAssignmentImpl extends MinimalEObjectImpl.Container implements WI
    * <!-- end-user-doc -->
    * @generated
    */
-  protected WIAssignmentImpl()
+  protected ResourceOutsourcingRuleTypeImpl()
   {
     super();
   }
@@ -78,7 +86,7 @@ public class WIAssignmentImpl extends MinimalEObjectImpl.Container implements WI
   @Override
   protected EClass eStaticClass()
   {
-    return KanbanmodelPackage.Literals.WI_ASSIGNMENT;
+    return KanbanmodelPackage.Literals.RESOURCE_OUTSOURCING_RULE_TYPE;
   }
 
   /**
@@ -86,19 +94,9 @@ public class WIAssignmentImpl extends MinimalEObjectImpl.Container implements WI
    * <!-- end-user-doc -->
    * @generated
    */
-  public WIAssignmentRuleType getType()
+  public String getName()
   {
-    if (type != null && type.eIsProxy())
-    {
-      InternalEObject oldType = (InternalEObject)type;
-      type = (WIAssignmentRuleType)eResolveProxy(oldType);
-      if (type != oldType)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.WI_ASSIGNMENT__TYPE, oldType, type));
-      }
-    }
-    return type;
+    return name;
   }
 
   /**
@@ -106,22 +104,12 @@ public class WIAssignmentImpl extends MinimalEObjectImpl.Container implements WI
    * <!-- end-user-doc -->
    * @generated
    */
-  public WIAssignmentRuleType basicGetType()
+  public void setName(String newName)
   {
-    return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setType(WIAssignmentRuleType newType)
-  {
-    WIAssignmentRuleType oldType = type;
-    type = newType;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WI_ASSIGNMENT__TYPE, oldType, type));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.RESOURCE_OUTSOURCING_RULE_TYPE__NAME, oldName, name));
   }
 
   /**
@@ -144,7 +132,7 @@ public class WIAssignmentImpl extends MinimalEObjectImpl.Container implements WI
     String oldDescription = description;
     description = newDescription;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WI_ASSIGNMENT__DESCRIPTION, oldDescription, description));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.RESOURCE_OUTSOURCING_RULE_TYPE__DESCRIPTION, oldDescription, description));
   }
 
   /**
@@ -157,10 +145,9 @@ public class WIAssignmentImpl extends MinimalEObjectImpl.Container implements WI
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.WI_ASSIGNMENT__TYPE:
-        if (resolve) return getType();
-        return basicGetType();
-      case KanbanmodelPackage.WI_ASSIGNMENT__DESCRIPTION:
+      case KanbanmodelPackage.RESOURCE_OUTSOURCING_RULE_TYPE__NAME:
+        return getName();
+      case KanbanmodelPackage.RESOURCE_OUTSOURCING_RULE_TYPE__DESCRIPTION:
         return getDescription();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -176,10 +163,10 @@ public class WIAssignmentImpl extends MinimalEObjectImpl.Container implements WI
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.WI_ASSIGNMENT__TYPE:
-        setType((WIAssignmentRuleType)newValue);
+      case KanbanmodelPackage.RESOURCE_OUTSOURCING_RULE_TYPE__NAME:
+        setName((String)newValue);
         return;
-      case KanbanmodelPackage.WI_ASSIGNMENT__DESCRIPTION:
+      case KanbanmodelPackage.RESOURCE_OUTSOURCING_RULE_TYPE__DESCRIPTION:
         setDescription((String)newValue);
         return;
     }
@@ -196,10 +183,10 @@ public class WIAssignmentImpl extends MinimalEObjectImpl.Container implements WI
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.WI_ASSIGNMENT__TYPE:
-        setType((WIAssignmentRuleType)null);
+      case KanbanmodelPackage.RESOURCE_OUTSOURCING_RULE_TYPE__NAME:
+        setName(NAME_EDEFAULT);
         return;
-      case KanbanmodelPackage.WI_ASSIGNMENT__DESCRIPTION:
+      case KanbanmodelPackage.RESOURCE_OUTSOURCING_RULE_TYPE__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
     }
@@ -216,9 +203,9 @@ public class WIAssignmentImpl extends MinimalEObjectImpl.Container implements WI
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.WI_ASSIGNMENT__TYPE:
-        return type != null;
-      case KanbanmodelPackage.WI_ASSIGNMENT__DESCRIPTION:
+      case KanbanmodelPackage.RESOURCE_OUTSOURCING_RULE_TYPE__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case KanbanmodelPackage.RESOURCE_OUTSOURCING_RULE_TYPE__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
     }
     return super.eIsSet(featureID);
@@ -235,10 +222,12 @@ public class WIAssignmentImpl extends MinimalEObjectImpl.Container implements WI
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (description: ");
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", description: ");
     result.append(description);
     result.append(')');
     return result.toString();
   }
 
-} //WIAssignmentImpl
+} //ResourceOutsourcingRuleTypeImpl

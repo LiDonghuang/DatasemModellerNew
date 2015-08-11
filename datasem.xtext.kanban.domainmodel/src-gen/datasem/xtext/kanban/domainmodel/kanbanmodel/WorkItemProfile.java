@@ -213,30 +213,30 @@ public interface WorkItemProfile extends EObject
   void setValue(NumExpression value);
 
   /**
-   * Returns the value of the '<em><b>Class Of Service</b></em>' attribute.
+   * Returns the value of the '<em><b>Class Of Service</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Class Of Service</em>' attribute isn't clear,
+   * If the meaning of the '<em>Class Of Service</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Class Of Service</em>' attribute.
-   * @see #setClassOfService(String)
+   * @return the value of the '<em>Class Of Service</em>' reference.
+   * @see #setClassOfService(ClassOfService)
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItemProfile_ClassOfService()
    * @model
    * @generated
    */
-  String getClassOfService();
+  ClassOfService getClassOfService();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getClassOfService <em>Class Of Service</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile#getClassOfService <em>Class Of Service</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Class Of Service</em>' attribute.
+   * @param value the new value of the '<em>Class Of Service</em>' reference.
    * @see #getClassOfService()
    * @generated
    */
-  void setClassOfService(String value);
+  void setClassOfService(ClassOfService value);
 
   /**
    * Returns the value of the '<em><b>Allow Assignment</b></em>' attribute.

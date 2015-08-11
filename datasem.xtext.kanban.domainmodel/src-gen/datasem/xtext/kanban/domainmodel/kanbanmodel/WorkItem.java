@@ -17,8 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getProfile <em>Profile</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getPattern <em>Pattern</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getPatternType <em>Pattern Type</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getType <em>Type</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getPTasks <em>PTasks</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getSTasks <em>STasks</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getCausalTriggers <em>Causal Triggers</em>}</li>
@@ -117,56 +116,30 @@ public interface WorkItem extends EObject
   void setDescription(String value);
 
   /**
-   * Returns the value of the '<em><b>Pattern</b></em>' reference.
+   * Returns the value of the '<em><b>Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Pattern</em>' reference isn't clear,
+   * If the meaning of the '<em>Type</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Pattern</em>' reference.
-   * @see #setPattern(TaskPattern)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Pattern()
+   * @return the value of the '<em>Type</em>' reference.
+   * @see #setType(TaskType)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Type()
    * @model
    * @generated
    */
-  TaskPattern getPattern();
+  TaskType getType();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getPattern <em>Pattern</em>}' reference.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getType <em>Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Pattern</em>' reference.
-   * @see #getPattern()
+   * @param value the new value of the '<em>Type</em>' reference.
+   * @see #getType()
    * @generated
    */
-  void setPattern(TaskPattern value);
-
-  /**
-   * Returns the value of the '<em><b>Pattern Type</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Pattern Type</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Pattern Type</em>' reference.
-   * @see #setPatternType(TaskType)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_PatternType()
-   * @model
-   * @generated
-   */
-  TaskType getPatternType();
-
-  /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getPatternType <em>Pattern Type</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Pattern Type</em>' reference.
-   * @see #getPatternType()
-   * @generated
-   */
-  void setPatternType(TaskType value);
+  void setType(TaskType value);
 
   /**
    * Returns the value of the '<em><b>PTasks</b></em>' reference list.
@@ -202,7 +175,7 @@ public interface WorkItem extends EObject
 
   /**
    * Returns the value of the '<em><b>Causal Triggers</b></em>' containment reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.Causality}.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Causal Triggers</em>' containment reference list isn't clear,
@@ -214,7 +187,7 @@ public interface WorkItem extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Causality> getCausalTriggers();
+  EList<CausalTrigger> getCausalTriggers();
 
   /**
    * Returns the value of the '<em><b>Required Services</b></em>' reference list.
@@ -241,12 +214,12 @@ public interface WorkItem extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Efforts</em>' attribute.
-   * @see #setEfforts(String)
+   * @see #setEfforts(int)
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Efforts()
    * @model
    * @generated
    */
-  String getEfforts();
+  int getEfforts();
 
   /**
    * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getEfforts <em>Efforts</em>}' attribute.
@@ -256,7 +229,7 @@ public interface WorkItem extends EObject
    * @see #getEfforts()
    * @generated
    */
-  void setEfforts(String value);
+  void setEfforts(int value);
 
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
@@ -267,12 +240,12 @@ public interface WorkItem extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(String)
+   * @see #setValue(int)
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Value()
    * @model
    * @generated
    */
-  String getValue();
+  int getValue();
 
   /**
    * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getValue <em>Value</em>}' attribute.
@@ -282,33 +255,33 @@ public interface WorkItem extends EObject
    * @see #getValue()
    * @generated
    */
-  void setValue(String value);
+  void setValue(int value);
 
   /**
-   * Returns the value of the '<em><b>Class Of Service</b></em>' attribute.
+   * Returns the value of the '<em><b>Class Of Service</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Class Of Service</em>' attribute isn't clear,
+   * If the meaning of the '<em>Class Of Service</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Class Of Service</em>' attribute.
-   * @see #setClassOfService(String)
+   * @return the value of the '<em>Class Of Service</em>' reference.
+   * @see #setClassOfService(ClassOfService)
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_ClassOfService()
    * @model
    * @generated
    */
-  String getClassOfService();
+  ClassOfService getClassOfService();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getClassOfService <em>Class Of Service</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getClassOfService <em>Class Of Service</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Class Of Service</em>' attribute.
+   * @param value the new value of the '<em>Class Of Service</em>' reference.
    * @see #getClassOfService()
    * @generated
    */
-  void setClassOfService(String value);
+  void setClassOfService(ClassOfService value);
 
   /**
    * Returns the value of the '<em><b>Work Source</b></em>' reference.
