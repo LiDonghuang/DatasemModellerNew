@@ -16,10 +16,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getSourceUnits <em>Source Units</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getTargetUnits <em>Target Units</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getSubordinateUnits <em>Subordinate Units</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getServices <em>Services</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getAssignTo <em>Assign To</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getOutsourceFrom <em>Outsource From</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getTeamService <em>Team Service</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getGovernanceStrategy <em>Governance Strategy</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getResources <em>Resources</em>}</li>
  * </ul>
@@ -84,68 +83,62 @@ public interface ServiceProvider extends EObject
   void setDescription(String value);
 
   /**
-   * Returns the value of the '<em><b>Source Units</b></em>' reference list.
+   * Returns the value of the '<em><b>Assign To</b></em>' reference list.
    * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Source Units</em>' reference list isn't clear,
+   * If the meaning of the '<em>Assign To</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Source Units</em>' reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getServiceProvider_SourceUnits()
+   * @return the value of the '<em>Assign To</em>' reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getServiceProvider_AssignTo()
    * @model
    * @generated
    */
-  EList<ServiceProvider> getSourceUnits();
+  EList<ServiceProvider> getAssignTo();
 
   /**
-   * Returns the value of the '<em><b>Target Units</b></em>' reference list.
+   * Returns the value of the '<em><b>Outsource From</b></em>' reference list.
    * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Target Units</em>' reference list isn't clear,
+   * If the meaning of the '<em>Outsource From</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Target Units</em>' reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getServiceProvider_TargetUnits()
+   * @return the value of the '<em>Outsource From</em>' reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getServiceProvider_OutsourceFrom()
    * @model
    * @generated
    */
-  EList<ServiceProvider> getTargetUnits();
+  EList<ServiceProvider> getOutsourceFrom();
 
   /**
-   * Returns the value of the '<em><b>Subordinate Units</b></em>' reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider}.
+   * Returns the value of the '<em><b>Team Service</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Subordinate Units</em>' reference list isn't clear,
+   * If the meaning of the '<em>Team Service</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Subordinate Units</em>' reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getServiceProvider_SubordinateUnits()
+   * @return the value of the '<em>Team Service</em>' reference.
+   * @see #setTeamService(Service)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getServiceProvider_TeamService()
    * @model
    * @generated
    */
-  EList<ServiceProvider> getSubordinateUnits();
+  Service getTeamService();
 
   /**
-   * Returns the value of the '<em><b>Services</b></em>' containment reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.Service}.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getTeamService <em>Team Service</em>}' reference.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Services</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Services</em>' containment reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getServiceProvider_Services()
-   * @model containment="true"
+   * @param value the new value of the '<em>Team Service</em>' reference.
+   * @see #getTeamService()
    * @generated
    */
-  EList<Service> getServices();
+  void setTeamService(Service value);
 
   /**
    * Returns the value of the '<em><b>Governance Strategy</b></em>' reference.

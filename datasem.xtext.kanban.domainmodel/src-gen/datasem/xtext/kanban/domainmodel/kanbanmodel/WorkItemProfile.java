@@ -146,7 +146,7 @@ public interface WorkItemProfile extends EObject
 
   /**
    * Returns the value of the '<em><b>Required Services</b></em>' reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceType}.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.Service}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Required Services</em>' reference list isn't clear,
@@ -158,7 +158,7 @@ public interface WorkItemProfile extends EObject
    * @model
    * @generated
    */
-  EList<ServiceType> getRequiredServices();
+  EList<Service> getRequiredServices();
 
   /**
    * Returns the value of the '<em><b>Efforts</b></em>' containment reference.

@@ -2,9 +2,9 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
-import datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.MechanismAttribute;
 
 import java.util.Collection;
 
@@ -30,9 +30,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.MechanismImpl#getName <em>Name</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.MechanismImpl#getValue <em>Value</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.MechanismImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.MechanismImpl#getProcesstype <em>Processtype</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.MechanismImpl#getStrategies <em>Strategies</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.MechanismImpl#getMechanismAttributes <em>Mechanism Attributes</em>}</li>
  * </ul>
  * </p>
  *
@@ -61,6 +61,26 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
   protected String name = NAME_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValue()
+   * @generated
+   * @ordered
+   */
+  protected static final String VALUE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValue()
+   * @generated
+   * @ordered
+   */
+  protected String value = VALUE_EDEFAULT;
+
+  /**
    * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -81,34 +101,14 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
   protected String description = DESCRIPTION_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getProcesstype() <em>Processtype</em>}' attribute.
+   * The cached value of the '{@link #getMechanismAttributes() <em>Mechanism Attributes</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProcesstype()
+   * @see #getMechanismAttributes()
    * @generated
    * @ordered
    */
-  protected static final String PROCESSTYPE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getProcesstype() <em>Processtype</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getProcesstype()
-   * @generated
-   * @ordered
-   */
-  protected String processtype = PROCESSTYPE_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getStrategies() <em>Strategies</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getStrategies()
-   * @generated
-   * @ordered
-   */
-  protected EList<GovernanceStrategy> strategies;
+  protected EList<MechanismAttribute> mechanismAttributes;
 
   /**
    * <!-- begin-user-doc -->
@@ -159,6 +159,29 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getValue()
+  {
+    return value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setValue(String newValue)
+  {
+    String oldValue = value;
+    value = newValue;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.MECHANISM__VALUE, oldValue, value));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getDescription()
   {
     return description;
@@ -182,36 +205,13 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getProcesstype()
+  public EList<MechanismAttribute> getMechanismAttributes()
   {
-    return processtype;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setProcesstype(String newProcesstype)
-  {
-    String oldProcesstype = processtype;
-    processtype = newProcesstype;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.MECHANISM__PROCESSTYPE, oldProcesstype, processtype));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<GovernanceStrategy> getStrategies()
-  {
-    if (strategies == null)
+    if (mechanismAttributes == null)
     {
-      strategies = new EObjectContainmentEList<GovernanceStrategy>(GovernanceStrategy.class, this, KanbanmodelPackage.MECHANISM__STRATEGIES);
+      mechanismAttributes = new EObjectContainmentEList<MechanismAttribute>(MechanismAttribute.class, this, KanbanmodelPackage.MECHANISM__MECHANISM_ATTRIBUTES);
     }
-    return strategies;
+    return mechanismAttributes;
   }
 
   /**
@@ -224,8 +224,8 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.MECHANISM__STRATEGIES:
-        return ((InternalEList<?>)getStrategies()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.MECHANISM__MECHANISM_ATTRIBUTES:
+        return ((InternalEList<?>)getMechanismAttributes()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -242,12 +242,12 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
     {
       case KanbanmodelPackage.MECHANISM__NAME:
         return getName();
+      case KanbanmodelPackage.MECHANISM__VALUE:
+        return getValue();
       case KanbanmodelPackage.MECHANISM__DESCRIPTION:
         return getDescription();
-      case KanbanmodelPackage.MECHANISM__PROCESSTYPE:
-        return getProcesstype();
-      case KanbanmodelPackage.MECHANISM__STRATEGIES:
-        return getStrategies();
+      case KanbanmodelPackage.MECHANISM__MECHANISM_ATTRIBUTES:
+        return getMechanismAttributes();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -266,15 +266,15 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
       case KanbanmodelPackage.MECHANISM__NAME:
         setName((String)newValue);
         return;
+      case KanbanmodelPackage.MECHANISM__VALUE:
+        setValue((String)newValue);
+        return;
       case KanbanmodelPackage.MECHANISM__DESCRIPTION:
         setDescription((String)newValue);
         return;
-      case KanbanmodelPackage.MECHANISM__PROCESSTYPE:
-        setProcesstype((String)newValue);
-        return;
-      case KanbanmodelPackage.MECHANISM__STRATEGIES:
-        getStrategies().clear();
-        getStrategies().addAll((Collection<? extends GovernanceStrategy>)newValue);
+      case KanbanmodelPackage.MECHANISM__MECHANISM_ATTRIBUTES:
+        getMechanismAttributes().clear();
+        getMechanismAttributes().addAll((Collection<? extends MechanismAttribute>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -293,14 +293,14 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
       case KanbanmodelPackage.MECHANISM__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case KanbanmodelPackage.MECHANISM__VALUE:
+        setValue(VALUE_EDEFAULT);
+        return;
       case KanbanmodelPackage.MECHANISM__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case KanbanmodelPackage.MECHANISM__PROCESSTYPE:
-        setProcesstype(PROCESSTYPE_EDEFAULT);
-        return;
-      case KanbanmodelPackage.MECHANISM__STRATEGIES:
-        getStrategies().clear();
+      case KanbanmodelPackage.MECHANISM__MECHANISM_ATTRIBUTES:
+        getMechanismAttributes().clear();
         return;
     }
     super.eUnset(featureID);
@@ -318,12 +318,12 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
     {
       case KanbanmodelPackage.MECHANISM__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case KanbanmodelPackage.MECHANISM__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
       case KanbanmodelPackage.MECHANISM__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case KanbanmodelPackage.MECHANISM__PROCESSTYPE:
-        return PROCESSTYPE_EDEFAULT == null ? processtype != null : !PROCESSTYPE_EDEFAULT.equals(processtype);
-      case KanbanmodelPackage.MECHANISM__STRATEGIES:
-        return strategies != null && !strategies.isEmpty();
+      case KanbanmodelPackage.MECHANISM__MECHANISM_ATTRIBUTES:
+        return mechanismAttributes != null && !mechanismAttributes.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -341,10 +341,10 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", value: ");
+    result.append(value);
     result.append(", description: ");
     result.append(description);
-    result.append(", processtype: ");
-    result.append(processtype);
     result.append(')');
     return result.toString();
   }

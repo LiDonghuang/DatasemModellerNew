@@ -3,6 +3,10 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="kanbanmodel" nsURI="http://www.xtext.datasem/kanban/domainmodel/Kanbanmodel"
     nsPrefix="kanbanmodel">
   <eClassifiers xsi:type="ecore:EClass" name="KanbanSchedulingSystem">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EventTypes" upperBound="-1"
+        eType="#//EventType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ConditionTypes" upperBound="-1"
+        eType="#//ConditionType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="WIAcceptanceRuleTypes"
         upperBound="-1" eType="#//WIAcceptanceRuleType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="WISelectionRuleTypes" upperBound="-1"
@@ -23,8 +27,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ClassOfServices" upperBound="-1"
         eType="#//ClassOfService" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ServiceTypes" upperBound="-1"
-        eType="#//ServiceType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Services" upperBound="-1"
+        eType="#//Service" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="GovernanceStrategies" upperBound="-1"
         eType="#//GovernanceStrategy" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Repositories" upperBound="-1"
@@ -35,8 +39,8 @@
         eType="#//ServiceProvider" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="WorkSources" upperBound="-1"
         eType="#//WorkSource" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="WorkItems" upperBound="-1"
-        eType="#//WorkItem" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="WorkItemNetworks" upperBound="-1"
+        eType="#//WorkItemNetwork" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="replications" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="interArrivalTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
@@ -51,26 +55,50 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameters" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TaskHierarchy">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="taskTypes" unique="false"
-        upperBound="-1" eType="#//TaskType"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TaskType">
+  <eClassifiers xsi:type="ecore:EClass" name="EventType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ValueFunction">
+  <eClassifiers xsi:type="ecore:EClass" name="ConditionType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ProcessModel">
+  <eClassifiers xsi:type="ecore:EClass" name="GovernanceStrategy">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="WIAcceptanceRule" eType="#//WIAcceptance"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="WISelectionRule" eType="#//WISelection"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="WIAssignmentRule" eType="#//WIAssignment"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ResourceAllocationRule"
+        eType="#//ResourceAllocation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ResourceOutsourcingRule"
+        eType="#//ResourceOutsourcing" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Mechanisms" upperBound="-1"
+        eType="#//Mechanism" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ClassOfService">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="WIAcceptance">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//WIAcceptanceRuleType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="backlogQLimit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="readyQLimit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WISelection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//WISelectionRuleType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WIAssignment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//WIAssignmentRuleType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceAllocation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//ResourceAllocationRuleType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceOutsourcing">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//ResourceOutsourcingRuleType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WIAcceptanceRuleType">
@@ -95,14 +123,106 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mechanism">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="processtype" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Strategies" upperBound="-1"
-        eType="#//GovernanceStrategy" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mechanismAttributes" upperBound="-1"
+        eType="#//MechanismAttribute" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ServiceType">
+  <eClassifiers xsi:type="ecore:EClass" name="MechanismAttribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WorkSource">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignTo" unique="false"
+        upperBound="-1" eType="#//ServiceProvider"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignmentRule" eType="#//WIAssignment"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WorkItemNetwork">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workItems" upperBound="-1"
+        eType="#//WorkItem" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WorkItem">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="profile" eType="#//WorkItemProfile"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//TaskType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pTasks" unique="false"
+        upperBound="-1" eType="#//WorkItem"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sTasks" unique="false"
+        upperBound="-1" eType="#//WorkItem"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="causalTriggers" upperBound="-1"
+        eType="#//CausalTrigger" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredServices" unique="false"
+        upperBound="-1" eType="#//Service"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="efforts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classOfService" eType="#//ClassOfService"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workSource" eType="#//WorkSource"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="arrivalTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dueDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CausalTrigger">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="triggered" unique="false"
+        upperBound="-1" eType="#//WorkItem"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="atProgress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="onProbability" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskHierarchy">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskTypes" unique="false"
+        upperBound="-1" eType="#//TaskType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ValueFunction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessModel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClassOfService">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LocalValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//ServiceProvider"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Service">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceProvider">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignTo" unique="false"
+        upperBound="-1" eType="#//ServiceProvider"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outsourceFrom" unique="false"
+        upperBound="-1" eType="#//ServiceProvider"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="teamService" eType="#//Service"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="governanceStrategy" eType="#//GovernanceStrategy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+        eType="#//Asset" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Asset">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="skillSet" upperBound="-1"
+        eType="#//Skill" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Skill">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="service" eType="#//Service"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="efficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Repository">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//TaskType"/>
@@ -118,7 +238,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="decompositions" upperBound="-1"
         eType="#//WorkDecomposition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredServices" unique="false"
-        upperBound="-1" eType="#//ServiceType"/>
+        upperBound="-1" eType="#//Service"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="efforts" eType="#//NumExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//NumExpression"
@@ -143,116 +263,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="WorkCausality">
     <eStructuralFeatures xsi:type="ecore:EReference" name="workItem" eType="#//WorkItemProfile"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GovernanceStrategy">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="WIAcceptanceRule" eType="#//WIAcceptance"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="WISelectionRule" eType="#//WISelection"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="WIAssignmentRule" eType="#//WIAssignment"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ResourceAllocationRule"
-        eType="#//ResourceAllocation" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ResourceOutsourcingRule"
-        eType="#//ResourceOutsourcing" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="WIAcceptance">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//WIAcceptanceRuleType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="backlogQLimit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="readyQLimit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="WISelection">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//WISelectionRuleType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="WIAssignment">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//WIAssignmentRuleType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ResourceAllocation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//ResourceAllocationRuleType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ResourceOutsourcing">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//ResourceOutsourcingRuleType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="WorkSource">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="targetUnits" unique="false"
-        upperBound="-1" eType="#//ServiceProvider"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="assignmentRule" eType="#//WIAssignment"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="WorkItem">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="profile" eType="#//WorkItemProfile"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//TaskType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pTasks" unique="false"
-        upperBound="-1" eType="#//WorkItem"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sTasks" unique="false"
-        upperBound="-1" eType="#//WorkItem"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="causalTriggers" upperBound="-1"
-        eType="#//CausalTrigger" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredServices" unique="false"
-        upperBound="-1" eType="#//ServiceType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="efforts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="classOfService" eType="#//ClassOfService"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="workSource" eType="#//WorkSource"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="arrivalTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dueDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CausalTrigger">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="triggered" unique="false"
-        upperBound="-1" eType="#//WorkItem"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="atProgress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="onProbability" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LocalValue">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//ServiceProvider"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Service">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//ServiceType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="efficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ServiceProvider">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceUnits" unique="false"
-        upperBound="-1" eType="#//ServiceProvider"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="targetUnits" unique="false"
-        upperBound="-1" eType="#//ServiceProvider"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="subordinateUnits" unique="false"
-        upperBound="-1" eType="#//ServiceProvider"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
-        eType="#//Service" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="governanceStrategy" eType="#//GovernanceStrategy"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
-        eType="#//Asset" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Asset">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
-        eType="#//Service" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="KanbanTaskModel">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="caps" upperBound="-1" eType="#//Capability"
         containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="WorkItemNetwork">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="workItems" upperBound="-1"
-        eType="#//WorkItem" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Capability">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -277,7 +291,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Provision">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceName" eType="#//ServiceType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceName" eType="#//Service"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="providers" unique="false"
         upperBound="-1" eType="#//ServiceProvider"/>
   </eClassifiers>

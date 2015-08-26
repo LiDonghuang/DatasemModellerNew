@@ -4,7 +4,7 @@ package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Asset;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Service;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Skill;
 
 import java.util.Collection;
 
@@ -30,9 +30,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.AssetImpl#getName <em>Name</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.AssetImpl#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.AssetImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.AssetImpl#getServices <em>Services</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.AssetImpl#getSkillSet <em>Skill Set</em>}</li>
  * </ul>
  * </p>
  *
@@ -61,26 +60,6 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getQuantity() <em>Quantity</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getQuantity()
-   * @generated
-   * @ordered
-   */
-  protected static final int QUANTITY_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getQuantity() <em>Quantity</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getQuantity()
-   * @generated
-   * @ordered
-   */
-  protected int quantity = QUANTITY_EDEFAULT;
-
-  /**
    * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -101,14 +80,14 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
   protected String description = DESCRIPTION_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getServices() <em>Services</em>}' containment reference list.
+   * The cached value of the '{@link #getSkillSet() <em>Skill Set</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getServices()
+   * @see #getSkillSet()
    * @generated
    * @ordered
    */
-  protected EList<Service> services;
+  protected EList<Skill> skillSet;
 
   /**
    * <!-- begin-user-doc -->
@@ -159,29 +138,6 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getQuantity()
-  {
-    return quantity;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setQuantity(int newQuantity)
-  {
-    int oldQuantity = quantity;
-    quantity = newQuantity;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.ASSET__QUANTITY, oldQuantity, quantity));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getDescription()
   {
     return description;
@@ -205,13 +161,13 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Service> getServices()
+  public EList<Skill> getSkillSet()
   {
-    if (services == null)
+    if (skillSet == null)
     {
-      services = new EObjectContainmentEList<Service>(Service.class, this, KanbanmodelPackage.ASSET__SERVICES);
+      skillSet = new EObjectContainmentEList<Skill>(Skill.class, this, KanbanmodelPackage.ASSET__SKILL_SET);
     }
-    return services;
+    return skillSet;
   }
 
   /**
@@ -224,8 +180,8 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.ASSET__SERVICES:
-        return ((InternalEList<?>)getServices()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.ASSET__SKILL_SET:
+        return ((InternalEList<?>)getSkillSet()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -242,12 +198,10 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
     {
       case KanbanmodelPackage.ASSET__NAME:
         return getName();
-      case KanbanmodelPackage.ASSET__QUANTITY:
-        return getQuantity();
       case KanbanmodelPackage.ASSET__DESCRIPTION:
         return getDescription();
-      case KanbanmodelPackage.ASSET__SERVICES:
-        return getServices();
+      case KanbanmodelPackage.ASSET__SKILL_SET:
+        return getSkillSet();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -266,15 +220,12 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
       case KanbanmodelPackage.ASSET__NAME:
         setName((String)newValue);
         return;
-      case KanbanmodelPackage.ASSET__QUANTITY:
-        setQuantity((Integer)newValue);
-        return;
       case KanbanmodelPackage.ASSET__DESCRIPTION:
         setDescription((String)newValue);
         return;
-      case KanbanmodelPackage.ASSET__SERVICES:
-        getServices().clear();
-        getServices().addAll((Collection<? extends Service>)newValue);
+      case KanbanmodelPackage.ASSET__SKILL_SET:
+        getSkillSet().clear();
+        getSkillSet().addAll((Collection<? extends Skill>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -293,14 +244,11 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
       case KanbanmodelPackage.ASSET__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case KanbanmodelPackage.ASSET__QUANTITY:
-        setQuantity(QUANTITY_EDEFAULT);
-        return;
       case KanbanmodelPackage.ASSET__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case KanbanmodelPackage.ASSET__SERVICES:
-        getServices().clear();
+      case KanbanmodelPackage.ASSET__SKILL_SET:
+        getSkillSet().clear();
         return;
     }
     super.eUnset(featureID);
@@ -318,12 +266,10 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
     {
       case KanbanmodelPackage.ASSET__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case KanbanmodelPackage.ASSET__QUANTITY:
-        return quantity != QUANTITY_EDEFAULT;
       case KanbanmodelPackage.ASSET__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case KanbanmodelPackage.ASSET__SERVICES:
-        return services != null && !services.isEmpty();
+      case KanbanmodelPackage.ASSET__SKILL_SET:
+        return skillSet != null && !skillSet.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -341,8 +287,6 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", quantity: ");
-    result.append(quantity);
     result.append(", description: ");
     result.append(description);
     result.append(')');

@@ -34,12 +34,12 @@ public interface Provision extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Service Name</em>' reference.
-   * @see #setServiceName(ServiceType)
+   * @see #setServiceName(Service)
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getProvision_ServiceName()
    * @model
    * @generated
    */
-  ServiceType getServiceName();
+  Service getServiceName();
 
   /**
    * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Provision#getServiceName <em>Service Name</em>}' reference.
@@ -49,7 +49,7 @@ public interface Provision extends EObject
    * @see #getServiceName()
    * @generated
    */
-  void setServiceName(ServiceType value);
+  void setServiceName(Service value);
 
   /**
    * Returns the value of the '<em><b>Providers</b></em>' reference list.

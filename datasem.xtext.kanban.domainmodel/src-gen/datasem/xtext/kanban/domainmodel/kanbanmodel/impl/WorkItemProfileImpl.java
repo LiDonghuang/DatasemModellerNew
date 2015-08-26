@@ -6,7 +6,7 @@ import datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.NumExpression;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Service;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkDecomposition;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkReference;
@@ -131,7 +131,7 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
    * @generated
    * @ordered
    */
-  protected EList<ServiceType> requiredServices;
+  protected EList<Service> requiredServices;
 
   /**
    * The cached value of the '{@link #getEfforts() <em>Efforts</em>}' containment reference.
@@ -346,11 +346,11 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ServiceType> getRequiredServices()
+  public EList<Service> getRequiredServices()
   {
     if (requiredServices == null)
     {
-      requiredServices = new EObjectResolvingEList<ServiceType>(ServiceType.class, this, KanbanmodelPackage.WORK_ITEM_PROFILE__REQUIRED_SERVICES);
+      requiredServices = new EObjectResolvingEList<Service>(Service.class, this, KanbanmodelPackage.WORK_ITEM_PROFILE__REQUIRED_SERVICES);
     }
     return requiredServices;
   }
@@ -630,7 +630,7 @@ public class WorkItemProfileImpl extends MinimalEObjectImpl.Container implements
         return;
       case KanbanmodelPackage.WORK_ITEM_PROFILE__REQUIRED_SERVICES:
         getRequiredServices().clear();
-        getRequiredServices().addAll((Collection<? extends ServiceType>)newValue);
+        getRequiredServices().addAll((Collection<? extends Service>)newValue);
         return;
       case KanbanmodelPackage.WORK_ITEM_PROFILE__EFFORTS:
         setEfforts((NumExpression)newValue);

@@ -3,6 +3,8 @@
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ConditionType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.EventType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
@@ -10,15 +12,15 @@ import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Repository;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocationRuleType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcingRuleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Service;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.TaskHierarchy;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.TaskType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ValueFunction;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptanceRuleType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignmentRuleType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WISelectionRuleType;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemNetwork;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkSource;
 
 import java.util.Collection;
@@ -44,6 +46,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getEventTypes <em>Event Types</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getConditionTypes <em>Condition Types</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getWIAcceptanceRuleTypes <em>WI Acceptance Rule Types</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getWISelectionRuleTypes <em>WI Selection Rule Types</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getWIAssignmentRuleTypes <em>WI Assignment Rule Types</em>}</li>
@@ -54,14 +58,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getTaskTypes <em>Task Types</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getTaskHierarchy <em>Task Hierarchy</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getClassOfServices <em>Class Of Services</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getServiceTypes <em>Service Types</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getServices <em>Services</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getGovernanceStrategies <em>Governance Strategies</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getRepositories <em>Repositories</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getPath <em>Path</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getServiceProviders <em>Service Providers</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getWorkSources <em>Work Sources</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getWorkItems <em>Work Items</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getWorkItemNetworks <em>Work Item Networks</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getReplications <em>Replications</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getInterArrivalTime <em>Inter Arrival Time</em>}</li>
  * </ul>
@@ -71,6 +75,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container implements KanbanSchedulingSystem
 {
+  /**
+   * The cached value of the '{@link #getEventTypes() <em>Event Types</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEventTypes()
+   * @generated
+   * @ordered
+   */
+  protected EList<EventType> eventTypes;
+
+  /**
+   * The cached value of the '{@link #getConditionTypes() <em>Condition Types</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConditionTypes()
+   * @generated
+   * @ordered
+   */
+  protected EList<ConditionType> conditionTypes;
+
   /**
    * The cached value of the '{@link #getWIAcceptanceRuleTypes() <em>WI Acceptance Rule Types</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -172,14 +196,14 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
   protected EList<ClassOfService> classOfServices;
 
   /**
-   * The cached value of the '{@link #getServiceTypes() <em>Service Types</em>}' containment reference list.
+   * The cached value of the '{@link #getServices() <em>Services</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getServiceTypes()
+   * @see #getServices()
    * @generated
    * @ordered
    */
-  protected EList<ServiceType> serviceTypes;
+  protected EList<Service> services;
 
   /**
    * The cached value of the '{@link #getGovernanceStrategies() <em>Governance Strategies</em>}' containment reference list.
@@ -262,14 +286,14 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
   protected EList<WorkSource> workSources;
 
   /**
-   * The cached value of the '{@link #getWorkItems() <em>Work Items</em>}' containment reference list.
+   * The cached value of the '{@link #getWorkItemNetworks() <em>Work Item Networks</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getWorkItems()
+   * @see #getWorkItemNetworks()
    * @generated
    * @ordered
    */
-  protected EList<WorkItem> workItems;
+  protected EList<WorkItemNetwork> workItemNetworks;
 
   /**
    * The default value of the '{@link #getReplications() <em>Replications</em>}' attribute.
@@ -330,6 +354,34 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
   protected EClass eStaticClass()
   {
     return KanbanmodelPackage.Literals.KANBAN_SCHEDULING_SYSTEM;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<EventType> getEventTypes()
+  {
+    if (eventTypes == null)
+    {
+      eventTypes = new EObjectContainmentEList<EventType>(EventType.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__EVENT_TYPES);
+    }
+    return eventTypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<ConditionType> getConditionTypes()
+  {
+    if (conditionTypes == null)
+    {
+      conditionTypes = new EObjectContainmentEList<ConditionType>(ConditionType.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__CONDITION_TYPES);
+    }
+    return conditionTypes;
   }
 
   /**
@@ -511,13 +563,13 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ServiceType> getServiceTypes()
+  public EList<Service> getServices()
   {
-    if (serviceTypes == null)
+    if (services == null)
     {
-      serviceTypes = new EObjectContainmentEList<ServiceType>(ServiceType.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICE_TYPES);
+      services = new EObjectContainmentEList<Service>(Service.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICES);
     }
-    return serviceTypes;
+    return services;
   }
 
   /**
@@ -627,13 +679,13 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<WorkItem> getWorkItems()
+  public EList<WorkItemNetwork> getWorkItemNetworks()
   {
-    if (workItems == null)
+    if (workItemNetworks == null)
     {
-      workItems = new EObjectContainmentEList<WorkItem>(WorkItem.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_ITEMS);
+      workItemNetworks = new EObjectContainmentEList<WorkItemNetwork>(WorkItemNetwork.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_ITEM_NETWORKS);
     }
-    return workItems;
+    return workItemNetworks;
   }
 
   /**
@@ -692,6 +744,10 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__EVENT_TYPES:
+        return ((InternalEList<?>)getEventTypes()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__CONDITION_TYPES:
+        return ((InternalEList<?>)getConditionTypes()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WI_ACCEPTANCE_RULE_TYPES:
         return ((InternalEList<?>)getWIAcceptanceRuleTypes()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WI_SELECTION_RULE_TYPES:
@@ -712,8 +768,8 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
         return basicSetTaskHierarchy(null, msgs);
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__CLASS_OF_SERVICES:
         return ((InternalEList<?>)getClassOfServices()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICE_TYPES:
-        return ((InternalEList<?>)getServiceTypes()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICES:
+        return ((InternalEList<?>)getServices()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__GOVERNANCE_STRATEGIES:
         return ((InternalEList<?>)getGovernanceStrategies()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__REPOSITORIES:
@@ -722,8 +778,8 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
         return ((InternalEList<?>)getServiceProviders()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_SOURCES:
         return ((InternalEList<?>)getWorkSources()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_ITEMS:
-        return ((InternalEList<?>)getWorkItems()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_ITEM_NETWORKS:
+        return ((InternalEList<?>)getWorkItemNetworks()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -738,6 +794,10 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__EVENT_TYPES:
+        return getEventTypes();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__CONDITION_TYPES:
+        return getConditionTypes();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WI_ACCEPTANCE_RULE_TYPES:
         return getWIAcceptanceRuleTypes();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WI_SELECTION_RULE_TYPES:
@@ -758,8 +818,8 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
         return getTaskHierarchy();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__CLASS_OF_SERVICES:
         return getClassOfServices();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICE_TYPES:
-        return getServiceTypes();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICES:
+        return getServices();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__GOVERNANCE_STRATEGIES:
         return getGovernanceStrategies();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__REPOSITORIES:
@@ -772,8 +832,8 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
         return getServiceProviders();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_SOURCES:
         return getWorkSources();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_ITEMS:
-        return getWorkItems();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_ITEM_NETWORKS:
+        return getWorkItemNetworks();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__REPLICATIONS:
         return getReplications();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__INTER_ARRIVAL_TIME:
@@ -793,6 +853,14 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__EVENT_TYPES:
+        getEventTypes().clear();
+        getEventTypes().addAll((Collection<? extends EventType>)newValue);
+        return;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__CONDITION_TYPES:
+        getConditionTypes().clear();
+        getConditionTypes().addAll((Collection<? extends ConditionType>)newValue);
+        return;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WI_ACCEPTANCE_RULE_TYPES:
         getWIAcceptanceRuleTypes().clear();
         getWIAcceptanceRuleTypes().addAll((Collection<? extends WIAcceptanceRuleType>)newValue);
@@ -832,9 +900,9 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
         getClassOfServices().clear();
         getClassOfServices().addAll((Collection<? extends ClassOfService>)newValue);
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICE_TYPES:
-        getServiceTypes().clear();
-        getServiceTypes().addAll((Collection<? extends ServiceType>)newValue);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICES:
+        getServices().clear();
+        getServices().addAll((Collection<? extends Service>)newValue);
         return;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__GOVERNANCE_STRATEGIES:
         getGovernanceStrategies().clear();
@@ -858,9 +926,9 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
         getWorkSources().clear();
         getWorkSources().addAll((Collection<? extends WorkSource>)newValue);
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_ITEMS:
-        getWorkItems().clear();
-        getWorkItems().addAll((Collection<? extends WorkItem>)newValue);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_ITEM_NETWORKS:
+        getWorkItemNetworks().clear();
+        getWorkItemNetworks().addAll((Collection<? extends WorkItemNetwork>)newValue);
         return;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__REPLICATIONS:
         setReplications((Integer)newValue);
@@ -882,6 +950,12 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__EVENT_TYPES:
+        getEventTypes().clear();
+        return;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__CONDITION_TYPES:
+        getConditionTypes().clear();
+        return;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WI_ACCEPTANCE_RULE_TYPES:
         getWIAcceptanceRuleTypes().clear();
         return;
@@ -912,8 +986,8 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__CLASS_OF_SERVICES:
         getClassOfServices().clear();
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICE_TYPES:
-        getServiceTypes().clear();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICES:
+        getServices().clear();
         return;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__GOVERNANCE_STRATEGIES:
         getGovernanceStrategies().clear();
@@ -933,8 +1007,8 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_SOURCES:
         getWorkSources().clear();
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_ITEMS:
-        getWorkItems().clear();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_ITEM_NETWORKS:
+        getWorkItemNetworks().clear();
         return;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__REPLICATIONS:
         setReplications(REPLICATIONS_EDEFAULT);
@@ -956,6 +1030,10 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__EVENT_TYPES:
+        return eventTypes != null && !eventTypes.isEmpty();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__CONDITION_TYPES:
+        return conditionTypes != null && !conditionTypes.isEmpty();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WI_ACCEPTANCE_RULE_TYPES:
         return wiAcceptanceRuleTypes != null && !wiAcceptanceRuleTypes.isEmpty();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WI_SELECTION_RULE_TYPES:
@@ -976,8 +1054,8 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
         return taskHierarchy != null;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__CLASS_OF_SERVICES:
         return classOfServices != null && !classOfServices.isEmpty();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICE_TYPES:
-        return serviceTypes != null && !serviceTypes.isEmpty();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SERVICES:
+        return services != null && !services.isEmpty();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__GOVERNANCE_STRATEGIES:
         return governanceStrategies != null && !governanceStrategies.isEmpty();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__REPOSITORIES:
@@ -990,8 +1068,8 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
         return serviceProviders != null && !serviceProviders.isEmpty();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_SOURCES:
         return workSources != null && !workSources.isEmpty();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_ITEMS:
-        return workItems != null && !workItems.isEmpty();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__WORK_ITEM_NETWORKS:
+        return workItemNetworks != null && !workItemNetworks.isEmpty();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__REPLICATIONS:
         return replications != REPLICATIONS_EDEFAULT;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__INTER_ARRIVAL_TIME:

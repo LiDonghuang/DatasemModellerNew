@@ -5,7 +5,7 @@ package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Service;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.TaskType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile;
@@ -154,7 +154,7 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * @generated
    * @ordered
    */
-  protected EList<ServiceType> requiredServices;
+  protected EList<Service> requiredServices;
 
   /**
    * The default value of the '{@link #getEfforts() <em>Efforts</em>}' attribute.
@@ -456,11 +456,11 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ServiceType> getRequiredServices()
+  public EList<Service> getRequiredServices()
   {
     if (requiredServices == null)
     {
-      requiredServices = new EObjectResolvingEList<ServiceType>(ServiceType.class, this, KanbanmodelPackage.WORK_ITEM__REQUIRED_SERVICES);
+      requiredServices = new EObjectResolvingEList<Service>(Service.class, this, KanbanmodelPackage.WORK_ITEM__REQUIRED_SERVICES);
     }
     return requiredServices;
   }
@@ -742,7 +742,7 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         return;
       case KanbanmodelPackage.WORK_ITEM__REQUIRED_SERVICES:
         getRequiredServices().clear();
-        getRequiredServices().addAll((Collection<? extends ServiceType>)newValue);
+        getRequiredServices().addAll((Collection<? extends Service>)newValue);
         return;
       case KanbanmodelPackage.WORK_ITEM__EFFORTS:
         setEfforts((Integer)newValue);

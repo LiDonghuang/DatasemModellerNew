@@ -2,6 +2,8 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -19,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getWIAssignmentRule <em>WI Assignment Rule</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getResourceAllocationRule <em>Resource Allocation Rule</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getResourceOutsourcingRule <em>Resource Outsourcing Rule</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getMechanisms <em>Mechanisms</em>}</li>
  * </ul>
  * </p>
  *
@@ -209,5 +212,21 @@ public interface GovernanceStrategy extends EObject
    * @generated
    */
   void setResourceOutsourcingRule(ResourceOutsourcing value);
+
+  /**
+   * Returns the value of the '<em><b>Mechanisms</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Mechanisms</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Mechanisms</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_Mechanisms()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Mechanism> getMechanisms();
 
 } // GovernanceStrategy

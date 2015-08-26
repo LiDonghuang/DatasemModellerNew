@@ -34,10 +34,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getSourceUnits <em>Source Units</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getTargetUnits <em>Target Units</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getSubordinateUnits <em>Subordinate Units</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getServices <em>Services</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getAssignTo <em>Assign To</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getOutsourceFrom <em>Outsource From</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getTeamService <em>Team Service</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getGovernanceStrategy <em>Governance Strategy</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getResources <em>Resources</em>}</li>
  * </ul>
@@ -88,44 +87,34 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
   protected String description = DESCRIPTION_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getSourceUnits() <em>Source Units</em>}' reference list.
+   * The cached value of the '{@link #getAssignTo() <em>Assign To</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSourceUnits()
+   * @see #getAssignTo()
    * @generated
    * @ordered
    */
-  protected EList<ServiceProvider> sourceUnits;
+  protected EList<ServiceProvider> assignTo;
 
   /**
-   * The cached value of the '{@link #getTargetUnits() <em>Target Units</em>}' reference list.
+   * The cached value of the '{@link #getOutsourceFrom() <em>Outsource From</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTargetUnits()
+   * @see #getOutsourceFrom()
    * @generated
    * @ordered
    */
-  protected EList<ServiceProvider> targetUnits;
+  protected EList<ServiceProvider> outsourceFrom;
 
   /**
-   * The cached value of the '{@link #getSubordinateUnits() <em>Subordinate Units</em>}' reference list.
+   * The cached value of the '{@link #getTeamService() <em>Team Service</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSubordinateUnits()
+   * @see #getTeamService()
    * @generated
    * @ordered
    */
-  protected EList<ServiceProvider> subordinateUnits;
-
-  /**
-   * The cached value of the '{@link #getServices() <em>Services</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getServices()
-   * @generated
-   * @ordered
-   */
-  protected EList<Service> services;
+  protected Service teamService;
 
   /**
    * The cached value of the '{@link #getGovernanceStrategy() <em>Governance Strategy</em>}' reference.
@@ -219,13 +208,13 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ServiceProvider> getSourceUnits()
+  public EList<ServiceProvider> getAssignTo()
   {
-    if (sourceUnits == null)
+    if (assignTo == null)
     {
-      sourceUnits = new EObjectResolvingEList<ServiceProvider>(ServiceProvider.class, this, KanbanmodelPackage.SERVICE_PROVIDER__SOURCE_UNITS);
+      assignTo = new EObjectResolvingEList<ServiceProvider>(ServiceProvider.class, this, KanbanmodelPackage.SERVICE_PROVIDER__ASSIGN_TO);
     }
-    return sourceUnits;
+    return assignTo;
   }
 
   /**
@@ -233,13 +222,13 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ServiceProvider> getTargetUnits()
+  public EList<ServiceProvider> getOutsourceFrom()
   {
-    if (targetUnits == null)
+    if (outsourceFrom == null)
     {
-      targetUnits = new EObjectResolvingEList<ServiceProvider>(ServiceProvider.class, this, KanbanmodelPackage.SERVICE_PROVIDER__TARGET_UNITS);
+      outsourceFrom = new EObjectResolvingEList<ServiceProvider>(ServiceProvider.class, this, KanbanmodelPackage.SERVICE_PROVIDER__OUTSOURCE_FROM);
     }
-    return targetUnits;
+    return outsourceFrom;
   }
 
   /**
@@ -247,13 +236,19 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ServiceProvider> getSubordinateUnits()
+  public Service getTeamService()
   {
-    if (subordinateUnits == null)
+    if (teamService != null && teamService.eIsProxy())
     {
-      subordinateUnits = new EObjectResolvingEList<ServiceProvider>(ServiceProvider.class, this, KanbanmodelPackage.SERVICE_PROVIDER__SUBORDINATE_UNITS);
+      InternalEObject oldTeamService = (InternalEObject)teamService;
+      teamService = (Service)eResolveProxy(oldTeamService);
+      if (teamService != oldTeamService)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.SERVICE_PROVIDER__TEAM_SERVICE, oldTeamService, teamService));
+      }
     }
-    return subordinateUnits;
+    return teamService;
   }
 
   /**
@@ -261,13 +256,22 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Service> getServices()
+  public Service basicGetTeamService()
   {
-    if (services == null)
-    {
-      services = new EObjectContainmentEList<Service>(Service.class, this, KanbanmodelPackage.SERVICE_PROVIDER__SERVICES);
-    }
-    return services;
+    return teamService;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTeamService(Service newTeamService)
+  {
+    Service oldTeamService = teamService;
+    teamService = newTeamService;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.SERVICE_PROVIDER__TEAM_SERVICE, oldTeamService, teamService));
   }
 
   /**
@@ -337,8 +341,6 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.SERVICE_PROVIDER__SERVICES:
-        return ((InternalEList<?>)getServices()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES:
         return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
     }
@@ -359,14 +361,13 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
         return getName();
       case KanbanmodelPackage.SERVICE_PROVIDER__DESCRIPTION:
         return getDescription();
-      case KanbanmodelPackage.SERVICE_PROVIDER__SOURCE_UNITS:
-        return getSourceUnits();
-      case KanbanmodelPackage.SERVICE_PROVIDER__TARGET_UNITS:
-        return getTargetUnits();
-      case KanbanmodelPackage.SERVICE_PROVIDER__SUBORDINATE_UNITS:
-        return getSubordinateUnits();
-      case KanbanmodelPackage.SERVICE_PROVIDER__SERVICES:
-        return getServices();
+      case KanbanmodelPackage.SERVICE_PROVIDER__ASSIGN_TO:
+        return getAssignTo();
+      case KanbanmodelPackage.SERVICE_PROVIDER__OUTSOURCE_FROM:
+        return getOutsourceFrom();
+      case KanbanmodelPackage.SERVICE_PROVIDER__TEAM_SERVICE:
+        if (resolve) return getTeamService();
+        return basicGetTeamService();
       case KanbanmodelPackage.SERVICE_PROVIDER__GOVERNANCE_STRATEGY:
         if (resolve) return getGovernanceStrategy();
         return basicGetGovernanceStrategy();
@@ -393,21 +394,16 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
       case KanbanmodelPackage.SERVICE_PROVIDER__DESCRIPTION:
         setDescription((String)newValue);
         return;
-      case KanbanmodelPackage.SERVICE_PROVIDER__SOURCE_UNITS:
-        getSourceUnits().clear();
-        getSourceUnits().addAll((Collection<? extends ServiceProvider>)newValue);
+      case KanbanmodelPackage.SERVICE_PROVIDER__ASSIGN_TO:
+        getAssignTo().clear();
+        getAssignTo().addAll((Collection<? extends ServiceProvider>)newValue);
         return;
-      case KanbanmodelPackage.SERVICE_PROVIDER__TARGET_UNITS:
-        getTargetUnits().clear();
-        getTargetUnits().addAll((Collection<? extends ServiceProvider>)newValue);
+      case KanbanmodelPackage.SERVICE_PROVIDER__OUTSOURCE_FROM:
+        getOutsourceFrom().clear();
+        getOutsourceFrom().addAll((Collection<? extends ServiceProvider>)newValue);
         return;
-      case KanbanmodelPackage.SERVICE_PROVIDER__SUBORDINATE_UNITS:
-        getSubordinateUnits().clear();
-        getSubordinateUnits().addAll((Collection<? extends ServiceProvider>)newValue);
-        return;
-      case KanbanmodelPackage.SERVICE_PROVIDER__SERVICES:
-        getServices().clear();
-        getServices().addAll((Collection<? extends Service>)newValue);
+      case KanbanmodelPackage.SERVICE_PROVIDER__TEAM_SERVICE:
+        setTeamService((Service)newValue);
         return;
       case KanbanmodelPackage.SERVICE_PROVIDER__GOVERNANCE_STRATEGY:
         setGovernanceStrategy((GovernanceStrategy)newValue);
@@ -436,17 +432,14 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
       case KanbanmodelPackage.SERVICE_PROVIDER__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case KanbanmodelPackage.SERVICE_PROVIDER__SOURCE_UNITS:
-        getSourceUnits().clear();
+      case KanbanmodelPackage.SERVICE_PROVIDER__ASSIGN_TO:
+        getAssignTo().clear();
         return;
-      case KanbanmodelPackage.SERVICE_PROVIDER__TARGET_UNITS:
-        getTargetUnits().clear();
+      case KanbanmodelPackage.SERVICE_PROVIDER__OUTSOURCE_FROM:
+        getOutsourceFrom().clear();
         return;
-      case KanbanmodelPackage.SERVICE_PROVIDER__SUBORDINATE_UNITS:
-        getSubordinateUnits().clear();
-        return;
-      case KanbanmodelPackage.SERVICE_PROVIDER__SERVICES:
-        getServices().clear();
+      case KanbanmodelPackage.SERVICE_PROVIDER__TEAM_SERVICE:
+        setTeamService((Service)null);
         return;
       case KanbanmodelPackage.SERVICE_PROVIDER__GOVERNANCE_STRATEGY:
         setGovernanceStrategy((GovernanceStrategy)null);
@@ -472,14 +465,12 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case KanbanmodelPackage.SERVICE_PROVIDER__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case KanbanmodelPackage.SERVICE_PROVIDER__SOURCE_UNITS:
-        return sourceUnits != null && !sourceUnits.isEmpty();
-      case KanbanmodelPackage.SERVICE_PROVIDER__TARGET_UNITS:
-        return targetUnits != null && !targetUnits.isEmpty();
-      case KanbanmodelPackage.SERVICE_PROVIDER__SUBORDINATE_UNITS:
-        return subordinateUnits != null && !subordinateUnits.isEmpty();
-      case KanbanmodelPackage.SERVICE_PROVIDER__SERVICES:
-        return services != null && !services.isEmpty();
+      case KanbanmodelPackage.SERVICE_PROVIDER__ASSIGN_TO:
+        return assignTo != null && !assignTo.isEmpty();
+      case KanbanmodelPackage.SERVICE_PROVIDER__OUTSOURCE_FROM:
+        return outsourceFrom != null && !outsourceFrom.isEmpty();
+      case KanbanmodelPackage.SERVICE_PROVIDER__TEAM_SERVICE:
+        return teamService != null;
       case KanbanmodelPackage.SERVICE_PROVIDER__GOVERNANCE_STRATEGY:
         return governanceStrategy != null;
       case KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES:

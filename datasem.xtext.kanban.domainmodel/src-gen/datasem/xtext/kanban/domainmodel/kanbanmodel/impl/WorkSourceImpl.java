@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkSourceImpl#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkSourceImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkSourceImpl#getTargetUnits <em>Target Units</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkSourceImpl#getAssignTo <em>Assign To</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkSourceImpl#getAssignmentRule <em>Assignment Rule</em>}</li>
  * </ul>
  * </p>
@@ -81,14 +81,14 @@ public class WorkSourceImpl extends MinimalEObjectImpl.Container implements Work
   protected String description = DESCRIPTION_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getTargetUnits() <em>Target Units</em>}' reference list.
+   * The cached value of the '{@link #getAssignTo() <em>Assign To</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTargetUnits()
+   * @see #getAssignTo()
    * @generated
    * @ordered
    */
-  protected EList<ServiceProvider> targetUnits;
+  protected EList<ServiceProvider> assignTo;
 
   /**
    * The cached value of the '{@link #getAssignmentRule() <em>Assignment Rule</em>}' containment reference.
@@ -172,13 +172,13 @@ public class WorkSourceImpl extends MinimalEObjectImpl.Container implements Work
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ServiceProvider> getTargetUnits()
+  public EList<ServiceProvider> getAssignTo()
   {
-    if (targetUnits == null)
+    if (assignTo == null)
     {
-      targetUnits = new EObjectResolvingEList<ServiceProvider>(ServiceProvider.class, this, KanbanmodelPackage.WORK_SOURCE__TARGET_UNITS);
+      assignTo = new EObjectResolvingEList<ServiceProvider>(ServiceProvider.class, this, KanbanmodelPackage.WORK_SOURCE__ASSIGN_TO);
     }
-    return targetUnits;
+    return assignTo;
   }
 
   /**
@@ -259,8 +259,8 @@ public class WorkSourceImpl extends MinimalEObjectImpl.Container implements Work
         return getName();
       case KanbanmodelPackage.WORK_SOURCE__DESCRIPTION:
         return getDescription();
-      case KanbanmodelPackage.WORK_SOURCE__TARGET_UNITS:
-        return getTargetUnits();
+      case KanbanmodelPackage.WORK_SOURCE__ASSIGN_TO:
+        return getAssignTo();
       case KanbanmodelPackage.WORK_SOURCE__ASSIGNMENT_RULE:
         return getAssignmentRule();
     }
@@ -284,9 +284,9 @@ public class WorkSourceImpl extends MinimalEObjectImpl.Container implements Work
       case KanbanmodelPackage.WORK_SOURCE__DESCRIPTION:
         setDescription((String)newValue);
         return;
-      case KanbanmodelPackage.WORK_SOURCE__TARGET_UNITS:
-        getTargetUnits().clear();
-        getTargetUnits().addAll((Collection<? extends ServiceProvider>)newValue);
+      case KanbanmodelPackage.WORK_SOURCE__ASSIGN_TO:
+        getAssignTo().clear();
+        getAssignTo().addAll((Collection<? extends ServiceProvider>)newValue);
         return;
       case KanbanmodelPackage.WORK_SOURCE__ASSIGNMENT_RULE:
         setAssignmentRule((WIAssignment)newValue);
@@ -311,8 +311,8 @@ public class WorkSourceImpl extends MinimalEObjectImpl.Container implements Work
       case KanbanmodelPackage.WORK_SOURCE__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case KanbanmodelPackage.WORK_SOURCE__TARGET_UNITS:
-        getTargetUnits().clear();
+      case KanbanmodelPackage.WORK_SOURCE__ASSIGN_TO:
+        getAssignTo().clear();
         return;
       case KanbanmodelPackage.WORK_SOURCE__ASSIGNMENT_RULE:
         setAssignmentRule((WIAssignment)null);
@@ -335,8 +335,8 @@ public class WorkSourceImpl extends MinimalEObjectImpl.Container implements Work
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case KanbanmodelPackage.WORK_SOURCE__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case KanbanmodelPackage.WORK_SOURCE__TARGET_UNITS:
-        return targetUnits != null && !targetUnits.isEmpty();
+      case KanbanmodelPackage.WORK_SOURCE__ASSIGN_TO:
+        return assignTo != null && !assignTo.isEmpty();
       case KanbanmodelPackage.WORK_SOURCE__ASSIGNMENT_RULE:
         return assignmentRule != null;
     }

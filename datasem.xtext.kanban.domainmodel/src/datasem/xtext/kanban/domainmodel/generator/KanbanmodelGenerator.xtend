@@ -88,22 +88,22 @@ class KanbanmodelGenerator implements IGenerator {
 //		return value
 //	}
 	
-	def printServiceType(ServiceType stype) '''
-			<ServiceType>
+	def printService(Service stype) '''
+			<Service>
 				<Name>«stype.name»</Name>
 				<Description>«stype.description»</Description>
-			</ServiceType>	
+			</Service>	
 	'''
 	
-	def printService(Service s) '''
+	def printService(SkillSet s) '''
 			<Service>
-				<Type>«s.getType().name»</Type>
+				<Type>«s.getService().name»</Type>
 				<Efficiency>«s.efficiency»</Efficiency>
 			</Service>
 	'''
 	
 	def printResource(Asset r) '''
-			<Resource>
+			<Resource ID=0 name=«r.name» Description=«r.description» /Resources>
 				<Name>«r.name»</Name>
 				<Description>«r.description»</Description>
 				<Services>
@@ -226,7 +226,7 @@ class KanbanmodelGenerator implements IGenerator {
 				</Decompositions>
 				<RequiredServices>
 				«FOR rs : p.getRequiredServices()»	
-				<ServiceType>«rs.name»</ServiceType>
+				<Service>«rs.name»</Service>
 				«ENDFOR»
 				<RequiredServices>
 				<ClassOfService> 
@@ -287,7 +287,7 @@ class KanbanmodelGenerator implements IGenerator {
 				</CausalTriggers>
 				<RequiredServices>
 				«FOR rs : wi.getRequiredServices()»	
-				<ServiceType>«rs.name»</ServiceType>
+				<Service>«rs.name»</Service>
 				«ENDFOR»
 				</RequiredServices>
 				<ClassOfService>«wi.classOfService.name»</ClassOfService>
@@ -333,11 +333,11 @@ class KanbanmodelGenerator implements IGenerator {
 			«ENDFOR»
 			</ClassOfServices>
 			
-			<ServiceTypes>
-			«FOR stype : res.allContents.toIterable.filter(ServiceType)» 
-				«printServiceType(stype)»
+			<Services>
+			«FOR stype : res.allContents.toIterable.filter(Service)» 
+				«printService(stype)»
 			«ENDFOR»
-			</ServiceTypes>
+			</Services>
 			
 			<GovernanceStrategies>
 				«FOR stg : res.allContents.toIterable.filter(GovernanceStrategy)» 

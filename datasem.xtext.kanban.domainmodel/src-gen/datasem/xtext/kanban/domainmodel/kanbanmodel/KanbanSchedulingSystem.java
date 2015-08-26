@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getEventTypes <em>Event Types</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getConditionTypes <em>Condition Types</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getWIAcceptanceRuleTypes <em>WI Acceptance Rule Types</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getWISelectionRuleTypes <em>WI Selection Rule Types</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getWIAssignmentRuleTypes <em>WI Assignment Rule Types</em>}</li>
@@ -24,14 +26,14 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getTaskTypes <em>Task Types</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getTaskHierarchy <em>Task Hierarchy</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getClassOfServices <em>Class Of Services</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getServiceTypes <em>Service Types</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getServices <em>Services</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getGovernanceStrategies <em>Governance Strategies</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getRepositories <em>Repositories</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getPath <em>Path</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getServiceProviders <em>Service Providers</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getWorkSources <em>Work Sources</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getWorkItems <em>Work Items</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getWorkItemNetworks <em>Work Item Networks</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getReplications <em>Replications</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getInterArrivalTime <em>Inter Arrival Time</em>}</li>
  * </ul>
@@ -43,6 +45,38 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface KanbanSchedulingSystem extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Event Types</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.EventType}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Event Types</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Event Types</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_EventTypes()
+   * @model containment="true"
+   * @generated
+   */
+  EList<EventType> getEventTypes();
+
+  /**
+   * Returns the value of the '<em><b>Condition Types</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.ConditionType}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Condition Types</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Condition Types</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_ConditionTypes()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ConditionType> getConditionTypes();
+
   /**
    * Returns the value of the '<em><b>WI Acceptance Rule Types</b></em>' containment reference list.
    * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptanceRuleType}.
@@ -214,20 +248,20 @@ public interface KanbanSchedulingSystem extends EObject
   EList<ClassOfService> getClassOfServices();
 
   /**
-   * Returns the value of the '<em><b>Service Types</b></em>' containment reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceType}.
+   * Returns the value of the '<em><b>Services</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.Service}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Service Types</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Services</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Service Types</em>' containment reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_ServiceTypes()
+   * @return the value of the '<em>Services</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_Services()
    * @model containment="true"
    * @generated
    */
-  EList<ServiceType> getServiceTypes();
+  EList<Service> getServices();
 
   /**
    * Returns the value of the '<em><b>Governance Strategies</b></em>' containment reference list.
@@ -346,20 +380,20 @@ public interface KanbanSchedulingSystem extends EObject
   EList<WorkSource> getWorkSources();
 
   /**
-   * Returns the value of the '<em><b>Work Items</b></em>' containment reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem}.
+   * Returns the value of the '<em><b>Work Item Networks</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemNetwork}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Work Items</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Work Item Networks</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Work Items</em>' containment reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_WorkItems()
+   * @return the value of the '<em>Work Item Networks</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_WorkItemNetworks()
    * @model containment="true"
    * @generated
    */
-  EList<WorkItem> getWorkItems();
+  EList<WorkItemNetwork> getWorkItemNetworks();
 
   /**
    * Returns the value of the '<em><b>Replications</b></em>' attribute.

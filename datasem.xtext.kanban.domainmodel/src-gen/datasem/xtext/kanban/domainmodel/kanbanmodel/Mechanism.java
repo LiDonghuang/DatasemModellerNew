@@ -15,9 +15,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism#getName <em>Name</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism#getValue <em>Value</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism#getProcesstype <em>Processtype</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism#getStrategies <em>Strategies</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism#getMechanismAttributes <em>Mechanism Attributes</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,6 +54,32 @@ public interface Mechanism extends EObject
   void setName(String value);
 
   /**
+   * Returns the value of the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Value</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Value</em>' attribute.
+   * @see #setValue(String)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getMechanism_Value()
+   * @model
+   * @generated
+   */
+  String getValue();
+
+  /**
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism#getValue <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Value</em>' attribute.
+   * @see #getValue()
+   * @generated
+   */
+  void setValue(String value);
+
+  /**
    * Returns the value of the '<em><b>Description</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
@@ -80,45 +106,19 @@ public interface Mechanism extends EObject
   void setDescription(String value);
 
   /**
-   * Returns the value of the '<em><b>Processtype</b></em>' attribute.
+   * Returns the value of the '<em><b>Mechanism Attributes</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.MechanismAttribute}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Processtype</em>' attribute isn't clear,
+   * If the meaning of the '<em>Mechanism Attributes</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Processtype</em>' attribute.
-   * @see #setProcesstype(String)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getMechanism_Processtype()
-   * @model
-   * @generated
-   */
-  String getProcesstype();
-
-  /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism#getProcesstype <em>Processtype</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Processtype</em>' attribute.
-   * @see #getProcesstype()
-   * @generated
-   */
-  void setProcesstype(String value);
-
-  /**
-   * Returns the value of the '<em><b>Strategies</b></em>' containment reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Strategies</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Strategies</em>' containment reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getMechanism_Strategies()
+   * @return the value of the '<em>Mechanism Attributes</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getMechanism_MechanismAttributes()
    * @model containment="true"
    * @generated
    */
-  EList<GovernanceStrategy> getStrategies();
+  EList<MechanismAttribute> getMechanismAttributes();
 
 } // Mechanism

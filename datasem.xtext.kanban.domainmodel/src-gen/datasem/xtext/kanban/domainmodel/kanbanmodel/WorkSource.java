@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkSource#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkSource#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkSource#getTargetUnits <em>Target Units</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkSource#getAssignTo <em>Assign To</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkSource#getAssignmentRule <em>Assignment Rule</em>}</li>
  * </ul>
  * </p>
@@ -80,20 +80,20 @@ public interface WorkSource extends EObject
   void setDescription(String value);
 
   /**
-   * Returns the value of the '<em><b>Target Units</b></em>' reference list.
+   * Returns the value of the '<em><b>Assign To</b></em>' reference list.
    * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Target Units</em>' reference list isn't clear,
+   * If the meaning of the '<em>Assign To</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Target Units</em>' reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkSource_TargetUnits()
+   * @return the value of the '<em>Assign To</em>' reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkSource_AssignTo()
    * @model
    * @generated
    */
-  EList<ServiceProvider> getTargetUnits();
+  EList<ServiceProvider> getAssignTo();
 
   /**
    * Returns the value of the '<em><b>Assignment Rule</b></em>' containment reference.

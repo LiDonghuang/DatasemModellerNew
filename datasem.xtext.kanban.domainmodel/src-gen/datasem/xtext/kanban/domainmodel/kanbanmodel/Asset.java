@@ -15,9 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Asset#getName <em>Name</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Asset#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Asset#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Asset#getServices <em>Services</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Asset#getSkillSet <em>Skill Set</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,32 +53,6 @@ public interface Asset extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Quantity</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Quantity</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Quantity</em>' attribute.
-   * @see #setQuantity(int)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getAsset_Quantity()
-   * @model
-   * @generated
-   */
-  int getQuantity();
-
-  /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Asset#getQuantity <em>Quantity</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Quantity</em>' attribute.
-   * @see #getQuantity()
-   * @generated
-   */
-  void setQuantity(int value);
-
-  /**
    * Returns the value of the '<em><b>Description</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
@@ -106,19 +79,19 @@ public interface Asset extends EObject
   void setDescription(String value);
 
   /**
-   * Returns the value of the '<em><b>Services</b></em>' containment reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.Service}.
+   * Returns the value of the '<em><b>Skill Set</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.Skill}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Services</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Skill Set</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Services</em>' containment reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getAsset_Services()
+   * @return the value of the '<em>Skill Set</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getAsset_SkillSet()
    * @model containment="true"
    * @generated
    */
-  EList<Service> getServices();
+  EList<Skill> getSkillSet();
 
 } // Asset

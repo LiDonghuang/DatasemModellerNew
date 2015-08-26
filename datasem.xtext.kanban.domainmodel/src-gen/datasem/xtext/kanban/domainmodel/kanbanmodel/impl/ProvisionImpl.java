@@ -4,8 +4,8 @@ package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Provision;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Service;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceType;
 
 import java.util.Collection;
 
@@ -45,7 +45,7 @@ public class ProvisionImpl extends MinimalEObjectImpl.Container implements Provi
    * @generated
    * @ordered
    */
-  protected ServiceType serviceName;
+  protected Service serviceName;
 
   /**
    * The cached value of the '{@link #getProviders() <em>Providers</em>}' reference list.
@@ -83,12 +83,12 @@ public class ProvisionImpl extends MinimalEObjectImpl.Container implements Provi
    * <!-- end-user-doc -->
    * @generated
    */
-  public ServiceType getServiceName()
+  public Service getServiceName()
   {
     if (serviceName != null && serviceName.eIsProxy())
     {
       InternalEObject oldServiceName = (InternalEObject)serviceName;
-      serviceName = (ServiceType)eResolveProxy(oldServiceName);
+      serviceName = (Service)eResolveProxy(oldServiceName);
       if (serviceName != oldServiceName)
       {
         if (eNotificationRequired())
@@ -103,7 +103,7 @@ public class ProvisionImpl extends MinimalEObjectImpl.Container implements Provi
    * <!-- end-user-doc -->
    * @generated
    */
-  public ServiceType basicGetServiceName()
+  public Service basicGetServiceName()
   {
     return serviceName;
   }
@@ -113,9 +113,9 @@ public class ProvisionImpl extends MinimalEObjectImpl.Container implements Provi
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setServiceName(ServiceType newServiceName)
+  public void setServiceName(Service newServiceName)
   {
-    ServiceType oldServiceName = serviceName;
+    Service oldServiceName = serviceName;
     serviceName = newServiceName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.PROVISION__SERVICE_NAME, oldServiceName, serviceName));
@@ -166,7 +166,7 @@ public class ProvisionImpl extends MinimalEObjectImpl.Container implements Provi
     switch (featureID)
     {
       case KanbanmodelPackage.PROVISION__SERVICE_NAME:
-        setServiceName((ServiceType)newValue);
+        setServiceName((Service)newValue);
         return;
       case KanbanmodelPackage.PROVISION__PROVIDERS:
         getProviders().clear();
@@ -187,7 +187,7 @@ public class ProvisionImpl extends MinimalEObjectImpl.Container implements Provi
     switch (featureID)
     {
       case KanbanmodelPackage.PROVISION__SERVICE_NAME:
-        setServiceName((ServiceType)null);
+        setServiceName((Service)null);
         return;
       case KanbanmodelPackage.PROVISION__PROVIDERS:
         getProviders().clear();
