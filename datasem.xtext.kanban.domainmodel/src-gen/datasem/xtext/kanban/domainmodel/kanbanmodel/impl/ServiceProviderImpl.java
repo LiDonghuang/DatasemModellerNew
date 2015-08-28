@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getId <em>Id</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getAssignTo <em>Assign To</em>}</li>
@@ -46,6 +47,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements ServiceProvider
 {
+  /**
+   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected static final int ID_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected int id = ID_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -155,6 +176,29 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
   protected EClass eStaticClass()
   {
     return KanbanmodelPackage.Literals.SERVICE_PROVIDER;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public int getId()
+  {
+    return id;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setId(int newId)
+  {
+    int oldId = id;
+    id = newId;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.SERVICE_PROVIDER__ID, oldId, id));
   }
 
   /**
@@ -357,6 +401,8 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.SERVICE_PROVIDER__ID:
+        return getId();
       case KanbanmodelPackage.SERVICE_PROVIDER__NAME:
         return getName();
       case KanbanmodelPackage.SERVICE_PROVIDER__DESCRIPTION:
@@ -388,6 +434,9 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.SERVICE_PROVIDER__ID:
+        setId((Integer)newValue);
+        return;
       case KanbanmodelPackage.SERVICE_PROVIDER__NAME:
         setName((String)newValue);
         return;
@@ -426,6 +475,9 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.SERVICE_PROVIDER__ID:
+        setId(ID_EDEFAULT);
+        return;
       case KanbanmodelPackage.SERVICE_PROVIDER__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -461,6 +513,8 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.SERVICE_PROVIDER__ID:
+        return id != ID_EDEFAULT;
       case KanbanmodelPackage.SERVICE_PROVIDER__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case KanbanmodelPackage.SERVICE_PROVIDER__DESCRIPTION:
@@ -490,7 +544,9 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (id: ");
+    result.append(id);
+    result.append(", name: ");
     result.append(name);
     result.append(", description: ");
     result.append(description);

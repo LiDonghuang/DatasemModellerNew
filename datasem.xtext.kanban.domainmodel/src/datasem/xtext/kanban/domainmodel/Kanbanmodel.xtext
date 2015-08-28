@@ -2,104 +2,122 @@ grammar datasem.xtext.kanban.domainmodel.Kanbanmodel with org.eclipse.xtext.comm
 
 generate kanbanmodel "http://www.xtext.datasem/kanban/domainmodel/Kanbanmodel"
 
-	KanbanSchedulingSystem:		
-		'ReservedLibraries' '{'
-			'EventTypes'
-				(EventTypes += EventType)+
-			'end EventTypes'
-			'ConditionTypes'
-				(ConditionTypes += ConditionType)+
-			'end ConditionTypes'
-			'GovernanceLibrary' 
-				'WIAcceptanceRuleTypes'
-				(WIAcceptanceRuleTypes += WIAcceptanceRuleType)+
-				'end WIAcceptanceRuleTypes'
-				'WISelectionRuleTypes'
-				(WISelectionRuleTypes += WISelectionRuleType)+
-				'end WISelectionRuleTypes'
-				'WIAssignmentRuleTypes'
-				(WIAssignmentRuleTypes += WIAssignmentRuleType)+
-				'end WIAssignmentRuleTypes'
-				'ResourceAllocationRuleTypes'
-				(ResourceAllocationRuleTypes += ResourceAllocationRuleType)+
-				'end ResourceAllocationRuleTypes'
-				'ResourceOutsourcingRuleTypes'
-				(ResourceOutsourcingRuleTypes += ResourceOutsourcingRuleType)+
-				'end ResourceOutsourcingRuleTypes'		
-			'end GovernanceLibrary'
-			'TaskLibrary' 
-				'ProcessModels'
-				(ProcessModels += ProcessModel)+
-				'end ProcessModels'		    			
-				'ValueFunctions'
-				(ValueFunctions += ValueFunction)+
-				'end ValueFunctions'			
-			'end TaskLibrary' 
-		'}'
-		
-		'UserLibraries' '{'
-			'TaskPattern'
-			(TaskTypes += TaskType)+
-			TaskHierarchy = TaskHierarchy			
-			'end TaskPattern'
-			'ClassOfServices'
-			(ClassOfServices += ClassOfService)+
-			'end ClassOfServices'
-			'Services'
-			(Services += Service)+
-			'end Services'
-			'GovernanceStrategies'
-		    (GovernanceStrategies += GovernanceStrategy)+
-		    'end GovernanceStrategies'
-		    ('Repositories'
-			(Repositories += Repository)+
-			'end Repositories')?	    
-		'}'
-		
-		'KSSModel' name=ID
-			('Path' Path = QualifiedName)?	
-			'OrganizationalModel'			
-				'ServiceProviders'
-				(ServiceProviders += ServiceProvider)+
-				'end ServiceProviders'
-			'end OrganizationalModel'	
-			'WorkItemNetworkModel'			
-				'WorkSources'
-			    (WorkSources += WorkSource)+
-			    'end WorkSources'
-			    'WorkItemNetworks'
-				(WorkItemNetworks += WorkItemNetwork)+
-				'end WorkItemNetworks'
-		//		(kssWorkFlow=KanbanTaskModel)
-			'end WorkItemNetworkModel'
-		'end KSSModel'
-		
-		'ExperimentSettings'
-			'Replications' replications=INT
-			'InterArrivalTime' interArrivalTime=INT	
-		'end ExperimentSettings'	
-	;
-	
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
+	ModelBuilder:
+		'ModelBuilder' name=ID
+		'Description' Description=STRING
+		SystemLibraries=SystemLibraries
+		UserLibraries=UserLibraries
+		ExperimentModel=ExperimentModel
+	;
+
+
+	ExperimentModel:
+		'ExperimentModel' name=ID
+		('Path' Path = QualifiedName)?	
+		'OrganizationalModel'			
+			'ServiceProviders'
+			(ServiceProviders += ServiceProvider)+
+			'end ServiceProviders'
+		'end OrganizationalModel'	
+		'WorkItemNetworkModel'			
+			'WorkSources'
+		    (WorkSources += WorkSource)+
+		    'end WorkSources'
+		    'WorkItemNetworks'
+			(WorkItemNetworks += WorkItemNetwork)+
+			'end WorkItemNetworks'
+	//		(kssWorkFlow=KanbanTaskModel)
+		'end WorkItemNetworkModel'
+		'ExperimentSettings'
+			WINReplicationSetting=WINReplicationSetting
+		'end ExperimentSettings'
+	'end ExperimentModel';
+			
+	SystemLibraries:		
+	'SystemLibraries' 
+		'EventTypes' 
+		(EventTypes += EventType)+
+		'end EventTypes'
+		'ConditionTypes' 
+		(ConditionTypes += ConditionType)+
+		'end ConditionTypes'
+		'GovernanceLibrary' 
+			'WIAcceptanceRuleTypes' '{'
+			(WIAcceptanceRuleTypes += WIAcceptanceRuleType)+
+			'}'
+			'WISelectionRuleTypes' '{'
+			(WISelectionRuleTypes += WISelectionRuleType)+
+			'}'
+			'WIAssignmentRuleTypes' '{'
+			(WIAssignmentRuleTypes += WIAssignmentRuleType)+
+			'}'
+			'ResourceAllocationRuleTypes' '{'
+			(ResourceAllocationRuleTypes += ResourceAllocationRuleType)+
+			'}'
+			'ResourceOutsourcingRuleTypes' '{'
+			(ResourceOutsourcingRuleTypes += ResourceOutsourcingRuleType)+
+			'}'	
+		'end GovernanceLibrary'
+		'TaskLibrary'
+			'ProcessModels'
+			(ProcessModels += ProcessModel)+
+			'end ProcessModels'		    			
+			'ValueFunctions'
+			(ValueFunctions += ValueFunction)+
+			'end ValueFunctions'			
+		'end TaskLibrary'
+	'end SystemLibraries';
+		
+	UserLibraries:
+	'UserLibraries' 
+		'WorkItemTypes' 
+		(WorkItemTypes += WorkItemType)+		
+		'end WorkItemTypes'
+		'ClassOfServices' 
+		(ClassOfServices += ClassOfService)+
+		'end ClassOfServices'
+		'Services' 
+		(Services += Service)+
+		'end Services'
+		'GovernanceStrategies' 
+	    (GovernanceStrategies += GovernanceStrategy)+
+	    'end GovernanceStrategies'
+//		    ('Repositories' '{'
+//			(Repositories += Repository)+
+//			'}')?	    
+	'end UserLibraries';
+		
+
+	
+	//
+//	terminal PROFILE :
+//   ((CHAR|DIGIT)(CHAR|DIGIT)'.'(CHAR|DIGIT)(CHAR|DIGIT))
+//	;
+//	terminal DIGIT:
+//	    ('0'..'9')
+//	;
+//	terminal CHAR returns ecore::EString : 
+//	    ('a'..'z'|'A'..'Z')
+//	;
+	terminal DOUBLE returns ecore::EDouble:
+		('0'..'9')+('.' ('0'..'9')+)
+	;
 	//
 	QualifiedName:
-		ID ('.' ID)*
-	;
-	Double:
-		INT ('.' INT)?
+		ID ('.' ID)*('.' INT)*
 	;
 	NumExpression:		
-		(numValue=Double)?	
-		(distribution ?= 'Distribution:' numDist = Distribution)?
+		(numValue=DOUBLE)|	
+		(distribution ?= 'Random.' numDist = Distribution)
 	;
 	Parameter:
-		Double|ID
+		INT|DOUBLE|STRING|ID	
 	;
 	Distribution:
-		type = ID
-		'['
-		(parameters+=Parameter)*
-		']'
+		(isNormal?="Normal"|isUniform?="Uniform"|isExponential?="Exponential")
+		'['(parameters+=Parameter)*']'
 	;
 	EventType:
 		'EventType' name = ID
@@ -109,16 +127,28 @@ generate kanbanmodel "http://www.xtext.datasem/kanban/domainmodel/Kanbanmodel"
 		'ConditionType' name = ID
 		(description=STRING)?
 	;
+	// ------------------------ Experiment Objects ---------------------------------
+	WINReplicationSetting:
+		'WINReplicationSetting' '{'(WINReplications+=WINReplication)+'}'
+	;
+	WINReplication:
+		'WorkItemNetwork' workItemNetwork=[WorkItemNetwork]
+		'NumReplications' numReplications=INT
+	;
+	
 	// ------------------------ Governance Objects ---------------------------------
 	GovernanceStrategy: 
+		(id=INT)?
 		'GovernanceStrategy' name=ID '{'
 		('Description' description=STRING)?
-	   	WIAcceptanceRule=WIAcceptance
-	    WISelectionRule=WISelection 
-	    WIAssignmentRule=WIAssignment 
-	    ResourceAllocationRule=ResourceAllocation 
-	    ResourceOutsourcingRule=ResourceOutsourcing
-	    ((Mechanisms += Mechanism)+)?
+		(
+		   	WIAcceptanceRule=WIAcceptance
+		    WISelectionRule=WISelection 
+		    WIAssignmentRule=WIAssignment 
+		    ResourceAllocationRule=ResourceAllocation 
+		    ResourceOutsourcingRule=ResourceOutsourcing
+	    )?
+	    'Mechanisms' '{'(Mechanisms += Mechanism)+ '}'
 	    '}'
 	;
 	WIAcceptance:
@@ -177,7 +207,7 @@ generate kanbanmodel "http://www.xtext.datasem/kanban/domainmodel/Kanbanmodel"
 		'Mechanism' name=ID'='value=Parameter
 		'{'
 		('Description' description=STRING)?
-		'Attributes' '{' (mechanismAttributes+=MechanismAttribute)+ '}'
+		('Attributes' '{' (attributes+=MechanismAttribute)+ '}')?
 		'}'
 	;	
 	MechanismAttribute:
@@ -185,6 +215,7 @@ generate kanbanmodel "http://www.xtext.datasem/kanban/domainmodel/Kanbanmodel"
 	;	
     // ------------------------ WorkItem Objects ---------------------------------
     WorkSource:
+    	(id=INT)?
     	'WorkSource' name=ID '{'
     	('Description' description=STRING)?
     	('AssignTo' '{' (assignTo+=[ServiceProvider])+ '}')?
@@ -192,22 +223,24 @@ generate kanbanmodel "http://www.xtext.datasem/kanban/domainmodel/Kanbanmodel"
     	'}'
     ;
 	WorkItemNetwork:
+		(id=INT)?
     	'WorkItemNetwork' name=ID '{'
     	('Description' description=STRING)?
     	'WorkItems' '{' (workItems+=WorkItem)+ '}'
     	'}'
     ;    
 	WorkItem:
+		(id=INT)?
 		'WorkItem' name=ID '{'
-		('Profile' profile=[WorkItemProfile])?
+//		('Profile' profile=[WorkItemProfile])?
 		('Description' description=STRING)?	
-		('Type' type=[TaskType])?
-		('Predecessors' '{' (pTasks+=[WorkItem])+ '}')?
-		('Subtasks' '{' (sTasks+=[WorkItem])+ '}')?
+		('Type' type=[WorkItemType])?
+		(hasPredecessors?='Predecessors' '{' (pTasks+=[WorkItem])+ '}')?
+		(isAggregationNode?='Subtasks' '{' (sTasks+=[WorkItem])+ '}')?
 		('CausalTriggers'(causalTriggers+=CausalTrigger)*)?
 		('RequiredServices' '{'(requiredServices+=[Service])+)?'}'
-		('Efforts' efforts=INT)?
-		('Value' value=INT)?
+		('Efforts' efforts=NumExpression)?
+		('Value' value=NumExpression)?
 		('ClassOfService' classOfService=[ClassOfService])?
 		('WorkSource' workSource=[WorkSource])?
 		('ArrivalTime' arrivalTime=INT)?
@@ -216,17 +249,12 @@ generate kanbanmodel "http://www.xtext.datasem/kanban/domainmodel/Kanbanmodel"
 	;
 	CausalTrigger:
 		('=>'| '->')'{'(triggered+=[WorkItem])+'}'
-		('AtProgress' atProgress=INT)?
-		('OnProbability' onProbability=INT)?		
+		('AtProgress' atProgress=DOUBLE)?
+		('OnProbability' onProbability=DOUBLE)?		
 	;
-	TaskHierarchy:
-		'TaskHierarchy' name=ID '{'
-		('Description' description=STRING)?
-		('Types' '{' (taskTypes+=[TaskType])+ '}')?
-		'}'
-	;
-	TaskType:
-		'TaskType' name=ID '{'
+	WorkItemType:
+		(id=INT)?
+		'WorkItemType' name=ID '{'
 		('Description' description=STRING)?
 		'}'
 	;	
@@ -241,22 +269,20 @@ generate kanbanmodel "http://www.xtext.datasem/kanban/domainmodel/Kanbanmodel"
 		'}'
 	;
 	ClassOfService:
+		(id=INT)?
 		'ClassOfService' name=ID '{'
 		('Description' description=STRING)? 
 		'}'
 	;	
-	LocalValue:
-		('owner' owner=[ServiceProvider])
-		('value' value=INT)
-	;
 	// ------------------------ Organizational Objects ---------------------------------
 	Service:
+		(id=INT)?
 		'Service' name=ID ('{'
 		('Description' description=STRING)?
 		'}')?
 	;		
-
 	ServiceProvider:
+		(id=INT)?
 		('ServiceProvider'|'Group') name=ID '{'
 		('Description' description=STRING)?		
 		('AssignTo' '{' (assignTo+=[ServiceProvider])+ '}')?
@@ -267,6 +293,7 @@ generate kanbanmodel "http://www.xtext.datasem/kanban/domainmodel/Kanbanmodel"
 	    '}'
 	;
 	Asset: 
+		(id=INT)?
 		'Resource' name=ID '{'
 		('Description' description=STRING)?
 		('SkillSet' '{' (skillSet+=Skill)+ '}')?
@@ -274,103 +301,103 @@ generate kanbanmodel "http://www.xtext.datasem/kanban/domainmodel/Kanbanmodel"
 	;	
 	Skill:
 		'Service' service=[Service]
-		'Efficiency' efficiency=Double
+		'Efficiency' efficiency=NumExpression
 	;		
 	
 	// ------------------------ WorkItem Repositories ---------------------------------------
-	Repository:
-		'Repository' type = [TaskType]
-		'Profiles' '{'(profiles += WorkItemProfile)* '}'
-		'end Repository'
-	;
-	WorkItemProfile:
-		'WorkItem' name=ID '{'
-		('Description' description=STRING)?
-		('ProcessModel' processModel=[ProcessModel])?
-		('References''{' (references+=WorkReference)+ '}')?
-		('Decompositions' '{' (decompositions+=WorkDecomposition)+ '}')?
-		('RequiredServices' (requiredServices+=[Service])+)?
-		('Efforts' efforts=NumExpression)?
-		('Value' value=NumExpression)?
-		('ClassOfService' classOfService=[ClassOfService])?
-		(allowAssignment ?= 'AssignmentAllowed')?
-		(allowDiscard ?= 'DiscardAllowed')?
-		'}'
-	;
-	WorkReference:
-		'WorkItem' workItem = [WorkItemProfile]
-		'Quantity' quantity = NumExpression
-	;
-	WorkDecomposition:
-		'WorkItem' workItem = [WorkItemProfile]
-		'Quantity' quantity = NumExpression
-	;
-	WorkPrecedency:
-		'WorkItem' workItem = [WorkItemProfile]
-	;
-	WorkCausality:
-		'WorkItem' workItem = [WorkItemProfile]
-	;	
+//	Repository:
+//		'Repository' type = [WorkItemType]
+//		'Profiles' '{'(profiles += WorkItemProfile)* '}'
+//		'end Repository'
+//	;
+//	WorkItemProfile:
+//		'WorkItem' name=ID '{'
+//		('Description' description=STRING)?
+//		('ProcessModel' processModel=[ProcessModel])?
+//		('References''{' (references+=WorkReference)+ '}')?
+//		('Decompositions' '{' (decompositions+=WorkDecomposition)+ '}')?
+//		('RequiredServices' (requiredServices+=[Service])+)?
+//		('Efforts' efforts=NumExpression)?
+//		('Value' value=NumExpression)?
+//		('ClassOfService' classOfService=[ClassOfService])?
+//		(allowAssignment ?= 'AssignmentAllowed')?
+//		(allowDiscard ?= 'DiscardAllowed')?
+//		'}'
+//	;
+//	WorkReference:
+//		'WorkItem' workItem = [WorkItemProfile]
+//		'Quantity' quantity = NumExpression
+//	;
+//	WorkDecomposition:
+//		'WorkItem' workItem = [WorkItemProfile]
+//		'Quantity' quantity = NumExpression
+//	;
+//	WorkPrecedency:
+//		'WorkItem' workItem = [WorkItemProfile]
+//	;
+//	WorkCausality:
+//		'WorkItem' workItem = [WorkItemProfile]
+//	;	
 	// ------------------------ (Reserved Objects) ---------------------------------
-	KanbanTaskModel:
-		'WorkFlow' name=ID
-		(caps+=Capability)+
-		'end WorkFlow'
-	;
-
-	Capability:
-		'capability' name=ID '{'
-		('Description' description=STRING)?
-		(reqs+=Requirement)+ 	
-		'}'
-	;
-	Requirement:
-		'requirement' name=ID '{' 
-		 ('Description' description=STRING)?
-		 ('workItems' '{' (rTasks+=[WorkItem])+ '}') 
-		 ('workItemNetwork' (dependencies += CausalTrigger)*)?
-		'}'
-	;
-	
-	Entity:
-		'entity' name=ID '{'
-		('ServiceDirectory' sdname=ID '=' '['(serviceProvisions+=Provision)* ']')?
-		(entityBehavior=Statemachine)
-		'}'
-	;
-	
-	Provision:
-		'(' serviceName=[Service] ',' '{'(providers+=[ServiceProvider])* '}'')' 
-	;
-	
-	
-	Statemachine :
-     {Statemachine}
-	('events' 
-		events+=Event+ 
-	'end')?
-	('activities' 
-		commands+=Command+ 
-	'end')?
-	(states+=State)*
-;
-
-	Event:
-		name=ID code=ID
-	;
-	
-	Command:
-		name=ID code=ID
-	;
-	
-	State:
-		'state' name=ID
-			('actions' '{' actions+=[Command]+ '}')?
-			(transitions+=Transition)*
-		'end'
-	;
-
-	Transition:
-		(event=[Event] '=>' state=[State]) | (event=[Event] '/' '[' (eventactions+=[Command])+ ']' '=>' state=[State])
-	;
+//	KanbanTaskModel:
+//		'WorkFlow' name=ID
+//		(caps+=Capability)+
+//		'end WorkFlow'
+//	;
+//
+//	Capability:
+//		'capability' name=ID '{'
+//		('Description' description=STRING)?
+//		(reqs+=Requirement)+ 	
+//		'}'
+//	;
+//	Requirement:
+//		'requirement' name=ID '{' 
+//		 ('Description' description=STRING)?
+//		 ('workItems' '{' (rTasks+=[WorkItem])+ '}') 
+//		 ('workItemNetwork' (dependencies += CausalTrigger)*)?
+//		'}'
+//	;
+//	
+//	Entity:
+//		'entity' name=ID '{'
+//		('ServiceDirectory' sdname=ID '=' '['(serviceProvisions+=Provision)* ']')?
+//		(entityBehavior=Statemachine)
+//		'}'
+//	;
+//	
+//	Provision:
+//		'(' serviceName=[Service] ',' '{'(providers+=[ServiceProvider])* '}'')' 
+//	;
+//	
+//	
+//	Statemachine :
+//     {Statemachine}
+//	('events' 
+//		events+=Event+ 
+//	'end')?
+//	('activities' 
+//		commands+=Command+ 
+//	'end')?
+//	(states+=State)*
+//;
+//
+//	Event:
+//		name=ID code=ID
+//	;
+//	
+//	Command:
+//		name=ID code=ID
+//	;
+//	
+//	State:
+//		'state' name=ID
+//			('actions' '{' actions+=[Command]+ '}')?
+//			(transitions+=Transition)*
+//		'end'
+//	;
+//
+//	Transition:
+//		(event=[Event] '=>' state=[State]) | (event=[Event] '/' '[' (eventactions+=[Command])+ ']' '=>' state=[State])
+//	;
 	

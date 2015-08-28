@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution#getType <em>Type</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution#isIsNormal <em>Is Normal</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution#isIsUniform <em>Is Uniform</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution#isIsExponential <em>Is Exponential</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution#getParameters <em>Parameters</em>}</li>
  * </ul>
  * </p>
@@ -26,30 +28,82 @@ import org.eclipse.emf.ecore.EObject;
 public interface Distribution extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Type</b></em>' attribute.
+   * Returns the value of the '<em><b>Is Normal</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type</em>' attribute isn't clear,
+   * If the meaning of the '<em>Is Normal</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' attribute.
-   * @see #setType(String)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getDistribution_Type()
+   * @return the value of the '<em>Is Normal</em>' attribute.
+   * @see #setIsNormal(boolean)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getDistribution_IsNormal()
    * @model
    * @generated
    */
-  String getType();
+  boolean isIsNormal();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution#getType <em>Type</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution#isIsNormal <em>Is Normal</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type</em>' attribute.
-   * @see #getType()
+   * @param value the new value of the '<em>Is Normal</em>' attribute.
+   * @see #isIsNormal()
    * @generated
    */
-  void setType(String value);
+  void setIsNormal(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Is Uniform</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Is Uniform</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Is Uniform</em>' attribute.
+   * @see #setIsUniform(boolean)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getDistribution_IsUniform()
+   * @model
+   * @generated
+   */
+  boolean isIsUniform();
+
+  /**
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution#isIsUniform <em>Is Uniform</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Is Uniform</em>' attribute.
+   * @see #isIsUniform()
+   * @generated
+   */
+  void setIsUniform(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Is Exponential</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Is Exponential</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Is Exponential</em>' attribute.
+   * @see #setIsExponential(boolean)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getDistribution_IsExponential()
+   * @model
+   * @generated
+   */
+  boolean isIsExponential();
+
+  /**
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution#isIsExponential <em>Is Exponential</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Is Exponential</em>' attribute.
+   * @see #isIsExponential()
+   * @generated
+   */
+  void setIsExponential(boolean value);
 
   /**
    * Returns the value of the '<em><b>Parameters</b></em>' attribute list.

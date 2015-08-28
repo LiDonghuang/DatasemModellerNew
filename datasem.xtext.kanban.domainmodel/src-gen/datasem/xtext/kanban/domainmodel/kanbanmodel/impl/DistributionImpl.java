@@ -25,7 +25,9 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.DistributionImpl#getType <em>Type</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.DistributionImpl#isIsNormal <em>Is Normal</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.DistributionImpl#isIsUniform <em>Is Uniform</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.DistributionImpl#isIsExponential <em>Is Exponential</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.DistributionImpl#getParameters <em>Parameters</em>}</li>
  * </ul>
  * </p>
@@ -35,24 +37,64 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 public class DistributionImpl extends MinimalEObjectImpl.Container implements Distribution
 {
   /**
-   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+   * The default value of the '{@link #isIsNormal() <em>Is Normal</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #isIsNormal()
    * @generated
    * @ordered
    */
-  protected static final String TYPE_EDEFAULT = null;
+  protected static final boolean IS_NORMAL_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+   * The cached value of the '{@link #isIsNormal() <em>Is Normal</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #isIsNormal()
    * @generated
    * @ordered
    */
-  protected String type = TYPE_EDEFAULT;
+  protected boolean isNormal = IS_NORMAL_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isIsUniform() <em>Is Uniform</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsUniform()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean IS_UNIFORM_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isIsUniform() <em>Is Uniform</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsUniform()
+   * @generated
+   * @ordered
+   */
+  protected boolean isUniform = IS_UNIFORM_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isIsExponential() <em>Is Exponential</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsExponential()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean IS_EXPONENTIAL_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isIsExponential() <em>Is Exponential</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsExponential()
+   * @generated
+   * @ordered
+   */
+  protected boolean isExponential = IS_EXPONENTIAL_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getParameters() <em>Parameters</em>}' attribute list.
@@ -90,9 +132,9 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getType()
+  public boolean isIsNormal()
   {
-    return type;
+    return isNormal;
   }
 
   /**
@@ -100,12 +142,58 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(String newType)
+  public void setIsNormal(boolean newIsNormal)
   {
-    String oldType = type;
-    type = newType;
+    boolean oldIsNormal = isNormal;
+    isNormal = newIsNormal;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.DISTRIBUTION__TYPE, oldType, type));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.DISTRIBUTION__IS_NORMAL, oldIsNormal, isNormal));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isIsUniform()
+  {
+    return isUniform;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIsUniform(boolean newIsUniform)
+  {
+    boolean oldIsUniform = isUniform;
+    isUniform = newIsUniform;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.DISTRIBUTION__IS_UNIFORM, oldIsUniform, isUniform));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isIsExponential()
+  {
+    return isExponential;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIsExponential(boolean newIsExponential)
+  {
+    boolean oldIsExponential = isExponential;
+    isExponential = newIsExponential;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.DISTRIBUTION__IS_EXPONENTIAL, oldIsExponential, isExponential));
   }
 
   /**
@@ -132,8 +220,12 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.DISTRIBUTION__TYPE:
-        return getType();
+      case KanbanmodelPackage.DISTRIBUTION__IS_NORMAL:
+        return isIsNormal();
+      case KanbanmodelPackage.DISTRIBUTION__IS_UNIFORM:
+        return isIsUniform();
+      case KanbanmodelPackage.DISTRIBUTION__IS_EXPONENTIAL:
+        return isIsExponential();
       case KanbanmodelPackage.DISTRIBUTION__PARAMETERS:
         return getParameters();
     }
@@ -151,8 +243,14 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.DISTRIBUTION__TYPE:
-        setType((String)newValue);
+      case KanbanmodelPackage.DISTRIBUTION__IS_NORMAL:
+        setIsNormal((Boolean)newValue);
+        return;
+      case KanbanmodelPackage.DISTRIBUTION__IS_UNIFORM:
+        setIsUniform((Boolean)newValue);
+        return;
+      case KanbanmodelPackage.DISTRIBUTION__IS_EXPONENTIAL:
+        setIsExponential((Boolean)newValue);
         return;
       case KanbanmodelPackage.DISTRIBUTION__PARAMETERS:
         getParameters().clear();
@@ -172,8 +270,14 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.DISTRIBUTION__TYPE:
-        setType(TYPE_EDEFAULT);
+      case KanbanmodelPackage.DISTRIBUTION__IS_NORMAL:
+        setIsNormal(IS_NORMAL_EDEFAULT);
+        return;
+      case KanbanmodelPackage.DISTRIBUTION__IS_UNIFORM:
+        setIsUniform(IS_UNIFORM_EDEFAULT);
+        return;
+      case KanbanmodelPackage.DISTRIBUTION__IS_EXPONENTIAL:
+        setIsExponential(IS_EXPONENTIAL_EDEFAULT);
         return;
       case KanbanmodelPackage.DISTRIBUTION__PARAMETERS:
         getParameters().clear();
@@ -192,8 +296,12 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.DISTRIBUTION__TYPE:
-        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+      case KanbanmodelPackage.DISTRIBUTION__IS_NORMAL:
+        return isNormal != IS_NORMAL_EDEFAULT;
+      case KanbanmodelPackage.DISTRIBUTION__IS_UNIFORM:
+        return isUniform != IS_UNIFORM_EDEFAULT;
+      case KanbanmodelPackage.DISTRIBUTION__IS_EXPONENTIAL:
+        return isExponential != IS_EXPONENTIAL_EDEFAULT;
       case KanbanmodelPackage.DISTRIBUTION__PARAMETERS:
         return parameters != null && !parameters.isEmpty();
     }
@@ -211,8 +319,12 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (type: ");
-    result.append(type);
+    result.append(" (isNormal: ");
+    result.append(isNormal);
+    result.append(", isUniform: ");
+    result.append(isUniform);
+    result.append(", isExponential: ");
+    result.append(isExponential);
     result.append(", parameters: ");
     result.append(parameters);
     result.append(')');

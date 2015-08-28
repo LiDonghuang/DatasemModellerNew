@@ -33,12 +33,12 @@ public interface NumExpression extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Num Value</em>' attribute.
-   * @see #setNumValue(String)
+   * @see #setNumValue(double)
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getNumExpression_NumValue()
    * @model
    * @generated
    */
-  String getNumValue();
+  double getNumValue();
 
   /**
    * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.NumExpression#getNumValue <em>Num Value</em>}' attribute.
@@ -48,7 +48,7 @@ public interface NumExpression extends EObject
    * @see #getNumValue()
    * @generated
    */
-  void setNumValue(String value);
+  void setNumValue(double value);
 
   /**
    * Returns the value of the '<em><b>Distribution</b></em>' attribute.

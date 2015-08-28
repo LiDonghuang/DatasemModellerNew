@@ -51,12 +51,12 @@ public interface CausalTrigger extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>At Progress</em>' attribute.
-   * @see #setAtProgress(int)
+   * @see #setAtProgress(double)
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getCausalTrigger_AtProgress()
    * @model
    * @generated
    */
-  int getAtProgress();
+  double getAtProgress();
 
   /**
    * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger#getAtProgress <em>At Progress</em>}' attribute.
@@ -66,7 +66,7 @@ public interface CausalTrigger extends EObject
    * @see #getAtProgress()
    * @generated
    */
-  void setAtProgress(int value);
+  void setAtProgress(double value);
 
   /**
    * Returns the value of the '<em><b>On Probability</b></em>' attribute.
@@ -77,12 +77,12 @@ public interface CausalTrigger extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>On Probability</em>' attribute.
-   * @see #setOnProbability(int)
+   * @see #setOnProbability(double)
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getCausalTrigger_OnProbability()
    * @model
    * @generated
    */
-  int getOnProbability();
+  double getOnProbability();
 
   /**
    * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger#getOnProbability <em>On Probability</em>}' attribute.
@@ -92,6 +92,6 @@ public interface CausalTrigger extends EObject
    * @see #getOnProbability()
    * @generated
    */
-  void setOnProbability(int value);
+  void setOnProbability(double value);
 
 } // CausalTrigger

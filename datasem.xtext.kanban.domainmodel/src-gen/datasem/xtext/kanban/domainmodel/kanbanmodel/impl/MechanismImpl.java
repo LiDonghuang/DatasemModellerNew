@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.MechanismImpl#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.MechanismImpl#getValue <em>Value</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.MechanismImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.MechanismImpl#getMechanismAttributes <em>Mechanism Attributes</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.MechanismImpl#getAttributes <em>Attributes</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,14 +101,14 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
   protected String description = DESCRIPTION_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getMechanismAttributes() <em>Mechanism Attributes</em>}' containment reference list.
+   * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMechanismAttributes()
+   * @see #getAttributes()
    * @generated
    * @ordered
    */
-  protected EList<MechanismAttribute> mechanismAttributes;
+  protected EList<MechanismAttribute> attributes;
 
   /**
    * <!-- begin-user-doc -->
@@ -205,13 +205,13 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<MechanismAttribute> getMechanismAttributes()
+  public EList<MechanismAttribute> getAttributes()
   {
-    if (mechanismAttributes == null)
+    if (attributes == null)
     {
-      mechanismAttributes = new EObjectContainmentEList<MechanismAttribute>(MechanismAttribute.class, this, KanbanmodelPackage.MECHANISM__MECHANISM_ATTRIBUTES);
+      attributes = new EObjectContainmentEList<MechanismAttribute>(MechanismAttribute.class, this, KanbanmodelPackage.MECHANISM__ATTRIBUTES);
     }
-    return mechanismAttributes;
+    return attributes;
   }
 
   /**
@@ -224,8 +224,8 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.MECHANISM__MECHANISM_ATTRIBUTES:
-        return ((InternalEList<?>)getMechanismAttributes()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.MECHANISM__ATTRIBUTES:
+        return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -246,8 +246,8 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
         return getValue();
       case KanbanmodelPackage.MECHANISM__DESCRIPTION:
         return getDescription();
-      case KanbanmodelPackage.MECHANISM__MECHANISM_ATTRIBUTES:
-        return getMechanismAttributes();
+      case KanbanmodelPackage.MECHANISM__ATTRIBUTES:
+        return getAttributes();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -272,9 +272,9 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
       case KanbanmodelPackage.MECHANISM__DESCRIPTION:
         setDescription((String)newValue);
         return;
-      case KanbanmodelPackage.MECHANISM__MECHANISM_ATTRIBUTES:
-        getMechanismAttributes().clear();
-        getMechanismAttributes().addAll((Collection<? extends MechanismAttribute>)newValue);
+      case KanbanmodelPackage.MECHANISM__ATTRIBUTES:
+        getAttributes().clear();
+        getAttributes().addAll((Collection<? extends MechanismAttribute>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -299,8 +299,8 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
       case KanbanmodelPackage.MECHANISM__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case KanbanmodelPackage.MECHANISM__MECHANISM_ATTRIBUTES:
-        getMechanismAttributes().clear();
+      case KanbanmodelPackage.MECHANISM__ATTRIBUTES:
+        getAttributes().clear();
         return;
     }
     super.eUnset(featureID);
@@ -322,8 +322,8 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
       case KanbanmodelPackage.MECHANISM__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case KanbanmodelPackage.MECHANISM__MECHANISM_ATTRIBUTES:
-        return mechanismAttributes != null && !mechanismAttributes.isEmpty();
+      case KanbanmodelPackage.MECHANISM__ATTRIBUTES:
+        return attributes != null && !attributes.isEmpty();
     }
     return super.eIsSet(featureID);
   }

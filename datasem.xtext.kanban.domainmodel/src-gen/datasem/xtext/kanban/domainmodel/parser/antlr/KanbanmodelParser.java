@@ -25,7 +25,7 @@ public class KanbanmodelParser extends org.eclipse.xtext.parser.antlr.AbstractAn
 	
 	@Override 
 	protected String getDefaultRuleName() {
-		return "KanbanSchedulingSystem";
+		return "ModelBuilder";
 	}
 	
 	public KanbanmodelGrammarAccess getGrammarAccess() {

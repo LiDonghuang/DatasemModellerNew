@@ -5,10 +5,10 @@ package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.NumExpression;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Service;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.TaskType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkSource;
 
 import java.util.Collection;
@@ -35,11 +35,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getId <em>Id</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getName <em>Name</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getProfile <em>Profile</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getType <em>Type</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#isHasPredecessors <em>Has Predecessors</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getPTasks <em>PTasks</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#isIsAggregationNode <em>Is Aggregation Node</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getSTasks <em>STasks</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getCausalTriggers <em>Causal Triggers</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getRequiredServices <em>Required Services</em>}</li>
@@ -56,6 +58,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkItem
 {
+  /**
+   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected static final int ID_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected int id = ID_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -75,16 +97,6 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getProfile() <em>Profile</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getProfile()
-   * @generated
-   * @ordered
-   */
-  protected WorkItemProfile profile;
 
   /**
    * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -114,7 +126,27 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * @generated
    * @ordered
    */
-  protected TaskType type;
+  protected WorkItemType type;
+
+  /**
+   * The default value of the '{@link #isHasPredecessors() <em>Has Predecessors</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isHasPredecessors()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean HAS_PREDECESSORS_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isHasPredecessors() <em>Has Predecessors</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isHasPredecessors()
+   * @generated
+   * @ordered
+   */
+  protected boolean hasPredecessors = HAS_PREDECESSORS_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getPTasks() <em>PTasks</em>}' reference list.
@@ -125,6 +157,26 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * @ordered
    */
   protected EList<WorkItem> pTasks;
+
+  /**
+   * The default value of the '{@link #isIsAggregationNode() <em>Is Aggregation Node</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsAggregationNode()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean IS_AGGREGATION_NODE_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isIsAggregationNode() <em>Is Aggregation Node</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsAggregationNode()
+   * @generated
+   * @ordered
+   */
+  protected boolean isAggregationNode = IS_AGGREGATION_NODE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getSTasks() <em>STasks</em>}' reference list.
@@ -157,44 +209,24 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
   protected EList<Service> requiredServices;
 
   /**
-   * The default value of the '{@link #getEfforts() <em>Efforts</em>}' attribute.
+   * The cached value of the '{@link #getEfforts() <em>Efforts</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getEfforts()
    * @generated
    * @ordered
    */
-  protected static final int EFFORTS_EDEFAULT = 0;
+  protected NumExpression efforts;
 
   /**
-   * The cached value of the '{@link #getEfforts() <em>Efforts</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getEfforts()
-   * @generated
-   * @ordered
-   */
-  protected int efforts = EFFORTS_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final int VALUE_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected int value = VALUE_EDEFAULT;
+  protected NumExpression value;
 
   /**
    * The cached value of the '{@link #getClassOfService() <em>Class Of Service</em>}' reference.
@@ -282,6 +314,29 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
+  public int getId()
+  {
+    return id;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setId(int newId)
+  {
+    int oldId = id;
+    id = newId;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__ID, oldId, id));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getName()
   {
     return name;
@@ -298,49 +353,6 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public WorkItemProfile getProfile()
-  {
-    if (profile != null && profile.eIsProxy())
-    {
-      InternalEObject oldProfile = (InternalEObject)profile;
-      profile = (WorkItemProfile)eResolveProxy(oldProfile);
-      if (profile != oldProfile)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.WORK_ITEM__PROFILE, oldProfile, profile));
-      }
-    }
-    return profile;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public WorkItemProfile basicGetProfile()
-  {
-    return profile;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setProfile(WorkItemProfile newProfile)
-  {
-    WorkItemProfile oldProfile = profile;
-    profile = newProfile;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__PROFILE, oldProfile, profile));
   }
 
   /**
@@ -371,12 +383,12 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public TaskType getType()
+  public WorkItemType getType()
   {
     if (type != null && type.eIsProxy())
     {
       InternalEObject oldType = (InternalEObject)type;
-      type = (TaskType)eResolveProxy(oldType);
+      type = (WorkItemType)eResolveProxy(oldType);
       if (type != oldType)
       {
         if (eNotificationRequired())
@@ -391,7 +403,7 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public TaskType basicGetType()
+  public WorkItemType basicGetType()
   {
     return type;
   }
@@ -401,12 +413,35 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(TaskType newType)
+  public void setType(WorkItemType newType)
   {
-    TaskType oldType = type;
+    WorkItemType oldType = type;
     type = newType;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__TYPE, oldType, type));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isHasPredecessors()
+  {
+    return hasPredecessors;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setHasPredecessors(boolean newHasPredecessors)
+  {
+    boolean oldHasPredecessors = hasPredecessors;
+    hasPredecessors = newHasPredecessors;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__HAS_PREDECESSORS, oldHasPredecessors, hasPredecessors));
   }
 
   /**
@@ -421,6 +456,29 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
       pTasks = new EObjectResolvingEList<WorkItem>(WorkItem.class, this, KanbanmodelPackage.WORK_ITEM__PTASKS);
     }
     return pTasks;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isIsAggregationNode()
+  {
+    return isAggregationNode;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIsAggregationNode(boolean newIsAggregationNode)
+  {
+    boolean oldIsAggregationNode = isAggregationNode;
+    isAggregationNode = newIsAggregationNode;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__IS_AGGREGATION_NODE, oldIsAggregationNode, isAggregationNode));
   }
 
   /**
@@ -470,7 +528,7 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getEfforts()
+  public NumExpression getEfforts()
   {
     return efforts;
   }
@@ -480,12 +538,16 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setEfforts(int newEfforts)
+  public NotificationChain basicSetEfforts(NumExpression newEfforts, NotificationChain msgs)
   {
-    int oldEfforts = efforts;
+    NumExpression oldEfforts = efforts;
     efforts = newEfforts;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__EFFORTS, oldEfforts, efforts));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__EFFORTS, oldEfforts, newEfforts);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -493,7 +555,28 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getValue()
+  public void setEfforts(NumExpression newEfforts)
+  {
+    if (newEfforts != efforts)
+    {
+      NotificationChain msgs = null;
+      if (efforts != null)
+        msgs = ((InternalEObject)efforts).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.WORK_ITEM__EFFORTS, null, msgs);
+      if (newEfforts != null)
+        msgs = ((InternalEObject)newEfforts).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.WORK_ITEM__EFFORTS, null, msgs);
+      msgs = basicSetEfforts(newEfforts, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__EFFORTS, newEfforts, newEfforts));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NumExpression getValue()
   {
     return value;
   }
@@ -503,12 +586,37 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(int newValue)
+  public NotificationChain basicSetValue(NumExpression newValue, NotificationChain msgs)
   {
-    int oldValue = value;
+    NumExpression oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__VALUE, oldValue, value));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__VALUE, oldValue, newValue);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setValue(NumExpression newValue)
+  {
+    if (newValue != value)
+    {
+      NotificationChain msgs = null;
+      if (value != null)
+        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.WORK_ITEM__VALUE, null, msgs);
+      if (newValue != null)
+        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.WORK_ITEM__VALUE, null, msgs);
+      msgs = basicSetValue(newValue, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__VALUE, newValue, newValue));
   }
 
   /**
@@ -655,6 +763,10 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
     {
       case KanbanmodelPackage.WORK_ITEM__CAUSAL_TRIGGERS:
         return ((InternalEList<?>)getCausalTriggers()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.WORK_ITEM__EFFORTS:
+        return basicSetEfforts(null, msgs);
+      case KanbanmodelPackage.WORK_ITEM__VALUE:
+        return basicSetValue(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -669,18 +781,21 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.WORK_ITEM__ID:
+        return getId();
       case KanbanmodelPackage.WORK_ITEM__NAME:
         return getName();
-      case KanbanmodelPackage.WORK_ITEM__PROFILE:
-        if (resolve) return getProfile();
-        return basicGetProfile();
       case KanbanmodelPackage.WORK_ITEM__DESCRIPTION:
         return getDescription();
       case KanbanmodelPackage.WORK_ITEM__TYPE:
         if (resolve) return getType();
         return basicGetType();
+      case KanbanmodelPackage.WORK_ITEM__HAS_PREDECESSORS:
+        return isHasPredecessors();
       case KanbanmodelPackage.WORK_ITEM__PTASKS:
         return getPTasks();
+      case KanbanmodelPackage.WORK_ITEM__IS_AGGREGATION_NODE:
+        return isIsAggregationNode();
       case KanbanmodelPackage.WORK_ITEM__STASKS:
         return getSTasks();
       case KanbanmodelPackage.WORK_ITEM__CAUSAL_TRIGGERS:
@@ -716,21 +831,27 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.WORK_ITEM__ID:
+        setId((Integer)newValue);
+        return;
       case KanbanmodelPackage.WORK_ITEM__NAME:
         setName((String)newValue);
-        return;
-      case KanbanmodelPackage.WORK_ITEM__PROFILE:
-        setProfile((WorkItemProfile)newValue);
         return;
       case KanbanmodelPackage.WORK_ITEM__DESCRIPTION:
         setDescription((String)newValue);
         return;
       case KanbanmodelPackage.WORK_ITEM__TYPE:
-        setType((TaskType)newValue);
+        setType((WorkItemType)newValue);
+        return;
+      case KanbanmodelPackage.WORK_ITEM__HAS_PREDECESSORS:
+        setHasPredecessors((Boolean)newValue);
         return;
       case KanbanmodelPackage.WORK_ITEM__PTASKS:
         getPTasks().clear();
         getPTasks().addAll((Collection<? extends WorkItem>)newValue);
+        return;
+      case KanbanmodelPackage.WORK_ITEM__IS_AGGREGATION_NODE:
+        setIsAggregationNode((Boolean)newValue);
         return;
       case KanbanmodelPackage.WORK_ITEM__STASKS:
         getSTasks().clear();
@@ -745,10 +866,10 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         getRequiredServices().addAll((Collection<? extends Service>)newValue);
         return;
       case KanbanmodelPackage.WORK_ITEM__EFFORTS:
-        setEfforts((Integer)newValue);
+        setEfforts((NumExpression)newValue);
         return;
       case KanbanmodelPackage.WORK_ITEM__VALUE:
-        setValue((Integer)newValue);
+        setValue((NumExpression)newValue);
         return;
       case KanbanmodelPackage.WORK_ITEM__CLASS_OF_SERVICE:
         setClassOfService((ClassOfService)newValue);
@@ -776,20 +897,26 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.WORK_ITEM__ID:
+        setId(ID_EDEFAULT);
+        return;
       case KanbanmodelPackage.WORK_ITEM__NAME:
         setName(NAME_EDEFAULT);
-        return;
-      case KanbanmodelPackage.WORK_ITEM__PROFILE:
-        setProfile((WorkItemProfile)null);
         return;
       case KanbanmodelPackage.WORK_ITEM__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
       case KanbanmodelPackage.WORK_ITEM__TYPE:
-        setType((TaskType)null);
+        setType((WorkItemType)null);
+        return;
+      case KanbanmodelPackage.WORK_ITEM__HAS_PREDECESSORS:
+        setHasPredecessors(HAS_PREDECESSORS_EDEFAULT);
         return;
       case KanbanmodelPackage.WORK_ITEM__PTASKS:
         getPTasks().clear();
+        return;
+      case KanbanmodelPackage.WORK_ITEM__IS_AGGREGATION_NODE:
+        setIsAggregationNode(IS_AGGREGATION_NODE_EDEFAULT);
         return;
       case KanbanmodelPackage.WORK_ITEM__STASKS:
         getSTasks().clear();
@@ -801,10 +928,10 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         getRequiredServices().clear();
         return;
       case KanbanmodelPackage.WORK_ITEM__EFFORTS:
-        setEfforts(EFFORTS_EDEFAULT);
+        setEfforts((NumExpression)null);
         return;
       case KanbanmodelPackage.WORK_ITEM__VALUE:
-        setValue(VALUE_EDEFAULT);
+        setValue((NumExpression)null);
         return;
       case KanbanmodelPackage.WORK_ITEM__CLASS_OF_SERVICE:
         setClassOfService((ClassOfService)null);
@@ -832,16 +959,20 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.WORK_ITEM__ID:
+        return id != ID_EDEFAULT;
       case KanbanmodelPackage.WORK_ITEM__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case KanbanmodelPackage.WORK_ITEM__PROFILE:
-        return profile != null;
       case KanbanmodelPackage.WORK_ITEM__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case KanbanmodelPackage.WORK_ITEM__TYPE:
         return type != null;
+      case KanbanmodelPackage.WORK_ITEM__HAS_PREDECESSORS:
+        return hasPredecessors != HAS_PREDECESSORS_EDEFAULT;
       case KanbanmodelPackage.WORK_ITEM__PTASKS:
         return pTasks != null && !pTasks.isEmpty();
+      case KanbanmodelPackage.WORK_ITEM__IS_AGGREGATION_NODE:
+        return isAggregationNode != IS_AGGREGATION_NODE_EDEFAULT;
       case KanbanmodelPackage.WORK_ITEM__STASKS:
         return sTasks != null && !sTasks.isEmpty();
       case KanbanmodelPackage.WORK_ITEM__CAUSAL_TRIGGERS:
@@ -849,9 +980,9 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
       case KanbanmodelPackage.WORK_ITEM__REQUIRED_SERVICES:
         return requiredServices != null && !requiredServices.isEmpty();
       case KanbanmodelPackage.WORK_ITEM__EFFORTS:
-        return efforts != EFFORTS_EDEFAULT;
+        return efforts != null;
       case KanbanmodelPackage.WORK_ITEM__VALUE:
-        return value != VALUE_EDEFAULT;
+        return value != null;
       case KanbanmodelPackage.WORK_ITEM__CLASS_OF_SERVICE:
         return classOfService != null;
       case KanbanmodelPackage.WORK_ITEM__WORK_SOURCE:
@@ -875,14 +1006,16 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (id: ");
+    result.append(id);
+    result.append(", name: ");
     result.append(name);
     result.append(", description: ");
     result.append(description);
-    result.append(", efforts: ");
-    result.append(efforts);
-    result.append(", value: ");
-    result.append(value);
+    result.append(", hasPredecessors: ");
+    result.append(hasPredecessors);
+    result.append(", isAggregationNode: ");
+    result.append(isAggregationNode);
     result.append(", arrivalTime: ");
     result.append(arrivalTime);
     result.append(", dueDate: ");

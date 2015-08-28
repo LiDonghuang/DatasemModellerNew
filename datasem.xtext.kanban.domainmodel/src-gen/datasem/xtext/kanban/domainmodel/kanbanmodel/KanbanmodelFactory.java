@@ -23,13 +23,40 @@ public interface KanbanmodelFactory extends EFactory
   KanbanmodelFactory eINSTANCE = datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Kanban Scheduling System</em>'.
+   * Returns a new object of class '<em>Model Builder</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Kanban Scheduling System</em>'.
+   * @return a new object of class '<em>Model Builder</em>'.
    * @generated
    */
-  KanbanSchedulingSystem createKanbanSchedulingSystem();
+  ModelBuilder createModelBuilder();
+
+  /**
+   * Returns a new object of class '<em>Experiment Model</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Experiment Model</em>'.
+   * @generated
+   */
+  ExperimentModel createExperimentModel();
+
+  /**
+   * Returns a new object of class '<em>System Libraries</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>System Libraries</em>'.
+   * @generated
+   */
+  SystemLibraries createSystemLibraries();
+
+  /**
+   * Returns a new object of class '<em>User Libraries</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>User Libraries</em>'.
+   * @generated
+   */
+  UserLibraries createUserLibraries();
 
   /**
    * Returns a new object of class '<em>Num Expression</em>'.
@@ -66,6 +93,24 @@ public interface KanbanmodelFactory extends EFactory
    * @generated
    */
   ConditionType createConditionType();
+
+  /**
+   * Returns a new object of class '<em>WIN Replication Setting</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>WIN Replication Setting</em>'.
+   * @generated
+   */
+  WINReplicationSetting createWINReplicationSetting();
+
+  /**
+   * Returns a new object of class '<em>WIN Replication</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>WIN Replication</em>'.
+   * @generated
+   */
+  WINReplication createWINReplication();
 
   /**
    * Returns a new object of class '<em>Governance Strategy</em>'.
@@ -221,22 +266,13 @@ public interface KanbanmodelFactory extends EFactory
   CausalTrigger createCausalTrigger();
 
   /**
-   * Returns a new object of class '<em>Task Hierarchy</em>'.
+   * Returns a new object of class '<em>Work Item Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Task Hierarchy</em>'.
+   * @return a new object of class '<em>Work Item Type</em>'.
    * @generated
    */
-  TaskHierarchy createTaskHierarchy();
-
-  /**
-   * Returns a new object of class '<em>Task Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Task Type</em>'.
-   * @generated
-   */
-  TaskType createTaskType();
+  WorkItemType createWorkItemType();
 
   /**
    * Returns a new object of class '<em>Value Function</em>'.
@@ -264,15 +300,6 @@ public interface KanbanmodelFactory extends EFactory
    * @generated
    */
   ClassOfService createClassOfService();
-
-  /**
-   * Returns a new object of class '<em>Local Value</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Local Value</em>'.
-   * @generated
-   */
-  LocalValue createLocalValue();
 
   /**
    * Returns a new object of class '<em>Service</em>'.
@@ -309,150 +336,6 @@ public interface KanbanmodelFactory extends EFactory
    * @generated
    */
   Skill createSkill();
-
-  /**
-   * Returns a new object of class '<em>Repository</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Repository</em>'.
-   * @generated
-   */
-  Repository createRepository();
-
-  /**
-   * Returns a new object of class '<em>Work Item Profile</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Work Item Profile</em>'.
-   * @generated
-   */
-  WorkItemProfile createWorkItemProfile();
-
-  /**
-   * Returns a new object of class '<em>Work Reference</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Work Reference</em>'.
-   * @generated
-   */
-  WorkReference createWorkReference();
-
-  /**
-   * Returns a new object of class '<em>Work Decomposition</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Work Decomposition</em>'.
-   * @generated
-   */
-  WorkDecomposition createWorkDecomposition();
-
-  /**
-   * Returns a new object of class '<em>Work Precedency</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Work Precedency</em>'.
-   * @generated
-   */
-  WorkPrecedency createWorkPrecedency();
-
-  /**
-   * Returns a new object of class '<em>Work Causality</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Work Causality</em>'.
-   * @generated
-   */
-  WorkCausality createWorkCausality();
-
-  /**
-   * Returns a new object of class '<em>Kanban Task Model</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Kanban Task Model</em>'.
-   * @generated
-   */
-  KanbanTaskModel createKanbanTaskModel();
-
-  /**
-   * Returns a new object of class '<em>Capability</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Capability</em>'.
-   * @generated
-   */
-  Capability createCapability();
-
-  /**
-   * Returns a new object of class '<em>Requirement</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Requirement</em>'.
-   * @generated
-   */
-  Requirement createRequirement();
-
-  /**
-   * Returns a new object of class '<em>Entity</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Entity</em>'.
-   * @generated
-   */
-  Entity createEntity();
-
-  /**
-   * Returns a new object of class '<em>Provision</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Provision</em>'.
-   * @generated
-   */
-  Provision createProvision();
-
-  /**
-   * Returns a new object of class '<em>Statemachine</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Statemachine</em>'.
-   * @generated
-   */
-  Statemachine createStatemachine();
-
-  /**
-   * Returns a new object of class '<em>Event</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Event</em>'.
-   * @generated
-   */
-  Event createEvent();
-
-  /**
-   * Returns a new object of class '<em>Command</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Command</em>'.
-   * @generated
-   */
-  Command createCommand();
-
-  /**
-   * Returns a new object of class '<em>State</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>State</em>'.
-   * @generated
-   */
-  State createState();
-
-  /**
-   * Returns a new object of class '<em>Transition</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Transition</em>'.
-   * @generated
-   */
-  Transition createTransition();
 
   /**
    * Returns the package supported by this factory.

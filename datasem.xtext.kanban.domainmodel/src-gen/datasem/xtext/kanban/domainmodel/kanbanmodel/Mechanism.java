@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism#getValue <em>Value</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism#getMechanismAttributes <em>Mechanism Attributes</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism#getAttributes <em>Attributes</em>}</li>
  * </ul>
  * </p>
  *
@@ -106,19 +106,19 @@ public interface Mechanism extends EObject
   void setDescription(String value);
 
   /**
-   * Returns the value of the '<em><b>Mechanism Attributes</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
    * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.MechanismAttribute}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Mechanism Attributes</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Attributes</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Mechanism Attributes</em>' containment reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getMechanism_MechanismAttributes()
+   * @return the value of the '<em>Attributes</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getMechanism_Attributes()
    * @model containment="true"
    * @generated
    */
-  EList<MechanismAttribute> getMechanismAttributes();
+  EList<MechanismAttribute> getAttributes();
 
 } // Mechanism

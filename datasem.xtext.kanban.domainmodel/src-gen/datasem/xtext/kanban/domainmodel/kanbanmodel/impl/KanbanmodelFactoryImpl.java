@@ -64,11 +64,16 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
   {
     switch (eClass.getClassifierID())
     {
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM: return createKanbanSchedulingSystem();
+      case KanbanmodelPackage.MODEL_BUILDER: return createModelBuilder();
+      case KanbanmodelPackage.EXPERIMENT_MODEL: return createExperimentModel();
+      case KanbanmodelPackage.SYSTEM_LIBRARIES: return createSystemLibraries();
+      case KanbanmodelPackage.USER_LIBRARIES: return createUserLibraries();
       case KanbanmodelPackage.NUM_EXPRESSION: return createNumExpression();
       case KanbanmodelPackage.DISTRIBUTION: return createDistribution();
       case KanbanmodelPackage.EVENT_TYPE: return createEventType();
       case KanbanmodelPackage.CONDITION_TYPE: return createConditionType();
+      case KanbanmodelPackage.WIN_REPLICATION_SETTING: return createWINReplicationSetting();
+      case KanbanmodelPackage.WIN_REPLICATION: return createWINReplication();
       case KanbanmodelPackage.GOVERNANCE_STRATEGY: return createGovernanceStrategy();
       case KanbanmodelPackage.WI_ACCEPTANCE: return createWIAcceptance();
       case KanbanmodelPackage.WI_SELECTION: return createWISelection();
@@ -86,32 +91,14 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
       case KanbanmodelPackage.WORK_ITEM_NETWORK: return createWorkItemNetwork();
       case KanbanmodelPackage.WORK_ITEM: return createWorkItem();
       case KanbanmodelPackage.CAUSAL_TRIGGER: return createCausalTrigger();
-      case KanbanmodelPackage.TASK_HIERARCHY: return createTaskHierarchy();
-      case KanbanmodelPackage.TASK_TYPE: return createTaskType();
+      case KanbanmodelPackage.WORK_ITEM_TYPE: return createWorkItemType();
       case KanbanmodelPackage.VALUE_FUNCTION: return createValueFunction();
       case KanbanmodelPackage.PROCESS_MODEL: return createProcessModel();
       case KanbanmodelPackage.CLASS_OF_SERVICE: return createClassOfService();
-      case KanbanmodelPackage.LOCAL_VALUE: return createLocalValue();
       case KanbanmodelPackage.SERVICE: return createService();
       case KanbanmodelPackage.SERVICE_PROVIDER: return createServiceProvider();
       case KanbanmodelPackage.ASSET: return createAsset();
       case KanbanmodelPackage.SKILL: return createSkill();
-      case KanbanmodelPackage.REPOSITORY: return createRepository();
-      case KanbanmodelPackage.WORK_ITEM_PROFILE: return createWorkItemProfile();
-      case KanbanmodelPackage.WORK_REFERENCE: return createWorkReference();
-      case KanbanmodelPackage.WORK_DECOMPOSITION: return createWorkDecomposition();
-      case KanbanmodelPackage.WORK_PRECEDENCY: return createWorkPrecedency();
-      case KanbanmodelPackage.WORK_CAUSALITY: return createWorkCausality();
-      case KanbanmodelPackage.KANBAN_TASK_MODEL: return createKanbanTaskModel();
-      case KanbanmodelPackage.CAPABILITY: return createCapability();
-      case KanbanmodelPackage.REQUIREMENT: return createRequirement();
-      case KanbanmodelPackage.ENTITY: return createEntity();
-      case KanbanmodelPackage.PROVISION: return createProvision();
-      case KanbanmodelPackage.STATEMACHINE: return createStatemachine();
-      case KanbanmodelPackage.EVENT: return createEvent();
-      case KanbanmodelPackage.COMMAND: return createCommand();
-      case KanbanmodelPackage.STATE: return createState();
-      case KanbanmodelPackage.TRANSITION: return createTransition();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -122,10 +109,43 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
    * <!-- end-user-doc -->
    * @generated
    */
-  public KanbanSchedulingSystem createKanbanSchedulingSystem()
+  public ModelBuilder createModelBuilder()
   {
-    KanbanSchedulingSystemImpl kanbanSchedulingSystem = new KanbanSchedulingSystemImpl();
-    return kanbanSchedulingSystem;
+    ModelBuilderImpl modelBuilder = new ModelBuilderImpl();
+    return modelBuilder;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExperimentModel createExperimentModel()
+  {
+    ExperimentModelImpl experimentModel = new ExperimentModelImpl();
+    return experimentModel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SystemLibraries createSystemLibraries()
+  {
+    SystemLibrariesImpl systemLibraries = new SystemLibrariesImpl();
+    return systemLibraries;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UserLibraries createUserLibraries()
+  {
+    UserLibrariesImpl userLibraries = new UserLibrariesImpl();
+    return userLibraries;
   }
 
   /**
@@ -170,6 +190,28 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
   {
     ConditionTypeImpl conditionType = new ConditionTypeImpl();
     return conditionType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WINReplicationSetting createWINReplicationSetting()
+  {
+    WINReplicationSettingImpl winReplicationSetting = new WINReplicationSettingImpl();
+    return winReplicationSetting;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WINReplication createWINReplication()
+  {
+    WINReplicationImpl winReplication = new WINReplicationImpl();
+    return winReplication;
   }
 
   /**
@@ -364,21 +406,10 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
    * <!-- end-user-doc -->
    * @generated
    */
-  public TaskHierarchy createTaskHierarchy()
+  public WorkItemType createWorkItemType()
   {
-    TaskHierarchyImpl taskHierarchy = new TaskHierarchyImpl();
-    return taskHierarchy;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public TaskType createTaskType()
-  {
-    TaskTypeImpl taskType = new TaskTypeImpl();
-    return taskType;
+    WorkItemTypeImpl workItemType = new WorkItemTypeImpl();
+    return workItemType;
   }
 
   /**
@@ -412,17 +443,6 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
   {
     ClassOfServiceImpl classOfService = new ClassOfServiceImpl();
     return classOfService;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public LocalValue createLocalValue()
-  {
-    LocalValueImpl localValue = new LocalValueImpl();
-    return localValue;
   }
 
   /**
@@ -467,182 +487,6 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
   {
     SkillImpl skill = new SkillImpl();
     return skill;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Repository createRepository()
-  {
-    RepositoryImpl repository = new RepositoryImpl();
-    return repository;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public WorkItemProfile createWorkItemProfile()
-  {
-    WorkItemProfileImpl workItemProfile = new WorkItemProfileImpl();
-    return workItemProfile;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public WorkReference createWorkReference()
-  {
-    WorkReferenceImpl workReference = new WorkReferenceImpl();
-    return workReference;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public WorkDecomposition createWorkDecomposition()
-  {
-    WorkDecompositionImpl workDecomposition = new WorkDecompositionImpl();
-    return workDecomposition;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public WorkPrecedency createWorkPrecedency()
-  {
-    WorkPrecedencyImpl workPrecedency = new WorkPrecedencyImpl();
-    return workPrecedency;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public WorkCausality createWorkCausality()
-  {
-    WorkCausalityImpl workCausality = new WorkCausalityImpl();
-    return workCausality;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public KanbanTaskModel createKanbanTaskModel()
-  {
-    KanbanTaskModelImpl kanbanTaskModel = new KanbanTaskModelImpl();
-    return kanbanTaskModel;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Capability createCapability()
-  {
-    CapabilityImpl capability = new CapabilityImpl();
-    return capability;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Requirement createRequirement()
-  {
-    RequirementImpl requirement = new RequirementImpl();
-    return requirement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Entity createEntity()
-  {
-    EntityImpl entity = new EntityImpl();
-    return entity;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Provision createProvision()
-  {
-    ProvisionImpl provision = new ProvisionImpl();
-    return provision;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Statemachine createStatemachine()
-  {
-    StatemachineImpl statemachine = new StatemachineImpl();
-    return statemachine;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Event createEvent()
-  {
-    EventImpl event = new EventImpl();
-    return event;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Command createCommand()
-  {
-    CommandImpl command = new CommandImpl();
-    return command;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public State createState()
-  {
-    StateImpl state = new StateImpl();
-    return state;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Transition createTransition()
-  {
-    TransitionImpl transition = new TransitionImpl();
-    return transition;
   }
 
   /**

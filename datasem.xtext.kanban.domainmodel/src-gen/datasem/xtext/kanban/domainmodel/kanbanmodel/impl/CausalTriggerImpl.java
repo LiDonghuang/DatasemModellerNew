@@ -54,7 +54,7 @@ public class CausalTriggerImpl extends MinimalEObjectImpl.Container implements C
    * @generated
    * @ordered
    */
-  protected static final int AT_PROGRESS_EDEFAULT = 0;
+  protected static final double AT_PROGRESS_EDEFAULT = 0.0;
 
   /**
    * The cached value of the '{@link #getAtProgress() <em>At Progress</em>}' attribute.
@@ -64,7 +64,7 @@ public class CausalTriggerImpl extends MinimalEObjectImpl.Container implements C
    * @generated
    * @ordered
    */
-  protected int atProgress = AT_PROGRESS_EDEFAULT;
+  protected double atProgress = AT_PROGRESS_EDEFAULT;
 
   /**
    * The default value of the '{@link #getOnProbability() <em>On Probability</em>}' attribute.
@@ -74,7 +74,7 @@ public class CausalTriggerImpl extends MinimalEObjectImpl.Container implements C
    * @generated
    * @ordered
    */
-  protected static final int ON_PROBABILITY_EDEFAULT = 0;
+  protected static final double ON_PROBABILITY_EDEFAULT = 0.0;
 
   /**
    * The cached value of the '{@link #getOnProbability() <em>On Probability</em>}' attribute.
@@ -84,7 +84,7 @@ public class CausalTriggerImpl extends MinimalEObjectImpl.Container implements C
    * @generated
    * @ordered
    */
-  protected int onProbability = ON_PROBABILITY_EDEFAULT;
+  protected double onProbability = ON_PROBABILITY_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -126,7 +126,7 @@ public class CausalTriggerImpl extends MinimalEObjectImpl.Container implements C
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getAtProgress()
+  public double getAtProgress()
   {
     return atProgress;
   }
@@ -136,9 +136,9 @@ public class CausalTriggerImpl extends MinimalEObjectImpl.Container implements C
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setAtProgress(int newAtProgress)
+  public void setAtProgress(double newAtProgress)
   {
-    int oldAtProgress = atProgress;
+    double oldAtProgress = atProgress;
     atProgress = newAtProgress;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CAUSAL_TRIGGER__AT_PROGRESS, oldAtProgress, atProgress));
@@ -149,7 +149,7 @@ public class CausalTriggerImpl extends MinimalEObjectImpl.Container implements C
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getOnProbability()
+  public double getOnProbability()
   {
     return onProbability;
   }
@@ -159,9 +159,9 @@ public class CausalTriggerImpl extends MinimalEObjectImpl.Container implements C
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setOnProbability(int newOnProbability)
+  public void setOnProbability(double newOnProbability)
   {
-    int oldOnProbability = onProbability;
+    double oldOnProbability = onProbability;
     onProbability = newOnProbability;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CAUSAL_TRIGGER__ON_PROBABILITY, oldOnProbability, onProbability));
@@ -203,10 +203,10 @@ public class CausalTriggerImpl extends MinimalEObjectImpl.Container implements C
         getTriggered().addAll((Collection<? extends WorkItem>)newValue);
         return;
       case KanbanmodelPackage.CAUSAL_TRIGGER__AT_PROGRESS:
-        setAtProgress((Integer)newValue);
+        setAtProgress((Double)newValue);
         return;
       case KanbanmodelPackage.CAUSAL_TRIGGER__ON_PROBABILITY:
-        setOnProbability((Integer)newValue);
+        setOnProbability((Double)newValue);
         return;
     }
     super.eSet(featureID, newValue);

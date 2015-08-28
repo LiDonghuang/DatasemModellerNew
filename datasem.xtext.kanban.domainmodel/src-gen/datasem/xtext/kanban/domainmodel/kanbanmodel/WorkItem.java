@@ -14,11 +14,13 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getId <em>Id</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getName <em>Name</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getProfile <em>Profile</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getDescription <em>Description</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getType <em>Type</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#isHasPredecessors <em>Has Predecessors</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getPTasks <em>PTasks</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#isIsAggregationNode <em>Is Aggregation Node</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getSTasks <em>STasks</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getCausalTriggers <em>Causal Triggers</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getRequiredServices <em>Required Services</em>}</li>
@@ -37,6 +39,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface WorkItem extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Id</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Id</em>' attribute.
+   * @see #setId(int)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Id()
+   * @model
+   * @generated
+   */
+  int getId();
+
+  /**
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getId <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Id</em>' attribute.
+   * @see #getId()
+   * @generated
+   */
+  void setId(int value);
+
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -62,32 +90,6 @@ public interface WorkItem extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Profile</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Profile</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Profile</em>' reference.
-   * @see #setProfile(WorkItemProfile)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Profile()
-   * @model
-   * @generated
-   */
-  WorkItemProfile getProfile();
-
-  /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getProfile <em>Profile</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Profile</em>' reference.
-   * @see #getProfile()
-   * @generated
-   */
-  void setProfile(WorkItemProfile value);
 
   /**
    * Returns the value of the '<em><b>Description</b></em>' attribute.
@@ -124,12 +126,12 @@ public interface WorkItem extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' reference.
-   * @see #setType(TaskType)
+   * @see #setType(WorkItemType)
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Type()
    * @model
    * @generated
    */
-  TaskType getType();
+  WorkItemType getType();
 
   /**
    * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getType <em>Type</em>}' reference.
@@ -139,7 +141,33 @@ public interface WorkItem extends EObject
    * @see #getType()
    * @generated
    */
-  void setType(TaskType value);
+  void setType(WorkItemType value);
+
+  /**
+   * Returns the value of the '<em><b>Has Predecessors</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Has Predecessors</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Has Predecessors</em>' attribute.
+   * @see #setHasPredecessors(boolean)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_HasPredecessors()
+   * @model
+   * @generated
+   */
+  boolean isHasPredecessors();
+
+  /**
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#isHasPredecessors <em>Has Predecessors</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Has Predecessors</em>' attribute.
+   * @see #isHasPredecessors()
+   * @generated
+   */
+  void setHasPredecessors(boolean value);
 
   /**
    * Returns the value of the '<em><b>PTasks</b></em>' reference list.
@@ -156,6 +184,32 @@ public interface WorkItem extends EObject
    * @generated
    */
   EList<WorkItem> getPTasks();
+
+  /**
+   * Returns the value of the '<em><b>Is Aggregation Node</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Is Aggregation Node</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Is Aggregation Node</em>' attribute.
+   * @see #setIsAggregationNode(boolean)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_IsAggregationNode()
+   * @model
+   * @generated
+   */
+  boolean isIsAggregationNode();
+
+  /**
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#isIsAggregationNode <em>Is Aggregation Node</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Is Aggregation Node</em>' attribute.
+   * @see #isIsAggregationNode()
+   * @generated
+   */
+  void setIsAggregationNode(boolean value);
 
   /**
    * Returns the value of the '<em><b>STasks</b></em>' reference list.
@@ -206,56 +260,56 @@ public interface WorkItem extends EObject
   EList<Service> getRequiredServices();
 
   /**
-   * Returns the value of the '<em><b>Efforts</b></em>' attribute.
+   * Returns the value of the '<em><b>Efforts</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Efforts</em>' attribute isn't clear,
+   * If the meaning of the '<em>Efforts</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Efforts</em>' attribute.
-   * @see #setEfforts(int)
+   * @return the value of the '<em>Efforts</em>' containment reference.
+   * @see #setEfforts(NumExpression)
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Efforts()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  int getEfforts();
+  NumExpression getEfforts();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getEfforts <em>Efforts</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getEfforts <em>Efforts</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Efforts</em>' attribute.
+   * @param value the new value of the '<em>Efforts</em>' containment reference.
    * @see #getEfforts()
    * @generated
    */
-  void setEfforts(int value);
+  void setEfforts(NumExpression value);
 
   /**
-   * Returns the value of the '<em><b>Value</b></em>' attribute.
+   * Returns the value of the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Value</em>' attribute isn't clear,
+   * If the meaning of the '<em>Value</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(int)
+   * @return the value of the '<em>Value</em>' containment reference.
+   * @see #setValue(NumExpression)
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Value()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  int getValue();
+  NumExpression getValue();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getValue <em>Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Value</em>' attribute.
+   * @param value the new value of the '<em>Value</em>' containment reference.
    * @see #getValue()
    * @generated
    */
-  void setValue(int value);
+  void setValue(NumExpression value);
 
   /**
    * Returns the value of the '<em><b>Class Of Service</b></em>' reference.
