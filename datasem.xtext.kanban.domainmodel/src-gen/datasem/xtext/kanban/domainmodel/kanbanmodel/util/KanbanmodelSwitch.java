@@ -128,6 +128,20 @@ public class KanbanmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case KanbanmodelPackage.ACTIVITY_TYPE:
+      {
+        ActivityType activityType = (ActivityType)theEObject;
+        T result = caseActivityType(activityType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.AGENT_ROLE_TYPE:
+      {
+        AgentRoleType agentRoleType = (AgentRoleType)theEObject;
+        T result = caseAgentRoleType(agentRoleType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case KanbanmodelPackage.WIN_REPLICATION_SETTING:
       {
         WINReplicationSetting winReplicationSetting = (WINReplicationSetting)theEObject;
@@ -139,6 +153,13 @@ public class KanbanmodelSwitch<T> extends Switch<T>
       {
         WINReplication winReplication = (WINReplication)theEObject;
         T result = caseWINReplication(winReplication);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.INDICATORS:
+      {
+        Indicators indicators = (Indicators)theEObject;
+        T result = caseIndicators(indicators);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -450,6 +471,38 @@ public class KanbanmodelSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Activity Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Activity Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseActivityType(ActivityType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Agent Role Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Agent Role Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAgentRoleType(AgentRoleType object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>WIN Replication Setting</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -477,6 +530,22 @@ public class KanbanmodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseWINReplication(WINReplication object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Indicators</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Indicators</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIndicators(Indicators object)
   {
     return null;
   }

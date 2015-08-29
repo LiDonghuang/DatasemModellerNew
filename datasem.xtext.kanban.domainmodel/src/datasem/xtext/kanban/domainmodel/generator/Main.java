@@ -28,7 +28,7 @@ public class Main {
 		}*/
 		Injector injector = new datasem.xtext.kanban.domainmodel.KanbanmodelStandaloneSetup().createInjectorAndDoEMFRegistration();
 		Main main = injector.getInstance(Main.class);
-		main.runGenerator("/Users/Donbghuang Li/Desktop/aocws.kmdl");
+		main.runGenerator("/Users/Donbghuang Li/Desktop/demo_model.kmdl");
 	}
 	
 	@Inject 

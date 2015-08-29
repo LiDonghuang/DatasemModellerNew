@@ -72,8 +72,11 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
       case KanbanmodelPackage.DISTRIBUTION: return createDistribution();
       case KanbanmodelPackage.EVENT_TYPE: return createEventType();
       case KanbanmodelPackage.CONDITION_TYPE: return createConditionType();
+      case KanbanmodelPackage.ACTIVITY_TYPE: return createActivityType();
+      case KanbanmodelPackage.AGENT_ROLE_TYPE: return createAgentRoleType();
       case KanbanmodelPackage.WIN_REPLICATION_SETTING: return createWINReplicationSetting();
       case KanbanmodelPackage.WIN_REPLICATION: return createWINReplication();
+      case KanbanmodelPackage.INDICATORS: return createIndicators();
       case KanbanmodelPackage.GOVERNANCE_STRATEGY: return createGovernanceStrategy();
       case KanbanmodelPackage.WI_ACCEPTANCE: return createWIAcceptance();
       case KanbanmodelPackage.WI_SELECTION: return createWISelection();
@@ -197,6 +200,28 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
    * <!-- end-user-doc -->
    * @generated
    */
+  public ActivityType createActivityType()
+  {
+    ActivityTypeImpl activityType = new ActivityTypeImpl();
+    return activityType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AgentRoleType createAgentRoleType()
+  {
+    AgentRoleTypeImpl agentRoleType = new AgentRoleTypeImpl();
+    return agentRoleType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public WINReplicationSetting createWINReplicationSetting()
   {
     WINReplicationSettingImpl winReplicationSetting = new WINReplicationSettingImpl();
@@ -212,6 +237,17 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
   {
     WINReplicationImpl winReplication = new WINReplicationImpl();
     return winReplication;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Indicators createIndicators()
+  {
+    IndicatorsImpl indicators = new IndicatorsImpl();
+    return indicators;
   }
 
   /**

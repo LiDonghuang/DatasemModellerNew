@@ -33,12 +33,53 @@ class KanbanmodelGenerator implements IGenerator {
 	}
 
 
+// --------------------------------------------------------------------------
+def compile(Resource res) '''	
+«FOR emodel : res.allContents.toIterable.filter(ExperimentModel)»
+<ExperimentModel experimentId="0" name="«emodel.name»" description="xxx">
+«««	<FileName>"«emodel.name»"</FileName>
+«««	<FilePath>"«emodel.path»"</FilePath>
+«printIndicators(emodel.indicators)»
+«ENDFOR»
+«FOR ulib : res.allContents.toIterable.filter(UserLibraries)»	
+	«printWorkItemTypes(ulib.getWorkItemTypes())»
+	«printServices(ulib.getServices())»
+	«printClassOfServices(ulib.getClassOfServices())»	
+«ENDFOR»
+«FOR emodel : res.allContents.toIterable.filter(ExperimentModel)»		
+	<Runs>
+	<Run runId="1" description="xx" numberOfReplications="10" numberOfSteps="10000">
+		<OrganizationalModel>
+		«assignServiceProvidersId(emodel.getServiceProviders())»	
+		<ServiceProviders>
+		«FOR sp : emodel.getServiceProviders()»  
+			«printServiceProvider(sp)»
+		«ENDFOR»
+		</ServiceProviders>
+		</OrganizationalModel>
+		<WorkItemNetworkModel>		
+		<WorkSources>
+		«FOR ws : emodel.getWorkSources()»
+			«printWorkSource(ws)»
+		«ENDFOR»	
+		</WorkSources>	
+		<WorkItems>
+		«buildWorkItems(emodel)»
+		</WorkItems>
+		</WorkItemNetworkModel>
+	«ENDFOR»
+	</Run>
+	</Runs>
+</ExperimentModel>	
+'''
+// --------------------------------------------------------------------------
+
 	def printServices(EList<Service> ss) '''
 		<Services>
 		«var id=1»
 		«FOR s : ss»		
 			«s.setId(id++)»	
-			<Service serviceId=«s.id» name="«s.name»" description="«s.description»"></Service>
+			<Service serviceId="«s.id»" name="«s.name»" description="«s.description»"></Service>
 		«ENDFOR»
 		</Services>
 	'''	
@@ -47,7 +88,7 @@ class KanbanmodelGenerator implements IGenerator {
 		«var id=1»
 		«FOR c : cs»
 			«c.setId(id++)»	
-			<ClassOfService cosId=«c.id» name="«c.name»" description="«c.description»"></ClassOfService>
+			<ClassOfService cosId="«c.id»" name="«c.name»" description="«c.description»" isDisruptive="«c.isDisruptive»"></ClassOfService>
 		«ENDFOR»
 		</ClassOfServices>
 	'''	
@@ -56,12 +97,14 @@ class KanbanmodelGenerator implements IGenerator {
 		«var id=1»
 		«FOR t : ts»
 			«t.setId(id++)»	
-			<WorkItemType wiTypeId=«t.id» name="«t.name»" description="«t.description»"></WorkItemType>
+			<WorkItemType wiTypeId="«t.id»" name="«t.name»" description="«t.description»"></WorkItemType>
 		«ENDFOR»
 		</WorkItemTypes>
 	'''	
-	def printIndicators() '''
-		<Indicator name=""></Indicator>
+	def printIndicators(Indicators is) '''
+		«FOR i : is.indicators»
+		<Indicator name="«i»"></Indicator>
+		«ENDFOR»
 	'''
 	def printGovernanceStrategy(GovernanceStrategy govs) '''
 		«FOR m: govs.getMechanisms()»
@@ -69,9 +112,9 @@ class KanbanmodelGenerator implements IGenerator {
 		«ENDFOR»
 	'''
 	def printMechanism(Mechanism m) '''
-		<Mechanism name="«m.name»" description="«m.description»">
+		<Mechanism name="«m.name»" value="«m.value»">
 		«FOR a: m.getAttributes()»
-			<Attribute name="«a.attribute»" value="«a.value»"</Attribute> 
+			<Attribute name="«a.attribute»" value="«a.value»"></Attribute> 
 		«ENDFOR»
 		</Mechanism>
 	'''
@@ -155,45 +198,7 @@ class KanbanmodelGenerator implements IGenerator {
 		
 	'''
 	
-// --------------------------------------------------------------------------
-def compile(Resource res) '''	
-<ExperimentModel name="xxx" description="xxx">
-«FOR emodel : res.allContents.toIterable.filter(ExperimentModel)»		
-	<FileName>«emodel.name»</FileName>
-	<FilePath>«emodel.path»</FilePath>
-«ENDFOR»
-«FOR ulib : res.allContents.toIterable.filter(UserLibraries)»	
-	«printWorkItemTypes(ulib.getWorkItemTypes())»
-	«printServices(ulib.getServices())»
-	«printClassOfServices(ulib.getClassOfServices())»	
-«ENDFOR»
-«FOR emodel : res.allContents.toIterable.filter(ExperimentModel)»		
-	<Runs>
-	<Run runId=1 description="xx" numberOfReplications=10 numberOfSteps=100>
-		<OrganizationalModel>
-		«assignServiceProvidersId(emodel.getServiceProviders())»	
-		<ServiceProviders>
-		«FOR sp : emodel.getServiceProviders()»  
-			«printServiceProvider(sp)»
-		«ENDFOR»
-		</ServiceProviders>
-		</OrganizationalModel>
-		<WorkItemNetworkModel>		
-		<WorkSources>
-		«FOR ws : emodel.getWorkSources()»
-			«printWorkSource(ws)»
-		«ENDFOR»	
-		</WorkSources>	
-		<WorkItems>
-		«buildWorkItems(emodel)»
-		</WorkItems>
-		</WorkItemNetworkModel>
-	«ENDFOR»
-	</Run>
-	</Runs>
-</ExperimentModel>	
-'''
-// --------------------------------------------------------------------------
+
 	def getNumValue(NumExpression e) {
 		var numValue = 0.0
 		if (e!=null) {
@@ -226,19 +231,19 @@ def compile(Resource res) '''
 		
 
 	def printServiceProvider(ServiceProvider sp) '''
-			<ServiceProvider serviceProviderId=«sp.id» name="«sp.name»" description="«sp.description»">
+			<ServiceProvider serviceProviderId="«sp.id»" name="«sp.name»" description="«sp.description»">
 				<AssignWITo>
 				«FOR tu : sp.getAssignTo()»
-					<ServiceProvider serviceProviderId=«tu.id» name="«tu.name»"</ServiceProvider>
+					<serviceProviderId>«tu.id»</serviceProviderId>
 				«ENDFOR»
 				</AssignWITo>
 				<BorrowResourceFrom>
 				«FOR tu : sp.getOutsourceFrom()»
-					<ServiceProvider serviceProviderId=«tu.id» name="«tu.name»"</ServiceProvider>
+					<serviceProviderId>«tu.id»</serviceProviderId>
 				«ENDFOR»
 				</BorrowResourceFrom>
-				<TeamService serviceId=«sp.teamService.id» name="«sp.teamService.name»"</TeamService>	
-				<GovernanceStrategy name="«sp.governanceStrategy.name»">
+				<TeamService serviceId="«sp.teamService.id»"></TeamService>	
+				<GovernanceStrategy>
 					<Mechanisms>
 					«FOR m:sp.governanceStrategy.mechanisms»
 						«printMechanism(m)»
@@ -258,7 +263,7 @@ def compile(Resource res) '''
 			</ServiceProvider>
 	'''
 	def printResource(Asset r) '''
-			<Resource resourceId=«r.id» name="«r.name»" description="«r.description»">
+			<Resource resourceId="«r.id»" name="«r.name»" description="«r.description»">
 				<SkillSet>
 				«FOR s : r.getSkillSet()» 
 					«printSkill(s)»
@@ -267,14 +272,14 @@ def compile(Resource res) '''
 			</Resource>	
 	'''	
 	def printSkill(Skill s) '''
-			<Skill serviceId=«s.service.id» name="«s.service.name»" efficiency=«Math.max(getNumValue(s.efficiency),0)»></Skill>
+			<Skill serviceId="«s.service.id»" name="«s.service.name»" efficiency="«Math.max(getNumValue(s.efficiency),0)»"></Skill>
 	'''
 
 	def printWorkSource(WorkSource ws) '''
-			<WorkSource name=«ws.name» description=«ws.description»>
+			<WorkSource name="«ws.name»" description="«ws.description»">
 				<AssignWITo>
 				«FOR tu : ws.getAssignTo()»
-					<ServiceProvider serviceProviderId=«tu.id» name=«tu.name»</ServiceProvider
+					<serviceProviderId>«tu.id»</serviceProviderId>
 				«ENDFOR»
 				</AssignWITo>
 «««				«IF ws.getAssignmentRule() != null»
@@ -285,18 +290,18 @@ def compile(Resource res) '''
 			</WorkSource>
 	'''
 	def printWorkItem(WorkItem wi) '''
-			<WorkItem wiId=«wi.id» name="«wi.name»" typeId=«wi.getType.id» cosId=«wi.getClassOfService.id» efforts=«Math.max(getNumValue(wi.efforts),0)» value=«Math.max(getNumValue(wi.value),0)» isAggregationNode=«wi.isAggregationNode» hasPredecessors=«wi.hasPredecessors»>
+			<WorkItem wiId="«wi.id»" name="«wi.name»" typeId="«wi.getType.id»" cosId="«wi.getClassOfService.id»" efforts="«Math.max(getNumValue(wi.efforts),0)»" value="«Math.max(getNumValue(wi.value),0)»" isAggregationNode="«wi.isAggregationNode»" hasPredecessors="«wi.hasPredecessors»">
 				«IF	wi.hasPredecessors»
 				<Predecessors>
 				«FOR ptask : wi.getPTasks()»
-					<WorkItem workItemId=«ptask.id» name=«ptask.name»</WorkItem>
+					<workItemId>«ptask.id»</workItemId>
 				«ENDFOR»	
 				</Predecessors>
 				«ENDIF»	
 				«IF	wi.isAggregationNode»
 				<Subtasks>
 				«FOR stask : wi.getSTasks()»				
-					<WorkItem workItemId=«stask.id» name=«stask.name»</WorkItem>
+					<workItemId>«stask.id»</workItemId>
 				«ENDFOR»		
 				</Subtasks>
 				«ENDIF»	
@@ -313,7 +318,7 @@ def compile(Resource res) '''
 «««				</CausalTriggers>
 				<RequiredServices>
 				«FOR rs : wi.getRequiredServices()»	
-				<Service serviceId=«rs.id»></Service>
+				<serviceId>«rs.id»</serviceId>
 				«ENDFOR»
 				</RequiredServices>
 «««				<ClassOfService>«wi.classOfService.name»</ClassOfService>

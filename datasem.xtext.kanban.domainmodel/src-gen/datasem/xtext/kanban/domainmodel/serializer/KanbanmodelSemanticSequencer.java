@@ -5,6 +5,8 @@ package datasem.xtext.kanban.domainmodel.serializer;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ActivityType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.AgentRoleType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Asset;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService;
@@ -13,6 +15,7 @@ import datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.EventType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Indicators;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.MechanismAttribute;
@@ -63,6 +66,12 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	@Override
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == KanbanmodelPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case KanbanmodelPackage.ACTIVITY_TYPE:
+				sequence_ActivityType(context, (ActivityType) semanticObject); 
+				return; 
+			case KanbanmodelPackage.AGENT_ROLE_TYPE:
+				sequence_AgentRoleType(context, (AgentRoleType) semanticObject); 
+				return; 
 			case KanbanmodelPackage.ASSET:
 				sequence_Asset(context, (Asset) semanticObject); 
 				return; 
@@ -86,6 +95,9 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 				return; 
 			case KanbanmodelPackage.GOVERNANCE_STRATEGY:
 				sequence_GovernanceStrategy(context, (GovernanceStrategy) semanticObject); 
+				return; 
+			case KanbanmodelPackage.INDICATORS:
+				sequence_Indicators(context, (Indicators) semanticObject); 
 				return; 
 			case KanbanmodelPackage.MECHANISM:
 				sequence_Mechanism(context, (Mechanism) semanticObject); 
@@ -174,6 +186,24 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
+	 *     (name=ID description=STRING?)
+	 */
+	protected void sequence_ActivityType(EObject context, ActivityType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID description=STRING?)
+	 */
+	protected void sequence_AgentRoleType(EObject context, AgentRoleType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (id=INT? name=ID description=STRING? skillSet+=Skill*)
 	 */
 	protected void sequence_Asset(EObject context, Asset semanticObject) {
@@ -192,7 +222,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (id=INT? name=ID description=STRING?)
+	 *     (id=INT? name=ID description=STRING? isDisruptive?='TRUE'?)
 	 */
 	protected void sequence_ClassOfService(EObject context, ClassOfService semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -234,7 +264,8 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *         ServiceProviders+=ServiceProvider+ 
 	 *         WorkSources+=WorkSource+ 
 	 *         WorkItemNetworks+=WorkItemNetwork+ 
-	 *         WINReplicationSetting=WINReplicationSetting
+	 *         WINReplicationSetting=WINReplicationSetting 
+	 *         Indicators=Indicators
 	 *     )
 	 */
 	protected void sequence_ExperimentModel(EObject context, ExperimentModel semanticObject) {
@@ -259,6 +290,15 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     )
 	 */
 	protected void sequence_GovernanceStrategy(EObject context, GovernanceStrategy semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     Indicators+=ID+
+	 */
+	protected void sequence_Indicators(EObject context, Indicators semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

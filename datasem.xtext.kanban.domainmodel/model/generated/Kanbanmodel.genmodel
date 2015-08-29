@@ -21,6 +21,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//ExperimentModel/WorkSources"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//ExperimentModel/WorkItemNetworks"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//ExperimentModel/WINReplicationSetting"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//ExperimentModel/Indicators"/>
     </genClasses>
     <genClasses ecoreClass="Kanbanmodel.ecore#//SystemLibraries">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//SystemLibraries/EventTypes"/>
@@ -58,12 +59,23 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ConditionType/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ConditionType/description"/>
     </genClasses>
+    <genClasses ecoreClass="Kanbanmodel.ecore#//ActivityType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ActivityType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ActivityType/description"/>
+    </genClasses>
+    <genClasses ecoreClass="Kanbanmodel.ecore#//AgentRoleType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//AgentRoleType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//AgentRoleType/description"/>
+    </genClasses>
     <genClasses ecoreClass="Kanbanmodel.ecore#//WINReplicationSetting">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//WINReplicationSetting/WINReplications"/>
     </genClasses>
     <genClasses ecoreClass="Kanbanmodel.ecore#//WINReplication">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//WINReplication/workItemNetwork"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//WINReplication/numReplications"/>
+    </genClasses>
+    <genClasses ecoreClass="Kanbanmodel.ecore#//Indicators">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Indicators/Indicators"/>
     </genClasses>
     <genClasses ecoreClass="Kanbanmodel.ecore#//GovernanceStrategy">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//GovernanceStrategy/id"/>
@@ -181,6 +193,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ClassOfService/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ClassOfService/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ClassOfService/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ClassOfService/isDisruptive"/>
     </genClasses>
     <genClasses ecoreClass="Kanbanmodel.ecore#//Service">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Service/id"/>

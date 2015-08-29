@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService#getId <em>Id</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService#getDescription <em>Description</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService#isIsDisruptive <em>Is Disruptive</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,5 +102,31 @@ public interface ClassOfService extends EObject
    * @generated
    */
   void setDescription(String value);
+
+  /**
+   * Returns the value of the '<em><b>Is Disruptive</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Is Disruptive</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Is Disruptive</em>' attribute.
+   * @see #setIsDisruptive(boolean)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getClassOfService_IsDisruptive()
+   * @model
+   * @generated
+   */
+  boolean isIsDisruptive();
+
+  /**
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService#isIsDisruptive <em>Is Disruptive</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Is Disruptive</em>' attribute.
+   * @see #isIsDisruptive()
+   * @generated
+   */
+  void setIsDisruptive(boolean value);
 
 } // ClassOfService

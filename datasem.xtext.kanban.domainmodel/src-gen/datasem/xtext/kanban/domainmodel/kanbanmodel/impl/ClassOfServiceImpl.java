@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ClassOfServiceImpl#getId <em>Id</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ClassOfServiceImpl#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ClassOfServiceImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ClassOfServiceImpl#isIsDisruptive <em>Is Disruptive</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,6 +89,26 @@ public class ClassOfServiceImpl extends MinimalEObjectImpl.Container implements 
    * @ordered
    */
   protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isIsDisruptive() <em>Is Disruptive</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsDisruptive()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean IS_DISRUPTIVE_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isIsDisruptive() <em>Is Disruptive</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsDisruptive()
+   * @generated
+   * @ordered
+   */
+  protected boolean isDisruptive = IS_DISRUPTIVE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -184,6 +205,29 @@ public class ClassOfServiceImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isIsDisruptive()
+  {
+    return isDisruptive;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIsDisruptive(boolean newIsDisruptive)
+  {
+    boolean oldIsDisruptive = isDisruptive;
+    isDisruptive = newIsDisruptive;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CLASS_OF_SERVICE__IS_DISRUPTIVE, oldIsDisruptive, isDisruptive));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -195,6 +239,8 @@ public class ClassOfServiceImpl extends MinimalEObjectImpl.Container implements 
         return getName();
       case KanbanmodelPackage.CLASS_OF_SERVICE__DESCRIPTION:
         return getDescription();
+      case KanbanmodelPackage.CLASS_OF_SERVICE__IS_DISRUPTIVE:
+        return isIsDisruptive();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -217,6 +263,9 @@ public class ClassOfServiceImpl extends MinimalEObjectImpl.Container implements 
         return;
       case KanbanmodelPackage.CLASS_OF_SERVICE__DESCRIPTION:
         setDescription((String)newValue);
+        return;
+      case KanbanmodelPackage.CLASS_OF_SERVICE__IS_DISRUPTIVE:
+        setIsDisruptive((Boolean)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -241,6 +290,9 @@ public class ClassOfServiceImpl extends MinimalEObjectImpl.Container implements 
       case KanbanmodelPackage.CLASS_OF_SERVICE__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
+      case KanbanmodelPackage.CLASS_OF_SERVICE__IS_DISRUPTIVE:
+        setIsDisruptive(IS_DISRUPTIVE_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -261,6 +313,8 @@ public class ClassOfServiceImpl extends MinimalEObjectImpl.Container implements 
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case KanbanmodelPackage.CLASS_OF_SERVICE__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case KanbanmodelPackage.CLASS_OF_SERVICE__IS_DISRUPTIVE:
+        return isDisruptive != IS_DISRUPTIVE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -282,6 +336,8 @@ public class ClassOfServiceImpl extends MinimalEObjectImpl.Container implements 
     result.append(name);
     result.append(", description: ");
     result.append(description);
+    result.append(", isDisruptive: ");
+    result.append(isDisruptive);
     result.append(')');
     return result.toString();
   }

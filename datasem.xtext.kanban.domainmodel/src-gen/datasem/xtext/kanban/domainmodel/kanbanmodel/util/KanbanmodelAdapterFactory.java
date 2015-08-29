@@ -115,6 +115,16 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
         return createConditionTypeAdapter();
       }
       @Override
+      public Adapter caseActivityType(ActivityType object)
+      {
+        return createActivityTypeAdapter();
+      }
+      @Override
+      public Adapter caseAgentRoleType(AgentRoleType object)
+      {
+        return createAgentRoleTypeAdapter();
+      }
+      @Override
       public Adapter caseWINReplicationSetting(WINReplicationSetting object)
       {
         return createWINReplicationSettingAdapter();
@@ -123,6 +133,11 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
       public Adapter caseWINReplication(WINReplication object)
       {
         return createWINReplicationAdapter();
+      }
+      @Override
+      public Adapter caseIndicators(Indicators object)
+      {
+        return createIndicatorsAdapter();
       }
       @Override
       public Adapter caseGovernanceStrategy(GovernanceStrategy object)
@@ -392,6 +407,36 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ActivityType <em>Activity Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ActivityType
+   * @generated
+   */
+  public Adapter createActivityTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.AgentRoleType <em>Agent Role Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.AgentRoleType
+   * @generated
+   */
+  public Adapter createAgentRoleTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WINReplicationSetting <em>WIN Replication Setting</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -417,6 +462,21 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createWINReplicationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Indicators <em>Indicators</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Indicators
+   * @generated
+   */
+  public Adapter createIndicatorsAdapter()
   {
     return null;
   }

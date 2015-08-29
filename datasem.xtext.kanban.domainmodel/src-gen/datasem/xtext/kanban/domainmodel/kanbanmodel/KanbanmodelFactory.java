@@ -95,6 +95,24 @@ public interface KanbanmodelFactory extends EFactory
   ConditionType createConditionType();
 
   /**
+   * Returns a new object of class '<em>Activity Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Activity Type</em>'.
+   * @generated
+   */
+  ActivityType createActivityType();
+
+  /**
+   * Returns a new object of class '<em>Agent Role Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Agent Role Type</em>'.
+   * @generated
+   */
+  AgentRoleType createAgentRoleType();
+
+  /**
    * Returns a new object of class '<em>WIN Replication Setting</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -111,6 +129,15 @@ public interface KanbanmodelFactory extends EFactory
    * @generated
    */
   WINReplication createWINReplication();
+
+  /**
+   * Returns a new object of class '<em>Indicators</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Indicators</em>'.
+   * @generated
+   */
+  Indicators createIndicators();
 
   /**
    * Returns a new object of class '<em>Governance Strategy</em>'.

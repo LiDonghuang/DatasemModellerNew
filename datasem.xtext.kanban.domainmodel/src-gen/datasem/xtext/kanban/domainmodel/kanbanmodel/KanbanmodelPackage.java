@@ -185,13 +185,22 @@ public interface KanbanmodelPackage extends EPackage
   int EXPERIMENT_MODEL__WIN_REPLICATION_SETTING = 5;
 
   /**
+   * The feature id for the '<em><b>Indicators</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPERIMENT_MODEL__INDICATORS = 6;
+
+  /**
    * The number of structural features of the '<em>Experiment Model</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPERIMENT_MODEL_FEATURE_COUNT = 6;
+  int EXPERIMENT_MODEL_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.SystemLibrariesImpl <em>System Libraries</em>}' class.
@@ -524,6 +533,80 @@ public interface KanbanmodelPackage extends EPackage
   int CONDITION_TYPE_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ActivityTypeImpl <em>Activity Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ActivityTypeImpl
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getActivityType()
+   * @generated
+   */
+  int ACTIVITY_TYPE = 8;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTIVITY_TYPE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTIVITY_TYPE__DESCRIPTION = 1;
+
+  /**
+   * The number of structural features of the '<em>Activity Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTIVITY_TYPE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.AgentRoleTypeImpl <em>Agent Role Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.AgentRoleTypeImpl
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getAgentRoleType()
+   * @generated
+   */
+  int AGENT_ROLE_TYPE = 9;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AGENT_ROLE_TYPE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AGENT_ROLE_TYPE__DESCRIPTION = 1;
+
+  /**
+   * The number of structural features of the '<em>Agent Role Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AGENT_ROLE_TYPE_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WINReplicationSettingImpl <em>WIN Replication Setting</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -531,7 +614,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWINReplicationSetting()
    * @generated
    */
-  int WIN_REPLICATION_SETTING = 8;
+  int WIN_REPLICATION_SETTING = 10;
 
   /**
    * The feature id for the '<em><b>WIN Replications</b></em>' containment reference list.
@@ -559,7 +642,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWINReplication()
    * @generated
    */
-  int WIN_REPLICATION = 9;
+  int WIN_REPLICATION = 11;
 
   /**
    * The feature id for the '<em><b>Work Item Network</b></em>' reference.
@@ -589,6 +672,34 @@ public interface KanbanmodelPackage extends EPackage
   int WIN_REPLICATION_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.IndicatorsImpl <em>Indicators</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.IndicatorsImpl
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getIndicators()
+   * @generated
+   */
+  int INDICATORS = 12;
+
+  /**
+   * The feature id for the '<em><b>Indicators</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INDICATORS__INDICATORS = 0;
+
+  /**
+   * The number of structural features of the '<em>Indicators</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INDICATORS_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.GovernanceStrategyImpl <em>Governance Strategy</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -596,7 +707,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getGovernanceStrategy()
    * @generated
    */
-  int GOVERNANCE_STRATEGY = 10;
+  int GOVERNANCE_STRATEGY = 13;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -696,7 +807,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWIAcceptance()
    * @generated
    */
-  int WI_ACCEPTANCE = 11;
+  int WI_ACCEPTANCE = 14;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -751,7 +862,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWISelection()
    * @generated
    */
-  int WI_SELECTION = 12;
+  int WI_SELECTION = 15;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -788,7 +899,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWIAssignment()
    * @generated
    */
-  int WI_ASSIGNMENT = 13;
+  int WI_ASSIGNMENT = 16;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -825,7 +936,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getResourceAllocation()
    * @generated
    */
-  int RESOURCE_ALLOCATION = 14;
+  int RESOURCE_ALLOCATION = 17;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -862,7 +973,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getResourceOutsourcing()
    * @generated
    */
-  int RESOURCE_OUTSOURCING = 15;
+  int RESOURCE_OUTSOURCING = 18;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -899,7 +1010,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWIAcceptanceRuleType()
    * @generated
    */
-  int WI_ACCEPTANCE_RULE_TYPE = 16;
+  int WI_ACCEPTANCE_RULE_TYPE = 19;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -936,7 +1047,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWISelectionRuleType()
    * @generated
    */
-  int WI_SELECTION_RULE_TYPE = 17;
+  int WI_SELECTION_RULE_TYPE = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -973,7 +1084,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWIAssignmentRuleType()
    * @generated
    */
-  int WI_ASSIGNMENT_RULE_TYPE = 18;
+  int WI_ASSIGNMENT_RULE_TYPE = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1010,7 +1121,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getResourceAllocationRuleType()
    * @generated
    */
-  int RESOURCE_ALLOCATION_RULE_TYPE = 19;
+  int RESOURCE_ALLOCATION_RULE_TYPE = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1047,7 +1158,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getResourceOutsourcingRuleType()
    * @generated
    */
-  int RESOURCE_OUTSOURCING_RULE_TYPE = 20;
+  int RESOURCE_OUTSOURCING_RULE_TYPE = 23;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1084,7 +1195,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getMechanism()
    * @generated
    */
-  int MECHANISM = 21;
+  int MECHANISM = 24;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1139,7 +1250,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getMechanismAttribute()
    * @generated
    */
-  int MECHANISM_ATTRIBUTE = 22;
+  int MECHANISM_ATTRIBUTE = 25;
 
   /**
    * The feature id for the '<em><b>Attribute</b></em>' attribute.
@@ -1176,7 +1287,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWorkSource()
    * @generated
    */
-  int WORK_SOURCE = 23;
+  int WORK_SOURCE = 26;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1240,7 +1351,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWorkItemNetwork()
    * @generated
    */
-  int WORK_ITEM_NETWORK = 24;
+  int WORK_ITEM_NETWORK = 27;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1295,7 +1406,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWorkItem()
    * @generated
    */
-  int WORK_ITEM = 25;
+  int WORK_ITEM = 28;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1458,7 +1569,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getCausalTrigger()
    * @generated
    */
-  int CAUSAL_TRIGGER = 26;
+  int CAUSAL_TRIGGER = 29;
 
   /**
    * The feature id for the '<em><b>Triggered</b></em>' reference list.
@@ -1504,7 +1615,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWorkItemType()
    * @generated
    */
-  int WORK_ITEM_TYPE = 27;
+  int WORK_ITEM_TYPE = 30;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1550,7 +1661,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getValueFunction()
    * @generated
    */
-  int VALUE_FUNCTION = 28;
+  int VALUE_FUNCTION = 31;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1587,7 +1698,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getProcessModel()
    * @generated
    */
-  int PROCESS_MODEL = 29;
+  int PROCESS_MODEL = 32;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1624,7 +1735,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getClassOfService()
    * @generated
    */
-  int CLASS_OF_SERVICE = 30;
+  int CLASS_OF_SERVICE = 33;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1654,13 +1765,22 @@ public interface KanbanmodelPackage extends EPackage
   int CLASS_OF_SERVICE__DESCRIPTION = 2;
 
   /**
+   * The feature id for the '<em><b>Is Disruptive</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS_OF_SERVICE__IS_DISRUPTIVE = 3;
+
+  /**
    * The number of structural features of the '<em>Class Of Service</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLASS_OF_SERVICE_FEATURE_COUNT = 3;
+  int CLASS_OF_SERVICE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceImpl <em>Service</em>}' class.
@@ -1670,7 +1790,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getService()
    * @generated
    */
-  int SERVICE = 31;
+  int SERVICE = 34;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1716,7 +1836,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getServiceProvider()
    * @generated
    */
-  int SERVICE_PROVIDER = 32;
+  int SERVICE_PROVIDER = 35;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1807,7 +1927,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getAsset()
    * @generated
    */
-  int ASSET = 33;
+  int ASSET = 36;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1862,7 +1982,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getSkill()
    * @generated
    */
-  int SKILL = 34;
+  int SKILL = 37;
 
   /**
    * The feature id for the '<em><b>Service</b></em>' reference.
@@ -2032,6 +2152,17 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    */
   EReference getExperimentModel_WINReplicationSetting();
+
+  /**
+   * Returns the meta object for the containment reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel#getIndicators <em>Indicators</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Indicators</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel#getIndicators()
+   * @see #getExperimentModel()
+   * @generated
+   */
+  EReference getExperimentModel_Indicators();
 
   /**
    * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.SystemLibraries <em>System Libraries</em>}'.
@@ -2358,6 +2489,70 @@ public interface KanbanmodelPackage extends EPackage
   EAttribute getConditionType_Description();
 
   /**
+   * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ActivityType <em>Activity Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Activity Type</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ActivityType
+   * @generated
+   */
+  EClass getActivityType();
+
+  /**
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ActivityType#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ActivityType#getName()
+   * @see #getActivityType()
+   * @generated
+   */
+  EAttribute getActivityType_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ActivityType#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ActivityType#getDescription()
+   * @see #getActivityType()
+   * @generated
+   */
+  EAttribute getActivityType_Description();
+
+  /**
+   * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.AgentRoleType <em>Agent Role Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Agent Role Type</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.AgentRoleType
+   * @generated
+   */
+  EClass getAgentRoleType();
+
+  /**
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.AgentRoleType#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.AgentRoleType#getName()
+   * @see #getAgentRoleType()
+   * @generated
+   */
+  EAttribute getAgentRoleType_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.AgentRoleType#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.AgentRoleType#getDescription()
+   * @see #getAgentRoleType()
+   * @generated
+   */
+  EAttribute getAgentRoleType_Description();
+
+  /**
    * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WINReplicationSetting <em>WIN Replication Setting</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2409,6 +2604,27 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    */
   EAttribute getWINReplication_NumReplications();
+
+  /**
+   * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Indicators <em>Indicators</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Indicators</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Indicators
+   * @generated
+   */
+  EClass getIndicators();
+
+  /**
+   * Returns the meta object for the attribute list '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Indicators#getIndicators <em>Indicators</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Indicators</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Indicators#getIndicators()
+   * @see #getIndicators()
+   * @generated
+   */
+  EAttribute getIndicators_Indicators();
 
   /**
    * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy <em>Governance Strategy</em>}'.
@@ -3446,6 +3662,17 @@ public interface KanbanmodelPackage extends EPackage
   EAttribute getClassOfService_Description();
 
   /**
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService#isIsDisruptive <em>Is Disruptive</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Disruptive</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService#isIsDisruptive()
+   * @see #getClassOfService()
+   * @generated
+   */
+  EAttribute getClassOfService_IsDisruptive();
+
+  /**
    * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Service <em>Service</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3804,6 +4031,14 @@ public interface KanbanmodelPackage extends EPackage
     EReference EXPERIMENT_MODEL__WIN_REPLICATION_SETTING = eINSTANCE.getExperimentModel_WINReplicationSetting();
 
     /**
+     * The meta object literal for the '<em><b>Indicators</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPERIMENT_MODEL__INDICATORS = eINSTANCE.getExperimentModel_Indicators();
+
+    /**
      * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.SystemLibrariesImpl <em>System Libraries</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4056,6 +4291,58 @@ public interface KanbanmodelPackage extends EPackage
     EAttribute CONDITION_TYPE__DESCRIPTION = eINSTANCE.getConditionType_Description();
 
     /**
+     * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ActivityTypeImpl <em>Activity Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ActivityTypeImpl
+     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getActivityType()
+     * @generated
+     */
+    EClass ACTIVITY_TYPE = eINSTANCE.getActivityType();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ACTIVITY_TYPE__NAME = eINSTANCE.getActivityType_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ACTIVITY_TYPE__DESCRIPTION = eINSTANCE.getActivityType_Description();
+
+    /**
+     * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.AgentRoleTypeImpl <em>Agent Role Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.AgentRoleTypeImpl
+     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getAgentRoleType()
+     * @generated
+     */
+    EClass AGENT_ROLE_TYPE = eINSTANCE.getAgentRoleType();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute AGENT_ROLE_TYPE__NAME = eINSTANCE.getAgentRoleType_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute AGENT_ROLE_TYPE__DESCRIPTION = eINSTANCE.getAgentRoleType_Description();
+
+    /**
      * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WINReplicationSettingImpl <em>WIN Replication Setting</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4098,6 +4385,24 @@ public interface KanbanmodelPackage extends EPackage
      * @generated
      */
     EAttribute WIN_REPLICATION__NUM_REPLICATIONS = eINSTANCE.getWINReplication_NumReplications();
+
+    /**
+     * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.IndicatorsImpl <em>Indicators</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.IndicatorsImpl
+     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getIndicators()
+     * @generated
+     */
+    EClass INDICATORS = eINSTANCE.getIndicators();
+
+    /**
+     * The meta object literal for the '<em><b>Indicators</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INDICATORS__INDICATORS = eINSTANCE.getIndicators_Indicators();
 
     /**
      * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.GovernanceStrategyImpl <em>Governance Strategy</em>}' class.
@@ -4908,6 +5213,14 @@ public interface KanbanmodelPackage extends EPackage
      * @generated
      */
     EAttribute CLASS_OF_SERVICE__DESCRIPTION = eINSTANCE.getClassOfService_Description();
+
+    /**
+     * The meta object literal for the '<em><b>Is Disruptive</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CLASS_OF_SERVICE__IS_DISRUPTIVE = eINSTANCE.getClassOfService_IsDisruptive();
 
     /**
      * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceImpl <em>Service</em>}' class.

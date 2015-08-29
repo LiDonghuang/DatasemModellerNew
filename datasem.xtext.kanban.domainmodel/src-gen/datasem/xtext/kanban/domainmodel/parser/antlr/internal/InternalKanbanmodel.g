@@ -356,13 +356,31 @@ ruleExperimentModel returns [EObject current=null]
 	    }
 
 )
-)	otherlv_19='end ExperimentSettings' 
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getExperimentModelAccess().getIndicatorsIndicatorsParserRuleCall_18_0()); 
+	    }
+		lv_Indicators_19_0=ruleIndicators		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getExperimentModelRule());
+	        }
+       		set(
+       			$current, 
+       			"Indicators",
+        		lv_Indicators_19_0, 
+        		"Indicators");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_20='end ExperimentSettings' 
     {
-    	newLeafNode(otherlv_19, grammarAccess.getExperimentModelAccess().getEndExperimentSettingsKeyword_18());
+    	newLeafNode(otherlv_20, grammarAccess.getExperimentModelAccess().getEndExperimentSettingsKeyword_19());
     }
-	otherlv_20='end ExperimentModel' 
+	otherlv_21='end ExperimentModel' 
     {
-    	newLeafNode(otherlv_20, grammarAccess.getExperimentModelAccess().getEndExperimentModelKeyword_19());
+    	newLeafNode(otherlv_21, grammarAccess.getExperimentModelAccess().getEndExperimentModelKeyword_20());
     }
 )
 ;
@@ -1198,6 +1216,10 @@ ruleConditionType returns [EObject current=null]
 
 
 
+
+
+
+
 // Entry rule entryRuleWINReplicationSetting
 entryRuleWINReplicationSetting returns [EObject current=null] 
 	:
@@ -1303,6 +1325,57 @@ ruleWINReplication returns [EObject current=null]
 
 )
 ))
+;
+
+
+
+
+
+// Entry rule entryRuleIndicators
+entryRuleIndicators returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getIndicatorsRule()); }
+	 iv_ruleIndicators=ruleIndicators 
+	 { $current=$iv_ruleIndicators.current; } 
+	 EOF 
+;
+
+// Rule Indicators
+ruleIndicators returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='Indicators' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getIndicatorsAccess().getIndicatorsKeyword_0());
+    }
+	otherlv_1='{' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getIndicatorsAccess().getLeftCurlyBracketKeyword_1());
+    }
+(
+(
+		lv_Indicators_2_0=RULE_ID
+		{
+			newLeafNode(lv_Indicators_2_0, grammarAccess.getIndicatorsAccess().getIndicatorsIDTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getIndicatorsRule());
+	        }
+       		addWithLastConsumed(
+       			$current, 
+       			"Indicators",
+        		lv_Indicators_2_0, 
+        		"ID");
+	    }
+
+)
+)+	otherlv_3='}' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getIndicatorsAccess().getRightCurlyBracketKeyword_3());
+    }
+)
 ;
 
 
@@ -3471,9 +3544,33 @@ ruleClassOfService returns [EObject current=null]
 	    }
 
 )
-))?	otherlv_6='}' 
+))?	otherlv_6='Disruptive:' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getClassOfServiceAccess().getRightCurlyBracketKeyword_5());
+    	newLeafNode(otherlv_6, grammarAccess.getClassOfServiceAccess().getDisruptiveKeyword_5());
+    }
+((
+(
+		lv_isDisruptive_7_0=	'TRUE' 
+    {
+        newLeafNode(lv_isDisruptive_7_0, grammarAccess.getClassOfServiceAccess().getIsDisruptiveTRUEKeyword_6_0_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getClassOfServiceRule());
+	        }
+       		setWithLastConsumed($current, "isDisruptive", true, "TRUE");
+	    }
+
+)
+)
+    |	otherlv_8='FALSE' 
+    {
+    	newLeafNode(otherlv_8, grammarAccess.getClassOfServiceAccess().getFALSEKeyword_6_1());
+    }
+)	otherlv_9='}' 
+    {
+    	newLeafNode(otherlv_9, grammarAccess.getClassOfServiceAccess().getRightCurlyBracketKeyword_7());
     }
 )
 ;

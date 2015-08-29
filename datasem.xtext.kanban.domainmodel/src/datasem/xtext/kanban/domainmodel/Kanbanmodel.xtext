@@ -32,6 +32,7 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 		'end WorkItemNetworkModel'
 		'ExperimentSettings'
 			WINReplicationSetting=WINReplicationSetting
+			Indicators=Indicators
 		'end ExperimentSettings'
 	'end ExperimentModel';
 			
@@ -127,6 +128,15 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 		'ConditionType' name = ID
 		(description=STRING)?
 	;
+	ActivityType:
+		'ActivityType' name = ID
+		(description=STRING)?
+	;
+	AgentRoleType:
+		'AgentRoleType' name = ID
+		(description=STRING)?
+	;
+	
 	// ------------------------ Experiment Objects ---------------------------------
 	WINReplicationSetting:
 		'WINReplicationSetting' '{'(WINReplications+=WINReplication)+'}'
@@ -135,7 +145,9 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 		'WorkItemNetwork' workItemNetwork=[WorkItemNetwork]
 		'NumReplications' numReplications=INT
 	;
-	
+	Indicators:
+		'Indicators' '{'(Indicators+=ID)+'}'
+	;
 	// ------------------------ Governance Objects ---------------------------------
 	GovernanceStrategy: 
 		(id=INT)?
@@ -271,7 +283,8 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 	ClassOfService:
 		(id=INT)?
 		'ClassOfService' name=ID '{'
-		('Description' description=STRING)? 
+		('Description' description=STRING)? 	
+		"Disruptive:"((isDisruptive?="TRUE")|"FALSE")
 		'}'
 	;	
 	// ------------------------ Organizational Objects ---------------------------------

@@ -2,6 +2,8 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ActivityType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.AgentRoleType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Asset;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService;
@@ -10,6 +12,7 @@ import datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.EventType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Indicators;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelFactory;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
@@ -116,6 +119,20 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass activityTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass agentRoleTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass winReplicationSettingEClass = null;
 
   /**
@@ -124,6 +141,13 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * @generated
    */
   private EClass winReplicationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass indicatorsEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -498,6 +522,16 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getExperimentModel_Indicators()
+  {
+    return (EReference)experimentModelEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getSystemLibraries()
   {
     return systemLibrariesEClass;
@@ -798,6 +832,66 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getActivityType()
+  {
+    return activityTypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getActivityType_Name()
+  {
+    return (EAttribute)activityTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getActivityType_Description()
+  {
+    return (EAttribute)activityTypeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAgentRoleType()
+  {
+    return agentRoleTypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAgentRoleType_Name()
+  {
+    return (EAttribute)agentRoleTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAgentRoleType_Description()
+  {
+    return (EAttribute)agentRoleTypeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getWINReplicationSetting()
   {
     return winReplicationSettingEClass;
@@ -841,6 +935,26 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
   public EAttribute getWINReplication_NumReplications()
   {
     return (EAttribute)winReplicationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getIndicators()
+  {
+    return indicatorsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIndicators_Indicators()
+  {
+    return (EAttribute)indicatorsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1808,6 +1922,16 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getClassOfService_IsDisruptive()
+  {
+    return (EAttribute)classOfServiceEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getService()
   {
     return serviceEClass;
@@ -2057,6 +2181,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     createEReference(experimentModelEClass, EXPERIMENT_MODEL__WORK_SOURCES);
     createEReference(experimentModelEClass, EXPERIMENT_MODEL__WORK_ITEM_NETWORKS);
     createEReference(experimentModelEClass, EXPERIMENT_MODEL__WIN_REPLICATION_SETTING);
+    createEReference(experimentModelEClass, EXPERIMENT_MODEL__INDICATORS);
 
     systemLibrariesEClass = createEClass(SYSTEM_LIBRARIES);
     createEReference(systemLibrariesEClass, SYSTEM_LIBRARIES__EVENT_TYPES);
@@ -2094,12 +2219,23 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     createEAttribute(conditionTypeEClass, CONDITION_TYPE__NAME);
     createEAttribute(conditionTypeEClass, CONDITION_TYPE__DESCRIPTION);
 
+    activityTypeEClass = createEClass(ACTIVITY_TYPE);
+    createEAttribute(activityTypeEClass, ACTIVITY_TYPE__NAME);
+    createEAttribute(activityTypeEClass, ACTIVITY_TYPE__DESCRIPTION);
+
+    agentRoleTypeEClass = createEClass(AGENT_ROLE_TYPE);
+    createEAttribute(agentRoleTypeEClass, AGENT_ROLE_TYPE__NAME);
+    createEAttribute(agentRoleTypeEClass, AGENT_ROLE_TYPE__DESCRIPTION);
+
     winReplicationSettingEClass = createEClass(WIN_REPLICATION_SETTING);
     createEReference(winReplicationSettingEClass, WIN_REPLICATION_SETTING__WIN_REPLICATIONS);
 
     winReplicationEClass = createEClass(WIN_REPLICATION);
     createEReference(winReplicationEClass, WIN_REPLICATION__WORK_ITEM_NETWORK);
     createEAttribute(winReplicationEClass, WIN_REPLICATION__NUM_REPLICATIONS);
+
+    indicatorsEClass = createEClass(INDICATORS);
+    createEAttribute(indicatorsEClass, INDICATORS__INDICATORS);
 
     governanceStrategyEClass = createEClass(GOVERNANCE_STRATEGY);
     createEAttribute(governanceStrategyEClass, GOVERNANCE_STRATEGY__ID);
@@ -2217,6 +2353,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     createEAttribute(classOfServiceEClass, CLASS_OF_SERVICE__ID);
     createEAttribute(classOfServiceEClass, CLASS_OF_SERVICE__NAME);
     createEAttribute(classOfServiceEClass, CLASS_OF_SERVICE__DESCRIPTION);
+    createEAttribute(classOfServiceEClass, CLASS_OF_SERVICE__IS_DISRUPTIVE);
 
     serviceEClass = createEClass(SERVICE);
     createEAttribute(serviceEClass, SERVICE__ID);
@@ -2289,6 +2426,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEReference(getExperimentModel_WorkSources(), this.getWorkSource(), null, "WorkSources", null, 0, -1, ExperimentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExperimentModel_WorkItemNetworks(), this.getWorkItemNetwork(), null, "WorkItemNetworks", null, 0, -1, ExperimentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExperimentModel_WINReplicationSetting(), this.getWINReplicationSetting(), null, "WINReplicationSetting", null, 0, 1, ExperimentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExperimentModel_Indicators(), this.getIndicators(), null, "Indicators", null, 0, 1, ExperimentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(systemLibrariesEClass, SystemLibraries.class, "SystemLibraries", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSystemLibraries_EventTypes(), this.getEventType(), null, "EventTypes", null, 0, -1, SystemLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2326,12 +2464,23 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEAttribute(getConditionType_Name(), ecorePackage.getEString(), "name", null, 0, 1, ConditionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getConditionType_Description(), ecorePackage.getEString(), "description", null, 0, 1, ConditionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(activityTypeEClass, ActivityType.class, "ActivityType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getActivityType_Name(), ecorePackage.getEString(), "name", null, 0, 1, ActivityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getActivityType_Description(), ecorePackage.getEString(), "description", null, 0, 1, ActivityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(agentRoleTypeEClass, AgentRoleType.class, "AgentRoleType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAgentRoleType_Name(), ecorePackage.getEString(), "name", null, 0, 1, AgentRoleType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAgentRoleType_Description(), ecorePackage.getEString(), "description", null, 0, 1, AgentRoleType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(winReplicationSettingEClass, WINReplicationSetting.class, "WINReplicationSetting", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getWINReplicationSetting_WINReplications(), this.getWINReplication(), null, "WINReplications", null, 0, -1, WINReplicationSetting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(winReplicationEClass, WINReplication.class, "WINReplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getWINReplication_WorkItemNetwork(), this.getWorkItemNetwork(), null, "workItemNetwork", null, 0, 1, WINReplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWINReplication_NumReplications(), ecorePackage.getEInt(), "numReplications", null, 0, 1, WINReplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(indicatorsEClass, Indicators.class, "Indicators", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getIndicators_Indicators(), ecorePackage.getEString(), "Indicators", null, 0, -1, Indicators.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(governanceStrategyEClass, GovernanceStrategy.class, "GovernanceStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getGovernanceStrategy_Id(), ecorePackage.getEInt(), "id", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2449,6 +2598,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEAttribute(getClassOfService_Id(), ecorePackage.getEInt(), "id", null, 0, 1, ClassOfService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getClassOfService_Name(), ecorePackage.getEString(), "name", null, 0, 1, ClassOfService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getClassOfService_Description(), ecorePackage.getEString(), "description", null, 0, 1, ClassOfService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getClassOfService_IsDisruptive(), ecorePackage.getEBoolean(), "isDisruptive", null, 0, 1, ClassOfService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(serviceEClass, Service.class, "Service", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getService_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
