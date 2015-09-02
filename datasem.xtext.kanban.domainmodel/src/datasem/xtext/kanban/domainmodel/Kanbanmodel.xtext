@@ -44,6 +44,9 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 		'ConditionTypes' 
 		(ConditionTypes += ConditionType)+
 		'end ConditionTypes'
+		'TransitionTypes' 
+		(TransitionTypes += TransitionType)+
+		'end TransitionTypes'
 		'GovernanceLibrary' 
 			'WIAcceptanceRuleTypes' '{'
 			(WIAcceptanceRuleTypes += WIAcceptanceRuleType)+
@@ -113,6 +116,9 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 		(numValue=DOUBLE)|	
 		(distribution ?= 'Random.' numDist = Distribution)
 	;
+	Operator:
+		(equalTo?='==')|(largerThan?='>')|(smallerThan?='<')|(largerOrEqualTo?='>=')|(smallerOrEqualTo?='<=')|(notEqualTo?='!=')
+	;
 	Parameter:
 		INT|DOUBLE|STRING|ID	
 	;
@@ -128,9 +134,27 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 		'ConditionType' name = ID
 		(description=STRING)?
 	;
-	ActivityType:
-		'ActivityType' name = ID
+	TransitionType:
+		'TransitionType' name = ID
 		(description=STRING)?
+	;
+	ProcessModel:
+		'ProcessModel' name=ID '{'
+		('Description' description=STRING)?
+		"Events" "{"(events+=Event)+"}"
+		'}'
+	;
+	Event:
+		"Event" "{"
+		"Conditions" "{"(conditions+=Condition)+"}"
+		"Transitions" "{"(transitions+=Transition)+"}"
+		"}"
+	;
+	Condition:
+		type=[ConditionType] operator=Operator value=Parameter
+	;
+	Transition:
+		type=[TransitionType]"="value=Parameter
 	;
 	AgentRoleType:
 		'AgentRoleType' name = ID
@@ -246,11 +270,11 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 		'WorkItem' name=ID '{'
 //		('Profile' profile=[WorkItemProfile])?
 		('Description' description=STRING)?	
-		('Type' type=[WorkItemType])?
+		'Type' type=[WorkItemType]
 		(hasPredecessors?='Predecessors' '{' (pTasks+=[WorkItem])+ '}')?
 		(isAggregationNode?='Subtasks' '{' (sTasks+=[WorkItem])+ '}')?
 		('CausalTriggers'(causalTriggers+=CausalTrigger)*)?
-		('RequiredServices' '{'(requiredServices+=[Service])+)?'}'
+		'RequiredServices' '{'(requiredServices+=[Service])+'}'
 		('Efforts' efforts=NumExpression)?
 		('Value' value=NumExpression)?
 		('ClassOfService' classOfService=[ClassOfService])?
@@ -275,16 +299,12 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 		('Description' description=STRING)?
 		'}'
 	;	
-	ProcessModel:
-		'ProcessModel' name=ID '{'
-		('Description' description=STRING)?
-		'}'
-	;
+
 	ClassOfService:
 		(id=INT)?
 		'ClassOfService' name=ID '{'
 		('Description' description=STRING)? 	
-		"Disruptive:"((isDisruptive?="TRUE")|"FALSE")
+		"Disruptive:"((disruptive?="TRUE")|"FALSE")
 		'}'
 	;	
 	// ------------------------ Organizational Objects ---------------------------------

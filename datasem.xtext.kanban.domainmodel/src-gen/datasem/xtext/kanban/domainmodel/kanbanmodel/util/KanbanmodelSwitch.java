@@ -107,6 +107,13 @@ public class KanbanmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case KanbanmodelPackage.OPERATOR:
+      {
+        Operator operator = (Operator)theEObject;
+        T result = caseOperator(operator);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case KanbanmodelPackage.DISTRIBUTION:
       {
         Distribution distribution = (Distribution)theEObject;
@@ -128,10 +135,38 @@ public class KanbanmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case KanbanmodelPackage.ACTIVITY_TYPE:
+      case KanbanmodelPackage.TRANSITION_TYPE:
       {
-        ActivityType activityType = (ActivityType)theEObject;
-        T result = caseActivityType(activityType);
+        TransitionType transitionType = (TransitionType)theEObject;
+        T result = caseTransitionType(transitionType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.PROCESS_MODEL:
+      {
+        ProcessModel processModel = (ProcessModel)theEObject;
+        T result = caseProcessModel(processModel);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.EVENT:
+      {
+        Event event = (Event)theEObject;
+        T result = caseEvent(event);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.CONDITION:
+      {
+        Condition condition = (Condition)theEObject;
+        T result = caseCondition(condition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.TRANSITION:
+      {
+        Transition transition = (Transition)theEObject;
+        T result = caseTransition(transition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -296,13 +331,6 @@ public class KanbanmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case KanbanmodelPackage.PROCESS_MODEL:
-      {
-        ProcessModel processModel = (ProcessModel)theEObject;
-        T result = caseProcessModel(processModel);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case KanbanmodelPackage.CLASS_OF_SERVICE:
       {
         ClassOfService classOfService = (ClassOfService)theEObject;
@@ -423,6 +451,22 @@ public class KanbanmodelSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Operator</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Operator</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOperator(Operator object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Distribution</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -471,17 +515,81 @@ public class KanbanmodelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Activity Type</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Transition Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Activity Type</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Transition Type</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseActivityType(ActivityType object)
+  public T caseTransitionType(TransitionType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Process Model</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Process Model</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseProcessModel(ProcessModel object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Event</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Event</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEvent(Event object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Condition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Condition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCondition(Condition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Transition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Transition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTransition(Transition object)
   {
     return null;
   }
@@ -850,22 +958,6 @@ public class KanbanmodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseValueFunction(ValueFunction object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Process Model</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Process Model</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseProcessModel(ProcessModel object)
   {
     return null;
   }

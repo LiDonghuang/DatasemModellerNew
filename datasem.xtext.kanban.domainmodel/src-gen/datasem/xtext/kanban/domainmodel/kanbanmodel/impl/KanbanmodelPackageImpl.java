@@ -2,13 +2,14 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ActivityType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.AgentRoleType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Asset;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Condition;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ConditionType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Event;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.EventType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy;
@@ -19,6 +20,7 @@ import datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.MechanismAttribute;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ModelBuilder;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.NumExpression;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Operator;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocation;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocationRuleType;
@@ -28,6 +30,8 @@ import datasem.xtext.kanban.domainmodel.kanbanmodel.Service;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Skill;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.SystemLibraries;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Transition;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.TransitionType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.UserLibraries;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ValueFunction;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptance;
@@ -98,6 +102,13 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass operatorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass distributionEClass = null;
 
   /**
@@ -119,7 +130,35 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass activityTypeEClass = null;
+  private EClass transitionTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass processModelEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass eventEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass conditionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass transitionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -281,13 +320,6 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * @generated
    */
   private EClass valueFunctionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass processModelEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -562,7 +594,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSystemLibraries_WIAcceptanceRuleTypes()
+  public EReference getSystemLibraries_TransitionTypes()
   {
     return (EReference)systemLibrariesEClass.getEStructuralFeatures().get(2);
   }
@@ -572,7 +604,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSystemLibraries_WISelectionRuleTypes()
+  public EReference getSystemLibraries_WIAcceptanceRuleTypes()
   {
     return (EReference)systemLibrariesEClass.getEStructuralFeatures().get(3);
   }
@@ -582,7 +614,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSystemLibraries_WIAssignmentRuleTypes()
+  public EReference getSystemLibraries_WISelectionRuleTypes()
   {
     return (EReference)systemLibrariesEClass.getEStructuralFeatures().get(4);
   }
@@ -592,7 +624,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSystemLibraries_ResourceAllocationRuleTypes()
+  public EReference getSystemLibraries_WIAssignmentRuleTypes()
   {
     return (EReference)systemLibrariesEClass.getEStructuralFeatures().get(5);
   }
@@ -602,7 +634,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSystemLibraries_ResourceOutsourcingRuleTypes()
+  public EReference getSystemLibraries_ResourceAllocationRuleTypes()
   {
     return (EReference)systemLibrariesEClass.getEStructuralFeatures().get(6);
   }
@@ -612,7 +644,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSystemLibraries_ProcessModels()
+  public EReference getSystemLibraries_ResourceOutsourcingRuleTypes()
   {
     return (EReference)systemLibrariesEClass.getEStructuralFeatures().get(7);
   }
@@ -622,9 +654,19 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSystemLibraries_ValueFunctions()
+  public EReference getSystemLibraries_ProcessModels()
   {
     return (EReference)systemLibrariesEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSystemLibraries_ValueFunctions()
+  {
+    return (EReference)systemLibrariesEClass.getEStructuralFeatures().get(9);
   }
 
   /**
@@ -715,6 +757,76 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
   public EReference getNumExpression_NumDist()
   {
     return (EReference)numExpressionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getOperator()
+  {
+    return operatorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOperator_EqualTo()
+  {
+    return (EAttribute)operatorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOperator_LargerThan()
+  {
+    return (EAttribute)operatorEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOperator_SmallerThan()
+  {
+    return (EAttribute)operatorEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOperator_LargerOrEqualTo()
+  {
+    return (EAttribute)operatorEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOperator_SmallerOrEqualTo()
+  {
+    return (EAttribute)operatorEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOperator_NotEqualTo()
+  {
+    return (EAttribute)operatorEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -832,9 +944,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getActivityType()
+  public EClass getTransitionType()
   {
-    return activityTypeEClass;
+    return transitionTypeEClass;
   }
 
   /**
@@ -842,9 +954,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getActivityType_Name()
+  public EAttribute getTransitionType_Name()
   {
-    return (EAttribute)activityTypeEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)transitionTypeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -852,9 +964,149 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getActivityType_Description()
+  public EAttribute getTransitionType_Description()
   {
-    return (EAttribute)activityTypeEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)transitionTypeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getProcessModel()
+  {
+    return processModelEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getProcessModel_Name()
+  {
+    return (EAttribute)processModelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getProcessModel_Description()
+  {
+    return (EAttribute)processModelEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getProcessModel_Events()
+  {
+    return (EReference)processModelEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getEvent()
+  {
+    return eventEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEvent_Conditions()
+  {
+    return (EReference)eventEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEvent_Transitions()
+  {
+    return (EReference)eventEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCondition()
+  {
+    return conditionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCondition_Type()
+  {
+    return (EReference)conditionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCondition_Operator()
+  {
+    return (EReference)conditionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCondition_Value()
+  {
+    return (EAttribute)conditionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTransition()
+  {
+    return transitionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTransition_Type()
+  {
+    return (EReference)transitionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTransition_Value()
+  {
+    return (EAttribute)transitionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1852,36 +2104,6 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getProcessModel()
-  {
-    return processModelEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getProcessModel_Name()
-  {
-    return (EAttribute)processModelEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getProcessModel_Description()
-  {
-    return (EAttribute)processModelEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getClassOfService()
   {
     return classOfServiceEClass;
@@ -1922,7 +2144,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getClassOfService_IsDisruptive()
+  public EAttribute getClassOfService_Disruptive()
   {
     return (EAttribute)classOfServiceEClass.getEStructuralFeatures().get(3);
   }
@@ -2186,6 +2408,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     systemLibrariesEClass = createEClass(SYSTEM_LIBRARIES);
     createEReference(systemLibrariesEClass, SYSTEM_LIBRARIES__EVENT_TYPES);
     createEReference(systemLibrariesEClass, SYSTEM_LIBRARIES__CONDITION_TYPES);
+    createEReference(systemLibrariesEClass, SYSTEM_LIBRARIES__TRANSITION_TYPES);
     createEReference(systemLibrariesEClass, SYSTEM_LIBRARIES__WI_ACCEPTANCE_RULE_TYPES);
     createEReference(systemLibrariesEClass, SYSTEM_LIBRARIES__WI_SELECTION_RULE_TYPES);
     createEReference(systemLibrariesEClass, SYSTEM_LIBRARIES__WI_ASSIGNMENT_RULE_TYPES);
@@ -2205,6 +2428,14 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     createEAttribute(numExpressionEClass, NUM_EXPRESSION__DISTRIBUTION);
     createEReference(numExpressionEClass, NUM_EXPRESSION__NUM_DIST);
 
+    operatorEClass = createEClass(OPERATOR);
+    createEAttribute(operatorEClass, OPERATOR__EQUAL_TO);
+    createEAttribute(operatorEClass, OPERATOR__LARGER_THAN);
+    createEAttribute(operatorEClass, OPERATOR__SMALLER_THAN);
+    createEAttribute(operatorEClass, OPERATOR__LARGER_OR_EQUAL_TO);
+    createEAttribute(operatorEClass, OPERATOR__SMALLER_OR_EQUAL_TO);
+    createEAttribute(operatorEClass, OPERATOR__NOT_EQUAL_TO);
+
     distributionEClass = createEClass(DISTRIBUTION);
     createEAttribute(distributionEClass, DISTRIBUTION__IS_NORMAL);
     createEAttribute(distributionEClass, DISTRIBUTION__IS_UNIFORM);
@@ -2219,9 +2450,27 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     createEAttribute(conditionTypeEClass, CONDITION_TYPE__NAME);
     createEAttribute(conditionTypeEClass, CONDITION_TYPE__DESCRIPTION);
 
-    activityTypeEClass = createEClass(ACTIVITY_TYPE);
-    createEAttribute(activityTypeEClass, ACTIVITY_TYPE__NAME);
-    createEAttribute(activityTypeEClass, ACTIVITY_TYPE__DESCRIPTION);
+    transitionTypeEClass = createEClass(TRANSITION_TYPE);
+    createEAttribute(transitionTypeEClass, TRANSITION_TYPE__NAME);
+    createEAttribute(transitionTypeEClass, TRANSITION_TYPE__DESCRIPTION);
+
+    processModelEClass = createEClass(PROCESS_MODEL);
+    createEAttribute(processModelEClass, PROCESS_MODEL__NAME);
+    createEAttribute(processModelEClass, PROCESS_MODEL__DESCRIPTION);
+    createEReference(processModelEClass, PROCESS_MODEL__EVENTS);
+
+    eventEClass = createEClass(EVENT);
+    createEReference(eventEClass, EVENT__CONDITIONS);
+    createEReference(eventEClass, EVENT__TRANSITIONS);
+
+    conditionEClass = createEClass(CONDITION);
+    createEReference(conditionEClass, CONDITION__TYPE);
+    createEReference(conditionEClass, CONDITION__OPERATOR);
+    createEAttribute(conditionEClass, CONDITION__VALUE);
+
+    transitionEClass = createEClass(TRANSITION);
+    createEReference(transitionEClass, TRANSITION__TYPE);
+    createEAttribute(transitionEClass, TRANSITION__VALUE);
 
     agentRoleTypeEClass = createEClass(AGENT_ROLE_TYPE);
     createEAttribute(agentRoleTypeEClass, AGENT_ROLE_TYPE__NAME);
@@ -2345,15 +2594,11 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     createEAttribute(valueFunctionEClass, VALUE_FUNCTION__NAME);
     createEAttribute(valueFunctionEClass, VALUE_FUNCTION__DESCRIPTION);
 
-    processModelEClass = createEClass(PROCESS_MODEL);
-    createEAttribute(processModelEClass, PROCESS_MODEL__NAME);
-    createEAttribute(processModelEClass, PROCESS_MODEL__DESCRIPTION);
-
     classOfServiceEClass = createEClass(CLASS_OF_SERVICE);
     createEAttribute(classOfServiceEClass, CLASS_OF_SERVICE__ID);
     createEAttribute(classOfServiceEClass, CLASS_OF_SERVICE__NAME);
     createEAttribute(classOfServiceEClass, CLASS_OF_SERVICE__DESCRIPTION);
-    createEAttribute(classOfServiceEClass, CLASS_OF_SERVICE__IS_DISRUPTIVE);
+    createEAttribute(classOfServiceEClass, CLASS_OF_SERVICE__DISRUPTIVE);
 
     serviceEClass = createEClass(SERVICE);
     createEAttribute(serviceEClass, SERVICE__ID);
@@ -2431,6 +2676,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEClass(systemLibrariesEClass, SystemLibraries.class, "SystemLibraries", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSystemLibraries_EventTypes(), this.getEventType(), null, "EventTypes", null, 0, -1, SystemLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSystemLibraries_ConditionTypes(), this.getConditionType(), null, "ConditionTypes", null, 0, -1, SystemLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSystemLibraries_TransitionTypes(), this.getTransitionType(), null, "TransitionTypes", null, 0, -1, SystemLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSystemLibraries_WIAcceptanceRuleTypes(), this.getWIAcceptanceRuleType(), null, "WIAcceptanceRuleTypes", null, 0, -1, SystemLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSystemLibraries_WISelectionRuleTypes(), this.getWISelectionRuleType(), null, "WISelectionRuleTypes", null, 0, -1, SystemLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSystemLibraries_WIAssignmentRuleTypes(), this.getWIAssignmentRuleType(), null, "WIAssignmentRuleTypes", null, 0, -1, SystemLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2450,6 +2696,14 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEAttribute(getNumExpression_Distribution(), ecorePackage.getEBoolean(), "distribution", null, 0, 1, NumExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNumExpression_NumDist(), this.getDistribution(), null, "numDist", null, 0, 1, NumExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(operatorEClass, Operator.class, "Operator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getOperator_EqualTo(), ecorePackage.getEBoolean(), "equalTo", null, 0, 1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOperator_LargerThan(), ecorePackage.getEBoolean(), "largerThan", null, 0, 1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOperator_SmallerThan(), ecorePackage.getEBoolean(), "smallerThan", null, 0, 1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOperator_LargerOrEqualTo(), ecorePackage.getEBoolean(), "largerOrEqualTo", null, 0, 1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOperator_SmallerOrEqualTo(), ecorePackage.getEBoolean(), "smallerOrEqualTo", null, 0, 1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOperator_NotEqualTo(), ecorePackage.getEBoolean(), "notEqualTo", null, 0, 1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(distributionEClass, Distribution.class, "Distribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDistribution_IsNormal(), ecorePackage.getEBoolean(), "isNormal", null, 0, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDistribution_IsUniform(), ecorePackage.getEBoolean(), "isUniform", null, 0, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2464,9 +2718,27 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEAttribute(getConditionType_Name(), ecorePackage.getEString(), "name", null, 0, 1, ConditionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getConditionType_Description(), ecorePackage.getEString(), "description", null, 0, 1, ConditionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(activityTypeEClass, ActivityType.class, "ActivityType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getActivityType_Name(), ecorePackage.getEString(), "name", null, 0, 1, ActivityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getActivityType_Description(), ecorePackage.getEString(), "description", null, 0, 1, ActivityType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(transitionTypeEClass, TransitionType.class, "TransitionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTransitionType_Name(), ecorePackage.getEString(), "name", null, 0, 1, TransitionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTransitionType_Description(), ecorePackage.getEString(), "description", null, 0, 1, TransitionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(processModelEClass, ProcessModel.class, "ProcessModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getProcessModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, ProcessModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getProcessModel_Description(), ecorePackage.getEString(), "description", null, 0, 1, ProcessModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProcessModel_Events(), this.getEvent(), null, "events", null, 0, -1, ProcessModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEvent_Conditions(), this.getCondition(), null, "conditions", null, 0, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEvent_Transitions(), this.getTransition(), null, "transitions", null, 0, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCondition_Type(), this.getConditionType(), null, "type", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCondition_Operator(), this.getOperator(), null, "operator", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCondition_Value(), ecorePackage.getEString(), "value", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTransition_Type(), this.getTransitionType(), null, "type", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTransition_Value(), ecorePackage.getEString(), "value", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(agentRoleTypeEClass, AgentRoleType.class, "AgentRoleType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAgentRoleType_Name(), ecorePackage.getEString(), "name", null, 0, 1, AgentRoleType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2590,15 +2862,11 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEAttribute(getValueFunction_Name(), ecorePackage.getEString(), "name", null, 0, 1, ValueFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getValueFunction_Description(), ecorePackage.getEString(), "description", null, 0, 1, ValueFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(processModelEClass, ProcessModel.class, "ProcessModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getProcessModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, ProcessModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getProcessModel_Description(), ecorePackage.getEString(), "description", null, 0, 1, ProcessModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(classOfServiceEClass, ClassOfService.class, "ClassOfService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getClassOfService_Id(), ecorePackage.getEInt(), "id", null, 0, 1, ClassOfService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getClassOfService_Name(), ecorePackage.getEString(), "name", null, 0, 1, ClassOfService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getClassOfService_Description(), ecorePackage.getEString(), "description", null, 0, 1, ClassOfService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getClassOfService_IsDisruptive(), ecorePackage.getEBoolean(), "isDisruptive", null, 0, 1, ClassOfService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getClassOfService_Disruptive(), ecorePackage.getEBoolean(), "disruptive", null, 0, 1, ClassOfService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(serviceEClass, Service.class, "Service", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getService_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

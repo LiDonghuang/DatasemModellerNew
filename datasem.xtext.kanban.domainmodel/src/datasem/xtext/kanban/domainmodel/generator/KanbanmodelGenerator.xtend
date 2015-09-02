@@ -88,7 +88,7 @@ def compile(Resource res) '''
 		«var id=1»
 		«FOR c : cs»
 			«c.setId(id++)»	
-			<ClassOfService cosId="«c.id»" name="«c.name»" description="«c.description»" isDisruptive="«c.isDisruptive»"></ClassOfService>
+			<ClassOfService cosId="«c.id»" name="«c.name»" description="«c.description»" isDisruptive="«c.isDisruptive()»"></ClassOfService>
 		«ENDFOR»
 		</ClassOfServices>
 	'''	

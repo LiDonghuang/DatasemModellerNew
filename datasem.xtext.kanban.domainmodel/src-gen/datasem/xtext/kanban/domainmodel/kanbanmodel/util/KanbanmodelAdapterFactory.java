@@ -100,6 +100,11 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
         return createNumExpressionAdapter();
       }
       @Override
+      public Adapter caseOperator(Operator object)
+      {
+        return createOperatorAdapter();
+      }
+      @Override
       public Adapter caseDistribution(Distribution object)
       {
         return createDistributionAdapter();
@@ -115,9 +120,29 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
         return createConditionTypeAdapter();
       }
       @Override
-      public Adapter caseActivityType(ActivityType object)
+      public Adapter caseTransitionType(TransitionType object)
       {
-        return createActivityTypeAdapter();
+        return createTransitionTypeAdapter();
+      }
+      @Override
+      public Adapter caseProcessModel(ProcessModel object)
+      {
+        return createProcessModelAdapter();
+      }
+      @Override
+      public Adapter caseEvent(Event object)
+      {
+        return createEventAdapter();
+      }
+      @Override
+      public Adapter caseCondition(Condition object)
+      {
+        return createConditionAdapter();
+      }
+      @Override
+      public Adapter caseTransition(Transition object)
+      {
+        return createTransitionAdapter();
       }
       @Override
       public Adapter caseAgentRoleType(AgentRoleType object)
@@ -233,11 +258,6 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
       public Adapter caseValueFunction(ValueFunction object)
       {
         return createValueFunctionAdapter();
-      }
-      @Override
-      public Adapter caseProcessModel(ProcessModel object)
-      {
-        return createProcessModelAdapter();
       }
       @Override
       public Adapter caseClassOfService(ClassOfService object)
@@ -362,6 +382,21 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Operator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Operator
+   * @generated
+   */
+  public Adapter createOperatorAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution <em>Distribution</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -407,16 +442,76 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ActivityType <em>Activity Type</em>}'.
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.TransitionType <em>Transition Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ActivityType
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.TransitionType
    * @generated
    */
-  public Adapter createActivityTypeAdapter()
+  public Adapter createTransitionTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel <em>Process Model</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel
+   * @generated
+   */
+  public Adapter createProcessModelAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Event <em>Event</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Event
+   * @generated
+   */
+  public Adapter createEventAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Condition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Condition
+   * @generated
+   */
+  public Adapter createConditionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Transition <em>Transition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Transition
+   * @generated
+   */
+  public Adapter createTransitionAdapter()
   {
     return null;
   }
@@ -762,21 +857,6 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createValueFunctionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel <em>Process Model</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel
-   * @generated
-   */
-  public Adapter createProcessModelAdapter()
   {
     return null;
   }

@@ -68,6 +68,15 @@ public interface KanbanmodelFactory extends EFactory
   NumExpression createNumExpression();
 
   /**
+   * Returns a new object of class '<em>Operator</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Operator</em>'.
+   * @generated
+   */
+  Operator createOperator();
+
+  /**
    * Returns a new object of class '<em>Distribution</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -95,13 +104,49 @@ public interface KanbanmodelFactory extends EFactory
   ConditionType createConditionType();
 
   /**
-   * Returns a new object of class '<em>Activity Type</em>'.
+   * Returns a new object of class '<em>Transition Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Activity Type</em>'.
+   * @return a new object of class '<em>Transition Type</em>'.
    * @generated
    */
-  ActivityType createActivityType();
+  TransitionType createTransitionType();
+
+  /**
+   * Returns a new object of class '<em>Process Model</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Process Model</em>'.
+   * @generated
+   */
+  ProcessModel createProcessModel();
+
+  /**
+   * Returns a new object of class '<em>Event</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Event</em>'.
+   * @generated
+   */
+  Event createEvent();
+
+  /**
+   * Returns a new object of class '<em>Condition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Condition</em>'.
+   * @generated
+   */
+  Condition createCondition();
+
+  /**
+   * Returns a new object of class '<em>Transition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Transition</em>'.
+   * @generated
+   */
+  Transition createTransition();
 
   /**
    * Returns a new object of class '<em>Agent Role Type</em>'.
@@ -309,15 +354,6 @@ public interface KanbanmodelFactory extends EFactory
    * @generated
    */
   ValueFunction createValueFunction();
-
-  /**
-   * Returns a new object of class '<em>Process Model</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Process Model</em>'.
-   * @generated
-   */
-  ProcessModel createProcessModel();
 
   /**
    * Returns a new object of class '<em>Class Of Service</em>'.

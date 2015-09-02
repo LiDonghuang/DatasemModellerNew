@@ -69,10 +69,15 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
       case KanbanmodelPackage.SYSTEM_LIBRARIES: return createSystemLibraries();
       case KanbanmodelPackage.USER_LIBRARIES: return createUserLibraries();
       case KanbanmodelPackage.NUM_EXPRESSION: return createNumExpression();
+      case KanbanmodelPackage.OPERATOR: return createOperator();
       case KanbanmodelPackage.DISTRIBUTION: return createDistribution();
       case KanbanmodelPackage.EVENT_TYPE: return createEventType();
       case KanbanmodelPackage.CONDITION_TYPE: return createConditionType();
-      case KanbanmodelPackage.ACTIVITY_TYPE: return createActivityType();
+      case KanbanmodelPackage.TRANSITION_TYPE: return createTransitionType();
+      case KanbanmodelPackage.PROCESS_MODEL: return createProcessModel();
+      case KanbanmodelPackage.EVENT: return createEvent();
+      case KanbanmodelPackage.CONDITION: return createCondition();
+      case KanbanmodelPackage.TRANSITION: return createTransition();
       case KanbanmodelPackage.AGENT_ROLE_TYPE: return createAgentRoleType();
       case KanbanmodelPackage.WIN_REPLICATION_SETTING: return createWINReplicationSetting();
       case KanbanmodelPackage.WIN_REPLICATION: return createWINReplication();
@@ -96,7 +101,6 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
       case KanbanmodelPackage.CAUSAL_TRIGGER: return createCausalTrigger();
       case KanbanmodelPackage.WORK_ITEM_TYPE: return createWorkItemType();
       case KanbanmodelPackage.VALUE_FUNCTION: return createValueFunction();
-      case KanbanmodelPackage.PROCESS_MODEL: return createProcessModel();
       case KanbanmodelPackage.CLASS_OF_SERVICE: return createClassOfService();
       case KanbanmodelPackage.SERVICE: return createService();
       case KanbanmodelPackage.SERVICE_PROVIDER: return createServiceProvider();
@@ -167,6 +171,17 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
    * <!-- end-user-doc -->
    * @generated
    */
+  public Operator createOperator()
+  {
+    OperatorImpl operator = new OperatorImpl();
+    return operator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Distribution createDistribution()
   {
     DistributionImpl distribution = new DistributionImpl();
@@ -200,10 +215,54 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
    * <!-- end-user-doc -->
    * @generated
    */
-  public ActivityType createActivityType()
+  public TransitionType createTransitionType()
   {
-    ActivityTypeImpl activityType = new ActivityTypeImpl();
-    return activityType;
+    TransitionTypeImpl transitionType = new TransitionTypeImpl();
+    return transitionType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ProcessModel createProcessModel()
+  {
+    ProcessModelImpl processModel = new ProcessModelImpl();
+    return processModel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Event createEvent()
+  {
+    EventImpl event = new EventImpl();
+    return event;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Condition createCondition()
+  {
+    ConditionImpl condition = new ConditionImpl();
+    return condition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Transition createTransition()
+  {
+    TransitionImpl transition = new TransitionImpl();
+    return transition;
   }
 
   /**
@@ -457,17 +516,6 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
   {
     ValueFunctionImpl valueFunction = new ValueFunctionImpl();
     return valueFunction;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ProcessModel createProcessModel()
-  {
-    ProcessModelImpl processModel = new ProcessModelImpl();
-    return processModel;
   }
 
   /**

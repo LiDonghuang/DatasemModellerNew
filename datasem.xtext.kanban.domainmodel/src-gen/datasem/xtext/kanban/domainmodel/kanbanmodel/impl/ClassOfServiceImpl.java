@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ClassOfServiceImpl#getId <em>Id</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ClassOfServiceImpl#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ClassOfServiceImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ClassOfServiceImpl#isIsDisruptive <em>Is Disruptive</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ClassOfServiceImpl#isDisruptive <em>Disruptive</em>}</li>
  * </ul>
  * </p>
  *
@@ -91,24 +91,24 @@ public class ClassOfServiceImpl extends MinimalEObjectImpl.Container implements 
   protected String description = DESCRIPTION_EDEFAULT;
 
   /**
-   * The default value of the '{@link #isIsDisruptive() <em>Is Disruptive</em>}' attribute.
+   * The default value of the '{@link #isDisruptive() <em>Disruptive</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isIsDisruptive()
+   * @see #isDisruptive()
    * @generated
    * @ordered
    */
-  protected static final boolean IS_DISRUPTIVE_EDEFAULT = false;
+  protected static final boolean DISRUPTIVE_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #isIsDisruptive() <em>Is Disruptive</em>}' attribute.
+   * The cached value of the '{@link #isDisruptive() <em>Disruptive</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isIsDisruptive()
+   * @see #isDisruptive()
    * @generated
    * @ordered
    */
-  protected boolean isDisruptive = IS_DISRUPTIVE_EDEFAULT;
+  protected boolean disruptive = DISRUPTIVE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -205,9 +205,9 @@ public class ClassOfServiceImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isIsDisruptive()
+  public boolean isDisruptive()
   {
-    return isDisruptive;
+    return disruptive;
   }
 
   /**
@@ -215,12 +215,12 @@ public class ClassOfServiceImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setIsDisruptive(boolean newIsDisruptive)
+  public void setDisruptive(boolean newDisruptive)
   {
-    boolean oldIsDisruptive = isDisruptive;
-    isDisruptive = newIsDisruptive;
+    boolean oldDisruptive = disruptive;
+    disruptive = newDisruptive;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CLASS_OF_SERVICE__IS_DISRUPTIVE, oldIsDisruptive, isDisruptive));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CLASS_OF_SERVICE__DISRUPTIVE, oldDisruptive, disruptive));
   }
 
   /**
@@ -239,8 +239,8 @@ public class ClassOfServiceImpl extends MinimalEObjectImpl.Container implements 
         return getName();
       case KanbanmodelPackage.CLASS_OF_SERVICE__DESCRIPTION:
         return getDescription();
-      case KanbanmodelPackage.CLASS_OF_SERVICE__IS_DISRUPTIVE:
-        return isIsDisruptive();
+      case KanbanmodelPackage.CLASS_OF_SERVICE__DISRUPTIVE:
+        return isDisruptive();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -264,8 +264,8 @@ public class ClassOfServiceImpl extends MinimalEObjectImpl.Container implements 
       case KanbanmodelPackage.CLASS_OF_SERVICE__DESCRIPTION:
         setDescription((String)newValue);
         return;
-      case KanbanmodelPackage.CLASS_OF_SERVICE__IS_DISRUPTIVE:
-        setIsDisruptive((Boolean)newValue);
+      case KanbanmodelPackage.CLASS_OF_SERVICE__DISRUPTIVE:
+        setDisruptive((Boolean)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -290,8 +290,8 @@ public class ClassOfServiceImpl extends MinimalEObjectImpl.Container implements 
       case KanbanmodelPackage.CLASS_OF_SERVICE__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case KanbanmodelPackage.CLASS_OF_SERVICE__IS_DISRUPTIVE:
-        setIsDisruptive(IS_DISRUPTIVE_EDEFAULT);
+      case KanbanmodelPackage.CLASS_OF_SERVICE__DISRUPTIVE:
+        setDisruptive(DISRUPTIVE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -313,8 +313,8 @@ public class ClassOfServiceImpl extends MinimalEObjectImpl.Container implements 
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case KanbanmodelPackage.CLASS_OF_SERVICE__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case KanbanmodelPackage.CLASS_OF_SERVICE__IS_DISRUPTIVE:
-        return isDisruptive != IS_DISRUPTIVE_EDEFAULT;
+      case KanbanmodelPackage.CLASS_OF_SERVICE__DISRUPTIVE:
+        return disruptive != DISRUPTIVE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -336,8 +336,8 @@ public class ClassOfServiceImpl extends MinimalEObjectImpl.Container implements 
     result.append(name);
     result.append(", description: ");
     result.append(description);
-    result.append(", isDisruptive: ");
-    result.append(isDisruptive);
+    result.append(", disruptive: ");
+    result.append(disruptive);
     result.append(')');
     return result.toString();
   }

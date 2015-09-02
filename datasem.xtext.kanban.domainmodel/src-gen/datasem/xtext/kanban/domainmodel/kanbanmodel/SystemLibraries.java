@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.SystemLibraries#getEventTypes <em>Event Types</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.SystemLibraries#getConditionTypes <em>Condition Types</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.SystemLibraries#getTransitionTypes <em>Transition Types</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.SystemLibraries#getWIAcceptanceRuleTypes <em>WI Acceptance Rule Types</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.SystemLibraries#getWISelectionRuleTypes <em>WI Selection Rule Types</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.SystemLibraries#getWIAssignmentRuleTypes <em>WI Assignment Rule Types</em>}</li>
@@ -63,6 +64,22 @@ public interface SystemLibraries extends EObject
    * @generated
    */
   EList<ConditionType> getConditionTypes();
+
+  /**
+   * Returns the value of the '<em><b>Transition Types</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.TransitionType}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Transition Types</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Transition Types</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getSystemLibraries_TransitionTypes()
+   * @model containment="true"
+   * @generated
+   */
+  EList<TransitionType> getTransitionTypes();
 
   /**
    * Returns the value of the '<em><b>WI Acceptance Rule Types</b></em>' containment reference list.

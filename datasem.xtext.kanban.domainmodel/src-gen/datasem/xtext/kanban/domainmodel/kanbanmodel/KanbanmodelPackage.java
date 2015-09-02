@@ -231,13 +231,22 @@ public interface KanbanmodelPackage extends EPackage
   int SYSTEM_LIBRARIES__CONDITION_TYPES = 1;
 
   /**
+   * The feature id for the '<em><b>Transition Types</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYSTEM_LIBRARIES__TRANSITION_TYPES = 2;
+
+  /**
    * The feature id for the '<em><b>WI Acceptance Rule Types</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SYSTEM_LIBRARIES__WI_ACCEPTANCE_RULE_TYPES = 2;
+  int SYSTEM_LIBRARIES__WI_ACCEPTANCE_RULE_TYPES = 3;
 
   /**
    * The feature id for the '<em><b>WI Selection Rule Types</b></em>' containment reference list.
@@ -246,7 +255,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SYSTEM_LIBRARIES__WI_SELECTION_RULE_TYPES = 3;
+  int SYSTEM_LIBRARIES__WI_SELECTION_RULE_TYPES = 4;
 
   /**
    * The feature id for the '<em><b>WI Assignment Rule Types</b></em>' containment reference list.
@@ -255,7 +264,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SYSTEM_LIBRARIES__WI_ASSIGNMENT_RULE_TYPES = 4;
+  int SYSTEM_LIBRARIES__WI_ASSIGNMENT_RULE_TYPES = 5;
 
   /**
    * The feature id for the '<em><b>Resource Allocation Rule Types</b></em>' containment reference list.
@@ -264,7 +273,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SYSTEM_LIBRARIES__RESOURCE_ALLOCATION_RULE_TYPES = 5;
+  int SYSTEM_LIBRARIES__RESOURCE_ALLOCATION_RULE_TYPES = 6;
 
   /**
    * The feature id for the '<em><b>Resource Outsourcing Rule Types</b></em>' containment reference list.
@@ -273,7 +282,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SYSTEM_LIBRARIES__RESOURCE_OUTSOURCING_RULE_TYPES = 6;
+  int SYSTEM_LIBRARIES__RESOURCE_OUTSOURCING_RULE_TYPES = 7;
 
   /**
    * The feature id for the '<em><b>Process Models</b></em>' containment reference list.
@@ -282,7 +291,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SYSTEM_LIBRARIES__PROCESS_MODELS = 7;
+  int SYSTEM_LIBRARIES__PROCESS_MODELS = 8;
 
   /**
    * The feature id for the '<em><b>Value Functions</b></em>' containment reference list.
@@ -291,7 +300,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SYSTEM_LIBRARIES__VALUE_FUNCTIONS = 8;
+  int SYSTEM_LIBRARIES__VALUE_FUNCTIONS = 9;
 
   /**
    * The number of structural features of the '<em>System Libraries</em>' class.
@@ -300,7 +309,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SYSTEM_LIBRARIES_FEATURE_COUNT = 9;
+  int SYSTEM_LIBRARIES_FEATURE_COUNT = 10;
 
   /**
    * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.UserLibrariesImpl <em>User Libraries</em>}' class.
@@ -404,6 +413,79 @@ public interface KanbanmodelPackage extends EPackage
   int NUM_EXPRESSION_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.OperatorImpl <em>Operator</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.OperatorImpl
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getOperator()
+   * @generated
+   */
+  int OPERATOR = 5;
+
+  /**
+   * The feature id for the '<em><b>Equal To</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATOR__EQUAL_TO = 0;
+
+  /**
+   * The feature id for the '<em><b>Larger Than</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATOR__LARGER_THAN = 1;
+
+  /**
+   * The feature id for the '<em><b>Smaller Than</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATOR__SMALLER_THAN = 2;
+
+  /**
+   * The feature id for the '<em><b>Larger Or Equal To</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATOR__LARGER_OR_EQUAL_TO = 3;
+
+  /**
+   * The feature id for the '<em><b>Smaller Or Equal To</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATOR__SMALLER_OR_EQUAL_TO = 4;
+
+  /**
+   * The feature id for the '<em><b>Not Equal To</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATOR__NOT_EQUAL_TO = 5;
+
+  /**
+   * The number of structural features of the '<em>Operator</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATOR_FEATURE_COUNT = 6;
+
+  /**
    * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.DistributionImpl <em>Distribution</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -411,7 +493,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getDistribution()
    * @generated
    */
-  int DISTRIBUTION = 5;
+  int DISTRIBUTION = 6;
 
   /**
    * The feature id for the '<em><b>Is Normal</b></em>' attribute.
@@ -466,7 +548,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getEventType()
    * @generated
    */
-  int EVENT_TYPE = 6;
+  int EVENT_TYPE = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -503,7 +585,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getConditionType()
    * @generated
    */
-  int CONDITION_TYPE = 7;
+  int CONDITION_TYPE = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -533,14 +615,14 @@ public interface KanbanmodelPackage extends EPackage
   int CONDITION_TYPE_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ActivityTypeImpl <em>Activity Type</em>}' class.
+   * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.TransitionTypeImpl <em>Transition Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ActivityTypeImpl
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getActivityType()
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.TransitionTypeImpl
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getTransitionType()
    * @generated
    */
-  int ACTIVITY_TYPE = 8;
+  int TRANSITION_TYPE = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -549,7 +631,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACTIVITY_TYPE__NAME = 0;
+  int TRANSITION_TYPE__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -558,16 +640,182 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACTIVITY_TYPE__DESCRIPTION = 1;
+  int TRANSITION_TYPE__DESCRIPTION = 1;
 
   /**
-   * The number of structural features of the '<em>Activity Type</em>' class.
+   * The number of structural features of the '<em>Transition Type</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTIVITY_TYPE_FEATURE_COUNT = 2;
+  int TRANSITION_TYPE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ProcessModelImpl <em>Process Model</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ProcessModelImpl
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getProcessModel()
+   * @generated
+   */
+  int PROCESS_MODEL = 10;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROCESS_MODEL__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROCESS_MODEL__DESCRIPTION = 1;
+
+  /**
+   * The feature id for the '<em><b>Events</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROCESS_MODEL__EVENTS = 2;
+
+  /**
+   * The number of structural features of the '<em>Process Model</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROCESS_MODEL_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.EventImpl <em>Event</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.EventImpl
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getEvent()
+   * @generated
+   */
+  int EVENT = 11;
+
+  /**
+   * The feature id for the '<em><b>Conditions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EVENT__CONDITIONS = 0;
+
+  /**
+   * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EVENT__TRANSITIONS = 1;
+
+  /**
+   * The number of structural features of the '<em>Event</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EVENT_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ConditionImpl <em>Condition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ConditionImpl
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getCondition()
+   * @generated
+   */
+  int CONDITION = 12;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__TYPE = 0;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__OPERATOR = 1;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__VALUE = 2;
+
+  /**
+   * The number of structural features of the '<em>Condition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.TransitionImpl <em>Transition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.TransitionImpl
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getTransition()
+   * @generated
+   */
+  int TRANSITION = 13;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSITION__TYPE = 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSITION__VALUE = 1;
+
+  /**
+   * The number of structural features of the '<em>Transition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSITION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.AgentRoleTypeImpl <em>Agent Role Type</em>}' class.
@@ -577,7 +825,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getAgentRoleType()
    * @generated
    */
-  int AGENT_ROLE_TYPE = 9;
+  int AGENT_ROLE_TYPE = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -614,7 +862,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWINReplicationSetting()
    * @generated
    */
-  int WIN_REPLICATION_SETTING = 10;
+  int WIN_REPLICATION_SETTING = 15;
 
   /**
    * The feature id for the '<em><b>WIN Replications</b></em>' containment reference list.
@@ -642,7 +890,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWINReplication()
    * @generated
    */
-  int WIN_REPLICATION = 11;
+  int WIN_REPLICATION = 16;
 
   /**
    * The feature id for the '<em><b>Work Item Network</b></em>' reference.
@@ -679,7 +927,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getIndicators()
    * @generated
    */
-  int INDICATORS = 12;
+  int INDICATORS = 17;
 
   /**
    * The feature id for the '<em><b>Indicators</b></em>' attribute list.
@@ -707,7 +955,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getGovernanceStrategy()
    * @generated
    */
-  int GOVERNANCE_STRATEGY = 13;
+  int GOVERNANCE_STRATEGY = 18;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -807,7 +1055,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWIAcceptance()
    * @generated
    */
-  int WI_ACCEPTANCE = 14;
+  int WI_ACCEPTANCE = 19;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -862,7 +1110,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWISelection()
    * @generated
    */
-  int WI_SELECTION = 15;
+  int WI_SELECTION = 20;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -899,7 +1147,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWIAssignment()
    * @generated
    */
-  int WI_ASSIGNMENT = 16;
+  int WI_ASSIGNMENT = 21;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -936,7 +1184,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getResourceAllocation()
    * @generated
    */
-  int RESOURCE_ALLOCATION = 17;
+  int RESOURCE_ALLOCATION = 22;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -973,7 +1221,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getResourceOutsourcing()
    * @generated
    */
-  int RESOURCE_OUTSOURCING = 18;
+  int RESOURCE_OUTSOURCING = 23;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1010,7 +1258,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWIAcceptanceRuleType()
    * @generated
    */
-  int WI_ACCEPTANCE_RULE_TYPE = 19;
+  int WI_ACCEPTANCE_RULE_TYPE = 24;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1047,7 +1295,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWISelectionRuleType()
    * @generated
    */
-  int WI_SELECTION_RULE_TYPE = 20;
+  int WI_SELECTION_RULE_TYPE = 25;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1084,7 +1332,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWIAssignmentRuleType()
    * @generated
    */
-  int WI_ASSIGNMENT_RULE_TYPE = 21;
+  int WI_ASSIGNMENT_RULE_TYPE = 26;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1121,7 +1369,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getResourceAllocationRuleType()
    * @generated
    */
-  int RESOURCE_ALLOCATION_RULE_TYPE = 22;
+  int RESOURCE_ALLOCATION_RULE_TYPE = 27;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1158,7 +1406,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getResourceOutsourcingRuleType()
    * @generated
    */
-  int RESOURCE_OUTSOURCING_RULE_TYPE = 23;
+  int RESOURCE_OUTSOURCING_RULE_TYPE = 28;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1195,7 +1443,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getMechanism()
    * @generated
    */
-  int MECHANISM = 24;
+  int MECHANISM = 29;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1250,7 +1498,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getMechanismAttribute()
    * @generated
    */
-  int MECHANISM_ATTRIBUTE = 25;
+  int MECHANISM_ATTRIBUTE = 30;
 
   /**
    * The feature id for the '<em><b>Attribute</b></em>' attribute.
@@ -1287,7 +1535,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWorkSource()
    * @generated
    */
-  int WORK_SOURCE = 26;
+  int WORK_SOURCE = 31;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1351,7 +1599,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWorkItemNetwork()
    * @generated
    */
-  int WORK_ITEM_NETWORK = 27;
+  int WORK_ITEM_NETWORK = 32;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1406,7 +1654,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWorkItem()
    * @generated
    */
-  int WORK_ITEM = 28;
+  int WORK_ITEM = 33;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1569,7 +1817,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getCausalTrigger()
    * @generated
    */
-  int CAUSAL_TRIGGER = 29;
+  int CAUSAL_TRIGGER = 34;
 
   /**
    * The feature id for the '<em><b>Triggered</b></em>' reference list.
@@ -1615,7 +1863,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWorkItemType()
    * @generated
    */
-  int WORK_ITEM_TYPE = 30;
+  int WORK_ITEM_TYPE = 35;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1661,7 +1909,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getValueFunction()
    * @generated
    */
-  int VALUE_FUNCTION = 31;
+  int VALUE_FUNCTION = 36;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1691,43 +1939,6 @@ public interface KanbanmodelPackage extends EPackage
   int VALUE_FUNCTION_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ProcessModelImpl <em>Process Model</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ProcessModelImpl
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getProcessModel()
-   * @generated
-   */
-  int PROCESS_MODEL = 32;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PROCESS_MODEL__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Description</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PROCESS_MODEL__DESCRIPTION = 1;
-
-  /**
-   * The number of structural features of the '<em>Process Model</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PROCESS_MODEL_FEATURE_COUNT = 2;
-
-  /**
    * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ClassOfServiceImpl <em>Class Of Service</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1735,7 +1946,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getClassOfService()
    * @generated
    */
-  int CLASS_OF_SERVICE = 33;
+  int CLASS_OF_SERVICE = 37;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1765,13 +1976,13 @@ public interface KanbanmodelPackage extends EPackage
   int CLASS_OF_SERVICE__DESCRIPTION = 2;
 
   /**
-   * The feature id for the '<em><b>Is Disruptive</b></em>' attribute.
+   * The feature id for the '<em><b>Disruptive</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLASS_OF_SERVICE__IS_DISRUPTIVE = 3;
+  int CLASS_OF_SERVICE__DISRUPTIVE = 3;
 
   /**
    * The number of structural features of the '<em>Class Of Service</em>' class.
@@ -1790,7 +2001,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getService()
    * @generated
    */
-  int SERVICE = 34;
+  int SERVICE = 38;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1836,7 +2047,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getServiceProvider()
    * @generated
    */
-  int SERVICE_PROVIDER = 35;
+  int SERVICE_PROVIDER = 39;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1927,7 +2138,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getAsset()
    * @generated
    */
-  int ASSET = 36;
+  int ASSET = 40;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1982,7 +2193,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getSkill()
    * @generated
    */
-  int SKILL = 37;
+  int SKILL = 41;
 
   /**
    * The feature id for the '<em><b>Service</b></em>' reference.
@@ -2197,6 +2408,17 @@ public interface KanbanmodelPackage extends EPackage
   EReference getSystemLibraries_ConditionTypes();
 
   /**
+   * Returns the meta object for the containment reference list '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.SystemLibraries#getTransitionTypes <em>Transition Types</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Transition Types</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.SystemLibraries#getTransitionTypes()
+   * @see #getSystemLibraries()
+   * @generated
+   */
+  EReference getSystemLibraries_TransitionTypes();
+
+  /**
    * Returns the meta object for the containment reference list '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.SystemLibraries#getWIAcceptanceRuleTypes <em>WI Acceptance Rule Types</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2371,6 +2593,82 @@ public interface KanbanmodelPackage extends EPackage
   EReference getNumExpression_NumDist();
 
   /**
+   * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Operator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Operator</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Operator
+   * @generated
+   */
+  EClass getOperator();
+
+  /**
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Operator#isEqualTo <em>Equal To</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Equal To</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Operator#isEqualTo()
+   * @see #getOperator()
+   * @generated
+   */
+  EAttribute getOperator_EqualTo();
+
+  /**
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Operator#isLargerThan <em>Larger Than</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Larger Than</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Operator#isLargerThan()
+   * @see #getOperator()
+   * @generated
+   */
+  EAttribute getOperator_LargerThan();
+
+  /**
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Operator#isSmallerThan <em>Smaller Than</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Smaller Than</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Operator#isSmallerThan()
+   * @see #getOperator()
+   * @generated
+   */
+  EAttribute getOperator_SmallerThan();
+
+  /**
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Operator#isLargerOrEqualTo <em>Larger Or Equal To</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Larger Or Equal To</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Operator#isLargerOrEqualTo()
+   * @see #getOperator()
+   * @generated
+   */
+  EAttribute getOperator_LargerOrEqualTo();
+
+  /**
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Operator#isSmallerOrEqualTo <em>Smaller Or Equal To</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Smaller Or Equal To</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Operator#isSmallerOrEqualTo()
+   * @see #getOperator()
+   * @generated
+   */
+  EAttribute getOperator_SmallerOrEqualTo();
+
+  /**
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Operator#isNotEqualTo <em>Not Equal To</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Not Equal To</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Operator#isNotEqualTo()
+   * @see #getOperator()
+   * @generated
+   */
+  EAttribute getOperator_NotEqualTo();
+
+  /**
    * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution <em>Distribution</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2489,36 +2787,186 @@ public interface KanbanmodelPackage extends EPackage
   EAttribute getConditionType_Description();
 
   /**
-   * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ActivityType <em>Activity Type</em>}'.
+   * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.TransitionType <em>Transition Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Activity Type</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ActivityType
+   * @return the meta object for class '<em>Transition Type</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.TransitionType
    * @generated
    */
-  EClass getActivityType();
+  EClass getTransitionType();
 
   /**
-   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ActivityType#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.TransitionType#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ActivityType#getName()
-   * @see #getActivityType()
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.TransitionType#getName()
+   * @see #getTransitionType()
    * @generated
    */
-  EAttribute getActivityType_Name();
+  EAttribute getTransitionType_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ActivityType#getDescription <em>Description</em>}'.
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.TransitionType#getDescription <em>Description</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Description</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ActivityType#getDescription()
-   * @see #getActivityType()
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.TransitionType#getDescription()
+   * @see #getTransitionType()
    * @generated
    */
-  EAttribute getActivityType_Description();
+  EAttribute getTransitionType_Description();
+
+  /**
+   * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel <em>Process Model</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Process Model</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel
+   * @generated
+   */
+  EClass getProcessModel();
+
+  /**
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel#getName()
+   * @see #getProcessModel()
+   * @generated
+   */
+  EAttribute getProcessModel_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel#getDescription()
+   * @see #getProcessModel()
+   * @generated
+   */
+  EAttribute getProcessModel_Description();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel#getEvents <em>Events</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Events</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel#getEvents()
+   * @see #getProcessModel()
+   * @generated
+   */
+  EReference getProcessModel_Events();
+
+  /**
+   * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Event <em>Event</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Event</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Event
+   * @generated
+   */
+  EClass getEvent();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Event#getConditions <em>Conditions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Conditions</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Event#getConditions()
+   * @see #getEvent()
+   * @generated
+   */
+  EReference getEvent_Conditions();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Event#getTransitions <em>Transitions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Transitions</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Event#getTransitions()
+   * @see #getEvent()
+   * @generated
+   */
+  EReference getEvent_Transitions();
+
+  /**
+   * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Condition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Condition</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Condition
+   * @generated
+   */
+  EClass getCondition();
+
+  /**
+   * Returns the meta object for the reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Condition#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Condition#getType()
+   * @see #getCondition()
+   * @generated
+   */
+  EReference getCondition_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Condition#getOperator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Operator</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Condition#getOperator()
+   * @see #getCondition()
+   * @generated
+   */
+  EReference getCondition_Operator();
+
+  /**
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Condition#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Condition#getValue()
+   * @see #getCondition()
+   * @generated
+   */
+  EAttribute getCondition_Value();
+
+  /**
+   * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Transition <em>Transition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Transition</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Transition
+   * @generated
+   */
+  EClass getTransition();
+
+  /**
+   * Returns the meta object for the reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Transition#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Transition#getType()
+   * @see #getTransition()
+   * @generated
+   */
+  EReference getTransition_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Transition#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Transition#getValue()
+   * @see #getTransition()
+   * @generated
+   */
+  EAttribute getTransition_Value();
 
   /**
    * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.AgentRoleType <em>Agent Role Type</em>}'.
@@ -3587,38 +4035,6 @@ public interface KanbanmodelPackage extends EPackage
   EAttribute getValueFunction_Description();
 
   /**
-   * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel <em>Process Model</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Process Model</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel
-   * @generated
-   */
-  EClass getProcessModel();
-
-  /**
-   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel#getName()
-   * @see #getProcessModel()
-   * @generated
-   */
-  EAttribute getProcessModel_Name();
-
-  /**
-   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel#getDescription <em>Description</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Description</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel#getDescription()
-   * @see #getProcessModel()
-   * @generated
-   */
-  EAttribute getProcessModel_Description();
-
-  /**
    * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService <em>Class Of Service</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3662,15 +4078,15 @@ public interface KanbanmodelPackage extends EPackage
   EAttribute getClassOfService_Description();
 
   /**
-   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService#isIsDisruptive <em>Is Disruptive</em>}'.
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService#isDisruptive <em>Disruptive</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Is Disruptive</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService#isIsDisruptive()
+   * @return the meta object for the attribute '<em>Disruptive</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService#isDisruptive()
    * @see #getClassOfService()
    * @generated
    */
-  EAttribute getClassOfService_IsDisruptive();
+  EAttribute getClassOfService_Disruptive();
 
   /**
    * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Service <em>Service</em>}'.
@@ -4065,6 +4481,14 @@ public interface KanbanmodelPackage extends EPackage
     EReference SYSTEM_LIBRARIES__CONDITION_TYPES = eINSTANCE.getSystemLibraries_ConditionTypes();
 
     /**
+     * The meta object literal for the '<em><b>Transition Types</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SYSTEM_LIBRARIES__TRANSITION_TYPES = eINSTANCE.getSystemLibraries_TransitionTypes();
+
+    /**
      * The meta object literal for the '<em><b>WI Acceptance Rule Types</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4197,6 +4621,64 @@ public interface KanbanmodelPackage extends EPackage
     EReference NUM_EXPRESSION__NUM_DIST = eINSTANCE.getNumExpression_NumDist();
 
     /**
+     * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.OperatorImpl <em>Operator</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.OperatorImpl
+     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getOperator()
+     * @generated
+     */
+    EClass OPERATOR = eINSTANCE.getOperator();
+
+    /**
+     * The meta object literal for the '<em><b>Equal To</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATOR__EQUAL_TO = eINSTANCE.getOperator_EqualTo();
+
+    /**
+     * The meta object literal for the '<em><b>Larger Than</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATOR__LARGER_THAN = eINSTANCE.getOperator_LargerThan();
+
+    /**
+     * The meta object literal for the '<em><b>Smaller Than</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATOR__SMALLER_THAN = eINSTANCE.getOperator_SmallerThan();
+
+    /**
+     * The meta object literal for the '<em><b>Larger Or Equal To</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATOR__LARGER_OR_EQUAL_TO = eINSTANCE.getOperator_LargerOrEqualTo();
+
+    /**
+     * The meta object literal for the '<em><b>Smaller Or Equal To</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATOR__SMALLER_OR_EQUAL_TO = eINSTANCE.getOperator_SmallerOrEqualTo();
+
+    /**
+     * The meta object literal for the '<em><b>Not Equal To</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATOR__NOT_EQUAL_TO = eINSTANCE.getOperator_NotEqualTo();
+
+    /**
      * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.DistributionImpl <em>Distribution</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4291,14 +4773,14 @@ public interface KanbanmodelPackage extends EPackage
     EAttribute CONDITION_TYPE__DESCRIPTION = eINSTANCE.getConditionType_Description();
 
     /**
-     * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ActivityTypeImpl <em>Activity Type</em>}' class.
+     * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.TransitionTypeImpl <em>Transition Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ActivityTypeImpl
-     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getActivityType()
+     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.TransitionTypeImpl
+     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getTransitionType()
      * @generated
      */
-    EClass ACTIVITY_TYPE = eINSTANCE.getActivityType();
+    EClass TRANSITION_TYPE = eINSTANCE.getTransitionType();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -4306,7 +4788,7 @@ public interface KanbanmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ACTIVITY_TYPE__NAME = eINSTANCE.getActivityType_Name();
+    EAttribute TRANSITION_TYPE__NAME = eINSTANCE.getTransitionType_Name();
 
     /**
      * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -4314,7 +4796,127 @@ public interface KanbanmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ACTIVITY_TYPE__DESCRIPTION = eINSTANCE.getActivityType_Description();
+    EAttribute TRANSITION_TYPE__DESCRIPTION = eINSTANCE.getTransitionType_Description();
+
+    /**
+     * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ProcessModelImpl <em>Process Model</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ProcessModelImpl
+     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getProcessModel()
+     * @generated
+     */
+    EClass PROCESS_MODEL = eINSTANCE.getProcessModel();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROCESS_MODEL__NAME = eINSTANCE.getProcessModel_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROCESS_MODEL__DESCRIPTION = eINSTANCE.getProcessModel_Description();
+
+    /**
+     * The meta object literal for the '<em><b>Events</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROCESS_MODEL__EVENTS = eINSTANCE.getProcessModel_Events();
+
+    /**
+     * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.EventImpl <em>Event</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.EventImpl
+     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getEvent()
+     * @generated
+     */
+    EClass EVENT = eINSTANCE.getEvent();
+
+    /**
+     * The meta object literal for the '<em><b>Conditions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EVENT__CONDITIONS = eINSTANCE.getEvent_Conditions();
+
+    /**
+     * The meta object literal for the '<em><b>Transitions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EVENT__TRANSITIONS = eINSTANCE.getEvent_Transitions();
+
+    /**
+     * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ConditionImpl <em>Condition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ConditionImpl
+     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getCondition()
+     * @generated
+     */
+    EClass CONDITION = eINSTANCE.getCondition();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONDITION__TYPE = eINSTANCE.getCondition_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Operator</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONDITION__OPERATOR = eINSTANCE.getCondition_Operator();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONDITION__VALUE = eINSTANCE.getCondition_Value();
+
+    /**
+     * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.TransitionImpl <em>Transition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.TransitionImpl
+     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getTransition()
+     * @generated
+     */
+    EClass TRANSITION = eINSTANCE.getTransition();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRANSITION__TYPE = eINSTANCE.getTransition_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TRANSITION__VALUE = eINSTANCE.getTransition_Value();
 
     /**
      * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.AgentRoleTypeImpl <em>Agent Role Type</em>}' class.
@@ -5155,32 +5757,6 @@ public interface KanbanmodelPackage extends EPackage
     EAttribute VALUE_FUNCTION__DESCRIPTION = eINSTANCE.getValueFunction_Description();
 
     /**
-     * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ProcessModelImpl <em>Process Model</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ProcessModelImpl
-     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getProcessModel()
-     * @generated
-     */
-    EClass PROCESS_MODEL = eINSTANCE.getProcessModel();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PROCESS_MODEL__NAME = eINSTANCE.getProcessModel_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PROCESS_MODEL__DESCRIPTION = eINSTANCE.getProcessModel_Description();
-
-    /**
      * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ClassOfServiceImpl <em>Class Of Service</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5215,12 +5791,12 @@ public interface KanbanmodelPackage extends EPackage
     EAttribute CLASS_OF_SERVICE__DESCRIPTION = eINSTANCE.getClassOfService_Description();
 
     /**
-     * The meta object literal for the '<em><b>Is Disruptive</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Disruptive</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CLASS_OF_SERVICE__IS_DISRUPTIVE = eINSTANCE.getClassOfService_IsDisruptive();
+    EAttribute CLASS_OF_SERVICE__DISRUPTIVE = eINSTANCE.getClassOfService_Disruptive();
 
     /**
      * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceImpl <em>Service</em>}' class.

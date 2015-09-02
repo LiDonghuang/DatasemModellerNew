@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService#getId <em>Id</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService#isIsDisruptive <em>Is Disruptive</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService#isDisruptive <em>Disruptive</em>}</li>
  * </ul>
  * </p>
  *
@@ -104,29 +104,29 @@ public interface ClassOfService extends EObject
   void setDescription(String value);
 
   /**
-   * Returns the value of the '<em><b>Is Disruptive</b></em>' attribute.
+   * Returns the value of the '<em><b>Disruptive</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Is Disruptive</em>' attribute isn't clear,
+   * If the meaning of the '<em>Disruptive</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Is Disruptive</em>' attribute.
-   * @see #setIsDisruptive(boolean)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getClassOfService_IsDisruptive()
+   * @return the value of the '<em>Disruptive</em>' attribute.
+   * @see #setDisruptive(boolean)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getClassOfService_Disruptive()
    * @model
    * @generated
    */
-  boolean isIsDisruptive();
+  boolean isDisruptive();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService#isIsDisruptive <em>Is Disruptive</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService#isDisruptive <em>Disruptive</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Is Disruptive</em>' attribute.
-   * @see #isIsDisruptive()
+   * @param value the new value of the '<em>Disruptive</em>' attribute.
+   * @see #isDisruptive()
    * @generated
    */
-  void setIsDisruptive(boolean value);
+  void setDisruptive(boolean value);
 
 } // ClassOfService

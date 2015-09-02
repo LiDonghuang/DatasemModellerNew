@@ -25,7 +25,7 @@ public class KanbanmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_CausalTrigger_EqualsSignGreaterThanSignKeyword_0_0_or_HyphenMinusGreaterThanSignKeyword_0_1;
 	protected AbstractElementAlias match_ServiceProvider_GroupKeyword_1_1_or_ServiceProviderKeyword_1_0;
 	protected AbstractElementAlias match_Service___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q;
-	protected AbstractElementAlias match_WorkItem_CausalTriggersKeyword_8_0_q;
+	protected AbstractElementAlias match_WorkItem_CausalTriggersKeyword_9_0_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -33,7 +33,7 @@ public class KanbanmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_CausalTrigger_EqualsSignGreaterThanSignKeyword_0_0_or_HyphenMinusGreaterThanSignKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getCausalTriggerAccess().getEqualsSignGreaterThanSignKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getCausalTriggerAccess().getHyphenMinusGreaterThanSignKeyword_0_1()));
 		match_ServiceProvider_GroupKeyword_1_1_or_ServiceProviderKeyword_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getServiceProviderAccess().getGroupKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getServiceProviderAccess().getServiceProviderKeyword_1_0()));
 		match_Service___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getServiceAccess().getLeftCurlyBracketKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getServiceAccess().getRightCurlyBracketKeyword_3_2()));
-		match_WorkItem_CausalTriggersKeyword_8_0_q = new TokenAlias(false, true, grammarAccess.getWorkItemAccess().getCausalTriggersKeyword_8_0());
+		match_WorkItem_CausalTriggersKeyword_9_0_q = new TokenAlias(false, true, grammarAccess.getWorkItemAccess().getCausalTriggersKeyword_9_0());
 	}
 	
 	@Override
@@ -54,8 +54,8 @@ public class KanbanmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_ServiceProvider_GroupKeyword_1_1_or_ServiceProviderKeyword_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Service___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q.equals(syntax))
 				emit_Service___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_WorkItem_CausalTriggersKeyword_8_0_q.equals(syntax))
-				emit_WorkItem_CausalTriggersKeyword_8_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_WorkItem_CausalTriggersKeyword_9_0_q.equals(syntax))
+				emit_WorkItem_CausalTriggersKeyword_9_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -99,48 +99,11 @@ public class KanbanmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'CausalTriggers'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     description=STRING (ambiguity) 'RequiredServices' '{' requiredServices+=[Service|ID]
-	 *     description=STRING (ambiguity) '}' 'ArrivalTime' arrivalTime=INT
-	 *     description=STRING (ambiguity) '}' 'ClassOfService' classOfService=[ClassOfService|ID]
-	 *     description=STRING (ambiguity) '}' 'DueDate' dueDate=INT
-	 *     description=STRING (ambiguity) '}' 'Efforts' efforts=NumExpression
-	 *     description=STRING (ambiguity) '}' 'Value' value=NumExpression
-	 *     description=STRING (ambiguity) '}' 'WorkSource' workSource=[WorkSource|ID]
-	 *     description=STRING (ambiguity) '}' '}' (rule end)
-	 *     name=ID '{' (ambiguity) 'RequiredServices' '{' requiredServices+=[Service|ID]
-	 *     name=ID '{' (ambiguity) '}' 'ArrivalTime' arrivalTime=INT
-	 *     name=ID '{' (ambiguity) '}' 'ClassOfService' classOfService=[ClassOfService|ID]
-	 *     name=ID '{' (ambiguity) '}' 'DueDate' dueDate=INT
-	 *     name=ID '{' (ambiguity) '}' 'Efforts' efforts=NumExpression
-	 *     name=ID '{' (ambiguity) '}' 'Value' value=NumExpression
-	 *     name=ID '{' (ambiguity) '}' 'WorkSource' workSource=[WorkSource|ID]
-	 *     name=ID '{' (ambiguity) '}' '}' (rule end)
 	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) 'RequiredServices' '{' requiredServices+=[Service|ID]
-	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) '}' 'ArrivalTime' arrivalTime=INT
-	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) '}' 'ClassOfService' classOfService=[ClassOfService|ID]
-	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) '}' 'DueDate' dueDate=INT
-	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) '}' 'Efforts' efforts=NumExpression
-	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) '}' 'Value' value=NumExpression
-	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) '}' 'WorkSource' workSource=[WorkSource|ID]
-	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) '}' '}' (rule end)
 	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) 'RequiredServices' '{' requiredServices+=[Service|ID]
-	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) '}' 'ArrivalTime' arrivalTime=INT
-	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) '}' 'ClassOfService' classOfService=[ClassOfService|ID]
-	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) '}' 'DueDate' dueDate=INT
-	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) '}' 'Efforts' efforts=NumExpression
-	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) '}' 'Value' value=NumExpression
-	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) '}' 'WorkSource' workSource=[WorkSource|ID]
-	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) '}' '}' (rule end)
 	 *     type=[WorkItemType|ID] (ambiguity) 'RequiredServices' '{' requiredServices+=[Service|ID]
-	 *     type=[WorkItemType|ID] (ambiguity) '}' 'ArrivalTime' arrivalTime=INT
-	 *     type=[WorkItemType|ID] (ambiguity) '}' 'ClassOfService' classOfService=[ClassOfService|ID]
-	 *     type=[WorkItemType|ID] (ambiguity) '}' 'DueDate' dueDate=INT
-	 *     type=[WorkItemType|ID] (ambiguity) '}' 'Efforts' efforts=NumExpression
-	 *     type=[WorkItemType|ID] (ambiguity) '}' 'Value' value=NumExpression
-	 *     type=[WorkItemType|ID] (ambiguity) '}' 'WorkSource' workSource=[WorkSource|ID]
-	 *     type=[WorkItemType|ID] (ambiguity) '}' '}' (rule end)
 	 */
-	protected void emit_WorkItem_CausalTriggersKeyword_8_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_WorkItem_CausalTriggersKeyword_9_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

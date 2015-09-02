@@ -26,6 +26,7 @@
     <genClasses ecoreClass="Kanbanmodel.ecore#//SystemLibraries">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//SystemLibraries/EventTypes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//SystemLibraries/ConditionTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//SystemLibraries/TransitionTypes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//SystemLibraries/WIAcceptanceRuleTypes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//SystemLibraries/WISelectionRuleTypes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//SystemLibraries/WIAssignmentRuleTypes"/>
@@ -45,6 +46,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//NumExpression/distribution"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//NumExpression/numDist"/>
     </genClasses>
+    <genClasses ecoreClass="Kanbanmodel.ecore#//Operator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Operator/equalTo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Operator/largerThan"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Operator/smallerThan"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Operator/largerOrEqualTo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Operator/smallerOrEqualTo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Operator/notEqualTo"/>
+    </genClasses>
     <genClasses ecoreClass="Kanbanmodel.ecore#//Distribution">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Distribution/isNormal"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Distribution/isUniform"/>
@@ -59,9 +68,27 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ConditionType/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ConditionType/description"/>
     </genClasses>
-    <genClasses ecoreClass="Kanbanmodel.ecore#//ActivityType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ActivityType/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ActivityType/description"/>
+    <genClasses ecoreClass="Kanbanmodel.ecore#//TransitionType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//TransitionType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//TransitionType/description"/>
+    </genClasses>
+    <genClasses ecoreClass="Kanbanmodel.ecore#//ProcessModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ProcessModel/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ProcessModel/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//ProcessModel/events"/>
+    </genClasses>
+    <genClasses ecoreClass="Kanbanmodel.ecore#//Event">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Event/conditions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Event/transitions"/>
+    </genClasses>
+    <genClasses ecoreClass="Kanbanmodel.ecore#//Condition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Condition/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Condition/operator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Condition/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Kanbanmodel.ecore#//Transition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kanbanmodel.ecore#//Transition/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Transition/value"/>
     </genClasses>
     <genClasses ecoreClass="Kanbanmodel.ecore#//AgentRoleType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//AgentRoleType/name"/>
@@ -185,15 +212,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ValueFunction/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ValueFunction/description"/>
     </genClasses>
-    <genClasses ecoreClass="Kanbanmodel.ecore#//ProcessModel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ProcessModel/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ProcessModel/description"/>
-    </genClasses>
     <genClasses ecoreClass="Kanbanmodel.ecore#//ClassOfService">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ClassOfService/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ClassOfService/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ClassOfService/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ClassOfService/isDisruptive"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//ClassOfService/disruptive"/>
     </genClasses>
     <genClasses ecoreClass="Kanbanmodel.ecore#//Service">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kanbanmodel.ecore#//Service/id"/>

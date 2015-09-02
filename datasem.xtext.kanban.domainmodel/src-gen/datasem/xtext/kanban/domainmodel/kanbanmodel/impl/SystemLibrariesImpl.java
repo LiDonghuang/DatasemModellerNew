@@ -9,6 +9,7 @@ import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocationRuleType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcingRuleType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.SystemLibraries;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.TransitionType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ValueFunction;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptanceRuleType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignmentRuleType;
@@ -37,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.SystemLibrariesImpl#getEventTypes <em>Event Types</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.SystemLibrariesImpl#getConditionTypes <em>Condition Types</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.SystemLibrariesImpl#getTransitionTypes <em>Transition Types</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.SystemLibrariesImpl#getWIAcceptanceRuleTypes <em>WI Acceptance Rule Types</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.SystemLibrariesImpl#getWISelectionRuleTypes <em>WI Selection Rule Types</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.SystemLibrariesImpl#getWIAssignmentRuleTypes <em>WI Assignment Rule Types</em>}</li>
@@ -70,6 +72,16 @@ public class SystemLibrariesImpl extends MinimalEObjectImpl.Container implements
    * @ordered
    */
   protected EList<ConditionType> conditionTypes;
+
+  /**
+   * The cached value of the '{@link #getTransitionTypes() <em>Transition Types</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTransitionTypes()
+   * @generated
+   * @ordered
+   */
+  protected EList<TransitionType> transitionTypes;
 
   /**
    * The cached value of the '{@link #getWIAcceptanceRuleTypes() <em>WI Acceptance Rule Types</em>}' containment reference list.
@@ -195,6 +207,20 @@ public class SystemLibrariesImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<TransitionType> getTransitionTypes()
+  {
+    if (transitionTypes == null)
+    {
+      transitionTypes = new EObjectContainmentEList<TransitionType>(TransitionType.class, this, KanbanmodelPackage.SYSTEM_LIBRARIES__TRANSITION_TYPES);
+    }
+    return transitionTypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<WIAcceptanceRuleType> getWIAcceptanceRuleTypes()
   {
     if (wiAcceptanceRuleTypes == null)
@@ -302,6 +328,8 @@ public class SystemLibrariesImpl extends MinimalEObjectImpl.Container implements
         return ((InternalEList<?>)getEventTypes()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.SYSTEM_LIBRARIES__CONDITION_TYPES:
         return ((InternalEList<?>)getConditionTypes()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.SYSTEM_LIBRARIES__TRANSITION_TYPES:
+        return ((InternalEList<?>)getTransitionTypes()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.SYSTEM_LIBRARIES__WI_ACCEPTANCE_RULE_TYPES:
         return ((InternalEList<?>)getWIAcceptanceRuleTypes()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.SYSTEM_LIBRARIES__WI_SELECTION_RULE_TYPES:
@@ -334,6 +362,8 @@ public class SystemLibrariesImpl extends MinimalEObjectImpl.Container implements
         return getEventTypes();
       case KanbanmodelPackage.SYSTEM_LIBRARIES__CONDITION_TYPES:
         return getConditionTypes();
+      case KanbanmodelPackage.SYSTEM_LIBRARIES__TRANSITION_TYPES:
+        return getTransitionTypes();
       case KanbanmodelPackage.SYSTEM_LIBRARIES__WI_ACCEPTANCE_RULE_TYPES:
         return getWIAcceptanceRuleTypes();
       case KanbanmodelPackage.SYSTEM_LIBRARIES__WI_SELECTION_RULE_TYPES:
@@ -370,6 +400,10 @@ public class SystemLibrariesImpl extends MinimalEObjectImpl.Container implements
       case KanbanmodelPackage.SYSTEM_LIBRARIES__CONDITION_TYPES:
         getConditionTypes().clear();
         getConditionTypes().addAll((Collection<? extends ConditionType>)newValue);
+        return;
+      case KanbanmodelPackage.SYSTEM_LIBRARIES__TRANSITION_TYPES:
+        getTransitionTypes().clear();
+        getTransitionTypes().addAll((Collection<? extends TransitionType>)newValue);
         return;
       case KanbanmodelPackage.SYSTEM_LIBRARIES__WI_ACCEPTANCE_RULE_TYPES:
         getWIAcceptanceRuleTypes().clear();
@@ -419,6 +453,9 @@ public class SystemLibrariesImpl extends MinimalEObjectImpl.Container implements
       case KanbanmodelPackage.SYSTEM_LIBRARIES__CONDITION_TYPES:
         getConditionTypes().clear();
         return;
+      case KanbanmodelPackage.SYSTEM_LIBRARIES__TRANSITION_TYPES:
+        getTransitionTypes().clear();
+        return;
       case KanbanmodelPackage.SYSTEM_LIBRARIES__WI_ACCEPTANCE_RULE_TYPES:
         getWIAcceptanceRuleTypes().clear();
         return;
@@ -458,6 +495,8 @@ public class SystemLibrariesImpl extends MinimalEObjectImpl.Container implements
         return eventTypes != null && !eventTypes.isEmpty();
       case KanbanmodelPackage.SYSTEM_LIBRARIES__CONDITION_TYPES:
         return conditionTypes != null && !conditionTypes.isEmpty();
+      case KanbanmodelPackage.SYSTEM_LIBRARIES__TRANSITION_TYPES:
+        return transitionTypes != null && !transitionTypes.isEmpty();
       case KanbanmodelPackage.SYSTEM_LIBRARIES__WI_ACCEPTANCE_RULE_TYPES:
         return wiAcceptanceRuleTypes != null && !wiAcceptanceRuleTypes.isEmpty();
       case KanbanmodelPackage.SYSTEM_LIBRARIES__WI_SELECTION_RULE_TYPES:

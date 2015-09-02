@@ -2,6 +2,8 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel#getDescription <em>Description</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel#getEvents <em>Events</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,5 +77,21 @@ public interface ProcessModel extends EObject
    * @generated
    */
   void setDescription(String value);
+
+  /**
+   * Returns the value of the '<em><b>Events</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.Event}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Events</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Events</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getProcessModel_Events()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Event> getEvents();
 
 } // ProcessModel
