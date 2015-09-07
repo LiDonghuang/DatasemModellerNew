@@ -100,6 +100,13 @@ public class KanbanmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case KanbanmodelPackage.ABSTRACT_PARAMETER:
+      {
+        AbstractParameter abstractParameter = (AbstractParameter)theEObject;
+        T result = caseAbstractParameter(abstractParameter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case KanbanmodelPackage.NUM_EXPRESSION:
       {
         NumExpression numExpression = (NumExpression)theEObject;
@@ -111,6 +118,13 @@ public class KanbanmodelSwitch<T> extends Switch<T>
       {
         Operator operator = (Operator)theEObject;
         T result = caseOperator(operator);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.VARIABLE:
+      {
+        Variable variable = (Variable)theEObject;
+        T result = caseVariable(variable);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -177,24 +191,10 @@ public class KanbanmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case KanbanmodelPackage.WIN_REPLICATION_SETTING:
-      {
-        WINReplicationSetting winReplicationSetting = (WINReplicationSetting)theEObject;
-        T result = caseWINReplicationSetting(winReplicationSetting);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case KanbanmodelPackage.WIN_REPLICATION:
       {
         WINReplication winReplication = (WINReplication)theEObject;
         T result = caseWINReplication(winReplication);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case KanbanmodelPackage.INDICATORS:
-      {
-        Indicators indicators = (Indicators)theEObject;
-        T result = caseIndicators(indicators);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -435,6 +435,22 @@ public class KanbanmodelSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Abstract Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Abstract Parameter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAbstractParameter(AbstractParameter object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Num Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -462,6 +478,22 @@ public class KanbanmodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseOperator(Operator object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Variable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Variable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVariable(Variable object)
   {
     return null;
   }
@@ -611,22 +643,6 @@ public class KanbanmodelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>WIN Replication Setting</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>WIN Replication Setting</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseWINReplicationSetting(WINReplicationSetting object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>WIN Replication</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -638,22 +654,6 @@ public class KanbanmodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseWINReplication(WINReplication object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Indicators</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Indicators</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseIndicators(Indicators object)
   {
     return null;
   }

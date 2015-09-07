@@ -16,10 +16,11 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel#getPath <em>Path</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel#getVariables <em>Variables</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel#getServiceProviders <em>Service Providers</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel#getWorkSources <em>Work Sources</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel#getWorkItemNetworks <em>Work Item Networks</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel#getWINReplicationSetting <em>WIN Replication Setting</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel#getWINReplications <em>WIN Replications</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel#getIndicators <em>Indicators</em>}</li>
  * </ul>
  * </p>
@@ -83,6 +84,22 @@ public interface ExperimentModel extends EObject
   void setPath(String value);
 
   /**
+   * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.Variable}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Variables</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Variables</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getExperimentModel_Variables()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Variable> getVariables();
+
+  /**
    * Returns the value of the '<em><b>Service Providers</b></em>' containment reference list.
    * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider}.
    * <!-- begin-user-doc -->
@@ -131,55 +148,35 @@ public interface ExperimentModel extends EObject
   EList<WorkItemNetwork> getWorkItemNetworks();
 
   /**
-   * Returns the value of the '<em><b>WIN Replication Setting</b></em>' containment reference.
+   * Returns the value of the '<em><b>WIN Replications</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.WINReplication}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>WIN Replication Setting</em>' containment reference isn't clear,
+   * If the meaning of the '<em>WIN Replications</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>WIN Replication Setting</em>' containment reference.
-   * @see #setWINReplicationSetting(WINReplicationSetting)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getExperimentModel_WINReplicationSetting()
+   * @return the value of the '<em>WIN Replications</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getExperimentModel_WINReplications()
    * @model containment="true"
    * @generated
    */
-  WINReplicationSetting getWINReplicationSetting();
+  EList<WINReplication> getWINReplications();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel#getWINReplicationSetting <em>WIN Replication Setting</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>WIN Replication Setting</em>' containment reference.
-   * @see #getWINReplicationSetting()
-   * @generated
-   */
-  void setWINReplicationSetting(WINReplicationSetting value);
-
-  /**
-   * Returns the value of the '<em><b>Indicators</b></em>' containment reference.
+   * Returns the value of the '<em><b>Indicators</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Indicators</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Indicators</em>' attribute list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Indicators</em>' containment reference.
-   * @see #setIndicators(Indicators)
+   * @return the value of the '<em>Indicators</em>' attribute list.
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getExperimentModel_Indicators()
-   * @model containment="true"
+   * @model unique="false"
    * @generated
    */
-  Indicators getIndicators();
-
-  /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel#getIndicators <em>Indicators</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Indicators</em>' containment reference.
-   * @see #getIndicators()
-   * @generated
-   */
-  void setIndicators(Indicators value);
+  EList<String> getIndicators();
 
 } // ExperimentModel

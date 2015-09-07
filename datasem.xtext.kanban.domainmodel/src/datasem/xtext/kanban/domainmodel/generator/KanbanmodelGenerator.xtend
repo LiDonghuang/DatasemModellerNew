@@ -6,10 +6,10 @@ package datasem.xtext.kanban.domainmodel.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
-import datasem.xtext.kanban.domainmodel.kanbanmodel.*
 import java.util.Random
 import java.util.List
 import org.eclipse.emf.common.util.EList
+import datasem.xtext.kanban.domainmodel.kanbanmodel.*
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelFactory
 import java.text.DecimalFormat
 
@@ -37,14 +37,12 @@ class KanbanmodelGenerator implements IGenerator {
 def compile(Resource res) '''	
 «FOR emodel : res.allContents.toIterable.filter(ExperimentModel)»
 <ExperimentModel experimentId="0" name="«emodel.name»" description="xxx">
-«««	<FileName>"«emodel.name»"</FileName>
-«««	<FilePath>"«emodel.path»"</FilePath>
 «printIndicators(emodel.indicators)»
 «ENDFOR»
 «FOR ulib : res.allContents.toIterable.filter(UserLibraries)»	
 	«printWorkItemTypes(ulib.getWorkItemTypes())»
 	«printServices(ulib.getServices())»
-	«printClassOfServices(ulib.getClassOfServices())»	
+	«printClassOfServices(ulib.getClassOfServices())»
 «ENDFOR»
 «FOR emodel : res.allContents.toIterable.filter(ExperimentModel)»		
 	<Runs>
@@ -73,51 +71,10 @@ def compile(Resource res) '''
 </ExperimentModel>	
 '''
 // --------------------------------------------------------------------------
-
-	def printServices(EList<Service> ss) '''
-		<Services>
-		«var id=1»
-		«FOR s : ss»		
-			«s.setId(id++)»	
-			<Service serviceId="«s.id»" name="«s.name»" description="«s.description»"></Service>
-		«ENDFOR»
-		</Services>
-	'''	
-	def printClassOfServices(EList<ClassOfService> cs) '''
-		<ClassOfServices>
-		«var id=1»
-		«FOR c : cs»
-			«c.setId(id++)»	
-			<ClassOfService cosId="«c.id»" name="«c.name»" description="«c.description»" isDisruptive="«c.isDisruptive()»"></ClassOfService>
-		«ENDFOR»
-		</ClassOfServices>
-	'''	
-	def printWorkItemTypes(EList<WorkItemType> ts) '''
-		<WorkItemTypes>
-		«var id=1»
-		«FOR t : ts»
-			«t.setId(id++)»	
-			<WorkItemType wiTypeId="«t.id»" name="«t.name»" description="«t.description»"></WorkItemType>
-		«ENDFOR»
-		</WorkItemTypes>
-	'''	
-	def printIndicators(Indicators is) '''
-		«FOR i : is.indicators»
-		<Indicator name="«i»"></Indicator>
-		«ENDFOR»
-	'''
-	def printGovernanceStrategy(GovernanceStrategy govs) '''
-		«FOR m: govs.getMechanisms()»
-		 	«printMechanism(m)»
-		«ENDFOR»
-	'''
-	def printMechanism(Mechanism m) '''
-		<Mechanism name="«m.name»" value="«m.value»">
-		«FOR a: m.getAttributes()»
-			<Attribute name="«a.attribute»" value="«a.value»"></Attribute> 
-		«ENDFOR»
-		</Mechanism>
-	'''
+	def readUserVariableSettings () {
+		
+	}
+// --------------------------------------------------------------------------
 	def assignServiceProvidersId(EList<ServiceProvider> sps) '''
 		«var serviceProviderId=1»
 		«var resourceId=1»
@@ -128,15 +85,13 @@ def compile(Resource res) '''
 			«ENDFOR»
 		«ENDFOR»
 	'''
-	
-
 	def buildWorkItems(ExperimentModel emodel) '''
 		«var winId=1»
 		«FOR win: emodel.workItemNetworks»
 			«win.setId(winId++)»
 		«ENDFOR»
 		«var wiId=1»
-		«FOR winRS: emodel.WINReplicationSetting.WINReplications» 
+		«FOR winRS: emodel.WINReplications» 
 			«FOR r : 0..winRS.numReplications» 
 		    	«FOR wi : winRS.workItemNetwork.workItems »
 		    		«wi.setId(wiId++)»
@@ -147,49 +102,7 @@ def compile(Resource res) '''
 		    «ENDFOR»
 		«ENDFOR»    	
 	'''
-		
-//    def printWI(ExperimentModel emodel,WorkItem wi) {
-//    	var winId=1
-//		for (win: emodel.workItemNetworks) {
-//			win.setId(winId++)
-//		}
-//		var wiId=1
-//		for (winRS: emodel.WINReplicationSetting.WINReplications) { 
-//			for (var r = 0 ; r < winRS.numReplications ; r++) {
-//		    	for (w : winRS.workItemNetwork.workItems) {
-//		    		wi.setId(wiId++)
-//		    	}
-//		    	for (w : winRS.workItemNetwork.workItems) {
-//		    	}
-//		    }
-//		}
-//      	switch wi {     
-//      	WorkItem : '''
-//      	<WorkItem wiId=«wi.id» name="«wi.name»" typeId=«wi.getType.id» cosId=«wi.getClassOfService.id» efforts=«wi.efforts» value=«wi.value» isAggregationNode=«wi.isAggregationNode» hasPredecessors=«wi.hasPredecessors»>
-//      	«IF	wi.hasPredecessors»
-//			<Predecessors>
-//			«FOR ptask : wi.getPTasks()»
-//				<WorkItem workItemId=«ptask.id» name=«ptask.name»</WorkItem>
-//			«ENDFOR»	
-//			</Predecessors>
-//			«ENDIF»	
-//			«IF	wi.isAggregationNode»
-//			<Subtasks>
-//			«FOR stask : wi.getSTasks()»				
-//				<WorkItem workItemId=«stask.id» name=«stask.name»</WorkItem>
-//			«ENDFOR»		
-//			</Subtasks>
-//			«ENDIF»
-//			<RequiredServices>
-//			«FOR rs : wi.getRequiredServices()»	
-//			<Service serviceId=«rs.id»></Service>
-//			«ENDFOR»
-//			</RequiredServices>
-//		</WorkItem>
-//		'''
-//      }
-//    }	
-    
+		  
 	def assignWorkItemsId(WorkItemNetwork win, int startId) '''
 		«var wiId=startId»
 		«FOR wi: win.getWorkItems()»
@@ -197,8 +110,6 @@ def compile(Resource res) '''
 		«ENDFOR»
 		
 	'''
-	
-
 	def getNumValue(NumExpression e) {
 		var numValue = 0.0
 		if (e!=null) {
@@ -214,19 +125,28 @@ def compile(Resource res) '''
 
 	def sampleDistribution(NumExpression e) {
 		var sampledValue = 0.0
-		if (e.numDist.isNormal) {
-			var double mean=Double.parseDouble(e.numDist.getParameters.get(0))
-			var double stdev=Double.parseDouble(e.numDist.getParameters.get(1))
+		if (e.numDist.isNormal) {			
+			var double mean=readNumericParameter(e.numDist.parameters.get(0))
+			var double stdev=readNumericParameter(e.numDist.parameters.get(1))
 			var double rand = new Random().nextGaussian()
 			sampledValue = mean + stdev*rand
 		}	
 		else if (e.numDist.isUniform) {
-			var double ll=Double.parseDouble(e.numDist.getParameters.get(0))
-			var double ul=Double.parseDouble(e.numDist.getParameters.get(1))
+			var double ll=readNumericParameter(e.numDist.parameters.get(0))
+			var double ul=readNumericParameter(e.numDist.parameters.get(1))
 			var double rand = new Random().nextDouble()
 			sampledValue = ll + (ul-ll)*rand
-		}	
+		}		
 		return sampledValue
+	}
+	
+	def readNumericParameter(AbstractParameter p) {
+		var value=0.0
+		if (p.isVariable) {
+			value=p.variable.value
+		}	
+		else {value=Double.parseDouble(p.value)}		
+		return value
 	}
 		
 
@@ -334,7 +254,50 @@ def compile(Resource res) '''
 			</WorkItem>
 	'''
 	
-
+	def printServices(EList<Service> ss) '''
+		<Services>
+		«var id=1»
+		«FOR s : ss»		
+			«s.setId(id++)»	
+			<Service serviceId="«s.id»" name="«s.name»" description="«s.description»"></Service>
+		«ENDFOR»
+		</Services>
+	'''	
+	def printClassOfServices(EList<ClassOfService> cs) '''
+		<ClassOfServices>
+		«var id=1»
+		«FOR c : cs»
+			«c.setId(id++)»	
+			<ClassOfService cosId="«c.id»" name="«c.name»" description="«c.description»" isDisruptive="«c.isDisruptive()»"></ClassOfService>
+		«ENDFOR»
+		</ClassOfServices>
+	'''	
+	def printWorkItemTypes(EList<WorkItemType> ts) '''
+		<WorkItemTypes>
+		«var id=1»
+		«FOR t : ts»
+			«t.setId(id++)»	
+			<WorkItemType wiTypeId="«t.id»" name="«t.name»" description="«t.description»"></WorkItemType>
+		«ENDFOR»
+		</WorkItemTypes>
+	'''	
+	def printIndicators(EList<String> is) '''
+		«FOR i : is»
+		<Indicator name="«i»"></Indicator>
+		«ENDFOR»
+	'''
+	def printGovernanceStrategy(GovernanceStrategy govs) '''
+		«FOR m: govs.getMechanisms()»
+		 	«printMechanism(m)»
+		«ENDFOR»
+	'''
+	def printMechanism(Mechanism m) '''
+		<Mechanism name="«m.name»" value="«m.value»">
+		«FOR a: m.getAttributes()»
+			<Attribute name="«a.attribute»" value="«a.value»"></Attribute> 
+		«ENDFOR»
+		</Mechanism>
+	'''
 	
 //	def compileUserLibraries(Resource res) '''
 //		<UserLibraries>		

@@ -90,45 +90,53 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cPathKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cPathAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cPathQualifiedNameParserRuleCall_2_1_0 = (RuleCall)cPathAssignment_2_1.eContents().get(0);
-		private final Keyword cOrganizationalModelKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cServiceProvidersKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cServiceProvidersAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cServiceProvidersServiceProviderParserRuleCall_5_0 = (RuleCall)cServiceProvidersAssignment_5.eContents().get(0);
-		private final Keyword cEndServiceProvidersKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Keyword cEndOrganizationalModelKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Keyword cWorkItemNetworkModelKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Keyword cWorkSourcesKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cWorkSourcesAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cWorkSourcesWorkSourceParserRuleCall_10_0 = (RuleCall)cWorkSourcesAssignment_10.eContents().get(0);
-		private final Keyword cEndWorkSourcesKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		private final Keyword cWorkItemNetworksKeyword_12 = (Keyword)cGroup.eContents().get(12);
-		private final Assignment cWorkItemNetworksAssignment_13 = (Assignment)cGroup.eContents().get(13);
-		private final RuleCall cWorkItemNetworksWorkItemNetworkParserRuleCall_13_0 = (RuleCall)cWorkItemNetworksAssignment_13.eContents().get(0);
-		private final Keyword cEndWorkItemNetworksKeyword_14 = (Keyword)cGroup.eContents().get(14);
-		private final Keyword cEndWorkItemNetworkModelKeyword_15 = (Keyword)cGroup.eContents().get(15);
-		private final Keyword cExperimentSettingsKeyword_16 = (Keyword)cGroup.eContents().get(16);
-		private final Assignment cWINReplicationSettingAssignment_17 = (Assignment)cGroup.eContents().get(17);
-		private final RuleCall cWINReplicationSettingWINReplicationSettingParserRuleCall_17_0 = (RuleCall)cWINReplicationSettingAssignment_17.eContents().get(0);
-		private final Assignment cIndicatorsAssignment_18 = (Assignment)cGroup.eContents().get(18);
-		private final RuleCall cIndicatorsIndicatorsParserRuleCall_18_0 = (RuleCall)cIndicatorsAssignment_18.eContents().get(0);
-		private final Keyword cEndExperimentSettingsKeyword_19 = (Keyword)cGroup.eContents().get(19);
-		private final Keyword cEndExperimentModelKeyword_20 = (Keyword)cGroup.eContents().get(20);
+		private final Keyword cVariablesKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cVariablesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cVariablesVariableParserRuleCall_4_0 = (RuleCall)cVariablesAssignment_4.eContents().get(0);
+		private final Keyword cEndVariablesKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cOrganizationalModelKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cServiceProvidersKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cServiceProvidersAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cServiceProvidersServiceProviderParserRuleCall_8_0 = (RuleCall)cServiceProvidersAssignment_8.eContents().get(0);
+		private final Keyword cEndServiceProvidersKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Keyword cEndOrganizationalModelKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Keyword cWorkItemNetworkModelKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Keyword cWorkSourcesKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cWorkSourcesAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final RuleCall cWorkSourcesWorkSourceParserRuleCall_13_0 = (RuleCall)cWorkSourcesAssignment_13.eContents().get(0);
+		private final Keyword cEndWorkSourcesKeyword_14 = (Keyword)cGroup.eContents().get(14);
+		private final Keyword cWorkItemNetworksKeyword_15 = (Keyword)cGroup.eContents().get(15);
+		private final Assignment cWorkItemNetworksAssignment_16 = (Assignment)cGroup.eContents().get(16);
+		private final RuleCall cWorkItemNetworksWorkItemNetworkParserRuleCall_16_0 = (RuleCall)cWorkItemNetworksAssignment_16.eContents().get(0);
+		private final Keyword cEndWorkItemNetworksKeyword_17 = (Keyword)cGroup.eContents().get(17);
+		private final Keyword cEndWorkItemNetworkModelKeyword_18 = (Keyword)cGroup.eContents().get(18);
+		private final Keyword cExperimentSettingsKeyword_19 = (Keyword)cGroup.eContents().get(19);
+		private final Keyword cWINReplicationsKeyword_20 = (Keyword)cGroup.eContents().get(20);
+		private final Assignment cWINReplicationsAssignment_21 = (Assignment)cGroup.eContents().get(21);
+		private final RuleCall cWINReplicationsWINReplicationParserRuleCall_21_0 = (RuleCall)cWINReplicationsAssignment_21.eContents().get(0);
+		private final Keyword cEndWINReplicationsKeyword_22 = (Keyword)cGroup.eContents().get(22);
+		private final Keyword cIndicatorsKeyword_23 = (Keyword)cGroup.eContents().get(23);
+		private final Assignment cIndicatorsAssignment_24 = (Assignment)cGroup.eContents().get(24);
+		private final RuleCall cIndicatorsIDTerminalRuleCall_24_0 = (RuleCall)cIndicatorsAssignment_24.eContents().get(0);
+		private final Keyword cEndIndicatorsKeyword_25 = (Keyword)cGroup.eContents().get(25);
+		private final Keyword cEndExperimentSettingsKeyword_26 = (Keyword)cGroup.eContents().get(26);
+		private final Keyword cEndExperimentModelKeyword_27 = (Keyword)cGroup.eContents().get(27);
 		
 		//ExperimentModel:
-		//	"ExperimentModel" name=ID ("Path" Path=QualifiedName)? "OrganizationalModel" "ServiceProviders"
-		//	ServiceProviders+=ServiceProvider+ "end ServiceProviders" "end OrganizationalModel" "WorkItemNetworkModel"
-		//	"WorkSources" WorkSources+=WorkSource+ "end WorkSources" "WorkItemNetworks" WorkItemNetworks+=WorkItemNetwork+
-		//	"end WorkItemNetworks" //		(kssWorkFlow=KanbanTaskModel)
-		// "end WorkItemNetworkModel" "ExperimentSettings"
-		//	WINReplicationSetting=WINReplicationSetting Indicators=Indicators "end ExperimentSettings" "end ExperimentModel";
+		//	"ExperimentModel" name=ID ("Path" Path=QualifiedName)? "Variables" Variables+=Variable* "end Variables"
+		//	"OrganizationalModel" "ServiceProviders" ServiceProviders+=ServiceProvider+ "end ServiceProviders"
+		//	"end OrganizationalModel" "WorkItemNetworkModel" "WorkSources" WorkSources+=WorkSource+ "end WorkSources"
+		//	"WorkItemNetworks" WorkItemNetworks+=WorkItemNetwork+ "end WorkItemNetworks" //		(kssWorkFlow=KanbanTaskModel)
+		//	"end WorkItemNetworkModel" "ExperimentSettings" "WINReplications" WINReplications+=WINReplication+
+		//	"end WINReplications" "Indicators" Indicators+=ID* "end Indicators" "end ExperimentSettings" "end ExperimentModel";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"ExperimentModel" name=ID ("Path" Path=QualifiedName)? "OrganizationalModel" "ServiceProviders"
-		//ServiceProviders+=ServiceProvider+ "end ServiceProviders" "end OrganizationalModel" "WorkItemNetworkModel"
-		//"WorkSources" WorkSources+=WorkSource+ "end WorkSources" "WorkItemNetworks" WorkItemNetworks+=WorkItemNetwork+
-		//"end WorkItemNetworks" //		(kssWorkFlow=KanbanTaskModel)
-		// "end WorkItemNetworkModel" "ExperimentSettings"
-		//WINReplicationSetting=WINReplicationSetting Indicators=Indicators "end ExperimentSettings" "end ExperimentModel"
+		//"ExperimentModel" name=ID ("Path" Path=QualifiedName)? "Variables" Variables+=Variable* "end Variables"
+		//"OrganizationalModel" "ServiceProviders" ServiceProviders+=ServiceProvider+ "end ServiceProviders"
+		//"end OrganizationalModel" "WorkItemNetworkModel" "WorkSources" WorkSources+=WorkSource+ "end WorkSources"
+		//"WorkItemNetworks" WorkItemNetworks+=WorkItemNetwork+ "end WorkItemNetworks" //		(kssWorkFlow=KanbanTaskModel)
+		//"end WorkItemNetworkModel" "ExperimentSettings" "WINReplications" WINReplications+=WINReplication+ "end WINReplications"
+		//"Indicators" Indicators+=ID* "end Indicators" "end ExperimentSettings" "end ExperimentModel"
 		public Group getGroup() { return cGroup; }
 
 		//"ExperimentModel"
@@ -152,75 +160,99 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getPathQualifiedNameParserRuleCall_2_1_0() { return cPathQualifiedNameParserRuleCall_2_1_0; }
 
+		//"Variables"
+		public Keyword getVariablesKeyword_3() { return cVariablesKeyword_3; }
+
+		//Variables+=Variable*
+		public Assignment getVariablesAssignment_4() { return cVariablesAssignment_4; }
+
+		//Variable
+		public RuleCall getVariablesVariableParserRuleCall_4_0() { return cVariablesVariableParserRuleCall_4_0; }
+
+		//"end Variables"
+		public Keyword getEndVariablesKeyword_5() { return cEndVariablesKeyword_5; }
+
 		//"OrganizationalModel"
-		public Keyword getOrganizationalModelKeyword_3() { return cOrganizationalModelKeyword_3; }
+		public Keyword getOrganizationalModelKeyword_6() { return cOrganizationalModelKeyword_6; }
 
 		//"ServiceProviders"
-		public Keyword getServiceProvidersKeyword_4() { return cServiceProvidersKeyword_4; }
+		public Keyword getServiceProvidersKeyword_7() { return cServiceProvidersKeyword_7; }
 
 		//ServiceProviders+=ServiceProvider+
-		public Assignment getServiceProvidersAssignment_5() { return cServiceProvidersAssignment_5; }
+		public Assignment getServiceProvidersAssignment_8() { return cServiceProvidersAssignment_8; }
 
 		//ServiceProvider
-		public RuleCall getServiceProvidersServiceProviderParserRuleCall_5_0() { return cServiceProvidersServiceProviderParserRuleCall_5_0; }
+		public RuleCall getServiceProvidersServiceProviderParserRuleCall_8_0() { return cServiceProvidersServiceProviderParserRuleCall_8_0; }
 
 		//"end ServiceProviders"
-		public Keyword getEndServiceProvidersKeyword_6() { return cEndServiceProvidersKeyword_6; }
+		public Keyword getEndServiceProvidersKeyword_9() { return cEndServiceProvidersKeyword_9; }
 
 		//"end OrganizationalModel"
-		public Keyword getEndOrganizationalModelKeyword_7() { return cEndOrganizationalModelKeyword_7; }
+		public Keyword getEndOrganizationalModelKeyword_10() { return cEndOrganizationalModelKeyword_10; }
 
 		//"WorkItemNetworkModel"
-		public Keyword getWorkItemNetworkModelKeyword_8() { return cWorkItemNetworkModelKeyword_8; }
+		public Keyword getWorkItemNetworkModelKeyword_11() { return cWorkItemNetworkModelKeyword_11; }
 
 		//"WorkSources"
-		public Keyword getWorkSourcesKeyword_9() { return cWorkSourcesKeyword_9; }
+		public Keyword getWorkSourcesKeyword_12() { return cWorkSourcesKeyword_12; }
 
 		//WorkSources+=WorkSource+
-		public Assignment getWorkSourcesAssignment_10() { return cWorkSourcesAssignment_10; }
+		public Assignment getWorkSourcesAssignment_13() { return cWorkSourcesAssignment_13; }
 
 		//WorkSource
-		public RuleCall getWorkSourcesWorkSourceParserRuleCall_10_0() { return cWorkSourcesWorkSourceParserRuleCall_10_0; }
+		public RuleCall getWorkSourcesWorkSourceParserRuleCall_13_0() { return cWorkSourcesWorkSourceParserRuleCall_13_0; }
 
 		//"end WorkSources"
-		public Keyword getEndWorkSourcesKeyword_11() { return cEndWorkSourcesKeyword_11; }
+		public Keyword getEndWorkSourcesKeyword_14() { return cEndWorkSourcesKeyword_14; }
 
 		//"WorkItemNetworks"
-		public Keyword getWorkItemNetworksKeyword_12() { return cWorkItemNetworksKeyword_12; }
+		public Keyword getWorkItemNetworksKeyword_15() { return cWorkItemNetworksKeyword_15; }
 
 		//WorkItemNetworks+=WorkItemNetwork+
-		public Assignment getWorkItemNetworksAssignment_13() { return cWorkItemNetworksAssignment_13; }
+		public Assignment getWorkItemNetworksAssignment_16() { return cWorkItemNetworksAssignment_16; }
 
 		//WorkItemNetwork
-		public RuleCall getWorkItemNetworksWorkItemNetworkParserRuleCall_13_0() { return cWorkItemNetworksWorkItemNetworkParserRuleCall_13_0; }
+		public RuleCall getWorkItemNetworksWorkItemNetworkParserRuleCall_16_0() { return cWorkItemNetworksWorkItemNetworkParserRuleCall_16_0; }
 
 		//"end WorkItemNetworks"
-		public Keyword getEndWorkItemNetworksKeyword_14() { return cEndWorkItemNetworksKeyword_14; }
+		public Keyword getEndWorkItemNetworksKeyword_17() { return cEndWorkItemNetworksKeyword_17; }
 
 		////		(kssWorkFlow=KanbanTaskModel)
-		// "end WorkItemNetworkModel"
-		public Keyword getEndWorkItemNetworkModelKeyword_15() { return cEndWorkItemNetworkModelKeyword_15; }
+		//"end WorkItemNetworkModel"
+		public Keyword getEndWorkItemNetworkModelKeyword_18() { return cEndWorkItemNetworkModelKeyword_18; }
 
 		//"ExperimentSettings"
-		public Keyword getExperimentSettingsKeyword_16() { return cExperimentSettingsKeyword_16; }
+		public Keyword getExperimentSettingsKeyword_19() { return cExperimentSettingsKeyword_19; }
 
-		//WINReplicationSetting=WINReplicationSetting
-		public Assignment getWINReplicationSettingAssignment_17() { return cWINReplicationSettingAssignment_17; }
+		//"WINReplications"
+		public Keyword getWINReplicationsKeyword_20() { return cWINReplicationsKeyword_20; }
 
-		//WINReplicationSetting
-		public RuleCall getWINReplicationSettingWINReplicationSettingParserRuleCall_17_0() { return cWINReplicationSettingWINReplicationSettingParserRuleCall_17_0; }
+		//WINReplications+=WINReplication+
+		public Assignment getWINReplicationsAssignment_21() { return cWINReplicationsAssignment_21; }
 
-		//Indicators=Indicators
-		public Assignment getIndicatorsAssignment_18() { return cIndicatorsAssignment_18; }
+		//WINReplication
+		public RuleCall getWINReplicationsWINReplicationParserRuleCall_21_0() { return cWINReplicationsWINReplicationParserRuleCall_21_0; }
 
-		//Indicators
-		public RuleCall getIndicatorsIndicatorsParserRuleCall_18_0() { return cIndicatorsIndicatorsParserRuleCall_18_0; }
+		//"end WINReplications"
+		public Keyword getEndWINReplicationsKeyword_22() { return cEndWINReplicationsKeyword_22; }
+
+		//"Indicators"
+		public Keyword getIndicatorsKeyword_23() { return cIndicatorsKeyword_23; }
+
+		//Indicators+=ID*
+		public Assignment getIndicatorsAssignment_24() { return cIndicatorsAssignment_24; }
+
+		//ID
+		public RuleCall getIndicatorsIDTerminalRuleCall_24_0() { return cIndicatorsIDTerminalRuleCall_24_0; }
+
+		//"end Indicators"
+		public Keyword getEndIndicatorsKeyword_25() { return cEndIndicatorsKeyword_25; }
 
 		//"end ExperimentSettings"
-		public Keyword getEndExperimentSettingsKeyword_19() { return cEndExperimentSettingsKeyword_19; }
+		public Keyword getEndExperimentSettingsKeyword_26() { return cEndExperimentSettingsKeyword_26; }
 
 		//"end ExperimentModel"
-		public Keyword getEndExperimentModelKeyword_20() { return cEndExperimentModelKeyword_20; }
+		public Keyword getEndExperimentModelKeyword_27() { return cEndExperimentModelKeyword_27; }
 	}
 
 	public class SystemLibrariesElements extends AbstractParserRuleElementFinder {
@@ -480,20 +512,18 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//UserLibraries:
 		//	"UserLibraries" "WorkItemTypes" WorkItemTypes+=WorkItemType+ "end WorkItemTypes" "ClassOfServices"
 		//	ClassOfServices+=ClassOfService+ "end ClassOfServices" "Services" Services+=Service+ "end Services"
-		//	"GovernanceStrategies" GovernanceStrategies+=GovernanceStrategy+ "end GovernanceStrategies"
-		//	//		    ('Repositories' '{'
-		// //			(Repositories += Repository)+
-		// //			'}')?	    
-		// "end UserLibraries";
+		//	"GovernanceStrategies" GovernanceStrategies+=GovernanceStrategy+ "end GovernanceStrategies" //		    ('Repositories' '{'
+		//	//			(Repositories += Repository)+
+		//	//			'}')?	    
+		//	"end UserLibraries";
 		@Override public ParserRule getRule() { return rule; }
 
 		//"UserLibraries" "WorkItemTypes" WorkItemTypes+=WorkItemType+ "end WorkItemTypes" "ClassOfServices"
 		//ClassOfServices+=ClassOfService+ "end ClassOfServices" "Services" Services+=Service+ "end Services"
-		//"GovernanceStrategies" GovernanceStrategies+=GovernanceStrategy+ "end GovernanceStrategies"
-		////		    ('Repositories' '{'
-		// //			(Repositories += Repository)+
-		// //			'}')?	    
-		// "end UserLibraries"
+		//"GovernanceStrategies" GovernanceStrategies+=GovernanceStrategy+ "end GovernanceStrategies" //		    ('Repositories' '{'
+		////			(Repositories += Repository)+
+		////			'}')?	    
+		//"end UserLibraries"
 		public Group getGroup() { return cGroup; }
 
 		//"UserLibraries"
@@ -548,9 +578,9 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getEndGovernanceStrategiesKeyword_12() { return cEndGovernanceStrategiesKeyword_12; }
 
 		////		    ('Repositories' '{'
-		// //			(Repositories += Repository)+
-		// //			'}')?	    
-		// "end UserLibraries"
+		////			(Repositories += Repository)+
+		////			'}')?	    
+		//"end UserLibraries"
 		public Keyword getEndUserLibrariesKeyword_13() { return cEndUserLibrariesKeyword_13; }
 	}
 
@@ -566,7 +596,7 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cINTTerminalRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
 		
 		////
-		// QualifiedName:
+		//QualifiedName:
 		//	ID ("." ID)* ("." INT)*;
 		@Override public ParserRule getRule() { return rule; }
 
@@ -593,6 +623,78 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 
 		//INT
 		public RuleCall getINTTerminalRuleCall_2_1() { return cINTTerminalRuleCall_2_1; }
+	}
+
+	public class ParameterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Parameter");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cDOUBLETerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cSTRINGTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cIDTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		
+		//Parameter:
+		//	INT | DOUBLE | STRING | ID;
+		@Override public ParserRule getRule() { return rule; }
+
+		//INT | DOUBLE | STRING | ID
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//INT
+		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
+
+		//DOUBLE
+		public RuleCall getDOUBLETerminalRuleCall_1() { return cDOUBLETerminalRuleCall_1; }
+
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_2() { return cSTRINGTerminalRuleCall_2; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_3() { return cIDTerminalRuleCall_3; }
+	}
+
+	public class AbstractParameterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AbstractParameter");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Assignment cIsVariableAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final Keyword cIsVariableVariableKeyword_0_0_0 = (Keyword)cIsVariableAssignment_0_0.eContents().get(0);
+		private final Assignment cVariableAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final CrossReference cVariableVariableCrossReference_0_1_0 = (CrossReference)cVariableAssignment_0_1.eContents().get(0);
+		private final RuleCall cVariableVariableIDTerminalRuleCall_0_1_0_1 = (RuleCall)cVariableVariableCrossReference_0_1_0.eContents().get(1);
+		private final Assignment cValueAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cValueParameterParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		
+		//AbstractParameter:
+		//	isVariable?="Variable:" variable=[Variable] | value=Parameter;
+		@Override public ParserRule getRule() { return rule; }
+
+		//isVariable?="Variable:" variable=[Variable] | value=Parameter
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//isVariable?="Variable:" variable=[Variable]
+		public Group getGroup_0() { return cGroup_0; }
+
+		//isVariable?="Variable:"
+		public Assignment getIsVariableAssignment_0_0() { return cIsVariableAssignment_0_0; }
+
+		//"Variable:"
+		public Keyword getIsVariableVariableKeyword_0_0_0() { return cIsVariableVariableKeyword_0_0_0; }
+
+		//variable=[Variable]
+		public Assignment getVariableAssignment_0_1() { return cVariableAssignment_0_1; }
+
+		//[Variable]
+		public CrossReference getVariableVariableCrossReference_0_1_0() { return cVariableVariableCrossReference_0_1_0; }
+
+		//ID
+		public RuleCall getVariableVariableIDTerminalRuleCall_0_1_0_1() { return cVariableVariableIDTerminalRuleCall_0_1_0_1; }
+
+		//value=Parameter
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//Parameter
+		public RuleCall getValueParameterParserRuleCall_1_0() { return cValueParameterParserRuleCall_1_0; }
 	}
 
 	public class NumExpressionElements extends AbstractParserRuleElementFinder {
@@ -696,32 +798,72 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getNotEqualToExclamationMarkEqualsSignKeyword_5_0() { return cNotEqualToExclamationMarkEqualsSignKeyword_5_0; }
 	}
 
-	public class ParameterElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Parameter");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cDOUBLETerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cSTRINGTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cIDTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+	public class VariableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Variable");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cVariableKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cTypeKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
+		private final Group cGroup_4_0 = (Group)cAlternatives_4.eContents().get(0);
+		private final Assignment cTypeNumericAssignment_4_0_0 = (Assignment)cGroup_4_0.eContents().get(0);
+		private final Keyword cTypeNumericNumericKeyword_4_0_0_0 = (Keyword)cTypeNumericAssignment_4_0_0.eContents().get(0);
+		private final Keyword cValueKeyword_4_0_1 = (Keyword)cGroup_4_0.eContents().get(1);
+		private final Assignment cValueAssignment_4_0_2 = (Assignment)cGroup_4_0.eContents().get(2);
+		private final RuleCall cValueDOUBLETerminalRuleCall_4_0_2_0 = (RuleCall)cValueAssignment_4_0_2.eContents().get(0);
+		private final RuleCall cINTTerminalRuleCall_4_1 = (RuleCall)cAlternatives_4.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
-		//Parameter:
-		//	INT | DOUBLE | STRING | ID;
+		//Variable:
+		//	"Variable" name=ID "{" "Type:" (typeNumeric?="Numeric" "Value=" value=DOUBLE | INT) "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//INT | DOUBLE | STRING | ID
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//"Variable" name=ID "{" "Type:" (typeNumeric?="Numeric" "Value=" value=DOUBLE | INT) "}"
+		public Group getGroup() { return cGroup; }
 
-		//INT
-		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
+		//"Variable"
+		public Keyword getVariableKeyword_0() { return cVariableKeyword_0; }
 
-		//DOUBLE
-		public RuleCall getDOUBLETerminalRuleCall_1() { return cDOUBLETerminalRuleCall_1; }
-
-		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_2() { return cSTRINGTerminalRuleCall_2; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getIDTerminalRuleCall_3() { return cIDTerminalRuleCall_3; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//"Type:"
+		public Keyword getTypeKeyword_3() { return cTypeKeyword_3; }
+
+		//typeNumeric?="Numeric" "Value=" value=DOUBLE | INT
+		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+
+		//typeNumeric?="Numeric" "Value=" value=DOUBLE
+		public Group getGroup_4_0() { return cGroup_4_0; }
+
+		//typeNumeric?="Numeric"
+		public Assignment getTypeNumericAssignment_4_0_0() { return cTypeNumericAssignment_4_0_0; }
+
+		//"Numeric"
+		public Keyword getTypeNumericNumericKeyword_4_0_0_0() { return cTypeNumericNumericKeyword_4_0_0_0; }
+
+		//"Value="
+		public Keyword getValueKeyword_4_0_1() { return cValueKeyword_4_0_1; }
+
+		//value=DOUBLE
+		public Assignment getValueAssignment_4_0_2() { return cValueAssignment_4_0_2; }
+
+		//DOUBLE
+		public RuleCall getValueDOUBLETerminalRuleCall_4_0_2_0() { return cValueDOUBLETerminalRuleCall_4_0_2_0; }
+
+		//INT
+		public RuleCall getINTTerminalRuleCall_4_1() { return cINTTerminalRuleCall_4_1; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 
 	public class DistributionElements extends AbstractParserRuleElementFinder {
@@ -736,14 +878,14 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cIsExponentialExponentialKeyword_0_2_0 = (Keyword)cIsExponentialAssignment_0_2.eContents().get(0);
 		private final Keyword cLeftSquareBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cParametersAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cParametersParameterParserRuleCall_2_0 = (RuleCall)cParametersAssignment_2.eContents().get(0);
+		private final RuleCall cParametersAbstractParameterParserRuleCall_2_0 = (RuleCall)cParametersAssignment_2.eContents().get(0);
 		private final Keyword cRightSquareBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Distribution:
-		//	(isNormal?="Normal" | isUniform?="Uniform" | isExponential?="Exponential") "[" parameters+=Parameter* "]";
+		//	(isNormal?="Normal" | isUniform?="Uniform" | isExponential?="Exponential") "[" parameters+=AbstractParameter* "]";
 		@Override public ParserRule getRule() { return rule; }
 
-		//(isNormal?="Normal" | isUniform?="Uniform" | isExponential?="Exponential") "[" parameters+=Parameter* "]"
+		//(isNormal?="Normal" | isUniform?="Uniform" | isExponential?="Exponential") "[" parameters+=AbstractParameter* "]"
 		public Group getGroup() { return cGroup; }
 
 		//isNormal?="Normal" | isUniform?="Uniform" | isExponential?="Exponential"
@@ -770,11 +912,11 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//"["
 		public Keyword getLeftSquareBracketKeyword_1() { return cLeftSquareBracketKeyword_1; }
 
-		//parameters+=Parameter*
+		//parameters+=AbstractParameter*
 		public Assignment getParametersAssignment_2() { return cParametersAssignment_2; }
 
-		//Parameter
-		public RuleCall getParametersParameterParserRuleCall_2_0() { return cParametersParameterParserRuleCall_2_0; }
+		//AbstractParameter
+		public RuleCall getParametersAbstractParameterParserRuleCall_2_0() { return cParametersAbstractParameterParserRuleCall_2_0; }
 
 		//"]"
 		public Keyword getRightSquareBracketKeyword_3() { return cRightSquareBracketKeyword_3; }
@@ -1116,39 +1258,6 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getDescriptionSTRINGTerminalRuleCall_2_0() { return cDescriptionSTRINGTerminalRuleCall_2_0; }
 	}
 
-	public class WINReplicationSettingElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "WINReplicationSetting");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cWINReplicationSettingKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cWINReplicationsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cWINReplicationsWINReplicationParserRuleCall_2_0 = (RuleCall)cWINReplicationsAssignment_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		
-		//// ------------------------ Experiment Objects ---------------------------------
-		// WINReplicationSetting:
-		//	"WINReplicationSetting" "{" WINReplications+=WINReplication+ "}";
-		@Override public ParserRule getRule() { return rule; }
-
-		//"WINReplicationSetting" "{" WINReplications+=WINReplication+ "}"
-		public Group getGroup() { return cGroup; }
-
-		//"WINReplicationSetting"
-		public Keyword getWINReplicationSettingKeyword_0() { return cWINReplicationSettingKeyword_0; }
-
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-
-		//WINReplications+=WINReplication+
-		public Assignment getWINReplicationsAssignment_2() { return cWINReplicationsAssignment_2; }
-
-		//WINReplication
-		public RuleCall getWINReplicationsWINReplicationParserRuleCall_2_0() { return cWINReplicationsWINReplicationParserRuleCall_2_0; }
-
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
-	}
-
 	public class WINReplicationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "WINReplication");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -1160,6 +1269,7 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNumReplicationsAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cNumReplicationsINTTerminalRuleCall_3_0 = (RuleCall)cNumReplicationsAssignment_3.eContents().get(0);
 		
+		//// ------------------------ Experiment Objects ---------------------------------
 		//WINReplication:
 		//	"WorkItemNetwork" workItemNetwork=[WorkItemNetwork] "NumReplications" numReplications=INT;
 		@Override public ParserRule getRule() { return rule; }
@@ -1187,38 +1297,6 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 
 		//INT
 		public RuleCall getNumReplicationsINTTerminalRuleCall_3_0() { return cNumReplicationsINTTerminalRuleCall_3_0; }
-	}
-
-	public class IndicatorsElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Indicators");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cIndicatorsKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cIndicatorsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cIndicatorsIDTerminalRuleCall_2_0 = (RuleCall)cIndicatorsAssignment_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		
-		//Indicators:
-		//	"Indicators" "{" Indicators+=ID+ "}";
-		@Override public ParserRule getRule() { return rule; }
-
-		//"Indicators" "{" Indicators+=ID+ "}"
-		public Group getGroup() { return cGroup; }
-
-		//"Indicators"
-		public Keyword getIndicatorsKeyword_0() { return cIndicatorsKeyword_0; }
-
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-
-		//Indicators+=ID+
-		public Assignment getIndicatorsAssignment_2() { return cIndicatorsAssignment_2; }
-
-		//ID
-		public RuleCall getIndicatorsIDTerminalRuleCall_2_0() { return cIndicatorsIDTerminalRuleCall_2_0; }
-
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
 	}
 
 	public class GovernanceStrategyElements extends AbstractParserRuleElementFinder {
@@ -1253,7 +1331,7 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//// ------------------------ Governance Objects ---------------------------------
-		// GovernanceStrategy:
+		//GovernanceStrategy:
 		//	id=INT? "GovernanceStrategy" name=ID "{" ("Description" description=STRING)? (WIAcceptanceRule=WIAcceptance
 		//	WISelectionRule=WISelection WIAssignmentRule=WIAssignment ResourceAllocationRule=ResourceAllocation
 		//	ResourceOutsourcingRule=ResourceOutsourcing)? "Mechanisms" "{" Mechanisms+=Mechanism+ "}" "}";
@@ -2024,7 +2102,7 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//// ------------------------ WorkItem Objects ---------------------------------
-		// WorkSource:
+		//WorkSource:
 		//	id=INT? "WorkSource" name=ID "{" ("Description" description=STRING)? ("AssignTo" "{" assignTo+=[ServiceProvider]+
 		//	"}")? assignmentRule=WIAssignment? "}";
 		@Override public ParserRule getRule() { return rule; }
@@ -2244,21 +2322,19 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//WorkItem:
 		//	id=INT? "WorkItem" name=ID "{" //		('Profile' profile=[WorkItemProfile])?
-		// ("Description" description=STRING)? "Type"
-		//	type=[WorkItemType] (hasPredecessors?="Predecessors" "{" pTasks+=[WorkItem]+ "}")? (isAggregationNode?="Subtasks" "{"
-		//	sTasks+=[WorkItem]+ "}")? ("CausalTriggers" causalTriggers+=CausalTrigger*)? "RequiredServices" "{"
-		//	requiredServices+=[Service]+ "}" ("Efforts" efforts=NumExpression)? ("Value" value=NumExpression)? ("ClassOfService"
-		//	classOfService=[ClassOfService])? ("WorkSource" workSource=[WorkSource])? ("ArrivalTime" arrivalTime=INT)? ("DueDate"
-		//	dueDate=INT)? "}";
+		//	("Description" description=STRING)? "Type" type=[WorkItemType] (hasPredecessors?="Predecessors" "{" pTasks+=[WorkItem]+
+		//	"}")? (isAggregationNode?="Subtasks" "{" sTasks+=[WorkItem]+ "}")? ("CausalTriggers" causalTriggers+=CausalTrigger*)?
+		//	"RequiredServices" "{" requiredServices+=[Service]+ "}" ("Efforts" efforts=NumExpression)? ("Value"
+		//	value=NumExpression)? ("ClassOfService" classOfService=[ClassOfService])? ("WorkSource" workSource=[WorkSource])?
+		//	("ArrivalTime" arrivalTime=INT)? ("DueDate" dueDate=INT)? "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//id=INT? "WorkItem" name=ID "{" //		('Profile' profile=[WorkItemProfile])?
-		// ("Description" description=STRING)? "Type"
-		//type=[WorkItemType] (hasPredecessors?="Predecessors" "{" pTasks+=[WorkItem]+ "}")? (isAggregationNode?="Subtasks" "{"
-		//sTasks+=[WorkItem]+ "}")? ("CausalTriggers" causalTriggers+=CausalTrigger*)? "RequiredServices" "{"
-		//requiredServices+=[Service]+ "}" ("Efforts" efforts=NumExpression)? ("Value" value=NumExpression)? ("ClassOfService"
-		//classOfService=[ClassOfService])? ("WorkSource" workSource=[WorkSource])? ("ArrivalTime" arrivalTime=INT)? ("DueDate"
-		//dueDate=INT)? "}"
+		//("Description" description=STRING)? "Type" type=[WorkItemType] (hasPredecessors?="Predecessors" "{" pTasks+=[WorkItem]+
+		//"}")? (isAggregationNode?="Subtasks" "{" sTasks+=[WorkItem]+ "}")? ("CausalTriggers" causalTriggers+=CausalTrigger*)?
+		//"RequiredServices" "{" requiredServices+=[Service]+ "}" ("Efforts" efforts=NumExpression)? ("Value"
+		//value=NumExpression)? ("ClassOfService" classOfService=[ClassOfService])? ("WorkSource" workSource=[WorkSource])?
+		//("ArrivalTime" arrivalTime=INT)? ("DueDate" dueDate=INT)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//id=INT?
@@ -2739,7 +2815,7 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
 		
 		//// ------------------------ Organizational Objects ---------------------------------
-		// Service:
+		//Service:
 		//	id=INT? "Service" name=ID ("{" ("Description" description=STRING)? "}")?;
 		@Override public ParserRule getRule() { return rule; }
 
@@ -3069,127 +3145,102 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cEfficiencyNumExpressionParserRuleCall_3_0 = (RuleCall)cEfficiencyAssignment_3.eContents().get(0);
 		
 		//// ------------------------ WorkItem Repositories ---------------------------------------
-		// //	Repository:
-		//
+		////	Repository:
 		////		'Repository' type = [WorkItemType]
-		// //		'Profiles' '{'(profiles += WorkItemProfile)* '}'
-		// //		'end Repository'
-		//
+		////		'Profiles' '{'(profiles += WorkItemProfile)* '}'
+		////		'end Repository'
 		////	;
-		// //	WorkItemProfile:
-		// //		'WorkItem' name=ID '{'
-		// //		('Description' description=STRING)?
-		//
+		////	WorkItemProfile:
+		////		'WorkItem' name=ID '{'
+		////		('Description' description=STRING)?
 		////		('ProcessModel' processModel=[ProcessModel])?
-		// //		('References''{' (references+=WorkReference)+ '}')?
-		//
+		////		('References''{' (references+=WorkReference)+ '}')?
 		////		('Decompositions' '{' (decompositions+=WorkDecomposition)+ '}')?
-		//
 		////		('RequiredServices' (requiredServices+=[Service])+)?
-		// //		('Efforts' efforts=NumExpression)?
-		//
+		////		('Efforts' efforts=NumExpression)?
 		////		('Value' value=NumExpression)?
-		// //		('ClassOfService' classOfService=[ClassOfService])?
-		//
+		////		('ClassOfService' classOfService=[ClassOfService])?
 		////		(allowAssignment ?= 'AssignmentAllowed')?
-		// //		(allowDiscard ?= 'DiscardAllowed')?
-		// //		'}'
-		// //	;
-		//
-		////	WorkReference:
-		// //		'WorkItem' workItem = [WorkItemProfile]
-		// //		'Quantity' quantity = NumExpression
-		// //	;
-		//
-		////	WorkDecomposition:
-		// //		'WorkItem' workItem = [WorkItemProfile]
-		// //		'Quantity' quantity = NumExpression
-		// //	;
-		//
-		////	WorkPrecedency:
-		// //		'WorkItem' workItem = [WorkItemProfile]
-		// //	;
-		// //	WorkCausality:
-		//
-		////		'WorkItem' workItem = [WorkItemProfile]
-		// //	;	
-		//
-		//// ------------------------ (Reserved Objects) ---------------------------------
-		// //	KanbanTaskModel:
-		//
-		////		'WorkFlow' name=ID
-		// //		(caps+=Capability)+
-		// //		'end WorkFlow'
-		// //	;
-		// //
-		// //	Capability:
-		//
-		////		'capability' name=ID '{'
-		// //		('Description' description=STRING)?
-		// //		(reqs+=Requirement)+ 	
-		// //		'}'
-		// //	;
-		//
-		////	Requirement:
-		// //		'requirement' name=ID '{' 
-		// //		 ('Description' description=STRING)?
-		//
-		////		 ('workItems' '{' (rTasks+=[WorkItem])+ '}') 
-		// //		 ('workItemNetwork' (dependencies += CausalTrigger)*)?
-		//
+		////		(allowDiscard ?= 'DiscardAllowed')?
 		////		'}'
-		// //	;
-		// //	
-		// //	Entity:
-		// //		'entity' name=ID '{'
-		//
-		////		('ServiceDirectory' sdname=ID '=' '['(serviceProvisions+=Provision)* ']')?
-		// //		(entityBehavior=Statemachine)
-		//
-		////		'}'
-		// //	;
-		// //	
-		// //	Provision:
-		// //		'(' serviceName=[Service] ',' '{'(providers+=[ServiceProvider])* '}'')' 
-		// //	;
-		//
-		////	
-		// //	
-		// //	Statemachine :
-		// //     {Statemachine}
-		// //	('events' 
-		// //		events+=Event+ 
-		// //	'end')?
-		// //	('activities' 
-		//
-		////		commands+=Command+ 
-		// //	'end')?
-		// //	(states+=State)*
-		// //;
-		// //
-		// //	Event:
-		// //		name=ID code=ID
-		// //	;
-		// //	
-		//
-		////	Command:
-		// //		name=ID code=ID
-		// //	;
-		// //	
-		// //	State:
-		// //		'state' name=ID
-		//
-		////			('actions' '{' actions+=[Command]+ '}')?
-		// //			(transitions+=Transition)*
-		// //		'end'
-		// //	;
-		// //
-		// //	Transition:
-		//
-		////		(event=[Event] '=>' state=[State]) | (event=[Event] '/' '[' (eventactions+=[Command])+ ']' '=>' state=[State])
-		//
 		////	;
-		// Skill:
+		////	WorkReference:
+		////		'WorkItem' workItem = [WorkItemProfile]
+		////		'Quantity' quantity = NumExpression
+		////	;
+		////	WorkDecomposition:
+		////		'WorkItem' workItem = [WorkItemProfile]
+		////		'Quantity' quantity = NumExpression
+		////	;
+		////	WorkPrecedency:
+		////		'WorkItem' workItem = [WorkItemProfile]
+		////	;
+		////	WorkCausality:
+		////		'WorkItem' workItem = [WorkItemProfile]
+		////	;	
+		//// ------------------------ (Reserved Objects) ---------------------------------
+		////	KanbanTaskModel:
+		////		'WorkFlow' name=ID
+		////		(caps+=Capability)+
+		////		'end WorkFlow'
+		////	;
+		////
+		////	Capability:
+		////		'capability' name=ID '{'
+		////		('Description' description=STRING)?
+		////		(reqs+=Requirement)+ 	
+		////		'}'
+		////	;
+		////	Requirement:
+		////		'requirement' name=ID '{' 
+		////		 ('Description' description=STRING)?
+		////		 ('workItems' '{' (rTasks+=[WorkItem])+ '}') 
+		////		 ('workItemNetwork' (dependencies += CausalTrigger)*)?
+		////		'}'
+		////	;
+		////	
+		////	Entity:
+		////		'entity' name=ID '{'
+		////		('ServiceDirectory' sdname=ID '=' '['(serviceProvisions+=Provision)* ']')?
+		////		(entityBehavior=Statemachine)
+		////		'}'
+		////	;
+		////	
+		////	Provision:
+		////		'(' serviceName=[Service] ',' '{'(providers+=[ServiceProvider])* '}'')' 
+		////	;
+		////	
+		////	
+		////	Statemachine :
+		////     {Statemachine}
+		////	('events' 
+		////		events+=Event+ 
+		////	'end')?
+		////	('activities' 
+		////		commands+=Command+ 
+		////	'end')?
+		////	(states+=State)*
+		////;
+		////
+		////	Event:
+		////		name=ID code=ID
+		////	;
+		////	
+		////	Command:
+		////		name=ID code=ID
+		////	;
+		////	
+		////	State:
+		////		'state' name=ID
+		////			('actions' '{' actions+=[Command]+ '}')?
+		////			(transitions+=Transition)*
+		////		'end'
+		////	;
+		////
+		////	Transition:
+		////		(event=[Event] '=>' state=[State]) | (event=[Event] '/' '[' (eventactions+=[Command])+ ']' '=>' state=[State])
+		////	;
+		//Skill:
 		//	"Service" service=[Service] "Efficiency" efficiency=NumExpression;
 		@Override public ParserRule getRule() { return rule; }
 
@@ -3225,9 +3276,11 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 	private final UserLibrariesElements pUserLibraries;
 	private final TerminalRule tDOUBLE;
 	private final QualifiedNameElements pQualifiedName;
+	private final ParameterElements pParameter;
+	private final AbstractParameterElements pAbstractParameter;
 	private final NumExpressionElements pNumExpression;
 	private final OperatorElements pOperator;
-	private final ParameterElements pParameter;
+	private final VariableElements pVariable;
 	private final DistributionElements pDistribution;
 	private final EventTypeElements pEventType;
 	private final ConditionTypeElements pConditionType;
@@ -3237,9 +3290,7 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 	private final ConditionElements pCondition;
 	private final TransitionElements pTransition;
 	private final AgentRoleTypeElements pAgentRoleType;
-	private final WINReplicationSettingElements pWINReplicationSetting;
 	private final WINReplicationElements pWINReplication;
-	private final IndicatorsElements pIndicators;
 	private final GovernanceStrategyElements pGovernanceStrategy;
 	private final WIAcceptanceElements pWIAcceptance;
 	private final WISelectionElements pWISelection;
@@ -3280,9 +3331,11 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		this.pUserLibraries = new UserLibrariesElements();
 		this.tDOUBLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "DOUBLE");
 		this.pQualifiedName = new QualifiedNameElements();
+		this.pParameter = new ParameterElements();
+		this.pAbstractParameter = new AbstractParameterElements();
 		this.pNumExpression = new NumExpressionElements();
 		this.pOperator = new OperatorElements();
-		this.pParameter = new ParameterElements();
+		this.pVariable = new VariableElements();
 		this.pDistribution = new DistributionElements();
 		this.pEventType = new EventTypeElements();
 		this.pConditionType = new ConditionTypeElements();
@@ -3292,9 +3345,7 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		this.pCondition = new ConditionElements();
 		this.pTransition = new TransitionElements();
 		this.pAgentRoleType = new AgentRoleTypeElements();
-		this.pWINReplicationSetting = new WINReplicationSettingElements();
 		this.pWINReplication = new WINReplicationElements();
-		this.pIndicators = new IndicatorsElements();
 		this.pGovernanceStrategy = new GovernanceStrategyElements();
 		this.pWIAcceptance = new WIAcceptanceElements();
 		this.pWISelection = new WISelectionElements();
@@ -3360,12 +3411,12 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ExperimentModel:
-	//	"ExperimentModel" name=ID ("Path" Path=QualifiedName)? "OrganizationalModel" "ServiceProviders"
-	//	ServiceProviders+=ServiceProvider+ "end ServiceProviders" "end OrganizationalModel" "WorkItemNetworkModel"
-	//	"WorkSources" WorkSources+=WorkSource+ "end WorkSources" "WorkItemNetworks" WorkItemNetworks+=WorkItemNetwork+
-	//	"end WorkItemNetworks" //		(kssWorkFlow=KanbanTaskModel)
-	// "end WorkItemNetworkModel" "ExperimentSettings"
-	//	WINReplicationSetting=WINReplicationSetting Indicators=Indicators "end ExperimentSettings" "end ExperimentModel";
+	//	"ExperimentModel" name=ID ("Path" Path=QualifiedName)? "Variables" Variables+=Variable* "end Variables"
+	//	"OrganizationalModel" "ServiceProviders" ServiceProviders+=ServiceProvider+ "end ServiceProviders"
+	//	"end OrganizationalModel" "WorkItemNetworkModel" "WorkSources" WorkSources+=WorkSource+ "end WorkSources"
+	//	"WorkItemNetworks" WorkItemNetworks+=WorkItemNetwork+ "end WorkItemNetworks" //		(kssWorkFlow=KanbanTaskModel)
+	//	"end WorkItemNetworkModel" "ExperimentSettings" "WINReplications" WINReplications+=WINReplication+
+	//	"end WINReplications" "Indicators" Indicators+=ID* "end Indicators" "end ExperimentSettings" "end ExperimentModel";
 	public ExperimentModelElements getExperimentModelAccess() {
 		return pExperimentModel;
 	}
@@ -3395,11 +3446,10 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 	//UserLibraries:
 	//	"UserLibraries" "WorkItemTypes" WorkItemTypes+=WorkItemType+ "end WorkItemTypes" "ClassOfServices"
 	//	ClassOfServices+=ClassOfService+ "end ClassOfServices" "Services" Services+=Service+ "end Services"
-	//	"GovernanceStrategies" GovernanceStrategies+=GovernanceStrategy+ "end GovernanceStrategies"
-	//	//		    ('Repositories' '{'
-	// //			(Repositories += Repository)+
-	// //			'}')?	    
-	// "end UserLibraries";
+	//	"GovernanceStrategies" GovernanceStrategies+=GovernanceStrategy+ "end GovernanceStrategies" //		    ('Repositories' '{'
+	//	//			(Repositories += Repository)+
+	//	//			'}')?	    
+	//	"end UserLibraries";
 	public UserLibrariesElements getUserLibrariesAccess() {
 		return pUserLibraries;
 	}
@@ -3409,25 +3459,23 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	////
-	// //	terminal PROFILE :
-	// //   ((CHAR|DIGIT)(CHAR|DIGIT)'.'(CHAR|DIGIT)(CHAR|DIGIT))
-	// //	;
-	// //	terminal DIGIT:
-	//
+	////	terminal PROFILE :
+	////   ((CHAR|DIGIT)(CHAR|DIGIT)'.'(CHAR|DIGIT)(CHAR|DIGIT))
+	////	;
+	////	terminal DIGIT:
 	////	    ('0'..'9')
-	// //	;
-	// //	terminal CHAR returns ecore::EString : 
-	// //	    ('a'..'z'|'A'..'Z')
-	// //	;
-	// terminal DOUBLE
-	//returns ecore::EDouble:
+	////	;
+	////	terminal CHAR returns ecore::EString : 
+	////	    ('a'..'z'|'A'..'Z')
+	////	;
+	//terminal DOUBLE returns ecore::EDouble:
 	//	"0".."9"+ ("." "0".."9"+);
 	public TerminalRule getDOUBLERule() {
 		return tDOUBLE;
 	} 
 
 	////
-	// QualifiedName:
+	//QualifiedName:
 	//	ID ("." ID)* ("." INT)*;
 	public QualifiedNameElements getQualifiedNameAccess() {
 		return pQualifiedName;
@@ -3435,6 +3483,26 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getQualifiedNameRule() {
 		return getQualifiedNameAccess().getRule();
+	}
+
+	//Parameter:
+	//	INT | DOUBLE | STRING | ID;
+	public ParameterElements getParameterAccess() {
+		return pParameter;
+	}
+	
+	public ParserRule getParameterRule() {
+		return getParameterAccess().getRule();
+	}
+
+	//AbstractParameter:
+	//	isVariable?="Variable:" variable=[Variable] | value=Parameter;
+	public AbstractParameterElements getAbstractParameterAccess() {
+		return pAbstractParameter;
+	}
+	
+	public ParserRule getAbstractParameterRule() {
+		return getAbstractParameterAccess().getRule();
 	}
 
 	//NumExpression:
@@ -3458,18 +3526,18 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		return getOperatorAccess().getRule();
 	}
 
-	//Parameter:
-	//	INT | DOUBLE | STRING | ID;
-	public ParameterElements getParameterAccess() {
-		return pParameter;
+	//Variable:
+	//	"Variable" name=ID "{" "Type:" (typeNumeric?="Numeric" "Value=" value=DOUBLE | INT) "}";
+	public VariableElements getVariableAccess() {
+		return pVariable;
 	}
 	
-	public ParserRule getParameterRule() {
-		return getParameterAccess().getRule();
+	public ParserRule getVariableRule() {
+		return getVariableAccess().getRule();
 	}
 
 	//Distribution:
-	//	(isNormal?="Normal" | isUniform?="Uniform" | isExponential?="Exponential") "[" parameters+=Parameter* "]";
+	//	(isNormal?="Normal" | isUniform?="Uniform" | isExponential?="Exponential") "[" parameters+=AbstractParameter* "]";
 	public DistributionElements getDistributionAccess() {
 		return pDistribution;
 	}
@@ -3559,16 +3627,6 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// ------------------------ Experiment Objects ---------------------------------
-	// WINReplicationSetting:
-	//	"WINReplicationSetting" "{" WINReplications+=WINReplication+ "}";
-	public WINReplicationSettingElements getWINReplicationSettingAccess() {
-		return pWINReplicationSetting;
-	}
-	
-	public ParserRule getWINReplicationSettingRule() {
-		return getWINReplicationSettingAccess().getRule();
-	}
-
 	//WINReplication:
 	//	"WorkItemNetwork" workItemNetwork=[WorkItemNetwork] "NumReplications" numReplications=INT;
 	public WINReplicationElements getWINReplicationAccess() {
@@ -3579,18 +3637,8 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		return getWINReplicationAccess().getRule();
 	}
 
-	//Indicators:
-	//	"Indicators" "{" Indicators+=ID+ "}";
-	public IndicatorsElements getIndicatorsAccess() {
-		return pIndicators;
-	}
-	
-	public ParserRule getIndicatorsRule() {
-		return getIndicatorsAccess().getRule();
-	}
-
 	//// ------------------------ Governance Objects ---------------------------------
-	// GovernanceStrategy:
+	//GovernanceStrategy:
 	//	id=INT? "GovernanceStrategy" name=ID "{" ("Description" description=STRING)? (WIAcceptanceRule=WIAcceptance
 	//	WISelectionRule=WISelection WIAssignmentRule=WIAssignment ResourceAllocationRule=ResourceAllocation
 	//	ResourceOutsourcingRule=ResourceOutsourcing)? "Mechanisms" "{" Mechanisms+=Mechanism+ "}" "}";
@@ -3725,7 +3773,7 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// ------------------------ WorkItem Objects ---------------------------------
-	// WorkSource:
+	//WorkSource:
 	//	id=INT? "WorkSource" name=ID "{" ("Description" description=STRING)? ("AssignTo" "{" assignTo+=[ServiceProvider]+
 	//	"}")? assignmentRule=WIAssignment? "}";
 	public WorkSourceElements getWorkSourceAccess() {
@@ -3749,12 +3797,11 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 
 	//WorkItem:
 	//	id=INT? "WorkItem" name=ID "{" //		('Profile' profile=[WorkItemProfile])?
-	// ("Description" description=STRING)? "Type"
-	//	type=[WorkItemType] (hasPredecessors?="Predecessors" "{" pTasks+=[WorkItem]+ "}")? (isAggregationNode?="Subtasks" "{"
-	//	sTasks+=[WorkItem]+ "}")? ("CausalTriggers" causalTriggers+=CausalTrigger*)? "RequiredServices" "{"
-	//	requiredServices+=[Service]+ "}" ("Efforts" efforts=NumExpression)? ("Value" value=NumExpression)? ("ClassOfService"
-	//	classOfService=[ClassOfService])? ("WorkSource" workSource=[WorkSource])? ("ArrivalTime" arrivalTime=INT)? ("DueDate"
-	//	dueDate=INT)? "}";
+	//	("Description" description=STRING)? "Type" type=[WorkItemType] (hasPredecessors?="Predecessors" "{" pTasks+=[WorkItem]+
+	//	"}")? (isAggregationNode?="Subtasks" "{" sTasks+=[WorkItem]+ "}")? ("CausalTriggers" causalTriggers+=CausalTrigger*)?
+	//	"RequiredServices" "{" requiredServices+=[Service]+ "}" ("Efforts" efforts=NumExpression)? ("Value"
+	//	value=NumExpression)? ("ClassOfService" classOfService=[ClassOfService])? ("WorkSource" workSource=[WorkSource])?
+	//	("ArrivalTime" arrivalTime=INT)? ("DueDate" dueDate=INT)? "}";
 	public WorkItemElements getWorkItemAccess() {
 		return pWorkItem;
 	}
@@ -3806,7 +3853,7 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// ------------------------ Organizational Objects ---------------------------------
-	// Service:
+	//Service:
 	//	id=INT? "Service" name=ID ("{" ("Description" description=STRING)? "}")?;
 	public ServiceElements getServiceAccess() {
 		return pService;
@@ -3840,127 +3887,102 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// ------------------------ WorkItem Repositories ---------------------------------------
-	// //	Repository:
-	//
+	////	Repository:
 	////		'Repository' type = [WorkItemType]
-	// //		'Profiles' '{'(profiles += WorkItemProfile)* '}'
-	// //		'end Repository'
-	//
+	////		'Profiles' '{'(profiles += WorkItemProfile)* '}'
+	////		'end Repository'
 	////	;
-	// //	WorkItemProfile:
-	// //		'WorkItem' name=ID '{'
-	// //		('Description' description=STRING)?
-	//
+	////	WorkItemProfile:
+	////		'WorkItem' name=ID '{'
+	////		('Description' description=STRING)?
 	////		('ProcessModel' processModel=[ProcessModel])?
-	// //		('References''{' (references+=WorkReference)+ '}')?
-	//
+	////		('References''{' (references+=WorkReference)+ '}')?
 	////		('Decompositions' '{' (decompositions+=WorkDecomposition)+ '}')?
-	//
 	////		('RequiredServices' (requiredServices+=[Service])+)?
-	// //		('Efforts' efforts=NumExpression)?
-	//
+	////		('Efforts' efforts=NumExpression)?
 	////		('Value' value=NumExpression)?
-	// //		('ClassOfService' classOfService=[ClassOfService])?
-	//
+	////		('ClassOfService' classOfService=[ClassOfService])?
 	////		(allowAssignment ?= 'AssignmentAllowed')?
-	// //		(allowDiscard ?= 'DiscardAllowed')?
-	// //		'}'
-	// //	;
-	//
-	////	WorkReference:
-	// //		'WorkItem' workItem = [WorkItemProfile]
-	// //		'Quantity' quantity = NumExpression
-	// //	;
-	//
-	////	WorkDecomposition:
-	// //		'WorkItem' workItem = [WorkItemProfile]
-	// //		'Quantity' quantity = NumExpression
-	// //	;
-	//
-	////	WorkPrecedency:
-	// //		'WorkItem' workItem = [WorkItemProfile]
-	// //	;
-	// //	WorkCausality:
-	//
-	////		'WorkItem' workItem = [WorkItemProfile]
-	// //	;	
-	//
-	//// ------------------------ (Reserved Objects) ---------------------------------
-	// //	KanbanTaskModel:
-	//
-	////		'WorkFlow' name=ID
-	// //		(caps+=Capability)+
-	// //		'end WorkFlow'
-	// //	;
-	// //
-	// //	Capability:
-	//
-	////		'capability' name=ID '{'
-	// //		('Description' description=STRING)?
-	// //		(reqs+=Requirement)+ 	
-	// //		'}'
-	// //	;
-	//
-	////	Requirement:
-	// //		'requirement' name=ID '{' 
-	// //		 ('Description' description=STRING)?
-	//
-	////		 ('workItems' '{' (rTasks+=[WorkItem])+ '}') 
-	// //		 ('workItemNetwork' (dependencies += CausalTrigger)*)?
-	//
+	////		(allowDiscard ?= 'DiscardAllowed')?
 	////		'}'
-	// //	;
-	// //	
-	// //	Entity:
-	// //		'entity' name=ID '{'
-	//
-	////		('ServiceDirectory' sdname=ID '=' '['(serviceProvisions+=Provision)* ']')?
-	// //		(entityBehavior=Statemachine)
-	//
-	////		'}'
-	// //	;
-	// //	
-	// //	Provision:
-	// //		'(' serviceName=[Service] ',' '{'(providers+=[ServiceProvider])* '}'')' 
-	// //	;
-	//
-	////	
-	// //	
-	// //	Statemachine :
-	// //     {Statemachine}
-	// //	('events' 
-	// //		events+=Event+ 
-	// //	'end')?
-	// //	('activities' 
-	//
-	////		commands+=Command+ 
-	// //	'end')?
-	// //	(states+=State)*
-	// //;
-	// //
-	// //	Event:
-	// //		name=ID code=ID
-	// //	;
-	// //	
-	//
-	////	Command:
-	// //		name=ID code=ID
-	// //	;
-	// //	
-	// //	State:
-	// //		'state' name=ID
-	//
-	////			('actions' '{' actions+=[Command]+ '}')?
-	// //			(transitions+=Transition)*
-	// //		'end'
-	// //	;
-	// //
-	// //	Transition:
-	//
-	////		(event=[Event] '=>' state=[State]) | (event=[Event] '/' '[' (eventactions+=[Command])+ ']' '=>' state=[State])
-	//
 	////	;
-	// Skill:
+	////	WorkReference:
+	////		'WorkItem' workItem = [WorkItemProfile]
+	////		'Quantity' quantity = NumExpression
+	////	;
+	////	WorkDecomposition:
+	////		'WorkItem' workItem = [WorkItemProfile]
+	////		'Quantity' quantity = NumExpression
+	////	;
+	////	WorkPrecedency:
+	////		'WorkItem' workItem = [WorkItemProfile]
+	////	;
+	////	WorkCausality:
+	////		'WorkItem' workItem = [WorkItemProfile]
+	////	;	
+	//// ------------------------ (Reserved Objects) ---------------------------------
+	////	KanbanTaskModel:
+	////		'WorkFlow' name=ID
+	////		(caps+=Capability)+
+	////		'end WorkFlow'
+	////	;
+	////
+	////	Capability:
+	////		'capability' name=ID '{'
+	////		('Description' description=STRING)?
+	////		(reqs+=Requirement)+ 	
+	////		'}'
+	////	;
+	////	Requirement:
+	////		'requirement' name=ID '{' 
+	////		 ('Description' description=STRING)?
+	////		 ('workItems' '{' (rTasks+=[WorkItem])+ '}') 
+	////		 ('workItemNetwork' (dependencies += CausalTrigger)*)?
+	////		'}'
+	////	;
+	////	
+	////	Entity:
+	////		'entity' name=ID '{'
+	////		('ServiceDirectory' sdname=ID '=' '['(serviceProvisions+=Provision)* ']')?
+	////		(entityBehavior=Statemachine)
+	////		'}'
+	////	;
+	////	
+	////	Provision:
+	////		'(' serviceName=[Service] ',' '{'(providers+=[ServiceProvider])* '}'')' 
+	////	;
+	////	
+	////	
+	////	Statemachine :
+	////     {Statemachine}
+	////	('events' 
+	////		events+=Event+ 
+	////	'end')?
+	////	('activities' 
+	////		commands+=Command+ 
+	////	'end')?
+	////	(states+=State)*
+	////;
+	////
+	////	Event:
+	////		name=ID code=ID
+	////	;
+	////	
+	////	Command:
+	////		name=ID code=ID
+	////	;
+	////	
+	////	State:
+	////		'state' name=ID
+	////			('actions' '{' actions+=[Command]+ '}')?
+	////			(transitions+=Transition)*
+	////		'end'
+	////	;
+	////
+	////	Transition:
+	////		(event=[Event] '=>' state=[State]) | (event=[Event] '/' '[' (eventactions+=[Command])+ ']' '=>' state=[State])
+	////	;
+	//Skill:
 	//	"Service" service=[Service] "Efficiency" efficiency=NumExpression;
 	public SkillElements getSkillAccess() {
 		return pSkill;

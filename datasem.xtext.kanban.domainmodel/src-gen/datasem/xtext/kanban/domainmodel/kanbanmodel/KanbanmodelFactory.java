@@ -59,6 +59,15 @@ public interface KanbanmodelFactory extends EFactory
   UserLibraries createUserLibraries();
 
   /**
+   * Returns a new object of class '<em>Abstract Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Abstract Parameter</em>'.
+   * @generated
+   */
+  AbstractParameter createAbstractParameter();
+
+  /**
    * Returns a new object of class '<em>Num Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -75,6 +84,15 @@ public interface KanbanmodelFactory extends EFactory
    * @generated
    */
   Operator createOperator();
+
+  /**
+   * Returns a new object of class '<em>Variable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Variable</em>'.
+   * @generated
+   */
+  Variable createVariable();
 
   /**
    * Returns a new object of class '<em>Distribution</em>'.
@@ -158,15 +176,6 @@ public interface KanbanmodelFactory extends EFactory
   AgentRoleType createAgentRoleType();
 
   /**
-   * Returns a new object of class '<em>WIN Replication Setting</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>WIN Replication Setting</em>'.
-   * @generated
-   */
-  WINReplicationSetting createWINReplicationSetting();
-
-  /**
    * Returns a new object of class '<em>WIN Replication</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -174,15 +183,6 @@ public interface KanbanmodelFactory extends EFactory
    * @generated
    */
   WINReplication createWINReplication();
-
-  /**
-   * Returns a new object of class '<em>Indicators</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Indicators</em>'.
-   * @generated
-   */
-  Indicators createIndicators();
 
   /**
    * Returns a new object of class '<em>Governance Strategy</em>'.

@@ -37,9 +37,11 @@ public class KanbanmodelParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getParameterAccess().getAlternatives(), "rule__Parameter__Alternatives");
+					put(grammarAccess.getAbstractParameterAccess().getAlternatives(), "rule__AbstractParameter__Alternatives");
 					put(grammarAccess.getNumExpressionAccess().getAlternatives(), "rule__NumExpression__Alternatives");
 					put(grammarAccess.getOperatorAccess().getAlternatives(), "rule__Operator__Alternatives");
-					put(grammarAccess.getParameterAccess().getAlternatives(), "rule__Parameter__Alternatives");
+					put(grammarAccess.getVariableAccess().getAlternatives_4(), "rule__Variable__Alternatives_4");
 					put(grammarAccess.getDistributionAccess().getAlternatives_0(), "rule__Distribution__Alternatives_0");
 					put(grammarAccess.getCausalTriggerAccess().getAlternatives_0(), "rule__CausalTrigger__Alternatives_0");
 					put(grammarAccess.getClassOfServiceAccess().getAlternatives_6(), "rule__ClassOfService__Alternatives_6");
@@ -52,7 +54,10 @@ public class KanbanmodelParser extends AbstractContentAssistParser {
 					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup_2(), "rule__QualifiedName__Group_2__0");
+					put(grammarAccess.getAbstractParameterAccess().getGroup_0(), "rule__AbstractParameter__Group_0__0");
 					put(grammarAccess.getNumExpressionAccess().getGroup_1(), "rule__NumExpression__Group_1__0");
+					put(grammarAccess.getVariableAccess().getGroup(), "rule__Variable__Group__0");
+					put(grammarAccess.getVariableAccess().getGroup_4_0(), "rule__Variable__Group_4_0__0");
 					put(grammarAccess.getDistributionAccess().getGroup(), "rule__Distribution__Group__0");
 					put(grammarAccess.getEventTypeAccess().getGroup(), "rule__EventType__Group__0");
 					put(grammarAccess.getConditionTypeAccess().getGroup(), "rule__ConditionType__Group__0");
@@ -63,9 +68,7 @@ public class KanbanmodelParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConditionAccess().getGroup(), "rule__Condition__Group__0");
 					put(grammarAccess.getTransitionAccess().getGroup(), "rule__Transition__Group__0");
 					put(grammarAccess.getAgentRoleTypeAccess().getGroup(), "rule__AgentRoleType__Group__0");
-					put(grammarAccess.getWINReplicationSettingAccess().getGroup(), "rule__WINReplicationSetting__Group__0");
 					put(grammarAccess.getWINReplicationAccess().getGroup(), "rule__WINReplication__Group__0");
-					put(grammarAccess.getIndicatorsAccess().getGroup(), "rule__Indicators__Group__0");
 					put(grammarAccess.getGovernanceStrategyAccess().getGroup(), "rule__GovernanceStrategy__Group__0");
 					put(grammarAccess.getGovernanceStrategyAccess().getGroup_4(), "rule__GovernanceStrategy__Group_4__0");
 					put(grammarAccess.getGovernanceStrategyAccess().getGroup_5(), "rule__GovernanceStrategy__Group_5__0");
@@ -140,11 +143,12 @@ public class KanbanmodelParser extends AbstractContentAssistParser {
 					put(grammarAccess.getModelBuilderAccess().getExperimentModelAssignment_6(), "rule__ModelBuilder__ExperimentModelAssignment_6");
 					put(grammarAccess.getExperimentModelAccess().getNameAssignment_1(), "rule__ExperimentModel__NameAssignment_1");
 					put(grammarAccess.getExperimentModelAccess().getPathAssignment_2_1(), "rule__ExperimentModel__PathAssignment_2_1");
-					put(grammarAccess.getExperimentModelAccess().getServiceProvidersAssignment_5(), "rule__ExperimentModel__ServiceProvidersAssignment_5");
-					put(grammarAccess.getExperimentModelAccess().getWorkSourcesAssignment_10(), "rule__ExperimentModel__WorkSourcesAssignment_10");
-					put(grammarAccess.getExperimentModelAccess().getWorkItemNetworksAssignment_13(), "rule__ExperimentModel__WorkItemNetworksAssignment_13");
-					put(grammarAccess.getExperimentModelAccess().getWINReplicationSettingAssignment_17(), "rule__ExperimentModel__WINReplicationSettingAssignment_17");
-					put(grammarAccess.getExperimentModelAccess().getIndicatorsAssignment_18(), "rule__ExperimentModel__IndicatorsAssignment_18");
+					put(grammarAccess.getExperimentModelAccess().getVariablesAssignment_4(), "rule__ExperimentModel__VariablesAssignment_4");
+					put(grammarAccess.getExperimentModelAccess().getServiceProvidersAssignment_8(), "rule__ExperimentModel__ServiceProvidersAssignment_8");
+					put(grammarAccess.getExperimentModelAccess().getWorkSourcesAssignment_13(), "rule__ExperimentModel__WorkSourcesAssignment_13");
+					put(grammarAccess.getExperimentModelAccess().getWorkItemNetworksAssignment_16(), "rule__ExperimentModel__WorkItemNetworksAssignment_16");
+					put(grammarAccess.getExperimentModelAccess().getWINReplicationsAssignment_21(), "rule__ExperimentModel__WINReplicationsAssignment_21");
+					put(grammarAccess.getExperimentModelAccess().getIndicatorsAssignment_24(), "rule__ExperimentModel__IndicatorsAssignment_24");
 					put(grammarAccess.getSystemLibrariesAccess().getEventTypesAssignment_2(), "rule__SystemLibraries__EventTypesAssignment_2");
 					put(grammarAccess.getSystemLibrariesAccess().getConditionTypesAssignment_5(), "rule__SystemLibraries__ConditionTypesAssignment_5");
 					put(grammarAccess.getSystemLibrariesAccess().getTransitionTypesAssignment_8(), "rule__SystemLibraries__TransitionTypesAssignment_8");
@@ -159,6 +163,9 @@ public class KanbanmodelParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUserLibrariesAccess().getClassOfServicesAssignment_5(), "rule__UserLibraries__ClassOfServicesAssignment_5");
 					put(grammarAccess.getUserLibrariesAccess().getServicesAssignment_8(), "rule__UserLibraries__ServicesAssignment_8");
 					put(grammarAccess.getUserLibrariesAccess().getGovernanceStrategiesAssignment_11(), "rule__UserLibraries__GovernanceStrategiesAssignment_11");
+					put(grammarAccess.getAbstractParameterAccess().getIsVariableAssignment_0_0(), "rule__AbstractParameter__IsVariableAssignment_0_0");
+					put(grammarAccess.getAbstractParameterAccess().getVariableAssignment_0_1(), "rule__AbstractParameter__VariableAssignment_0_1");
+					put(grammarAccess.getAbstractParameterAccess().getValueAssignment_1(), "rule__AbstractParameter__ValueAssignment_1");
 					put(grammarAccess.getNumExpressionAccess().getNumValueAssignment_0(), "rule__NumExpression__NumValueAssignment_0");
 					put(grammarAccess.getNumExpressionAccess().getDistributionAssignment_1_0(), "rule__NumExpression__DistributionAssignment_1_0");
 					put(grammarAccess.getNumExpressionAccess().getNumDistAssignment_1_1(), "rule__NumExpression__NumDistAssignment_1_1");
@@ -168,6 +175,9 @@ public class KanbanmodelParser extends AbstractContentAssistParser {
 					put(grammarAccess.getOperatorAccess().getLargerOrEqualToAssignment_3(), "rule__Operator__LargerOrEqualToAssignment_3");
 					put(grammarAccess.getOperatorAccess().getSmallerOrEqualToAssignment_4(), "rule__Operator__SmallerOrEqualToAssignment_4");
 					put(grammarAccess.getOperatorAccess().getNotEqualToAssignment_5(), "rule__Operator__NotEqualToAssignment_5");
+					put(grammarAccess.getVariableAccess().getNameAssignment_1(), "rule__Variable__NameAssignment_1");
+					put(grammarAccess.getVariableAccess().getTypeNumericAssignment_4_0_0(), "rule__Variable__TypeNumericAssignment_4_0_0");
+					put(grammarAccess.getVariableAccess().getValueAssignment_4_0_2(), "rule__Variable__ValueAssignment_4_0_2");
 					put(grammarAccess.getDistributionAccess().getIsNormalAssignment_0_0(), "rule__Distribution__IsNormalAssignment_0_0");
 					put(grammarAccess.getDistributionAccess().getIsUniformAssignment_0_1(), "rule__Distribution__IsUniformAssignment_0_1");
 					put(grammarAccess.getDistributionAccess().getIsExponentialAssignment_0_2(), "rule__Distribution__IsExponentialAssignment_0_2");
@@ -190,10 +200,8 @@ public class KanbanmodelParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTransitionAccess().getValueAssignment_2(), "rule__Transition__ValueAssignment_2");
 					put(grammarAccess.getAgentRoleTypeAccess().getNameAssignment_1(), "rule__AgentRoleType__NameAssignment_1");
 					put(grammarAccess.getAgentRoleTypeAccess().getDescriptionAssignment_2(), "rule__AgentRoleType__DescriptionAssignment_2");
-					put(grammarAccess.getWINReplicationSettingAccess().getWINReplicationsAssignment_2(), "rule__WINReplicationSetting__WINReplicationsAssignment_2");
 					put(grammarAccess.getWINReplicationAccess().getWorkItemNetworkAssignment_1(), "rule__WINReplication__WorkItemNetworkAssignment_1");
 					put(grammarAccess.getWINReplicationAccess().getNumReplicationsAssignment_3(), "rule__WINReplication__NumReplicationsAssignment_3");
-					put(grammarAccess.getIndicatorsAccess().getIndicatorsAssignment_2(), "rule__Indicators__IndicatorsAssignment_2");
 					put(grammarAccess.getGovernanceStrategyAccess().getIdAssignment_0(), "rule__GovernanceStrategy__IdAssignment_0");
 					put(grammarAccess.getGovernanceStrategyAccess().getNameAssignment_2(), "rule__GovernanceStrategy__NameAssignment_2");
 					put(grammarAccess.getGovernanceStrategyAccess().getDescriptionAssignment_4_1(), "rule__GovernanceStrategy__DescriptionAssignment_4_1");

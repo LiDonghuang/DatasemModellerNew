@@ -68,8 +68,10 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
       case KanbanmodelPackage.EXPERIMENT_MODEL: return createExperimentModel();
       case KanbanmodelPackage.SYSTEM_LIBRARIES: return createSystemLibraries();
       case KanbanmodelPackage.USER_LIBRARIES: return createUserLibraries();
+      case KanbanmodelPackage.ABSTRACT_PARAMETER: return createAbstractParameter();
       case KanbanmodelPackage.NUM_EXPRESSION: return createNumExpression();
       case KanbanmodelPackage.OPERATOR: return createOperator();
+      case KanbanmodelPackage.VARIABLE: return createVariable();
       case KanbanmodelPackage.DISTRIBUTION: return createDistribution();
       case KanbanmodelPackage.EVENT_TYPE: return createEventType();
       case KanbanmodelPackage.CONDITION_TYPE: return createConditionType();
@@ -79,9 +81,7 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
       case KanbanmodelPackage.CONDITION: return createCondition();
       case KanbanmodelPackage.TRANSITION: return createTransition();
       case KanbanmodelPackage.AGENT_ROLE_TYPE: return createAgentRoleType();
-      case KanbanmodelPackage.WIN_REPLICATION_SETTING: return createWINReplicationSetting();
       case KanbanmodelPackage.WIN_REPLICATION: return createWINReplication();
-      case KanbanmodelPackage.INDICATORS: return createIndicators();
       case KanbanmodelPackage.GOVERNANCE_STRATEGY: return createGovernanceStrategy();
       case KanbanmodelPackage.WI_ACCEPTANCE: return createWIAcceptance();
       case KanbanmodelPackage.WI_SELECTION: return createWISelection();
@@ -160,6 +160,17 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
    * <!-- end-user-doc -->
    * @generated
    */
+  public AbstractParameter createAbstractParameter()
+  {
+    AbstractParameterImpl abstractParameter = new AbstractParameterImpl();
+    return abstractParameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public NumExpression createNumExpression()
   {
     NumExpressionImpl numExpression = new NumExpressionImpl();
@@ -175,6 +186,17 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
   {
     OperatorImpl operator = new OperatorImpl();
     return operator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Variable createVariable()
+  {
+    VariableImpl variable = new VariableImpl();
+    return variable;
   }
 
   /**
@@ -281,32 +303,10 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
    * <!-- end-user-doc -->
    * @generated
    */
-  public WINReplicationSetting createWINReplicationSetting()
-  {
-    WINReplicationSettingImpl winReplicationSetting = new WINReplicationSettingImpl();
-    return winReplicationSetting;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public WINReplication createWINReplication()
   {
     WINReplicationImpl winReplication = new WINReplicationImpl();
     return winReplication;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Indicators createIndicators()
-  {
-    IndicatorsImpl indicators = new IndicatorsImpl();
-    return indicators;
   }
 
   /**

@@ -5,6 +5,7 @@ package datasem.xtext.kanban.domainmodel.serializer;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.AbstractParameter;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.AgentRoleType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Asset;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger;
@@ -16,7 +17,6 @@ import datasem.xtext.kanban.domainmodel.kanbanmodel.Event;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.EventType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Indicators;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.MechanismAttribute;
@@ -36,12 +36,12 @@ import datasem.xtext.kanban.domainmodel.kanbanmodel.Transition;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.TransitionType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.UserLibraries;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ValueFunction;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Variable;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptance;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptanceRuleType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignment;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignmentRuleType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WINReplication;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WINReplicationSetting;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WISelection;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WISelectionRuleType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem;
@@ -70,6 +70,9 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	@Override
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == KanbanmodelPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case KanbanmodelPackage.ABSTRACT_PARAMETER:
+				sequence_AbstractParameter(context, (AbstractParameter) semanticObject); 
+				return; 
 			case KanbanmodelPackage.AGENT_ROLE_TYPE:
 				sequence_AgentRoleType(context, (AgentRoleType) semanticObject); 
 				return; 
@@ -102,9 +105,6 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 				return; 
 			case KanbanmodelPackage.GOVERNANCE_STRATEGY:
 				sequence_GovernanceStrategy(context, (GovernanceStrategy) semanticObject); 
-				return; 
-			case KanbanmodelPackage.INDICATORS:
-				sequence_Indicators(context, (Indicators) semanticObject); 
 				return; 
 			case KanbanmodelPackage.MECHANISM:
 				sequence_Mechanism(context, (Mechanism) semanticObject); 
@@ -160,6 +160,9 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case KanbanmodelPackage.VALUE_FUNCTION:
 				sequence_ValueFunction(context, (ValueFunction) semanticObject); 
 				return; 
+			case KanbanmodelPackage.VARIABLE:
+				sequence_Variable(context, (Variable) semanticObject); 
+				return; 
 			case KanbanmodelPackage.WI_ACCEPTANCE:
 				sequence_WIAcceptance(context, (WIAcceptance) semanticObject); 
 				return; 
@@ -174,9 +177,6 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 				return; 
 			case KanbanmodelPackage.WIN_REPLICATION:
 				sequence_WINReplication(context, (WINReplication) semanticObject); 
-				return; 
-			case KanbanmodelPackage.WIN_REPLICATION_SETTING:
-				sequence_WINReplicationSetting(context, (WINReplicationSetting) semanticObject); 
 				return; 
 			case KanbanmodelPackage.WI_SELECTION:
 				sequence_WISelection(context, (WISelection) semanticObject); 
@@ -199,6 +199,15 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Constraint:
+	 *     ((isVariable?='Variable:' variable=[Variable|ID]) | value=Parameter)
+	 */
+	protected void sequence_AbstractParameter(EObject context, AbstractParameter semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Constraint:
@@ -269,7 +278,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     ((isNormal?='Normal' | isUniform?='Uniform' | isExponential?='Exponential') parameters+=Parameter*)
+	 *     ((isNormal?='Normal' | isUniform?='Uniform' | isExponential?='Exponential') parameters+=AbstractParameter*)
 	 */
 	protected void sequence_Distribution(EObject context, Distribution semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -299,11 +308,12 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     (
 	 *         name=ID 
 	 *         Path=QualifiedName? 
+	 *         Variables+=Variable* 
 	 *         ServiceProviders+=ServiceProvider+ 
 	 *         WorkSources+=WorkSource+ 
 	 *         WorkItemNetworks+=WorkItemNetwork+ 
-	 *         WINReplicationSetting=WINReplicationSetting 
-	 *         Indicators=Indicators
+	 *         WINReplications+=WINReplication+ 
+	 *         Indicators+=ID*
 	 *     )
 	 */
 	protected void sequence_ExperimentModel(EObject context, ExperimentModel semanticObject) {
@@ -328,15 +338,6 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     )
 	 */
 	protected void sequence_GovernanceStrategy(EObject context, GovernanceStrategy semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     Indicators+=ID+
-	 */
-	protected void sequence_Indicators(EObject context, Indicators semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -581,6 +582,15 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
+	 *     (name=ID (typeNumeric?='Numeric' value=DOUBLE)?)
+	 */
+	protected void sequence_Variable(EObject context, Variable semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=ID description=STRING?)
 	 */
 	protected void sequence_WIAcceptanceRuleType(EObject context, WIAcceptanceRuleType semanticObject) {
@@ -611,15 +621,6 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     (type=[WIAssignmentRuleType|ID] description=STRING?)
 	 */
 	protected void sequence_WIAssignment(EObject context, WIAssignment semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     WINReplications+=WINReplication+
-	 */
-	protected void sequence_WINReplicationSetting(EObject context, WINReplicationSetting semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

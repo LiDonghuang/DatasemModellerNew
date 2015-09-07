@@ -3,10 +3,10 @@
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Indicators;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WINReplicationSetting;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Variable;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WINReplication;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemNetwork;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkSource;
 
@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -35,10 +36,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentModelImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentModelImpl#getVariables <em>Variables</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentModelImpl#getServiceProviders <em>Service Providers</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentModelImpl#getWorkSources <em>Work Sources</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentModelImpl#getWorkItemNetworks <em>Work Item Networks</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentModelImpl#getWINReplicationSetting <em>WIN Replication Setting</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentModelImpl#getWINReplications <em>WIN Replications</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentModelImpl#getIndicators <em>Indicators</em>}</li>
  * </ul>
  * </p>
@@ -88,6 +90,16 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
   protected String path = PATH_EDEFAULT;
 
   /**
+   * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVariables()
+   * @generated
+   * @ordered
+   */
+  protected EList<Variable> variables;
+
+  /**
    * The cached value of the '{@link #getServiceProviders() <em>Service Providers</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -118,24 +130,24 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
   protected EList<WorkItemNetwork> workItemNetworks;
 
   /**
-   * The cached value of the '{@link #getWINReplicationSetting() <em>WIN Replication Setting</em>}' containment reference.
+   * The cached value of the '{@link #getWINReplications() <em>WIN Replications</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getWINReplicationSetting()
+   * @see #getWINReplications()
    * @generated
    * @ordered
    */
-  protected WINReplicationSetting winReplicationSetting;
+  protected EList<WINReplication> winReplications;
 
   /**
-   * The cached value of the '{@link #getIndicators() <em>Indicators</em>}' containment reference.
+   * The cached value of the '{@link #getIndicators() <em>Indicators</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getIndicators()
    * @generated
    * @ordered
    */
-  protected Indicators indicators;
+  protected EList<String> indicators;
 
   /**
    * <!-- begin-user-doc -->
@@ -209,6 +221,20 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Variable> getVariables()
+  {
+    if (variables == null)
+    {
+      variables = new EObjectContainmentEList<Variable>(Variable.class, this, KanbanmodelPackage.EXPERIMENT_MODEL__VARIABLES);
+    }
+    return variables;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<ServiceProvider> getServiceProviders()
   {
     if (serviceProviders == null)
@@ -251,26 +277,13 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public WINReplicationSetting getWINReplicationSetting()
+  public EList<WINReplication> getWINReplications()
   {
-    return winReplicationSetting;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetWINReplicationSetting(WINReplicationSetting newWINReplicationSetting, NotificationChain msgs)
-  {
-    WINReplicationSetting oldWINReplicationSetting = winReplicationSetting;
-    winReplicationSetting = newWINReplicationSetting;
-    if (eNotificationRequired())
+    if (winReplications == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATION_SETTING, oldWINReplicationSetting, newWINReplicationSetting);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
+      winReplications = new EObjectContainmentEList<WINReplication>(WINReplication.class, this, KanbanmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATIONS);
     }
-    return msgs;
+    return winReplications;
   }
 
   /**
@@ -278,68 +291,13 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setWINReplicationSetting(WINReplicationSetting newWINReplicationSetting)
+  public EList<String> getIndicators()
   {
-    if (newWINReplicationSetting != winReplicationSetting)
+    if (indicators == null)
     {
-      NotificationChain msgs = null;
-      if (winReplicationSetting != null)
-        msgs = ((InternalEObject)winReplicationSetting).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATION_SETTING, null, msgs);
-      if (newWINReplicationSetting != null)
-        msgs = ((InternalEObject)newWINReplicationSetting).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATION_SETTING, null, msgs);
-      msgs = basicSetWINReplicationSetting(newWINReplicationSetting, msgs);
-      if (msgs != null) msgs.dispatch();
+      indicators = new EDataTypeEList<String>(String.class, this, KanbanmodelPackage.EXPERIMENT_MODEL__INDICATORS);
     }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATION_SETTING, newWINReplicationSetting, newWINReplicationSetting));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Indicators getIndicators()
-  {
     return indicators;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetIndicators(Indicators newIndicators, NotificationChain msgs)
-  {
-    Indicators oldIndicators = indicators;
-    indicators = newIndicators;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_MODEL__INDICATORS, oldIndicators, newIndicators);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setIndicators(Indicators newIndicators)
-  {
-    if (newIndicators != indicators)
-    {
-      NotificationChain msgs = null;
-      if (indicators != null)
-        msgs = ((InternalEObject)indicators).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.EXPERIMENT_MODEL__INDICATORS, null, msgs);
-      if (newIndicators != null)
-        msgs = ((InternalEObject)newIndicators).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.EXPERIMENT_MODEL__INDICATORS, null, msgs);
-      msgs = basicSetIndicators(newIndicators, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_MODEL__INDICATORS, newIndicators, newIndicators));
   }
 
   /**
@@ -352,16 +310,16 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.EXPERIMENT_MODEL__VARIABLES:
+        return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.EXPERIMENT_MODEL__SERVICE_PROVIDERS:
         return ((InternalEList<?>)getServiceProviders()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.EXPERIMENT_MODEL__WORK_SOURCES:
         return ((InternalEList<?>)getWorkSources()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.EXPERIMENT_MODEL__WORK_ITEM_NETWORKS:
         return ((InternalEList<?>)getWorkItemNetworks()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATION_SETTING:
-        return basicSetWINReplicationSetting(null, msgs);
-      case KanbanmodelPackage.EXPERIMENT_MODEL__INDICATORS:
-        return basicSetIndicators(null, msgs);
+      case KanbanmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATIONS:
+        return ((InternalEList<?>)getWINReplications()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -380,14 +338,16 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
         return getName();
       case KanbanmodelPackage.EXPERIMENT_MODEL__PATH:
         return getPath();
+      case KanbanmodelPackage.EXPERIMENT_MODEL__VARIABLES:
+        return getVariables();
       case KanbanmodelPackage.EXPERIMENT_MODEL__SERVICE_PROVIDERS:
         return getServiceProviders();
       case KanbanmodelPackage.EXPERIMENT_MODEL__WORK_SOURCES:
         return getWorkSources();
       case KanbanmodelPackage.EXPERIMENT_MODEL__WORK_ITEM_NETWORKS:
         return getWorkItemNetworks();
-      case KanbanmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATION_SETTING:
-        return getWINReplicationSetting();
+      case KanbanmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATIONS:
+        return getWINReplications();
       case KanbanmodelPackage.EXPERIMENT_MODEL__INDICATORS:
         return getIndicators();
     }
@@ -411,6 +371,10 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
       case KanbanmodelPackage.EXPERIMENT_MODEL__PATH:
         setPath((String)newValue);
         return;
+      case KanbanmodelPackage.EXPERIMENT_MODEL__VARIABLES:
+        getVariables().clear();
+        getVariables().addAll((Collection<? extends Variable>)newValue);
+        return;
       case KanbanmodelPackage.EXPERIMENT_MODEL__SERVICE_PROVIDERS:
         getServiceProviders().clear();
         getServiceProviders().addAll((Collection<? extends ServiceProvider>)newValue);
@@ -423,11 +387,13 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
         getWorkItemNetworks().clear();
         getWorkItemNetworks().addAll((Collection<? extends WorkItemNetwork>)newValue);
         return;
-      case KanbanmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATION_SETTING:
-        setWINReplicationSetting((WINReplicationSetting)newValue);
+      case KanbanmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATIONS:
+        getWINReplications().clear();
+        getWINReplications().addAll((Collection<? extends WINReplication>)newValue);
         return;
       case KanbanmodelPackage.EXPERIMENT_MODEL__INDICATORS:
-        setIndicators((Indicators)newValue);
+        getIndicators().clear();
+        getIndicators().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -449,6 +415,9 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
       case KanbanmodelPackage.EXPERIMENT_MODEL__PATH:
         setPath(PATH_EDEFAULT);
         return;
+      case KanbanmodelPackage.EXPERIMENT_MODEL__VARIABLES:
+        getVariables().clear();
+        return;
       case KanbanmodelPackage.EXPERIMENT_MODEL__SERVICE_PROVIDERS:
         getServiceProviders().clear();
         return;
@@ -458,11 +427,11 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
       case KanbanmodelPackage.EXPERIMENT_MODEL__WORK_ITEM_NETWORKS:
         getWorkItemNetworks().clear();
         return;
-      case KanbanmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATION_SETTING:
-        setWINReplicationSetting((WINReplicationSetting)null);
+      case KanbanmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATIONS:
+        getWINReplications().clear();
         return;
       case KanbanmodelPackage.EXPERIMENT_MODEL__INDICATORS:
-        setIndicators((Indicators)null);
+        getIndicators().clear();
         return;
     }
     super.eUnset(featureID);
@@ -482,16 +451,18 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case KanbanmodelPackage.EXPERIMENT_MODEL__PATH:
         return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
+      case KanbanmodelPackage.EXPERIMENT_MODEL__VARIABLES:
+        return variables != null && !variables.isEmpty();
       case KanbanmodelPackage.EXPERIMENT_MODEL__SERVICE_PROVIDERS:
         return serviceProviders != null && !serviceProviders.isEmpty();
       case KanbanmodelPackage.EXPERIMENT_MODEL__WORK_SOURCES:
         return workSources != null && !workSources.isEmpty();
       case KanbanmodelPackage.EXPERIMENT_MODEL__WORK_ITEM_NETWORKS:
         return workItemNetworks != null && !workItemNetworks.isEmpty();
-      case KanbanmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATION_SETTING:
-        return winReplicationSetting != null;
+      case KanbanmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATIONS:
+        return winReplications != null && !winReplications.isEmpty();
       case KanbanmodelPackage.EXPERIMENT_MODEL__INDICATORS:
-        return indicators != null;
+        return indicators != null && !indicators.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -511,6 +482,8 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
     result.append(name);
     result.append(", Path: ");
     result.append(path);
+    result.append(", Indicators: ");
+    result.append(indicators);
     result.append(')');
     return result.toString();
   }
