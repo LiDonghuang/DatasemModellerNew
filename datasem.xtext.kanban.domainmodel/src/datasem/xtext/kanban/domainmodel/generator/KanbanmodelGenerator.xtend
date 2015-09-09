@@ -10,6 +10,7 @@ import java.util.Random
 import java.util.List
 import org.eclipse.emf.common.util.EList
 import datasem.xtext.kanban.domainmodel.kanbanmodel.*
+import datasem.xtext.kanban.domainmodel.kanbanmodel.impl.*
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelFactory
 import java.text.DecimalFormat
 
@@ -30,8 +31,8 @@ class KanbanmodelGenerator implements IGenerator {
 		compile(resource)
 	)	
 //	fsa.generateFile("UserLibraries.xml", compileUserLibraries(resource))	
+	
 	}
-
 
 // --------------------------------------------------------------------------
 def compile(Resource res) '''	
@@ -48,11 +49,8 @@ def compile(Resource res) '''
 	<Runs>
 	<Run runId="1" description="xx" numberOfReplications="10" numberOfSteps="10000">
 		<OrganizationalModel>
-		«assignServiceProvidersId(emodel.getServiceProviders())»	
 		<ServiceProviders>
-		«FOR sp : emodel.getServiceProviders()»  
-			«printServiceProvider(sp)»
-		«ENDFOR»
+		«buildOrganization(emodel)»
 		</ServiceProviders>
 		</OrganizationalModel>
 		<WorkItemNetworkModel>		
@@ -71,9 +69,7 @@ def compile(Resource res) '''
 </ExperimentModel>	
 '''
 // --------------------------------------------------------------------------
-	def readUserVariableSettings () {
-		
-	}
+
 // --------------------------------------------------------------------------
 	def assignServiceProvidersId(EList<ServiceProvider> sps) '''
 		«var serviceProviderId=1»
@@ -88,21 +84,38 @@ def compile(Resource res) '''
 	def buildWorkItems(ExperimentModel emodel) '''
 		«var winId=1»
 		«FOR win: emodel.workItemNetworks»
-			«win.setId(winId++)»
+		«win.setId(winId++)»
 		«ENDFOR»
 		«var wiId=1»
 		«FOR winRS: emodel.WINReplications» 
-			«FOR r : 0..winRS.numReplications» 
-		    	«FOR wi : winRS.workItemNetwork.workItems »
-		    		«wi.setId(wiId++)»
-		    	«ENDFOR»
-		    	«FOR wi : winRS.workItemNetwork.workItems »
-		    		«printWorkItem(wi)»
-		    	«ENDFOR»
-		    «ENDFOR»
+		«FOR r : 1..winRS.numReplications» 
+		«FOR wi : winRS.workItemNetwork.workItems »
+		«wi.setId(wiId++)»
+		«ENDFOR»
+		«FOR wi : winRS.workItemNetwork.workItems »
+		«printWorkItem(wi)»
+		«ENDFOR»
+		«ENDFOR»
 		«ENDFOR»    	
 	'''
-		  
+	def buildOrganization(ExperimentModel emodel) '''
+		«var spId=1»
+		«var resourceId=1»
+		«FOR sp: emodel.serviceProviders» 
+		«sp.setId(spId++)»
+		«printServiceProvider(sp)»
+		<Resources>
+		«FOR r : sp.resources» 
+		«var int number = readIntParameter(r.number)»
+		«FOR n : 1..number»
+		«r.setId(resourceId++)»
+		«printResource(r)»
+		«ENDFOR»
+		«ENDFOR»
+		</Resources>
+		</ServiceProvider> 
+		«ENDFOR»    	
+	'''	  
 	def assignWorkItemsId(WorkItemNetwork win, int startId) '''
 		«var wiId=startId»
 		«FOR wi: win.getWorkItems()»
@@ -115,7 +128,7 @@ def compile(Resource res) '''
 		if (e!=null) {
 			if (e.isDistribution) {
 				numValue = sampleDistribution(e)
-				numValue =Double.parseDouble(new DecimalFormat("##.##").format(numValue));
+				numValue =Double.parseDouble(new DecimalFormat("##.###").format(numValue));
 			}
 			else {numValue=e.numValue}
 		}
@@ -124,71 +137,80 @@ def compile(Resource res) '''
 
 
 	def sampleDistribution(NumExpression e) {
-		var sampledValue = 0.0
+		var sampledValue = 0.0		
 		if (e.numDist.isNormal) {			
-			var double mean=readNumericParameter(e.numDist.parameters.get(0))
-			var double stdev=readNumericParameter(e.numDist.parameters.get(1))
+			var double mean=readDoubleParameter(e.numDist.parameters.get(0))
+			var double stdev=readDoubleParameter(e.numDist.parameters.get(1))
 			var double rand = new Random().nextGaussian()
 			sampledValue = mean + stdev*rand
 		}	
 		else if (e.numDist.isUniform) {
-			var double ll=readNumericParameter(e.numDist.parameters.get(0))
-			var double ul=readNumericParameter(e.numDist.parameters.get(1))
+			var double ll=readDoubleParameter(e.numDist.parameters.get(0))
+			var double ul=readDoubleParameter(e.numDist.parameters.get(1))
 			var double rand = new Random().nextDouble()
 			sampledValue = ll + (ul-ll)*rand
 		}		
 		return sampledValue
 	}
-	
-	def readNumericParameter(AbstractParameter p) {
-		var value=0.0
+	def readIntParameter(AbstractParameter p) {
+		var int value=0
 		if (p.isVariable) {
-			value=p.variable.value
+			value=p.variable.intValue
+		}	
+		else {value=Integer.parseInt(p.value)}		
+		return value
+	}	
+	def readDoubleParameter(AbstractParameter p) {
+		var double value=0.0
+		if (p.isVariable) {
+			value=p.variable.doubleValue
 		}	
 		else {value=Double.parseDouble(p.value)}		
+		return value
+	}
+	def readStringParameter(AbstractParameter p) {
+		var String value=""
+		if (p.isVariable) {
+			value=p.variable.stringValue
+		}	
+		else {value=p.value}		
 		return value
 	}
 		
 
 	def printServiceProvider(ServiceProvider sp) '''
 			<ServiceProvider serviceProviderId="«sp.id»" name="«sp.name»" description="«sp.description»">
-				<AssignWITo>
-				«FOR tu : sp.getAssignTo()»
-					<serviceProviderId>«tu.id»</serviceProviderId>
-				«ENDFOR»
-				</AssignWITo>
-				<BorrowResourceFrom>
-				«FOR tu : sp.getOutsourceFrom()»
-					<serviceProviderId>«tu.id»</serviceProviderId>
-				«ENDFOR»
-				</BorrowResourceFrom>
-				<TeamService serviceId="«sp.teamService.id»"></TeamService>	
-				<GovernanceStrategy>
-					<Mechanisms>
-					«FOR m:sp.governanceStrategy.mechanisms»
-						«printMechanism(m)»
-					«ENDFOR»
-					</Mechanisms>		
+			<AssignWITo>
+			«FOR tu : sp.getAssignTo()»
+			<serviceProviderId>«tu.id»</serviceProviderId>
+			«ENDFOR»
+			</AssignWITo>
+			<BorrowResourceFrom>
+			«FOR tu : sp.getOutsourceFrom()»
+			<serviceProviderId>«tu.id»</serviceProviderId>
+			«ENDFOR»
+			</BorrowResourceFrom>
+			<TeamService serviceId="«sp.teamService.id»"></TeamService>	
+			<GovernanceStrategy>
+			<Mechanisms>
+			«FOR m:sp.governanceStrategy.mechanisms»
+			«printMechanism(m)»
+			«ENDFOR»
+			</Mechanisms>		
 «««					<AcceptanceRule>«sp.governanceStrategy.getWIAcceptanceRule.type.name»</AcceptanceRule>
 «««					<SelectionRule>«sp.governanceStrategy.getWISelectionRule.type.name»</SelectionRule>
 «««					<AssignmentRule>«sp.governanceStrategy.getWIAssignmentRule.type.name»</AssignmentRule>
 «««					<AllocationRule>«sp.governanceStrategy.getResourceAllocationRule.type.name»</AllocationRule>
 «««					<OutsourcingRule>«sp.governanceStrategy.getResourceOutsourcingRule.type.name»</OutsourcingRule>						
-				</GovernanceStrategy>	
-				<Resources>
-				«FOR r : sp.getResources()» 
-					«printResource(r)»
-				«ENDFOR»
-				</Resources>	
-			</ServiceProvider>
+			</GovernanceStrategy>	
 	'''
 	def printResource(Asset r) '''
 			<Resource resourceId="«r.id»" name="«r.name»" description="«r.description»">
-				<SkillSet>
-				«FOR s : r.getSkillSet()» 
-					«printSkill(s)»
-				«ENDFOR»	
-				</SkillSet>	
+			<SkillSet>
+			«FOR s : r.getSkillSet()» 
+			«printSkill(s)»
+			«ENDFOR»	
+			</SkillSet>	
 			</Resource>	
 	'''	
 	def printSkill(Skill s) '''
@@ -197,11 +219,11 @@ def compile(Resource res) '''
 
 	def printWorkSource(WorkSource ws) '''
 			<WorkSource name="«ws.name»" description="«ws.description»">
-				<AssignWITo>
-				«FOR tu : ws.getAssignTo()»
-					<serviceProviderId>«tu.id»</serviceProviderId>
-				«ENDFOR»
-				</AssignWITo>
+			<AssignWITo>
+			«FOR tu : ws.getAssignTo()»
+			<serviceProviderId>«tu.id»</serviceProviderId>
+			«ENDFOR»
+			</AssignWITo>
 «««				«IF ws.getAssignmentRule() != null»
 «««				<AssignmentRule>«ws.getAssignmentRule().type.name»</AssignmentRule>						
 «««				«ELSE»
@@ -214,14 +236,14 @@ def compile(Resource res) '''
 				«IF	wi.hasPredecessors»
 				<Predecessors>
 				«FOR ptask : wi.getPTasks()»
-					<workItemId>«ptask.id»</workItemId>
+				<workItemId>«ptask.id»</workItemId>
 				«ENDFOR»	
 				</Predecessors>
 				«ENDIF»	
 				«IF	wi.isAggregationNode»
 				<Subtasks>
 				«FOR stask : wi.getSTasks()»				
-					<workItemId>«stask.id»</workItemId>
+				<workItemId>«stask.id»</workItemId>
 				«ENDFOR»		
 				</Subtasks>
 				«ENDIF»	

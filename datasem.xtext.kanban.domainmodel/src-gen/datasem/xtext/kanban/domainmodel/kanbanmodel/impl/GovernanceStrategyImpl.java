@@ -43,6 +43,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.GovernanceStrategyImpl#getResourceAllocationRule <em>Resource Allocation Rule</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.GovernanceStrategyImpl#getResourceOutsourcingRule <em>Resource Outsourcing Rule</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.GovernanceStrategyImpl#getMechanisms <em>Mechanisms</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.GovernanceStrategyImpl#getProcesses <em>Processes</em>}</li>
  * </ul>
  * </p>
  *
@@ -169,6 +170,16 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
    * @ordered
    */
   protected EList<Mechanism> mechanisms;
+
+  /**
+   * The cached value of the '{@link #getProcesses() <em>Processes</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getProcesses()
+   * @generated
+   * @ordered
+   */
+  protected EList<datasem.xtext.kanban.domainmodel.kanbanmodel.Process> processes;
 
   /**
    * <!-- begin-user-doc -->
@@ -519,6 +530,20 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<datasem.xtext.kanban.domainmodel.kanbanmodel.Process> getProcesses()
+  {
+    if (processes == null)
+    {
+      processes = new EObjectContainmentEList<datasem.xtext.kanban.domainmodel.kanbanmodel.Process>(datasem.xtext.kanban.domainmodel.kanbanmodel.Process.class, this, KanbanmodelPackage.GOVERNANCE_STRATEGY__PROCESSES);
+    }
+    return processes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -536,6 +561,8 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
         return basicSetResourceOutsourcingRule(null, msgs);
       case KanbanmodelPackage.GOVERNANCE_STRATEGY__MECHANISMS:
         return ((InternalEList<?>)getMechanisms()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PROCESSES:
+        return ((InternalEList<?>)getProcesses()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -568,6 +595,8 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
         return getResourceOutsourcingRule();
       case KanbanmodelPackage.GOVERNANCE_STRATEGY__MECHANISMS:
         return getMechanisms();
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PROCESSES:
+        return getProcesses();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -611,6 +640,10 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
         getMechanisms().clear();
         getMechanisms().addAll((Collection<? extends Mechanism>)newValue);
         return;
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PROCESSES:
+        getProcesses().clear();
+        getProcesses().addAll((Collection<? extends datasem.xtext.kanban.domainmodel.kanbanmodel.Process>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -652,6 +685,9 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
       case KanbanmodelPackage.GOVERNANCE_STRATEGY__MECHANISMS:
         getMechanisms().clear();
         return;
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PROCESSES:
+        getProcesses().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -684,6 +720,8 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
         return resourceOutsourcingRule != null;
       case KanbanmodelPackage.GOVERNANCE_STRATEGY__MECHANISMS:
         return mechanisms != null && !mechanisms.isEmpty();
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PROCESSES:
+        return processes != null && !processes.isEmpty();
     }
     return super.eIsSet(featureID);
   }

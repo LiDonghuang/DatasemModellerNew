@@ -2,6 +2,7 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
+import datasem.xtext.kanban.domainmodel.kanbanmodel.AbstractParameter;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
@@ -46,6 +47,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getCausalTriggers <em>Causal Triggers</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getRequiredServices <em>Required Services</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getEfforts <em>Efforts</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getMaturityLevels <em>Maturity Levels</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getUncertainty <em>Uncertainty</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getRisk <em>Risk</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getChangePropagation <em>Change Propagation</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getValue <em>Value</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getClassOfService <em>Class Of Service</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getWorkSource <em>Work Source</em>}</li>
@@ -217,6 +222,56 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * @ordered
    */
   protected NumExpression efforts;
+
+  /**
+   * The cached value of the '{@link #getMaturityLevels() <em>Maturity Levels</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMaturityLevels()
+   * @generated
+   * @ordered
+   */
+  protected AbstractParameter maturityLevels;
+
+  /**
+   * The cached value of the '{@link #getUncertainty() <em>Uncertainty</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUncertainty()
+   * @generated
+   * @ordered
+   */
+  protected AbstractParameter uncertainty;
+
+  /**
+   * The cached value of the '{@link #getRisk() <em>Risk</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRisk()
+   * @generated
+   * @ordered
+   */
+  protected AbstractParameter risk;
+
+  /**
+   * The default value of the '{@link #getChangePropagation() <em>Change Propagation</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getChangePropagation()
+   * @generated
+   * @ordered
+   */
+  protected static final String CHANGE_PROPAGATION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getChangePropagation() <em>Change Propagation</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getChangePropagation()
+   * @generated
+   * @ordered
+   */
+  protected String changePropagation = CHANGE_PROPAGATION_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -576,6 +631,158 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
+  public AbstractParameter getMaturityLevels()
+  {
+    if (maturityLevels != null && maturityLevels.eIsProxy())
+    {
+      InternalEObject oldMaturityLevels = (InternalEObject)maturityLevels;
+      maturityLevels = (AbstractParameter)eResolveProxy(oldMaturityLevels);
+      if (maturityLevels != oldMaturityLevels)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.WORK_ITEM__MATURITY_LEVELS, oldMaturityLevels, maturityLevels));
+      }
+    }
+    return maturityLevels;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AbstractParameter basicGetMaturityLevels()
+  {
+    return maturityLevels;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMaturityLevels(AbstractParameter newMaturityLevels)
+  {
+    AbstractParameter oldMaturityLevels = maturityLevels;
+    maturityLevels = newMaturityLevels;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__MATURITY_LEVELS, oldMaturityLevels, maturityLevels));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AbstractParameter getUncertainty()
+  {
+    if (uncertainty != null && uncertainty.eIsProxy())
+    {
+      InternalEObject oldUncertainty = (InternalEObject)uncertainty;
+      uncertainty = (AbstractParameter)eResolveProxy(oldUncertainty);
+      if (uncertainty != oldUncertainty)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.WORK_ITEM__UNCERTAINTY, oldUncertainty, uncertainty));
+      }
+    }
+    return uncertainty;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AbstractParameter basicGetUncertainty()
+  {
+    return uncertainty;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUncertainty(AbstractParameter newUncertainty)
+  {
+    AbstractParameter oldUncertainty = uncertainty;
+    uncertainty = newUncertainty;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__UNCERTAINTY, oldUncertainty, uncertainty));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AbstractParameter getRisk()
+  {
+    if (risk != null && risk.eIsProxy())
+    {
+      InternalEObject oldRisk = (InternalEObject)risk;
+      risk = (AbstractParameter)eResolveProxy(oldRisk);
+      if (risk != oldRisk)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.WORK_ITEM__RISK, oldRisk, risk));
+      }
+    }
+    return risk;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AbstractParameter basicGetRisk()
+  {
+    return risk;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRisk(AbstractParameter newRisk)
+  {
+    AbstractParameter oldRisk = risk;
+    risk = newRisk;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__RISK, oldRisk, risk));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getChangePropagation()
+  {
+    return changePropagation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setChangePropagation(String newChangePropagation)
+  {
+    String oldChangePropagation = changePropagation;
+    changePropagation = newChangePropagation;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__CHANGE_PROPAGATION, oldChangePropagation, changePropagation));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public NumExpression getValue()
   {
     return value;
@@ -804,6 +1011,17 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         return getRequiredServices();
       case KanbanmodelPackage.WORK_ITEM__EFFORTS:
         return getEfforts();
+      case KanbanmodelPackage.WORK_ITEM__MATURITY_LEVELS:
+        if (resolve) return getMaturityLevels();
+        return basicGetMaturityLevels();
+      case KanbanmodelPackage.WORK_ITEM__UNCERTAINTY:
+        if (resolve) return getUncertainty();
+        return basicGetUncertainty();
+      case KanbanmodelPackage.WORK_ITEM__RISK:
+        if (resolve) return getRisk();
+        return basicGetRisk();
+      case KanbanmodelPackage.WORK_ITEM__CHANGE_PROPAGATION:
+        return getChangePropagation();
       case KanbanmodelPackage.WORK_ITEM__VALUE:
         return getValue();
       case KanbanmodelPackage.WORK_ITEM__CLASS_OF_SERVICE:
@@ -868,6 +1086,18 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
       case KanbanmodelPackage.WORK_ITEM__EFFORTS:
         setEfforts((NumExpression)newValue);
         return;
+      case KanbanmodelPackage.WORK_ITEM__MATURITY_LEVELS:
+        setMaturityLevels((AbstractParameter)newValue);
+        return;
+      case KanbanmodelPackage.WORK_ITEM__UNCERTAINTY:
+        setUncertainty((AbstractParameter)newValue);
+        return;
+      case KanbanmodelPackage.WORK_ITEM__RISK:
+        setRisk((AbstractParameter)newValue);
+        return;
+      case KanbanmodelPackage.WORK_ITEM__CHANGE_PROPAGATION:
+        setChangePropagation((String)newValue);
+        return;
       case KanbanmodelPackage.WORK_ITEM__VALUE:
         setValue((NumExpression)newValue);
         return;
@@ -930,6 +1160,18 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
       case KanbanmodelPackage.WORK_ITEM__EFFORTS:
         setEfforts((NumExpression)null);
         return;
+      case KanbanmodelPackage.WORK_ITEM__MATURITY_LEVELS:
+        setMaturityLevels((AbstractParameter)null);
+        return;
+      case KanbanmodelPackage.WORK_ITEM__UNCERTAINTY:
+        setUncertainty((AbstractParameter)null);
+        return;
+      case KanbanmodelPackage.WORK_ITEM__RISK:
+        setRisk((AbstractParameter)null);
+        return;
+      case KanbanmodelPackage.WORK_ITEM__CHANGE_PROPAGATION:
+        setChangePropagation(CHANGE_PROPAGATION_EDEFAULT);
+        return;
       case KanbanmodelPackage.WORK_ITEM__VALUE:
         setValue((NumExpression)null);
         return;
@@ -981,6 +1223,14 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         return requiredServices != null && !requiredServices.isEmpty();
       case KanbanmodelPackage.WORK_ITEM__EFFORTS:
         return efforts != null;
+      case KanbanmodelPackage.WORK_ITEM__MATURITY_LEVELS:
+        return maturityLevels != null;
+      case KanbanmodelPackage.WORK_ITEM__UNCERTAINTY:
+        return uncertainty != null;
+      case KanbanmodelPackage.WORK_ITEM__RISK:
+        return risk != null;
+      case KanbanmodelPackage.WORK_ITEM__CHANGE_PROPAGATION:
+        return CHANGE_PROPAGATION_EDEFAULT == null ? changePropagation != null : !CHANGE_PROPAGATION_EDEFAULT.equals(changePropagation);
       case KanbanmodelPackage.WORK_ITEM__VALUE:
         return value != null;
       case KanbanmodelPackage.WORK_ITEM__CLASS_OF_SERVICE:
@@ -1016,6 +1266,8 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
     result.append(hasPredecessors);
     result.append(", isAggregationNode: ");
     result.append(isAggregationNode);
+    result.append(", changePropagation: ");
+    result.append(changePropagation);
     result.append(", arrivalTime: ");
     result.append(arrivalTime);
     result.append(", dueDate: ");

@@ -2,7 +2,51 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
-import datasem.xtext.kanban.domainmodel.kanbanmodel.*;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.AbstractParameter;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.AgentRoleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Asset;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Condition;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ConditionType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Event;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.EventType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelFactory;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.MechanismAttribute;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ModelBuilder;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.NumExpression;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Operator;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessAttribute;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocation;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocationRuleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcing;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcingRuleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Service;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Skill;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.SystemLibraries;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Transition;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.TransitionType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.UserLibraries;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ValueFunction;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Variable;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptance;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptanceRuleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignment;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignmentRuleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WINReplication;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WISelection;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WISelectionRuleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemNetwork;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkSource;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -95,6 +139,8 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
       case KanbanmodelPackage.RESOURCE_OUTSOURCING_RULE_TYPE: return createResourceOutsourcingRuleType();
       case KanbanmodelPackage.MECHANISM: return createMechanism();
       case KanbanmodelPackage.MECHANISM_ATTRIBUTE: return createMechanismAttribute();
+      case KanbanmodelPackage.PROCESS: return createProcess();
+      case KanbanmodelPackage.PROCESS_ATTRIBUTE: return createProcessAttribute();
       case KanbanmodelPackage.WORK_SOURCE: return createWorkSource();
       case KanbanmodelPackage.WORK_ITEM_NETWORK: return createWorkItemNetwork();
       case KanbanmodelPackage.WORK_ITEM: return createWorkItem();
@@ -450,6 +496,28 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
   {
     MechanismAttributeImpl mechanismAttribute = new MechanismAttributeImpl();
     return mechanismAttribute;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public datasem.xtext.kanban.domainmodel.kanbanmodel.Process createProcess()
+  {
+    ProcessImpl process = new ProcessImpl();
+    return process;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ProcessAttribute createProcessAttribute()
+  {
+    ProcessAttributeImpl processAttribute = new ProcessAttributeImpl();
+    return processAttribute;
   }
 
   /**

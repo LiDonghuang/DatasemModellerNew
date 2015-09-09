@@ -21,6 +21,7 @@ import datasem.xtext.kanban.domainmodel.kanbanmodel.MechanismAttribute;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ModelBuilder;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.NumExpression;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Operator;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessAttribute;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocation;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocationRuleType;
@@ -278,6 +279,20 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * @generated
    */
   private EClass mechanismAttributeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass processEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass processAttributeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -904,7 +919,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getVariable_TypeNumeric()
+  public EAttribute getVariable_TypeInteger()
   {
     return (EAttribute)variableEClass.getEStructuralFeatures().get(1);
   }
@@ -914,9 +929,89 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getVariable_Value()
+  public EAttribute getVariable_IntValue()
   {
     return (EAttribute)variableEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVariable_TypeDouble()
+  {
+    return (EAttribute)variableEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVariable_DoubleValue()
+  {
+    return (EAttribute)variableEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVariable_TypeString()
+  {
+    return (EAttribute)variableEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVariable_StringValue()
+  {
+    return (EAttribute)variableEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVariable_TypeDistribution()
+  {
+    return (EAttribute)variableEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getVariable_Distrbution()
+  {
+    return (EReference)variableEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVariable_TypeStrategy()
+  {
+    return (EAttribute)variableEClass.getEStructuralFeatures().get(9);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getVariable_Strategy()
+  {
+    return (EReference)variableEClass.getEStructuralFeatures().get(10);
   }
 
   /**
@@ -1364,6 +1459,16 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getGovernanceStrategy_Processes()
+  {
+    return (EReference)governanceStrategyEClass.getEStructuralFeatures().get(9);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getWIAcceptance()
   {
     return wiAcceptanceEClass;
@@ -1764,6 +1869,86 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getProcess()
+  {
+    return processEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getProcess_Name()
+  {
+    return (EAttribute)processEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getProcess_Value()
+  {
+    return (EAttribute)processEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getProcess_Description()
+  {
+    return (EAttribute)processEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getProcess_Attributes()
+  {
+    return (EReference)processEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getProcessAttribute()
+  {
+    return processAttributeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getProcessAttribute_Attribute()
+  {
+    return (EAttribute)processAttributeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getProcessAttribute_Value()
+  {
+    return (EAttribute)processAttributeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getWorkSource()
   {
     return workSourceEClass;
@@ -1994,7 +2179,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItem_Value()
+  public EReference getWorkItem_MaturityLevels()
   {
     return (EReference)workItemEClass.getEStructuralFeatures().get(11);
   }
@@ -2004,7 +2189,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItem_ClassOfService()
+  public EReference getWorkItem_Uncertainty()
   {
     return (EReference)workItemEClass.getEStructuralFeatures().get(12);
   }
@@ -2014,7 +2199,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItem_WorkSource()
+  public EReference getWorkItem_Risk()
   {
     return (EReference)workItemEClass.getEStructuralFeatures().get(13);
   }
@@ -2024,7 +2209,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkItem_ArrivalTime()
+  public EAttribute getWorkItem_ChangePropagation()
   {
     return (EAttribute)workItemEClass.getEStructuralFeatures().get(14);
   }
@@ -2034,9 +2219,49 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getWorkItem_Value()
+  {
+    return (EReference)workItemEClass.getEStructuralFeatures().get(15);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getWorkItem_ClassOfService()
+  {
+    return (EReference)workItemEClass.getEStructuralFeatures().get(16);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getWorkItem_WorkSource()
+  {
+    return (EReference)workItemEClass.getEStructuralFeatures().get(17);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getWorkItem_ArrivalTime()
+  {
+    return (EAttribute)workItemEClass.getEStructuralFeatures().get(18);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getWorkItem_DueDate()
   {
-    return (EAttribute)workItemEClass.getEStructuralFeatures().get(15);
+    return (EAttribute)workItemEClass.getEStructuralFeatures().get(19);
   }
 
   /**
@@ -2117,6 +2342,16 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
   public EAttribute getWorkItemType_Description()
   {
     return (EAttribute)workItemTypeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getWorkItemType_Hierarchy()
+  {
+    return (EAttribute)workItemTypeEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2374,9 +2609,19 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAsset_SkillSet()
+  public EReference getAsset_Number()
   {
     return (EReference)assetEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAsset_SkillSet()
+  {
+    return (EReference)assetEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -2494,8 +2739,16 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
 
     variableEClass = createEClass(VARIABLE);
     createEAttribute(variableEClass, VARIABLE__NAME);
-    createEAttribute(variableEClass, VARIABLE__TYPE_NUMERIC);
-    createEAttribute(variableEClass, VARIABLE__VALUE);
+    createEAttribute(variableEClass, VARIABLE__TYPE_INTEGER);
+    createEAttribute(variableEClass, VARIABLE__INT_VALUE);
+    createEAttribute(variableEClass, VARIABLE__TYPE_DOUBLE);
+    createEAttribute(variableEClass, VARIABLE__DOUBLE_VALUE);
+    createEAttribute(variableEClass, VARIABLE__TYPE_STRING);
+    createEAttribute(variableEClass, VARIABLE__STRING_VALUE);
+    createEAttribute(variableEClass, VARIABLE__TYPE_DISTRIBUTION);
+    createEReference(variableEClass, VARIABLE__DISTRBUTION);
+    createEAttribute(variableEClass, VARIABLE__TYPE_STRATEGY);
+    createEReference(variableEClass, VARIABLE__STRATEGY);
 
     distributionEClass = createEClass(DISTRIBUTION);
     createEAttribute(distributionEClass, DISTRIBUTION__IS_NORMAL);
@@ -2551,6 +2804,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     createEReference(governanceStrategyEClass, GOVERNANCE_STRATEGY__RESOURCE_ALLOCATION_RULE);
     createEReference(governanceStrategyEClass, GOVERNANCE_STRATEGY__RESOURCE_OUTSOURCING_RULE);
     createEReference(governanceStrategyEClass, GOVERNANCE_STRATEGY__MECHANISMS);
+    createEReference(governanceStrategyEClass, GOVERNANCE_STRATEGY__PROCESSES);
 
     wiAcceptanceEClass = createEClass(WI_ACCEPTANCE);
     createEReference(wiAcceptanceEClass, WI_ACCEPTANCE__TYPE);
@@ -2604,6 +2858,16 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     createEAttribute(mechanismAttributeEClass, MECHANISM_ATTRIBUTE__ATTRIBUTE);
     createEAttribute(mechanismAttributeEClass, MECHANISM_ATTRIBUTE__VALUE);
 
+    processEClass = createEClass(PROCESS);
+    createEAttribute(processEClass, PROCESS__NAME);
+    createEAttribute(processEClass, PROCESS__VALUE);
+    createEAttribute(processEClass, PROCESS__DESCRIPTION);
+    createEReference(processEClass, PROCESS__ATTRIBUTES);
+
+    processAttributeEClass = createEClass(PROCESS_ATTRIBUTE);
+    createEAttribute(processAttributeEClass, PROCESS_ATTRIBUTE__ATTRIBUTE);
+    createEAttribute(processAttributeEClass, PROCESS_ATTRIBUTE__VALUE);
+
     workSourceEClass = createEClass(WORK_SOURCE);
     createEAttribute(workSourceEClass, WORK_SOURCE__ID);
     createEAttribute(workSourceEClass, WORK_SOURCE__NAME);
@@ -2629,6 +2893,10 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     createEReference(workItemEClass, WORK_ITEM__CAUSAL_TRIGGERS);
     createEReference(workItemEClass, WORK_ITEM__REQUIRED_SERVICES);
     createEReference(workItemEClass, WORK_ITEM__EFFORTS);
+    createEReference(workItemEClass, WORK_ITEM__MATURITY_LEVELS);
+    createEReference(workItemEClass, WORK_ITEM__UNCERTAINTY);
+    createEReference(workItemEClass, WORK_ITEM__RISK);
+    createEAttribute(workItemEClass, WORK_ITEM__CHANGE_PROPAGATION);
     createEReference(workItemEClass, WORK_ITEM__VALUE);
     createEReference(workItemEClass, WORK_ITEM__CLASS_OF_SERVICE);
     createEReference(workItemEClass, WORK_ITEM__WORK_SOURCE);
@@ -2644,6 +2912,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     createEAttribute(workItemTypeEClass, WORK_ITEM_TYPE__ID);
     createEAttribute(workItemTypeEClass, WORK_ITEM_TYPE__NAME);
     createEAttribute(workItemTypeEClass, WORK_ITEM_TYPE__DESCRIPTION);
+    createEAttribute(workItemTypeEClass, WORK_ITEM_TYPE__HIERARCHY);
 
     valueFunctionEClass = createEClass(VALUE_FUNCTION);
     createEAttribute(valueFunctionEClass, VALUE_FUNCTION__NAME);
@@ -2674,6 +2943,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     createEAttribute(assetEClass, ASSET__ID);
     createEAttribute(assetEClass, ASSET__NAME);
     createEAttribute(assetEClass, ASSET__DESCRIPTION);
+    createEReference(assetEClass, ASSET__NUMBER);
     createEReference(assetEClass, ASSET__SKILL_SET);
 
     skillEClass = createEClass(SKILL);
@@ -2767,8 +3037,16 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
 
     initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getVariable_TypeNumeric(), ecorePackage.getEBoolean(), "typeNumeric", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getVariable_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVariable_TypeInteger(), ecorePackage.getEBoolean(), "typeInteger", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVariable_IntValue(), ecorePackage.getEInt(), "intValue", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVariable_TypeDouble(), ecorePackage.getEBoolean(), "typeDouble", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVariable_DoubleValue(), ecorePackage.getEDouble(), "doubleValue", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVariable_TypeString(), ecorePackage.getEBoolean(), "typeString", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVariable_StringValue(), ecorePackage.getEString(), "stringValue", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVariable_TypeDistribution(), ecorePackage.getEBoolean(), "typeDistribution", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVariable_Distrbution(), this.getDistribution(), null, "distrbution", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVariable_TypeStrategy(), ecorePackage.getEBoolean(), "typeStrategy", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVariable_Strategy(), this.getGovernanceStrategy(), null, "strategy", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(distributionEClass, Distribution.class, "Distribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDistribution_IsNormal(), ecorePackage.getEBoolean(), "isNormal", null, 0, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2824,6 +3102,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEReference(getGovernanceStrategy_ResourceAllocationRule(), this.getResourceAllocation(), null, "ResourceAllocationRule", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGovernanceStrategy_ResourceOutsourcingRule(), this.getResourceOutsourcing(), null, "ResourceOutsourcingRule", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGovernanceStrategy_Mechanisms(), this.getMechanism(), null, "Mechanisms", null, 0, -1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGovernanceStrategy_Processes(), this.getProcess(), null, "Processes", null, 0, -1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(wiAcceptanceEClass, WIAcceptance.class, "WIAcceptance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getWIAcceptance_Type(), this.getWIAcceptanceRuleType(), null, "type", null, 0, 1, WIAcceptance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2877,6 +3156,16 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEAttribute(getMechanismAttribute_Attribute(), ecorePackage.getEString(), "attribute", null, 0, 1, MechanismAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMechanismAttribute_Value(), ecorePackage.getEString(), "value", null, 0, 1, MechanismAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(processEClass, datasem.xtext.kanban.domainmodel.kanbanmodel.Process.class, "Process", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getProcess_Name(), ecorePackage.getEString(), "name", null, 0, 1, datasem.xtext.kanban.domainmodel.kanbanmodel.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getProcess_Value(), ecorePackage.getEString(), "value", null, 0, 1, datasem.xtext.kanban.domainmodel.kanbanmodel.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getProcess_Description(), ecorePackage.getEString(), "description", null, 0, 1, datasem.xtext.kanban.domainmodel.kanbanmodel.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProcess_Attributes(), this.getProcessAttribute(), null, "attributes", null, 0, -1, datasem.xtext.kanban.domainmodel.kanbanmodel.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(processAttributeEClass, ProcessAttribute.class, "ProcessAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getProcessAttribute_Attribute(), ecorePackage.getEString(), "attribute", null, 0, 1, ProcessAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getProcessAttribute_Value(), ecorePackage.getEString(), "value", null, 0, 1, ProcessAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(workSourceEClass, WorkSource.class, "WorkSource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getWorkSource_Id(), ecorePackage.getEInt(), "id", null, 0, 1, WorkSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkSource_Name(), ecorePackage.getEString(), "name", null, 0, 1, WorkSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2902,6 +3191,10 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEReference(getWorkItem_CausalTriggers(), this.getCausalTrigger(), null, "causalTriggers", null, 0, -1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_RequiredServices(), this.getService(), null, "requiredServices", null, 0, -1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_Efforts(), this.getNumExpression(), null, "efforts", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkItem_MaturityLevels(), this.getAbstractParameter(), null, "maturityLevels", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkItem_Uncertainty(), this.getAbstractParameter(), null, "uncertainty", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkItem_Risk(), this.getAbstractParameter(), null, "risk", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getWorkItem_ChangePropagation(), ecorePackage.getEString(), "changePropagation", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_Value(), this.getNumExpression(), null, "value", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_ClassOfService(), this.getClassOfService(), null, "classOfService", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_WorkSource(), this.getWorkSource(), null, "workSource", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2917,6 +3210,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEAttribute(getWorkItemType_Id(), ecorePackage.getEInt(), "id", null, 0, 1, WorkItemType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkItemType_Name(), ecorePackage.getEString(), "name", null, 0, 1, WorkItemType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkItemType_Description(), ecorePackage.getEString(), "description", null, 0, 1, WorkItemType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getWorkItemType_Hierarchy(), ecorePackage.getEInt(), "hierarchy", null, 0, 1, WorkItemType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(valueFunctionEClass, ValueFunction.class, "ValueFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getValueFunction_Name(), ecorePackage.getEString(), "name", null, 0, 1, ValueFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2947,6 +3241,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEAttribute(getAsset_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Asset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAsset_Name(), ecorePackage.getEString(), "name", null, 0, 1, Asset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAsset_Description(), ecorePackage.getEString(), "description", null, 0, 1, Asset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAsset_Number(), this.getAbstractParameter(), null, "number", null, 0, 1, Asset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAsset_SkillSet(), this.getSkill(), null, "skillSet", null, 0, -1, Asset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(skillEClass, Skill.class, "Skill", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

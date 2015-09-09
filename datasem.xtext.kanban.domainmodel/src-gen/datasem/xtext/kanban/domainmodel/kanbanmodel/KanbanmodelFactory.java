@@ -302,6 +302,24 @@ public interface KanbanmodelFactory extends EFactory
   MechanismAttribute createMechanismAttribute();
 
   /**
+   * Returns a new object of class '<em>Process</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Process</em>'.
+   * @generated
+   */
+  Process createProcess();
+
+  /**
+   * Returns a new object of class '<em>Process Attribute</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Process Attribute</em>'.
+   * @generated
+   */
+  ProcessAttribute createProcessAttribute();
+
+  /**
    * Returns a new object of class '<em>Work Source</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

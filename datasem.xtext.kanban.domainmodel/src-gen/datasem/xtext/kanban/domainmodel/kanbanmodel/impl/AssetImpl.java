@@ -2,6 +2,7 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
+import datasem.xtext.kanban.domainmodel.kanbanmodel.AbstractParameter;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Asset;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Skill;
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.AssetImpl#getId <em>Id</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.AssetImpl#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.AssetImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.AssetImpl#getNumber <em>Number</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.AssetImpl#getSkillSet <em>Skill Set</em>}</li>
  * </ul>
  * </p>
@@ -99,6 +101,16 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
    * @ordered
    */
   protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getNumber() <em>Number</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNumber()
+   * @generated
+   * @ordered
+   */
+  protected AbstractParameter number;
 
   /**
    * The cached value of the '{@link #getSkillSet() <em>Skill Set</em>}' containment reference list.
@@ -205,6 +217,54 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
    * <!-- end-user-doc -->
    * @generated
    */
+  public AbstractParameter getNumber()
+  {
+    return number;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetNumber(AbstractParameter newNumber, NotificationChain msgs)
+  {
+    AbstractParameter oldNumber = number;
+    number = newNumber;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.ASSET__NUMBER, oldNumber, newNumber);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNumber(AbstractParameter newNumber)
+  {
+    if (newNumber != number)
+    {
+      NotificationChain msgs = null;
+      if (number != null)
+        msgs = ((InternalEObject)number).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.ASSET__NUMBER, null, msgs);
+      if (newNumber != null)
+        msgs = ((InternalEObject)newNumber).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.ASSET__NUMBER, null, msgs);
+      msgs = basicSetNumber(newNumber, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.ASSET__NUMBER, newNumber, newNumber));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Skill> getSkillSet()
   {
     if (skillSet == null)
@@ -224,6 +284,8 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.ASSET__NUMBER:
+        return basicSetNumber(null, msgs);
       case KanbanmodelPackage.ASSET__SKILL_SET:
         return ((InternalEList<?>)getSkillSet()).basicRemove(otherEnd, msgs);
     }
@@ -246,6 +308,8 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
         return getName();
       case KanbanmodelPackage.ASSET__DESCRIPTION:
         return getDescription();
+      case KanbanmodelPackage.ASSET__NUMBER:
+        return getNumber();
       case KanbanmodelPackage.ASSET__SKILL_SET:
         return getSkillSet();
     }
@@ -271,6 +335,9 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
         return;
       case KanbanmodelPackage.ASSET__DESCRIPTION:
         setDescription((String)newValue);
+        return;
+      case KanbanmodelPackage.ASSET__NUMBER:
+        setNumber((AbstractParameter)newValue);
         return;
       case KanbanmodelPackage.ASSET__SKILL_SET:
         getSkillSet().clear();
@@ -299,6 +366,9 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
       case KanbanmodelPackage.ASSET__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
+      case KanbanmodelPackage.ASSET__NUMBER:
+        setNumber((AbstractParameter)null);
+        return;
       case KanbanmodelPackage.ASSET__SKILL_SET:
         getSkillSet().clear();
         return;
@@ -322,6 +392,8 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case KanbanmodelPackage.ASSET__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case KanbanmodelPackage.ASSET__NUMBER:
+        return number != null;
       case KanbanmodelPackage.ASSET__SKILL_SET:
         return skillSet != null && !skillSet.isEmpty();
     }

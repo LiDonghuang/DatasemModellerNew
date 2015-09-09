@@ -2,7 +2,50 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel.util;
 
-import datasem.xtext.kanban.domainmodel.kanbanmodel.*;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.AbstractParameter;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.AgentRoleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Asset;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Condition;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ConditionType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Event;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.EventType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.MechanismAttribute;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ModelBuilder;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.NumExpression;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Operator;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessAttribute;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocation;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocationRuleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcing;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcingRuleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Service;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Skill;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.SystemLibraries;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Transition;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.TransitionType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.UserLibraries;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ValueFunction;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Variable;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptance;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptanceRuleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignment;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignmentRuleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WINReplication;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WISelection;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WISelectionRuleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemNetwork;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkSource;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -228,6 +271,16 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
       public Adapter caseMechanismAttribute(MechanismAttribute object)
       {
         return createMechanismAttributeAdapter();
+      }
+      @Override
+      public Adapter caseProcess(datasem.xtext.kanban.domainmodel.kanbanmodel.Process object)
+      {
+        return createProcessAdapter();
+      }
+      @Override
+      public Adapter caseProcessAttribute(ProcessAttribute object)
+      {
+        return createProcessAttributeAdapter();
       }
       @Override
       public Adapter caseWorkSource(WorkSource object)
@@ -767,6 +820,36 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMechanismAttributeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Process <em>Process</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Process
+   * @generated
+   */
+  public Adapter createProcessAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessAttribute <em>Process Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessAttribute
+   * @generated
+   */
+  public Adapter createProcessAttributeAdapter()
   {
     return null;
   }

@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getResourceAllocationRule <em>Resource Allocation Rule</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getResourceOutsourcingRule <em>Resource Outsourcing Rule</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getMechanisms <em>Mechanisms</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getProcesses <em>Processes</em>}</li>
  * </ul>
  * </p>
  *
@@ -255,5 +256,21 @@ public interface GovernanceStrategy extends EObject
    * @generated
    */
   EList<Mechanism> getMechanisms();
+
+  /**
+   * Returns the value of the '<em><b>Processes</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.Process}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Processes</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Processes</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_Processes()
+   * @model containment="true"
+   * @generated
+   */
+  EList<datasem.xtext.kanban.domainmodel.kanbanmodel.Process> getProcesses();
 
 } // GovernanceStrategy

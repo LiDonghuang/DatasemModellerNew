@@ -23,6 +23,7 @@ import datasem.xtext.kanban.domainmodel.kanbanmodel.MechanismAttribute;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ModelBuilder;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.NumExpression;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Operator;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessAttribute;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocation;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocationRuleType;
@@ -120,6 +121,12 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 				return; 
 			case KanbanmodelPackage.OPERATOR:
 				sequence_Operator(context, (Operator) semanticObject); 
+				return; 
+			case KanbanmodelPackage.PROCESS:
+				sequence_Process(context, (datasem.xtext.kanban.domainmodel.kanbanmodel.Process) semanticObject); 
+				return; 
+			case KanbanmodelPackage.PROCESS_ATTRIBUTE:
+				sequence_ProcessAttribute(context, (ProcessAttribute) semanticObject); 
 				return; 
 			case KanbanmodelPackage.PROCESS_MODEL:
 				sequence_ProcessModel(context, (ProcessModel) semanticObject); 
@@ -220,7 +227,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (id=INT? name=ID description=STRING? skillSet+=Skill*)
+	 *     (id=INT? name=ID description=STRING? number=AbstractParameter skillSet+=Skill*)
 	 */
 	protected void sequence_Asset(EObject context, Asset semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -334,7 +341,8 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *             ResourceAllocationRule=ResourceAllocation 
 	 *             ResourceOutsourcingRule=ResourceOutsourcing
 	 *         )? 
-	 *         Mechanisms+=Mechanism+
+	 *         Mechanisms+=Mechanism+ 
+	 *         Processes+=Process+
 	 *     )
 	 */
 	protected void sequence_GovernanceStrategy(EObject context, GovernanceStrategy semanticObject) {
@@ -425,9 +433,37 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
+	 *     (attribute=STRING value=Parameter)
+	 */
+	protected void sequence_ProcessAttribute(EObject context, ProcessAttribute semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.PROCESS_ATTRIBUTE__ATTRIBUTE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.PROCESS_ATTRIBUTE__ATTRIBUTE));
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.PROCESS_ATTRIBUTE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.PROCESS_ATTRIBUTE__VALUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getProcessAttributeAccess().getAttributeSTRINGTerminalRuleCall_0_0(), semanticObject.getAttribute());
+		feeder.accept(grammarAccess.getProcessAttributeAccess().getValueParameterParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=ID description=STRING? events+=Event+)
 	 */
 	protected void sequence_ProcessModel(EObject context, ProcessModel semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID value=Parameter description=STRING? attributes+=ProcessAttribute*)
+	 */
+	protected void sequence_Process(EObject context, datasem.xtext.kanban.domainmodel.kanbanmodel.Process semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -582,7 +618,16 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (name=ID (typeNumeric?='Numeric' value=DOUBLE)?)
+	 *     (
+	 *         name=ID 
+	 *         (
+	 *             (typeInteger?='INT:' intValue=INT) | 
+	 *             (typeDouble?='DOUBLE:' doubleValue=DOUBLE) | 
+	 *             (typeString?='STRING:' stringValue=STRING) | 
+	 *             (typeDistribution?='Distribution:' distrbution=Distribution) | 
+	 *             (typeStrategy?='Strategy:' strategy=[GovernanceStrategy|ID])
+	 *         )
+	 *     )
 	 */
 	protected void sequence_Variable(EObject context, Variable semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -673,7 +718,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (id=INT? name=ID description=STRING?)
+	 *     (id=INT? name=ID description=STRING? hierarchy=INT?)
 	 */
 	protected void sequence_WorkItemType(EObject context, WorkItemType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -692,6 +737,10 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *         causalTriggers+=CausalTrigger* 
 	 *         requiredServices+=[Service|ID]+ 
 	 *         efforts=NumExpression? 
+	 *         maturityLevels=[AbstractParameter|ID]? 
+	 *         uncertainty=[AbstractParameter|ID]? 
+	 *         risk=[AbstractParameter|ID]? 
+	 *         changePropagation=STRING? 
 	 *         value=NumExpression? 
 	 *         classOfService=[ClassOfService|ID]? 
 	 *         workSource=[WorkSource|ID]? 

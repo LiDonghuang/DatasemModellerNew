@@ -2,7 +2,50 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel.util;
 
-import datasem.xtext.kanban.domainmodel.kanbanmodel.*;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.AbstractParameter;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.AgentRoleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Asset;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Condition;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ConditionType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Event;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.EventType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.MechanismAttribute;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ModelBuilder;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.NumExpression;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Operator;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessAttribute;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocation;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocationRuleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcing;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcingRuleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Service;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Skill;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.SystemLibraries;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Transition;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.TransitionType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.UserLibraries;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ValueFunction;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Variable;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptance;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptanceRuleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignment;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignmentRuleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WINReplication;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WISelection;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WISelectionRuleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemNetwork;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkSource;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -286,6 +329,20 @@ public class KanbanmodelSwitch<T> extends Switch<T>
       {
         MechanismAttribute mechanismAttribute = (MechanismAttribute)theEObject;
         T result = caseMechanismAttribute(mechanismAttribute);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.PROCESS:
+      {
+        datasem.xtext.kanban.domainmodel.kanbanmodel.Process process = (datasem.xtext.kanban.domainmodel.kanbanmodel.Process)theEObject;
+        T result = caseProcess(process);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case KanbanmodelPackage.PROCESS_ATTRIBUTE:
+      {
+        ProcessAttribute processAttribute = (ProcessAttribute)theEObject;
+        T result = caseProcessAttribute(processAttribute);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -862,6 +919,38 @@ public class KanbanmodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMechanismAttribute(MechanismAttribute object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Process</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Process</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseProcess(datasem.xtext.kanban.domainmodel.kanbanmodel.Process object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Process Attribute</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Process Attribute</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseProcessAttribute(ProcessAttribute object)
   {
     return null;
   }

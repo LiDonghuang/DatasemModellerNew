@@ -25,6 +25,10 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getCausalTriggers <em>Causal Triggers</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getRequiredServices <em>Required Services</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getEfforts <em>Efforts</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getMaturityLevels <em>Maturity Levels</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getUncertainty <em>Uncertainty</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getRisk <em>Risk</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getChangePropagation <em>Change Propagation</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getValue <em>Value</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getClassOfService <em>Class Of Service</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getWorkSource <em>Work Source</em>}</li>
@@ -284,6 +288,110 @@ public interface WorkItem extends EObject
    * @generated
    */
   void setEfforts(NumExpression value);
+
+  /**
+   * Returns the value of the '<em><b>Maturity Levels</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Maturity Levels</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Maturity Levels</em>' reference.
+   * @see #setMaturityLevels(AbstractParameter)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_MaturityLevels()
+   * @model
+   * @generated
+   */
+  AbstractParameter getMaturityLevels();
+
+  /**
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getMaturityLevels <em>Maturity Levels</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Maturity Levels</em>' reference.
+   * @see #getMaturityLevels()
+   * @generated
+   */
+  void setMaturityLevels(AbstractParameter value);
+
+  /**
+   * Returns the value of the '<em><b>Uncertainty</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Uncertainty</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Uncertainty</em>' reference.
+   * @see #setUncertainty(AbstractParameter)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Uncertainty()
+   * @model
+   * @generated
+   */
+  AbstractParameter getUncertainty();
+
+  /**
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getUncertainty <em>Uncertainty</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Uncertainty</em>' reference.
+   * @see #getUncertainty()
+   * @generated
+   */
+  void setUncertainty(AbstractParameter value);
+
+  /**
+   * Returns the value of the '<em><b>Risk</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Risk</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Risk</em>' reference.
+   * @see #setRisk(AbstractParameter)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Risk()
+   * @model
+   * @generated
+   */
+  AbstractParameter getRisk();
+
+  /**
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getRisk <em>Risk</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Risk</em>' reference.
+   * @see #getRisk()
+   * @generated
+   */
+  void setRisk(AbstractParameter value);
+
+  /**
+   * Returns the value of the '<em><b>Change Propagation</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Change Propagation</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Change Propagation</em>' attribute.
+   * @see #setChangePropagation(String)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_ChangePropagation()
+   * @model
+   * @generated
+   */
+  String getChangePropagation();
+
+  /**
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getChangePropagation <em>Change Propagation</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Change Propagation</em>' attribute.
+   * @see #getChangePropagation()
+   * @generated
+   */
+  void setChangePropagation(String value);
 
   /**
    * Returns the value of the '<em><b>Value</b></em>' containment reference.
