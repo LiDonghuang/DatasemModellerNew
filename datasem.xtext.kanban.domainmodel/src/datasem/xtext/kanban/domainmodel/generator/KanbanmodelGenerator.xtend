@@ -88,6 +88,7 @@ def compile(Resource res) '''
 		«ENDFOR»
 		«var wiId=1»
 		«FOR winRS: emodel.WINReplications» 
+		«IF winRS.numReplications>0»
 		«FOR r : 1..winRS.numReplications» 
 		«FOR wi : winRS.workItemNetwork.workItems »
 		«wi.setId(wiId++)»
@@ -96,7 +97,8 @@ def compile(Resource res) '''
 		«printWorkItem(wi)»
 		«ENDFOR»
 		«ENDFOR»
-		«ENDFOR»    	
+		«ENDIF»  
+		«ENDFOR» 		 	
 	'''
 	def buildOrganization(ExperimentModel emodel) '''
 		«var spId=1»

@@ -28,7 +28,7 @@ public class Main {
 		}*/
 		Injector injector = new datasem.xtext.kanban.domainmodel.KanbanmodelStandaloneSetup().createInjectorAndDoEMFRegistration();
 		Main main = injector.getInstance(Main.class);
-		main.runGenerator("/Users/Donbghuang Li/Desktop/demo_model.kmdl");
+		main.runGenerator("/Users/dzl0023/Desktop/DatasemFiles/demo_model.kmdl");
 	}
 	
 	@Inject 
@@ -57,7 +57,7 @@ public class Main {
 		}
 		
 		// configure and start the generator
-		fileAccess.setOutputPath("/Users/Donbghuang Li/Desktop");
+		fileAccess.setOutputPath("/Users/dzl0023/Desktop/DatasemFiles");
 		generator.doGenerate(resource, fileAccess);
 		
 		System.out.println("Code generation finished.");
