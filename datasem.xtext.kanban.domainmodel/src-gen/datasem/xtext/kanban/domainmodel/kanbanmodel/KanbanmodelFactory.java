@@ -347,6 +347,15 @@ public interface KanbanmodelFactory extends EFactory
   WorkItem createWorkItem();
 
   /**
+   * Returns a new object of class '<em>Impact</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Impact</em>'.
+   * @generated
+   */
+  Impact createImpact();
+
+  /**
    * Returns a new object of class '<em>Causal Trigger</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -8,14 +8,13 @@
 '=>'=12
 '>'=135
 '>='=137
-'ArrivalTime'=116
+'ArrivalTime'=115
 'AssignTo'=103
 'AtProgress'=118
 'Attributes'=100
 'BackLogLimit'=92
 'CausalTriggers'=108
-'ChangePropagation'=113
-'ClassOfService'=115
+'ClassOfService'=114
 'ClassOfServices'=66
 'ConditionType'=78
 'ConditionTypes'=43
@@ -24,7 +23,7 @@
 'Description'=18
 'Disruptive:'=123
 'Distribution:'=143
-'DueDate'=117
+'DueDate'=116
 'Efficiency'=131
 'Efforts'=109
 'Event'=82
@@ -41,6 +40,8 @@
 'Group'=16
 'Hierarchy'=121
 'INT:'=140
+'Impact'=117
+'Impacts'=150
 'Indicators'=35
 'MaturityLevels'=110
 'Mechanism'=99
@@ -77,7 +78,7 @@
 'Strategy:'=144
 'Subtasks'=149
 'SystemLibraries'=40
-'TRUE'=150
+'TRUE'=151
 'TaskLibrary'=56
 'TeamService'=125
 'TransitionType'=79
@@ -87,7 +88,7 @@
 'Uncertainty'=111
 'Uniform'=146
 'UserLibraries'=63
-'Value'=114
+'Value'=113
 'ValueFunction'=122
 'ValueFunctions'=59
 'Variable'=74
@@ -199,6 +200,7 @@ T__148=148
 T__149=149
 T__14=14
 T__150=150
+T__151=151
 T__15=15
 T__16=16
 T__17=17

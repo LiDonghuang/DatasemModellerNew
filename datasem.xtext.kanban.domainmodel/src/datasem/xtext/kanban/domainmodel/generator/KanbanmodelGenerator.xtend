@@ -236,7 +236,11 @@ def compile(Resource res) '''
 			</WorkSource>
 	'''
 	def printWorkItem(WorkItem wi) '''
-			<WorkItem wiId="«wi.id»" name="«wi.name»" typeId="«wi.getType.id»" cosId="«wi.getClassOfService.id»" efforts="«Math.max(getNumValue(wi.efforts),0)»" value="«Math.max(getNumValue(wi.value),0)»" isAggregationNode="«wi.isAggregationNode»" hasPredecessors="«wi.hasPredecessors»">
+			<WorkItem wiId="«wi.id»" name="«wi.name»" typeId="«wi.getType.id»" efforts="«Math.max(getNumValue(wi.efforts),0)»" isAggregationNode="«wi.isAggregationNode»" hasPredecessors="«wi.hasPredecessors»" hasImpacts="«wi.hasImpacts»">
+				<GovernanceAttributes>
+				«printGovernanceAttribute("ClassOfService",String.valueOf(wi.getClassOfService.id))»
+				«printGovernanceAttribute("Value",String.valueOf(Math.max(getNumValue(wi.value),0)))»
+				</GovernanceAttributes>
 				«IF	wi.hasPredecessors»
 				<Predecessors>
 				«FOR ptask : wi.getPTasks()»
@@ -251,6 +255,15 @@ def compile(Resource res) '''
 				«ENDFOR»		
 				</Subtasks>
 				«ENDIF»	
+				«IF	wi.hasImpacts»
+				<Impacts>
+				«FOR impact : wi.getImpacts()»
+				«FOR impactWI : impact.impactWIs»				
+				<Impact workItemId="«impactWI.id»" likelihood="«readDoubleParameter(impact.likelihood)»" impact="«readDoubleParameter(impact.impact)»"></Impact>
+				«ENDFOR»	
+				«ENDFOR»	
+				</Impacts>
+				«ENDIF»
 «««				<CausalTriggers>
 «««				«FOR cs : wi.getCausalTriggers()»
 «««					<CausalTrigger>
@@ -279,7 +292,9 @@ def compile(Resource res) '''
 «««				<DueDate>«wi.dueDate»</DueDate>
 			</WorkItem>
 	'''
-	
+	def printGovernanceAttribute(String name, String value) '''
+		<GovernaceAttribute name="«name»" value="«value»"></GovernaceAttribute>
+	'''
 	def printServices(EList<Service> ss) '''
 		<Services>
 		«var id=1»

@@ -2520,22 +2520,22 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_15 = (Group)cGroup.eContents().get(15);
 		private final Keyword cMaturityLevelsKeyword_15_0 = (Keyword)cGroup_15.eContents().get(0);
 		private final Assignment cMaturityLevelsAssignment_15_1 = (Assignment)cGroup_15.eContents().get(1);
-		private final CrossReference cMaturityLevelsAbstractParameterCrossReference_15_1_0 = (CrossReference)cMaturityLevelsAssignment_15_1.eContents().get(0);
-		private final RuleCall cMaturityLevelsAbstractParameterIDTerminalRuleCall_15_1_0_1 = (RuleCall)cMaturityLevelsAbstractParameterCrossReference_15_1_0.eContents().get(1);
+		private final RuleCall cMaturityLevelsAbstractParameterParserRuleCall_15_1_0 = (RuleCall)cMaturityLevelsAssignment_15_1.eContents().get(0);
 		private final Group cGroup_16 = (Group)cGroup.eContents().get(16);
 		private final Keyword cUncertaintyKeyword_16_0 = (Keyword)cGroup_16.eContents().get(0);
 		private final Assignment cUncertaintyAssignment_16_1 = (Assignment)cGroup_16.eContents().get(1);
-		private final CrossReference cUncertaintyAbstractParameterCrossReference_16_1_0 = (CrossReference)cUncertaintyAssignment_16_1.eContents().get(0);
-		private final RuleCall cUncertaintyAbstractParameterIDTerminalRuleCall_16_1_0_1 = (RuleCall)cUncertaintyAbstractParameterCrossReference_16_1_0.eContents().get(1);
+		private final RuleCall cUncertaintyAbstractParameterParserRuleCall_16_1_0 = (RuleCall)cUncertaintyAssignment_16_1.eContents().get(0);
 		private final Group cGroup_17 = (Group)cGroup.eContents().get(17);
 		private final Keyword cRiskKeyword_17_0 = (Keyword)cGroup_17.eContents().get(0);
 		private final Assignment cRiskAssignment_17_1 = (Assignment)cGroup_17.eContents().get(1);
-		private final CrossReference cRiskAbstractParameterCrossReference_17_1_0 = (CrossReference)cRiskAssignment_17_1.eContents().get(0);
-		private final RuleCall cRiskAbstractParameterIDTerminalRuleCall_17_1_0_1 = (RuleCall)cRiskAbstractParameterCrossReference_17_1_0.eContents().get(1);
+		private final RuleCall cRiskAbstractParameterParserRuleCall_17_1_0 = (RuleCall)cRiskAssignment_17_1.eContents().get(0);
 		private final Group cGroup_18 = (Group)cGroup.eContents().get(18);
-		private final Keyword cChangePropagationKeyword_18_0 = (Keyword)cGroup_18.eContents().get(0);
-		private final Assignment cChangePropagationAssignment_18_1 = (Assignment)cGroup_18.eContents().get(1);
-		private final RuleCall cChangePropagationSTRINGTerminalRuleCall_18_1_0 = (RuleCall)cChangePropagationAssignment_18_1.eContents().get(0);
+		private final Assignment cHasImpactsAssignment_18_0 = (Assignment)cGroup_18.eContents().get(0);
+		private final Keyword cHasImpactsImpactsKeyword_18_0_0 = (Keyword)cHasImpactsAssignment_18_0.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_18_1 = (Keyword)cGroup_18.eContents().get(1);
+		private final Assignment cImpactsAssignment_18_2 = (Assignment)cGroup_18.eContents().get(2);
+		private final RuleCall cImpactsImpactParserRuleCall_18_2_0 = (RuleCall)cImpactsAssignment_18_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_18_3 = (Keyword)cGroup_18.eContents().get(3);
 		private final Group cGroup_19 = (Group)cGroup.eContents().get(19);
 		private final Keyword cValueKeyword_19_0 = (Keyword)cGroup_19.eContents().get(0);
 		private final Assignment cValueAssignment_19_1 = (Assignment)cGroup_19.eContents().get(1);
@@ -2566,10 +2566,10 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//	type=[WorkItemType] (hasPredecessors?="Predecessors" "{" pTasks+=[WorkItem]+ "}")? (isAggregationNode?="Subtasks" "{"
 		//	sTasks+=[WorkItem]+ "}")? ("CausalTriggers" causalTriggers+=CausalTrigger*)? "RequiredServices" "{"
 		//	requiredServices+=[Service]+ "}" ("Efforts" efforts=NumExpression)? ("MaturityLevels"
-		//	maturityLevels=[AbstractParameter])? ("Uncertainty" uncertainty=[AbstractParameter])? ("Risk"
-		//	risk=[AbstractParameter])? ("ChangePropagation" changePropagation=STRING)? ("Value" value=NumExpression)?
-		//	("ClassOfService" classOfService=[ClassOfService])? ("WorkSource" workSource=[WorkSource])? ("ArrivalTime"
-		//	arrivalTime=INT)? ("DueDate" dueDate=INT)? "}";
+		//	maturityLevels=AbstractParameter)? ("Uncertainty" uncertainty=AbstractParameter)? ("Risk" risk=AbstractParameter)?
+		//	(hasImpacts?="Impacts" "{" impacts+=Impact+ "}")? ("Value" value=NumExpression)? ("ClassOfService"
+		//	classOfService=[ClassOfService])? ("WorkSource" workSource=[WorkSource])? ("ArrivalTime" arrivalTime=INT)? ("DueDate"
+		//	dueDate=INT)? "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//id=INT? "WorkItem" name=ID "{" //		('Profile' profile=[WorkItemProfile])?
@@ -2577,10 +2577,10 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//type=[WorkItemType] (hasPredecessors?="Predecessors" "{" pTasks+=[WorkItem]+ "}")? (isAggregationNode?="Subtasks" "{"
 		//sTasks+=[WorkItem]+ "}")? ("CausalTriggers" causalTriggers+=CausalTrigger*)? "RequiredServices" "{"
 		//requiredServices+=[Service]+ "}" ("Efforts" efforts=NumExpression)? ("MaturityLevels"
-		//maturityLevels=[AbstractParameter])? ("Uncertainty" uncertainty=[AbstractParameter])? ("Risk"
-		//risk=[AbstractParameter])? ("ChangePropagation" changePropagation=STRING)? ("Value" value=NumExpression)?
-		//("ClassOfService" classOfService=[ClassOfService])? ("WorkSource" workSource=[WorkSource])? ("ArrivalTime"
-		//arrivalTime=INT)? ("DueDate" dueDate=INT)? "}"
+		//maturityLevels=AbstractParameter)? ("Uncertainty" uncertainty=AbstractParameter)? ("Risk" risk=AbstractParameter)?
+		//(hasImpacts?="Impacts" "{" impacts+=Impact+ "}")? ("Value" value=NumExpression)? ("ClassOfService"
+		//classOfService=[ClassOfService])? ("WorkSource" workSource=[WorkSource])? ("ArrivalTime" arrivalTime=INT)? ("DueDate"
+		//dueDate=INT)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//id=INT?
@@ -2715,62 +2715,62 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//NumExpression
 		public RuleCall getEffortsNumExpressionParserRuleCall_14_1_0() { return cEffortsNumExpressionParserRuleCall_14_1_0; }
 
-		//("MaturityLevels" maturityLevels=[AbstractParameter])?
+		//("MaturityLevels" maturityLevels=AbstractParameter)?
 		public Group getGroup_15() { return cGroup_15; }
 
 		//"MaturityLevels"
 		public Keyword getMaturityLevelsKeyword_15_0() { return cMaturityLevelsKeyword_15_0; }
 
-		//maturityLevels=[AbstractParameter]
+		//maturityLevels=AbstractParameter
 		public Assignment getMaturityLevelsAssignment_15_1() { return cMaturityLevelsAssignment_15_1; }
 
-		//[AbstractParameter]
-		public CrossReference getMaturityLevelsAbstractParameterCrossReference_15_1_0() { return cMaturityLevelsAbstractParameterCrossReference_15_1_0; }
+		//AbstractParameter
+		public RuleCall getMaturityLevelsAbstractParameterParserRuleCall_15_1_0() { return cMaturityLevelsAbstractParameterParserRuleCall_15_1_0; }
 
-		//ID
-		public RuleCall getMaturityLevelsAbstractParameterIDTerminalRuleCall_15_1_0_1() { return cMaturityLevelsAbstractParameterIDTerminalRuleCall_15_1_0_1; }
-
-		//("Uncertainty" uncertainty=[AbstractParameter])?
+		//("Uncertainty" uncertainty=AbstractParameter)?
 		public Group getGroup_16() { return cGroup_16; }
 
 		//"Uncertainty"
 		public Keyword getUncertaintyKeyword_16_0() { return cUncertaintyKeyword_16_0; }
 
-		//uncertainty=[AbstractParameter]
+		//uncertainty=AbstractParameter
 		public Assignment getUncertaintyAssignment_16_1() { return cUncertaintyAssignment_16_1; }
 
-		//[AbstractParameter]
-		public CrossReference getUncertaintyAbstractParameterCrossReference_16_1_0() { return cUncertaintyAbstractParameterCrossReference_16_1_0; }
+		//AbstractParameter
+		public RuleCall getUncertaintyAbstractParameterParserRuleCall_16_1_0() { return cUncertaintyAbstractParameterParserRuleCall_16_1_0; }
 
-		//ID
-		public RuleCall getUncertaintyAbstractParameterIDTerminalRuleCall_16_1_0_1() { return cUncertaintyAbstractParameterIDTerminalRuleCall_16_1_0_1; }
-
-		//("Risk" risk=[AbstractParameter])?
+		//("Risk" risk=AbstractParameter)?
 		public Group getGroup_17() { return cGroup_17; }
 
 		//"Risk"
 		public Keyword getRiskKeyword_17_0() { return cRiskKeyword_17_0; }
 
-		//risk=[AbstractParameter]
+		//risk=AbstractParameter
 		public Assignment getRiskAssignment_17_1() { return cRiskAssignment_17_1; }
 
-		//[AbstractParameter]
-		public CrossReference getRiskAbstractParameterCrossReference_17_1_0() { return cRiskAbstractParameterCrossReference_17_1_0; }
+		//AbstractParameter
+		public RuleCall getRiskAbstractParameterParserRuleCall_17_1_0() { return cRiskAbstractParameterParserRuleCall_17_1_0; }
 
-		//ID
-		public RuleCall getRiskAbstractParameterIDTerminalRuleCall_17_1_0_1() { return cRiskAbstractParameterIDTerminalRuleCall_17_1_0_1; }
-
-		//("ChangePropagation" changePropagation=STRING)?
+		//(hasImpacts?="Impacts" "{" impacts+=Impact+ "}")?
 		public Group getGroup_18() { return cGroup_18; }
 
-		//"ChangePropagation"
-		public Keyword getChangePropagationKeyword_18_0() { return cChangePropagationKeyword_18_0; }
+		//hasImpacts?="Impacts"
+		public Assignment getHasImpactsAssignment_18_0() { return cHasImpactsAssignment_18_0; }
 
-		//changePropagation=STRING
-		public Assignment getChangePropagationAssignment_18_1() { return cChangePropagationAssignment_18_1; }
+		//"Impacts"
+		public Keyword getHasImpactsImpactsKeyword_18_0_0() { return cHasImpactsImpactsKeyword_18_0_0; }
 
-		//STRING
-		public RuleCall getChangePropagationSTRINGTerminalRuleCall_18_1_0() { return cChangePropagationSTRINGTerminalRuleCall_18_1_0; }
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_18_1() { return cLeftCurlyBracketKeyword_18_1; }
+
+		//impacts+=Impact+
+		public Assignment getImpactsAssignment_18_2() { return cImpactsAssignment_18_2; }
+
+		//Impact
+		public RuleCall getImpactsImpactParserRuleCall_18_2_0() { return cImpactsImpactParserRuleCall_18_2_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_18_3() { return cRightCurlyBracketKeyword_18_3; }
 
 		//("Value" value=NumExpression)?
 		public Group getGroup_19() { return cGroup_19; }
@@ -2840,6 +2840,66 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_24() { return cRightCurlyBracketKeyword_24; }
+	}
+
+	public class ImpactElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Impact");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cImpactKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cImpactWIsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cImpactWIsWorkItemCrossReference_2_0 = (CrossReference)cImpactWIsAssignment_2.eContents().get(0);
+		private final RuleCall cImpactWIsWorkItemIDTerminalRuleCall_2_0_1 = (RuleCall)cImpactWIsWorkItemCrossReference_2_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cLeftSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cLikelihoodAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cLikelihoodAbstractParameterParserRuleCall_5_0 = (RuleCall)cLikelihoodAssignment_5.eContents().get(0);
+		private final Assignment cImpactAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cImpactAbstractParameterParserRuleCall_6_0 = (RuleCall)cImpactAssignment_6.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		
+		//Impact:
+		//	"Impact" "{" impactWIs+=[WorkItem]+ "}" "[" likelihood=AbstractParameter impact=AbstractParameter "]";
+		@Override public ParserRule getRule() { return rule; }
+
+		//"Impact" "{" impactWIs+=[WorkItem]+ "}" "[" likelihood=AbstractParameter impact=AbstractParameter "]"
+		public Group getGroup() { return cGroup; }
+
+		//"Impact"
+		public Keyword getImpactKeyword_0() { return cImpactKeyword_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+
+		//impactWIs+=[WorkItem]+
+		public Assignment getImpactWIsAssignment_2() { return cImpactWIsAssignment_2; }
+
+		//[WorkItem]
+		public CrossReference getImpactWIsWorkItemCrossReference_2_0() { return cImpactWIsWorkItemCrossReference_2_0; }
+
+		//ID
+		public RuleCall getImpactWIsWorkItemIDTerminalRuleCall_2_0_1() { return cImpactWIsWorkItemIDTerminalRuleCall_2_0_1; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+
+		//"["
+		public Keyword getLeftSquareBracketKeyword_4() { return cLeftSquareBracketKeyword_4; }
+
+		//likelihood=AbstractParameter
+		public Assignment getLikelihoodAssignment_5() { return cLikelihoodAssignment_5; }
+
+		//AbstractParameter
+		public RuleCall getLikelihoodAbstractParameterParserRuleCall_5_0() { return cLikelihoodAbstractParameterParserRuleCall_5_0; }
+
+		//impact=AbstractParameter
+		public Assignment getImpactAssignment_6() { return cImpactAssignment_6; }
+
+		//AbstractParameter
+		public RuleCall getImpactAbstractParameterParserRuleCall_6_0() { return cImpactAbstractParameterParserRuleCall_6_0; }
+
+		//"]"
+		public Keyword getRightSquareBracketKeyword_7() { return cRightSquareBracketKeyword_7; }
 	}
 
 	public class CausalTriggerElements extends AbstractParserRuleElementFinder {
@@ -3671,6 +3731,7 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 	private final WorkSourceElements pWorkSource;
 	private final WorkItemNetworkElements pWorkItemNetwork;
 	private final WorkItemElements pWorkItem;
+	private final ImpactElements pImpact;
 	private final CausalTriggerElements pCausalTrigger;
 	private final WorkItemTypeElements pWorkItemType;
 	private final ValueFunctionElements pValueFunction;
@@ -3728,6 +3789,7 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 		this.pWorkSource = new WorkSourceElements();
 		this.pWorkItemNetwork = new WorkItemNetworkElements();
 		this.pWorkItem = new WorkItemElements();
+		this.pImpact = new ImpactElements();
 		this.pCausalTrigger = new CausalTriggerElements();
 		this.pWorkItemType = new WorkItemTypeElements();
 		this.pValueFunction = new ValueFunctionElements();
@@ -4195,16 +4257,26 @@ public class KanbanmodelGrammarAccess extends AbstractGrammarElementFinder {
 	//	type=[WorkItemType] (hasPredecessors?="Predecessors" "{" pTasks+=[WorkItem]+ "}")? (isAggregationNode?="Subtasks" "{"
 	//	sTasks+=[WorkItem]+ "}")? ("CausalTriggers" causalTriggers+=CausalTrigger*)? "RequiredServices" "{"
 	//	requiredServices+=[Service]+ "}" ("Efforts" efforts=NumExpression)? ("MaturityLevels"
-	//	maturityLevels=[AbstractParameter])? ("Uncertainty" uncertainty=[AbstractParameter])? ("Risk"
-	//	risk=[AbstractParameter])? ("ChangePropagation" changePropagation=STRING)? ("Value" value=NumExpression)?
-	//	("ClassOfService" classOfService=[ClassOfService])? ("WorkSource" workSource=[WorkSource])? ("ArrivalTime"
-	//	arrivalTime=INT)? ("DueDate" dueDate=INT)? "}";
+	//	maturityLevels=AbstractParameter)? ("Uncertainty" uncertainty=AbstractParameter)? ("Risk" risk=AbstractParameter)?
+	//	(hasImpacts?="Impacts" "{" impacts+=Impact+ "}")? ("Value" value=NumExpression)? ("ClassOfService"
+	//	classOfService=[ClassOfService])? ("WorkSource" workSource=[WorkSource])? ("ArrivalTime" arrivalTime=INT)? ("DueDate"
+	//	dueDate=INT)? "}";
 	public WorkItemElements getWorkItemAccess() {
 		return pWorkItem;
 	}
 	
 	public ParserRule getWorkItemRule() {
 		return getWorkItemAccess().getRule();
+	}
+
+	//Impact:
+	//	"Impact" "{" impactWIs+=[WorkItem]+ "}" "[" likelihood=AbstractParameter impact=AbstractParameter "]";
+	public ImpactElements getImpactAccess() {
+		return pImpact;
+	}
+	
+	public ParserRule getImpactRule() {
+		return getImpactAccess().getRule();
 	}
 
 	//CausalTrigger:

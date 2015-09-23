@@ -17,6 +17,7 @@ import datasem.xtext.kanban.domainmodel.kanbanmodel.Event;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.EventType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Impact;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.MechanismAttribute;
@@ -106,6 +107,9 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 				return; 
 			case KanbanmodelPackage.GOVERNANCE_STRATEGY:
 				sequence_GovernanceStrategy(context, (GovernanceStrategy) semanticObject); 
+				return; 
+			case KanbanmodelPackage.IMPACT:
+				sequence_Impact(context, (Impact) semanticObject); 
 				return; 
 			case KanbanmodelPackage.MECHANISM:
 				sequence_Mechanism(context, (Mechanism) semanticObject); 
@@ -346,6 +350,15 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     )
 	 */
 	protected void sequence_GovernanceStrategy(EObject context, GovernanceStrategy semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (impactWIs+=[WorkItem|ID]+ likelihood=AbstractParameter impact=AbstractParameter)
+	 */
+	protected void sequence_Impact(EObject context, Impact semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -737,10 +750,10 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *         causalTriggers+=CausalTrigger* 
 	 *         requiredServices+=[Service|ID]+ 
 	 *         efforts=NumExpression? 
-	 *         maturityLevels=[AbstractParameter|ID]? 
-	 *         uncertainty=[AbstractParameter|ID]? 
-	 *         risk=[AbstractParameter|ID]? 
-	 *         changePropagation=STRING? 
+	 *         maturityLevels=AbstractParameter? 
+	 *         uncertainty=AbstractParameter? 
+	 *         risk=AbstractParameter? 
+	 *         (hasImpacts?='Impacts' impacts+=Impact+)? 
 	 *         value=NumExpression? 
 	 *         classOfService=[ClassOfService|ID]? 
 	 *         workSource=[WorkSource|ID]? 

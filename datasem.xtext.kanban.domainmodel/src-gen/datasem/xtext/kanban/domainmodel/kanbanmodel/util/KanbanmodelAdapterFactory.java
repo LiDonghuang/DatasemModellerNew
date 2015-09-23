@@ -14,6 +14,7 @@ import datasem.xtext.kanban.domainmodel.kanbanmodel.Event;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.EventType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Impact;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.MechanismAttribute;
@@ -296,6 +297,11 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
       public Adapter caseWorkItem(WorkItem object)
       {
         return createWorkItemAdapter();
+      }
+      @Override
+      public Adapter caseImpact(Impact object)
+      {
+        return createImpactAdapter();
       }
       @Override
       public Adapter caseCausalTrigger(CausalTrigger object)
@@ -895,6 +901,21 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createWorkItemAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Impact <em>Impact</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Impact
+   * @generated
+   */
+  public Adapter createImpactAdapter()
   {
     return null;
   }

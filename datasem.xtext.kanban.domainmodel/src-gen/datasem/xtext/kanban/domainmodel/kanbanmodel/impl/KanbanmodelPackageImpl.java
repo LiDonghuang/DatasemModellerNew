@@ -14,6 +14,7 @@ import datasem.xtext.kanban.domainmodel.kanbanmodel.Event;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.EventType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Impact;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelFactory;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
@@ -314,6 +315,13 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * @generated
    */
   private EClass workItemEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass impactEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -2209,7 +2217,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkItem_ChangePropagation()
+  public EAttribute getWorkItem_HasImpacts()
   {
     return (EAttribute)workItemEClass.getEStructuralFeatures().get(14);
   }
@@ -2219,7 +2227,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItem_Value()
+  public EReference getWorkItem_Impacts()
   {
     return (EReference)workItemEClass.getEStructuralFeatures().get(15);
   }
@@ -2229,7 +2237,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItem_ClassOfService()
+  public EReference getWorkItem_Value()
   {
     return (EReference)workItemEClass.getEStructuralFeatures().get(16);
   }
@@ -2239,7 +2247,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItem_WorkSource()
+  public EReference getWorkItem_ClassOfService()
   {
     return (EReference)workItemEClass.getEStructuralFeatures().get(17);
   }
@@ -2249,9 +2257,19 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getWorkItem_WorkSource()
+  {
+    return (EReference)workItemEClass.getEStructuralFeatures().get(18);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getWorkItem_ArrivalTime()
   {
-    return (EAttribute)workItemEClass.getEStructuralFeatures().get(18);
+    return (EAttribute)workItemEClass.getEStructuralFeatures().get(19);
   }
 
   /**
@@ -2261,7 +2279,47 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    */
   public EAttribute getWorkItem_DueDate()
   {
-    return (EAttribute)workItemEClass.getEStructuralFeatures().get(19);
+    return (EAttribute)workItemEClass.getEStructuralFeatures().get(20);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getImpact()
+  {
+    return impactEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getImpact_ImpactWIs()
+  {
+    return (EReference)impactEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getImpact_Likelihood()
+  {
+    return (EReference)impactEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getImpact_Impact()
+  {
+    return (EReference)impactEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2896,12 +2954,18 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     createEReference(workItemEClass, WORK_ITEM__MATURITY_LEVELS);
     createEReference(workItemEClass, WORK_ITEM__UNCERTAINTY);
     createEReference(workItemEClass, WORK_ITEM__RISK);
-    createEAttribute(workItemEClass, WORK_ITEM__CHANGE_PROPAGATION);
+    createEAttribute(workItemEClass, WORK_ITEM__HAS_IMPACTS);
+    createEReference(workItemEClass, WORK_ITEM__IMPACTS);
     createEReference(workItemEClass, WORK_ITEM__VALUE);
     createEReference(workItemEClass, WORK_ITEM__CLASS_OF_SERVICE);
     createEReference(workItemEClass, WORK_ITEM__WORK_SOURCE);
     createEAttribute(workItemEClass, WORK_ITEM__ARRIVAL_TIME);
     createEAttribute(workItemEClass, WORK_ITEM__DUE_DATE);
+
+    impactEClass = createEClass(IMPACT);
+    createEReference(impactEClass, IMPACT__IMPACT_WIS);
+    createEReference(impactEClass, IMPACT__LIKELIHOOD);
+    createEReference(impactEClass, IMPACT__IMPACT);
 
     causalTriggerEClass = createEClass(CAUSAL_TRIGGER);
     createEReference(causalTriggerEClass, CAUSAL_TRIGGER__TRIGGERED);
@@ -3191,15 +3255,21 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEReference(getWorkItem_CausalTriggers(), this.getCausalTrigger(), null, "causalTriggers", null, 0, -1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_RequiredServices(), this.getService(), null, "requiredServices", null, 0, -1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_Efforts(), this.getNumExpression(), null, "efforts", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getWorkItem_MaturityLevels(), this.getAbstractParameter(), null, "maturityLevels", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getWorkItem_Uncertainty(), this.getAbstractParameter(), null, "uncertainty", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getWorkItem_Risk(), this.getAbstractParameter(), null, "risk", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getWorkItem_ChangePropagation(), ecorePackage.getEString(), "changePropagation", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkItem_MaturityLevels(), this.getAbstractParameter(), null, "maturityLevels", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkItem_Uncertainty(), this.getAbstractParameter(), null, "uncertainty", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkItem_Risk(), this.getAbstractParameter(), null, "risk", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getWorkItem_HasImpacts(), ecorePackage.getEBoolean(), "hasImpacts", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkItem_Impacts(), this.getImpact(), null, "impacts", null, 0, -1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_Value(), this.getNumExpression(), null, "value", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_ClassOfService(), this.getClassOfService(), null, "classOfService", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_WorkSource(), this.getWorkSource(), null, "workSource", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkItem_ArrivalTime(), ecorePackage.getEInt(), "arrivalTime", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkItem_DueDate(), ecorePackage.getEInt(), "dueDate", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(impactEClass, Impact.class, "Impact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getImpact_ImpactWIs(), this.getWorkItem(), null, "impactWIs", null, 0, -1, Impact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getImpact_Likelihood(), this.getAbstractParameter(), null, "likelihood", null, 0, 1, Impact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getImpact_Impact(), this.getAbstractParameter(), null, "impact", null, 0, 1, Impact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(causalTriggerEClass, CausalTrigger.class, "CausalTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCausalTrigger_Triggered(), this.getWorkItem(), null, "triggered", null, 0, -1, CausalTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

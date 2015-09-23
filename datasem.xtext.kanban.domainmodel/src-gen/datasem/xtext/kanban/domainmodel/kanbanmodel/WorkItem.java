@@ -28,7 +28,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getMaturityLevels <em>Maturity Levels</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getUncertainty <em>Uncertainty</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getRisk <em>Risk</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getChangePropagation <em>Change Propagation</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#isHasImpacts <em>Has Impacts</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getImpacts <em>Impacts</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getValue <em>Value</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getClassOfService <em>Class Of Service</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getWorkSource <em>Work Source</em>}</li>
@@ -290,108 +291,124 @@ public interface WorkItem extends EObject
   void setEfforts(NumExpression value);
 
   /**
-   * Returns the value of the '<em><b>Maturity Levels</b></em>' reference.
+   * Returns the value of the '<em><b>Maturity Levels</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Maturity Levels</em>' reference isn't clear,
+   * If the meaning of the '<em>Maturity Levels</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Maturity Levels</em>' reference.
+   * @return the value of the '<em>Maturity Levels</em>' containment reference.
    * @see #setMaturityLevels(AbstractParameter)
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_MaturityLevels()
-   * @model
+   * @model containment="true"
    * @generated
    */
   AbstractParameter getMaturityLevels();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getMaturityLevels <em>Maturity Levels</em>}' reference.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getMaturityLevels <em>Maturity Levels</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Maturity Levels</em>' reference.
+   * @param value the new value of the '<em>Maturity Levels</em>' containment reference.
    * @see #getMaturityLevels()
    * @generated
    */
   void setMaturityLevels(AbstractParameter value);
 
   /**
-   * Returns the value of the '<em><b>Uncertainty</b></em>' reference.
+   * Returns the value of the '<em><b>Uncertainty</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Uncertainty</em>' reference isn't clear,
+   * If the meaning of the '<em>Uncertainty</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Uncertainty</em>' reference.
+   * @return the value of the '<em>Uncertainty</em>' containment reference.
    * @see #setUncertainty(AbstractParameter)
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Uncertainty()
-   * @model
+   * @model containment="true"
    * @generated
    */
   AbstractParameter getUncertainty();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getUncertainty <em>Uncertainty</em>}' reference.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getUncertainty <em>Uncertainty</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Uncertainty</em>' reference.
+   * @param value the new value of the '<em>Uncertainty</em>' containment reference.
    * @see #getUncertainty()
    * @generated
    */
   void setUncertainty(AbstractParameter value);
 
   /**
-   * Returns the value of the '<em><b>Risk</b></em>' reference.
+   * Returns the value of the '<em><b>Risk</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Risk</em>' reference isn't clear,
+   * If the meaning of the '<em>Risk</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Risk</em>' reference.
+   * @return the value of the '<em>Risk</em>' containment reference.
    * @see #setRisk(AbstractParameter)
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Risk()
-   * @model
+   * @model containment="true"
    * @generated
    */
   AbstractParameter getRisk();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getRisk <em>Risk</em>}' reference.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getRisk <em>Risk</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Risk</em>' reference.
+   * @param value the new value of the '<em>Risk</em>' containment reference.
    * @see #getRisk()
    * @generated
    */
   void setRisk(AbstractParameter value);
 
   /**
-   * Returns the value of the '<em><b>Change Propagation</b></em>' attribute.
+   * Returns the value of the '<em><b>Has Impacts</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Change Propagation</em>' attribute isn't clear,
+   * If the meaning of the '<em>Has Impacts</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Change Propagation</em>' attribute.
-   * @see #setChangePropagation(String)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_ChangePropagation()
+   * @return the value of the '<em>Has Impacts</em>' attribute.
+   * @see #setHasImpacts(boolean)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_HasImpacts()
    * @model
    * @generated
    */
-  String getChangePropagation();
+  boolean isHasImpacts();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getChangePropagation <em>Change Propagation</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#isHasImpacts <em>Has Impacts</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Change Propagation</em>' attribute.
-   * @see #getChangePropagation()
+   * @param value the new value of the '<em>Has Impacts</em>' attribute.
+   * @see #isHasImpacts()
    * @generated
    */
-  void setChangePropagation(String value);
+  void setHasImpacts(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Impacts</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.Impact}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Impacts</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Impacts</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Impacts()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Impact> getImpacts();
 
   /**
    * Returns the value of the '<em><b>Value</b></em>' containment reference.

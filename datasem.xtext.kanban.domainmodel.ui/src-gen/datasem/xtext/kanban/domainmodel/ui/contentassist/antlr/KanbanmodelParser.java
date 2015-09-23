@@ -126,6 +126,7 @@ public class KanbanmodelParser extends AbstractContentAssistParser {
 					put(grammarAccess.getWorkItemAccess().getGroup_21(), "rule__WorkItem__Group_21__0");
 					put(grammarAccess.getWorkItemAccess().getGroup_22(), "rule__WorkItem__Group_22__0");
 					put(grammarAccess.getWorkItemAccess().getGroup_23(), "rule__WorkItem__Group_23__0");
+					put(grammarAccess.getImpactAccess().getGroup(), "rule__Impact__Group__0");
 					put(grammarAccess.getCausalTriggerAccess().getGroup(), "rule__CausalTrigger__Group__0");
 					put(grammarAccess.getCausalTriggerAccess().getGroup_4(), "rule__CausalTrigger__Group_4__0");
 					put(grammarAccess.getCausalTriggerAccess().getGroup_5(), "rule__CausalTrigger__Group_5__0");
@@ -291,12 +292,16 @@ public class KanbanmodelParser extends AbstractContentAssistParser {
 					put(grammarAccess.getWorkItemAccess().getMaturityLevelsAssignment_15_1(), "rule__WorkItem__MaturityLevelsAssignment_15_1");
 					put(grammarAccess.getWorkItemAccess().getUncertaintyAssignment_16_1(), "rule__WorkItem__UncertaintyAssignment_16_1");
 					put(grammarAccess.getWorkItemAccess().getRiskAssignment_17_1(), "rule__WorkItem__RiskAssignment_17_1");
-					put(grammarAccess.getWorkItemAccess().getChangePropagationAssignment_18_1(), "rule__WorkItem__ChangePropagationAssignment_18_1");
+					put(grammarAccess.getWorkItemAccess().getHasImpactsAssignment_18_0(), "rule__WorkItem__HasImpactsAssignment_18_0");
+					put(grammarAccess.getWorkItemAccess().getImpactsAssignment_18_2(), "rule__WorkItem__ImpactsAssignment_18_2");
 					put(grammarAccess.getWorkItemAccess().getValueAssignment_19_1(), "rule__WorkItem__ValueAssignment_19_1");
 					put(grammarAccess.getWorkItemAccess().getClassOfServiceAssignment_20_1(), "rule__WorkItem__ClassOfServiceAssignment_20_1");
 					put(grammarAccess.getWorkItemAccess().getWorkSourceAssignment_21_1(), "rule__WorkItem__WorkSourceAssignment_21_1");
 					put(grammarAccess.getWorkItemAccess().getArrivalTimeAssignment_22_1(), "rule__WorkItem__ArrivalTimeAssignment_22_1");
 					put(grammarAccess.getWorkItemAccess().getDueDateAssignment_23_1(), "rule__WorkItem__DueDateAssignment_23_1");
+					put(grammarAccess.getImpactAccess().getImpactWIsAssignment_2(), "rule__Impact__ImpactWIsAssignment_2");
+					put(grammarAccess.getImpactAccess().getLikelihoodAssignment_5(), "rule__Impact__LikelihoodAssignment_5");
+					put(grammarAccess.getImpactAccess().getImpactAssignment_6(), "rule__Impact__ImpactAssignment_6");
 					put(grammarAccess.getCausalTriggerAccess().getTriggeredAssignment_2(), "rule__CausalTrigger__TriggeredAssignment_2");
 					put(grammarAccess.getCausalTriggerAccess().getAtProgressAssignment_4_1(), "rule__CausalTrigger__AtProgressAssignment_4_1");
 					put(grammarAccess.getCausalTriggerAccess().getOnProbabilityAssignment_5_1(), "rule__CausalTrigger__OnProbabilityAssignment_5_1");

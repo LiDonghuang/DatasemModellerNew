@@ -3989,15 +3989,20 @@ ruleWorkItem returns [EObject current=null]
     }
 (
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getWorkItemRule());
+		{ 
+	        newCompositeNode(grammarAccess.getWorkItemAccess().getMaturityLevelsAbstractParameterParserRuleCall_15_1_0()); 
+	    }
+		lv_maturityLevels_25_0=ruleAbstractParameter		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
 	        }
-        }
-	otherlv_25=RULE_ID
-	{
-		newLeafNode(otherlv_25, grammarAccess.getWorkItemAccess().getMaturityLevelsAbstractParameterCrossReference_15_1_0()); 
-	}
+       		set(
+       			$current, 
+       			"maturityLevels",
+        		lv_maturityLevels_25_0, 
+        		"AbstractParameter");
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 ))?(	otherlv_26='Uncertainty' 
@@ -4006,15 +4011,20 @@ ruleWorkItem returns [EObject current=null]
     }
 (
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getWorkItemRule());
+		{ 
+	        newCompositeNode(grammarAccess.getWorkItemAccess().getUncertaintyAbstractParameterParserRuleCall_16_1_0()); 
+	    }
+		lv_uncertainty_27_0=ruleAbstractParameter		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
 	        }
-        }
-	otherlv_27=RULE_ID
-	{
-		newLeafNode(otherlv_27, grammarAccess.getWorkItemAccess().getUncertaintyAbstractParameterCrossReference_16_1_0()); 
-	}
+       		set(
+       			$current, 
+       			"uncertainty",
+        		lv_uncertainty_27_0, 
+        		"AbstractParameter");
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 ))?(	otherlv_28='Risk' 
@@ -4023,81 +4033,88 @@ ruleWorkItem returns [EObject current=null]
     }
 (
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getWorkItemRule());
-	        }
-        }
-	otherlv_29=RULE_ID
-	{
-		newLeafNode(otherlv_29, grammarAccess.getWorkItemAccess().getRiskAbstractParameterCrossReference_17_1_0()); 
-	}
-
-)
-))?(	otherlv_30='ChangePropagation' 
-    {
-    	newLeafNode(otherlv_30, grammarAccess.getWorkItemAccess().getChangePropagationKeyword_18_0());
-    }
-(
-(
-		lv_changePropagation_31_0=RULE_STRING
-		{
-			newLeafNode(lv_changePropagation_31_0, grammarAccess.getWorkItemAccess().getChangePropagationSTRINGTerminalRuleCall_18_1_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getWorkItemAccess().getRiskAbstractParameterParserRuleCall_17_1_0()); 
+	    }
+		lv_risk_29_0=ruleAbstractParameter		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getWorkItemRule());
+	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
-       			"changePropagation",
-        		lv_changePropagation_31_0, 
-        		"STRING");
+       			"risk",
+        		lv_risk_29_0, 
+        		"AbstractParameter");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))?(	otherlv_32='Value' 
+))?((
+(
+		lv_hasImpacts_30_0=	'Impacts' 
     {
-    	newLeafNode(otherlv_32, grammarAccess.getWorkItemAccess().getValueKeyword_19_0());
+        newLeafNode(lv_hasImpacts_30_0, grammarAccess.getWorkItemAccess().getHasImpactsImpactsKeyword_18_0_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getWorkItemRule());
+	        }
+       		setWithLastConsumed($current, "hasImpacts", true, "Impacts");
+	    }
+
+)
+)	otherlv_31='{' 
+    {
+    	newLeafNode(otherlv_31, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_18_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getWorkItemAccess().getImpactsImpactParserRuleCall_18_2_0()); 
+	    }
+		lv_impacts_32_0=ruleImpact		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
+	        }
+       		add(
+       			$current, 
+       			"impacts",
+        		lv_impacts_32_0, 
+        		"Impact");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)+	otherlv_33='}' 
+    {
+    	newLeafNode(otherlv_33, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_18_3());
+    }
+)?(	otherlv_34='Value' 
+    {
+    	newLeafNode(otherlv_34, grammarAccess.getWorkItemAccess().getValueKeyword_19_0());
     }
 (
 (
 		{ 
 	        newCompositeNode(grammarAccess.getWorkItemAccess().getValueNumExpressionParserRuleCall_19_1_0()); 
 	    }
-		lv_value_33_0=ruleNumExpression		{
+		lv_value_35_0=ruleNumExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
 	        }
        		set(
        			$current, 
        			"value",
-        		lv_value_33_0, 
+        		lv_value_35_0, 
         		"NumExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))?(	otherlv_34='ClassOfService' 
+))?(	otherlv_36='ClassOfService' 
     {
-    	newLeafNode(otherlv_34, grammarAccess.getWorkItemAccess().getClassOfServiceKeyword_20_0());
-    }
-(
-(
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getWorkItemRule());
-	        }
-        }
-	otherlv_35=RULE_ID
-	{
-		newLeafNode(otherlv_35, grammarAccess.getWorkItemAccess().getClassOfServiceClassOfServiceCrossReference_20_1_0()); 
-	}
-
-)
-))?(	otherlv_36='WorkSource' 
-    {
-    	newLeafNode(otherlv_36, grammarAccess.getWorkItemAccess().getWorkSourceKeyword_21_0());
+    	newLeafNode(otherlv_36, grammarAccess.getWorkItemAccess().getClassOfServiceKeyword_20_0());
     }
 (
 (
@@ -4108,19 +4125,36 @@ ruleWorkItem returns [EObject current=null]
         }
 	otherlv_37=RULE_ID
 	{
-		newLeafNode(otherlv_37, grammarAccess.getWorkItemAccess().getWorkSourceWorkSourceCrossReference_21_1_0()); 
+		newLeafNode(otherlv_37, grammarAccess.getWorkItemAccess().getClassOfServiceClassOfServiceCrossReference_20_1_0()); 
 	}
 
 )
-))?(	otherlv_38='ArrivalTime' 
+))?(	otherlv_38='WorkSource' 
     {
-    	newLeafNode(otherlv_38, grammarAccess.getWorkItemAccess().getArrivalTimeKeyword_22_0());
+    	newLeafNode(otherlv_38, grammarAccess.getWorkItemAccess().getWorkSourceKeyword_21_0());
     }
 (
 (
-		lv_arrivalTime_39_0=RULE_INT
 		{
-			newLeafNode(lv_arrivalTime_39_0, grammarAccess.getWorkItemAccess().getArrivalTimeINTTerminalRuleCall_22_1_0()); 
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getWorkItemRule());
+	        }
+        }
+	otherlv_39=RULE_ID
+	{
+		newLeafNode(otherlv_39, grammarAccess.getWorkItemAccess().getWorkSourceWorkSourceCrossReference_21_1_0()); 
+	}
+
+)
+))?(	otherlv_40='ArrivalTime' 
+    {
+    	newLeafNode(otherlv_40, grammarAccess.getWorkItemAccess().getArrivalTimeKeyword_22_0());
+    }
+(
+(
+		lv_arrivalTime_41_0=RULE_INT
+		{
+			newLeafNode(lv_arrivalTime_41_0, grammarAccess.getWorkItemAccess().getArrivalTimeINTTerminalRuleCall_22_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -4129,20 +4163,20 @@ ruleWorkItem returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"arrivalTime",
-        		lv_arrivalTime_39_0, 
+        		lv_arrivalTime_41_0, 
         		"INT");
 	    }
 
 )
-))?(	otherlv_40='DueDate' 
+))?(	otherlv_42='DueDate' 
     {
-    	newLeafNode(otherlv_40, grammarAccess.getWorkItemAccess().getDueDateKeyword_23_0());
+    	newLeafNode(otherlv_42, grammarAccess.getWorkItemAccess().getDueDateKeyword_23_0());
     }
 (
 (
-		lv_dueDate_41_0=RULE_INT
+		lv_dueDate_43_0=RULE_INT
 		{
-			newLeafNode(lv_dueDate_41_0, grammarAccess.getWorkItemAccess().getDueDateINTTerminalRuleCall_23_1_0()); 
+			newLeafNode(lv_dueDate_43_0, grammarAccess.getWorkItemAccess().getDueDateINTTerminalRuleCall_23_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -4151,14 +4185,104 @@ ruleWorkItem returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"dueDate",
-        		lv_dueDate_41_0, 
+        		lv_dueDate_43_0, 
         		"INT");
 	    }
 
 )
-))?	otherlv_42='}' 
+))?	otherlv_44='}' 
     {
-    	newLeafNode(otherlv_42, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_24());
+    	newLeafNode(otherlv_44, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_24());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleImpact
+entryRuleImpact returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getImpactRule()); }
+	 iv_ruleImpact=ruleImpact 
+	 { $current=$iv_ruleImpact.current; } 
+	 EOF 
+;
+
+// Rule Impact
+ruleImpact returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='Impact' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getImpactAccess().getImpactKeyword_0());
+    }
+	otherlv_1='{' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getImpactAccess().getLeftCurlyBracketKeyword_1());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getImpactRule());
+	        }
+        }
+	otherlv_2=RULE_ID
+	{
+		newLeafNode(otherlv_2, grammarAccess.getImpactAccess().getImpactWIsWorkItemCrossReference_2_0()); 
+	}
+
+)
+)+	otherlv_3='}' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getImpactAccess().getRightCurlyBracketKeyword_3());
+    }
+	otherlv_4='[' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getImpactAccess().getLeftSquareBracketKeyword_4());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getImpactAccess().getLikelihoodAbstractParameterParserRuleCall_5_0()); 
+	    }
+		lv_likelihood_5_0=ruleAbstractParameter		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getImpactRule());
+	        }
+       		set(
+       			$current, 
+       			"likelihood",
+        		lv_likelihood_5_0, 
+        		"AbstractParameter");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getImpactAccess().getImpactAbstractParameterParserRuleCall_6_0()); 
+	    }
+		lv_impact_6_0=ruleAbstractParameter		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getImpactRule());
+	        }
+       		set(
+       			$current, 
+       			"impact",
+        		lv_impact_6_0, 
+        		"AbstractParameter");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_7=']' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getImpactAccess().getRightSquareBracketKeyword_7());
     }
 )
 ;

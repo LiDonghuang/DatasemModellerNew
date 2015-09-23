@@ -14,6 +14,7 @@ import datasem.xtext.kanban.domainmodel.kanbanmodel.Event;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.EventType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Impact;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelFactory;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
@@ -144,6 +145,7 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
       case KanbanmodelPackage.WORK_SOURCE: return createWorkSource();
       case KanbanmodelPackage.WORK_ITEM_NETWORK: return createWorkItemNetwork();
       case KanbanmodelPackage.WORK_ITEM: return createWorkItem();
+      case KanbanmodelPackage.IMPACT: return createImpact();
       case KanbanmodelPackage.CAUSAL_TRIGGER: return createCausalTrigger();
       case KanbanmodelPackage.WORK_ITEM_TYPE: return createWorkItemType();
       case KanbanmodelPackage.VALUE_FUNCTION: return createValueFunction();
@@ -551,6 +553,17 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
   {
     WorkItemImpl workItem = new WorkItemImpl();
     return workItem;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Impact createImpact()
+  {
+    ImpactImpl impact = new ImpactImpl();
+    return impact;
   }
 
   /**

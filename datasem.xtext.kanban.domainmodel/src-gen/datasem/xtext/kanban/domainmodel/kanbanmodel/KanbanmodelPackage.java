@@ -1974,7 +1974,7 @@ public interface KanbanmodelPackage extends EPackage
   int WORK_ITEM__EFFORTS = 10;
 
   /**
-   * The feature id for the '<em><b>Maturity Levels</b></em>' reference.
+   * The feature id for the '<em><b>Maturity Levels</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1983,7 +1983,7 @@ public interface KanbanmodelPackage extends EPackage
   int WORK_ITEM__MATURITY_LEVELS = 11;
 
   /**
-   * The feature id for the '<em><b>Uncertainty</b></em>' reference.
+   * The feature id for the '<em><b>Uncertainty</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1992,7 +1992,7 @@ public interface KanbanmodelPackage extends EPackage
   int WORK_ITEM__UNCERTAINTY = 12;
 
   /**
-   * The feature id for the '<em><b>Risk</b></em>' reference.
+   * The feature id for the '<em><b>Risk</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -2001,13 +2001,22 @@ public interface KanbanmodelPackage extends EPackage
   int WORK_ITEM__RISK = 13;
 
   /**
-   * The feature id for the '<em><b>Change Propagation</b></em>' attribute.
+   * The feature id for the '<em><b>Has Impacts</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WORK_ITEM__CHANGE_PROPAGATION = 14;
+  int WORK_ITEM__HAS_IMPACTS = 14;
+
+  /**
+   * The feature id for the '<em><b>Impacts</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORK_ITEM__IMPACTS = 15;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -2016,7 +2025,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM__VALUE = 15;
+  int WORK_ITEM__VALUE = 16;
 
   /**
    * The feature id for the '<em><b>Class Of Service</b></em>' reference.
@@ -2025,7 +2034,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM__CLASS_OF_SERVICE = 16;
+  int WORK_ITEM__CLASS_OF_SERVICE = 17;
 
   /**
    * The feature id for the '<em><b>Work Source</b></em>' reference.
@@ -2034,7 +2043,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM__WORK_SOURCE = 17;
+  int WORK_ITEM__WORK_SOURCE = 18;
 
   /**
    * The feature id for the '<em><b>Arrival Time</b></em>' attribute.
@@ -2043,7 +2052,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM__ARRIVAL_TIME = 18;
+  int WORK_ITEM__ARRIVAL_TIME = 19;
 
   /**
    * The feature id for the '<em><b>Due Date</b></em>' attribute.
@@ -2052,7 +2061,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM__DUE_DATE = 19;
+  int WORK_ITEM__DUE_DATE = 20;
 
   /**
    * The number of structural features of the '<em>Work Item</em>' class.
@@ -2061,7 +2070,53 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM_FEATURE_COUNT = 20;
+  int WORK_ITEM_FEATURE_COUNT = 21;
+
+  /**
+   * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ImpactImpl <em>Impact</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ImpactImpl
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getImpact()
+   * @generated
+   */
+  int IMPACT = 36;
+
+  /**
+   * The feature id for the '<em><b>Impact WIs</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPACT__IMPACT_WIS = 0;
+
+  /**
+   * The feature id for the '<em><b>Likelihood</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPACT__LIKELIHOOD = 1;
+
+  /**
+   * The feature id for the '<em><b>Impact</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPACT__IMPACT = 2;
+
+  /**
+   * The number of structural features of the '<em>Impact</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPACT_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.CausalTriggerImpl <em>Causal Trigger</em>}' class.
@@ -2071,7 +2126,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getCausalTrigger()
    * @generated
    */
-  int CAUSAL_TRIGGER = 36;
+  int CAUSAL_TRIGGER = 37;
 
   /**
    * The feature id for the '<em><b>Triggered</b></em>' reference list.
@@ -2117,7 +2172,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getWorkItemType()
    * @generated
    */
-  int WORK_ITEM_TYPE = 37;
+  int WORK_ITEM_TYPE = 38;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2172,7 +2227,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getValueFunction()
    * @generated
    */
-  int VALUE_FUNCTION = 38;
+  int VALUE_FUNCTION = 39;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2209,7 +2264,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getClassOfService()
    * @generated
    */
-  int CLASS_OF_SERVICE = 39;
+  int CLASS_OF_SERVICE = 40;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2264,7 +2319,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getService()
    * @generated
    */
-  int SERVICE = 40;
+  int SERVICE = 41;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2310,7 +2365,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getServiceProvider()
    * @generated
    */
-  int SERVICE_PROVIDER = 41;
+  int SERVICE_PROVIDER = 42;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2401,7 +2456,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getAsset()
    * @generated
    */
-  int ASSET = 42;
+  int ASSET = 43;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2465,7 +2520,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getSkill()
    * @generated
    */
-  int SKILL = 43;
+  int SKILL = 44;
 
   /**
    * The feature id for the '<em><b>Service</b></em>' reference.
@@ -4374,10 +4429,10 @@ public interface KanbanmodelPackage extends EPackage
   EReference getWorkItem_Efforts();
 
   /**
-   * Returns the meta object for the reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getMaturityLevels <em>Maturity Levels</em>}'.
+   * Returns the meta object for the containment reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getMaturityLevels <em>Maturity Levels</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Maturity Levels</em>'.
+   * @return the meta object for the containment reference '<em>Maturity Levels</em>'.
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getMaturityLevels()
    * @see #getWorkItem()
    * @generated
@@ -4385,10 +4440,10 @@ public interface KanbanmodelPackage extends EPackage
   EReference getWorkItem_MaturityLevels();
 
   /**
-   * Returns the meta object for the reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getUncertainty <em>Uncertainty</em>}'.
+   * Returns the meta object for the containment reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getUncertainty <em>Uncertainty</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Uncertainty</em>'.
+   * @return the meta object for the containment reference '<em>Uncertainty</em>'.
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getUncertainty()
    * @see #getWorkItem()
    * @generated
@@ -4396,10 +4451,10 @@ public interface KanbanmodelPackage extends EPackage
   EReference getWorkItem_Uncertainty();
 
   /**
-   * Returns the meta object for the reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getRisk <em>Risk</em>}'.
+   * Returns the meta object for the containment reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getRisk <em>Risk</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Risk</em>'.
+   * @return the meta object for the containment reference '<em>Risk</em>'.
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getRisk()
    * @see #getWorkItem()
    * @generated
@@ -4407,15 +4462,26 @@ public interface KanbanmodelPackage extends EPackage
   EReference getWorkItem_Risk();
 
   /**
-   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getChangePropagation <em>Change Propagation</em>}'.
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#isHasImpacts <em>Has Impacts</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Change Propagation</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getChangePropagation()
+   * @return the meta object for the attribute '<em>Has Impacts</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#isHasImpacts()
    * @see #getWorkItem()
    * @generated
    */
-  EAttribute getWorkItem_ChangePropagation();
+  EAttribute getWorkItem_HasImpacts();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getImpacts <em>Impacts</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Impacts</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getImpacts()
+   * @see #getWorkItem()
+   * @generated
+   */
+  EReference getWorkItem_Impacts();
 
   /**
    * Returns the meta object for the containment reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getValue <em>Value</em>}'.
@@ -4471,6 +4537,49 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    */
   EAttribute getWorkItem_DueDate();
+
+  /**
+   * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Impact <em>Impact</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Impact</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Impact
+   * @generated
+   */
+  EClass getImpact();
+
+  /**
+   * Returns the meta object for the reference list '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Impact#getImpactWIs <em>Impact WIs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Impact WIs</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Impact#getImpactWIs()
+   * @see #getImpact()
+   * @generated
+   */
+  EReference getImpact_ImpactWIs();
+
+  /**
+   * Returns the meta object for the containment reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Impact#getLikelihood <em>Likelihood</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Likelihood</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Impact#getLikelihood()
+   * @see #getImpact()
+   * @generated
+   */
+  EReference getImpact_Likelihood();
+
+  /**
+   * Returns the meta object for the containment reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Impact#getImpact <em>Impact</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Impact</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Impact#getImpact()
+   * @see #getImpact()
+   * @generated
+   */
+  EReference getImpact_Impact();
 
   /**
    * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger <em>Causal Trigger</em>}'.
@@ -6381,7 +6490,7 @@ public interface KanbanmodelPackage extends EPackage
     EReference WORK_ITEM__EFFORTS = eINSTANCE.getWorkItem_Efforts();
 
     /**
-     * The meta object literal for the '<em><b>Maturity Levels</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Maturity Levels</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6389,7 +6498,7 @@ public interface KanbanmodelPackage extends EPackage
     EReference WORK_ITEM__MATURITY_LEVELS = eINSTANCE.getWorkItem_MaturityLevels();
 
     /**
-     * The meta object literal for the '<em><b>Uncertainty</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Uncertainty</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6397,7 +6506,7 @@ public interface KanbanmodelPackage extends EPackage
     EReference WORK_ITEM__UNCERTAINTY = eINSTANCE.getWorkItem_Uncertainty();
 
     /**
-     * The meta object literal for the '<em><b>Risk</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Risk</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6405,12 +6514,20 @@ public interface KanbanmodelPackage extends EPackage
     EReference WORK_ITEM__RISK = eINSTANCE.getWorkItem_Risk();
 
     /**
-     * The meta object literal for the '<em><b>Change Propagation</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Has Impacts</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute WORK_ITEM__CHANGE_PROPAGATION = eINSTANCE.getWorkItem_ChangePropagation();
+    EAttribute WORK_ITEM__HAS_IMPACTS = eINSTANCE.getWorkItem_HasImpacts();
+
+    /**
+     * The meta object literal for the '<em><b>Impacts</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WORK_ITEM__IMPACTS = eINSTANCE.getWorkItem_Impacts();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
@@ -6451,6 +6568,40 @@ public interface KanbanmodelPackage extends EPackage
      * @generated
      */
     EAttribute WORK_ITEM__DUE_DATE = eINSTANCE.getWorkItem_DueDate();
+
+    /**
+     * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ImpactImpl <em>Impact</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ImpactImpl
+     * @see datasem.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getImpact()
+     * @generated
+     */
+    EClass IMPACT = eINSTANCE.getImpact();
+
+    /**
+     * The meta object literal for the '<em><b>Impact WIs</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IMPACT__IMPACT_WIS = eINSTANCE.getImpact_ImpactWIs();
+
+    /**
+     * The meta object literal for the '<em><b>Likelihood</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IMPACT__LIKELIHOOD = eINSTANCE.getImpact_Likelihood();
+
+    /**
+     * The meta object literal for the '<em><b>Impact</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IMPACT__IMPACT = eINSTANCE.getImpact_Impact();
 
     /**
      * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.CausalTriggerImpl <em>Causal Trigger</em>}' class.
