@@ -59,12 +59,12 @@ public interface AbstractParameter extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Variable</em>' reference.
-   * @see #setVariable(Variable)
+   * @see #setVariable(ExperimentVariable)
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getAbstractParameter_Variable()
    * @model
    * @generated
    */
-  Variable getVariable();
+  ExperimentVariable getVariable();
 
   /**
    * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.AbstractParameter#getVariable <em>Variable</em>}' reference.
@@ -74,7 +74,7 @@ public interface AbstractParameter extends EObject
    * @see #getVariable()
    * @generated
    */
-  void setVariable(Variable value);
+  void setVariable(ExperimentVariable value);
 
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.

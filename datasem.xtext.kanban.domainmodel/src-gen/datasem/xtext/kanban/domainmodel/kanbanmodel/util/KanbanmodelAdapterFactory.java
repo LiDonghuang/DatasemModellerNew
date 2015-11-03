@@ -2,51 +2,7 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel.util;
 
-import datasem.xtext.kanban.domainmodel.kanbanmodel.AbstractParameter;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.AgentRoleType;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Asset;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Condition;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ConditionType;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Event;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.EventType;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Impact;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.MechanismAttribute;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ModelBuilder;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.NumExpression;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Operator;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessAttribute;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocation;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocationRuleType;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcing;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcingRuleType;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Service;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Skill;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.SystemLibraries;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Transition;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.TransitionType;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.UserLibraries;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ValueFunction;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Variable;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptance;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptanceRuleType;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignment;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignmentRuleType;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WINReplication;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WISelection;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WISelectionRuleType;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemNetwork;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemType;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkSource;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.*;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -129,11 +85,6 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
         return createExperimentModelAdapter();
       }
       @Override
-      public Adapter caseSystemLibraries(SystemLibraries object)
-      {
-        return createSystemLibrariesAdapter();
-      }
-      @Override
       public Adapter caseUserLibraries(UserLibraries object)
       {
         return createUserLibrariesAdapter();
@@ -154,54 +105,14 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
         return createOperatorAdapter();
       }
       @Override
-      public Adapter caseVariable(Variable object)
+      public Adapter caseExperimentVariable(ExperimentVariable object)
       {
-        return createVariableAdapter();
+        return createExperimentVariableAdapter();
       }
       @Override
       public Adapter caseDistribution(Distribution object)
       {
         return createDistributionAdapter();
-      }
-      @Override
-      public Adapter caseEventType(EventType object)
-      {
-        return createEventTypeAdapter();
-      }
-      @Override
-      public Adapter caseConditionType(ConditionType object)
-      {
-        return createConditionTypeAdapter();
-      }
-      @Override
-      public Adapter caseTransitionType(TransitionType object)
-      {
-        return createTransitionTypeAdapter();
-      }
-      @Override
-      public Adapter caseProcessModel(ProcessModel object)
-      {
-        return createProcessModelAdapter();
-      }
-      @Override
-      public Adapter caseEvent(Event object)
-      {
-        return createEventAdapter();
-      }
-      @Override
-      public Adapter caseCondition(Condition object)
-      {
-        return createConditionAdapter();
-      }
-      @Override
-      public Adapter caseTransition(Transition object)
-      {
-        return createTransitionAdapter();
-      }
-      @Override
-      public Adapter caseAgentRoleType(AgentRoleType object)
-      {
-        return createAgentRoleTypeAdapter();
       }
       @Override
       public Adapter caseWINReplication(WINReplication object)
@@ -214,54 +125,29 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
         return createGovernanceStrategyAdapter();
       }
       @Override
-      public Adapter caseWIAcceptance(WIAcceptance object)
+      public Adapter caseContractNetProtocol(ContractNetProtocol object)
       {
-        return createWIAcceptanceAdapter();
+        return createContractNetProtocolAdapter();
       }
       @Override
-      public Adapter caseWISelection(WISelection object)
+      public Adapter caseRoleBehavior(RoleBehavior object)
       {
-        return createWISelectionAdapter();
+        return createRoleBehaviorAdapter();
       }
       @Override
-      public Adapter caseWIAssignment(WIAssignment object)
+      public Adapter caseProcessModel(ProcessModel object)
       {
-        return createWIAssignmentAdapter();
+        return createProcessModelAdapter();
       }
       @Override
-      public Adapter caseResourceAllocation(ResourceAllocation object)
+      public Adapter casePullStrategy(PullStrategy object)
       {
-        return createResourceAllocationAdapter();
+        return createPullStrategyAdapter();
       }
       @Override
-      public Adapter caseResourceOutsourcing(ResourceOutsourcing object)
+      public Adapter casePushStrategy(PushStrategy object)
       {
-        return createResourceOutsourcingAdapter();
-      }
-      @Override
-      public Adapter caseWIAcceptanceRuleType(WIAcceptanceRuleType object)
-      {
-        return createWIAcceptanceRuleTypeAdapter();
-      }
-      @Override
-      public Adapter caseWISelectionRuleType(WISelectionRuleType object)
-      {
-        return createWISelectionRuleTypeAdapter();
-      }
-      @Override
-      public Adapter caseWIAssignmentRuleType(WIAssignmentRuleType object)
-      {
-        return createWIAssignmentRuleTypeAdapter();
-      }
-      @Override
-      public Adapter caseResourceAllocationRuleType(ResourceAllocationRuleType object)
-      {
-        return createResourceAllocationRuleTypeAdapter();
-      }
-      @Override
-      public Adapter caseResourceOutsourcingRuleType(ResourceOutsourcingRuleType object)
-      {
-        return createResourceOutsourcingRuleTypeAdapter();
+        return createPushStrategyAdapter();
       }
       @Override
       public Adapter caseMechanism(Mechanism object)
@@ -272,16 +158,6 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
       public Adapter caseMechanismAttribute(MechanismAttribute object)
       {
         return createMechanismAttributeAdapter();
-      }
-      @Override
-      public Adapter caseProcess(datasem.xtext.kanban.domainmodel.kanbanmodel.Process object)
-      {
-        return createProcessAdapter();
-      }
-      @Override
-      public Adapter caseProcessAttribute(ProcessAttribute object)
-      {
-        return createProcessAttributeAdapter();
       }
       @Override
       public Adapter caseWorkSource(WorkSource object)
@@ -299,14 +175,14 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
         return createWorkItemAdapter();
       }
       @Override
+      public Adapter caseRequiredService(RequiredService object)
+      {
+        return createRequiredServiceAdapter();
+      }
+      @Override
       public Adapter caseImpact(Impact object)
       {
         return createImpactAdapter();
-      }
-      @Override
-      public Adapter caseCausalTrigger(CausalTrigger object)
-      {
-        return createCausalTriggerAdapter();
       }
       @Override
       public Adapter caseWorkItemType(WorkItemType object)
@@ -334,6 +210,11 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
         return createServiceProviderAdapter();
       }
       @Override
+      public Adapter caseServiceProviderType(ServiceProviderType object)
+      {
+        return createServiceProviderTypeAdapter();
+      }
+      @Override
       public Adapter caseAsset(Asset object)
       {
         return createAssetAdapter();
@@ -342,6 +223,141 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
       public Adapter caseSkill(Skill object)
       {
         return createSkillAdapter();
+      }
+      @Override
+      public Adapter caseAbstractType(AbstractType object)
+      {
+        return createAbstractTypeAdapter();
+      }
+      @Override
+      public Adapter caseClassAttributes(ClassAttributes object)
+      {
+        return createClassAttributesAdapter();
+      }
+      @Override
+      public Adapter caseAgent(Agent object)
+      {
+        return createAgentAdapter();
+      }
+      @Override
+      public Adapter caseTask(Task object)
+      {
+        return createTaskAdapter();
+      }
+      @Override
+      public Adapter caseAttribute(Attribute object)
+      {
+        return createAttributeAdapter();
+      }
+      @Override
+      public Adapter caseAttributeValue(AttributeValue object)
+      {
+        return createAttributeValueAdapter();
+      }
+      @Override
+      public Adapter caseVariable(Variable object)
+      {
+        return createVariableAdapter();
+      }
+      @Override
+      public Adapter caseAction(Action object)
+      {
+        return createActionAdapter();
+      }
+      @Override
+      public Adapter caseState(State object)
+      {
+        return createStateAdapter();
+      }
+      @Override
+      public Adapter caseIfExpression(IfExpression object)
+      {
+        return createIfExpressionAdapter();
+      }
+      @Override
+      public Adapter caseForExpression(ForExpression object)
+      {
+        return createForExpressionAdapter();
+      }
+      @Override
+      public Adapter caseWhileExpression(WhileExpression object)
+      {
+        return createWhileExpressionAdapter();
+      }
+      @Override
+      public Adapter caseCondition(Condition object)
+      {
+        return createConditionAdapter();
+      }
+      @Override
+      public Adapter caseStatement(Statement object)
+      {
+        return createStatementAdapter();
+      }
+      @Override
+      public Adapter caseDeclarationStatement(DeclarationStatement object)
+      {
+        return createDeclarationStatementAdapter();
+      }
+      @Override
+      public Adapter caseActionStatement(ActionStatement object)
+      {
+        return createActionStatementAdapter();
+      }
+      @Override
+      public Adapter caseAssertStatement(AssertStatement object)
+      {
+        return createAssertStatementAdapter();
+      }
+      @Override
+      public Adapter caseChangeStateStatement(ChangeStateStatement object)
+      {
+        return createChangeStateStatementAdapter();
+      }
+      @Override
+      public Adapter caseExpression(Expression object)
+      {
+        return createExpressionAdapter();
+      }
+      @Override
+      public Adapter caseTerm(Term object)
+      {
+        return createTermAdapter();
+      }
+      @Override
+      public Adapter caseFactor(Factor object)
+      {
+        return createFactorAdapter();
+      }
+      @Override
+      public Adapter caseVarExpression(VarExpression object)
+      {
+        return createVarExpressionAdapter();
+      }
+      @Override
+      public Adapter caseMethod(Method object)
+      {
+        return createMethodAdapter();
+      }
+      @Override
+      public Adapter casePlus(Plus object)
+      {
+        return createPlusAdapter();
+      }
+      @Override
+      public Adapter caseMinus(Minus object)
+      {
+        return createMinusAdapter();
+      }
+      @Override
+      public Adapter caseMultiply(Multiply object)
+      {
+        return createMultiplyAdapter();
+      }
+      @Override
+      public Adapter caseDivision(Division object)
+      {
+        return createDivisionAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -391,21 +407,6 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExperimentModelAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.SystemLibraries <em>System Libraries</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.SystemLibraries
-   * @generated
-   */
-  public Adapter createSystemLibrariesAdapter()
   {
     return null;
   }
@@ -471,16 +472,16 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Variable <em>Variable</em>}'.
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable <em>Experiment Variable</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Variable
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable
    * @generated
    */
-  public Adapter createVariableAdapter()
+  public Adapter createExperimentVariableAdapter()
   {
     return null;
   }
@@ -496,126 +497,6 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDistributionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.EventType <em>Event Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.EventType
-   * @generated
-   */
-  public Adapter createEventTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ConditionType <em>Condition Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ConditionType
-   * @generated
-   */
-  public Adapter createConditionTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.TransitionType <em>Transition Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.TransitionType
-   * @generated
-   */
-  public Adapter createTransitionTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel <em>Process Model</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel
-   * @generated
-   */
-  public Adapter createProcessModelAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Event <em>Event</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Event
-   * @generated
-   */
-  public Adapter createEventAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Condition <em>Condition</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Condition
-   * @generated
-   */
-  public Adapter createConditionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Transition <em>Transition</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Transition
-   * @generated
-   */
-  public Adapter createTransitionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.AgentRoleType <em>Agent Role Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.AgentRoleType
-   * @generated
-   */
-  public Adapter createAgentRoleTypeAdapter()
   {
     return null;
   }
@@ -651,151 +532,76 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptance <em>WI Acceptance</em>}'.
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ContractNetProtocol <em>Contract Net Protocol</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptance
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ContractNetProtocol
    * @generated
    */
-  public Adapter createWIAcceptanceAdapter()
+  public Adapter createContractNetProtocolAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WISelection <em>WI Selection</em>}'.
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.RoleBehavior <em>Role Behavior</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WISelection
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.RoleBehavior
    * @generated
    */
-  public Adapter createWISelectionAdapter()
+  public Adapter createRoleBehaviorAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignment <em>WI Assignment</em>}'.
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel <em>Process Model</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignment
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel
    * @generated
    */
-  public Adapter createWIAssignmentAdapter()
+  public Adapter createProcessModelAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocation <em>Resource Allocation</em>}'.
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.PullStrategy <em>Pull Strategy</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocation
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.PullStrategy
    * @generated
    */
-  public Adapter createResourceAllocationAdapter()
+  public Adapter createPullStrategyAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcing <em>Resource Outsourcing</em>}'.
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.PushStrategy <em>Push Strategy</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcing
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.PushStrategy
    * @generated
    */
-  public Adapter createResourceOutsourcingAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptanceRuleType <em>WI Acceptance Rule Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptanceRuleType
-   * @generated
-   */
-  public Adapter createWIAcceptanceRuleTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WISelectionRuleType <em>WI Selection Rule Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WISelectionRuleType
-   * @generated
-   */
-  public Adapter createWISelectionRuleTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignmentRuleType <em>WI Assignment Rule Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignmentRuleType
-   * @generated
-   */
-  public Adapter createWIAssignmentRuleTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocationRuleType <em>Resource Allocation Rule Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocationRuleType
-   * @generated
-   */
-  public Adapter createResourceAllocationRuleTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcingRuleType <em>Resource Outsourcing Rule Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcingRuleType
-   * @generated
-   */
-  public Adapter createResourceOutsourcingRuleTypeAdapter()
+  public Adapter createPushStrategyAdapter()
   {
     return null;
   }
@@ -826,36 +632,6 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMechanismAttributeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Process <em>Process</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Process
-   * @generated
-   */
-  public Adapter createProcessAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessAttribute <em>Process Attribute</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessAttribute
-   * @generated
-   */
-  public Adapter createProcessAttributeAdapter()
   {
     return null;
   }
@@ -906,6 +682,21 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.RequiredService <em>Required Service</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.RequiredService
+   * @generated
+   */
+  public Adapter createRequiredServiceAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Impact <em>Impact</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -916,21 +707,6 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createImpactAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger <em>Causal Trigger</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger
-   * @generated
-   */
-  public Adapter createCausalTriggerAdapter()
   {
     return null;
   }
@@ -1011,6 +787,21 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProviderType <em>Service Provider Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProviderType
+   * @generated
+   */
+  public Adapter createServiceProviderTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Asset <em>Asset</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1036,6 +827,411 @@ public class KanbanmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSkillAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.AbstractType <em>Abstract Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.AbstractType
+   * @generated
+   */
+  public Adapter createAbstractTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ClassAttributes <em>Class Attributes</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ClassAttributes
+   * @generated
+   */
+  public Adapter createClassAttributesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Agent <em>Agent</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Agent
+   * @generated
+   */
+  public Adapter createAgentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Task <em>Task</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Task
+   * @generated
+   */
+  public Adapter createTaskAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Attribute <em>Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Attribute
+   * @generated
+   */
+  public Adapter createAttributeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.AttributeValue <em>Attribute Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.AttributeValue
+   * @generated
+   */
+  public Adapter createAttributeValueAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Variable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Variable
+   * @generated
+   */
+  public Adapter createVariableAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Action <em>Action</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Action
+   * @generated
+   */
+  public Adapter createActionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.State <em>State</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.State
+   * @generated
+   */
+  public Adapter createStateAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.IfExpression <em>If Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.IfExpression
+   * @generated
+   */
+  public Adapter createIfExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ForExpression <em>For Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ForExpression
+   * @generated
+   */
+  public Adapter createForExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WhileExpression <em>While Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WhileExpression
+   * @generated
+   */
+  public Adapter createWhileExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Condition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Condition
+   * @generated
+   */
+  public Adapter createConditionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Statement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Statement
+   * @generated
+   */
+  public Adapter createStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.DeclarationStatement <em>Declaration Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.DeclarationStatement
+   * @generated
+   */
+  public Adapter createDeclarationStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ActionStatement <em>Action Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ActionStatement
+   * @generated
+   */
+  public Adapter createActionStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.AssertStatement <em>Assert Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.AssertStatement
+   * @generated
+   */
+  public Adapter createAssertStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ChangeStateStatement <em>Change State Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ChangeStateStatement
+   * @generated
+   */
+  public Adapter createChangeStateStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Expression
+   * @generated
+   */
+  public Adapter createExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Term <em>Term</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Term
+   * @generated
+   */
+  public Adapter createTermAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Factor <em>Factor</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Factor
+   * @generated
+   */
+  public Adapter createFactorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.VarExpression <em>Var Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.VarExpression
+   * @generated
+   */
+  public Adapter createVarExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Method <em>Method</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Method
+   * @generated
+   */
+  public Adapter createMethodAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Plus <em>Plus</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Plus
+   * @generated
+   */
+  public Adapter createPlusAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Minus <em>Minus</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Minus
+   * @generated
+   */
+  public Adapter createMinusAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Multiply <em>Multiply</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Multiply
+   * @generated
+   */
+  public Adapter createMultiplyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Division <em>Division</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Division
+   * @generated
+   */
+  public Adapter createDivisionAdapter()
   {
     return null;
   }

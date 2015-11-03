@@ -11,7 +11,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
@@ -22,18 +21,14 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class KanbanmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected KanbanmodelGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_CausalTrigger_EqualsSignGreaterThanSignKeyword_0_0_or_HyphenMinusGreaterThanSignKeyword_0_1;
-	protected AbstractElementAlias match_ServiceProvider_GroupKeyword_1_1_or_ServiceProviderKeyword_1_0;
-	protected AbstractElementAlias match_Service___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q;
-	protected AbstractElementAlias match_WorkItem_CausalTriggersKeyword_9_0_q;
+	protected AbstractElementAlias match_IfExpression___ElseKeyword_6_0_LeftCurlyBracketKeyword_6_1_1_0_RightCurlyBracketKeyword_6_1_1_2__q;
+	protected AbstractElementAlias match_Service___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_3__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (KanbanmodelGrammarAccess) access;
-		match_CausalTrigger_EqualsSignGreaterThanSignKeyword_0_0_or_HyphenMinusGreaterThanSignKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getCausalTriggerAccess().getEqualsSignGreaterThanSignKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getCausalTriggerAccess().getHyphenMinusGreaterThanSignKeyword_0_1()));
-		match_ServiceProvider_GroupKeyword_1_1_or_ServiceProviderKeyword_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getServiceProviderAccess().getGroupKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getServiceProviderAccess().getServiceProviderKeyword_1_0()));
-		match_Service___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getServiceAccess().getLeftCurlyBracketKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getServiceAccess().getRightCurlyBracketKeyword_3_2()));
-		match_WorkItem_CausalTriggersKeyword_9_0_q = new TokenAlias(false, true, grammarAccess.getWorkItemAccess().getCausalTriggersKeyword_9_0());
+		match_IfExpression___ElseKeyword_6_0_LeftCurlyBracketKeyword_6_1_1_0_RightCurlyBracketKeyword_6_1_1_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getIfExpressionAccess().getElseKeyword_6_0()), new TokenAlias(false, false, grammarAccess.getIfExpressionAccess().getLeftCurlyBracketKeyword_6_1_1_0()), new TokenAlias(false, false, grammarAccess.getIfExpressionAccess().getRightCurlyBracketKeyword_6_1_1_2()));
+		match_Service___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getServiceAccess().getLeftCurlyBracketKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getServiceAccess().getRightCurlyBracketKeyword_1_3()));
 	}
 	
 	@Override
@@ -48,38 +43,23 @@ public class KanbanmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_CausalTrigger_EqualsSignGreaterThanSignKeyword_0_0_or_HyphenMinusGreaterThanSignKeyword_0_1.equals(syntax))
-				emit_CausalTrigger_EqualsSignGreaterThanSignKeyword_0_0_or_HyphenMinusGreaterThanSignKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_ServiceProvider_GroupKeyword_1_1_or_ServiceProviderKeyword_1_0.equals(syntax))
-				emit_ServiceProvider_GroupKeyword_1_1_or_ServiceProviderKeyword_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Service___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q.equals(syntax))
-				emit_Service___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_WorkItem_CausalTriggersKeyword_9_0_q.equals(syntax))
-				emit_WorkItem_CausalTriggersKeyword_9_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if(match_IfExpression___ElseKeyword_6_0_LeftCurlyBracketKeyword_6_1_1_0_RightCurlyBracketKeyword_6_1_1_2__q.equals(syntax))
+				emit_IfExpression___ElseKeyword_6_0_LeftCurlyBracketKeyword_6_1_1_0_RightCurlyBracketKeyword_6_1_1_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Service___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_3__q.equals(syntax))
+				emit_Service___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
 	/**
 	 * Ambiguous syntax:
-	 *     '=>' | '->'
+	 *     ('else' '{' '}')?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) '{' triggered+=[WorkItem|ID]
+	 *     condition=Condition ')' '{' '}' (ambiguity) (rule end)
+	 *     statements+=Statement '}' (ambiguity) (rule end)
 	 */
-	protected void emit_CausalTrigger_EqualsSignGreaterThanSignKeyword_0_0_or_HyphenMinusGreaterThanSignKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'ServiceProvider' | 'Group'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) name=ID
-	 *     id=INT (ambiguity) name=ID
-	 */
-	protected void emit_ServiceProvider_GroupKeyword_1_1_or_ServiceProviderKeyword_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_IfExpression___ElseKeyword_6_0_LeftCurlyBracketKeyword_6_1_1_0_RightCurlyBracketKeyword_6_1_1_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -89,21 +69,9 @@ public class KanbanmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     name=ID (ambiguity) (rule end)
+	 *     name=ID (ambiguity) id=INT
 	 */
-	protected void emit_Service___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'CausalTriggers'?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     pTasks+=[WorkItem|ID] '}' (ambiguity) 'RequiredServices' '{' requiredServices+=[Service|ID]
-	 *     sTasks+=[WorkItem|ID] '}' (ambiguity) 'RequiredServices' '{' requiredServices+=[Service|ID]
-	 *     type=[WorkItemType|ID] (ambiguity) 'RequiredServices' '{' requiredServices+=[Service|ID]
-	 */
-	protected void emit_WorkItem_CausalTriggersKeyword_9_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Service___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

@@ -5,8 +5,8 @@ package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Asset;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Service;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProviderType;
 
 import java.util.Collection;
 
@@ -32,14 +32,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getId <em>Id</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getName <em>Name</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getType <em>Type</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getAssignTo <em>Assign To</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getOutsourceFrom <em>Outsource From</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getTeamService <em>Team Service</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getGovernanceStrategy <em>Governance Strategy</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getResources <em>Resources</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getId <em>Id</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,26 +46,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements ServiceProvider
 {
-  /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected static final int ID_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected int id = ID_EDEFAULT;
-
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -88,24 +67,14 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDescription()
+   * @see #getType()
    * @generated
    * @ordered
    */
-  protected static final String DESCRIPTION_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDescription()
-   * @generated
-   * @ordered
-   */
-  protected String description = DESCRIPTION_EDEFAULT;
+  protected ServiceProviderType type;
 
   /**
    * The cached value of the '{@link #getAssignTo() <em>Assign To</em>}' reference list.
@@ -128,16 +97,6 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
   protected EList<ServiceProvider> outsourceFrom;
 
   /**
-   * The cached value of the '{@link #getTeamService() <em>Team Service</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTeamService()
-   * @generated
-   * @ordered
-   */
-  protected Service teamService;
-
-  /**
    * The cached value of the '{@link #getGovernanceStrategy() <em>Governance Strategy</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -158,6 +117,26 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
   protected EList<Asset> resources;
 
   /**
+   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected static final int ID_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected int id = ID_EDEFAULT;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -176,29 +155,6 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
   protected EClass eStaticClass()
   {
     return KanbanmodelPackage.Literals.SERVICE_PROVIDER;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public int getId()
-  {
-    return id;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setId(int newId)
-  {
-    int oldId = id;
-    id = newId;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.SERVICE_PROVIDER__ID, oldId, id));
   }
 
   /**
@@ -229,9 +185,19 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDescription()
+  public ServiceProviderType getType()
   {
-    return description;
+    if (type != null && type.eIsProxy())
+    {
+      InternalEObject oldType = (InternalEObject)type;
+      type = (ServiceProviderType)eResolveProxy(oldType);
+      if (type != oldType)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.SERVICE_PROVIDER__TYPE, oldType, type));
+      }
+    }
+    return type;
   }
 
   /**
@@ -239,12 +205,22 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDescription(String newDescription)
+  public ServiceProviderType basicGetType()
   {
-    String oldDescription = description;
-    description = newDescription;
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setType(ServiceProviderType newType)
+  {
+    ServiceProviderType oldType = type;
+    type = newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.SERVICE_PROVIDER__DESCRIPTION, oldDescription, description));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.SERVICE_PROVIDER__TYPE, oldType, type));
   }
 
   /**
@@ -273,49 +249,6 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
       outsourceFrom = new EObjectResolvingEList<ServiceProvider>(ServiceProvider.class, this, KanbanmodelPackage.SERVICE_PROVIDER__OUTSOURCE_FROM);
     }
     return outsourceFrom;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Service getTeamService()
-  {
-    if (teamService != null && teamService.eIsProxy())
-    {
-      InternalEObject oldTeamService = (InternalEObject)teamService;
-      teamService = (Service)eResolveProxy(oldTeamService);
-      if (teamService != oldTeamService)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.SERVICE_PROVIDER__TEAM_SERVICE, oldTeamService, teamService));
-      }
-    }
-    return teamService;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Service basicGetTeamService()
-  {
-    return teamService;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTeamService(Service newTeamService)
-  {
-    Service oldTeamService = teamService;
-    teamService = newTeamService;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.SERVICE_PROVIDER__TEAM_SERVICE, oldTeamService, teamService));
   }
 
   /**
@@ -380,6 +313,29 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
+  public int getId()
+  {
+    return id;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setId(int newId)
+  {
+    int oldId = id;
+    id = newId;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.SERVICE_PROVIDER__ID, oldId, id));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -401,24 +357,22 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.SERVICE_PROVIDER__ID:
-        return getId();
       case KanbanmodelPackage.SERVICE_PROVIDER__NAME:
         return getName();
-      case KanbanmodelPackage.SERVICE_PROVIDER__DESCRIPTION:
-        return getDescription();
+      case KanbanmodelPackage.SERVICE_PROVIDER__TYPE:
+        if (resolve) return getType();
+        return basicGetType();
       case KanbanmodelPackage.SERVICE_PROVIDER__ASSIGN_TO:
         return getAssignTo();
       case KanbanmodelPackage.SERVICE_PROVIDER__OUTSOURCE_FROM:
         return getOutsourceFrom();
-      case KanbanmodelPackage.SERVICE_PROVIDER__TEAM_SERVICE:
-        if (resolve) return getTeamService();
-        return basicGetTeamService();
       case KanbanmodelPackage.SERVICE_PROVIDER__GOVERNANCE_STRATEGY:
         if (resolve) return getGovernanceStrategy();
         return basicGetGovernanceStrategy();
       case KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES:
         return getResources();
+      case KanbanmodelPackage.SERVICE_PROVIDER__ID:
+        return getId();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -434,14 +388,11 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.SERVICE_PROVIDER__ID:
-        setId((Integer)newValue);
-        return;
       case KanbanmodelPackage.SERVICE_PROVIDER__NAME:
         setName((String)newValue);
         return;
-      case KanbanmodelPackage.SERVICE_PROVIDER__DESCRIPTION:
-        setDescription((String)newValue);
+      case KanbanmodelPackage.SERVICE_PROVIDER__TYPE:
+        setType((ServiceProviderType)newValue);
         return;
       case KanbanmodelPackage.SERVICE_PROVIDER__ASSIGN_TO:
         getAssignTo().clear();
@@ -451,15 +402,15 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
         getOutsourceFrom().clear();
         getOutsourceFrom().addAll((Collection<? extends ServiceProvider>)newValue);
         return;
-      case KanbanmodelPackage.SERVICE_PROVIDER__TEAM_SERVICE:
-        setTeamService((Service)newValue);
-        return;
       case KanbanmodelPackage.SERVICE_PROVIDER__GOVERNANCE_STRATEGY:
         setGovernanceStrategy((GovernanceStrategy)newValue);
         return;
       case KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES:
         getResources().clear();
         getResources().addAll((Collection<? extends Asset>)newValue);
+        return;
+      case KanbanmodelPackage.SERVICE_PROVIDER__ID:
+        setId((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -475,14 +426,11 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.SERVICE_PROVIDER__ID:
-        setId(ID_EDEFAULT);
-        return;
       case KanbanmodelPackage.SERVICE_PROVIDER__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case KanbanmodelPackage.SERVICE_PROVIDER__DESCRIPTION:
-        setDescription(DESCRIPTION_EDEFAULT);
+      case KanbanmodelPackage.SERVICE_PROVIDER__TYPE:
+        setType((ServiceProviderType)null);
         return;
       case KanbanmodelPackage.SERVICE_PROVIDER__ASSIGN_TO:
         getAssignTo().clear();
@@ -490,14 +438,14 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
       case KanbanmodelPackage.SERVICE_PROVIDER__OUTSOURCE_FROM:
         getOutsourceFrom().clear();
         return;
-      case KanbanmodelPackage.SERVICE_PROVIDER__TEAM_SERVICE:
-        setTeamService((Service)null);
-        return;
       case KanbanmodelPackage.SERVICE_PROVIDER__GOVERNANCE_STRATEGY:
         setGovernanceStrategy((GovernanceStrategy)null);
         return;
       case KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES:
         getResources().clear();
+        return;
+      case KanbanmodelPackage.SERVICE_PROVIDER__ID:
+        setId(ID_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -513,22 +461,20 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.SERVICE_PROVIDER__ID:
-        return id != ID_EDEFAULT;
       case KanbanmodelPackage.SERVICE_PROVIDER__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case KanbanmodelPackage.SERVICE_PROVIDER__DESCRIPTION:
-        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case KanbanmodelPackage.SERVICE_PROVIDER__TYPE:
+        return type != null;
       case KanbanmodelPackage.SERVICE_PROVIDER__ASSIGN_TO:
         return assignTo != null && !assignTo.isEmpty();
       case KanbanmodelPackage.SERVICE_PROVIDER__OUTSOURCE_FROM:
         return outsourceFrom != null && !outsourceFrom.isEmpty();
-      case KanbanmodelPackage.SERVICE_PROVIDER__TEAM_SERVICE:
-        return teamService != null;
       case KanbanmodelPackage.SERVICE_PROVIDER__GOVERNANCE_STRATEGY:
         return governanceStrategy != null;
       case KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES:
         return resources != null && !resources.isEmpty();
+      case KanbanmodelPackage.SERVICE_PROVIDER__ID:
+        return id != ID_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -544,12 +490,10 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (id: ");
-    result.append(id);
-    result.append(", name: ");
+    result.append(" (name: ");
     result.append(name);
-    result.append(", description: ");
-    result.append(description);
+    result.append(", id: ");
+    result.append(id);
     result.append(')');
     return result.toString();
   }

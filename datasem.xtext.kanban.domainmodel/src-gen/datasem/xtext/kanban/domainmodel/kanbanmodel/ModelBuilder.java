@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ModelBuilder#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ModelBuilder#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ModelBuilder#getSystemLibraries <em>System Libraries</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ModelBuilder#getUserLibraries <em>User Libraries</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ModelBuilder#getExperimentModel <em>Experiment Model</em>}</li>
  * </ul>
@@ -77,32 +76,6 @@ public interface ModelBuilder extends EObject
    * @generated
    */
   void setDescription(String value);
-
-  /**
-   * Returns the value of the '<em><b>System Libraries</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>System Libraries</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>System Libraries</em>' containment reference.
-   * @see #setSystemLibraries(SystemLibraries)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getModelBuilder_SystemLibraries()
-   * @model containment="true"
-   * @generated
-   */
-  SystemLibraries getSystemLibraries();
-
-  /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ModelBuilder#getSystemLibraries <em>System Libraries</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>System Libraries</em>' containment reference.
-   * @see #getSystemLibraries()
-   * @generated
-   */
-  void setSystemLibraries(SystemLibraries value);
 
   /**
    * Returns the value of the '<em><b>User Libraries</b></em>' containment reference.

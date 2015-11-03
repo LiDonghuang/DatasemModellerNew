@@ -6,17 +6,19 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 	ModelBuilder:
 		'ModelBuilder' name=ID
-		'Description' Description=STRING
-		SystemLibraries=SystemLibraries
+		'desc' Description=STRING
 		UserLibraries=UserLibraries
-		ExperimentModel=ExperimentModel
+//		SystemLibraries=SystemLibraries			
+		ExperimentModel=ExperimentModel			
+//		(contractNetProtocols+=ContractNetProtocol)*	
+//		(processModels+=ProcessModel)*
 	;
 
 
 	ExperimentModel:
 		'ExperimentModel' name=ID
 		('Path' Path = QualifiedName)?	
-		"Variables" (Variables+=Variable)*
+		"Variables" (ExperimentVariables+=ExperimentVariable)*
 		"end Variables"
 		'OrganizationalModel'			
 			'ServiceProviders'
@@ -40,96 +42,94 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 		'end ExperimentSettings'
 	'end ExperimentModel';
 			
-	SystemLibraries:		
-	'SystemLibraries' 
-		'EventTypes' 
-		(EventTypes += EventType)+
-		'end EventTypes'
-		'ConditionTypes' 
-		(ConditionTypes += ConditionType)+
-		'end ConditionTypes'
-		'TransitionTypes' 
-		(TransitionTypes += TransitionType)+
-		'end TransitionTypes'
-		'GovernanceLibrary' 
-			'WIAcceptanceRuleTypes' '{'
-			(WIAcceptanceRuleTypes += WIAcceptanceRuleType)+
-			'}'
-			'WISelectionRuleTypes' '{'
-			(WISelectionRuleTypes += WISelectionRuleType)+
-			'}'
-			'WIAssignmentRuleTypes' '{'
-			(WIAssignmentRuleTypes += WIAssignmentRuleType)+
-			'}'
-			'ResourceAllocationRuleTypes' '{'
-			(ResourceAllocationRuleTypes += ResourceAllocationRuleType)+
-			'}'
-			'ResourceOutsourcingRuleTypes' '{'
-			(ResourceOutsourcingRuleTypes += ResourceOutsourcingRuleType)+
-			'}'	
-		'end GovernanceLibrary'
-		'TaskLibrary'
-			'ProcessModels'
-			(ProcessModels += ProcessModel)+
-			'end ProcessModels'		    			
-			'ValueFunctions'
-			(ValueFunctions += ValueFunction)+
-			'end ValueFunctions'			
-		'end TaskLibrary'
-	'end SystemLibraries';
+//	SystemLibraries:		
+//	'SystemLibraries' 
+//		'EventTypes' 
+//		(EventTypes += EventType)+
+//		'end EventTypes'
+//		'ConditionTypes' 
+//		(ConditionTypes += ConditionType)+
+//		'end ConditionTypes'
+//		'TransitionTypes' 
+//		(TransitionTypes += TransitionType)+
+//		'end TransitionTypes'
+//		'GovernanceLibrary' 
+//			'WIAcceptanceRuleTypes' '{'
+//			(WIAcceptanceRuleTypes += WIAcceptanceRuleType)+
+//			'}'
+//			'WISelectionRuleTypes' '{'
+//			(WISelectionRuleTypes += WISelectionRuleType)+
+//			'}'
+//			'WIAssignmentRuleTypes' '{'
+//			(WIAssignmentRuleTypes += WIAssignmentRuleType)+
+//			'}'
+//			'ResourceAllocationRuleTypes' '{'
+//			(ResourceAllocationRuleTypes += ResourceAllocationRuleType)+
+//			'}'
+//			'ResourceOutsourcingRuleTypes' '{'
+//			(ResourceOutsourcingRuleTypes += ResourceOutsourcingRuleType)+
+//			'}'	
+//		'end GovernanceLibrary'
+//		'TaskLibrary'
+//			'ProcessModels'
+//			(ProcessModels += ProcessModel)+
+//			'end ProcessModels'		    			
+//			'ValueFunctions'
+//			(ValueFunctions += ValueFunction)+
+//			'end ValueFunctions'			
+//		'end TaskLibrary'
+//	'end SystemLibraries';
 		
 	UserLibraries:
 	'UserLibraries' 
+		'ServiceProviderTypes' 
+		(ServiceProviderTypes += ServiceProviderType)+		
+		'end ServiceProviderTypes'
 		'WorkItemTypes' 
-		(WorkItemTypes += WorkItemType)+		
+		(WorkItemTypes += WorkItemType)+	
 		'end WorkItemTypes'
+		'ProcessModels'
+		(ProcessModels += ProcessModel)*
+		'end ProcessModels'
 		'ClassOfServices' 
-		(ClassOfServices += ClassOfService)+
+		(ClassOfServices += ClassOfService)*
 		'end ClassOfServices'
 		'Services' 
-		(Services += Service)+
+		(Services += Service)*
 		'end Services'
 		'GovernanceStrategies' 
-	    (GovernanceStrategies += GovernanceStrategy)+
-	    'end GovernanceStrategies'
-//		    ('Repositories' '{'
-//			(Repositories += Repository)+
-//			'}')?	    
+	    (GovernanceStrategies += GovernanceStrategy)*
+	    'end GovernanceStrategies'    
 	'end UserLibraries';
 		
-
-	
-	//
-//	terminal PROFILE :
-//   ((CHAR|DIGIT)(CHAR|DIGIT)'.'(CHAR|DIGIT)(CHAR|DIGIT))
-//	;
-//	terminal DIGIT:
-//	    ('0'..'9')
-//	;
-//	terminal CHAR returns ecore::EString : 
-//	    ('a'..'z'|'A'..'Z')
-//	;
 	terminal DOUBLE returns ecore::EDouble:
 		('0'..'9')+('.' ('0'..'9')+)
 	;
+	terminal BOOLEAN returns ecore::EBoolean:
+		'false'|'true'
+	;
 	//
+	Number:
+		INT|DOUBLE
+	;
 	QualifiedName:
 		ID ('.' ID)*('.' INT)*
 	;
 	Parameter:
-		INT|DOUBLE|STRING|ID	
+		Number|STRING|ID|BOOLEAN
 	;
 	AbstractParameter:
-		(isVariable?="Variable:" variable=[Variable])|(value=Parameter)
+		(isVariable?="Variable:" variable=[ExperimentVariable])|(value=Parameter)
 	;
 	NumExpression:		
-		(numValue=DOUBLE)|	
+		(numValue=Number)|	
 		(distribution ?= 'Random.' numDist = Distribution)
 	;
 	Operator:
-		(equalTo?='==')|(largerThan?='>')|(smallerThan?='<')|(largerOrEqualTo?='>=')|(smallerOrEqualTo?='<=')|(notEqualTo?='!=')
+		(equalTo?='==')|(largerThan?='>')|(smallerThan?='<')
+		|(largerOrEqualTo?='>=')|(smallerOrEqualTo?='<=')|(notEqualTo?='!=')
 	;
-	Variable:
+	ExperimentVariable:
 		"Variable" name=ID '{'
 		(
 		(typeInteger?="INT:"intValue=INT)|
@@ -142,41 +142,7 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 	;	
 	Distribution:
 		(isNormal?="Normal"|isUniform?="Uniform"|isExponential?="Exponential")
-		'['(parameters+=AbstractParameter)*']'
-	;
-	EventType:
-		'EventType' name = ID
-		(description=STRING)?
-	;
-	ConditionType:
-		'ConditionType' name = ID
-		(description=STRING)?
-	;
-	TransitionType:
-		'TransitionType' name = ID
-		(description=STRING)?
-	;
-	ProcessModel:
-		'ProcessModel' name=ID '{'
-		('Description' description=STRING)?
-		"Events" "{"(events+=Event)+"}"
-		'}'
-	;
-	Event:
-		"Event" "{"
-		"Conditions" "{"(conditions+=Condition)+"}"
-		"Transitions" "{"(transitions+=Transition)+"}"
-		"}"
-	;
-	Condition:
-		type=[ConditionType] operator=Operator value=Parameter
-	;
-	Transition:
-		type=[TransitionType]"="value=Parameter
-	;
-	AgentRoleType:
-		'AgentRoleType' name = ID
-		(description=STRING)?
+		'['(parameters+=AbstractParameter)(','parameters+=AbstractParameter)*']'
 	;
 	
 	// ------------------------ Experiment Objects ---------------------------------
@@ -187,190 +153,268 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 	;	
 	// ------------------------ Governance Objects ---------------------------------
 	GovernanceStrategy: 
-		(id=INT)?
-		'GovernanceStrategy' name=ID '{'
-		('Description' description=STRING)?
-		(
-		   	WIAcceptanceRule=WIAcceptance
-		    WISelectionRule=WISelection 
-		    WIAssignmentRule=WIAssignment 
-		    ResourceAllocationRule=ResourceAllocation 
-		    ResourceOutsourcingRule=ResourceOutsourcing
-	    )?
-	    'Mechanisms' '{'(Mechanisms += Mechanism)+ '}'
-	    'Processes' '{'(Processes += Process)+ '}'
-	    '}'
+		"GovernanceStrategy" name = ID 
+		"type:" (
+		(pull?="Pull" "{"pullStrategy=PullStrategy)|
+		(push?="Push""{"pushStrategy=PushStrategy)|
+		(cnp?="CNP""{"contractNetProtocal=ContractNetProtocol)		
+		)
+		"}"	
 	;
-	WIAcceptance:
-		'WIAcceptance' type=[WIAcceptanceRuleType] '{'
-		('Description' description=STRING)?		
-		('BackLogLimit' backlogQLimit=INT)?
-		('WIPLimit' readyQLimit=INT)?
-		'}'
+	ContractNetProtocol:
+		('desc' description=STRING)?
+		(variables+=Variable)*
+		'roleBehaviors' '{'(roleBehaviors += RoleBehavior)* '}'
+		'processes' '{'(Processes += [ProcessModel])+ '}'		
 	;
-	WISelection:
-		'WISelection' type=[WISelectionRuleType] '{'
-		('Description' description=STRING)?		
-		'}'
+	RoleBehavior: 	
+	 	"role" name=ID "{"
+	 	'actions''{'(actions+=Action)*'}'
+		(states += State)+
+		"}"
 	;
-	WIAssignment:
-		'WIAssignment' type=[WIAssignmentRuleType] '{'
-		('Description' description=STRING)?
-		'}'
+	ProcessModel: 	
+	 	name=ID "{"
+	 	'actions''{'(actions+=Action)*'}'
+		(states += State)+
+		"}"
 	;
-	ResourceAllocation:
-		'ResourceAllocation' type=[ResourceAllocationRuleType] '{'
-		('Description' description=STRING)?
-		'}'
+	PullStrategy:	
+		('desc' description=STRING)?	
+		'mechanisms' '{'(Mechanisms += Mechanism)+ '}'
+		'processes' '{'(Processes += [ProcessModel])+ '}'
 	;
-	ResourceOutsourcing:
-		'ResourceOutsourcing' type=[ResourceOutsourcingRuleType] '{'
-		('Description' description=STRING)?
-		'}'
-	;
-	WIAcceptanceRuleType:
-		'RuleType' name=ID '{'
-		('Description' description=STRING)?
-		'}'
-	;
-	WISelectionRuleType:
-		'RuleType' name=ID '{'
-		('Description' description=STRING)?
-		'}'
-	;
-	WIAssignmentRuleType:
-		'RuleType' name=ID '{'
-		('Description' description=STRING)?
-		'}'
-	;
-	ResourceAllocationRuleType:
-		'RuleType' name=ID '{'
-		('Description' description=STRING)?
-		'}'
-	;
-	ResourceOutsourcingRuleType:
-		'RuleType' name=ID '{'
-		('Description' description=STRING)?
-		'}'
+	PushStrategy:
+		('desc' description=STRING)?
+		'mechanisms' '{'(Mechanisms += Mechanism)+ '}'
+	    'processes' '{'(Processes += [ProcessModel])+ '}'
 	;
 	Mechanism:
-		'Mechanism' name=ID'='value=Parameter
+		name=ID'='value=Parameter
 		'{'
-		('Description' description=STRING)?
-		('Attributes' '{' (attributes+=MechanismAttribute)+ '}')?
+		('desc' description=STRING)?
+		('attributes' '{' (attributes+=MechanismAttribute)+ '}')?
 		'}'
 	;	
 	MechanismAttribute:
 		attribute=STRING'='value=Parameter
 	;
-	Process:
-		'Process' name=ID'='value=Parameter
-		'{'
-		('Description' description=STRING)?
-		('Attributes' '{' (attributes+=ProcessAttribute)+ '}')?
-		'}'
-	;	
-	ProcessAttribute:
-		attribute=STRING'='value=Parameter
-	;	
     // ------------------------ WorkItem Objects ---------------------------------
     WorkSource:
-    	(id=INT)?
     	'WorkSource' name=ID '{'
-    	('Description' description=STRING)?
+    	('desc' description=STRING)?
     	('AssignTo' '{' (assignTo+=[ServiceProvider])+ '}')?
-    	(assignmentRule=WIAssignment)?
+//    	(assignmentRule=WIAssignment)?
     	'}'
     ;
 	WorkItemNetwork:
-		(id=INT)?
     	'WorkItemNetwork' name=ID '{'
-    	('Description' description=STRING)?
+    	('desc' description=STRING)?
     	'WorkItems' '{' (workItems+=WorkItem)+ '}'
     	'}'
-    ;    
-	WorkItem:
-		(id=INT)?
-		'WorkItem' name=ID '{'
-//		('Profile' profile=[WorkItemProfile])?
-		('Description' description=STRING)?	
-		'Type' type=[WorkItemType]
-		(hasPredecessors?='Predecessors' '{' (pTasks+=[WorkItem])+ '}')?
-		(isAggregationNode?='Subtasks' '{' (sTasks+=[WorkItem])+ '}')?
-		('CausalTriggers'(causalTriggers+=CausalTrigger)*)?
-		'RequiredServices' '{'(requiredServices+=[Service])+'}'
-		('Efforts' efforts=NumExpression)?
+    	(id=INT)?
+    ;
+
+	WorkItem:		
+		name=ID ("type:" type=[WorkItemType])?'{'
+		('desc' description=STRING)?	
+		(hasPredecessors?='prerequisites''{'(pTasks+=[WorkItem])(','pTasks+=[WorkItem])*'}')?	
+		((hasSubtasks?='decomposites''{'(sTasks+=[WorkItem])(','sTasks+=[WorkItem])* '}'
+		'analysisEfforts''{'(requiredAnalysis+=RequiredService)(','requiredAnalysis+=RequiredService)*'}')?
+		|
+		(('analysisEfforts''{'(requiredAnalysis+=RequiredService)(','requiredAnalysis+=RequiredService)*'}')?
+		'efforts' '{'(requiredServices+=RequiredService)(','requiredServices+=RequiredService)*'}'))
 		('MaturityLevels' maturityLevels=AbstractParameter)?
 		('Uncertainty' uncertainty=AbstractParameter)?
 		('Risk' risk=AbstractParameter)?
-		(hasImpacts?='Impacts' '{'(impacts+=Impact)+'}')?
+		(hasImpacts?='Impacts' '{'(impacts+=Impact)(','impacts+=Impact)*'}')?
 		('Value' value=NumExpression)?
 		('ClassOfService' classOfService=[ClassOfService])?
 		('WorkSource' workSource=[WorkSource])?
 		('ArrivalTime' arrivalTime=INT)?
 		('DueDate' dueDate=INT)?
 		'}'
+		(id=INT)?
 	;
+	RequiredService:
+		"["serviceType=[Service]"," efforts=NumExpression"]"
+	;
+
 	Impact:
-		('Impact')'{'(impactWIs+=[WorkItem])+'}'
-		'['likelihood=AbstractParameter impact=AbstractParameter']'
-	;
-	CausalTrigger:
-		('=>'| '->')'{'(triggered+=[WorkItem])+'}'
-		('AtProgress' atProgress=DOUBLE)?
-		('OnProbability' onProbability=DOUBLE)?		
+		impactWI=[WorkItem]'['likelihood=NumExpression','risk=NumExpression']'
 	;
 	WorkItemType:
 		(id=INT)?
-		'WorkItemType' name=ID '{'
-		('Description' description=STRING)?
-		('Hierarchy' hierarchy=INT)?
+		name=ID '{'
+		('desc' description=STRING)?
+		('hierarchy''='hierarchy=INT)?
 		'}'
 	;	
 	ValueFunction:
 		'ValueFunction' name=ID '{'
-		('Description' description=STRING)?
+		('desc' description=STRING)?
 		'}'
 	;	
-
 	ClassOfService:
 		(id=INT)?
-		'ClassOfService' name=ID '{'
-		('Description' description=STRING)? 	
-		"Disruptive:"((disruptive?="TRUE")|"FALSE")
+		name=ID '{'
+		('desc' description=STRING)? 
+		('priority''='priority=INT)?
+		("disruptive" ":" (disruptive=BOOLEAN))?
 		'}'
 	;	
 	// ------------------------ Organizational Objects ---------------------------------
 	Service:
-		(id=INT)?
-		'Service' name=ID ('{'
-		('Description' description=STRING)?
-		'}')?
+		name=ID ('{'
+		('desc' description=STRING)?
+		('hierarchy' '='hierarchy=INT)?
+		'}')?	
+		(id=INT)?	
 	;		
 	ServiceProvider:
-		(id=INT)?
-		('ServiceProvider'|'Group') name=ID '{'
-		('Description' description=STRING)?		
-		('AssignTo' '{' (assignTo+=[ServiceProvider])+ '}')?
-		('OutsourceFrom' '{' (outsourceFrom+=[ServiceProvider])+ '}')?		
-		'TeamService'teamService=[Service]		
-		('GovernanceStrategy' '{'governanceStrategy=[GovernanceStrategy]'}')?
-	    ('Resources' '{' (resources+=Asset)+ '}')?
+		name=ID ('type:' type=[ServiceProviderType])? '{'
+		('assignTo' '{' (assignTo+=[ServiceProvider])+ '}')?
+		('outsourceFrom' '{' (outsourceFrom+=[ServiceProvider])+ '}')?			
+		('strategy' governanceStrategy=[GovernanceStrategy])?
+	    ('resources'':' resources+=Asset+)?
 	    '}'
+	    (id=INT)?
 	;
-	Asset: 
+	ServiceProviderType:
 		(id=INT)?
-		'Resource' name=ID '{'
-		('Description' description=STRING)?
-		('Number' number=AbstractParameter)
-		('SkillSet' '{' (skillSet+=Skill)+ '}')?
+		name=ID '{'
+		('desc' description=STRING)?
+		('hierarchy''='hierarchy=INT)?
 		'}'
 	;	
+	Asset: 
+		name=ID '*'number=AbstractParameter '{'
+		('skills'':'  (skillSet+=Skill)(','skillSet+=Skill)*)?
+		'}'
+		(id=INT)?
+	;	
 	Skill:
-		'Service' service=[Service]
-		'Efficiency' efficiency=NumExpression
+		'['service=[Service]','efficiency=NumExpression']' 
 	;		
+	// ------------------------ Process Model -----------------------------------------------
+//	Model:
+//		'AgentAttributes'
+//		agentAttributes = ClassAttributes
+//		'TaskAttributes'
+//		taskAttributes = ClassAttributes
+//		'BidAttributes'
+//		bidAttributes = ClassAttributes
+//		'ContractAttributes'
+//		contractAttributes = ClassAttributes
+//		organizationalModel = OrganizationalModel
+//		tasksModel = TasksModel
+//		(contractNetProtocols+=ContractNetProtocol)*	
+//		(processModels+=ProcessModel)*
+//	;
+	Type:
+		Class|DataType
+	;
+	DataType:
+		'String'|'boolean'|'int'|'double'
+	;
+	Class:
+		'Agent'|'Task'|'Contract'|'Bid'|'Service'
+	;
+	AbstractType:
+		(type=Type)
+		|(listType?='List''<'type=Type'>')
+		|(mapType?='Map''<'keyType=Type','valueType=Type'>')
+	;
+	ClassAttributes:
+		'{'(agentAttributes += Attribute)+'}';
+	Agent:
+		'Agent' name=ID '{'
+		(attributeValues += AttributeValue)*
+		'}';
+	Task:
+	   	'Task' name=ID '{'
+	     (attributeValues += AttributeValue)*
+	   	'}';
 	
+	
+	Attribute:
+		type=AbstractType name=ID ('default'default=Parameter)?
+	;
+	AttributeValue:
+		attribute=[Attribute]'='value=Parameter
+	;	
+	Variable:
+		type=AbstractType name=ID
+	;
+	Action:
+		'action'name=ID
+		'('(inputs+=Variable)?(','inputs+=Variable)*')'
+	;
+	State:
+		(backgroundState?="backgroundState" name = ID)|
+		("state" name = ID "{"
+		(statements+=Statement)*
+		"}")
+	;
+	IfExpression:
+		'('condition=Condition')'
+		'{'(statements+=Statement)*'}'
+		('else'
+			((hasElseIf?='if'elseIf=IfExpression)
+			|('{'(elses+=Statement)*'}'))
+		)?
+	;
+	ForExpression:
+		'('object=VarExpression'in'set=VarExpression')'
+		'{'(statements+=Statement)*'}'
+	;
+	WhileExpression:
+		'('condition=Condition')'
+		'{'(statements+=Statement)*'}'
+	;
+	Condition:
+		((subjective=VarExpression operator=Operator objective= Expression)
+		|'('(subjective=VarExpression operator=Operator objective= Expression)')')
+		((hasAnd?='and''('andCondition=Condition')')|(hasOr?='or' '('orCondition=Condition')'))?
+	;
+	Statement:
+		(isAction?='Do'actionStatement=ActionStatement)
+		|(isChangeState?="->"changeStateStatement=ChangeStateStatement)
+		|(isDeclaration?="var"declarationStatement=DeclarationStatement)
+		|(isIfExpression?="if"ifExpression=IfExpression"end if")
+		|(isForExpression?="for"forExpression=ForExpression"end for")
+		|(isWhileExpression?="while"whileExpression=WhileExpression"end while")
+		|(assertStatement=AssertStatement)
+	;
+	DeclarationStatement:
+		Variable {DeclarationStatement.variable=current} ('='value=Expression)?
+	;
+	ActionStatement:
+		action = [Action] '('((inputs+=VarExpression)+)?')'
+	;
+	AssertStatement:
+		input=VarExpression'='value=Expression
+	;	
+	ChangeStateStatement:
+		"state" targetState = [State]
+	;
+	// ----------------------------------------------------------------------	
+	Expression:
+    Term (({Plus.left=current}'+'|{Minus.left=current}'-') right=Term)*
+    ;
+	Term:
+    Factor (({Multiply.left=current} '*'| {Division.left=current}'/') right=Factor)*
+    ;
+	Factor:
+    number=Number|variable=VarExpression|string=STRING |boolean=BOOLEAN|('(' expression=Expression ')')
+    ;
+    // ----------------------------------------------------------------------
+	VarExpression:
+		((self?='self')|(context?='context')|(variable=QualifiedName))('.'methods+=Method)*
+	;
+	Method:
+		name=ID functionMethod?='('((inputs+=Parameter)?(','inputs+=Parameter)*)')'
+	;	
 	// ------------------------ WorkItem Repositories ---------------------------------------
 //	Repository:
 //		'Repository' type = [WorkItemType]
@@ -379,7 +423,7 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 //	;
 //	WorkItemProfile:
 //		'WorkItem' name=ID '{'
-//		('Description' description=STRING)?
+//		('desc' description=STRING)?
 //		('ProcessModel' processModel=[ProcessModel])?
 //		('References''{' (references+=WorkReference)+ '}')?
 //		('Decompositions' '{' (decompositions+=WorkDecomposition)+ '}')?
@@ -410,20 +454,6 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 //		'WorkFlow' name=ID
 //		(caps+=Capability)+
 //		'end WorkFlow'
-//	;
-//
-//	Capability:
-//		'capability' name=ID '{'
-//		('Description' description=STRING)?
-//		(reqs+=Requirement)+ 	
-//		'}'
-//	;
-//	Requirement:
-//		'requirement' name=ID '{' 
-//		 ('Description' description=STRING)?
-//		 ('workItems' '{' (rTasks+=[WorkItem])+ '}') 
-//		 ('workItemNetwork' (dependencies += CausalTrigger)*)?
-//		'}'
 //	;
 //	
 //	Entity:

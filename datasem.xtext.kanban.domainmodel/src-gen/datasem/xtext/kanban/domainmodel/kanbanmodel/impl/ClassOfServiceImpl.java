@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ClassOfServiceImpl#getId <em>Id</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ClassOfServiceImpl#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ClassOfServiceImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ClassOfServiceImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ClassOfServiceImpl#isDisruptive <em>Disruptive</em>}</li>
  * </ul>
  * </p>
@@ -89,6 +90,26 @@ public class ClassOfServiceImpl extends MinimalEObjectImpl.Container implements 
    * @ordered
    */
   protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getPriority() <em>Priority</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPriority()
+   * @generated
+   * @ordered
+   */
+  protected static final int PRIORITY_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getPriority() <em>Priority</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPriority()
+   * @generated
+   * @ordered
+   */
+  protected int priority = PRIORITY_EDEFAULT;
 
   /**
    * The default value of the '{@link #isDisruptive() <em>Disruptive</em>}' attribute.
@@ -205,6 +226,29 @@ public class ClassOfServiceImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
+  public int getPriority()
+  {
+    return priority;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPriority(int newPriority)
+  {
+    int oldPriority = priority;
+    priority = newPriority;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CLASS_OF_SERVICE__PRIORITY, oldPriority, priority));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public boolean isDisruptive()
   {
     return disruptive;
@@ -239,6 +283,8 @@ public class ClassOfServiceImpl extends MinimalEObjectImpl.Container implements 
         return getName();
       case KanbanmodelPackage.CLASS_OF_SERVICE__DESCRIPTION:
         return getDescription();
+      case KanbanmodelPackage.CLASS_OF_SERVICE__PRIORITY:
+        return getPriority();
       case KanbanmodelPackage.CLASS_OF_SERVICE__DISRUPTIVE:
         return isDisruptive();
     }
@@ -263,6 +309,9 @@ public class ClassOfServiceImpl extends MinimalEObjectImpl.Container implements 
         return;
       case KanbanmodelPackage.CLASS_OF_SERVICE__DESCRIPTION:
         setDescription((String)newValue);
+        return;
+      case KanbanmodelPackage.CLASS_OF_SERVICE__PRIORITY:
+        setPriority((Integer)newValue);
         return;
       case KanbanmodelPackage.CLASS_OF_SERVICE__DISRUPTIVE:
         setDisruptive((Boolean)newValue);
@@ -290,6 +339,9 @@ public class ClassOfServiceImpl extends MinimalEObjectImpl.Container implements 
       case KanbanmodelPackage.CLASS_OF_SERVICE__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
+      case KanbanmodelPackage.CLASS_OF_SERVICE__PRIORITY:
+        setPriority(PRIORITY_EDEFAULT);
+        return;
       case KanbanmodelPackage.CLASS_OF_SERVICE__DISRUPTIVE:
         setDisruptive(DISRUPTIVE_EDEFAULT);
         return;
@@ -313,6 +365,8 @@ public class ClassOfServiceImpl extends MinimalEObjectImpl.Container implements 
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case KanbanmodelPackage.CLASS_OF_SERVICE__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case KanbanmodelPackage.CLASS_OF_SERVICE__PRIORITY:
+        return priority != PRIORITY_EDEFAULT;
       case KanbanmodelPackage.CLASS_OF_SERVICE__DISRUPTIVE:
         return disruptive != DISRUPTIVE_EDEFAULT;
     }
@@ -336,6 +390,8 @@ public class ClassOfServiceImpl extends MinimalEObjectImpl.Container implements 
     result.append(name);
     result.append(", description: ");
     result.append(description);
+    result.append(", priority: ");
+    result.append(priority);
     result.append(", disruptive: ");
     result.append(disruptive);
     result.append(')');

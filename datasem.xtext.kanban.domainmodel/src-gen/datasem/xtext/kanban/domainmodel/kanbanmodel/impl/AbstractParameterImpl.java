@@ -3,8 +3,8 @@
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
 import datasem.xtext.kanban.domainmodel.kanbanmodel.AbstractParameter;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Variable;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -59,7 +59,7 @@ public class AbstractParameterImpl extends MinimalEObjectImpl.Container implemen
    * @generated
    * @ordered
    */
-  protected Variable variable;
+  protected ExperimentVariable variable;
 
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -130,12 +130,12 @@ public class AbstractParameterImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public Variable getVariable()
+  public ExperimentVariable getVariable()
   {
     if (variable != null && variable.eIsProxy())
     {
       InternalEObject oldVariable = (InternalEObject)variable;
-      variable = (Variable)eResolveProxy(oldVariable);
+      variable = (ExperimentVariable)eResolveProxy(oldVariable);
       if (variable != oldVariable)
       {
         if (eNotificationRequired())
@@ -150,7 +150,7 @@ public class AbstractParameterImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public Variable basicGetVariable()
+  public ExperimentVariable basicGetVariable()
   {
     return variable;
   }
@@ -160,9 +160,9 @@ public class AbstractParameterImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setVariable(Variable newVariable)
+  public void setVariable(ExperimentVariable newVariable)
   {
-    Variable oldVariable = variable;
+    ExperimentVariable oldVariable = variable;
     variable = newVariable;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.ABSTRACT_PARAMETER__VARIABLE, oldVariable, variable));
@@ -226,7 +226,7 @@ public class AbstractParameterImpl extends MinimalEObjectImpl.Container implemen
         setIsVariable((Boolean)newValue);
         return;
       case KanbanmodelPackage.ABSTRACT_PARAMETER__VARIABLE:
-        setVariable((Variable)newValue);
+        setVariable((ExperimentVariable)newValue);
         return;
       case KanbanmodelPackage.ABSTRACT_PARAMETER__VALUE:
         setValue((String)newValue);
@@ -249,7 +249,7 @@ public class AbstractParameterImpl extends MinimalEObjectImpl.Container implemen
         setIsVariable(IS_VARIABLE_EDEFAULT);
         return;
       case KanbanmodelPackage.ABSTRACT_PARAMETER__VARIABLE:
-        setVariable((Variable)null);
+        setVariable((ExperimentVariable)null);
         return;
       case KanbanmodelPackage.ABSTRACT_PARAMETER__VALUE:
         setValue(VALUE_EDEFAULT);

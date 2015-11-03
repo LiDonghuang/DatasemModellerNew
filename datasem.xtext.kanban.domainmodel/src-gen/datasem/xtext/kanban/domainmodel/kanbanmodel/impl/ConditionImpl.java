@@ -3,9 +3,10 @@
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Condition;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ConditionType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Expression;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Operator;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.VarExpression;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -23,9 +24,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ConditionImpl#getType <em>Type</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ConditionImpl#getSubjective <em>Subjective</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ConditionImpl#getOperator <em>Operator</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ConditionImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ConditionImpl#getObjective <em>Objective</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ConditionImpl#isHasAnd <em>Has And</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ConditionImpl#getAndCondition <em>And Condition</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ConditionImpl#isHasOr <em>Has Or</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ConditionImpl#getOrCondition <em>Or Condition</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,14 +39,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class ConditionImpl extends MinimalEObjectImpl.Container implements Condition
 {
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+   * The cached value of the '{@link #getSubjective() <em>Subjective</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getSubjective()
    * @generated
    * @ordered
    */
-  protected ConditionType type;
+  protected VarExpression subjective;
 
   /**
    * The cached value of the '{@link #getOperator() <em>Operator</em>}' containment reference.
@@ -54,24 +59,74 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
   protected Operator operator;
 
   /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The cached value of the '{@link #getObjective() <em>Objective</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getObjective()
    * @generated
    * @ordered
    */
-  protected static final String VALUE_EDEFAULT = null;
+  protected Expression objective;
 
   /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The default value of the '{@link #isHasAnd() <em>Has And</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #isHasAnd()
    * @generated
    * @ordered
    */
-  protected String value = VALUE_EDEFAULT;
+  protected static final boolean HAS_AND_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isHasAnd() <em>Has And</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isHasAnd()
+   * @generated
+   * @ordered
+   */
+  protected boolean hasAnd = HAS_AND_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getAndCondition() <em>And Condition</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAndCondition()
+   * @generated
+   * @ordered
+   */
+  protected Condition andCondition;
+
+  /**
+   * The default value of the '{@link #isHasOr() <em>Has Or</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isHasOr()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean HAS_OR_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isHasOr() <em>Has Or</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isHasOr()
+   * @generated
+   * @ordered
+   */
+  protected boolean hasOr = HAS_OR_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getOrCondition() <em>Or Condition</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOrCondition()
+   * @generated
+   * @ordered
+   */
+  protected Condition orCondition;
 
   /**
    * <!-- begin-user-doc -->
@@ -99,19 +154,9 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
    * <!-- end-user-doc -->
    * @generated
    */
-  public ConditionType getType()
+  public VarExpression getSubjective()
   {
-    if (type != null && type.eIsProxy())
-    {
-      InternalEObject oldType = (InternalEObject)type;
-      type = (ConditionType)eResolveProxy(oldType);
-      if (type != oldType)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.CONDITION__TYPE, oldType, type));
-      }
-    }
-    return type;
+    return subjective;
   }
 
   /**
@@ -119,22 +164,37 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
    * <!-- end-user-doc -->
    * @generated
    */
-  public ConditionType basicGetType()
+  public NotificationChain basicSetSubjective(VarExpression newSubjective, NotificationChain msgs)
   {
-    return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setType(ConditionType newType)
-  {
-    ConditionType oldType = type;
-    type = newType;
+    VarExpression oldSubjective = subjective;
+    subjective = newSubjective;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CONDITION__TYPE, oldType, type));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CONDITION__SUBJECTIVE, oldSubjective, newSubjective);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSubjective(VarExpression newSubjective)
+  {
+    if (newSubjective != subjective)
+    {
+      NotificationChain msgs = null;
+      if (subjective != null)
+        msgs = ((InternalEObject)subjective).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.CONDITION__SUBJECTIVE, null, msgs);
+      if (newSubjective != null)
+        msgs = ((InternalEObject)newSubjective).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.CONDITION__SUBJECTIVE, null, msgs);
+      msgs = basicSetSubjective(newSubjective, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CONDITION__SUBJECTIVE, newSubjective, newSubjective));
   }
 
   /**
@@ -190,9 +250,9 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValue()
+  public Expression getObjective()
   {
-    return value;
+    return objective;
   }
 
   /**
@@ -200,12 +260,179 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(String newValue)
+  public NotificationChain basicSetObjective(Expression newObjective, NotificationChain msgs)
   {
-    String oldValue = value;
-    value = newValue;
+    Expression oldObjective = objective;
+    objective = newObjective;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CONDITION__VALUE, oldValue, value));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CONDITION__OBJECTIVE, oldObjective, newObjective);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setObjective(Expression newObjective)
+  {
+    if (newObjective != objective)
+    {
+      NotificationChain msgs = null;
+      if (objective != null)
+        msgs = ((InternalEObject)objective).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.CONDITION__OBJECTIVE, null, msgs);
+      if (newObjective != null)
+        msgs = ((InternalEObject)newObjective).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.CONDITION__OBJECTIVE, null, msgs);
+      msgs = basicSetObjective(newObjective, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CONDITION__OBJECTIVE, newObjective, newObjective));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isHasAnd()
+  {
+    return hasAnd;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setHasAnd(boolean newHasAnd)
+  {
+    boolean oldHasAnd = hasAnd;
+    hasAnd = newHasAnd;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CONDITION__HAS_AND, oldHasAnd, hasAnd));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Condition getAndCondition()
+  {
+    return andCondition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetAndCondition(Condition newAndCondition, NotificationChain msgs)
+  {
+    Condition oldAndCondition = andCondition;
+    andCondition = newAndCondition;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CONDITION__AND_CONDITION, oldAndCondition, newAndCondition);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAndCondition(Condition newAndCondition)
+  {
+    if (newAndCondition != andCondition)
+    {
+      NotificationChain msgs = null;
+      if (andCondition != null)
+        msgs = ((InternalEObject)andCondition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.CONDITION__AND_CONDITION, null, msgs);
+      if (newAndCondition != null)
+        msgs = ((InternalEObject)newAndCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.CONDITION__AND_CONDITION, null, msgs);
+      msgs = basicSetAndCondition(newAndCondition, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CONDITION__AND_CONDITION, newAndCondition, newAndCondition));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isHasOr()
+  {
+    return hasOr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setHasOr(boolean newHasOr)
+  {
+    boolean oldHasOr = hasOr;
+    hasOr = newHasOr;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CONDITION__HAS_OR, oldHasOr, hasOr));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Condition getOrCondition()
+  {
+    return orCondition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetOrCondition(Condition newOrCondition, NotificationChain msgs)
+  {
+    Condition oldOrCondition = orCondition;
+    orCondition = newOrCondition;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CONDITION__OR_CONDITION, oldOrCondition, newOrCondition);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOrCondition(Condition newOrCondition)
+  {
+    if (newOrCondition != orCondition)
+    {
+      NotificationChain msgs = null;
+      if (orCondition != null)
+        msgs = ((InternalEObject)orCondition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.CONDITION__OR_CONDITION, null, msgs);
+      if (newOrCondition != null)
+        msgs = ((InternalEObject)newOrCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.CONDITION__OR_CONDITION, null, msgs);
+      msgs = basicSetOrCondition(newOrCondition, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CONDITION__OR_CONDITION, newOrCondition, newOrCondition));
   }
 
   /**
@@ -218,8 +445,16 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.CONDITION__SUBJECTIVE:
+        return basicSetSubjective(null, msgs);
       case KanbanmodelPackage.CONDITION__OPERATOR:
         return basicSetOperator(null, msgs);
+      case KanbanmodelPackage.CONDITION__OBJECTIVE:
+        return basicSetObjective(null, msgs);
+      case KanbanmodelPackage.CONDITION__AND_CONDITION:
+        return basicSetAndCondition(null, msgs);
+      case KanbanmodelPackage.CONDITION__OR_CONDITION:
+        return basicSetOrCondition(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -234,13 +469,20 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.CONDITION__TYPE:
-        if (resolve) return getType();
-        return basicGetType();
+      case KanbanmodelPackage.CONDITION__SUBJECTIVE:
+        return getSubjective();
       case KanbanmodelPackage.CONDITION__OPERATOR:
         return getOperator();
-      case KanbanmodelPackage.CONDITION__VALUE:
-        return getValue();
+      case KanbanmodelPackage.CONDITION__OBJECTIVE:
+        return getObjective();
+      case KanbanmodelPackage.CONDITION__HAS_AND:
+        return isHasAnd();
+      case KanbanmodelPackage.CONDITION__AND_CONDITION:
+        return getAndCondition();
+      case KanbanmodelPackage.CONDITION__HAS_OR:
+        return isHasOr();
+      case KanbanmodelPackage.CONDITION__OR_CONDITION:
+        return getOrCondition();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -255,14 +497,26 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.CONDITION__TYPE:
-        setType((ConditionType)newValue);
+      case KanbanmodelPackage.CONDITION__SUBJECTIVE:
+        setSubjective((VarExpression)newValue);
         return;
       case KanbanmodelPackage.CONDITION__OPERATOR:
         setOperator((Operator)newValue);
         return;
-      case KanbanmodelPackage.CONDITION__VALUE:
-        setValue((String)newValue);
+      case KanbanmodelPackage.CONDITION__OBJECTIVE:
+        setObjective((Expression)newValue);
+        return;
+      case KanbanmodelPackage.CONDITION__HAS_AND:
+        setHasAnd((Boolean)newValue);
+        return;
+      case KanbanmodelPackage.CONDITION__AND_CONDITION:
+        setAndCondition((Condition)newValue);
+        return;
+      case KanbanmodelPackage.CONDITION__HAS_OR:
+        setHasOr((Boolean)newValue);
+        return;
+      case KanbanmodelPackage.CONDITION__OR_CONDITION:
+        setOrCondition((Condition)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -278,14 +532,26 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.CONDITION__TYPE:
-        setType((ConditionType)null);
+      case KanbanmodelPackage.CONDITION__SUBJECTIVE:
+        setSubjective((VarExpression)null);
         return;
       case KanbanmodelPackage.CONDITION__OPERATOR:
         setOperator((Operator)null);
         return;
-      case KanbanmodelPackage.CONDITION__VALUE:
-        setValue(VALUE_EDEFAULT);
+      case KanbanmodelPackage.CONDITION__OBJECTIVE:
+        setObjective((Expression)null);
+        return;
+      case KanbanmodelPackage.CONDITION__HAS_AND:
+        setHasAnd(HAS_AND_EDEFAULT);
+        return;
+      case KanbanmodelPackage.CONDITION__AND_CONDITION:
+        setAndCondition((Condition)null);
+        return;
+      case KanbanmodelPackage.CONDITION__HAS_OR:
+        setHasOr(HAS_OR_EDEFAULT);
+        return;
+      case KanbanmodelPackage.CONDITION__OR_CONDITION:
+        setOrCondition((Condition)null);
         return;
     }
     super.eUnset(featureID);
@@ -301,12 +567,20 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.CONDITION__TYPE:
-        return type != null;
+      case KanbanmodelPackage.CONDITION__SUBJECTIVE:
+        return subjective != null;
       case KanbanmodelPackage.CONDITION__OPERATOR:
         return operator != null;
-      case KanbanmodelPackage.CONDITION__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+      case KanbanmodelPackage.CONDITION__OBJECTIVE:
+        return objective != null;
+      case KanbanmodelPackage.CONDITION__HAS_AND:
+        return hasAnd != HAS_AND_EDEFAULT;
+      case KanbanmodelPackage.CONDITION__AND_CONDITION:
+        return andCondition != null;
+      case KanbanmodelPackage.CONDITION__HAS_OR:
+        return hasOr != HAS_OR_EDEFAULT;
+      case KanbanmodelPackage.CONDITION__OR_CONDITION:
+        return orCondition != null;
     }
     return super.eIsSet(featureID);
   }
@@ -322,8 +596,10 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (value: ");
-    result.append(value);
+    result.append(" (hasAnd: ");
+    result.append(hasAnd);
+    result.append(", hasOr: ");
+    result.append(hasOr);
     result.append(')');
     return result.toString();
   }

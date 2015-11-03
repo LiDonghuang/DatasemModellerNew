@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.UserLibraries#getServiceProviderTypes <em>Service Provider Types</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.UserLibraries#getWorkItemTypes <em>Work Item Types</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.UserLibraries#getProcessModels <em>Process Models</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.UserLibraries#getClassOfServices <em>Class Of Services</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.UserLibraries#getServices <em>Services</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.UserLibraries#getGovernanceStrategies <em>Governance Strategies</em>}</li>
@@ -27,6 +29,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface UserLibraries extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Service Provider Types</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProviderType}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Service Provider Types</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Service Provider Types</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getUserLibraries_ServiceProviderTypes()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ServiceProviderType> getServiceProviderTypes();
+
   /**
    * Returns the value of the '<em><b>Work Item Types</b></em>' containment reference list.
    * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemType}.
@@ -42,6 +60,22 @@ public interface UserLibraries extends EObject
    * @generated
    */
   EList<WorkItemType> getWorkItemTypes();
+
+  /**
+   * Returns the value of the '<em><b>Process Models</b></em>' containment reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Process Models</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Process Models</em>' containment reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getUserLibraries_ProcessModels()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ProcessModel> getProcessModels();
 
   /**
    * Returns the value of the '<em><b>Class Of Services</b></em>' containment reference list.

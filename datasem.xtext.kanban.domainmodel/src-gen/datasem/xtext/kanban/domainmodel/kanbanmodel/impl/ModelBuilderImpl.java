@@ -5,7 +5,6 @@ package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ModelBuilder;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.SystemLibraries;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.UserLibraries;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -26,7 +25,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ModelBuilderImpl#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ModelBuilderImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ModelBuilderImpl#getSystemLibraries <em>System Libraries</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ModelBuilderImpl#getUserLibraries <em>User Libraries</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ModelBuilderImpl#getExperimentModel <em>Experiment Model</em>}</li>
  * </ul>
@@ -75,16 +73,6 @@ public class ModelBuilderImpl extends MinimalEObjectImpl.Container implements Mo
    * @ordered
    */
   protected String description = DESCRIPTION_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getSystemLibraries() <em>System Libraries</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSystemLibraries()
-   * @generated
-   * @ordered
-   */
-  protected SystemLibraries systemLibraries;
 
   /**
    * The cached value of the '{@link #getUserLibraries() <em>User Libraries</em>}' containment reference.
@@ -171,54 +159,6 @@ public class ModelBuilderImpl extends MinimalEObjectImpl.Container implements Mo
     description = newDescription;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.MODEL_BUILDER__DESCRIPTION, oldDescription, description));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public SystemLibraries getSystemLibraries()
-  {
-    return systemLibraries;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetSystemLibraries(SystemLibraries newSystemLibraries, NotificationChain msgs)
-  {
-    SystemLibraries oldSystemLibraries = systemLibraries;
-    systemLibraries = newSystemLibraries;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.MODEL_BUILDER__SYSTEM_LIBRARIES, oldSystemLibraries, newSystemLibraries);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setSystemLibraries(SystemLibraries newSystemLibraries)
-  {
-    if (newSystemLibraries != systemLibraries)
-    {
-      NotificationChain msgs = null;
-      if (systemLibraries != null)
-        msgs = ((InternalEObject)systemLibraries).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.MODEL_BUILDER__SYSTEM_LIBRARIES, null, msgs);
-      if (newSystemLibraries != null)
-        msgs = ((InternalEObject)newSystemLibraries).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.MODEL_BUILDER__SYSTEM_LIBRARIES, null, msgs);
-      msgs = basicSetSystemLibraries(newSystemLibraries, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.MODEL_BUILDER__SYSTEM_LIBRARIES, newSystemLibraries, newSystemLibraries));
   }
 
   /**
@@ -327,8 +267,6 @@ public class ModelBuilderImpl extends MinimalEObjectImpl.Container implements Mo
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.MODEL_BUILDER__SYSTEM_LIBRARIES:
-        return basicSetSystemLibraries(null, msgs);
       case KanbanmodelPackage.MODEL_BUILDER__USER_LIBRARIES:
         return basicSetUserLibraries(null, msgs);
       case KanbanmodelPackage.MODEL_BUILDER__EXPERIMENT_MODEL:
@@ -351,8 +289,6 @@ public class ModelBuilderImpl extends MinimalEObjectImpl.Container implements Mo
         return getName();
       case KanbanmodelPackage.MODEL_BUILDER__DESCRIPTION:
         return getDescription();
-      case KanbanmodelPackage.MODEL_BUILDER__SYSTEM_LIBRARIES:
-        return getSystemLibraries();
       case KanbanmodelPackage.MODEL_BUILDER__USER_LIBRARIES:
         return getUserLibraries();
       case KanbanmodelPackage.MODEL_BUILDER__EXPERIMENT_MODEL:
@@ -376,9 +312,6 @@ public class ModelBuilderImpl extends MinimalEObjectImpl.Container implements Mo
         return;
       case KanbanmodelPackage.MODEL_BUILDER__DESCRIPTION:
         setDescription((String)newValue);
-        return;
-      case KanbanmodelPackage.MODEL_BUILDER__SYSTEM_LIBRARIES:
-        setSystemLibraries((SystemLibraries)newValue);
         return;
       case KanbanmodelPackage.MODEL_BUILDER__USER_LIBRARIES:
         setUserLibraries((UserLibraries)newValue);
@@ -406,9 +339,6 @@ public class ModelBuilderImpl extends MinimalEObjectImpl.Container implements Mo
       case KanbanmodelPackage.MODEL_BUILDER__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case KanbanmodelPackage.MODEL_BUILDER__SYSTEM_LIBRARIES:
-        setSystemLibraries((SystemLibraries)null);
-        return;
       case KanbanmodelPackage.MODEL_BUILDER__USER_LIBRARIES:
         setUserLibraries((UserLibraries)null);
         return;
@@ -433,8 +363,6 @@ public class ModelBuilderImpl extends MinimalEObjectImpl.Container implements Mo
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case KanbanmodelPackage.MODEL_BUILDER__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case KanbanmodelPackage.MODEL_BUILDER__SYSTEM_LIBRARIES:
-        return systemLibraries != null;
       case KanbanmodelPackage.MODEL_BUILDER__USER_LIBRARIES:
         return userLibraries != null;
       case KanbanmodelPackage.MODEL_BUILDER__EXPERIMENT_MODEL:

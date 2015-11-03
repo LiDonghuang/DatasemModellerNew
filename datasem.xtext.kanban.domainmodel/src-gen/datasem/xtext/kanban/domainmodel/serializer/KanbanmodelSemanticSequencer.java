@@ -6,46 +6,57 @@ package datasem.xtext.kanban.domainmodel.serializer;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.AbstractParameter;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.AgentRoleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.AbstractType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Action;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ActionStatement;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Agent;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.AssertStatement;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Asset;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Attribute;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.AttributeValue;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ChangeStateStatement;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ClassAttributes;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Condition;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ConditionType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ContractNetProtocol;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.DeclarationStatement;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Event;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.EventType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Division;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Factor;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ForExpression;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.IfExpression;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Impact;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.MechanismAttribute;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Method;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Minus;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ModelBuilder;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Multiply;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.NumExpression;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Operator;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessAttribute;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Plus;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocation;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocationRuleType;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcing;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcingRuleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.PullStrategy;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.PushStrategy;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.RequiredService;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.RoleBehavior;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Service;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProviderType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Skill;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.SystemLibraries;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Transition;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.TransitionType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.State;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Statement;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Task;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.UserLibraries;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ValueFunction;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.VarExpression;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Variable;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptance;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptanceRuleType;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignment;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignmentRuleType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WINReplication;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WISelection;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WISelectionRuleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WhileExpression;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemNetwork;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemType;
@@ -75,14 +86,35 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case KanbanmodelPackage.ABSTRACT_PARAMETER:
 				sequence_AbstractParameter(context, (AbstractParameter) semanticObject); 
 				return; 
-			case KanbanmodelPackage.AGENT_ROLE_TYPE:
-				sequence_AgentRoleType(context, (AgentRoleType) semanticObject); 
+			case KanbanmodelPackage.ABSTRACT_TYPE:
+				sequence_AbstractType(context, (AbstractType) semanticObject); 
+				return; 
+			case KanbanmodelPackage.ACTION:
+				sequence_Action(context, (Action) semanticObject); 
+				return; 
+			case KanbanmodelPackage.ACTION_STATEMENT:
+				sequence_ActionStatement(context, (ActionStatement) semanticObject); 
+				return; 
+			case KanbanmodelPackage.AGENT:
+				sequence_Agent(context, (Agent) semanticObject); 
+				return; 
+			case KanbanmodelPackage.ASSERT_STATEMENT:
+				sequence_AssertStatement(context, (AssertStatement) semanticObject); 
 				return; 
 			case KanbanmodelPackage.ASSET:
 				sequence_Asset(context, (Asset) semanticObject); 
 				return; 
-			case KanbanmodelPackage.CAUSAL_TRIGGER:
-				sequence_CausalTrigger(context, (CausalTrigger) semanticObject); 
+			case KanbanmodelPackage.ATTRIBUTE:
+				sequence_Attribute(context, (Attribute) semanticObject); 
+				return; 
+			case KanbanmodelPackage.ATTRIBUTE_VALUE:
+				sequence_AttributeValue(context, (AttributeValue) semanticObject); 
+				return; 
+			case KanbanmodelPackage.CHANGE_STATE_STATEMENT:
+				sequence_ChangeStateStatement(context, (ChangeStateStatement) semanticObject); 
+				return; 
+			case KanbanmodelPackage.CLASS_ATTRIBUTES:
+				sequence_ClassAttributes(context, (ClassAttributes) semanticObject); 
 				return; 
 			case KanbanmodelPackage.CLASS_OF_SERVICE:
 				sequence_ClassOfService(context, (ClassOfService) semanticObject); 
@@ -90,23 +122,35 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case KanbanmodelPackage.CONDITION:
 				sequence_Condition(context, (Condition) semanticObject); 
 				return; 
-			case KanbanmodelPackage.CONDITION_TYPE:
-				sequence_ConditionType(context, (ConditionType) semanticObject); 
+			case KanbanmodelPackage.CONTRACT_NET_PROTOCOL:
+				sequence_ContractNetProtocol(context, (ContractNetProtocol) semanticObject); 
+				return; 
+			case KanbanmodelPackage.DECLARATION_STATEMENT:
+				sequence_DeclarationStatement(context, (DeclarationStatement) semanticObject); 
 				return; 
 			case KanbanmodelPackage.DISTRIBUTION:
 				sequence_Distribution(context, (Distribution) semanticObject); 
 				return; 
-			case KanbanmodelPackage.EVENT:
-				sequence_Event(context, (Event) semanticObject); 
-				return; 
-			case KanbanmodelPackage.EVENT_TYPE:
-				sequence_EventType(context, (EventType) semanticObject); 
+			case KanbanmodelPackage.DIVISION:
+				sequence_Term(context, (Division) semanticObject); 
 				return; 
 			case KanbanmodelPackage.EXPERIMENT_MODEL:
 				sequence_ExperimentModel(context, (ExperimentModel) semanticObject); 
 				return; 
+			case KanbanmodelPackage.EXPERIMENT_VARIABLE:
+				sequence_ExperimentVariable(context, (ExperimentVariable) semanticObject); 
+				return; 
+			case KanbanmodelPackage.FACTOR:
+				sequence_Factor(context, (Factor) semanticObject); 
+				return; 
+			case KanbanmodelPackage.FOR_EXPRESSION:
+				sequence_ForExpression(context, (ForExpression) semanticObject); 
+				return; 
 			case KanbanmodelPackage.GOVERNANCE_STRATEGY:
 				sequence_GovernanceStrategy(context, (GovernanceStrategy) semanticObject); 
+				return; 
+			case KanbanmodelPackage.IF_EXPRESSION:
+				sequence_IfExpression(context, (IfExpression) semanticObject); 
 				return; 
 			case KanbanmodelPackage.IMPACT:
 				sequence_Impact(context, (Impact) semanticObject); 
@@ -117,8 +161,17 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case KanbanmodelPackage.MECHANISM_ATTRIBUTE:
 				sequence_MechanismAttribute(context, (MechanismAttribute) semanticObject); 
 				return; 
+			case KanbanmodelPackage.METHOD:
+				sequence_Method(context, (Method) semanticObject); 
+				return; 
+			case KanbanmodelPackage.MINUS:
+				sequence_Expression(context, (Minus) semanticObject); 
+				return; 
 			case KanbanmodelPackage.MODEL_BUILDER:
 				sequence_ModelBuilder(context, (ModelBuilder) semanticObject); 
+				return; 
+			case KanbanmodelPackage.MULTIPLY:
+				sequence_Term(context, (Multiply) semanticObject); 
 				return; 
 			case KanbanmodelPackage.NUM_EXPRESSION:
 				sequence_NumExpression(context, (NumExpression) semanticObject); 
@@ -126,26 +179,23 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case KanbanmodelPackage.OPERATOR:
 				sequence_Operator(context, (Operator) semanticObject); 
 				return; 
-			case KanbanmodelPackage.PROCESS:
-				sequence_Process(context, (datasem.xtext.kanban.domainmodel.kanbanmodel.Process) semanticObject); 
-				return; 
-			case KanbanmodelPackage.PROCESS_ATTRIBUTE:
-				sequence_ProcessAttribute(context, (ProcessAttribute) semanticObject); 
+			case KanbanmodelPackage.PLUS:
+				sequence_Expression(context, (Plus) semanticObject); 
 				return; 
 			case KanbanmodelPackage.PROCESS_MODEL:
 				sequence_ProcessModel(context, (ProcessModel) semanticObject); 
 				return; 
-			case KanbanmodelPackage.RESOURCE_ALLOCATION:
-				sequence_ResourceAllocation(context, (ResourceAllocation) semanticObject); 
+			case KanbanmodelPackage.PULL_STRATEGY:
+				sequence_PullStrategy(context, (PullStrategy) semanticObject); 
 				return; 
-			case KanbanmodelPackage.RESOURCE_ALLOCATION_RULE_TYPE:
-				sequence_ResourceAllocationRuleType(context, (ResourceAllocationRuleType) semanticObject); 
+			case KanbanmodelPackage.PUSH_STRATEGY:
+				sequence_PushStrategy(context, (PushStrategy) semanticObject); 
 				return; 
-			case KanbanmodelPackage.RESOURCE_OUTSOURCING:
-				sequence_ResourceOutsourcing(context, (ResourceOutsourcing) semanticObject); 
+			case KanbanmodelPackage.REQUIRED_SERVICE:
+				sequence_RequiredService(context, (RequiredService) semanticObject); 
 				return; 
-			case KanbanmodelPackage.RESOURCE_OUTSOURCING_RULE_TYPE:
-				sequence_ResourceOutsourcingRuleType(context, (ResourceOutsourcingRuleType) semanticObject); 
+			case KanbanmodelPackage.ROLE_BEHAVIOR:
+				sequence_RoleBehavior(context, (RoleBehavior) semanticObject); 
 				return; 
 			case KanbanmodelPackage.SERVICE:
 				sequence_Service(context, (Service) semanticObject); 
@@ -153,17 +203,20 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case KanbanmodelPackage.SERVICE_PROVIDER:
 				sequence_ServiceProvider(context, (ServiceProvider) semanticObject); 
 				return; 
+			case KanbanmodelPackage.SERVICE_PROVIDER_TYPE:
+				sequence_ServiceProviderType(context, (ServiceProviderType) semanticObject); 
+				return; 
 			case KanbanmodelPackage.SKILL:
 				sequence_Skill(context, (Skill) semanticObject); 
 				return; 
-			case KanbanmodelPackage.SYSTEM_LIBRARIES:
-				sequence_SystemLibraries(context, (SystemLibraries) semanticObject); 
+			case KanbanmodelPackage.STATE:
+				sequence_State(context, (State) semanticObject); 
 				return; 
-			case KanbanmodelPackage.TRANSITION:
-				sequence_Transition(context, (Transition) semanticObject); 
+			case KanbanmodelPackage.STATEMENT:
+				sequence_Statement(context, (Statement) semanticObject); 
 				return; 
-			case KanbanmodelPackage.TRANSITION_TYPE:
-				sequence_TransitionType(context, (TransitionType) semanticObject); 
+			case KanbanmodelPackage.TASK:
+				sequence_Task(context, (Task) semanticObject); 
 				return; 
 			case KanbanmodelPackage.USER_LIBRARIES:
 				sequence_UserLibraries(context, (UserLibraries) semanticObject); 
@@ -171,29 +224,17 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case KanbanmodelPackage.VALUE_FUNCTION:
 				sequence_ValueFunction(context, (ValueFunction) semanticObject); 
 				return; 
+			case KanbanmodelPackage.VAR_EXPRESSION:
+				sequence_VarExpression(context, (VarExpression) semanticObject); 
+				return; 
 			case KanbanmodelPackage.VARIABLE:
 				sequence_Variable(context, (Variable) semanticObject); 
-				return; 
-			case KanbanmodelPackage.WI_ACCEPTANCE:
-				sequence_WIAcceptance(context, (WIAcceptance) semanticObject); 
-				return; 
-			case KanbanmodelPackage.WI_ACCEPTANCE_RULE_TYPE:
-				sequence_WIAcceptanceRuleType(context, (WIAcceptanceRuleType) semanticObject); 
-				return; 
-			case KanbanmodelPackage.WI_ASSIGNMENT:
-				sequence_WIAssignment(context, (WIAssignment) semanticObject); 
-				return; 
-			case KanbanmodelPackage.WI_ASSIGNMENT_RULE_TYPE:
-				sequence_WIAssignmentRuleType(context, (WIAssignmentRuleType) semanticObject); 
 				return; 
 			case KanbanmodelPackage.WIN_REPLICATION:
 				sequence_WINReplication(context, (WINReplication) semanticObject); 
 				return; 
-			case KanbanmodelPackage.WI_SELECTION:
-				sequence_WISelection(context, (WISelection) semanticObject); 
-				return; 
-			case KanbanmodelPackage.WI_SELECTION_RULE_TYPE:
-				sequence_WISelectionRuleType(context, (WISelectionRuleType) semanticObject); 
+			case KanbanmodelPackage.WHILE_EXPRESSION:
+				sequence_WhileExpression(context, (WhileExpression) semanticObject); 
 				return; 
 			case KanbanmodelPackage.WORK_ITEM:
 				sequence_WorkItem(context, (WorkItem) semanticObject); 
@@ -213,7 +254,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     ((isVariable?='Variable:' variable=[Variable|ID]) | value=Parameter)
+	 *     ((isVariable?='Variable:' variable=[ExperimentVariable|ID]) | value=Parameter)
 	 */
 	protected void sequence_AbstractParameter(EObject context, AbstractParameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -222,16 +263,62 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (name=ID description=STRING?)
+	 *     (type=Type | (listType?='List' type=Type) | (mapType?='Map' keyType=Type valueType=Type))
 	 */
-	protected void sequence_AgentRoleType(EObject context, AgentRoleType semanticObject) {
+	protected void sequence_AbstractType(EObject context, AbstractType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (id=INT? name=ID description=STRING? number=AbstractParameter skillSet+=Skill*)
+	 *     (action=[Action|ID] inputs+=VarExpression?)
+	 */
+	protected void sequence_ActionStatement(EObject context, ActionStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID inputs+=Variable? inputs+=Variable*)
+	 */
+	protected void sequence_Action(EObject context, Action semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID attributeValues+=AttributeValue*)
+	 */
+	protected void sequence_Agent(EObject context, Agent semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (input=VarExpression value=Expression)
+	 */
+	protected void sequence_AssertStatement(EObject context, AssertStatement semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.ASSERT_STATEMENT__INPUT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.ASSERT_STATEMENT__INPUT));
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.ASSERT_STATEMENT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.ASSERT_STATEMENT__VALUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getAssertStatementAccess().getInputVarExpressionParserRuleCall_0_0(), semanticObject.getInput());
+		feeder.accept(grammarAccess.getAssertStatementAccess().getValueExpressionParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID number=AbstractParameter (skillSet+=Skill skillSet+=Skill*)? id=INT?)
 	 */
 	protected void sequence_Asset(EObject context, Asset semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -240,16 +327,60 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (triggered+=[WorkItem|ID]+ atProgress=DOUBLE? onProbability=DOUBLE?)
+	 *     (attribute=[Attribute|ID] value=Parameter)
 	 */
-	protected void sequence_CausalTrigger(EObject context, CausalTrigger semanticObject) {
+	protected void sequence_AttributeValue(EObject context, AttributeValue semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.ATTRIBUTE_VALUE__ATTRIBUTE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.ATTRIBUTE_VALUE__ATTRIBUTE));
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.ATTRIBUTE_VALUE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.ATTRIBUTE_VALUE__VALUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getAttributeValueAccess().getAttributeAttributeIDTerminalRuleCall_0_0_1(), semanticObject.getAttribute());
+		feeder.accept(grammarAccess.getAttributeValueAccess().getValueParameterParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (type=AbstractType name=ID default=Parameter?)
+	 */
+	protected void sequence_Attribute(EObject context, Attribute semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (id=INT? name=ID description=STRING? disruptive?='TRUE'?)
+	 *     targetState=[State|ID]
+	 */
+	protected void sequence_ChangeStateStatement(EObject context, ChangeStateStatement semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.CHANGE_STATE_STATEMENT__TARGET_STATE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.CHANGE_STATE_STATEMENT__TARGET_STATE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getChangeStateStatementAccess().getTargetStateStateIDTerminalRuleCall_1_0_1(), semanticObject.getTargetState());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     agentAttributes+=Attribute+
+	 */
+	protected void sequence_ClassAttributes(EObject context, ClassAttributes semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (id=INT? name=ID description=STRING? priority=INT? disruptive=BOOLEAN?)
 	 */
 	protected void sequence_ClassOfService(EObject context, ClassOfService semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -258,58 +389,39 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (name=ID description=STRING?)
-	 */
-	protected void sequence_ConditionType(EObject context, ConditionType semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (type=[ConditionType|ID] operator=Operator value=Parameter)
+	 *     (
+	 *         ((subjective=VarExpression operator=Operator objective=Expression) | (subjective=VarExpression operator=Operator objective=Expression)) 
+	 *         ((hasAnd?='and' andCondition=Condition) | (hasOr?='or' orCondition=Condition))?
+	 *     )
 	 */
 	protected void sequence_Condition(EObject context, Condition semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.CONDITION__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.CONDITION__TYPE));
-			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.CONDITION__OPERATOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.CONDITION__OPERATOR));
-			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.CONDITION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.CONDITION__VALUE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getConditionAccess().getTypeConditionTypeIDTerminalRuleCall_0_0_1(), semanticObject.getType());
-		feeder.accept(grammarAccess.getConditionAccess().getOperatorOperatorParserRuleCall_1_0(), semanticObject.getOperator());
-		feeder.accept(grammarAccess.getConditionAccess().getValueParameterParserRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     ((isNormal?='Normal' | isUniform?='Uniform' | isExponential?='Exponential') parameters+=AbstractParameter*)
+	 *     (description=STRING? variables+=Variable* roleBehaviors+=RoleBehavior* Processes+=[ProcessModel|ID]+)
+	 */
+	protected void sequence_ContractNetProtocol(EObject context, ContractNetProtocol semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ((variable=DeclarationStatement_DeclarationStatement_1 value=Expression?) | variable=DeclarationStatement_DeclarationStatement_1)
+	 */
+	protected void sequence_DeclarationStatement(EObject context, DeclarationStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ((isNormal?='Normal' | isUniform?='Uniform' | isExponential?='Exponential') parameters+=AbstractParameter parameters+=AbstractParameter*)
 	 */
 	protected void sequence_Distribution(EObject context, Distribution semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID description=STRING?)
-	 */
-	protected void sequence_EventType(EObject context, EventType semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (conditions+=Condition+ transitions+=Transition+)
-	 */
-	protected void sequence_Event(EObject context, Event semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -319,7 +431,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     (
 	 *         name=ID 
 	 *         Path=QualifiedName? 
-	 *         Variables+=Variable* 
+	 *         ExperimentVariables+=ExperimentVariable* 
 	 *         ServiceProviders+=ServiceProvider+ 
 	 *         WorkSources+=WorkSource+ 
 	 *         WorkItemNetworks+=WorkItemNetwork+ 
@@ -335,18 +447,82 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	/**
 	 * Constraint:
 	 *     (
-	 *         id=INT? 
 	 *         name=ID 
-	 *         description=STRING? 
 	 *         (
-	 *             WIAcceptanceRule=WIAcceptance 
-	 *             WISelectionRule=WISelection 
-	 *             WIAssignmentRule=WIAssignment 
-	 *             ResourceAllocationRule=ResourceAllocation 
-	 *             ResourceOutsourcingRule=ResourceOutsourcing
-	 *         )? 
-	 *         Mechanisms+=Mechanism+ 
-	 *         Processes+=Process+
+	 *             (typeInteger?='INT:' intValue=INT) | 
+	 *             (typeDouble?='DOUBLE:' doubleValue=DOUBLE) | 
+	 *             (typeString?='STRING:' stringValue=STRING) | 
+	 *             (typeDistribution?='Distribution:' distrbution=Distribution) | 
+	 *             (typeStrategy?='Strategy:' strategy=[GovernanceStrategy|ID])
+	 *         )
+	 *     )
+	 */
+	protected void sequence_ExperimentVariable(EObject context, ExperimentVariable semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (left=Expression_Minus_1_0_1_0 right=Term)
+	 */
+	protected void sequence_Expression(EObject context, Minus semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.MINUS__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.MINUS__LEFT));
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.MINUS__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.MINUS__RIGHT));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getExpressionAccess().getMinusLeftAction_1_0_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExpressionAccess().getRightTermParserRuleCall_1_1_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (left=Expression_Plus_1_0_0_0 right=Term)
+	 */
+	protected void sequence_Expression(EObject context, Plus semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.PLUS__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.PLUS__LEFT));
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.PLUS__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.PLUS__RIGHT));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getExpressionAccess().getPlusLeftAction_1_0_0_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExpressionAccess().getRightTermParserRuleCall_1_1_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (number=Number | variable=VarExpression | string=STRING | boolean=BOOLEAN | expression=Expression)
+	 */
+	protected void sequence_Factor(EObject context, Factor semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (object=VarExpression set=VarExpression statements+=Statement*)
+	 */
+	protected void sequence_ForExpression(EObject context, ForExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         name=ID 
+	 *         ((pull?='Pull' pullStrategy=PullStrategy) | (push?='Push' pushStrategy=PushStrategy) | (cnp?='CNP' contractNetProtocal=ContractNetProtocol))
 	 *     )
 	 */
 	protected void sequence_GovernanceStrategy(EObject context, GovernanceStrategy semanticObject) {
@@ -356,10 +532,32 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (impactWIs+=[WorkItem|ID]+ likelihood=AbstractParameter impact=AbstractParameter)
+	 *     (condition=Condition statements+=Statement* ((hasElseIf?='if' elseIf=IfExpression) | elses+=Statement*)?)
+	 */
+	protected void sequence_IfExpression(EObject context, IfExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (impactWI=[WorkItem|ID] likelihood=NumExpression risk=NumExpression)
 	 */
 	protected void sequence_Impact(EObject context, Impact semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.IMPACT__IMPACT_WI) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.IMPACT__IMPACT_WI));
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.IMPACT__LIKELIHOOD) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.IMPACT__LIKELIHOOD));
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.IMPACT__RISK) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.IMPACT__RISK));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getImpactAccess().getImpactWIWorkItemIDTerminalRuleCall_0_0_1(), semanticObject.getImpactWI());
+		feeder.accept(grammarAccess.getImpactAccess().getLikelihoodNumExpressionParserRuleCall_2_0(), semanticObject.getLikelihood());
+		feeder.accept(grammarAccess.getImpactAccess().getRiskNumExpressionParserRuleCall_4_0(), semanticObject.getRisk());
+		feeder.finish();
 	}
 	
 	
@@ -393,7 +591,16 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (name=ID Description=STRING SystemLibraries=SystemLibraries UserLibraries=UserLibraries ExperimentModel=ExperimentModel)
+	 *     (name=ID functionMethod?='(' inputs+=Parameter? inputs+=Parameter*)
+	 */
+	protected void sequence_Method(EObject context, Method semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID Description=STRING UserLibraries=UserLibraries ExperimentModel=ExperimentModel)
 	 */
 	protected void sequence_ModelBuilder(EObject context, ModelBuilder semanticObject) {
 		if(errorAcceptor != null) {
@@ -401,8 +608,6 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.MODEL_BUILDER__NAME));
 			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.MODEL_BUILDER__DESCRIPTION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.MODEL_BUILDER__DESCRIPTION));
-			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.MODEL_BUILDER__SYSTEM_LIBRARIES) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.MODEL_BUILDER__SYSTEM_LIBRARIES));
 			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.MODEL_BUILDER__USER_LIBRARIES) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.MODEL_BUILDER__USER_LIBRARIES));
 			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.MODEL_BUILDER__EXPERIMENT_MODEL) == ValueTransient.YES)
@@ -412,16 +617,15 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getModelBuilderAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getModelBuilderAccess().getDescriptionSTRINGTerminalRuleCall_3_0(), semanticObject.getDescription());
-		feeder.accept(grammarAccess.getModelBuilderAccess().getSystemLibrariesSystemLibrariesParserRuleCall_4_0(), semanticObject.getSystemLibraries());
-		feeder.accept(grammarAccess.getModelBuilderAccess().getUserLibrariesUserLibrariesParserRuleCall_5_0(), semanticObject.getUserLibraries());
-		feeder.accept(grammarAccess.getModelBuilderAccess().getExperimentModelExperimentModelParserRuleCall_6_0(), semanticObject.getExperimentModel());
+		feeder.accept(grammarAccess.getModelBuilderAccess().getUserLibrariesUserLibrariesParserRuleCall_4_0(), semanticObject.getUserLibraries());
+		feeder.accept(grammarAccess.getModelBuilderAccess().getExperimentModelExperimentModelParserRuleCall_5_0(), semanticObject.getExperimentModel());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (numValue=DOUBLE | (distribution?='Random.' numDist=Distribution))
+	 *     (numValue=Number | (distribution?='Random.' numDist=Distribution))
 	 */
 	protected void sequence_NumExpression(EObject context, NumExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -446,26 +650,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (attribute=STRING value=Parameter)
-	 */
-	protected void sequence_ProcessAttribute(EObject context, ProcessAttribute semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.PROCESS_ATTRIBUTE__ATTRIBUTE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.PROCESS_ATTRIBUTE__ATTRIBUTE));
-			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.PROCESS_ATTRIBUTE__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.PROCESS_ATTRIBUTE__VALUE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getProcessAttributeAccess().getAttributeSTRINGTerminalRuleCall_0_0(), semanticObject.getAttribute());
-		feeder.accept(grammarAccess.getProcessAttributeAccess().getValueParameterParserRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID description=STRING? events+=Event+)
+	 *     (name=ID actions+=Action* states+=State+)
 	 */
 	protected void sequence_ProcessModel(EObject context, ProcessModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -474,45 +659,55 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (name=ID value=Parameter description=STRING? attributes+=ProcessAttribute*)
+	 *     (description=STRING? Mechanisms+=Mechanism+ Processes+=[ProcessModel|ID]+)
 	 */
-	protected void sequence_Process(EObject context, datasem.xtext.kanban.domainmodel.kanbanmodel.Process semanticObject) {
+	protected void sequence_PullStrategy(EObject context, PullStrategy semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (name=ID description=STRING?)
+	 *     (description=STRING? Mechanisms+=Mechanism+ Processes+=[ProcessModel|ID]+)
 	 */
-	protected void sequence_ResourceAllocationRuleType(EObject context, ResourceAllocationRuleType semanticObject) {
+	protected void sequence_PushStrategy(EObject context, PushStrategy semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (type=[ResourceAllocationRuleType|ID] description=STRING?)
+	 *     (serviceType=[Service|ID] efforts=NumExpression)
 	 */
-	protected void sequence_ResourceAllocation(EObject context, ResourceAllocation semanticObject) {
+	protected void sequence_RequiredService(EObject context, RequiredService semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.REQUIRED_SERVICE__SERVICE_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.REQUIRED_SERVICE__SERVICE_TYPE));
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.REQUIRED_SERVICE__EFFORTS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.REQUIRED_SERVICE__EFFORTS));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getRequiredServiceAccess().getServiceTypeServiceIDTerminalRuleCall_1_0_1(), semanticObject.getServiceType());
+		feeder.accept(grammarAccess.getRequiredServiceAccess().getEffortsNumExpressionParserRuleCall_3_0(), semanticObject.getEfforts());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID actions+=Action* states+=State+)
+	 */
+	protected void sequence_RoleBehavior(EObject context, RoleBehavior semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (name=ID description=STRING?)
+	 *     (id=INT? name=ID description=STRING? hierarchy=INT?)
 	 */
-	protected void sequence_ResourceOutsourcingRuleType(EObject context, ResourceOutsourcingRuleType semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (type=[ResourceOutsourcingRuleType|ID] description=STRING?)
-	 */
-	protected void sequence_ResourceOutsourcing(EObject context, ResourceOutsourcing semanticObject) {
+	protected void sequence_ServiceProviderType(EObject context, ServiceProviderType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -520,14 +715,13 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	/**
 	 * Constraint:
 	 *     (
-	 *         id=INT? 
 	 *         name=ID 
-	 *         description=STRING? 
+	 *         type=[ServiceProviderType|ID]? 
 	 *         assignTo+=[ServiceProvider|ID]* 
 	 *         outsourceFrom+=[ServiceProvider|ID]* 
-	 *         teamService=[Service|ID] 
 	 *         governanceStrategy=[GovernanceStrategy|ID]? 
-	 *         resources+=Asset*
+	 *         resources+=Asset* 
+	 *         id=INT?
 	 *     )
 	 */
 	protected void sequence_ServiceProvider(EObject context, ServiceProvider semanticObject) {
@@ -537,7 +731,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (id=INT? name=ID description=STRING?)
+	 *     (name=ID (description=STRING? hierarchy=INT?)? id=INT?)
 	 */
 	protected void sequence_Service(EObject context, Service semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -565,55 +759,87 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
+	 *     ((backgroundState?='backgroundState' name=ID) | (name=ID statements+=Statement*))
+	 */
+	protected void sequence_State(EObject context, State semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (
-	 *         EventTypes+=EventType+ 
-	 *         ConditionTypes+=ConditionType+ 
-	 *         TransitionTypes+=TransitionType+ 
-	 *         WIAcceptanceRuleTypes+=WIAcceptanceRuleType+ 
-	 *         WISelectionRuleTypes+=WISelectionRuleType+ 
-	 *         WIAssignmentRuleTypes+=WIAssignmentRuleType+ 
-	 *         ResourceAllocationRuleTypes+=ResourceAllocationRuleType+ 
-	 *         ResourceOutsourcingRuleTypes+=ResourceOutsourcingRuleType+ 
-	 *         ProcessModels+=ProcessModel+ 
-	 *         ValueFunctions+=ValueFunction+
+	 *         (isAction?='Do' actionStatement=ActionStatement) | 
+	 *         (isChangeState?='->' changeStateStatement=ChangeStateStatement) | 
+	 *         (isDeclaration?='var' declarationStatement=DeclarationStatement) | 
+	 *         (isIfExpression?='if' ifExpression=IfExpression) | 
+	 *         (isForExpression?='for' forExpression=ForExpression) | 
+	 *         (isWhileExpression?='while' whileExpression=WhileExpression) | 
+	 *         assertStatement=AssertStatement
 	 *     )
 	 */
-	protected void sequence_SystemLibraries(EObject context, SystemLibraries semanticObject) {
+	protected void sequence_Statement(EObject context, Statement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (name=ID description=STRING?)
+	 *     (name=ID attributeValues+=AttributeValue*)
 	 */
-	protected void sequence_TransitionType(EObject context, TransitionType semanticObject) {
+	protected void sequence_Task(EObject context, Task semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (type=[TransitionType|ID] value=Parameter)
+	 *     (left=Term_Division_1_0_1_0 right=Factor)
 	 */
-	protected void sequence_Transition(EObject context, Transition semanticObject) {
+	protected void sequence_Term(EObject context, Division semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.TRANSITION__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.TRANSITION__TYPE));
-			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.TRANSITION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.TRANSITION__VALUE));
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.DIVISION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.DIVISION__LEFT));
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.DIVISION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.DIVISION__RIGHT));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getTransitionAccess().getTypeTransitionTypeIDTerminalRuleCall_0_0_1(), semanticObject.getType());
-		feeder.accept(grammarAccess.getTransitionAccess().getValueParameterParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getTermAccess().getDivisionLeftAction_1_0_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getTermAccess().getRightFactorParserRuleCall_1_1_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (WorkItemTypes+=WorkItemType+ ClassOfServices+=ClassOfService+ Services+=Service+ GovernanceStrategies+=GovernanceStrategy+)
+	 *     (left=Term_Multiply_1_0_0_0 right=Factor)
+	 */
+	protected void sequence_Term(EObject context, Multiply semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.MULTIPLY__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.MULTIPLY__LEFT));
+			if(transientValues.isValueTransient(semanticObject, KanbanmodelPackage.Literals.MULTIPLY__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KanbanmodelPackage.Literals.MULTIPLY__RIGHT));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getTermAccess().getMultiplyLeftAction_1_0_0_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getTermAccess().getRightFactorParserRuleCall_1_1_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         ServiceProviderTypes+=ServiceProviderType+ 
+	 *         WorkItemTypes+=WorkItemType+ 
+	 *         ProcessModels+=ProcessModel* 
+	 *         ClassOfServices+=ClassOfService* 
+	 *         Services+=Service* 
+	 *         GovernanceStrategies+=GovernanceStrategy*
+	 *     )
 	 */
 	protected void sequence_UserLibraries(EObject context, UserLibraries semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -631,54 +857,18 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         name=ID 
-	 *         (
-	 *             (typeInteger?='INT:' intValue=INT) | 
-	 *             (typeDouble?='DOUBLE:' doubleValue=DOUBLE) | 
-	 *             (typeString?='STRING:' stringValue=STRING) | 
-	 *             (typeDistribution?='Distribution:' distrbution=Distribution) | 
-	 *             (typeStrategy?='Strategy:' strategy=[GovernanceStrategy|ID])
-	 *         )
-	 *     )
+	 *     ((self?='self' | context?='context' | variable=QualifiedName) methods+=Method*)
+	 */
+	protected void sequence_VarExpression(EObject context, VarExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (type=AbstractType name=ID)
 	 */
 	protected void sequence_Variable(EObject context, Variable semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID description=STRING?)
-	 */
-	protected void sequence_WIAcceptanceRuleType(EObject context, WIAcceptanceRuleType semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (type=[WIAcceptanceRuleType|ID] description=STRING? backlogQLimit=INT? readyQLimit=INT?)
-	 */
-	protected void sequence_WIAcceptance(EObject context, WIAcceptance semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID description=STRING?)
-	 */
-	protected void sequence_WIAssignmentRuleType(EObject context, WIAssignmentRuleType semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (type=[WIAssignmentRuleType|ID] description=STRING?)
-	 */
-	protected void sequence_WIAssignment(EObject context, WIAssignment semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -704,25 +894,16 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (name=ID description=STRING?)
+	 *     (condition=Condition statements+=Statement*)
 	 */
-	protected void sequence_WISelectionRuleType(EObject context, WISelectionRuleType semanticObject) {
+	protected void sequence_WhileExpression(EObject context, WhileExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (type=[WISelectionRuleType|ID] description=STRING?)
-	 */
-	protected void sequence_WISelection(EObject context, WISelection semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (id=INT? name=ID description=STRING? workItems+=WorkItem+)
+	 *     (name=ID description=STRING? workItems+=WorkItem+ id=INT?)
 	 */
 	protected void sequence_WorkItemNetwork(EObject context, WorkItemNetwork semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -741,24 +922,24 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	/**
 	 * Constraint:
 	 *     (
-	 *         id=INT? 
 	 *         name=ID 
+	 *         type=[WorkItemType|ID]? 
 	 *         description=STRING? 
-	 *         type=[WorkItemType|ID] 
-	 *         (hasPredecessors?='Predecessors' pTasks+=[WorkItem|ID]+)? 
-	 *         (isAggregationNode?='Subtasks' sTasks+=[WorkItem|ID]+)? 
-	 *         causalTriggers+=CausalTrigger* 
-	 *         requiredServices+=[Service|ID]+ 
-	 *         efforts=NumExpression? 
+	 *         (hasPredecessors?='prerequisites' pTasks+=[WorkItem|ID] pTasks+=[WorkItem|ID]*)? 
+	 *         (
+	 *             (hasSubtasks?='decomposites' sTasks+=[WorkItem|ID] sTasks+=[WorkItem|ID]* requiredAnalysis+=RequiredService requiredAnalysis+=RequiredService*)? | 
+	 *             ((requiredAnalysis+=RequiredService requiredAnalysis+=RequiredService*)? requiredServices+=RequiredService requiredServices+=RequiredService*)
+	 *         ) 
 	 *         maturityLevels=AbstractParameter? 
 	 *         uncertainty=AbstractParameter? 
 	 *         risk=AbstractParameter? 
-	 *         (hasImpacts?='Impacts' impacts+=Impact+)? 
+	 *         (hasImpacts?='Impacts' impacts+=Impact impacts+=Impact*)? 
 	 *         value=NumExpression? 
 	 *         classOfService=[ClassOfService|ID]? 
 	 *         workSource=[WorkSource|ID]? 
 	 *         arrivalTime=INT? 
-	 *         dueDate=INT?
+	 *         dueDate=INT? 
+	 *         id=INT?
 	 *     )
 	 */
 	protected void sequence_WorkItem(EObject context, WorkItem semanticObject) {
@@ -768,7 +949,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (id=INT? name=ID description=STRING? assignTo+=[ServiceProvider|ID]* assignmentRule=WIAssignment?)
+	 *     (name=ID description=STRING? assignTo+=[ServiceProvider|ID]*)
 	 */
 	protected void sequence_WorkSource(EObject context, WorkSource semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

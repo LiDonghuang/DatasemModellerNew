@@ -20,20 +20,20 @@ import java.text.DecimalFormat
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class KanbanmodelGenerator implements IGenerator {
-	
+	private Random rng = new Random();
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(typeof(Greeting))
-//				.map[name]
-//				.join(', '))
-	fsa.generateFile(resource.allContents.toIterable.filter(ModelBuilder).get(0).getExperimentModel.name+"_ExperimentModel.xml", 
-		compile(resource)
-	)	
-//	fsa.generateFile("UserLibraries.xml", compileUserLibraries(resource))	
-	
+		// Fixed Seeding
+		this.setSeed(123456789)
+		// Scenario Generator
+		fsa.generateFile(resource.allContents.toIterable.filter(ModelBuilder).get(0).getExperimentModel.name+"_ExperimentModel.xml", 
+		compile(resource))	
+		// ContractNetProtocol Java Complier
+		fsa.generateFile("ContractNetProtocal.java", compileCNP())	
 	}
-
+	
+def setSeed(int seed) {
+	this.rng.setSeed(seed);
+}
 // --------------------------------------------------------------------------
 def compile(Resource res) '''	
 «FOR emodel : res.allContents.toIterable.filter(ExperimentModel)»
@@ -41,6 +41,7 @@ def compile(Resource res) '''
 «printIndicators(emodel.indicators)»
 «ENDFOR»
 «FOR ulib : res.allContents.toIterable.filter(UserLibraries)»	
+	«printServiceProviderTypes(ulib.getServiceProviderTypes())»
 	«printWorkItemTypes(ulib.getWorkItemTypes())»
 	«printServices(ulib.getServices())»
 	«printClassOfServices(ulib.getClassOfServices())»
@@ -69,6 +70,54 @@ def compile(Resource res) '''
 </ExperimentModel>	
 '''
 // --------------------------------------------------------------------------
+def compileCNP() '''
+package contractNetProtocol;
+
+import java.util.LinkedList;
+«"Sai Cha"»
+import serviceProviders.ServiceProviderAgent;
+import workItems.WorkItemEntity;
+import xtext.objectsModel.GovernanceStrategy;
+import xtext.objectsModel.Mechanism;
+import xtext.objectsModel.MechanismAttribute;
+import xtext.objectsModel.impl.GovernanceStrategyImpl;
+
+public class ContractNetProtocol extends GovernanceStrategyImpl {
+	public LinkedList<ServiceProviderAgent> myAgents = new LinkedList<ServiceProviderAgent>();
+	public ContractorBehavior myContractorBehavior;
+	public ManagerBehavior myManagerBehavior;
+	
+	public ContractNetProtocol(GovernanceStrategy strategy) {
+		this.implementCNP(strategy);
+	}
+	public void implementCNP(GovernanceStrategy strategy) {
+		for (Mechanism mech: strategy.getMechanisms()) {
+			if (mech.getName().matches("ContractorBehavior")) {
+				this.myContractorBehavior = new ContractorBehavior();
+				for (MechanismAttribute att:mech.getAttributes()) {
+					if (att.getAttribute().matches("action")) {
+						this.myContractorBehavior.implAction(att.getValue());
+					}
+				}
+			}
+			else if (mech.getName().matches("ManagerBehavior")) {
+				this.myManagerBehavior = new ManagerBehavior();
+				for (MechanismAttribute att:mech.getAttributes()) {
+					if (att.getAttribute().matches("action")) {
+						this.myManagerBehavior.implAction(att.getValue());
+					}
+				}
+			}
+		}
+	}
+	public void registerAgent(ServiceProviderAgent agent) {
+		myAgents.add(agent);
+	}
+	public void unregisterAgent(ServiceProviderAgent agent) {
+		myAgents.remove(agent);
+	}
+}
+'''
 
 // --------------------------------------------------------------------------
 	def assignServiceProvidersId(EList<ServiceProvider> sps) '''
@@ -91,10 +140,10 @@ def compile(Resource res) '''
 		«IF winRS.numReplications>0»
 		«FOR r : 1..winRS.numReplications» 
 		«FOR wi : winRS.workItemNetwork.workItems »
-		«wi.setId(wiId++)»
+		«wi.setId(wiId++)»		
 		«ENDFOR»
 		«FOR wi : winRS.workItemNetwork.workItems »
-		«printWorkItem(wi)»
+		«printWorkItem(wi,r)»
 		«ENDFOR»
 		«ENDFOR»
 		«ENDIF»  
@@ -111,10 +160,12 @@ def compile(Resource res) '''
 		<Resources>
 		«FOR r : sp.resources» 
 		«var int number = readIntParameter(r.number)»
-		«FOR n : 1..number»
+		«IF number>0»
+		«FOR n : 1..number»		
 		«r.setId(resourceId++)»
-		«printResource(r)»
+		«printResource(r,n)»
 		«ENDFOR»
+		«ENDIF» 
 		«ENDFOR»
 		</Resources>
 		</ServiceProvider> 
@@ -134,7 +185,7 @@ def compile(Resource res) '''
 				numValue = sampleDistribution(e)
 				numValue =Double.parseDouble(new DecimalFormat("##.###").format(numValue));
 			}
-			else {numValue=e.numValue}
+			else {numValue=Double.parseDouble(e.numValue)}
 		}
 		return numValue
 	}
@@ -145,13 +196,13 @@ def compile(Resource res) '''
 		if (e.numDist.isNormal) {			
 			var double mean=readDoubleParameter(e.numDist.parameters.get(0))
 			var double stdev=readDoubleParameter(e.numDist.parameters.get(1))
-			var double rand = new Random().nextGaussian()
+			var double rand = this.rng.nextGaussian()
 			sampledValue = mean + stdev*rand
 		}	
 		else if (e.numDist.isUniform) {
 			var double ll=readDoubleParameter(e.numDist.parameters.get(0))
 			var double ul=readDoubleParameter(e.numDist.parameters.get(1))
-			var double rand = new Random().nextDouble()
+			var double rand = this.rng.nextDouble()
 			sampledValue = ll + (ul-ll)*rand
 		}		
 		return sampledValue
@@ -183,7 +234,7 @@ def compile(Resource res) '''
 		
 
 	def printServiceProvider(ServiceProvider sp) '''
-			<ServiceProvider serviceProviderId="«sp.id»" name="«sp.name»" description="«sp.description»">
+			<ServiceProvider serviceProviderId="«sp.id»" name="«sp.name»" typeId="«sp.getType.id»" description="">
 			<AssignWITo>
 			«FOR tu : sp.getAssignTo()»
 			<serviceProviderId>«tu.id»</serviceProviderId>
@@ -194,10 +245,9 @@ def compile(Resource res) '''
 			<serviceProviderId>«tu.id»</serviceProviderId>
 			«ENDFOR»
 			</BorrowResourceFrom>
-			<TeamService serviceId="«sp.teamService.id»"></TeamService>	
 			<GovernanceStrategy>
 			<Mechanisms>
-			«FOR m:sp.governanceStrategy.mechanisms»
+			«FOR m:sp.governanceStrategy.pullStrategy.mechanisms»
 			«printMechanism(m)»
 			«ENDFOR»
 			</Mechanisms>		
@@ -208,8 +258,8 @@ def compile(Resource res) '''
 «««					<OutsourcingRule>«sp.governanceStrategy.getResourceOutsourcingRule.type.name»</OutsourcingRule>						
 			</GovernanceStrategy>	
 	'''
-	def printResource(Asset r) '''
-			<Resource resourceId="«r.id»" name="«r.name»" description="«r.description»">
+	def printResource(Asset r, int n) '''
+			<Resource resourceId="«r.id»" name="«r.name+"("+n+")"»" description="">
 			<SkillSet>
 			«FOR s : r.getSkillSet()» 
 			«printSkill(s)»
@@ -235,10 +285,10 @@ def compile(Resource res) '''
 «««				«ENDIF»				
 			</WorkSource>
 	'''
-	def printWorkItem(WorkItem wi) '''
-			<WorkItem wiId="«wi.id»" name="«wi.name»" typeId="«wi.getType.id»" efforts="«Math.max(getNumValue(wi.efforts),0)»" isAggregationNode="«wi.isAggregationNode»" hasPredecessors="«wi.hasPredecessors»" hasImpacts="«wi.hasImpacts»">
+	def printWorkItem(WorkItem wi, int r) '''
+			<WorkItem wiId="«wi.id»" name="«if(r>1){wi.name+"("+r+")"}else{wi.name}»" typeId="«wi.getType.id»" isAggregationNode="«wi.hasSubtasks»" hasPredecessors="«wi.hasPredecessors»" hasImpacts="«wi.hasImpacts»">
 				<GovernanceAttributes>
-				«printGovernanceAttribute("ClassOfService",String.valueOf(wi.getClassOfService.id))»
+«««				«printGovernanceAttribute("ClassOfService",String.valueOf(wi.getClassOfService.id))»
 				«printGovernanceAttribute("Value",String.valueOf(Math.max(getNumValue(wi.value),0)))»
 				</GovernanceAttributes>
 				«IF	wi.hasPredecessors»
@@ -248,7 +298,7 @@ def compile(Resource res) '''
 				«ENDFOR»	
 				</Predecessors>
 				«ENDIF»	
-				«IF	wi.isAggregationNode»
+				«IF	wi.hasSubtasks»
 				<Subtasks>
 				«FOR stask : wi.getSTasks()»				
 				<workItemId>«stask.id»</workItemId>
@@ -257,10 +307,8 @@ def compile(Resource res) '''
 				«ENDIF»	
 				«IF	wi.hasImpacts»
 				<Impacts>
-				«FOR impact : wi.getImpacts()»
-				«FOR impactWI : impact.impactWIs»				
-				<Impact workItemId="«impactWI.id»" likelihood="«readDoubleParameter(impact.likelihood)»" impact="«readDoubleParameter(impact.impact)»"></Impact>
-				«ENDFOR»	
+				«FOR impact : wi.getImpacts()»			
+				<Impact workItemId="«impact.impactWI.id»" likelihood="«Math.max(getNumValue(impact.likelihood),0)»" risk="«Math.max(getNumValue(impact.risk),0)»"></Impact>
 				«ENDFOR»	
 				</Impacts>
 				«ENDIF»
@@ -277,7 +325,7 @@ def compile(Resource res) '''
 «««				</CausalTriggers>
 				<RequiredServices>
 				«FOR rs : wi.getRequiredServices()»	
-				<serviceId>«rs.id»</serviceId>
+				<RequiredService serviceId="«rs.serviceType.id»" efforts="«Math.max(getNumValue(rs.efforts),0)»"></RequiredService>
 				«ENDFOR»
 				</RequiredServices>
 «««				<ClassOfService>«wi.classOfService.name»</ClassOfService>
@@ -293,7 +341,7 @@ def compile(Resource res) '''
 			</WorkItem>
 	'''
 	def printGovernanceAttribute(String name, String value) '''
-		<GovernaceAttribute name="«name»" value="«value»"></GovernaceAttribute>
+		<GovernanceAttribute name="«name»" value="«value»"></GovernanceAttribute>
 	'''
 	def printServices(EList<Service> ss) '''
 		<Services>
@@ -309,10 +357,20 @@ def compile(Resource res) '''
 		«var id=1»
 		«FOR c : cs»
 			«c.setId(id++)»	
-			<ClassOfService cosId="«c.id»" name="«c.name»" description="«c.description»" isDisruptive="«c.isDisruptive()»"></ClassOfService>
+			<ClassOfService cosId="«c.id»" name="«c.name»" description="«c.description»" isDisruptive="«c.disruptive»"></ClassOfService>
 		«ENDFOR»
 		</ClassOfServices>
+		
 	'''	
+	def printServiceProviderTypes(EList<ServiceProviderType> ts) '''
+		<ServiceProviderTypes>
+		«var id=1»
+		«FOR t : ts»
+			«t.setId(id++)»	
+			<ServiceProviderType spTypeId="«t.id»" hierarchy="«t.hierarchy»" name="«t.name»" description="«t.description»"></ServiceProviderType>
+		«ENDFOR»
+		</ServiceProviderTypes>
+	'''		
 	def printWorkItemTypes(EList<WorkItemType> ts) '''
 		<WorkItemTypes>
 		«var id=1»
@@ -328,7 +386,7 @@ def compile(Resource res) '''
 		«ENDFOR»
 	'''
 	def printGovernanceStrategy(GovernanceStrategy govs) '''
-		«FOR m: govs.getMechanisms()»
+		«FOR m: govs.pullStrategy.getMechanisms()»
 		 	«printMechanism(m)»
 		«ENDFOR»
 	'''

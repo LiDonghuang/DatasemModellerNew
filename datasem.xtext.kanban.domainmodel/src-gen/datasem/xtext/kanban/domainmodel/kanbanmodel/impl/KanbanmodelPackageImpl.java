@@ -3,47 +3,60 @@
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
 import datasem.xtext.kanban.domainmodel.kanbanmodel.AbstractParameter;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.AgentRoleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.AbstractType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Action;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ActionStatement;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Agent;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.AssertStatement;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Asset;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.CausalTrigger;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Attribute;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.AttributeValue;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ChangeStateStatement;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ClassAttributes;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Condition;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ConditionType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ContractNetProtocol;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.DeclarationStatement;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Event;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.EventType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Division;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Expression;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Factor;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ForExpression;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.IfExpression;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Impact;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelFactory;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.MechanismAttribute;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Method;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Minus;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ModelBuilder;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Multiply;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.NumExpression;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Operator;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessAttribute;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Plus;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocation;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocationRuleType;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcing;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcingRuleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.PullStrategy;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.PushStrategy;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.RequiredService;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.RoleBehavior;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Service;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProviderType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Skill;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.SystemLibraries;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Transition;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.TransitionType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.State;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Statement;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Task;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Term;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.UserLibraries;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ValueFunction;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.VarExpression;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Variable;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptance;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptanceRuleType;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignment;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignmentRuleType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WINReplication;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WISelection;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WISelectionRuleType;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.WhileExpression;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemNetwork;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemType;
@@ -83,13 +96,6 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass systemLibrariesEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass userLibrariesEClass = null;
 
   /**
@@ -118,7 +124,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass variableEClass = null;
+  private EClass experimentVariableEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -126,62 +132,6 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * @generated
    */
   private EClass distributionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass eventTypeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass conditionTypeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass transitionTypeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass processModelEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass eventEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass conditionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass transitionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass agentRoleTypeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -202,70 +152,35 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass wiAcceptanceEClass = null;
+  private EClass contractNetProtocolEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass wiSelectionEClass = null;
+  private EClass roleBehaviorEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass wiAssignmentEClass = null;
+  private EClass processModelEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass resourceAllocationEClass = null;
+  private EClass pullStrategyEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass resourceOutsourcingEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass wiAcceptanceRuleTypeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass wiSelectionRuleTypeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass wiAssignmentRuleTypeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass resourceAllocationRuleTypeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass resourceOutsourcingRuleTypeEClass = null;
+  private EClass pushStrategyEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -280,20 +195,6 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * @generated
    */
   private EClass mechanismAttributeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass processEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass processAttributeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -321,14 +222,14 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass impactEClass = null;
+  private EClass requiredServiceEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass causalTriggerEClass = null;
+  private EClass impactEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -370,6 +271,13 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass serviceProviderTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass assetEClass = null;
 
   /**
@@ -378,6 +286,195 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * @generated
    */
   private EClass skillEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass abstractTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass classAttributesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass agentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass taskEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass attributeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass attributeValueEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass variableEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass actionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stateEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass ifExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass forExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass whileExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass conditionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass statementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass declarationStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass actionStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass assertStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass changeStateStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass expressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass termEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass factorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass varExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass methodEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass plusEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass minusEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass multiplyEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass divisionEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -477,7 +574,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModelBuilder_SystemLibraries()
+  public EReference getModelBuilder_UserLibraries()
   {
     return (EReference)modelBuilderEClass.getEStructuralFeatures().get(2);
   }
@@ -487,19 +584,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModelBuilder_UserLibraries()
-  {
-    return (EReference)modelBuilderEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getModelBuilder_ExperimentModel()
   {
-    return (EReference)modelBuilderEClass.getEStructuralFeatures().get(4);
+    return (EReference)modelBuilderEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -537,7 +624,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExperimentModel_Variables()
+  public EReference getExperimentModel_ExperimentVariables()
   {
     return (EReference)experimentModelEClass.getEStructuralFeatures().get(2);
   }
@@ -597,116 +684,6 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSystemLibraries()
-  {
-    return systemLibrariesEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSystemLibraries_EventTypes()
-  {
-    return (EReference)systemLibrariesEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSystemLibraries_ConditionTypes()
-  {
-    return (EReference)systemLibrariesEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSystemLibraries_TransitionTypes()
-  {
-    return (EReference)systemLibrariesEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSystemLibraries_WIAcceptanceRuleTypes()
-  {
-    return (EReference)systemLibrariesEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSystemLibraries_WISelectionRuleTypes()
-  {
-    return (EReference)systemLibrariesEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSystemLibraries_WIAssignmentRuleTypes()
-  {
-    return (EReference)systemLibrariesEClass.getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSystemLibraries_ResourceAllocationRuleTypes()
-  {
-    return (EReference)systemLibrariesEClass.getEStructuralFeatures().get(6);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSystemLibraries_ResourceOutsourcingRuleTypes()
-  {
-    return (EReference)systemLibrariesEClass.getEStructuralFeatures().get(7);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSystemLibraries_ProcessModels()
-  {
-    return (EReference)systemLibrariesEClass.getEStructuralFeatures().get(8);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSystemLibraries_ValueFunctions()
-  {
-    return (EReference)systemLibrariesEClass.getEStructuralFeatures().get(9);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getUserLibraries()
   {
     return userLibrariesEClass;
@@ -717,7 +694,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getUserLibraries_WorkItemTypes()
+  public EReference getUserLibraries_ServiceProviderTypes()
   {
     return (EReference)userLibrariesEClass.getEStructuralFeatures().get(0);
   }
@@ -727,7 +704,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getUserLibraries_ClassOfServices()
+  public EReference getUserLibraries_WorkItemTypes()
   {
     return (EReference)userLibrariesEClass.getEStructuralFeatures().get(1);
   }
@@ -737,7 +714,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getUserLibraries_Services()
+  public EReference getUserLibraries_ProcessModels()
   {
     return (EReference)userLibrariesEClass.getEStructuralFeatures().get(2);
   }
@@ -747,9 +724,29 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getUserLibraries_GovernanceStrategies()
+  public EReference getUserLibraries_ClassOfServices()
   {
     return (EReference)userLibrariesEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUserLibraries_Services()
+  {
+    return (EReference)userLibrariesEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUserLibraries_GovernanceStrategies()
+  {
+    return (EReference)userLibrariesEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -907,9 +904,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getVariable()
+  public EClass getExperimentVariable()
   {
-    return variableEClass;
+    return experimentVariableEClass;
   }
 
   /**
@@ -917,9 +914,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getVariable_Name()
+  public EAttribute getExperimentVariable_Name()
   {
-    return (EAttribute)variableEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)experimentVariableEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -927,9 +924,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getVariable_TypeInteger()
+  public EAttribute getExperimentVariable_TypeInteger()
   {
-    return (EAttribute)variableEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)experimentVariableEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -937,9 +934,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getVariable_IntValue()
+  public EAttribute getExperimentVariable_IntValue()
   {
-    return (EAttribute)variableEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)experimentVariableEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -947,9 +944,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getVariable_TypeDouble()
+  public EAttribute getExperimentVariable_TypeDouble()
   {
-    return (EAttribute)variableEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)experimentVariableEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -957,9 +954,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getVariable_DoubleValue()
+  public EAttribute getExperimentVariable_DoubleValue()
   {
-    return (EAttribute)variableEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)experimentVariableEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -967,9 +964,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getVariable_TypeString()
+  public EAttribute getExperimentVariable_TypeString()
   {
-    return (EAttribute)variableEClass.getEStructuralFeatures().get(5);
+    return (EAttribute)experimentVariableEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -977,9 +974,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getVariable_StringValue()
+  public EAttribute getExperimentVariable_StringValue()
   {
-    return (EAttribute)variableEClass.getEStructuralFeatures().get(6);
+    return (EAttribute)experimentVariableEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -987,9 +984,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getVariable_TypeDistribution()
+  public EAttribute getExperimentVariable_TypeDistribution()
   {
-    return (EAttribute)variableEClass.getEStructuralFeatures().get(7);
+    return (EAttribute)experimentVariableEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -997,9 +994,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getVariable_Distrbution()
+  public EReference getExperimentVariable_Distrbution()
   {
-    return (EReference)variableEClass.getEStructuralFeatures().get(8);
+    return (EReference)experimentVariableEClass.getEStructuralFeatures().get(8);
   }
 
   /**
@@ -1007,9 +1004,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getVariable_TypeStrategy()
+  public EAttribute getExperimentVariable_TypeStrategy()
   {
-    return (EAttribute)variableEClass.getEStructuralFeatures().get(9);
+    return (EAttribute)experimentVariableEClass.getEStructuralFeatures().get(9);
   }
 
   /**
@@ -1017,9 +1014,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getVariable_Strategy()
+  public EReference getExperimentVariable_Strategy()
   {
-    return (EReference)variableEClass.getEStructuralFeatures().get(10);
+    return (EReference)experimentVariableEClass.getEStructuralFeatures().get(10);
   }
 
   /**
@@ -1077,266 +1074,6 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getEventType()
-  {
-    return eventTypeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getEventType_Name()
-  {
-    return (EAttribute)eventTypeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getEventType_Description()
-  {
-    return (EAttribute)eventTypeEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getConditionType()
-  {
-    return conditionTypeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getConditionType_Name()
-  {
-    return (EAttribute)conditionTypeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getConditionType_Description()
-  {
-    return (EAttribute)conditionTypeEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getTransitionType()
-  {
-    return transitionTypeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getTransitionType_Name()
-  {
-    return (EAttribute)transitionTypeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getTransitionType_Description()
-  {
-    return (EAttribute)transitionTypeEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getProcessModel()
-  {
-    return processModelEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getProcessModel_Name()
-  {
-    return (EAttribute)processModelEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getProcessModel_Description()
-  {
-    return (EAttribute)processModelEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getProcessModel_Events()
-  {
-    return (EReference)processModelEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getEvent()
-  {
-    return eventEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getEvent_Conditions()
-  {
-    return (EReference)eventEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getEvent_Transitions()
-  {
-    return (EReference)eventEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getCondition()
-  {
-    return conditionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getCondition_Type()
-  {
-    return (EReference)conditionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getCondition_Operator()
-  {
-    return (EReference)conditionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getCondition_Value()
-  {
-    return (EAttribute)conditionEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getTransition()
-  {
-    return transitionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getTransition_Type()
-  {
-    return (EReference)transitionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getTransition_Value()
-  {
-    return (EAttribute)transitionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getAgentRoleType()
-  {
-    return agentRoleTypeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getAgentRoleType_Name()
-  {
-    return (EAttribute)agentRoleTypeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getAgentRoleType_Description()
-  {
-    return (EAttribute)agentRoleTypeEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getWINReplication()
   {
     return winReplicationEClass;
@@ -1377,7 +1114,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getGovernanceStrategy_Id()
+  public EAttribute getGovernanceStrategy_Name()
   {
     return (EAttribute)governanceStrategyEClass.getEStructuralFeatures().get(0);
   }
@@ -1387,7 +1124,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getGovernanceStrategy_Name()
+  public EAttribute getGovernanceStrategy_Pull()
   {
     return (EAttribute)governanceStrategyEClass.getEStructuralFeatures().get(1);
   }
@@ -1397,9 +1134,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getGovernanceStrategy_Description()
+  public EReference getGovernanceStrategy_PullStrategy()
   {
-    return (EAttribute)governanceStrategyEClass.getEStructuralFeatures().get(2);
+    return (EReference)governanceStrategyEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1407,9 +1144,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getGovernanceStrategy_WIAcceptanceRule()
+  public EAttribute getGovernanceStrategy_Push()
   {
-    return (EReference)governanceStrategyEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)governanceStrategyEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1417,7 +1154,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getGovernanceStrategy_WISelectionRule()
+  public EReference getGovernanceStrategy_PushStrategy()
   {
     return (EReference)governanceStrategyEClass.getEStructuralFeatures().get(4);
   }
@@ -1427,9 +1164,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getGovernanceStrategy_WIAssignmentRule()
+  public EAttribute getGovernanceStrategy_Cnp()
   {
-    return (EReference)governanceStrategyEClass.getEStructuralFeatures().get(5);
+    return (EAttribute)governanceStrategyEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1437,7 +1174,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getGovernanceStrategy_ResourceAllocationRule()
+  public EReference getGovernanceStrategy_ContractNetProtocal()
   {
     return (EReference)governanceStrategyEClass.getEStructuralFeatures().get(6);
   }
@@ -1447,9 +1184,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getGovernanceStrategy_ResourceOutsourcingRule()
+  public EClass getContractNetProtocol()
   {
-    return (EReference)governanceStrategyEClass.getEStructuralFeatures().get(7);
+    return contractNetProtocolEClass;
   }
 
   /**
@@ -1457,9 +1194,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getGovernanceStrategy_Mechanisms()
+  public EAttribute getContractNetProtocol_Description()
   {
-    return (EReference)governanceStrategyEClass.getEStructuralFeatures().get(8);
+    return (EAttribute)contractNetProtocolEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1467,9 +1204,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getGovernanceStrategy_Processes()
+  public EReference getContractNetProtocol_Variables()
   {
-    return (EReference)governanceStrategyEClass.getEStructuralFeatures().get(9);
+    return (EReference)contractNetProtocolEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1477,9 +1214,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getWIAcceptance()
+  public EReference getContractNetProtocol_RoleBehaviors()
   {
-    return wiAcceptanceEClass;
+    return (EReference)contractNetProtocolEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1487,9 +1224,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWIAcceptance_Type()
+  public EReference getContractNetProtocol_Processes()
   {
-    return (EReference)wiAcceptanceEClass.getEStructuralFeatures().get(0);
+    return (EReference)contractNetProtocolEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1497,9 +1234,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWIAcceptance_Description()
+  public EClass getRoleBehavior()
   {
-    return (EAttribute)wiAcceptanceEClass.getEStructuralFeatures().get(1);
+    return roleBehaviorEClass;
   }
 
   /**
@@ -1507,9 +1244,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWIAcceptance_BacklogQLimit()
+  public EAttribute getRoleBehavior_Name()
   {
-    return (EAttribute)wiAcceptanceEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)roleBehaviorEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1517,9 +1254,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWIAcceptance_ReadyQLimit()
+  public EReference getRoleBehavior_Actions()
   {
-    return (EAttribute)wiAcceptanceEClass.getEStructuralFeatures().get(3);
+    return (EReference)roleBehaviorEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1527,9 +1264,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getWISelection()
+  public EReference getRoleBehavior_States()
   {
-    return wiSelectionEClass;
+    return (EReference)roleBehaviorEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1537,9 +1274,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWISelection_Type()
+  public EClass getProcessModel()
   {
-    return (EReference)wiSelectionEClass.getEStructuralFeatures().get(0);
+    return processModelEClass;
   }
 
   /**
@@ -1547,9 +1284,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWISelection_Description()
+  public EAttribute getProcessModel_Name()
   {
-    return (EAttribute)wiSelectionEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)processModelEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1557,9 +1294,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getWIAssignment()
+  public EReference getProcessModel_Actions()
   {
-    return wiAssignmentEClass;
+    return (EReference)processModelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1567,9 +1304,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWIAssignment_Type()
+  public EReference getProcessModel_States()
   {
-    return (EReference)wiAssignmentEClass.getEStructuralFeatures().get(0);
+    return (EReference)processModelEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1577,9 +1314,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWIAssignment_Description()
+  public EClass getPullStrategy()
   {
-    return (EAttribute)wiAssignmentEClass.getEStructuralFeatures().get(1);
+    return pullStrategyEClass;
   }
 
   /**
@@ -1587,9 +1324,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getResourceAllocation()
+  public EAttribute getPullStrategy_Description()
   {
-    return resourceAllocationEClass;
+    return (EAttribute)pullStrategyEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1597,9 +1334,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getResourceAllocation_Type()
+  public EReference getPullStrategy_Mechanisms()
   {
-    return (EReference)resourceAllocationEClass.getEStructuralFeatures().get(0);
+    return (EReference)pullStrategyEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1607,9 +1344,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getResourceAllocation_Description()
+  public EReference getPullStrategy_Processes()
   {
-    return (EAttribute)resourceAllocationEClass.getEStructuralFeatures().get(1);
+    return (EReference)pullStrategyEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1617,9 +1354,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getResourceOutsourcing()
+  public EClass getPushStrategy()
   {
-    return resourceOutsourcingEClass;
+    return pushStrategyEClass;
   }
 
   /**
@@ -1627,9 +1364,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getResourceOutsourcing_Type()
+  public EAttribute getPushStrategy_Description()
   {
-    return (EReference)resourceOutsourcingEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)pushStrategyEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1637,9 +1374,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getResourceOutsourcing_Description()
+  public EReference getPushStrategy_Mechanisms()
   {
-    return (EAttribute)resourceOutsourcingEClass.getEStructuralFeatures().get(1);
+    return (EReference)pushStrategyEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1647,149 +1384,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getWIAcceptanceRuleType()
+  public EReference getPushStrategy_Processes()
   {
-    return wiAcceptanceRuleTypeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getWIAcceptanceRuleType_Name()
-  {
-    return (EAttribute)wiAcceptanceRuleTypeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getWIAcceptanceRuleType_Description()
-  {
-    return (EAttribute)wiAcceptanceRuleTypeEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getWISelectionRuleType()
-  {
-    return wiSelectionRuleTypeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getWISelectionRuleType_Name()
-  {
-    return (EAttribute)wiSelectionRuleTypeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getWISelectionRuleType_Description()
-  {
-    return (EAttribute)wiSelectionRuleTypeEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getWIAssignmentRuleType()
-  {
-    return wiAssignmentRuleTypeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getWIAssignmentRuleType_Name()
-  {
-    return (EAttribute)wiAssignmentRuleTypeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getWIAssignmentRuleType_Description()
-  {
-    return (EAttribute)wiAssignmentRuleTypeEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getResourceAllocationRuleType()
-  {
-    return resourceAllocationRuleTypeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getResourceAllocationRuleType_Name()
-  {
-    return (EAttribute)resourceAllocationRuleTypeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getResourceAllocationRuleType_Description()
-  {
-    return (EAttribute)resourceAllocationRuleTypeEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getResourceOutsourcingRuleType()
-  {
-    return resourceOutsourcingRuleTypeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getResourceOutsourcingRuleType_Name()
-  {
-    return (EAttribute)resourceOutsourcingRuleTypeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getResourceOutsourcingRuleType_Description()
-  {
-    return (EAttribute)resourceOutsourcingRuleTypeEClass.getEStructuralFeatures().get(1);
+    return (EReference)pushStrategyEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1877,86 +1474,6 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getProcess()
-  {
-    return processEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getProcess_Name()
-  {
-    return (EAttribute)processEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getProcess_Value()
-  {
-    return (EAttribute)processEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getProcess_Description()
-  {
-    return (EAttribute)processEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getProcess_Attributes()
-  {
-    return (EReference)processEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getProcessAttribute()
-  {
-    return processAttributeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getProcessAttribute_Attribute()
-  {
-    return (EAttribute)processAttributeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getProcessAttribute_Value()
-  {
-    return (EAttribute)processAttributeEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getWorkSource()
   {
     return workSourceEClass;
@@ -1967,7 +1484,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkSource_Id()
+  public EAttribute getWorkSource_Name()
   {
     return (EAttribute)workSourceEClass.getEStructuralFeatures().get(0);
   }
@@ -1977,7 +1494,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkSource_Name()
+  public EAttribute getWorkSource_Description()
   {
     return (EAttribute)workSourceEClass.getEStructuralFeatures().get(1);
   }
@@ -1987,29 +1504,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkSource_Description()
-  {
-    return (EAttribute)workSourceEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getWorkSource_AssignTo()
   {
-    return (EReference)workSourceEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getWorkSource_AssignmentRule()
-  {
-    return (EReference)workSourceEClass.getEStructuralFeatures().get(4);
+    return (EReference)workSourceEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2027,7 +1524,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkItemNetwork_Id()
+  public EAttribute getWorkItemNetwork_Name()
   {
     return (EAttribute)workItemNetworkEClass.getEStructuralFeatures().get(0);
   }
@@ -2037,7 +1534,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkItemNetwork_Name()
+  public EAttribute getWorkItemNetwork_Description()
   {
     return (EAttribute)workItemNetworkEClass.getEStructuralFeatures().get(1);
   }
@@ -2047,9 +1544,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkItemNetwork_Description()
+  public EReference getWorkItemNetwork_WorkItems()
   {
-    return (EAttribute)workItemNetworkEClass.getEStructuralFeatures().get(2);
+    return (EReference)workItemNetworkEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2057,9 +1554,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItemNetwork_WorkItems()
+  public EAttribute getWorkItemNetwork_Id()
   {
-    return (EReference)workItemNetworkEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)workItemNetworkEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2077,7 +1574,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkItem_Id()
+  public EAttribute getWorkItem_Name()
   {
     return (EAttribute)workItemEClass.getEStructuralFeatures().get(0);
   }
@@ -2087,9 +1584,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkItem_Name()
+  public EReference getWorkItem_Type()
   {
-    return (EAttribute)workItemEClass.getEStructuralFeatures().get(1);
+    return (EReference)workItemEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2107,19 +1604,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItem_Type()
-  {
-    return (EReference)workItemEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getWorkItem_HasPredecessors()
   {
-    return (EAttribute)workItemEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)workItemEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2129,7 +1616,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    */
   public EReference getWorkItem_PTasks()
   {
-    return (EReference)workItemEClass.getEStructuralFeatures().get(5);
+    return (EReference)workItemEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -2137,9 +1624,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkItem_IsAggregationNode()
+  public EAttribute getWorkItem_HasSubtasks()
   {
-    return (EAttribute)workItemEClass.getEStructuralFeatures().get(6);
+    return (EAttribute)workItemEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -2149,7 +1636,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    */
   public EReference getWorkItem_STasks()
   {
-    return (EReference)workItemEClass.getEStructuralFeatures().get(7);
+    return (EReference)workItemEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -2157,9 +1644,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItem_CausalTriggers()
+  public EReference getWorkItem_RequiredAnalysis()
   {
-    return (EReference)workItemEClass.getEStructuralFeatures().get(8);
+    return (EReference)workItemEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -2169,17 +1656,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    */
   public EReference getWorkItem_RequiredServices()
   {
-    return (EReference)workItemEClass.getEStructuralFeatures().get(9);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getWorkItem_Efforts()
-  {
-    return (EReference)workItemEClass.getEStructuralFeatures().get(10);
+    return (EReference)workItemEClass.getEStructuralFeatures().get(8);
   }
 
   /**
@@ -2189,7 +1666,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    */
   public EReference getWorkItem_MaturityLevels()
   {
-    return (EReference)workItemEClass.getEStructuralFeatures().get(11);
+    return (EReference)workItemEClass.getEStructuralFeatures().get(9);
   }
 
   /**
@@ -2199,7 +1676,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    */
   public EReference getWorkItem_Uncertainty()
   {
-    return (EReference)workItemEClass.getEStructuralFeatures().get(12);
+    return (EReference)workItemEClass.getEStructuralFeatures().get(10);
   }
 
   /**
@@ -2209,7 +1686,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    */
   public EReference getWorkItem_Risk()
   {
-    return (EReference)workItemEClass.getEStructuralFeatures().get(13);
+    return (EReference)workItemEClass.getEStructuralFeatures().get(11);
   }
 
   /**
@@ -2219,7 +1696,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    */
   public EAttribute getWorkItem_HasImpacts()
   {
-    return (EAttribute)workItemEClass.getEStructuralFeatures().get(14);
+    return (EAttribute)workItemEClass.getEStructuralFeatures().get(12);
   }
 
   /**
@@ -2229,7 +1706,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    */
   public EReference getWorkItem_Impacts()
   {
-    return (EReference)workItemEClass.getEStructuralFeatures().get(15);
+    return (EReference)workItemEClass.getEStructuralFeatures().get(13);
   }
 
   /**
@@ -2239,7 +1716,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    */
   public EReference getWorkItem_Value()
   {
-    return (EReference)workItemEClass.getEStructuralFeatures().get(16);
+    return (EReference)workItemEClass.getEStructuralFeatures().get(14);
   }
 
   /**
@@ -2249,7 +1726,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    */
   public EReference getWorkItem_ClassOfService()
   {
-    return (EReference)workItemEClass.getEStructuralFeatures().get(17);
+    return (EReference)workItemEClass.getEStructuralFeatures().get(15);
   }
 
   /**
@@ -2259,7 +1736,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    */
   public EReference getWorkItem_WorkSource()
   {
-    return (EReference)workItemEClass.getEStructuralFeatures().get(18);
+    return (EReference)workItemEClass.getEStructuralFeatures().get(16);
   }
 
   /**
@@ -2269,7 +1746,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    */
   public EAttribute getWorkItem_ArrivalTime()
   {
-    return (EAttribute)workItemEClass.getEStructuralFeatures().get(19);
+    return (EAttribute)workItemEClass.getEStructuralFeatures().get(17);
   }
 
   /**
@@ -2279,7 +1756,47 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    */
   public EAttribute getWorkItem_DueDate()
   {
-    return (EAttribute)workItemEClass.getEStructuralFeatures().get(20);
+    return (EAttribute)workItemEClass.getEStructuralFeatures().get(18);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getWorkItem_Id()
+  {
+    return (EAttribute)workItemEClass.getEStructuralFeatures().get(19);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRequiredService()
+  {
+    return requiredServiceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRequiredService_ServiceType()
+  {
+    return (EReference)requiredServiceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRequiredService_Efforts()
+  {
+    return (EReference)requiredServiceEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2297,7 +1814,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getImpact_ImpactWIs()
+  public EReference getImpact_ImpactWI()
   {
     return (EReference)impactEClass.getEStructuralFeatures().get(0);
   }
@@ -2317,49 +1834,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getImpact_Impact()
+  public EReference getImpact_Risk()
   {
     return (EReference)impactEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getCausalTrigger()
-  {
-    return causalTriggerEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getCausalTrigger_Triggered()
-  {
-    return (EReference)causalTriggerEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getCausalTrigger_AtProgress()
-  {
-    return (EAttribute)causalTriggerEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getCausalTrigger_OnProbability()
-  {
-    return (EAttribute)causalTriggerEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2487,9 +1964,19 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getClassOfService_Disruptive()
+  public EAttribute getClassOfService_Priority()
   {
     return (EAttribute)classOfServiceEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getClassOfService_Disruptive()
+  {
+    return (EAttribute)classOfServiceEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -2507,7 +1994,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getService_Id()
+  public EAttribute getService_Name()
   {
     return (EAttribute)serviceEClass.getEStructuralFeatures().get(0);
   }
@@ -2517,7 +2004,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getService_Name()
+  public EAttribute getService_Description()
   {
     return (EAttribute)serviceEClass.getEStructuralFeatures().get(1);
   }
@@ -2527,9 +2014,19 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getService_Description()
+  public EAttribute getService_Hierarchy()
   {
     return (EAttribute)serviceEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getService_Id()
+  {
+    return (EAttribute)serviceEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2547,7 +2044,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getServiceProvider_Id()
+  public EAttribute getServiceProvider_Name()
   {
     return (EAttribute)serviceProviderEClass.getEStructuralFeatures().get(0);
   }
@@ -2557,19 +2054,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getServiceProvider_Name()
+  public EReference getServiceProvider_Type()
   {
-    return (EAttribute)serviceProviderEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getServiceProvider_Description()
-  {
-    return (EAttribute)serviceProviderEClass.getEStructuralFeatures().get(2);
+    return (EReference)serviceProviderEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2579,7 +2066,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    */
   public EReference getServiceProvider_AssignTo()
   {
-    return (EReference)serviceProviderEClass.getEStructuralFeatures().get(3);
+    return (EReference)serviceProviderEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2589,17 +2076,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    */
   public EReference getServiceProvider_OutsourceFrom()
   {
-    return (EReference)serviceProviderEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getServiceProvider_TeamService()
-  {
-    return (EReference)serviceProviderEClass.getEStructuralFeatures().get(5);
+    return (EReference)serviceProviderEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2609,7 +2086,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    */
   public EReference getServiceProvider_GovernanceStrategy()
   {
-    return (EReference)serviceProviderEClass.getEStructuralFeatures().get(6);
+    return (EReference)serviceProviderEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -2619,7 +2096,67 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    */
   public EReference getServiceProvider_Resources()
   {
-    return (EReference)serviceProviderEClass.getEStructuralFeatures().get(7);
+    return (EReference)serviceProviderEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getServiceProvider_Id()
+  {
+    return (EAttribute)serviceProviderEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getServiceProviderType()
+  {
+    return serviceProviderTypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getServiceProviderType_Id()
+  {
+    return (EAttribute)serviceProviderTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getServiceProviderType_Name()
+  {
+    return (EAttribute)serviceProviderTypeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getServiceProviderType_Description()
+  {
+    return (EAttribute)serviceProviderTypeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getServiceProviderType_Hierarchy()
+  {
+    return (EAttribute)serviceProviderTypeEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2637,7 +2174,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAsset_Id()
+  public EAttribute getAsset_Name()
   {
     return (EAttribute)assetEClass.getEStructuralFeatures().get(0);
   }
@@ -2647,29 +2184,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAsset_Name()
-  {
-    return (EAttribute)assetEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getAsset_Description()
-  {
-    return (EAttribute)assetEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getAsset_Number()
   {
-    return (EReference)assetEClass.getEStructuralFeatures().get(3);
+    return (EReference)assetEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2679,7 +2196,17 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    */
   public EReference getAsset_SkillSet()
   {
-    return (EReference)assetEClass.getEStructuralFeatures().get(4);
+    return (EReference)assetEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAsset_Id()
+  {
+    return (EAttribute)assetEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2717,6 +2244,1066 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getAbstractType()
+  {
+    return abstractTypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAbstractType_Type()
+  {
+    return (EAttribute)abstractTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAbstractType_ListType()
+  {
+    return (EAttribute)abstractTypeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAbstractType_MapType()
+  {
+    return (EAttribute)abstractTypeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAbstractType_KeyType()
+  {
+    return (EAttribute)abstractTypeEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAbstractType_ValueType()
+  {
+    return (EAttribute)abstractTypeEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getClassAttributes()
+  {
+    return classAttributesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getClassAttributes_AgentAttributes()
+  {
+    return (EReference)classAttributesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAgent()
+  {
+    return agentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAgent_Name()
+  {
+    return (EAttribute)agentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAgent_AttributeValues()
+  {
+    return (EReference)agentEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTask()
+  {
+    return taskEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTask_Name()
+  {
+    return (EAttribute)taskEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTask_AttributeValues()
+  {
+    return (EReference)taskEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAttribute()
+  {
+    return attributeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAttribute_Type()
+  {
+    return (EReference)attributeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAttribute_Name()
+  {
+    return (EAttribute)attributeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAttribute_Default()
+  {
+    return (EAttribute)attributeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAttributeValue()
+  {
+    return attributeValueEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAttributeValue_Attribute()
+  {
+    return (EReference)attributeValueEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAttributeValue_Value()
+  {
+    return (EAttribute)attributeValueEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getVariable()
+  {
+    return variableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getVariable_Type()
+  {
+    return (EReference)variableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVariable_Name()
+  {
+    return (EAttribute)variableEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAction()
+  {
+    return actionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAction_Name()
+  {
+    return (EAttribute)actionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAction_Inputs()
+  {
+    return (EReference)actionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getState()
+  {
+    return stateEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getState_BackgroundState()
+  {
+    return (EAttribute)stateEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getState_Name()
+  {
+    return (EAttribute)stateEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getState_Statements()
+  {
+    return (EReference)stateEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getIfExpression()
+  {
+    return ifExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIfExpression_Condition()
+  {
+    return (EReference)ifExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIfExpression_Statements()
+  {
+    return (EReference)ifExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIfExpression_HasElseIf()
+  {
+    return (EAttribute)ifExpressionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIfExpression_ElseIf()
+  {
+    return (EReference)ifExpressionEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIfExpression_Elses()
+  {
+    return (EReference)ifExpressionEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getForExpression()
+  {
+    return forExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getForExpression_Object()
+  {
+    return (EReference)forExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getForExpression_Set()
+  {
+    return (EReference)forExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getForExpression_Statements()
+  {
+    return (EReference)forExpressionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getWhileExpression()
+  {
+    return whileExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getWhileExpression_Condition()
+  {
+    return (EReference)whileExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getWhileExpression_Statements()
+  {
+    return (EReference)whileExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCondition()
+  {
+    return conditionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCondition_Subjective()
+  {
+    return (EReference)conditionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCondition_Operator()
+  {
+    return (EReference)conditionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCondition_Objective()
+  {
+    return (EReference)conditionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCondition_HasAnd()
+  {
+    return (EAttribute)conditionEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCondition_AndCondition()
+  {
+    return (EReference)conditionEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCondition_HasOr()
+  {
+    return (EAttribute)conditionEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCondition_OrCondition()
+  {
+    return (EReference)conditionEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStatement()
+  {
+    return statementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStatement_IsAction()
+  {
+    return (EAttribute)statementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStatement_ActionStatement()
+  {
+    return (EReference)statementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStatement_IsChangeState()
+  {
+    return (EAttribute)statementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStatement_ChangeStateStatement()
+  {
+    return (EReference)statementEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStatement_IsDeclaration()
+  {
+    return (EAttribute)statementEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStatement_DeclarationStatement()
+  {
+    return (EReference)statementEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStatement_IsIfExpression()
+  {
+    return (EAttribute)statementEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStatement_IfExpression()
+  {
+    return (EReference)statementEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStatement_IsForExpression()
+  {
+    return (EAttribute)statementEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStatement_ForExpression()
+  {
+    return (EReference)statementEClass.getEStructuralFeatures().get(9);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStatement_IsWhileExpression()
+  {
+    return (EAttribute)statementEClass.getEStructuralFeatures().get(10);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStatement_WhileExpression()
+  {
+    return (EReference)statementEClass.getEStructuralFeatures().get(11);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStatement_AssertStatement()
+  {
+    return (EReference)statementEClass.getEStructuralFeatures().get(12);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDeclarationStatement()
+  {
+    return declarationStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeclarationStatement_Variable()
+  {
+    return (EReference)declarationStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeclarationStatement_Value()
+  {
+    return (EReference)declarationStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getActionStatement()
+  {
+    return actionStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getActionStatement_Action()
+  {
+    return (EReference)actionStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getActionStatement_Inputs()
+  {
+    return (EReference)actionStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAssertStatement()
+  {
+    return assertStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAssertStatement_Input()
+  {
+    return (EReference)assertStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAssertStatement_Value()
+  {
+    return (EReference)assertStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getChangeStateStatement()
+  {
+    return changeStateStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getChangeStateStatement_TargetState()
+  {
+    return (EReference)changeStateStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getExpression()
+  {
+    return expressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTerm()
+  {
+    return termEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFactor()
+  {
+    return factorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFactor_Number()
+  {
+    return (EAttribute)factorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFactor_Variable()
+  {
+    return (EReference)factorEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFactor_String()
+  {
+    return (EAttribute)factorEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFactor_Boolean()
+  {
+    return (EAttribute)factorEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFactor_Expression()
+  {
+    return (EReference)factorEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getVarExpression()
+  {
+    return varExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVarExpression_Self()
+  {
+    return (EAttribute)varExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVarExpression_Context()
+  {
+    return (EAttribute)varExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVarExpression_Variable()
+  {
+    return (EAttribute)varExpressionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getVarExpression_Methods()
+  {
+    return (EReference)varExpressionEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMethod()
+  {
+    return methodEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMethod_Name()
+  {
+    return (EAttribute)methodEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMethod_FunctionMethod()
+  {
+    return (EAttribute)methodEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMethod_Inputs()
+  {
+    return (EAttribute)methodEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPlus()
+  {
+    return plusEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPlus_Left()
+  {
+    return (EReference)plusEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPlus_Right()
+  {
+    return (EReference)plusEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMinus()
+  {
+    return minusEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMinus_Left()
+  {
+    return (EReference)minusEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMinus_Right()
+  {
+    return (EReference)minusEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMultiply()
+  {
+    return multiplyEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMultiply_Left()
+  {
+    return (EReference)multiplyEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMultiply_Right()
+  {
+    return (EReference)multiplyEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDivision()
+  {
+    return divisionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDivision_Left()
+  {
+    return (EReference)divisionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDivision_Right()
+  {
+    return (EReference)divisionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public KanbanmodelFactory getKanbanmodelFactory()
   {
     return (KanbanmodelFactory)getEFactoryInstance();
@@ -2745,34 +3332,23 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     modelBuilderEClass = createEClass(MODEL_BUILDER);
     createEAttribute(modelBuilderEClass, MODEL_BUILDER__NAME);
     createEAttribute(modelBuilderEClass, MODEL_BUILDER__DESCRIPTION);
-    createEReference(modelBuilderEClass, MODEL_BUILDER__SYSTEM_LIBRARIES);
     createEReference(modelBuilderEClass, MODEL_BUILDER__USER_LIBRARIES);
     createEReference(modelBuilderEClass, MODEL_BUILDER__EXPERIMENT_MODEL);
 
     experimentModelEClass = createEClass(EXPERIMENT_MODEL);
     createEAttribute(experimentModelEClass, EXPERIMENT_MODEL__NAME);
     createEAttribute(experimentModelEClass, EXPERIMENT_MODEL__PATH);
-    createEReference(experimentModelEClass, EXPERIMENT_MODEL__VARIABLES);
+    createEReference(experimentModelEClass, EXPERIMENT_MODEL__EXPERIMENT_VARIABLES);
     createEReference(experimentModelEClass, EXPERIMENT_MODEL__SERVICE_PROVIDERS);
     createEReference(experimentModelEClass, EXPERIMENT_MODEL__WORK_SOURCES);
     createEReference(experimentModelEClass, EXPERIMENT_MODEL__WORK_ITEM_NETWORKS);
     createEReference(experimentModelEClass, EXPERIMENT_MODEL__WIN_REPLICATIONS);
     createEAttribute(experimentModelEClass, EXPERIMENT_MODEL__INDICATORS);
 
-    systemLibrariesEClass = createEClass(SYSTEM_LIBRARIES);
-    createEReference(systemLibrariesEClass, SYSTEM_LIBRARIES__EVENT_TYPES);
-    createEReference(systemLibrariesEClass, SYSTEM_LIBRARIES__CONDITION_TYPES);
-    createEReference(systemLibrariesEClass, SYSTEM_LIBRARIES__TRANSITION_TYPES);
-    createEReference(systemLibrariesEClass, SYSTEM_LIBRARIES__WI_ACCEPTANCE_RULE_TYPES);
-    createEReference(systemLibrariesEClass, SYSTEM_LIBRARIES__WI_SELECTION_RULE_TYPES);
-    createEReference(systemLibrariesEClass, SYSTEM_LIBRARIES__WI_ASSIGNMENT_RULE_TYPES);
-    createEReference(systemLibrariesEClass, SYSTEM_LIBRARIES__RESOURCE_ALLOCATION_RULE_TYPES);
-    createEReference(systemLibrariesEClass, SYSTEM_LIBRARIES__RESOURCE_OUTSOURCING_RULE_TYPES);
-    createEReference(systemLibrariesEClass, SYSTEM_LIBRARIES__PROCESS_MODELS);
-    createEReference(systemLibrariesEClass, SYSTEM_LIBRARIES__VALUE_FUNCTIONS);
-
     userLibrariesEClass = createEClass(USER_LIBRARIES);
+    createEReference(userLibrariesEClass, USER_LIBRARIES__SERVICE_PROVIDER_TYPES);
     createEReference(userLibrariesEClass, USER_LIBRARIES__WORK_ITEM_TYPES);
+    createEReference(userLibrariesEClass, USER_LIBRARIES__PROCESS_MODELS);
     createEReference(userLibrariesEClass, USER_LIBRARIES__CLASS_OF_SERVICES);
     createEReference(userLibrariesEClass, USER_LIBRARIES__SERVICES);
     createEReference(userLibrariesEClass, USER_LIBRARIES__GOVERNANCE_STRATEGIES);
@@ -2795,18 +3371,18 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     createEAttribute(operatorEClass, OPERATOR__SMALLER_OR_EQUAL_TO);
     createEAttribute(operatorEClass, OPERATOR__NOT_EQUAL_TO);
 
-    variableEClass = createEClass(VARIABLE);
-    createEAttribute(variableEClass, VARIABLE__NAME);
-    createEAttribute(variableEClass, VARIABLE__TYPE_INTEGER);
-    createEAttribute(variableEClass, VARIABLE__INT_VALUE);
-    createEAttribute(variableEClass, VARIABLE__TYPE_DOUBLE);
-    createEAttribute(variableEClass, VARIABLE__DOUBLE_VALUE);
-    createEAttribute(variableEClass, VARIABLE__TYPE_STRING);
-    createEAttribute(variableEClass, VARIABLE__STRING_VALUE);
-    createEAttribute(variableEClass, VARIABLE__TYPE_DISTRIBUTION);
-    createEReference(variableEClass, VARIABLE__DISTRBUTION);
-    createEAttribute(variableEClass, VARIABLE__TYPE_STRATEGY);
-    createEReference(variableEClass, VARIABLE__STRATEGY);
+    experimentVariableEClass = createEClass(EXPERIMENT_VARIABLE);
+    createEAttribute(experimentVariableEClass, EXPERIMENT_VARIABLE__NAME);
+    createEAttribute(experimentVariableEClass, EXPERIMENT_VARIABLE__TYPE_INTEGER);
+    createEAttribute(experimentVariableEClass, EXPERIMENT_VARIABLE__INT_VALUE);
+    createEAttribute(experimentVariableEClass, EXPERIMENT_VARIABLE__TYPE_DOUBLE);
+    createEAttribute(experimentVariableEClass, EXPERIMENT_VARIABLE__DOUBLE_VALUE);
+    createEAttribute(experimentVariableEClass, EXPERIMENT_VARIABLE__TYPE_STRING);
+    createEAttribute(experimentVariableEClass, EXPERIMENT_VARIABLE__STRING_VALUE);
+    createEAttribute(experimentVariableEClass, EXPERIMENT_VARIABLE__TYPE_DISTRIBUTION);
+    createEReference(experimentVariableEClass, EXPERIMENT_VARIABLE__DISTRBUTION);
+    createEAttribute(experimentVariableEClass, EXPERIMENT_VARIABLE__TYPE_STRATEGY);
+    createEReference(experimentVariableEClass, EXPERIMENT_VARIABLE__STRATEGY);
 
     distributionEClass = createEClass(DISTRIBUTION);
     createEAttribute(distributionEClass, DISTRIBUTION__IS_NORMAL);
@@ -2814,97 +3390,44 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     createEAttribute(distributionEClass, DISTRIBUTION__IS_EXPONENTIAL);
     createEReference(distributionEClass, DISTRIBUTION__PARAMETERS);
 
-    eventTypeEClass = createEClass(EVENT_TYPE);
-    createEAttribute(eventTypeEClass, EVENT_TYPE__NAME);
-    createEAttribute(eventTypeEClass, EVENT_TYPE__DESCRIPTION);
-
-    conditionTypeEClass = createEClass(CONDITION_TYPE);
-    createEAttribute(conditionTypeEClass, CONDITION_TYPE__NAME);
-    createEAttribute(conditionTypeEClass, CONDITION_TYPE__DESCRIPTION);
-
-    transitionTypeEClass = createEClass(TRANSITION_TYPE);
-    createEAttribute(transitionTypeEClass, TRANSITION_TYPE__NAME);
-    createEAttribute(transitionTypeEClass, TRANSITION_TYPE__DESCRIPTION);
-
-    processModelEClass = createEClass(PROCESS_MODEL);
-    createEAttribute(processModelEClass, PROCESS_MODEL__NAME);
-    createEAttribute(processModelEClass, PROCESS_MODEL__DESCRIPTION);
-    createEReference(processModelEClass, PROCESS_MODEL__EVENTS);
-
-    eventEClass = createEClass(EVENT);
-    createEReference(eventEClass, EVENT__CONDITIONS);
-    createEReference(eventEClass, EVENT__TRANSITIONS);
-
-    conditionEClass = createEClass(CONDITION);
-    createEReference(conditionEClass, CONDITION__TYPE);
-    createEReference(conditionEClass, CONDITION__OPERATOR);
-    createEAttribute(conditionEClass, CONDITION__VALUE);
-
-    transitionEClass = createEClass(TRANSITION);
-    createEReference(transitionEClass, TRANSITION__TYPE);
-    createEAttribute(transitionEClass, TRANSITION__VALUE);
-
-    agentRoleTypeEClass = createEClass(AGENT_ROLE_TYPE);
-    createEAttribute(agentRoleTypeEClass, AGENT_ROLE_TYPE__NAME);
-    createEAttribute(agentRoleTypeEClass, AGENT_ROLE_TYPE__DESCRIPTION);
-
     winReplicationEClass = createEClass(WIN_REPLICATION);
     createEReference(winReplicationEClass, WIN_REPLICATION__WORK_ITEM_NETWORK);
     createEAttribute(winReplicationEClass, WIN_REPLICATION__NUM_REPLICATIONS);
 
     governanceStrategyEClass = createEClass(GOVERNANCE_STRATEGY);
-    createEAttribute(governanceStrategyEClass, GOVERNANCE_STRATEGY__ID);
     createEAttribute(governanceStrategyEClass, GOVERNANCE_STRATEGY__NAME);
-    createEAttribute(governanceStrategyEClass, GOVERNANCE_STRATEGY__DESCRIPTION);
-    createEReference(governanceStrategyEClass, GOVERNANCE_STRATEGY__WI_ACCEPTANCE_RULE);
-    createEReference(governanceStrategyEClass, GOVERNANCE_STRATEGY__WI_SELECTION_RULE);
-    createEReference(governanceStrategyEClass, GOVERNANCE_STRATEGY__WI_ASSIGNMENT_RULE);
-    createEReference(governanceStrategyEClass, GOVERNANCE_STRATEGY__RESOURCE_ALLOCATION_RULE);
-    createEReference(governanceStrategyEClass, GOVERNANCE_STRATEGY__RESOURCE_OUTSOURCING_RULE);
-    createEReference(governanceStrategyEClass, GOVERNANCE_STRATEGY__MECHANISMS);
-    createEReference(governanceStrategyEClass, GOVERNANCE_STRATEGY__PROCESSES);
+    createEAttribute(governanceStrategyEClass, GOVERNANCE_STRATEGY__PULL);
+    createEReference(governanceStrategyEClass, GOVERNANCE_STRATEGY__PULL_STRATEGY);
+    createEAttribute(governanceStrategyEClass, GOVERNANCE_STRATEGY__PUSH);
+    createEReference(governanceStrategyEClass, GOVERNANCE_STRATEGY__PUSH_STRATEGY);
+    createEAttribute(governanceStrategyEClass, GOVERNANCE_STRATEGY__CNP);
+    createEReference(governanceStrategyEClass, GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL);
 
-    wiAcceptanceEClass = createEClass(WI_ACCEPTANCE);
-    createEReference(wiAcceptanceEClass, WI_ACCEPTANCE__TYPE);
-    createEAttribute(wiAcceptanceEClass, WI_ACCEPTANCE__DESCRIPTION);
-    createEAttribute(wiAcceptanceEClass, WI_ACCEPTANCE__BACKLOG_QLIMIT);
-    createEAttribute(wiAcceptanceEClass, WI_ACCEPTANCE__READY_QLIMIT);
+    contractNetProtocolEClass = createEClass(CONTRACT_NET_PROTOCOL);
+    createEAttribute(contractNetProtocolEClass, CONTRACT_NET_PROTOCOL__DESCRIPTION);
+    createEReference(contractNetProtocolEClass, CONTRACT_NET_PROTOCOL__VARIABLES);
+    createEReference(contractNetProtocolEClass, CONTRACT_NET_PROTOCOL__ROLE_BEHAVIORS);
+    createEReference(contractNetProtocolEClass, CONTRACT_NET_PROTOCOL__PROCESSES);
 
-    wiSelectionEClass = createEClass(WI_SELECTION);
-    createEReference(wiSelectionEClass, WI_SELECTION__TYPE);
-    createEAttribute(wiSelectionEClass, WI_SELECTION__DESCRIPTION);
+    roleBehaviorEClass = createEClass(ROLE_BEHAVIOR);
+    createEAttribute(roleBehaviorEClass, ROLE_BEHAVIOR__NAME);
+    createEReference(roleBehaviorEClass, ROLE_BEHAVIOR__ACTIONS);
+    createEReference(roleBehaviorEClass, ROLE_BEHAVIOR__STATES);
 
-    wiAssignmentEClass = createEClass(WI_ASSIGNMENT);
-    createEReference(wiAssignmentEClass, WI_ASSIGNMENT__TYPE);
-    createEAttribute(wiAssignmentEClass, WI_ASSIGNMENT__DESCRIPTION);
+    processModelEClass = createEClass(PROCESS_MODEL);
+    createEAttribute(processModelEClass, PROCESS_MODEL__NAME);
+    createEReference(processModelEClass, PROCESS_MODEL__ACTIONS);
+    createEReference(processModelEClass, PROCESS_MODEL__STATES);
 
-    resourceAllocationEClass = createEClass(RESOURCE_ALLOCATION);
-    createEReference(resourceAllocationEClass, RESOURCE_ALLOCATION__TYPE);
-    createEAttribute(resourceAllocationEClass, RESOURCE_ALLOCATION__DESCRIPTION);
+    pullStrategyEClass = createEClass(PULL_STRATEGY);
+    createEAttribute(pullStrategyEClass, PULL_STRATEGY__DESCRIPTION);
+    createEReference(pullStrategyEClass, PULL_STRATEGY__MECHANISMS);
+    createEReference(pullStrategyEClass, PULL_STRATEGY__PROCESSES);
 
-    resourceOutsourcingEClass = createEClass(RESOURCE_OUTSOURCING);
-    createEReference(resourceOutsourcingEClass, RESOURCE_OUTSOURCING__TYPE);
-    createEAttribute(resourceOutsourcingEClass, RESOURCE_OUTSOURCING__DESCRIPTION);
-
-    wiAcceptanceRuleTypeEClass = createEClass(WI_ACCEPTANCE_RULE_TYPE);
-    createEAttribute(wiAcceptanceRuleTypeEClass, WI_ACCEPTANCE_RULE_TYPE__NAME);
-    createEAttribute(wiAcceptanceRuleTypeEClass, WI_ACCEPTANCE_RULE_TYPE__DESCRIPTION);
-
-    wiSelectionRuleTypeEClass = createEClass(WI_SELECTION_RULE_TYPE);
-    createEAttribute(wiSelectionRuleTypeEClass, WI_SELECTION_RULE_TYPE__NAME);
-    createEAttribute(wiSelectionRuleTypeEClass, WI_SELECTION_RULE_TYPE__DESCRIPTION);
-
-    wiAssignmentRuleTypeEClass = createEClass(WI_ASSIGNMENT_RULE_TYPE);
-    createEAttribute(wiAssignmentRuleTypeEClass, WI_ASSIGNMENT_RULE_TYPE__NAME);
-    createEAttribute(wiAssignmentRuleTypeEClass, WI_ASSIGNMENT_RULE_TYPE__DESCRIPTION);
-
-    resourceAllocationRuleTypeEClass = createEClass(RESOURCE_ALLOCATION_RULE_TYPE);
-    createEAttribute(resourceAllocationRuleTypeEClass, RESOURCE_ALLOCATION_RULE_TYPE__NAME);
-    createEAttribute(resourceAllocationRuleTypeEClass, RESOURCE_ALLOCATION_RULE_TYPE__DESCRIPTION);
-
-    resourceOutsourcingRuleTypeEClass = createEClass(RESOURCE_OUTSOURCING_RULE_TYPE);
-    createEAttribute(resourceOutsourcingRuleTypeEClass, RESOURCE_OUTSOURCING_RULE_TYPE__NAME);
-    createEAttribute(resourceOutsourcingRuleTypeEClass, RESOURCE_OUTSOURCING_RULE_TYPE__DESCRIPTION);
+    pushStrategyEClass = createEClass(PUSH_STRATEGY);
+    createEAttribute(pushStrategyEClass, PUSH_STRATEGY__DESCRIPTION);
+    createEReference(pushStrategyEClass, PUSH_STRATEGY__MECHANISMS);
+    createEReference(pushStrategyEClass, PUSH_STRATEGY__PROCESSES);
 
     mechanismEClass = createEClass(MECHANISM);
     createEAttribute(mechanismEClass, MECHANISM__NAME);
@@ -2916,41 +3439,27 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     createEAttribute(mechanismAttributeEClass, MECHANISM_ATTRIBUTE__ATTRIBUTE);
     createEAttribute(mechanismAttributeEClass, MECHANISM_ATTRIBUTE__VALUE);
 
-    processEClass = createEClass(PROCESS);
-    createEAttribute(processEClass, PROCESS__NAME);
-    createEAttribute(processEClass, PROCESS__VALUE);
-    createEAttribute(processEClass, PROCESS__DESCRIPTION);
-    createEReference(processEClass, PROCESS__ATTRIBUTES);
-
-    processAttributeEClass = createEClass(PROCESS_ATTRIBUTE);
-    createEAttribute(processAttributeEClass, PROCESS_ATTRIBUTE__ATTRIBUTE);
-    createEAttribute(processAttributeEClass, PROCESS_ATTRIBUTE__VALUE);
-
     workSourceEClass = createEClass(WORK_SOURCE);
-    createEAttribute(workSourceEClass, WORK_SOURCE__ID);
     createEAttribute(workSourceEClass, WORK_SOURCE__NAME);
     createEAttribute(workSourceEClass, WORK_SOURCE__DESCRIPTION);
     createEReference(workSourceEClass, WORK_SOURCE__ASSIGN_TO);
-    createEReference(workSourceEClass, WORK_SOURCE__ASSIGNMENT_RULE);
 
     workItemNetworkEClass = createEClass(WORK_ITEM_NETWORK);
-    createEAttribute(workItemNetworkEClass, WORK_ITEM_NETWORK__ID);
     createEAttribute(workItemNetworkEClass, WORK_ITEM_NETWORK__NAME);
     createEAttribute(workItemNetworkEClass, WORK_ITEM_NETWORK__DESCRIPTION);
     createEReference(workItemNetworkEClass, WORK_ITEM_NETWORK__WORK_ITEMS);
+    createEAttribute(workItemNetworkEClass, WORK_ITEM_NETWORK__ID);
 
     workItemEClass = createEClass(WORK_ITEM);
-    createEAttribute(workItemEClass, WORK_ITEM__ID);
     createEAttribute(workItemEClass, WORK_ITEM__NAME);
-    createEAttribute(workItemEClass, WORK_ITEM__DESCRIPTION);
     createEReference(workItemEClass, WORK_ITEM__TYPE);
+    createEAttribute(workItemEClass, WORK_ITEM__DESCRIPTION);
     createEAttribute(workItemEClass, WORK_ITEM__HAS_PREDECESSORS);
     createEReference(workItemEClass, WORK_ITEM__PTASKS);
-    createEAttribute(workItemEClass, WORK_ITEM__IS_AGGREGATION_NODE);
+    createEAttribute(workItemEClass, WORK_ITEM__HAS_SUBTASKS);
     createEReference(workItemEClass, WORK_ITEM__STASKS);
-    createEReference(workItemEClass, WORK_ITEM__CAUSAL_TRIGGERS);
+    createEReference(workItemEClass, WORK_ITEM__REQUIRED_ANALYSIS);
     createEReference(workItemEClass, WORK_ITEM__REQUIRED_SERVICES);
-    createEReference(workItemEClass, WORK_ITEM__EFFORTS);
     createEReference(workItemEClass, WORK_ITEM__MATURITY_LEVELS);
     createEReference(workItemEClass, WORK_ITEM__UNCERTAINTY);
     createEReference(workItemEClass, WORK_ITEM__RISK);
@@ -2961,16 +3470,16 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     createEReference(workItemEClass, WORK_ITEM__WORK_SOURCE);
     createEAttribute(workItemEClass, WORK_ITEM__ARRIVAL_TIME);
     createEAttribute(workItemEClass, WORK_ITEM__DUE_DATE);
+    createEAttribute(workItemEClass, WORK_ITEM__ID);
+
+    requiredServiceEClass = createEClass(REQUIRED_SERVICE);
+    createEReference(requiredServiceEClass, REQUIRED_SERVICE__SERVICE_TYPE);
+    createEReference(requiredServiceEClass, REQUIRED_SERVICE__EFFORTS);
 
     impactEClass = createEClass(IMPACT);
-    createEReference(impactEClass, IMPACT__IMPACT_WIS);
+    createEReference(impactEClass, IMPACT__IMPACT_WI);
     createEReference(impactEClass, IMPACT__LIKELIHOOD);
-    createEReference(impactEClass, IMPACT__IMPACT);
-
-    causalTriggerEClass = createEClass(CAUSAL_TRIGGER);
-    createEReference(causalTriggerEClass, CAUSAL_TRIGGER__TRIGGERED);
-    createEAttribute(causalTriggerEClass, CAUSAL_TRIGGER__AT_PROGRESS);
-    createEAttribute(causalTriggerEClass, CAUSAL_TRIGGER__ON_PROBABILITY);
+    createEReference(impactEClass, IMPACT__RISK);
 
     workItemTypeEClass = createEClass(WORK_ITEM_TYPE);
     createEAttribute(workItemTypeEClass, WORK_ITEM_TYPE__ID);
@@ -2986,33 +3495,172 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     createEAttribute(classOfServiceEClass, CLASS_OF_SERVICE__ID);
     createEAttribute(classOfServiceEClass, CLASS_OF_SERVICE__NAME);
     createEAttribute(classOfServiceEClass, CLASS_OF_SERVICE__DESCRIPTION);
+    createEAttribute(classOfServiceEClass, CLASS_OF_SERVICE__PRIORITY);
     createEAttribute(classOfServiceEClass, CLASS_OF_SERVICE__DISRUPTIVE);
 
     serviceEClass = createEClass(SERVICE);
-    createEAttribute(serviceEClass, SERVICE__ID);
     createEAttribute(serviceEClass, SERVICE__NAME);
     createEAttribute(serviceEClass, SERVICE__DESCRIPTION);
+    createEAttribute(serviceEClass, SERVICE__HIERARCHY);
+    createEAttribute(serviceEClass, SERVICE__ID);
 
     serviceProviderEClass = createEClass(SERVICE_PROVIDER);
-    createEAttribute(serviceProviderEClass, SERVICE_PROVIDER__ID);
     createEAttribute(serviceProviderEClass, SERVICE_PROVIDER__NAME);
-    createEAttribute(serviceProviderEClass, SERVICE_PROVIDER__DESCRIPTION);
+    createEReference(serviceProviderEClass, SERVICE_PROVIDER__TYPE);
     createEReference(serviceProviderEClass, SERVICE_PROVIDER__ASSIGN_TO);
     createEReference(serviceProviderEClass, SERVICE_PROVIDER__OUTSOURCE_FROM);
-    createEReference(serviceProviderEClass, SERVICE_PROVIDER__TEAM_SERVICE);
     createEReference(serviceProviderEClass, SERVICE_PROVIDER__GOVERNANCE_STRATEGY);
     createEReference(serviceProviderEClass, SERVICE_PROVIDER__RESOURCES);
+    createEAttribute(serviceProviderEClass, SERVICE_PROVIDER__ID);
+
+    serviceProviderTypeEClass = createEClass(SERVICE_PROVIDER_TYPE);
+    createEAttribute(serviceProviderTypeEClass, SERVICE_PROVIDER_TYPE__ID);
+    createEAttribute(serviceProviderTypeEClass, SERVICE_PROVIDER_TYPE__NAME);
+    createEAttribute(serviceProviderTypeEClass, SERVICE_PROVIDER_TYPE__DESCRIPTION);
+    createEAttribute(serviceProviderTypeEClass, SERVICE_PROVIDER_TYPE__HIERARCHY);
 
     assetEClass = createEClass(ASSET);
-    createEAttribute(assetEClass, ASSET__ID);
     createEAttribute(assetEClass, ASSET__NAME);
-    createEAttribute(assetEClass, ASSET__DESCRIPTION);
     createEReference(assetEClass, ASSET__NUMBER);
     createEReference(assetEClass, ASSET__SKILL_SET);
+    createEAttribute(assetEClass, ASSET__ID);
 
     skillEClass = createEClass(SKILL);
     createEReference(skillEClass, SKILL__SERVICE);
     createEReference(skillEClass, SKILL__EFFICIENCY);
+
+    abstractTypeEClass = createEClass(ABSTRACT_TYPE);
+    createEAttribute(abstractTypeEClass, ABSTRACT_TYPE__TYPE);
+    createEAttribute(abstractTypeEClass, ABSTRACT_TYPE__LIST_TYPE);
+    createEAttribute(abstractTypeEClass, ABSTRACT_TYPE__MAP_TYPE);
+    createEAttribute(abstractTypeEClass, ABSTRACT_TYPE__KEY_TYPE);
+    createEAttribute(abstractTypeEClass, ABSTRACT_TYPE__VALUE_TYPE);
+
+    classAttributesEClass = createEClass(CLASS_ATTRIBUTES);
+    createEReference(classAttributesEClass, CLASS_ATTRIBUTES__AGENT_ATTRIBUTES);
+
+    agentEClass = createEClass(AGENT);
+    createEAttribute(agentEClass, AGENT__NAME);
+    createEReference(agentEClass, AGENT__ATTRIBUTE_VALUES);
+
+    taskEClass = createEClass(TASK);
+    createEAttribute(taskEClass, TASK__NAME);
+    createEReference(taskEClass, TASK__ATTRIBUTE_VALUES);
+
+    attributeEClass = createEClass(ATTRIBUTE);
+    createEReference(attributeEClass, ATTRIBUTE__TYPE);
+    createEAttribute(attributeEClass, ATTRIBUTE__NAME);
+    createEAttribute(attributeEClass, ATTRIBUTE__DEFAULT);
+
+    attributeValueEClass = createEClass(ATTRIBUTE_VALUE);
+    createEReference(attributeValueEClass, ATTRIBUTE_VALUE__ATTRIBUTE);
+    createEAttribute(attributeValueEClass, ATTRIBUTE_VALUE__VALUE);
+
+    variableEClass = createEClass(VARIABLE);
+    createEReference(variableEClass, VARIABLE__TYPE);
+    createEAttribute(variableEClass, VARIABLE__NAME);
+
+    actionEClass = createEClass(ACTION);
+    createEAttribute(actionEClass, ACTION__NAME);
+    createEReference(actionEClass, ACTION__INPUTS);
+
+    stateEClass = createEClass(STATE);
+    createEAttribute(stateEClass, STATE__BACKGROUND_STATE);
+    createEAttribute(stateEClass, STATE__NAME);
+    createEReference(stateEClass, STATE__STATEMENTS);
+
+    ifExpressionEClass = createEClass(IF_EXPRESSION);
+    createEReference(ifExpressionEClass, IF_EXPRESSION__CONDITION);
+    createEReference(ifExpressionEClass, IF_EXPRESSION__STATEMENTS);
+    createEAttribute(ifExpressionEClass, IF_EXPRESSION__HAS_ELSE_IF);
+    createEReference(ifExpressionEClass, IF_EXPRESSION__ELSE_IF);
+    createEReference(ifExpressionEClass, IF_EXPRESSION__ELSES);
+
+    forExpressionEClass = createEClass(FOR_EXPRESSION);
+    createEReference(forExpressionEClass, FOR_EXPRESSION__OBJECT);
+    createEReference(forExpressionEClass, FOR_EXPRESSION__SET);
+    createEReference(forExpressionEClass, FOR_EXPRESSION__STATEMENTS);
+
+    whileExpressionEClass = createEClass(WHILE_EXPRESSION);
+    createEReference(whileExpressionEClass, WHILE_EXPRESSION__CONDITION);
+    createEReference(whileExpressionEClass, WHILE_EXPRESSION__STATEMENTS);
+
+    conditionEClass = createEClass(CONDITION);
+    createEReference(conditionEClass, CONDITION__SUBJECTIVE);
+    createEReference(conditionEClass, CONDITION__OPERATOR);
+    createEReference(conditionEClass, CONDITION__OBJECTIVE);
+    createEAttribute(conditionEClass, CONDITION__HAS_AND);
+    createEReference(conditionEClass, CONDITION__AND_CONDITION);
+    createEAttribute(conditionEClass, CONDITION__HAS_OR);
+    createEReference(conditionEClass, CONDITION__OR_CONDITION);
+
+    statementEClass = createEClass(STATEMENT);
+    createEAttribute(statementEClass, STATEMENT__IS_ACTION);
+    createEReference(statementEClass, STATEMENT__ACTION_STATEMENT);
+    createEAttribute(statementEClass, STATEMENT__IS_CHANGE_STATE);
+    createEReference(statementEClass, STATEMENT__CHANGE_STATE_STATEMENT);
+    createEAttribute(statementEClass, STATEMENT__IS_DECLARATION);
+    createEReference(statementEClass, STATEMENT__DECLARATION_STATEMENT);
+    createEAttribute(statementEClass, STATEMENT__IS_IF_EXPRESSION);
+    createEReference(statementEClass, STATEMENT__IF_EXPRESSION);
+    createEAttribute(statementEClass, STATEMENT__IS_FOR_EXPRESSION);
+    createEReference(statementEClass, STATEMENT__FOR_EXPRESSION);
+    createEAttribute(statementEClass, STATEMENT__IS_WHILE_EXPRESSION);
+    createEReference(statementEClass, STATEMENT__WHILE_EXPRESSION);
+    createEReference(statementEClass, STATEMENT__ASSERT_STATEMENT);
+
+    declarationStatementEClass = createEClass(DECLARATION_STATEMENT);
+    createEReference(declarationStatementEClass, DECLARATION_STATEMENT__VARIABLE);
+    createEReference(declarationStatementEClass, DECLARATION_STATEMENT__VALUE);
+
+    actionStatementEClass = createEClass(ACTION_STATEMENT);
+    createEReference(actionStatementEClass, ACTION_STATEMENT__ACTION);
+    createEReference(actionStatementEClass, ACTION_STATEMENT__INPUTS);
+
+    assertStatementEClass = createEClass(ASSERT_STATEMENT);
+    createEReference(assertStatementEClass, ASSERT_STATEMENT__INPUT);
+    createEReference(assertStatementEClass, ASSERT_STATEMENT__VALUE);
+
+    changeStateStatementEClass = createEClass(CHANGE_STATE_STATEMENT);
+    createEReference(changeStateStatementEClass, CHANGE_STATE_STATEMENT__TARGET_STATE);
+
+    expressionEClass = createEClass(EXPRESSION);
+
+    termEClass = createEClass(TERM);
+
+    factorEClass = createEClass(FACTOR);
+    createEAttribute(factorEClass, FACTOR__NUMBER);
+    createEReference(factorEClass, FACTOR__VARIABLE);
+    createEAttribute(factorEClass, FACTOR__STRING);
+    createEAttribute(factorEClass, FACTOR__BOOLEAN);
+    createEReference(factorEClass, FACTOR__EXPRESSION);
+
+    varExpressionEClass = createEClass(VAR_EXPRESSION);
+    createEAttribute(varExpressionEClass, VAR_EXPRESSION__SELF);
+    createEAttribute(varExpressionEClass, VAR_EXPRESSION__CONTEXT);
+    createEAttribute(varExpressionEClass, VAR_EXPRESSION__VARIABLE);
+    createEReference(varExpressionEClass, VAR_EXPRESSION__METHODS);
+
+    methodEClass = createEClass(METHOD);
+    createEAttribute(methodEClass, METHOD__NAME);
+    createEAttribute(methodEClass, METHOD__FUNCTION_METHOD);
+    createEAttribute(methodEClass, METHOD__INPUTS);
+
+    plusEClass = createEClass(PLUS);
+    createEReference(plusEClass, PLUS__LEFT);
+    createEReference(plusEClass, PLUS__RIGHT);
+
+    minusEClass = createEClass(MINUS);
+    createEReference(minusEClass, MINUS__LEFT);
+    createEReference(minusEClass, MINUS__RIGHT);
+
+    multiplyEClass = createEClass(MULTIPLY);
+    createEReference(multiplyEClass, MULTIPLY__LEFT);
+    createEReference(multiplyEClass, MULTIPLY__RIGHT);
+
+    divisionEClass = createEClass(DIVISION);
+    createEReference(divisionEClass, DIVISION__LEFT);
+    createEReference(divisionEClass, DIVISION__RIGHT);
   }
 
   /**
@@ -3044,50 +3692,46 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    variableEClass.getESuperTypes().add(this.getDeclarationStatement());
+    termEClass.getESuperTypes().add(this.getExpression());
+    factorEClass.getESuperTypes().add(this.getTerm());
+    plusEClass.getESuperTypes().add(this.getExpression());
+    minusEClass.getESuperTypes().add(this.getExpression());
+    multiplyEClass.getESuperTypes().add(this.getTerm());
+    divisionEClass.getESuperTypes().add(this.getTerm());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelBuilderEClass, ModelBuilder.class, "ModelBuilder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getModelBuilder_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getModelBuilder_Description(), ecorePackage.getEString(), "Description", null, 0, 1, ModelBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModelBuilder_SystemLibraries(), this.getSystemLibraries(), null, "SystemLibraries", null, 0, 1, ModelBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModelBuilder_UserLibraries(), this.getUserLibraries(), null, "UserLibraries", null, 0, 1, ModelBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModelBuilder_ExperimentModel(), this.getExperimentModel(), null, "ExperimentModel", null, 0, 1, ModelBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(experimentModelEClass, ExperimentModel.class, "ExperimentModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getExperimentModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, ExperimentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExperimentModel_Path(), ecorePackage.getEString(), "Path", null, 0, 1, ExperimentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExperimentModel_Variables(), this.getVariable(), null, "Variables", null, 0, -1, ExperimentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExperimentModel_ExperimentVariables(), this.getExperimentVariable(), null, "ExperimentVariables", null, 0, -1, ExperimentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExperimentModel_ServiceProviders(), this.getServiceProvider(), null, "ServiceProviders", null, 0, -1, ExperimentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExperimentModel_WorkSources(), this.getWorkSource(), null, "WorkSources", null, 0, -1, ExperimentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExperimentModel_WorkItemNetworks(), this.getWorkItemNetwork(), null, "WorkItemNetworks", null, 0, -1, ExperimentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExperimentModel_WINReplications(), this.getWINReplication(), null, "WINReplications", null, 0, -1, ExperimentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExperimentModel_Indicators(), ecorePackage.getEString(), "Indicators", null, 0, -1, ExperimentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(systemLibrariesEClass, SystemLibraries.class, "SystemLibraries", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSystemLibraries_EventTypes(), this.getEventType(), null, "EventTypes", null, 0, -1, SystemLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSystemLibraries_ConditionTypes(), this.getConditionType(), null, "ConditionTypes", null, 0, -1, SystemLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSystemLibraries_TransitionTypes(), this.getTransitionType(), null, "TransitionTypes", null, 0, -1, SystemLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSystemLibraries_WIAcceptanceRuleTypes(), this.getWIAcceptanceRuleType(), null, "WIAcceptanceRuleTypes", null, 0, -1, SystemLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSystemLibraries_WISelectionRuleTypes(), this.getWISelectionRuleType(), null, "WISelectionRuleTypes", null, 0, -1, SystemLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSystemLibraries_WIAssignmentRuleTypes(), this.getWIAssignmentRuleType(), null, "WIAssignmentRuleTypes", null, 0, -1, SystemLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSystemLibraries_ResourceAllocationRuleTypes(), this.getResourceAllocationRuleType(), null, "ResourceAllocationRuleTypes", null, 0, -1, SystemLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSystemLibraries_ResourceOutsourcingRuleTypes(), this.getResourceOutsourcingRuleType(), null, "ResourceOutsourcingRuleTypes", null, 0, -1, SystemLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSystemLibraries_ProcessModels(), this.getProcessModel(), null, "ProcessModels", null, 0, -1, SystemLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSystemLibraries_ValueFunctions(), this.getValueFunction(), null, "ValueFunctions", null, 0, -1, SystemLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(userLibrariesEClass, UserLibraries.class, "UserLibraries", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUserLibraries_ServiceProviderTypes(), this.getServiceProviderType(), null, "ServiceProviderTypes", null, 0, -1, UserLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUserLibraries_WorkItemTypes(), this.getWorkItemType(), null, "WorkItemTypes", null, 0, -1, UserLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUserLibraries_ProcessModels(), this.getProcessModel(), null, "ProcessModels", null, 0, -1, UserLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUserLibraries_ClassOfServices(), this.getClassOfService(), null, "ClassOfServices", null, 0, -1, UserLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUserLibraries_Services(), this.getService(), null, "Services", null, 0, -1, UserLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUserLibraries_GovernanceStrategies(), this.getGovernanceStrategy(), null, "GovernanceStrategies", null, 0, -1, UserLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(abstractParameterEClass, AbstractParameter.class, "AbstractParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAbstractParameter_IsVariable(), ecorePackage.getEBoolean(), "isVariable", null, 0, 1, AbstractParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAbstractParameter_Variable(), this.getVariable(), null, "variable", null, 0, 1, AbstractParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAbstractParameter_Variable(), this.getExperimentVariable(), null, "variable", null, 0, 1, AbstractParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAbstractParameter_Value(), ecorePackage.getEString(), "value", null, 0, 1, AbstractParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(numExpressionEClass, NumExpression.class, "NumExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getNumExpression_NumValue(), ecorePackage.getEDouble(), "numValue", null, 0, 1, NumExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getNumExpression_NumValue(), ecorePackage.getEString(), "numValue", null, 0, 1, NumExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getNumExpression_Distribution(), ecorePackage.getEBoolean(), "distribution", null, 0, 1, NumExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNumExpression_NumDist(), this.getDistribution(), null, "numDist", null, 0, 1, NumExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3099,18 +3743,18 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEAttribute(getOperator_SmallerOrEqualTo(), ecorePackage.getEBoolean(), "smallerOrEqualTo", null, 0, 1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getOperator_NotEqualTo(), ecorePackage.getEBoolean(), "notEqualTo", null, 0, 1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getVariable_TypeInteger(), ecorePackage.getEBoolean(), "typeInteger", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getVariable_IntValue(), ecorePackage.getEInt(), "intValue", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getVariable_TypeDouble(), ecorePackage.getEBoolean(), "typeDouble", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getVariable_DoubleValue(), ecorePackage.getEDouble(), "doubleValue", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getVariable_TypeString(), ecorePackage.getEBoolean(), "typeString", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getVariable_StringValue(), ecorePackage.getEString(), "stringValue", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getVariable_TypeDistribution(), ecorePackage.getEBoolean(), "typeDistribution", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getVariable_Distrbution(), this.getDistribution(), null, "distrbution", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getVariable_TypeStrategy(), ecorePackage.getEBoolean(), "typeStrategy", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getVariable_Strategy(), this.getGovernanceStrategy(), null, "strategy", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(experimentVariableEClass, ExperimentVariable.class, "ExperimentVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getExperimentVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, ExperimentVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExperimentVariable_TypeInteger(), ecorePackage.getEBoolean(), "typeInteger", null, 0, 1, ExperimentVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExperimentVariable_IntValue(), ecorePackage.getEInt(), "intValue", null, 0, 1, ExperimentVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExperimentVariable_TypeDouble(), ecorePackage.getEBoolean(), "typeDouble", null, 0, 1, ExperimentVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExperimentVariable_DoubleValue(), ecorePackage.getEDouble(), "doubleValue", null, 0, 1, ExperimentVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExperimentVariable_TypeString(), ecorePackage.getEBoolean(), "typeString", null, 0, 1, ExperimentVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExperimentVariable_StringValue(), ecorePackage.getEString(), "stringValue", null, 0, 1, ExperimentVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExperimentVariable_TypeDistribution(), ecorePackage.getEBoolean(), "typeDistribution", null, 0, 1, ExperimentVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExperimentVariable_Distrbution(), this.getDistribution(), null, "distrbution", null, 0, 1, ExperimentVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExperimentVariable_TypeStrategy(), ecorePackage.getEBoolean(), "typeStrategy", null, 0, 1, ExperimentVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExperimentVariable_Strategy(), this.getGovernanceStrategy(), null, "strategy", null, 0, 1, ExperimentVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(distributionEClass, Distribution.class, "Distribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDistribution_IsNormal(), ecorePackage.getEBoolean(), "isNormal", null, 0, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3118,97 +3762,44 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEAttribute(getDistribution_IsExponential(), ecorePackage.getEBoolean(), "isExponential", null, 0, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDistribution_Parameters(), this.getAbstractParameter(), null, "parameters", null, 0, -1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(eventTypeEClass, EventType.class, "EventType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getEventType_Name(), ecorePackage.getEString(), "name", null, 0, 1, EventType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getEventType_Description(), ecorePackage.getEString(), "description", null, 0, 1, EventType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(conditionTypeEClass, ConditionType.class, "ConditionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getConditionType_Name(), ecorePackage.getEString(), "name", null, 0, 1, ConditionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getConditionType_Description(), ecorePackage.getEString(), "description", null, 0, 1, ConditionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(transitionTypeEClass, TransitionType.class, "TransitionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTransitionType_Name(), ecorePackage.getEString(), "name", null, 0, 1, TransitionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getTransitionType_Description(), ecorePackage.getEString(), "description", null, 0, 1, TransitionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(processModelEClass, ProcessModel.class, "ProcessModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getProcessModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, ProcessModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getProcessModel_Description(), ecorePackage.getEString(), "description", null, 0, 1, ProcessModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getProcessModel_Events(), this.getEvent(), null, "events", null, 0, -1, ProcessModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEvent_Conditions(), this.getCondition(), null, "conditions", null, 0, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEvent_Transitions(), this.getTransition(), null, "transitions", null, 0, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCondition_Type(), this.getConditionType(), null, "type", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCondition_Operator(), this.getOperator(), null, "operator", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCondition_Value(), ecorePackage.getEString(), "value", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTransition_Type(), this.getTransitionType(), null, "type", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getTransition_Value(), ecorePackage.getEString(), "value", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(agentRoleTypeEClass, AgentRoleType.class, "AgentRoleType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAgentRoleType_Name(), ecorePackage.getEString(), "name", null, 0, 1, AgentRoleType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAgentRoleType_Description(), ecorePackage.getEString(), "description", null, 0, 1, AgentRoleType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(winReplicationEClass, WINReplication.class, "WINReplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getWINReplication_WorkItemNetwork(), this.getWorkItemNetwork(), null, "workItemNetwork", null, 0, 1, WINReplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWINReplication_NumReplications(), ecorePackage.getEInt(), "numReplications", null, 0, 1, WINReplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(governanceStrategyEClass, GovernanceStrategy.class, "GovernanceStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getGovernanceStrategy_Id(), ecorePackage.getEInt(), "id", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getGovernanceStrategy_Name(), ecorePackage.getEString(), "name", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getGovernanceStrategy_Description(), ecorePackage.getEString(), "description", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getGovernanceStrategy_WIAcceptanceRule(), this.getWIAcceptance(), null, "WIAcceptanceRule", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getGovernanceStrategy_WISelectionRule(), this.getWISelection(), null, "WISelectionRule", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getGovernanceStrategy_WIAssignmentRule(), this.getWIAssignment(), null, "WIAssignmentRule", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getGovernanceStrategy_ResourceAllocationRule(), this.getResourceAllocation(), null, "ResourceAllocationRule", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getGovernanceStrategy_ResourceOutsourcingRule(), this.getResourceOutsourcing(), null, "ResourceOutsourcingRule", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getGovernanceStrategy_Mechanisms(), this.getMechanism(), null, "Mechanisms", null, 0, -1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getGovernanceStrategy_Processes(), this.getProcess(), null, "Processes", null, 0, -1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getGovernanceStrategy_Pull(), ecorePackage.getEBoolean(), "pull", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGovernanceStrategy_PullStrategy(), this.getPullStrategy(), null, "pullStrategy", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getGovernanceStrategy_Push(), ecorePackage.getEBoolean(), "push", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGovernanceStrategy_PushStrategy(), this.getPushStrategy(), null, "pushStrategy", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getGovernanceStrategy_Cnp(), ecorePackage.getEBoolean(), "cnp", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGovernanceStrategy_ContractNetProtocal(), this.getContractNetProtocol(), null, "contractNetProtocal", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(wiAcceptanceEClass, WIAcceptance.class, "WIAcceptance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getWIAcceptance_Type(), this.getWIAcceptanceRuleType(), null, "type", null, 0, 1, WIAcceptance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getWIAcceptance_Description(), ecorePackage.getEString(), "description", null, 0, 1, WIAcceptance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getWIAcceptance_BacklogQLimit(), ecorePackage.getEInt(), "backlogQLimit", null, 0, 1, WIAcceptance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getWIAcceptance_ReadyQLimit(), ecorePackage.getEInt(), "readyQLimit", null, 0, 1, WIAcceptance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(contractNetProtocolEClass, ContractNetProtocol.class, "ContractNetProtocol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getContractNetProtocol_Description(), ecorePackage.getEString(), "description", null, 0, 1, ContractNetProtocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getContractNetProtocol_Variables(), this.getVariable(), null, "variables", null, 0, -1, ContractNetProtocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getContractNetProtocol_RoleBehaviors(), this.getRoleBehavior(), null, "roleBehaviors", null, 0, -1, ContractNetProtocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getContractNetProtocol_Processes(), this.getProcessModel(), null, "Processes", null, 0, -1, ContractNetProtocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(wiSelectionEClass, WISelection.class, "WISelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getWISelection_Type(), this.getWISelectionRuleType(), null, "type", null, 0, 1, WISelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getWISelection_Description(), ecorePackage.getEString(), "description", null, 0, 1, WISelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(roleBehaviorEClass, RoleBehavior.class, "RoleBehavior", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRoleBehavior_Name(), ecorePackage.getEString(), "name", null, 0, 1, RoleBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRoleBehavior_Actions(), this.getAction(), null, "actions", null, 0, -1, RoleBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRoleBehavior_States(), this.getState(), null, "states", null, 0, -1, RoleBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(wiAssignmentEClass, WIAssignment.class, "WIAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getWIAssignment_Type(), this.getWIAssignmentRuleType(), null, "type", null, 0, 1, WIAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getWIAssignment_Description(), ecorePackage.getEString(), "description", null, 0, 1, WIAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(processModelEClass, ProcessModel.class, "ProcessModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getProcessModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, ProcessModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProcessModel_Actions(), this.getAction(), null, "actions", null, 0, -1, ProcessModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProcessModel_States(), this.getState(), null, "states", null, 0, -1, ProcessModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(resourceAllocationEClass, ResourceAllocation.class, "ResourceAllocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getResourceAllocation_Type(), this.getResourceAllocationRuleType(), null, "type", null, 0, 1, ResourceAllocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getResourceAllocation_Description(), ecorePackage.getEString(), "description", null, 0, 1, ResourceAllocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(pullStrategyEClass, PullStrategy.class, "PullStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPullStrategy_Description(), ecorePackage.getEString(), "description", null, 0, 1, PullStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPullStrategy_Mechanisms(), this.getMechanism(), null, "Mechanisms", null, 0, -1, PullStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPullStrategy_Processes(), this.getProcessModel(), null, "Processes", null, 0, -1, PullStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(resourceOutsourcingEClass, ResourceOutsourcing.class, "ResourceOutsourcing", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getResourceOutsourcing_Type(), this.getResourceOutsourcingRuleType(), null, "type", null, 0, 1, ResourceOutsourcing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getResourceOutsourcing_Description(), ecorePackage.getEString(), "description", null, 0, 1, ResourceOutsourcing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(wiAcceptanceRuleTypeEClass, WIAcceptanceRuleType.class, "WIAcceptanceRuleType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getWIAcceptanceRuleType_Name(), ecorePackage.getEString(), "name", null, 0, 1, WIAcceptanceRuleType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getWIAcceptanceRuleType_Description(), ecorePackage.getEString(), "description", null, 0, 1, WIAcceptanceRuleType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(wiSelectionRuleTypeEClass, WISelectionRuleType.class, "WISelectionRuleType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getWISelectionRuleType_Name(), ecorePackage.getEString(), "name", null, 0, 1, WISelectionRuleType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getWISelectionRuleType_Description(), ecorePackage.getEString(), "description", null, 0, 1, WISelectionRuleType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(wiAssignmentRuleTypeEClass, WIAssignmentRuleType.class, "WIAssignmentRuleType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getWIAssignmentRuleType_Name(), ecorePackage.getEString(), "name", null, 0, 1, WIAssignmentRuleType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getWIAssignmentRuleType_Description(), ecorePackage.getEString(), "description", null, 0, 1, WIAssignmentRuleType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(resourceAllocationRuleTypeEClass, ResourceAllocationRuleType.class, "ResourceAllocationRuleType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getResourceAllocationRuleType_Name(), ecorePackage.getEString(), "name", null, 0, 1, ResourceAllocationRuleType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getResourceAllocationRuleType_Description(), ecorePackage.getEString(), "description", null, 0, 1, ResourceAllocationRuleType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(resourceOutsourcingRuleTypeEClass, ResourceOutsourcingRuleType.class, "ResourceOutsourcingRuleType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getResourceOutsourcingRuleType_Name(), ecorePackage.getEString(), "name", null, 0, 1, ResourceOutsourcingRuleType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getResourceOutsourcingRuleType_Description(), ecorePackage.getEString(), "description", null, 0, 1, ResourceOutsourcingRuleType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(pushStrategyEClass, PushStrategy.class, "PushStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPushStrategy_Description(), ecorePackage.getEString(), "description", null, 0, 1, PushStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPushStrategy_Mechanisms(), this.getMechanism(), null, "Mechanisms", null, 0, -1, PushStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPushStrategy_Processes(), this.getProcessModel(), null, "Processes", null, 0, -1, PushStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mechanismEClass, Mechanism.class, "Mechanism", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMechanism_Name(), ecorePackage.getEString(), "name", null, 0, 1, Mechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3220,41 +3811,27 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEAttribute(getMechanismAttribute_Attribute(), ecorePackage.getEString(), "attribute", null, 0, 1, MechanismAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMechanismAttribute_Value(), ecorePackage.getEString(), "value", null, 0, 1, MechanismAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(processEClass, datasem.xtext.kanban.domainmodel.kanbanmodel.Process.class, "Process", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getProcess_Name(), ecorePackage.getEString(), "name", null, 0, 1, datasem.xtext.kanban.domainmodel.kanbanmodel.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getProcess_Value(), ecorePackage.getEString(), "value", null, 0, 1, datasem.xtext.kanban.domainmodel.kanbanmodel.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getProcess_Description(), ecorePackage.getEString(), "description", null, 0, 1, datasem.xtext.kanban.domainmodel.kanbanmodel.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getProcess_Attributes(), this.getProcessAttribute(), null, "attributes", null, 0, -1, datasem.xtext.kanban.domainmodel.kanbanmodel.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(processAttributeEClass, ProcessAttribute.class, "ProcessAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getProcessAttribute_Attribute(), ecorePackage.getEString(), "attribute", null, 0, 1, ProcessAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getProcessAttribute_Value(), ecorePackage.getEString(), "value", null, 0, 1, ProcessAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(workSourceEClass, WorkSource.class, "WorkSource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getWorkSource_Id(), ecorePackage.getEInt(), "id", null, 0, 1, WorkSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkSource_Name(), ecorePackage.getEString(), "name", null, 0, 1, WorkSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkSource_Description(), ecorePackage.getEString(), "description", null, 0, 1, WorkSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkSource_AssignTo(), this.getServiceProvider(), null, "assignTo", null, 0, -1, WorkSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getWorkSource_AssignmentRule(), this.getWIAssignment(), null, "assignmentRule", null, 0, 1, WorkSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(workItemNetworkEClass, WorkItemNetwork.class, "WorkItemNetwork", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getWorkItemNetwork_Id(), ecorePackage.getEInt(), "id", null, 0, 1, WorkItemNetwork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkItemNetwork_Name(), ecorePackage.getEString(), "name", null, 0, 1, WorkItemNetwork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkItemNetwork_Description(), ecorePackage.getEString(), "description", null, 0, 1, WorkItemNetwork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItemNetwork_WorkItems(), this.getWorkItem(), null, "workItems", null, 0, -1, WorkItemNetwork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getWorkItemNetwork_Id(), ecorePackage.getEInt(), "id", null, 0, 1, WorkItemNetwork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(workItemEClass, WorkItem.class, "WorkItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getWorkItem_Id(), ecorePackage.getEInt(), "id", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkItem_Name(), ecorePackage.getEString(), "name", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getWorkItem_Description(), ecorePackage.getEString(), "description", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_Type(), this.getWorkItemType(), null, "type", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getWorkItem_Description(), ecorePackage.getEString(), "description", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkItem_HasPredecessors(), ecorePackage.getEBoolean(), "hasPredecessors", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_PTasks(), this.getWorkItem(), null, "pTasks", null, 0, -1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getWorkItem_IsAggregationNode(), ecorePackage.getEBoolean(), "isAggregationNode", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getWorkItem_HasSubtasks(), ecorePackage.getEBoolean(), "hasSubtasks", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_STasks(), this.getWorkItem(), null, "sTasks", null, 0, -1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getWorkItem_CausalTriggers(), this.getCausalTrigger(), null, "causalTriggers", null, 0, -1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getWorkItem_RequiredServices(), this.getService(), null, "requiredServices", null, 0, -1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getWorkItem_Efforts(), this.getNumExpression(), null, "efforts", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkItem_RequiredAnalysis(), this.getRequiredService(), null, "requiredAnalysis", null, 0, -1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkItem_RequiredServices(), this.getRequiredService(), null, "requiredServices", null, 0, -1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_MaturityLevels(), this.getAbstractParameter(), null, "maturityLevels", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_Uncertainty(), this.getAbstractParameter(), null, "uncertainty", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_Risk(), this.getAbstractParameter(), null, "risk", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3265,16 +3842,16 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEReference(getWorkItem_WorkSource(), this.getWorkSource(), null, "workSource", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkItem_ArrivalTime(), ecorePackage.getEInt(), "arrivalTime", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkItem_DueDate(), ecorePackage.getEInt(), "dueDate", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getWorkItem_Id(), ecorePackage.getEInt(), "id", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(requiredServiceEClass, RequiredService.class, "RequiredService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRequiredService_ServiceType(), this.getService(), null, "serviceType", null, 0, 1, RequiredService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRequiredService_Efforts(), this.getNumExpression(), null, "efforts", null, 0, 1, RequiredService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(impactEClass, Impact.class, "Impact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getImpact_ImpactWIs(), this.getWorkItem(), null, "impactWIs", null, 0, -1, Impact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getImpact_Likelihood(), this.getAbstractParameter(), null, "likelihood", null, 0, 1, Impact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getImpact_Impact(), this.getAbstractParameter(), null, "impact", null, 0, 1, Impact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(causalTriggerEClass, CausalTrigger.class, "CausalTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCausalTrigger_Triggered(), this.getWorkItem(), null, "triggered", null, 0, -1, CausalTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCausalTrigger_AtProgress(), ecorePackage.getEDouble(), "atProgress", null, 0, 1, CausalTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCausalTrigger_OnProbability(), ecorePackage.getEDouble(), "onProbability", null, 0, 1, CausalTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getImpact_ImpactWI(), this.getWorkItem(), null, "impactWI", null, 0, 1, Impact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getImpact_Likelihood(), this.getNumExpression(), null, "likelihood", null, 0, 1, Impact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getImpact_Risk(), this.getNumExpression(), null, "risk", null, 0, 1, Impact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(workItemTypeEClass, WorkItemType.class, "WorkItemType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getWorkItemType_Id(), ecorePackage.getEInt(), "id", null, 0, 1, WorkItemType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3290,33 +3867,172 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEAttribute(getClassOfService_Id(), ecorePackage.getEInt(), "id", null, 0, 1, ClassOfService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getClassOfService_Name(), ecorePackage.getEString(), "name", null, 0, 1, ClassOfService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getClassOfService_Description(), ecorePackage.getEString(), "description", null, 0, 1, ClassOfService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getClassOfService_Priority(), ecorePackage.getEInt(), "priority", null, 0, 1, ClassOfService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getClassOfService_Disruptive(), ecorePackage.getEBoolean(), "disruptive", null, 0, 1, ClassOfService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(serviceEClass, Service.class, "Service", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getService_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getService_Name(), ecorePackage.getEString(), "name", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getService_Description(), ecorePackage.getEString(), "description", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getService_Hierarchy(), ecorePackage.getEInt(), "hierarchy", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getService_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(serviceProviderEClass, ServiceProvider.class, "ServiceProvider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getServiceProvider_Id(), ecorePackage.getEInt(), "id", null, 0, 1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getServiceProvider_Name(), ecorePackage.getEString(), "name", null, 0, 1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getServiceProvider_Description(), ecorePackage.getEString(), "description", null, 0, 1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getServiceProvider_Type(), this.getServiceProviderType(), null, "type", null, 0, 1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getServiceProvider_AssignTo(), this.getServiceProvider(), null, "assignTo", null, 0, -1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getServiceProvider_OutsourceFrom(), this.getServiceProvider(), null, "outsourceFrom", null, 0, -1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getServiceProvider_TeamService(), this.getService(), null, "teamService", null, 0, 1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getServiceProvider_GovernanceStrategy(), this.getGovernanceStrategy(), null, "governanceStrategy", null, 0, 1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getServiceProvider_Resources(), this.getAsset(), null, "resources", null, 0, -1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getServiceProvider_Id(), ecorePackage.getEInt(), "id", null, 0, 1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(serviceProviderTypeEClass, ServiceProviderType.class, "ServiceProviderType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getServiceProviderType_Id(), ecorePackage.getEInt(), "id", null, 0, 1, ServiceProviderType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getServiceProviderType_Name(), ecorePackage.getEString(), "name", null, 0, 1, ServiceProviderType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getServiceProviderType_Description(), ecorePackage.getEString(), "description", null, 0, 1, ServiceProviderType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getServiceProviderType_Hierarchy(), ecorePackage.getEInt(), "hierarchy", null, 0, 1, ServiceProviderType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assetEClass, Asset.class, "Asset", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAsset_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Asset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAsset_Name(), ecorePackage.getEString(), "name", null, 0, 1, Asset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAsset_Description(), ecorePackage.getEString(), "description", null, 0, 1, Asset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAsset_Number(), this.getAbstractParameter(), null, "number", null, 0, 1, Asset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAsset_SkillSet(), this.getSkill(), null, "skillSet", null, 0, -1, Asset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAsset_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Asset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(skillEClass, Skill.class, "Skill", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSkill_Service(), this.getService(), null, "service", null, 0, 1, Skill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSkill_Efficiency(), this.getNumExpression(), null, "efficiency", null, 0, 1, Skill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(abstractTypeEClass, AbstractType.class, "AbstractType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAbstractType_Type(), ecorePackage.getEString(), "type", null, 0, 1, AbstractType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAbstractType_ListType(), ecorePackage.getEBoolean(), "listType", null, 0, 1, AbstractType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAbstractType_MapType(), ecorePackage.getEBoolean(), "mapType", null, 0, 1, AbstractType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAbstractType_KeyType(), ecorePackage.getEString(), "keyType", null, 0, 1, AbstractType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAbstractType_ValueType(), ecorePackage.getEString(), "valueType", null, 0, 1, AbstractType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(classAttributesEClass, ClassAttributes.class, "ClassAttributes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getClassAttributes_AgentAttributes(), this.getAttribute(), null, "agentAttributes", null, 0, -1, ClassAttributes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(agentEClass, Agent.class, "Agent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAgent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Agent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAgent_AttributeValues(), this.getAttributeValue(), null, "attributeValues", null, 0, -1, Agent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTask_Name(), ecorePackage.getEString(), "name", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTask_AttributeValues(), this.getAttributeValue(), null, "attributeValues", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAttribute_Type(), this.getAbstractType(), null, "type", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAttribute_Default(), ecorePackage.getEString(), "default", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(attributeValueEClass, AttributeValue.class, "AttributeValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAttributeValue_Attribute(), this.getAttribute(), null, "attribute", null, 0, 1, AttributeValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAttributeValue_Value(), ecorePackage.getEString(), "value", null, 0, 1, AttributeValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getVariable_Type(), this.getAbstractType(), null, "type", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAction_Name(), ecorePackage.getEString(), "name", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAction_Inputs(), this.getVariable(), null, "inputs", null, 0, -1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getState_BackgroundState(), ecorePackage.getEBoolean(), "backgroundState", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getState_Statements(), this.getStatement(), null, "statements", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(ifExpressionEClass, IfExpression.class, "IfExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIfExpression_Condition(), this.getCondition(), null, "condition", null, 0, 1, IfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfExpression_Statements(), this.getStatement(), null, "statements", null, 0, -1, IfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getIfExpression_HasElseIf(), ecorePackage.getEBoolean(), "hasElseIf", null, 0, 1, IfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfExpression_ElseIf(), this.getIfExpression(), null, "elseIf", null, 0, 1, IfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfExpression_Elses(), this.getStatement(), null, "elses", null, 0, -1, IfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(forExpressionEClass, ForExpression.class, "ForExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getForExpression_Object(), this.getVarExpression(), null, "object", null, 0, 1, ForExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForExpression_Set(), this.getVarExpression(), null, "set", null, 0, 1, ForExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForExpression_Statements(), this.getStatement(), null, "statements", null, 0, -1, ForExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(whileExpressionEClass, WhileExpression.class, "WhileExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getWhileExpression_Condition(), this.getCondition(), null, "condition", null, 0, 1, WhileExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWhileExpression_Statements(), this.getStatement(), null, "statements", null, 0, -1, WhileExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCondition_Subjective(), this.getVarExpression(), null, "subjective", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCondition_Operator(), this.getOperator(), null, "operator", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCondition_Objective(), this.getExpression(), null, "objective", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCondition_HasAnd(), ecorePackage.getEBoolean(), "hasAnd", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCondition_AndCondition(), this.getCondition(), null, "andCondition", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCondition_HasOr(), ecorePackage.getEBoolean(), "hasOr", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCondition_OrCondition(), this.getCondition(), null, "orCondition", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStatement_IsAction(), ecorePackage.getEBoolean(), "isAction", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_ActionStatement(), this.getActionStatement(), null, "actionStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStatement_IsChangeState(), ecorePackage.getEBoolean(), "isChangeState", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_ChangeStateStatement(), this.getChangeStateStatement(), null, "changeStateStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStatement_IsDeclaration(), ecorePackage.getEBoolean(), "isDeclaration", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_DeclarationStatement(), this.getDeclarationStatement(), null, "declarationStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStatement_IsIfExpression(), ecorePackage.getEBoolean(), "isIfExpression", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_IfExpression(), this.getIfExpression(), null, "ifExpression", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStatement_IsForExpression(), ecorePackage.getEBoolean(), "isForExpression", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_ForExpression(), this.getForExpression(), null, "forExpression", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStatement_IsWhileExpression(), ecorePackage.getEBoolean(), "isWhileExpression", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_WhileExpression(), this.getWhileExpression(), null, "whileExpression", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_AssertStatement(), this.getAssertStatement(), null, "assertStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(declarationStatementEClass, DeclarationStatement.class, "DeclarationStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDeclarationStatement_Variable(), this.getVariable(), null, "variable", null, 0, 1, DeclarationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeclarationStatement_Value(), this.getExpression(), null, "value", null, 0, 1, DeclarationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(actionStatementEClass, ActionStatement.class, "ActionStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getActionStatement_Action(), this.getAction(), null, "action", null, 0, 1, ActionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getActionStatement_Inputs(), this.getVarExpression(), null, "inputs", null, 0, -1, ActionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(assertStatementEClass, AssertStatement.class, "AssertStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAssertStatement_Input(), this.getVarExpression(), null, "input", null, 0, 1, AssertStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAssertStatement_Value(), this.getExpression(), null, "value", null, 0, 1, AssertStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(changeStateStatementEClass, ChangeStateStatement.class, "ChangeStateStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getChangeStateStatement_TargetState(), this.getState(), null, "targetState", null, 0, 1, ChangeStateStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(termEClass, Term.class, "Term", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(factorEClass, Factor.class, "Factor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFactor_Number(), ecorePackage.getEString(), "number", null, 0, 1, Factor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFactor_Variable(), this.getVarExpression(), null, "variable", null, 0, 1, Factor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFactor_String(), ecorePackage.getEString(), "string", null, 0, 1, Factor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFactor_Boolean(), ecorePackage.getEBoolean(), "boolean", null, 0, 1, Factor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFactor_Expression(), this.getExpression(), null, "expression", null, 0, 1, Factor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(varExpressionEClass, VarExpression.class, "VarExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVarExpression_Self(), ecorePackage.getEBoolean(), "self", null, 0, 1, VarExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVarExpression_Context(), ecorePackage.getEBoolean(), "context", null, 0, 1, VarExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVarExpression_Variable(), ecorePackage.getEString(), "variable", null, 0, 1, VarExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVarExpression_Methods(), this.getMethod(), null, "methods", null, 0, -1, VarExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(methodEClass, Method.class, "Method", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMethod_Name(), ecorePackage.getEString(), "name", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMethod_FunctionMethod(), ecorePackage.getEBoolean(), "functionMethod", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMethod_Inputs(), ecorePackage.getEString(), "inputs", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(plusEClass, Plus.class, "Plus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPlus_Left(), this.getExpression(), null, "left", null, 0, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPlus_Right(), this.getTerm(), null, "right", null, 0, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(minusEClass, Minus.class, "Minus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMinus_Left(), this.getExpression(), null, "left", null, 0, 1, Minus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMinus_Right(), this.getTerm(), null, "right", null, 0, 1, Minus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(multiplyEClass, Multiply.class, "Multiply", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMultiply_Left(), this.getTerm(), null, "left", null, 0, 1, Multiply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMultiply_Right(), this.getFactor(), null, "right", null, 0, 1, Multiply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(divisionEClass, Division.class, "Division", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDivision_Left(), this.getTerm(), null, "left", null, 0, 1, Division.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDivision_Right(), this.getFactor(), null, "right", null, 0, 1, Division.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

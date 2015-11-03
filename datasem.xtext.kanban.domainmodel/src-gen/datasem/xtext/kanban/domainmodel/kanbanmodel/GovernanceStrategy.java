@@ -2,8 +2,6 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,16 +12,13 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getId <em>Id</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getName <em>Name</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getWIAcceptanceRule <em>WI Acceptance Rule</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getWISelectionRule <em>WI Selection Rule</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getWIAssignmentRule <em>WI Assignment Rule</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getResourceAllocationRule <em>Resource Allocation Rule</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getResourceOutsourcingRule <em>Resource Outsourcing Rule</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getMechanisms <em>Mechanisms</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getProcesses <em>Processes</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#isPull <em>Pull</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getPullStrategy <em>Pull Strategy</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#isPush <em>Push</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getPushStrategy <em>Push Strategy</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#isCnp <em>Cnp</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getContractNetProtocal <em>Contract Net Protocal</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,32 +28,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface GovernanceStrategy extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Id</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Id</em>' attribute.
-   * @see #setId(int)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_Id()
-   * @model
-   * @generated
-   */
-  int getId();
-
-  /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getId <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Id</em>' attribute.
-   * @see #getId()
-   * @generated
-   */
-  void setId(int value);
-
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -86,191 +55,159 @@ public interface GovernanceStrategy extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Description</b></em>' attribute.
+   * Returns the value of the '<em><b>Pull</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Description</em>' attribute isn't clear,
+   * If the meaning of the '<em>Pull</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Description</em>' attribute.
-   * @see #setDescription(String)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_Description()
+   * @return the value of the '<em>Pull</em>' attribute.
+   * @see #setPull(boolean)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_Pull()
    * @model
    * @generated
    */
-  String getDescription();
+  boolean isPull();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getDescription <em>Description</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#isPull <em>Pull</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Description</em>' attribute.
-   * @see #getDescription()
+   * @param value the new value of the '<em>Pull</em>' attribute.
+   * @see #isPull()
    * @generated
    */
-  void setDescription(String value);
+  void setPull(boolean value);
 
   /**
-   * Returns the value of the '<em><b>WI Acceptance Rule</b></em>' containment reference.
+   * Returns the value of the '<em><b>Pull Strategy</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>WI Acceptance Rule</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Pull Strategy</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>WI Acceptance Rule</em>' containment reference.
-   * @see #setWIAcceptanceRule(WIAcceptance)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_WIAcceptanceRule()
+   * @return the value of the '<em>Pull Strategy</em>' containment reference.
+   * @see #setPullStrategy(PullStrategy)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_PullStrategy()
    * @model containment="true"
    * @generated
    */
-  WIAcceptance getWIAcceptanceRule();
+  PullStrategy getPullStrategy();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getWIAcceptanceRule <em>WI Acceptance Rule</em>}' containment reference.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getPullStrategy <em>Pull Strategy</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>WI Acceptance Rule</em>' containment reference.
-   * @see #getWIAcceptanceRule()
+   * @param value the new value of the '<em>Pull Strategy</em>' containment reference.
+   * @see #getPullStrategy()
    * @generated
    */
-  void setWIAcceptanceRule(WIAcceptance value);
+  void setPullStrategy(PullStrategy value);
 
   /**
-   * Returns the value of the '<em><b>WI Selection Rule</b></em>' containment reference.
+   * Returns the value of the '<em><b>Push</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>WI Selection Rule</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Push</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>WI Selection Rule</em>' containment reference.
-   * @see #setWISelectionRule(WISelection)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_WISelectionRule()
-   * @model containment="true"
+   * @return the value of the '<em>Push</em>' attribute.
+   * @see #setPush(boolean)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_Push()
+   * @model
    * @generated
    */
-  WISelection getWISelectionRule();
+  boolean isPush();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getWISelectionRule <em>WI Selection Rule</em>}' containment reference.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#isPush <em>Push</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>WI Selection Rule</em>' containment reference.
-   * @see #getWISelectionRule()
+   * @param value the new value of the '<em>Push</em>' attribute.
+   * @see #isPush()
    * @generated
    */
-  void setWISelectionRule(WISelection value);
+  void setPush(boolean value);
 
   /**
-   * Returns the value of the '<em><b>WI Assignment Rule</b></em>' containment reference.
+   * Returns the value of the '<em><b>Push Strategy</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>WI Assignment Rule</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Push Strategy</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>WI Assignment Rule</em>' containment reference.
-   * @see #setWIAssignmentRule(WIAssignment)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_WIAssignmentRule()
+   * @return the value of the '<em>Push Strategy</em>' containment reference.
+   * @see #setPushStrategy(PushStrategy)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_PushStrategy()
    * @model containment="true"
    * @generated
    */
-  WIAssignment getWIAssignmentRule();
+  PushStrategy getPushStrategy();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getWIAssignmentRule <em>WI Assignment Rule</em>}' containment reference.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getPushStrategy <em>Push Strategy</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>WI Assignment Rule</em>' containment reference.
-   * @see #getWIAssignmentRule()
+   * @param value the new value of the '<em>Push Strategy</em>' containment reference.
+   * @see #getPushStrategy()
    * @generated
    */
-  void setWIAssignmentRule(WIAssignment value);
+  void setPushStrategy(PushStrategy value);
 
   /**
-   * Returns the value of the '<em><b>Resource Allocation Rule</b></em>' containment reference.
+   * Returns the value of the '<em><b>Cnp</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Resource Allocation Rule</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Cnp</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Resource Allocation Rule</em>' containment reference.
-   * @see #setResourceAllocationRule(ResourceAllocation)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_ResourceAllocationRule()
-   * @model containment="true"
+   * @return the value of the '<em>Cnp</em>' attribute.
+   * @see #setCnp(boolean)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_Cnp()
+   * @model
    * @generated
    */
-  ResourceAllocation getResourceAllocationRule();
+  boolean isCnp();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getResourceAllocationRule <em>Resource Allocation Rule</em>}' containment reference.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#isCnp <em>Cnp</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Resource Allocation Rule</em>' containment reference.
-   * @see #getResourceAllocationRule()
+   * @param value the new value of the '<em>Cnp</em>' attribute.
+   * @see #isCnp()
    * @generated
    */
-  void setResourceAllocationRule(ResourceAllocation value);
+  void setCnp(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Resource Outsourcing Rule</b></em>' containment reference.
+   * Returns the value of the '<em><b>Contract Net Protocal</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Resource Outsourcing Rule</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Contract Net Protocal</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Resource Outsourcing Rule</em>' containment reference.
-   * @see #setResourceOutsourcingRule(ResourceOutsourcing)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_ResourceOutsourcingRule()
+   * @return the value of the '<em>Contract Net Protocal</em>' containment reference.
+   * @see #setContractNetProtocal(ContractNetProtocol)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_ContractNetProtocal()
    * @model containment="true"
    * @generated
    */
-  ResourceOutsourcing getResourceOutsourcingRule();
+  ContractNetProtocol getContractNetProtocal();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getResourceOutsourcingRule <em>Resource Outsourcing Rule</em>}' containment reference.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getContractNetProtocal <em>Contract Net Protocal</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Resource Outsourcing Rule</em>' containment reference.
-   * @see #getResourceOutsourcingRule()
+   * @param value the new value of the '<em>Contract Net Protocal</em>' containment reference.
+   * @see #getContractNetProtocal()
    * @generated
    */
-  void setResourceOutsourcingRule(ResourceOutsourcing value);
-
-  /**
-   * Returns the value of the '<em><b>Mechanisms</b></em>' containment reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Mechanisms</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Mechanisms</em>' containment reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_Mechanisms()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Mechanism> getMechanisms();
-
-  /**
-   * Returns the value of the '<em><b>Processes</b></em>' containment reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.Process}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Processes</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Processes</em>' containment reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_Processes()
-   * @model containment="true"
-   * @generated
-   */
-  EList<datasem.xtext.kanban.domainmodel.kanbanmodel.Process> getProcesses();
+  void setContractNetProtocal(ContractNetProtocol value);
 
 } // GovernanceStrategy

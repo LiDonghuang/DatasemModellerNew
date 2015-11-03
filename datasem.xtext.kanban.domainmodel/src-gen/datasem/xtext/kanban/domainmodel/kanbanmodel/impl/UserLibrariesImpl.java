@@ -5,7 +5,9 @@ package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Service;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProviderType;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.UserLibraries;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemType;
 
@@ -30,7 +32,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.UserLibrariesImpl#getServiceProviderTypes <em>Service Provider Types</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.UserLibrariesImpl#getWorkItemTypes <em>Work Item Types</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.UserLibrariesImpl#getProcessModels <em>Process Models</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.UserLibrariesImpl#getClassOfServices <em>Class Of Services</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.UserLibrariesImpl#getServices <em>Services</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.UserLibrariesImpl#getGovernanceStrategies <em>Governance Strategies</em>}</li>
@@ -42,6 +46,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class UserLibrariesImpl extends MinimalEObjectImpl.Container implements UserLibraries
 {
   /**
+   * The cached value of the '{@link #getServiceProviderTypes() <em>Service Provider Types</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getServiceProviderTypes()
+   * @generated
+   * @ordered
+   */
+  protected EList<ServiceProviderType> serviceProviderTypes;
+
+  /**
    * The cached value of the '{@link #getWorkItemTypes() <em>Work Item Types</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -50,6 +64,16 @@ public class UserLibrariesImpl extends MinimalEObjectImpl.Container implements U
    * @ordered
    */
   protected EList<WorkItemType> workItemTypes;
+
+  /**
+   * The cached value of the '{@link #getProcessModels() <em>Process Models</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getProcessModels()
+   * @generated
+   * @ordered
+   */
+  protected EList<ProcessModel> processModels;
 
   /**
    * The cached value of the '{@link #getClassOfServices() <em>Class Of Services</em>}' containment reference list.
@@ -107,6 +131,20 @@ public class UserLibrariesImpl extends MinimalEObjectImpl.Container implements U
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<ServiceProviderType> getServiceProviderTypes()
+  {
+    if (serviceProviderTypes == null)
+    {
+      serviceProviderTypes = new EObjectContainmentEList<ServiceProviderType>(ServiceProviderType.class, this, KanbanmodelPackage.USER_LIBRARIES__SERVICE_PROVIDER_TYPES);
+    }
+    return serviceProviderTypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<WorkItemType> getWorkItemTypes()
   {
     if (workItemTypes == null)
@@ -114,6 +152,20 @@ public class UserLibrariesImpl extends MinimalEObjectImpl.Container implements U
       workItemTypes = new EObjectContainmentEList<WorkItemType>(WorkItemType.class, this, KanbanmodelPackage.USER_LIBRARIES__WORK_ITEM_TYPES);
     }
     return workItemTypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<ProcessModel> getProcessModels()
+  {
+    if (processModels == null)
+    {
+      processModels = new EObjectContainmentEList<ProcessModel>(ProcessModel.class, this, KanbanmodelPackage.USER_LIBRARIES__PROCESS_MODELS);
+    }
+    return processModels;
   }
 
   /**
@@ -168,8 +220,12 @@ public class UserLibrariesImpl extends MinimalEObjectImpl.Container implements U
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.USER_LIBRARIES__SERVICE_PROVIDER_TYPES:
+        return ((InternalEList<?>)getServiceProviderTypes()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.USER_LIBRARIES__WORK_ITEM_TYPES:
         return ((InternalEList<?>)getWorkItemTypes()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.USER_LIBRARIES__PROCESS_MODELS:
+        return ((InternalEList<?>)getProcessModels()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.USER_LIBRARIES__CLASS_OF_SERVICES:
         return ((InternalEList<?>)getClassOfServices()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.USER_LIBRARIES__SERVICES:
@@ -190,8 +246,12 @@ public class UserLibrariesImpl extends MinimalEObjectImpl.Container implements U
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.USER_LIBRARIES__SERVICE_PROVIDER_TYPES:
+        return getServiceProviderTypes();
       case KanbanmodelPackage.USER_LIBRARIES__WORK_ITEM_TYPES:
         return getWorkItemTypes();
+      case KanbanmodelPackage.USER_LIBRARIES__PROCESS_MODELS:
+        return getProcessModels();
       case KanbanmodelPackage.USER_LIBRARIES__CLASS_OF_SERVICES:
         return getClassOfServices();
       case KanbanmodelPackage.USER_LIBRARIES__SERVICES:
@@ -213,9 +273,17 @@ public class UserLibrariesImpl extends MinimalEObjectImpl.Container implements U
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.USER_LIBRARIES__SERVICE_PROVIDER_TYPES:
+        getServiceProviderTypes().clear();
+        getServiceProviderTypes().addAll((Collection<? extends ServiceProviderType>)newValue);
+        return;
       case KanbanmodelPackage.USER_LIBRARIES__WORK_ITEM_TYPES:
         getWorkItemTypes().clear();
         getWorkItemTypes().addAll((Collection<? extends WorkItemType>)newValue);
+        return;
+      case KanbanmodelPackage.USER_LIBRARIES__PROCESS_MODELS:
+        getProcessModels().clear();
+        getProcessModels().addAll((Collection<? extends ProcessModel>)newValue);
         return;
       case KanbanmodelPackage.USER_LIBRARIES__CLASS_OF_SERVICES:
         getClassOfServices().clear();
@@ -243,8 +311,14 @@ public class UserLibrariesImpl extends MinimalEObjectImpl.Container implements U
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.USER_LIBRARIES__SERVICE_PROVIDER_TYPES:
+        getServiceProviderTypes().clear();
+        return;
       case KanbanmodelPackage.USER_LIBRARIES__WORK_ITEM_TYPES:
         getWorkItemTypes().clear();
+        return;
+      case KanbanmodelPackage.USER_LIBRARIES__PROCESS_MODELS:
+        getProcessModels().clear();
         return;
       case KanbanmodelPackage.USER_LIBRARIES__CLASS_OF_SERVICES:
         getClassOfServices().clear();
@@ -269,8 +343,12 @@ public class UserLibrariesImpl extends MinimalEObjectImpl.Container implements U
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.USER_LIBRARIES__SERVICE_PROVIDER_TYPES:
+        return serviceProviderTypes != null && !serviceProviderTypes.isEmpty();
       case KanbanmodelPackage.USER_LIBRARIES__WORK_ITEM_TYPES:
         return workItemTypes != null && !workItemTypes.isEmpty();
+      case KanbanmodelPackage.USER_LIBRARIES__PROCESS_MODELS:
+        return processModels != null && !processModels.isEmpty();
       case KanbanmodelPackage.USER_LIBRARIES__CLASS_OF_SERVICES:
         return classOfServices != null && !classOfServices.isEmpty();
       case KanbanmodelPackage.USER_LIBRARIES__SERVICES:

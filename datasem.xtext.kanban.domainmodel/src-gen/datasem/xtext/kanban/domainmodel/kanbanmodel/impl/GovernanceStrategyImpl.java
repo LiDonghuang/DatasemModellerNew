@@ -2,30 +2,20 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ContractNetProtocol;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocation;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcing;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAcceptance;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WIAssignment;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WISelection;
-
-import java.util.Collection;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.PullStrategy;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.PushStrategy;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,16 +24,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.GovernanceStrategyImpl#getId <em>Id</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.GovernanceStrategyImpl#getName <em>Name</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.GovernanceStrategyImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.GovernanceStrategyImpl#getWIAcceptanceRule <em>WI Acceptance Rule</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.GovernanceStrategyImpl#getWISelectionRule <em>WI Selection Rule</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.GovernanceStrategyImpl#getWIAssignmentRule <em>WI Assignment Rule</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.GovernanceStrategyImpl#getResourceAllocationRule <em>Resource Allocation Rule</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.GovernanceStrategyImpl#getResourceOutsourcingRule <em>Resource Outsourcing Rule</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.GovernanceStrategyImpl#getMechanisms <em>Mechanisms</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.GovernanceStrategyImpl#getProcesses <em>Processes</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.GovernanceStrategyImpl#isPull <em>Pull</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.GovernanceStrategyImpl#getPullStrategy <em>Pull Strategy</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.GovernanceStrategyImpl#isPush <em>Push</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.GovernanceStrategyImpl#getPushStrategy <em>Push Strategy</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.GovernanceStrategyImpl#isCnp <em>Cnp</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.GovernanceStrategyImpl#getContractNetProtocal <em>Contract Net Protocal</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,26 +38,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container implements GovernanceStrategy
 {
-  /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected static final int ID_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected int id = ID_EDEFAULT;
-
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -92,94 +59,94 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * The default value of the '{@link #isPull() <em>Pull</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDescription()
+   * @see #isPull()
    * @generated
    * @ordered
    */
-  protected static final String DESCRIPTION_EDEFAULT = null;
+  protected static final boolean PULL_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * The cached value of the '{@link #isPull() <em>Pull</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDescription()
+   * @see #isPull()
    * @generated
    * @ordered
    */
-  protected String description = DESCRIPTION_EDEFAULT;
+  protected boolean pull = PULL_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getWIAcceptanceRule() <em>WI Acceptance Rule</em>}' containment reference.
+   * The cached value of the '{@link #getPullStrategy() <em>Pull Strategy</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getWIAcceptanceRule()
+   * @see #getPullStrategy()
    * @generated
    * @ordered
    */
-  protected WIAcceptance wiAcceptanceRule;
+  protected PullStrategy pullStrategy;
 
   /**
-   * The cached value of the '{@link #getWISelectionRule() <em>WI Selection Rule</em>}' containment reference.
+   * The default value of the '{@link #isPush() <em>Push</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getWISelectionRule()
+   * @see #isPush()
    * @generated
    * @ordered
    */
-  protected WISelection wiSelectionRule;
+  protected static final boolean PUSH_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #getWIAssignmentRule() <em>WI Assignment Rule</em>}' containment reference.
+   * The cached value of the '{@link #isPush() <em>Push</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getWIAssignmentRule()
+   * @see #isPush()
    * @generated
    * @ordered
    */
-  protected WIAssignment wiAssignmentRule;
+  protected boolean push = PUSH_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getResourceAllocationRule() <em>Resource Allocation Rule</em>}' containment reference.
+   * The cached value of the '{@link #getPushStrategy() <em>Push Strategy</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getResourceAllocationRule()
+   * @see #getPushStrategy()
    * @generated
    * @ordered
    */
-  protected ResourceAllocation resourceAllocationRule;
+  protected PushStrategy pushStrategy;
 
   /**
-   * The cached value of the '{@link #getResourceOutsourcingRule() <em>Resource Outsourcing Rule</em>}' containment reference.
+   * The default value of the '{@link #isCnp() <em>Cnp</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getResourceOutsourcingRule()
+   * @see #isCnp()
    * @generated
    * @ordered
    */
-  protected ResourceOutsourcing resourceOutsourcingRule;
+  protected static final boolean CNP_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #getMechanisms() <em>Mechanisms</em>}' containment reference list.
+   * The cached value of the '{@link #isCnp() <em>Cnp</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMechanisms()
+   * @see #isCnp()
    * @generated
    * @ordered
    */
-  protected EList<Mechanism> mechanisms;
+  protected boolean cnp = CNP_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getProcesses() <em>Processes</em>}' containment reference list.
+   * The cached value of the '{@link #getContractNetProtocal() <em>Contract Net Protocal</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProcesses()
+   * @see #getContractNetProtocal()
    * @generated
    * @ordered
    */
-  protected EList<datasem.xtext.kanban.domainmodel.kanbanmodel.Process> processes;
+  protected ContractNetProtocol contractNetProtocal;
 
   /**
    * <!-- begin-user-doc -->
@@ -200,29 +167,6 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
   protected EClass eStaticClass()
   {
     return KanbanmodelPackage.Literals.GOVERNANCE_STRATEGY;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public int getId()
-  {
-    return id;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setId(int newId)
-  {
-    int oldId = id;
-    id = newId;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.GOVERNANCE_STRATEGY__ID, oldId, id));
   }
 
   /**
@@ -253,9 +197,9 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDescription()
+  public boolean isPull()
   {
-    return description;
+    return pull;
   }
 
   /**
@@ -263,12 +207,12 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDescription(String newDescription)
+  public void setPull(boolean newPull)
   {
-    String oldDescription = description;
-    description = newDescription;
+    boolean oldPull = pull;
+    pull = newPull;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.GOVERNANCE_STRATEGY__DESCRIPTION, oldDescription, description));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.GOVERNANCE_STRATEGY__PULL, oldPull, pull));
   }
 
   /**
@@ -276,9 +220,9 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public WIAcceptance getWIAcceptanceRule()
+  public PullStrategy getPullStrategy()
   {
-    return wiAcceptanceRule;
+    return pullStrategy;
   }
 
   /**
@@ -286,13 +230,13 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetWIAcceptanceRule(WIAcceptance newWIAcceptanceRule, NotificationChain msgs)
+  public NotificationChain basicSetPullStrategy(PullStrategy newPullStrategy, NotificationChain msgs)
   {
-    WIAcceptance oldWIAcceptanceRule = wiAcceptanceRule;
-    wiAcceptanceRule = newWIAcceptanceRule;
+    PullStrategy oldPullStrategy = pullStrategy;
+    pullStrategy = newPullStrategy;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_ACCEPTANCE_RULE, oldWIAcceptanceRule, newWIAcceptanceRule);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.GOVERNANCE_STRATEGY__PULL_STRATEGY, oldPullStrategy, newPullStrategy);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -303,20 +247,20 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setWIAcceptanceRule(WIAcceptance newWIAcceptanceRule)
+  public void setPullStrategy(PullStrategy newPullStrategy)
   {
-    if (newWIAcceptanceRule != wiAcceptanceRule)
+    if (newPullStrategy != pullStrategy)
     {
       NotificationChain msgs = null;
-      if (wiAcceptanceRule != null)
-        msgs = ((InternalEObject)wiAcceptanceRule).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_ACCEPTANCE_RULE, null, msgs);
-      if (newWIAcceptanceRule != null)
-        msgs = ((InternalEObject)newWIAcceptanceRule).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_ACCEPTANCE_RULE, null, msgs);
-      msgs = basicSetWIAcceptanceRule(newWIAcceptanceRule, msgs);
+      if (pullStrategy != null)
+        msgs = ((InternalEObject)pullStrategy).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.GOVERNANCE_STRATEGY__PULL_STRATEGY, null, msgs);
+      if (newPullStrategy != null)
+        msgs = ((InternalEObject)newPullStrategy).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.GOVERNANCE_STRATEGY__PULL_STRATEGY, null, msgs);
+      msgs = basicSetPullStrategy(newPullStrategy, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_ACCEPTANCE_RULE, newWIAcceptanceRule, newWIAcceptanceRule));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.GOVERNANCE_STRATEGY__PULL_STRATEGY, newPullStrategy, newPullStrategy));
   }
 
   /**
@@ -324,9 +268,9 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public WISelection getWISelectionRule()
+  public boolean isPush()
   {
-    return wiSelectionRule;
+    return push;
   }
 
   /**
@@ -334,13 +278,36 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetWISelectionRule(WISelection newWISelectionRule, NotificationChain msgs)
+  public void setPush(boolean newPush)
   {
-    WISelection oldWISelectionRule = wiSelectionRule;
-    wiSelectionRule = newWISelectionRule;
+    boolean oldPush = push;
+    push = newPush;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.GOVERNANCE_STRATEGY__PUSH, oldPush, push));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PushStrategy getPushStrategy()
+  {
+    return pushStrategy;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPushStrategy(PushStrategy newPushStrategy, NotificationChain msgs)
+  {
+    PushStrategy oldPushStrategy = pushStrategy;
+    pushStrategy = newPushStrategy;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_SELECTION_RULE, oldWISelectionRule, newWISelectionRule);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.GOVERNANCE_STRATEGY__PUSH_STRATEGY, oldPushStrategy, newPushStrategy);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -351,20 +318,20 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setWISelectionRule(WISelection newWISelectionRule)
+  public void setPushStrategy(PushStrategy newPushStrategy)
   {
-    if (newWISelectionRule != wiSelectionRule)
+    if (newPushStrategy != pushStrategy)
     {
       NotificationChain msgs = null;
-      if (wiSelectionRule != null)
-        msgs = ((InternalEObject)wiSelectionRule).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_SELECTION_RULE, null, msgs);
-      if (newWISelectionRule != null)
-        msgs = ((InternalEObject)newWISelectionRule).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_SELECTION_RULE, null, msgs);
-      msgs = basicSetWISelectionRule(newWISelectionRule, msgs);
+      if (pushStrategy != null)
+        msgs = ((InternalEObject)pushStrategy).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.GOVERNANCE_STRATEGY__PUSH_STRATEGY, null, msgs);
+      if (newPushStrategy != null)
+        msgs = ((InternalEObject)newPushStrategy).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.GOVERNANCE_STRATEGY__PUSH_STRATEGY, null, msgs);
+      msgs = basicSetPushStrategy(newPushStrategy, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_SELECTION_RULE, newWISelectionRule, newWISelectionRule));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.GOVERNANCE_STRATEGY__PUSH_STRATEGY, newPushStrategy, newPushStrategy));
   }
 
   /**
@@ -372,9 +339,9 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public WIAssignment getWIAssignmentRule()
+  public boolean isCnp()
   {
-    return wiAssignmentRule;
+    return cnp;
   }
 
   /**
@@ -382,13 +349,36 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetWIAssignmentRule(WIAssignment newWIAssignmentRule, NotificationChain msgs)
+  public void setCnp(boolean newCnp)
   {
-    WIAssignment oldWIAssignmentRule = wiAssignmentRule;
-    wiAssignmentRule = newWIAssignmentRule;
+    boolean oldCnp = cnp;
+    cnp = newCnp;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.GOVERNANCE_STRATEGY__CNP, oldCnp, cnp));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ContractNetProtocol getContractNetProtocal()
+  {
+    return contractNetProtocal;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetContractNetProtocal(ContractNetProtocol newContractNetProtocal, NotificationChain msgs)
+  {
+    ContractNetProtocol oldContractNetProtocal = contractNetProtocal;
+    contractNetProtocal = newContractNetProtocal;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_ASSIGNMENT_RULE, oldWIAssignmentRule, newWIAssignmentRule);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL, oldContractNetProtocal, newContractNetProtocal);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -399,144 +389,20 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setWIAssignmentRule(WIAssignment newWIAssignmentRule)
+  public void setContractNetProtocal(ContractNetProtocol newContractNetProtocal)
   {
-    if (newWIAssignmentRule != wiAssignmentRule)
+    if (newContractNetProtocal != contractNetProtocal)
     {
       NotificationChain msgs = null;
-      if (wiAssignmentRule != null)
-        msgs = ((InternalEObject)wiAssignmentRule).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_ASSIGNMENT_RULE, null, msgs);
-      if (newWIAssignmentRule != null)
-        msgs = ((InternalEObject)newWIAssignmentRule).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_ASSIGNMENT_RULE, null, msgs);
-      msgs = basicSetWIAssignmentRule(newWIAssignmentRule, msgs);
+      if (contractNetProtocal != null)
+        msgs = ((InternalEObject)contractNetProtocal).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL, null, msgs);
+      if (newContractNetProtocal != null)
+        msgs = ((InternalEObject)newContractNetProtocal).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL, null, msgs);
+      msgs = basicSetContractNetProtocal(newContractNetProtocal, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_ASSIGNMENT_RULE, newWIAssignmentRule, newWIAssignmentRule));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ResourceAllocation getResourceAllocationRule()
-  {
-    return resourceAllocationRule;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetResourceAllocationRule(ResourceAllocation newResourceAllocationRule, NotificationChain msgs)
-  {
-    ResourceAllocation oldResourceAllocationRule = resourceAllocationRule;
-    resourceAllocationRule = newResourceAllocationRule;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.GOVERNANCE_STRATEGY__RESOURCE_ALLOCATION_RULE, oldResourceAllocationRule, newResourceAllocationRule);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setResourceAllocationRule(ResourceAllocation newResourceAllocationRule)
-  {
-    if (newResourceAllocationRule != resourceAllocationRule)
-    {
-      NotificationChain msgs = null;
-      if (resourceAllocationRule != null)
-        msgs = ((InternalEObject)resourceAllocationRule).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.GOVERNANCE_STRATEGY__RESOURCE_ALLOCATION_RULE, null, msgs);
-      if (newResourceAllocationRule != null)
-        msgs = ((InternalEObject)newResourceAllocationRule).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.GOVERNANCE_STRATEGY__RESOURCE_ALLOCATION_RULE, null, msgs);
-      msgs = basicSetResourceAllocationRule(newResourceAllocationRule, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.GOVERNANCE_STRATEGY__RESOURCE_ALLOCATION_RULE, newResourceAllocationRule, newResourceAllocationRule));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ResourceOutsourcing getResourceOutsourcingRule()
-  {
-    return resourceOutsourcingRule;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetResourceOutsourcingRule(ResourceOutsourcing newResourceOutsourcingRule, NotificationChain msgs)
-  {
-    ResourceOutsourcing oldResourceOutsourcingRule = resourceOutsourcingRule;
-    resourceOutsourcingRule = newResourceOutsourcingRule;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.GOVERNANCE_STRATEGY__RESOURCE_OUTSOURCING_RULE, oldResourceOutsourcingRule, newResourceOutsourcingRule);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setResourceOutsourcingRule(ResourceOutsourcing newResourceOutsourcingRule)
-  {
-    if (newResourceOutsourcingRule != resourceOutsourcingRule)
-    {
-      NotificationChain msgs = null;
-      if (resourceOutsourcingRule != null)
-        msgs = ((InternalEObject)resourceOutsourcingRule).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.GOVERNANCE_STRATEGY__RESOURCE_OUTSOURCING_RULE, null, msgs);
-      if (newResourceOutsourcingRule != null)
-        msgs = ((InternalEObject)newResourceOutsourcingRule).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.GOVERNANCE_STRATEGY__RESOURCE_OUTSOURCING_RULE, null, msgs);
-      msgs = basicSetResourceOutsourcingRule(newResourceOutsourcingRule, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.GOVERNANCE_STRATEGY__RESOURCE_OUTSOURCING_RULE, newResourceOutsourcingRule, newResourceOutsourcingRule));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Mechanism> getMechanisms()
-  {
-    if (mechanisms == null)
-    {
-      mechanisms = new EObjectContainmentEList<Mechanism>(Mechanism.class, this, KanbanmodelPackage.GOVERNANCE_STRATEGY__MECHANISMS);
-    }
-    return mechanisms;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<datasem.xtext.kanban.domainmodel.kanbanmodel.Process> getProcesses()
-  {
-    if (processes == null)
-    {
-      processes = new EObjectContainmentEList<datasem.xtext.kanban.domainmodel.kanbanmodel.Process>(datasem.xtext.kanban.domainmodel.kanbanmodel.Process.class, this, KanbanmodelPackage.GOVERNANCE_STRATEGY__PROCESSES);
-    }
-    return processes;
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL, newContractNetProtocal, newContractNetProtocal));
   }
 
   /**
@@ -549,20 +415,12 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_ACCEPTANCE_RULE:
-        return basicSetWIAcceptanceRule(null, msgs);
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_SELECTION_RULE:
-        return basicSetWISelectionRule(null, msgs);
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_ASSIGNMENT_RULE:
-        return basicSetWIAssignmentRule(null, msgs);
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__RESOURCE_ALLOCATION_RULE:
-        return basicSetResourceAllocationRule(null, msgs);
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__RESOURCE_OUTSOURCING_RULE:
-        return basicSetResourceOutsourcingRule(null, msgs);
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__MECHANISMS:
-        return ((InternalEList<?>)getMechanisms()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PROCESSES:
-        return ((InternalEList<?>)getProcesses()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PULL_STRATEGY:
+        return basicSetPullStrategy(null, msgs);
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PUSH_STRATEGY:
+        return basicSetPushStrategy(null, msgs);
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL:
+        return basicSetContractNetProtocal(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -577,26 +435,20 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__ID:
-        return getId();
       case KanbanmodelPackage.GOVERNANCE_STRATEGY__NAME:
         return getName();
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__DESCRIPTION:
-        return getDescription();
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_ACCEPTANCE_RULE:
-        return getWIAcceptanceRule();
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_SELECTION_RULE:
-        return getWISelectionRule();
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_ASSIGNMENT_RULE:
-        return getWIAssignmentRule();
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__RESOURCE_ALLOCATION_RULE:
-        return getResourceAllocationRule();
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__RESOURCE_OUTSOURCING_RULE:
-        return getResourceOutsourcingRule();
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__MECHANISMS:
-        return getMechanisms();
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PROCESSES:
-        return getProcesses();
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PULL:
+        return isPull();
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PULL_STRATEGY:
+        return getPullStrategy();
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PUSH:
+        return isPush();
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PUSH_STRATEGY:
+        return getPushStrategy();
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__CNP:
+        return isCnp();
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL:
+        return getContractNetProtocal();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -606,43 +458,31 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__ID:
-        setId((Integer)newValue);
-        return;
       case KanbanmodelPackage.GOVERNANCE_STRATEGY__NAME:
         setName((String)newValue);
         return;
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__DESCRIPTION:
-        setDescription((String)newValue);
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PULL:
+        setPull((Boolean)newValue);
         return;
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_ACCEPTANCE_RULE:
-        setWIAcceptanceRule((WIAcceptance)newValue);
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PULL_STRATEGY:
+        setPullStrategy((PullStrategy)newValue);
         return;
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_SELECTION_RULE:
-        setWISelectionRule((WISelection)newValue);
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PUSH:
+        setPush((Boolean)newValue);
         return;
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_ASSIGNMENT_RULE:
-        setWIAssignmentRule((WIAssignment)newValue);
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PUSH_STRATEGY:
+        setPushStrategy((PushStrategy)newValue);
         return;
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__RESOURCE_ALLOCATION_RULE:
-        setResourceAllocationRule((ResourceAllocation)newValue);
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__CNP:
+        setCnp((Boolean)newValue);
         return;
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__RESOURCE_OUTSOURCING_RULE:
-        setResourceOutsourcingRule((ResourceOutsourcing)newValue);
-        return;
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__MECHANISMS:
-        getMechanisms().clear();
-        getMechanisms().addAll((Collection<? extends Mechanism>)newValue);
-        return;
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PROCESSES:
-        getProcesses().clear();
-        getProcesses().addAll((Collection<? extends datasem.xtext.kanban.domainmodel.kanbanmodel.Process>)newValue);
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL:
+        setContractNetProtocal((ContractNetProtocol)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -658,35 +498,26 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__ID:
-        setId(ID_EDEFAULT);
-        return;
       case KanbanmodelPackage.GOVERNANCE_STRATEGY__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__DESCRIPTION:
-        setDescription(DESCRIPTION_EDEFAULT);
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PULL:
+        setPull(PULL_EDEFAULT);
         return;
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_ACCEPTANCE_RULE:
-        setWIAcceptanceRule((WIAcceptance)null);
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PULL_STRATEGY:
+        setPullStrategy((PullStrategy)null);
         return;
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_SELECTION_RULE:
-        setWISelectionRule((WISelection)null);
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PUSH:
+        setPush(PUSH_EDEFAULT);
         return;
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_ASSIGNMENT_RULE:
-        setWIAssignmentRule((WIAssignment)null);
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PUSH_STRATEGY:
+        setPushStrategy((PushStrategy)null);
         return;
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__RESOURCE_ALLOCATION_RULE:
-        setResourceAllocationRule((ResourceAllocation)null);
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__CNP:
+        setCnp(CNP_EDEFAULT);
         return;
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__RESOURCE_OUTSOURCING_RULE:
-        setResourceOutsourcingRule((ResourceOutsourcing)null);
-        return;
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__MECHANISMS:
-        getMechanisms().clear();
-        return;
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PROCESSES:
-        getProcesses().clear();
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL:
+        setContractNetProtocal((ContractNetProtocol)null);
         return;
     }
     super.eUnset(featureID);
@@ -702,26 +533,20 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__ID:
-        return id != ID_EDEFAULT;
       case KanbanmodelPackage.GOVERNANCE_STRATEGY__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__DESCRIPTION:
-        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_ACCEPTANCE_RULE:
-        return wiAcceptanceRule != null;
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_SELECTION_RULE:
-        return wiSelectionRule != null;
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__WI_ASSIGNMENT_RULE:
-        return wiAssignmentRule != null;
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__RESOURCE_ALLOCATION_RULE:
-        return resourceAllocationRule != null;
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__RESOURCE_OUTSOURCING_RULE:
-        return resourceOutsourcingRule != null;
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__MECHANISMS:
-        return mechanisms != null && !mechanisms.isEmpty();
-      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PROCESSES:
-        return processes != null && !processes.isEmpty();
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PULL:
+        return pull != PULL_EDEFAULT;
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PULL_STRATEGY:
+        return pullStrategy != null;
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PUSH:
+        return push != PUSH_EDEFAULT;
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__PUSH_STRATEGY:
+        return pushStrategy != null;
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__CNP:
+        return cnp != CNP_EDEFAULT;
+      case KanbanmodelPackage.GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL:
+        return contractNetProtocal != null;
     }
     return super.eIsSet(featureID);
   }
@@ -737,12 +562,14 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (id: ");
-    result.append(id);
-    result.append(", name: ");
+    result.append(" (name: ");
     result.append(name);
-    result.append(", description: ");
-    result.append(description);
+    result.append(", pull: ");
+    result.append(pull);
+    result.append(", push: ");
+    result.append(push);
+    result.append(", cnp: ");
+    result.append(cnp);
     result.append(')');
     return result.toString();
   }

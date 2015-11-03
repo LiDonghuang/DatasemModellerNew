@@ -2,25 +2,19 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
-import datasem.xtext.kanban.domainmodel.kanbanmodel.AbstractParameter;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Impact;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.NumExpression;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem;
-
-import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,9 +23,9 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ImpactImpl#getImpactWIs <em>Impact WIs</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ImpactImpl#getImpactWI <em>Impact WI</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ImpactImpl#getLikelihood <em>Likelihood</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ImpactImpl#getImpact <em>Impact</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ImpactImpl#getRisk <em>Risk</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,14 +34,14 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
 {
   /**
-   * The cached value of the '{@link #getImpactWIs() <em>Impact WIs</em>}' reference list.
+   * The cached value of the '{@link #getImpactWI() <em>Impact WI</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getImpactWIs()
+   * @see #getImpactWI()
    * @generated
    * @ordered
    */
-  protected EList<WorkItem> impactWIs;
+  protected WorkItem impactWI;
 
   /**
    * The cached value of the '{@link #getLikelihood() <em>Likelihood</em>}' containment reference.
@@ -57,17 +51,17 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
    * @generated
    * @ordered
    */
-  protected AbstractParameter likelihood;
+  protected NumExpression likelihood;
 
   /**
-   * The cached value of the '{@link #getImpact() <em>Impact</em>}' containment reference.
+   * The cached value of the '{@link #getRisk() <em>Risk</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getImpact()
+   * @see #getRisk()
    * @generated
    * @ordered
    */
-  protected AbstractParameter impact;
+  protected NumExpression risk;
 
   /**
    * <!-- begin-user-doc -->
@@ -95,13 +89,19 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<WorkItem> getImpactWIs()
+  public WorkItem getImpactWI()
   {
-    if (impactWIs == null)
+    if (impactWI != null && impactWI.eIsProxy())
     {
-      impactWIs = new EObjectResolvingEList<WorkItem>(WorkItem.class, this, KanbanmodelPackage.IMPACT__IMPACT_WIS);
+      InternalEObject oldImpactWI = (InternalEObject)impactWI;
+      impactWI = (WorkItem)eResolveProxy(oldImpactWI);
+      if (impactWI != oldImpactWI)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.IMPACT__IMPACT_WI, oldImpactWI, impactWI));
+      }
     }
-    return impactWIs;
+    return impactWI;
   }
 
   /**
@@ -109,7 +109,30 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
    * <!-- end-user-doc -->
    * @generated
    */
-  public AbstractParameter getLikelihood()
+  public WorkItem basicGetImpactWI()
+  {
+    return impactWI;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setImpactWI(WorkItem newImpactWI)
+  {
+    WorkItem oldImpactWI = impactWI;
+    impactWI = newImpactWI;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.IMPACT__IMPACT_WI, oldImpactWI, impactWI));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NumExpression getLikelihood()
   {
     return likelihood;
   }
@@ -119,9 +142,9 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLikelihood(AbstractParameter newLikelihood, NotificationChain msgs)
+  public NotificationChain basicSetLikelihood(NumExpression newLikelihood, NotificationChain msgs)
   {
-    AbstractParameter oldLikelihood = likelihood;
+    NumExpression oldLikelihood = likelihood;
     likelihood = newLikelihood;
     if (eNotificationRequired())
     {
@@ -136,7 +159,7 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLikelihood(AbstractParameter newLikelihood)
+  public void setLikelihood(NumExpression newLikelihood)
   {
     if (newLikelihood != likelihood)
     {
@@ -157,9 +180,9 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
    * <!-- end-user-doc -->
    * @generated
    */
-  public AbstractParameter getImpact()
+  public NumExpression getRisk()
   {
-    return impact;
+    return risk;
   }
 
   /**
@@ -167,13 +190,13 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetImpact(AbstractParameter newImpact, NotificationChain msgs)
+  public NotificationChain basicSetRisk(NumExpression newRisk, NotificationChain msgs)
   {
-    AbstractParameter oldImpact = impact;
-    impact = newImpact;
+    NumExpression oldRisk = risk;
+    risk = newRisk;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.IMPACT__IMPACT, oldImpact, newImpact);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.IMPACT__RISK, oldRisk, newRisk);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -184,20 +207,20 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setImpact(AbstractParameter newImpact)
+  public void setRisk(NumExpression newRisk)
   {
-    if (newImpact != impact)
+    if (newRisk != risk)
     {
       NotificationChain msgs = null;
-      if (impact != null)
-        msgs = ((InternalEObject)impact).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.IMPACT__IMPACT, null, msgs);
-      if (newImpact != null)
-        msgs = ((InternalEObject)newImpact).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.IMPACT__IMPACT, null, msgs);
-      msgs = basicSetImpact(newImpact, msgs);
+      if (risk != null)
+        msgs = ((InternalEObject)risk).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.IMPACT__RISK, null, msgs);
+      if (newRisk != null)
+        msgs = ((InternalEObject)newRisk).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.IMPACT__RISK, null, msgs);
+      msgs = basicSetRisk(newRisk, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.IMPACT__IMPACT, newImpact, newImpact));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.IMPACT__RISK, newRisk, newRisk));
   }
 
   /**
@@ -212,8 +235,8 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
     {
       case KanbanmodelPackage.IMPACT__LIKELIHOOD:
         return basicSetLikelihood(null, msgs);
-      case KanbanmodelPackage.IMPACT__IMPACT:
-        return basicSetImpact(null, msgs);
+      case KanbanmodelPackage.IMPACT__RISK:
+        return basicSetRisk(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -228,12 +251,13 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.IMPACT__IMPACT_WIS:
-        return getImpactWIs();
+      case KanbanmodelPackage.IMPACT__IMPACT_WI:
+        if (resolve) return getImpactWI();
+        return basicGetImpactWI();
       case KanbanmodelPackage.IMPACT__LIKELIHOOD:
         return getLikelihood();
-      case KanbanmodelPackage.IMPACT__IMPACT:
-        return getImpact();
+      case KanbanmodelPackage.IMPACT__RISK:
+        return getRisk();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -243,21 +267,19 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.IMPACT__IMPACT_WIS:
-        getImpactWIs().clear();
-        getImpactWIs().addAll((Collection<? extends WorkItem>)newValue);
+      case KanbanmodelPackage.IMPACT__IMPACT_WI:
+        setImpactWI((WorkItem)newValue);
         return;
       case KanbanmodelPackage.IMPACT__LIKELIHOOD:
-        setLikelihood((AbstractParameter)newValue);
+        setLikelihood((NumExpression)newValue);
         return;
-      case KanbanmodelPackage.IMPACT__IMPACT:
-        setImpact((AbstractParameter)newValue);
+      case KanbanmodelPackage.IMPACT__RISK:
+        setRisk((NumExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -273,14 +295,14 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.IMPACT__IMPACT_WIS:
-        getImpactWIs().clear();
+      case KanbanmodelPackage.IMPACT__IMPACT_WI:
+        setImpactWI((WorkItem)null);
         return;
       case KanbanmodelPackage.IMPACT__LIKELIHOOD:
-        setLikelihood((AbstractParameter)null);
+        setLikelihood((NumExpression)null);
         return;
-      case KanbanmodelPackage.IMPACT__IMPACT:
-        setImpact((AbstractParameter)null);
+      case KanbanmodelPackage.IMPACT__RISK:
+        setRisk((NumExpression)null);
         return;
     }
     super.eUnset(featureID);
@@ -296,12 +318,12 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.IMPACT__IMPACT_WIS:
-        return impactWIs != null && !impactWIs.isEmpty();
+      case KanbanmodelPackage.IMPACT__IMPACT_WI:
+        return impactWI != null;
       case KanbanmodelPackage.IMPACT__LIKELIHOOD:
         return likelihood != null;
-      case KanbanmodelPackage.IMPACT__IMPACT:
-        return impact != null;
+      case KanbanmodelPackage.IMPACT__RISK:
+        return risk != null;
     }
     return super.eIsSet(featureID);
   }

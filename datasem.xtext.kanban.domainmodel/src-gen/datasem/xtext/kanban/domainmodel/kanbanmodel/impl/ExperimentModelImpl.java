@@ -3,9 +3,9 @@
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentModel;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.Variable;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WINReplication;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemNetwork;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkSource;
@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentModelImpl#getPath <em>Path</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentModelImpl#getVariables <em>Variables</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentModelImpl#getExperimentVariables <em>Experiment Variables</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentModelImpl#getServiceProviders <em>Service Providers</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentModelImpl#getWorkSources <em>Work Sources</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentModelImpl#getWorkItemNetworks <em>Work Item Networks</em>}</li>
@@ -90,14 +90,14 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
   protected String path = PATH_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
+   * The cached value of the '{@link #getExperimentVariables() <em>Experiment Variables</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getVariables()
+   * @see #getExperimentVariables()
    * @generated
    * @ordered
    */
-  protected EList<Variable> variables;
+  protected EList<ExperimentVariable> experimentVariables;
 
   /**
    * The cached value of the '{@link #getServiceProviders() <em>Service Providers</em>}' containment reference list.
@@ -221,13 +221,13 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Variable> getVariables()
+  public EList<ExperimentVariable> getExperimentVariables()
   {
-    if (variables == null)
+    if (experimentVariables == null)
     {
-      variables = new EObjectContainmentEList<Variable>(Variable.class, this, KanbanmodelPackage.EXPERIMENT_MODEL__VARIABLES);
+      experimentVariables = new EObjectContainmentEList<ExperimentVariable>(ExperimentVariable.class, this, KanbanmodelPackage.EXPERIMENT_MODEL__EXPERIMENT_VARIABLES);
     }
-    return variables;
+    return experimentVariables;
   }
 
   /**
@@ -310,8 +310,8 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.EXPERIMENT_MODEL__VARIABLES:
-        return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.EXPERIMENT_MODEL__EXPERIMENT_VARIABLES:
+        return ((InternalEList<?>)getExperimentVariables()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.EXPERIMENT_MODEL__SERVICE_PROVIDERS:
         return ((InternalEList<?>)getServiceProviders()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.EXPERIMENT_MODEL__WORK_SOURCES:
@@ -338,8 +338,8 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
         return getName();
       case KanbanmodelPackage.EXPERIMENT_MODEL__PATH:
         return getPath();
-      case KanbanmodelPackage.EXPERIMENT_MODEL__VARIABLES:
-        return getVariables();
+      case KanbanmodelPackage.EXPERIMENT_MODEL__EXPERIMENT_VARIABLES:
+        return getExperimentVariables();
       case KanbanmodelPackage.EXPERIMENT_MODEL__SERVICE_PROVIDERS:
         return getServiceProviders();
       case KanbanmodelPackage.EXPERIMENT_MODEL__WORK_SOURCES:
@@ -371,9 +371,9 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
       case KanbanmodelPackage.EXPERIMENT_MODEL__PATH:
         setPath((String)newValue);
         return;
-      case KanbanmodelPackage.EXPERIMENT_MODEL__VARIABLES:
-        getVariables().clear();
-        getVariables().addAll((Collection<? extends Variable>)newValue);
+      case KanbanmodelPackage.EXPERIMENT_MODEL__EXPERIMENT_VARIABLES:
+        getExperimentVariables().clear();
+        getExperimentVariables().addAll((Collection<? extends ExperimentVariable>)newValue);
         return;
       case KanbanmodelPackage.EXPERIMENT_MODEL__SERVICE_PROVIDERS:
         getServiceProviders().clear();
@@ -415,8 +415,8 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
       case KanbanmodelPackage.EXPERIMENT_MODEL__PATH:
         setPath(PATH_EDEFAULT);
         return;
-      case KanbanmodelPackage.EXPERIMENT_MODEL__VARIABLES:
-        getVariables().clear();
+      case KanbanmodelPackage.EXPERIMENT_MODEL__EXPERIMENT_VARIABLES:
+        getExperimentVariables().clear();
         return;
       case KanbanmodelPackage.EXPERIMENT_MODEL__SERVICE_PROVIDERS:
         getServiceProviders().clear();
@@ -451,8 +451,8 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case KanbanmodelPackage.EXPERIMENT_MODEL__PATH:
         return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
-      case KanbanmodelPackage.EXPERIMENT_MODEL__VARIABLES:
-        return variables != null && !variables.isEmpty();
+      case KanbanmodelPackage.EXPERIMENT_MODEL__EXPERIMENT_VARIABLES:
+        return experimentVariables != null && !experimentVariables.isEmpty();
       case KanbanmodelPackage.EXPERIMENT_MODEL__SERVICE_PROVIDERS:
         return serviceProviders != null && !serviceProviders.isEmpty();
       case KanbanmodelPackage.EXPERIMENT_MODEL__WORK_SOURCES:

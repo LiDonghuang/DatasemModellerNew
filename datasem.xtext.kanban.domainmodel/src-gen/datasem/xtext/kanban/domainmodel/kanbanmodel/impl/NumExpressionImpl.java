@@ -40,7 +40,7 @@ public class NumExpressionImpl extends MinimalEObjectImpl.Container implements N
    * @generated
    * @ordered
    */
-  protected static final double NUM_VALUE_EDEFAULT = 0.0;
+  protected static final String NUM_VALUE_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getNumValue() <em>Num Value</em>}' attribute.
@@ -50,7 +50,7 @@ public class NumExpressionImpl extends MinimalEObjectImpl.Container implements N
    * @generated
    * @ordered
    */
-  protected double numValue = NUM_VALUE_EDEFAULT;
+  protected String numValue = NUM_VALUE_EDEFAULT;
 
   /**
    * The default value of the '{@link #isDistribution() <em>Distribution</em>}' attribute.
@@ -108,7 +108,7 @@ public class NumExpressionImpl extends MinimalEObjectImpl.Container implements N
    * <!-- end-user-doc -->
    * @generated
    */
-  public double getNumValue()
+  public String getNumValue()
   {
     return numValue;
   }
@@ -118,9 +118,9 @@ public class NumExpressionImpl extends MinimalEObjectImpl.Container implements N
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setNumValue(double newNumValue)
+  public void setNumValue(String newNumValue)
   {
-    double oldNumValue = numValue;
+    String oldNumValue = numValue;
     numValue = newNumValue;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.NUM_EXPRESSION__NUM_VALUE, oldNumValue, numValue));
@@ -244,7 +244,7 @@ public class NumExpressionImpl extends MinimalEObjectImpl.Container implements N
     switch (featureID)
     {
       case KanbanmodelPackage.NUM_EXPRESSION__NUM_VALUE:
-        setNumValue((Double)newValue);
+        setNumValue((String)newValue);
         return;
       case KanbanmodelPackage.NUM_EXPRESSION__DISTRIBUTION:
         setDistribution((Boolean)newValue);
@@ -290,7 +290,7 @@ public class NumExpressionImpl extends MinimalEObjectImpl.Container implements N
     switch (featureID)
     {
       case KanbanmodelPackage.NUM_EXPRESSION__NUM_VALUE:
-        return numValue != NUM_VALUE_EDEFAULT;
+        return NUM_VALUE_EDEFAULT == null ? numValue != null : !NUM_VALUE_EDEFAULT.equals(numValue);
       case KanbanmodelPackage.NUM_EXPRESSION__DISTRIBUTION:
         return distribution != DISTRIBUTION_EDEFAULT;
       case KanbanmodelPackage.NUM_EXPRESSION__NUM_DIST:

@@ -2,8 +2,6 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,9 +12,9 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Impact#getImpactWIs <em>Impact WIs</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Impact#getImpactWI <em>Impact WI</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Impact#getLikelihood <em>Likelihood</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Impact#getImpact <em>Impact</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Impact#getRisk <em>Risk</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,20 +25,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Impact extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Impact WIs</b></em>' reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem}.
+   * Returns the value of the '<em><b>Impact WI</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Impact WIs</em>' reference list isn't clear,
+   * If the meaning of the '<em>Impact WI</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Impact WIs</em>' reference list.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getImpact_ImpactWIs()
+   * @return the value of the '<em>Impact WI</em>' reference.
+   * @see #setImpactWI(WorkItem)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getImpact_ImpactWI()
    * @model
    * @generated
    */
-  EList<WorkItem> getImpactWIs();
+  WorkItem getImpactWI();
+
+  /**
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Impact#getImpactWI <em>Impact WI</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Impact WI</em>' reference.
+   * @see #getImpactWI()
+   * @generated
+   */
+  void setImpactWI(WorkItem value);
 
   /**
    * Returns the value of the '<em><b>Likelihood</b></em>' containment reference.
@@ -51,12 +59,12 @@ public interface Impact extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Likelihood</em>' containment reference.
-   * @see #setLikelihood(AbstractParameter)
+   * @see #setLikelihood(NumExpression)
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getImpact_Likelihood()
    * @model containment="true"
    * @generated
    */
-  AbstractParameter getLikelihood();
+  NumExpression getLikelihood();
 
   /**
    * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Impact#getLikelihood <em>Likelihood</em>}' containment reference.
@@ -66,32 +74,32 @@ public interface Impact extends EObject
    * @see #getLikelihood()
    * @generated
    */
-  void setLikelihood(AbstractParameter value);
+  void setLikelihood(NumExpression value);
 
   /**
-   * Returns the value of the '<em><b>Impact</b></em>' containment reference.
+   * Returns the value of the '<em><b>Risk</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Impact</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Risk</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Impact</em>' containment reference.
-   * @see #setImpact(AbstractParameter)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getImpact_Impact()
+   * @return the value of the '<em>Risk</em>' containment reference.
+   * @see #setRisk(NumExpression)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getImpact_Risk()
    * @model containment="true"
    * @generated
    */
-  AbstractParameter getImpact();
+  NumExpression getRisk();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Impact#getImpact <em>Impact</em>}' containment reference.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Impact#getRisk <em>Risk</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Impact</em>' containment reference.
-   * @see #getImpact()
+   * @param value the new value of the '<em>Risk</em>' containment reference.
+   * @see #getRisk()
    * @generated
    */
-  void setImpact(AbstractParameter value);
+  void setRisk(NumExpression value);
 
 } // Impact
