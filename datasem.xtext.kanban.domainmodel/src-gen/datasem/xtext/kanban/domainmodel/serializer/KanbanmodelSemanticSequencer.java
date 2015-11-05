@@ -254,7 +254,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     ((isVariable?='Variable:' variable=[ExperimentVariable|ID]) | value=Parameter)
+	 *     ((isVariable?='var:' variable=[ExperimentVariable|ID]) | value=Parameter)
 	 */
 	protected void sequence_AbstractParameter(EObject context, AbstractParameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -401,7 +401,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (description=STRING? variables+=Variable* roleBehaviors+=RoleBehavior* Processes+=[ProcessModel|ID]+)
+	 *     (variables+=Variable* roleBehaviors+=RoleBehavior+)
 	 */
 	protected void sequence_ContractNetProtocol(EObject context, ContractNetProtocol semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -419,7 +419,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     ((isNormal?='Normal' | isUniform?='Uniform' | isExponential?='Exponential') parameters+=AbstractParameter parameters+=AbstractParameter*)
+	 *     ((isNormal?='Normal' | isUniform?='Uniform' | isExponential?='Exponential') parameters+=Parameter parameters+=Parameter*)
 	 */
 	protected void sequence_Distribution(EObject context, Distribution semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -449,11 +449,11 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     (
 	 *         name=ID 
 	 *         (
-	 *             (typeInteger?='INT:' intValue=INT) | 
-	 *             (typeDouble?='DOUBLE:' doubleValue=DOUBLE) | 
-	 *             (typeString?='STRING:' stringValue=STRING) | 
-	 *             (typeDistribution?='Distribution:' distrbution=Distribution) | 
-	 *             (typeStrategy?='Strategy:' strategy=[GovernanceStrategy|ID])
+	 *             (boolean?='boolean' booleanValue=BOOLEAN) | 
+	 *             (num?='num' numValue=Number) | 
+	 *             (distribution?='Random.' numDist=Distribution) | 
+	 *             (string?='string' stringValue=STRING) | 
+	 *             (strategy?='GovernanceStrategy' strategyValue=GovernanceStrategy)
 	 *         )
 	 *     )
 	 */
@@ -522,7 +522,12 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         ((pull?='Pull' pullStrategy=PullStrategy) | (push?='Push' pushStrategy=PushStrategy) | (cnp?='CNP' contractNetProtocal=ContractNetProtocol))
+	 *         (
+	 *             (pull?='Pull' description=STRING? pullStrategy=PullStrategy) | 
+	 *             (push?='Push' description=STRING? pushStrategy=PushStrategy) | 
+	 *             (cnp?='CNP' description=STRING? contractNetProtocal=ContractNetProtocol)
+	 *         ) 
+	 *         processes+=[ProcessModel|ID]+
 	 *     )
 	 */
 	protected void sequence_GovernanceStrategy(EObject context, GovernanceStrategy semanticObject) {
@@ -541,7 +546,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (impactWI=[WorkItem|ID] likelihood=NumExpression risk=NumExpression)
+	 *     (impactWI=[WorkItem|ID] likelihood=AbstractParameter risk=AbstractParameter)
 	 */
 	protected void sequence_Impact(EObject context, Impact semanticObject) {
 		if(errorAcceptor != null) {
@@ -555,8 +560,8 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getImpactAccess().getImpactWIWorkItemIDTerminalRuleCall_0_0_1(), semanticObject.getImpactWI());
-		feeder.accept(grammarAccess.getImpactAccess().getLikelihoodNumExpressionParserRuleCall_2_0(), semanticObject.getLikelihood());
-		feeder.accept(grammarAccess.getImpactAccess().getRiskNumExpressionParserRuleCall_4_0(), semanticObject.getRisk());
+		feeder.accept(grammarAccess.getImpactAccess().getLikelihoodAbstractParameterParserRuleCall_2_0(), semanticObject.getLikelihood());
+		feeder.accept(grammarAccess.getImpactAccess().getRiskAbstractParameterParserRuleCall_4_0(), semanticObject.getRisk());
 		feeder.finish();
 	}
 	
@@ -659,7 +664,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (description=STRING? Mechanisms+=Mechanism+ Processes+=[ProcessModel|ID]+)
+	 *     mechanisms+=Mechanism+
 	 */
 	protected void sequence_PullStrategy(EObject context, PullStrategy semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -668,7 +673,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (description=STRING? Mechanisms+=Mechanism+ Processes+=[ProcessModel|ID]+)
+	 *     mechanisms+=Mechanism+
 	 */
 	protected void sequence_PushStrategy(EObject context, PushStrategy semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -677,7 +682,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (serviceType=[Service|ID] efforts=NumExpression)
+	 *     (serviceType=[Service|ID] efforts=AbstractParameter)
 	 */
 	protected void sequence_RequiredService(EObject context, RequiredService semanticObject) {
 		if(errorAcceptor != null) {
@@ -689,7 +694,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getRequiredServiceAccess().getServiceTypeServiceIDTerminalRuleCall_1_0_1(), semanticObject.getServiceType());
-		feeder.accept(grammarAccess.getRequiredServiceAccess().getEffortsNumExpressionParserRuleCall_3_0(), semanticObject.getEfforts());
+		feeder.accept(grammarAccess.getRequiredServiceAccess().getEffortsAbstractParameterParserRuleCall_3_0(), semanticObject.getEfforts());
 		feeder.finish();
 	}
 	
@@ -717,8 +722,8 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     (
 	 *         name=ID 
 	 *         type=[ServiceProviderType|ID]? 
-	 *         assignTo+=[ServiceProvider|ID]* 
-	 *         outsourceFrom+=[ServiceProvider|ID]* 
+	 *         (assignTo+=[ServiceProvider|ID] assignTo+=[ServiceProvider|ID]*)? 
+	 *         (outsourceFrom+=[ServiceProvider|ID] outsourceFrom+=[ServiceProvider|ID]*)? 
 	 *         governanceStrategy=[GovernanceStrategy|ID]? 
 	 *         resources+=Asset* 
 	 *         id=INT?
@@ -740,7 +745,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (service=[Service|ID] efficiency=NumExpression)
+	 *     (service=[Service|ID] efficiency=AbstractParameter)
 	 */
 	protected void sequence_Skill(EObject context, Skill semanticObject) {
 		if(errorAcceptor != null) {
@@ -752,7 +757,7 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getSkillAccess().getServiceServiceIDTerminalRuleCall_1_0_1(), semanticObject.getService());
-		feeder.accept(grammarAccess.getSkillAccess().getEfficiencyNumExpressionParserRuleCall_3_0(), semanticObject.getEfficiency());
+		feeder.accept(grammarAccess.getSkillAccess().getEfficiencyAbstractParameterParserRuleCall_3_0(), semanticObject.getEfficiency());
 		feeder.finish();
 	}
 	
@@ -930,15 +935,8 @@ public class KanbanmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *             (hasSubtasks?='decomposites' sTasks+=[WorkItem|ID] sTasks+=[WorkItem|ID]* requiredAnalysis+=RequiredService requiredAnalysis+=RequiredService*)? | 
 	 *             ((requiredAnalysis+=RequiredService requiredAnalysis+=RequiredService*)? requiredServices+=RequiredService requiredServices+=RequiredService*)
 	 *         ) 
-	 *         maturityLevels=AbstractParameter? 
-	 *         uncertainty=AbstractParameter? 
-	 *         risk=AbstractParameter? 
-	 *         (hasImpacts?='Impacts' impacts+=Impact impacts+=Impact*)? 
+	 *         (hasImpacts?='impacts' impacts+=Impact impacts+=Impact*)? 
 	 *         value=NumExpression? 
-	 *         classOfService=[ClassOfService|ID]? 
-	 *         workSource=[WorkSource|ID]? 
-	 *         arrivalTime=INT? 
-	 *         dueDate=INT? 
 	 *         id=INT?
 	 *     )
 	 */

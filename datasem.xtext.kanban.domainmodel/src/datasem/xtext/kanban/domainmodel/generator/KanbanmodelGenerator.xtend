@@ -25,30 +25,29 @@ class KanbanmodelGenerator implements IGenerator {
 		// Fixed Seeding
 		this.setSeed(123456789)
 		// Scenario Generator
-		fsa.generateFile(resource.allContents.toIterable.filter(ModelBuilder).get(0).getExperimentModel.name+"_ExperimentModel.xml", 
+		fsa.generateFile("ExperimentModel.xml",
 		compile(resource))	
 		// ContractNetProtocol Java Complier
-		fsa.generateFile("ContractNetProtocal.java", compileCNP())	
+		//fsa.generateFile("ContractNetProtocal.java", compileCNP())	
 	}
 	
 def setSeed(int seed) {
 	this.rng.setSeed(seed);
 }
+
 // --------------------------------------------------------------------------
 def compile(Resource res) '''	
-«FOR emodel : res.allContents.toIterable.filter(ExperimentModel)»
-<ExperimentModel experimentId="0" name="«emodel.name»" description="xxx">
+«var modelBuilder = res.allContents.toIterable.filter(ModelBuilder).get(0)»
+«var ExperimentModel emodel = modelBuilder.getExperimentModel()»
+«var UserLibraries ulib = modelBuilder.getUserLibraries()»
+<ExperimentModel experimentId="0" name="«modelBuilder.name»" description="«modelBuilder.description»">
 «printIndicators(emodel.indicators)»
-«ENDFOR»
-«FOR ulib : res.allContents.toIterable.filter(UserLibraries)»	
-	«printServiceProviderTypes(ulib.getServiceProviderTypes())»
-	«printWorkItemTypes(ulib.getWorkItemTypes())»
-	«printServices(ulib.getServices())»
-	«printClassOfServices(ulib.getClassOfServices())»
-«ENDFOR»
-«FOR emodel : res.allContents.toIterable.filter(ExperimentModel)»		
+«printServiceProviderTypes(ulib.getServiceProviderTypes())»
+«printWorkItemTypes(ulib.getWorkItemTypes())»
+«printServices(ulib.getServices())»
+«printClassOfServices(ulib.getClassOfServices())»	
 	<Runs>
-	<Run runId="1" description="xx" numberOfReplications="10" numberOfSteps="10000">
+	<Run runId="1" description="«emodel.name»" numberOfReplications="100" numberOfSteps="10000">
 		<OrganizationalModel>
 		<ServiceProviders>
 		«buildOrganization(emodel)»
@@ -64,7 +63,6 @@ def compile(Resource res) '''
 		«buildWorkItems(emodel)»
 		</WorkItems>
 		</WorkItemNetworkModel>
-	«ENDFOR»
 	</Run>
 	</Runs>
 </ExperimentModel>	
@@ -72,54 +70,16 @@ def compile(Resource res) '''
 // --------------------------------------------------------------------------
 def compileCNP() '''
 package contractNetProtocol;
-
-import java.util.LinkedList;
-«"Sai Cha"»
-import serviceProviders.ServiceProviderAgent;
-import workItems.WorkItemEntity;
-import xtext.objectsModel.GovernanceStrategy;
-import xtext.objectsModel.Mechanism;
-import xtext.objectsModel.MechanismAttribute;
-import xtext.objectsModel.impl.GovernanceStrategyImpl;
-
-public class ContractNetProtocol extends GovernanceStrategyImpl {
-	public LinkedList<ServiceProviderAgent> myAgents = new LinkedList<ServiceProviderAgent>();
-	public ContractorBehavior myContractorBehavior;
-	public ManagerBehavior myManagerBehavior;
-	
-	public ContractNetProtocol(GovernanceStrategy strategy) {
-		this.implementCNP(strategy);
-	}
-	public void implementCNP(GovernanceStrategy strategy) {
-		for (Mechanism mech: strategy.getMechanisms()) {
-			if (mech.getName().matches("ContractorBehavior")) {
-				this.myContractorBehavior = new ContractorBehavior();
-				for (MechanismAttribute att:mech.getAttributes()) {
-					if (att.getAttribute().matches("action")) {
-						this.myContractorBehavior.implAction(att.getValue());
-					}
-				}
-			}
-			else if (mech.getName().matches("ManagerBehavior")) {
-				this.myManagerBehavior = new ManagerBehavior();
-				for (MechanismAttribute att:mech.getAttributes()) {
-					if (att.getAttribute().matches("action")) {
-						this.myManagerBehavior.implAction(att.getValue());
-					}
-				}
-			}
-		}
-	}
-	public void registerAgent(ServiceProviderAgent agent) {
-		myAgents.add(agent);
-	}
-	public void unregisterAgent(ServiceProviderAgent agent) {
-		myAgents.remove(agent);
-	}
-}
 '''
 
 // --------------------------------------------------------------------------
+	def assignWorkItemsId(WorkItemNetwork win, int startId) '''
+		«var wiId=startId»
+		«FOR wi: win.getWorkItems()»
+			«wi.setId(wiId++)»
+		«ENDFOR»
+		
+	'''
 	def assignServiceProvidersId(EList<ServiceProvider> sps) '''
 		«var serviceProviderId=1»
 		«var resourceId=1»
@@ -140,7 +100,7 @@ public class ContractNetProtocol extends GovernanceStrategyImpl {
 		«IF winRS.numReplications>0»
 		«FOR r : 1..winRS.numReplications» 
 		«FOR wi : winRS.workItemNetwork.workItems »
-		«wi.setId(wiId++)»		
+		«wi.setId(wiId++)»
 		«ENDFOR»
 		«FOR wi : winRS.workItemNetwork.workItems »
 		«printWorkItem(wi,r)»
@@ -159,7 +119,7 @@ public class ContractNetProtocol extends GovernanceStrategyImpl {
 		«printServiceProvider(sp)»
 		<Resources>
 		«FOR r : sp.resources» 
-		«var int number = readIntParameter(r.number)»
+		«var int number = (readNumParameter(r.number)).intValue()»
 		«IF number>0»
 		«FOR n : 1..number»		
 		«r.setId(resourceId++)»
@@ -171,67 +131,6 @@ public class ContractNetProtocol extends GovernanceStrategyImpl {
 		</ServiceProvider> 
 		«ENDFOR»    	
 	'''	  
-	def assignWorkItemsId(WorkItemNetwork win, int startId) '''
-		«var wiId=startId»
-		«FOR wi: win.getWorkItems()»
-			«wi.setId(wiId++)»
-		«ENDFOR»
-		
-	'''
-	def getNumValue(NumExpression e) {
-		var numValue = 0.0
-		if (e!=null) {
-			if (e.isDistribution) {
-				numValue = sampleDistribution(e)
-				numValue =Double.parseDouble(new DecimalFormat("##.###").format(numValue));
-			}
-			else {numValue=Double.parseDouble(e.numValue)}
-		}
-		return numValue
-	}
-
-
-	def sampleDistribution(NumExpression e) {
-		var sampledValue = 0.0		
-		if (e.numDist.isNormal) {			
-			var double mean=readDoubleParameter(e.numDist.parameters.get(0))
-			var double stdev=readDoubleParameter(e.numDist.parameters.get(1))
-			var double rand = this.rng.nextGaussian()
-			sampledValue = mean + stdev*rand
-		}	
-		else if (e.numDist.isUniform) {
-			var double ll=readDoubleParameter(e.numDist.parameters.get(0))
-			var double ul=readDoubleParameter(e.numDist.parameters.get(1))
-			var double rand = this.rng.nextDouble()
-			sampledValue = ll + (ul-ll)*rand
-		}		
-		return sampledValue
-	}
-	def readIntParameter(AbstractParameter p) {
-		var int value=0
-		if (p.isVariable) {
-			value=p.variable.intValue
-		}	
-		else {value=Integer.parseInt(p.value)}		
-		return value
-	}	
-	def readDoubleParameter(AbstractParameter p) {
-		var double value=0.0
-		if (p.isVariable) {
-			value=p.variable.doubleValue
-		}	
-		else {value=Double.parseDouble(p.value)}		
-		return value
-	}
-	def readStringParameter(AbstractParameter p) {
-		var String value=""
-		if (p.isVariable) {
-			value=p.variable.stringValue
-		}	
-		else {value=p.value}		
-		return value
-	}
-		
 
 	def printServiceProvider(ServiceProvider sp) '''
 			<ServiceProvider serviceProviderId="«sp.id»" name="«sp.name»" typeId="«sp.getType.id»" description="">
@@ -247,9 +146,15 @@ public class ContractNetProtocol extends GovernanceStrategyImpl {
 			</BorrowResourceFrom>
 			<GovernanceStrategy>
 			<Mechanisms>
+			«IF sp.governanceStrategy.isPull()»
 			«FOR m:sp.governanceStrategy.pullStrategy.mechanisms»
 			«printMechanism(m)»
 			«ENDFOR»
+			«ELSEIF sp.governanceStrategy.isPush()»
+			«FOR m:sp.governanceStrategy.pullStrategy.mechanisms»
+			«printMechanism(m)»
+			«ENDFOR»
+			«ENDIF»
 			</Mechanisms>		
 «««					<AcceptanceRule>«sp.governanceStrategy.getWIAcceptanceRule.type.name»</AcceptanceRule>
 «««					<SelectionRule>«sp.governanceStrategy.getWISelectionRule.type.name»</SelectionRule>
@@ -259,7 +164,7 @@ public class ContractNetProtocol extends GovernanceStrategyImpl {
 			</GovernanceStrategy>	
 	'''
 	def printResource(Asset r, int n) '''
-			<Resource resourceId="«r.id»" name="«r.name+"("+n+")"»" description="">
+			<Resource resourceId="«r.id»" name="«r.name+"."+n»" description="">
 			<SkillSet>
 			«FOR s : r.getSkillSet()» 
 			«printSkill(s)»
@@ -268,7 +173,7 @@ public class ContractNetProtocol extends GovernanceStrategyImpl {
 			</Resource>	
 	'''	
 	def printSkill(Skill s) '''
-			<Skill serviceId="«s.service.id»" name="«s.service.name»" efficiency="«Math.max(getNumValue(s.efficiency),0)»"></Skill>
+			<Skill serviceId="«s.service.id»" name="«s.service.name»" efficiency="«Math.max(readNumParameter(s.efficiency),0)»"></Skill>
 	'''
 
 	def printWorkSource(WorkSource ws) '''
@@ -289,7 +194,7 @@ public class ContractNetProtocol extends GovernanceStrategyImpl {
 			<WorkItem wiId="«wi.id»" name="«if(r>1){wi.name+"("+r+")"}else{wi.name}»" typeId="«wi.getType.id»" isAggregationNode="«wi.hasSubtasks»" hasPredecessors="«wi.hasPredecessors»" hasImpacts="«wi.hasImpacts»">
 				<GovernanceAttributes>
 «««				«printGovernanceAttribute("ClassOfService",String.valueOf(wi.getClassOfService.id))»
-				«printGovernanceAttribute("Value",String.valueOf(Math.max(getNumValue(wi.value),0)))»
+				«printGovernanceAttribute("Value",String.valueOf(Math.max(readNumExpression(wi.value),1)))»
 				</GovernanceAttributes>
 				«IF	wi.hasPredecessors»
 				<Predecessors>
@@ -308,24 +213,18 @@ public class ContractNetProtocol extends GovernanceStrategyImpl {
 				«IF	wi.hasImpacts»
 				<Impacts>
 				«FOR impact : wi.getImpacts()»			
-				<Impact workItemId="«impact.impactWI.id»" likelihood="«Math.max(getNumValue(impact.likelihood),0)»" risk="«Math.max(getNumValue(impact.risk),0)»"></Impact>
+				<Impact workItemId="«impact.impactWI.id»" likelihood="«Math.max(readNumParameter(impact.likelihood),0)»" risk="«Math.max(readNumParameter(impact.risk),0)»"></Impact>
 				«ENDFOR»	
 				</Impacts>
 				«ENDIF»
-«««				<CausalTriggers>
-«««				«FOR cs : wi.getCausalTriggers()»
-«««					<CausalTrigger>
-«««					«FOR ttask : cs.getTriggered()»
-«««						<Triggered>«ttask.name»</Triggered>
-«««					«ENDFOR»
-«««						<AtProgress>«cs.getAtProgress»</AtProgress>
-«««						<OnProbability>«cs.getOnProbability»</OnProbability>
-«««					</CausalTrigger>
-«««				«ENDFOR»	
-«««				</CausalTriggers>
+				<RequiredAnalysis>
+				«FOR ra : wi.getRequiredAnalysis()»	
+				<RequiredService serviceId="«ra.serviceType.id»" efforts="«Math.max(readNumParameter(ra.efforts),1)»"></RequiredService>
+				«ENDFOR»
+				</RequiredAnalysis>
 				<RequiredServices>
 				«FOR rs : wi.getRequiredServices()»	
-				<RequiredService serviceId="«rs.serviceType.id»" efforts="«Math.max(getNumValue(rs.efforts),0)»"></RequiredService>
+				<RequiredService serviceId="«rs.serviceType.id»" efforts="«Math.max(readNumParameter(rs.efforts),1)»"></RequiredService>
 				«ENDFOR»
 				</RequiredServices>
 «««				<ClassOfService>«wi.classOfService.name»</ClassOfService>
@@ -380,11 +279,7 @@ public class ContractNetProtocol extends GovernanceStrategyImpl {
 		«ENDFOR»
 		</WorkItemTypes>
 	'''	
-	def printIndicators(EList<String> is) '''
-		«FOR i : is»
-		<Indicator name="«i»"></Indicator>
-		«ENDFOR»
-	'''
+
 	def printGovernanceStrategy(GovernanceStrategy govs) '''
 		«FOR m: govs.pullStrategy.getMechanisms()»
 		 	«printMechanism(m)»
@@ -397,6 +292,62 @@ public class ContractNetProtocol extends GovernanceStrategyImpl {
 		«ENDFOR»
 		</Mechanism>
 	'''
+	def printIndicators(EList<String> is) '''
+		«FOR i : is»
+		<Indicator name="«i»"></Indicator>
+		«ENDFOR»
+	'''
+	
+	def sampleDistribution(Distribution d) {
+		var sampledValue = 0.0		
+		if (d.isNormal) {			
+			var double mean= Double.parseDouble(d.parameters.get(0))
+			var double stdev= Double.parseDouble(d.parameters.get(1))
+			var double rand = this.rng.nextGaussian()
+			sampledValue = mean + stdev*rand
+		}	
+		else if (d.isUniform) {
+			var double ll=Double.parseDouble(d.parameters.get(0))
+			var double ul=Double.parseDouble(d.parameters.get(1))
+			var double rand = this.rng.nextDouble()
+			sampledValue = ll + (ul-ll)*rand
+		}		
+		return sampledValue
+	}
+	
+	def readNumExpression(NumExpression e) {
+		var numValue = 0.0
+		if (e!=null) {
+			if (e.isDistribution) {
+				numValue = sampleDistribution(e.numDist)
+				numValue =Double.parseDouble(new DecimalFormat("##.###").format(numValue));
+			}
+			else {numValue=Double.parseDouble(e.numValue)}
+		}
+		return numValue
+	}
+	def readNumParameter(AbstractParameter p) {
+		var v= 0.0
+		if (p.isVariable) {
+			if (p.variable.isNum) {
+				v = Double.parseDouble(p.variable.numValue)
+			}
+			else if (p.variable.isDistribution) {
+				v = sampleDistribution(p.variable.numDist)
+			}
+		}
+		else {v=Double.parseDouble(p.value)}
+		v =Double.parseDouble(new DecimalFormat("##.###").format(v));	
+		return v
+	}
+	def readStringParameter(AbstractParameter p) {
+		var String value=""
+		if (p.isVariable) {
+			value=p.variable.stringValue
+		}	
+		else {value=p.value}		
+		return value
+	}
 	
 //	def compileUserLibraries(Resource res) '''
 //		<UserLibraries>		

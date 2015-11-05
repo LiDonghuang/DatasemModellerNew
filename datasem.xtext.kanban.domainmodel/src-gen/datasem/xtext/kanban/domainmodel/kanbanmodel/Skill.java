@@ -58,12 +58,12 @@ public interface Skill extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Efficiency</em>' containment reference.
-   * @see #setEfficiency(NumExpression)
+   * @see #setEfficiency(AbstractParameter)
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getSkill_Efficiency()
    * @model containment="true"
    * @generated
    */
-  NumExpression getEfficiency();
+  AbstractParameter getEfficiency();
 
   /**
    * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Skill#getEfficiency <em>Efficiency</em>}' containment reference.
@@ -73,6 +73,6 @@ public interface Skill extends EObject
    * @see #getEfficiency()
    * @generated
    */
-  void setEfficiency(NumExpression value);
+  void setEfficiency(AbstractParameter value);
 
 } // Skill

@@ -59,12 +59,12 @@ public interface Impact extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Likelihood</em>' containment reference.
-   * @see #setLikelihood(NumExpression)
+   * @see #setLikelihood(AbstractParameter)
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getImpact_Likelihood()
    * @model containment="true"
    * @generated
    */
-  NumExpression getLikelihood();
+  AbstractParameter getLikelihood();
 
   /**
    * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Impact#getLikelihood <em>Likelihood</em>}' containment reference.
@@ -74,7 +74,7 @@ public interface Impact extends EObject
    * @see #getLikelihood()
    * @generated
    */
-  void setLikelihood(NumExpression value);
+  void setLikelihood(AbstractParameter value);
 
   /**
    * Returns the value of the '<em><b>Risk</b></em>' containment reference.
@@ -85,12 +85,12 @@ public interface Impact extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Risk</em>' containment reference.
-   * @see #setRisk(NumExpression)
+   * @see #setRisk(AbstractParameter)
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getImpact_Risk()
    * @model containment="true"
    * @generated
    */
-  NumExpression getRisk();
+  AbstractParameter getRisk();
 
   /**
    * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Impact#getRisk <em>Risk</em>}' containment reference.
@@ -100,6 +100,6 @@ public interface Impact extends EObject
    * @see #getRisk()
    * @generated
    */
-  void setRisk(NumExpression value);
+  void setRisk(AbstractParameter value);
 
 } // Impact

@@ -106,19 +106,19 @@ public interface Distribution extends EObject
   void setIsExponential(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
-   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.AbstractParameter}.
+   * Returns the value of the '<em><b>Parameters</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Parameters</em>' attribute list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Parameters</em>' containment reference list.
+   * @return the value of the '<em>Parameters</em>' attribute list.
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getDistribution_Parameters()
-   * @model containment="true"
+   * @model unique="false"
    * @generated
    */
-  EList<AbstractParameter> getParameters();
+  EList<String> getParameters();
 
 } // Distribution

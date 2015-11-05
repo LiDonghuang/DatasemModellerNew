@@ -460,49 +460,67 @@ public interface KanbanmodelPackage extends EPackage
   int EXPERIMENT_VARIABLE__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Type Integer</b></em>' attribute.
+   * The feature id for the '<em><b>Boolean</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPERIMENT_VARIABLE__TYPE_INTEGER = 1;
+  int EXPERIMENT_VARIABLE__BOOLEAN = 1;
 
   /**
-   * The feature id for the '<em><b>Int Value</b></em>' attribute.
+   * The feature id for the '<em><b>Boolean Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPERIMENT_VARIABLE__INT_VALUE = 2;
+  int EXPERIMENT_VARIABLE__BOOLEAN_VALUE = 2;
 
   /**
-   * The feature id for the '<em><b>Type Double</b></em>' attribute.
+   * The feature id for the '<em><b>Num</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPERIMENT_VARIABLE__TYPE_DOUBLE = 3;
+  int EXPERIMENT_VARIABLE__NUM = 3;
 
   /**
-   * The feature id for the '<em><b>Double Value</b></em>' attribute.
+   * The feature id for the '<em><b>Num Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPERIMENT_VARIABLE__DOUBLE_VALUE = 4;
+  int EXPERIMENT_VARIABLE__NUM_VALUE = 4;
 
   /**
-   * The feature id for the '<em><b>Type String</b></em>' attribute.
+   * The feature id for the '<em><b>Distribution</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPERIMENT_VARIABLE__TYPE_STRING = 5;
+  int EXPERIMENT_VARIABLE__DISTRIBUTION = 5;
+
+  /**
+   * The feature id for the '<em><b>Num Dist</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPERIMENT_VARIABLE__NUM_DIST = 6;
+
+  /**
+   * The feature id for the '<em><b>String</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPERIMENT_VARIABLE__STRING = 7;
 
   /**
    * The feature id for the '<em><b>String Value</b></em>' attribute.
@@ -511,43 +529,25 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPERIMENT_VARIABLE__STRING_VALUE = 6;
+  int EXPERIMENT_VARIABLE__STRING_VALUE = 8;
 
   /**
-   * The feature id for the '<em><b>Type Distribution</b></em>' attribute.
+   * The feature id for the '<em><b>Strategy</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPERIMENT_VARIABLE__TYPE_DISTRIBUTION = 7;
+  int EXPERIMENT_VARIABLE__STRATEGY = 9;
 
   /**
-   * The feature id for the '<em><b>Distrbution</b></em>' containment reference.
+   * The feature id for the '<em><b>Strategy Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPERIMENT_VARIABLE__DISTRBUTION = 8;
-
-  /**
-   * The feature id for the '<em><b>Type Strategy</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPERIMENT_VARIABLE__TYPE_STRATEGY = 9;
-
-  /**
-   * The feature id for the '<em><b>Strategy</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPERIMENT_VARIABLE__STRATEGY = 10;
+  int EXPERIMENT_VARIABLE__STRATEGY_VALUE = 10;
 
   /**
    * The number of structural features of the '<em>Experiment Variable</em>' class.
@@ -596,7 +596,7 @@ public interface KanbanmodelPackage extends EPackage
   int DISTRIBUTION__IS_EXPONENTIAL = 2;
 
   /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * The feature id for the '<em><b>Parameters</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -679,13 +679,22 @@ public interface KanbanmodelPackage extends EPackage
   int GOVERNANCE_STRATEGY__PULL = 1;
 
   /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GOVERNANCE_STRATEGY__DESCRIPTION = 2;
+
+  /**
    * The feature id for the '<em><b>Pull Strategy</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GOVERNANCE_STRATEGY__PULL_STRATEGY = 2;
+  int GOVERNANCE_STRATEGY__PULL_STRATEGY = 3;
 
   /**
    * The feature id for the '<em><b>Push</b></em>' attribute.
@@ -694,7 +703,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GOVERNANCE_STRATEGY__PUSH = 3;
+  int GOVERNANCE_STRATEGY__PUSH = 4;
 
   /**
    * The feature id for the '<em><b>Push Strategy</b></em>' containment reference.
@@ -703,7 +712,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GOVERNANCE_STRATEGY__PUSH_STRATEGY = 4;
+  int GOVERNANCE_STRATEGY__PUSH_STRATEGY = 5;
 
   /**
    * The feature id for the '<em><b>Cnp</b></em>' attribute.
@@ -712,7 +721,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GOVERNANCE_STRATEGY__CNP = 5;
+  int GOVERNANCE_STRATEGY__CNP = 6;
 
   /**
    * The feature id for the '<em><b>Contract Net Protocal</b></em>' containment reference.
@@ -721,7 +730,16 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL = 6;
+  int GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL = 7;
+
+  /**
+   * The feature id for the '<em><b>Processes</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GOVERNANCE_STRATEGY__PROCESSES = 8;
 
   /**
    * The number of structural features of the '<em>Governance Strategy</em>' class.
@@ -730,7 +748,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GOVERNANCE_STRATEGY_FEATURE_COUNT = 7;
+  int GOVERNANCE_STRATEGY_FEATURE_COUNT = 9;
 
   /**
    * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ContractNetProtocolImpl <em>Contract Net Protocol</em>}' class.
@@ -743,22 +761,13 @@ public interface KanbanmodelPackage extends EPackage
   int CONTRACT_NET_PROTOCOL = 10;
 
   /**
-   * The feature id for the '<em><b>Description</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTRACT_NET_PROTOCOL__DESCRIPTION = 0;
-
-  /**
    * The feature id for the '<em><b>Variables</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTRACT_NET_PROTOCOL__VARIABLES = 1;
+  int CONTRACT_NET_PROTOCOL__VARIABLES = 0;
 
   /**
    * The feature id for the '<em><b>Role Behaviors</b></em>' containment reference list.
@@ -767,16 +776,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTRACT_NET_PROTOCOL__ROLE_BEHAVIORS = 2;
-
-  /**
-   * The feature id for the '<em><b>Processes</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTRACT_NET_PROTOCOL__PROCESSES = 3;
+  int CONTRACT_NET_PROTOCOL__ROLE_BEHAVIORS = 1;
 
   /**
    * The number of structural features of the '<em>Contract Net Protocol</em>' class.
@@ -785,7 +785,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTRACT_NET_PROTOCOL_FEATURE_COUNT = 4;
+  int CONTRACT_NET_PROTOCOL_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.RoleBehaviorImpl <em>Role Behavior</em>}' class.
@@ -890,31 +890,13 @@ public interface KanbanmodelPackage extends EPackage
   int PULL_STRATEGY = 13;
 
   /**
-   * The feature id for the '<em><b>Description</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PULL_STRATEGY__DESCRIPTION = 0;
-
-  /**
    * The feature id for the '<em><b>Mechanisms</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PULL_STRATEGY__MECHANISMS = 1;
-
-  /**
-   * The feature id for the '<em><b>Processes</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PULL_STRATEGY__PROCESSES = 2;
+  int PULL_STRATEGY__MECHANISMS = 0;
 
   /**
    * The number of structural features of the '<em>Pull Strategy</em>' class.
@@ -923,7 +905,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PULL_STRATEGY_FEATURE_COUNT = 3;
+  int PULL_STRATEGY_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.PushStrategyImpl <em>Push Strategy</em>}' class.
@@ -936,31 +918,13 @@ public interface KanbanmodelPackage extends EPackage
   int PUSH_STRATEGY = 14;
 
   /**
-   * The feature id for the '<em><b>Description</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PUSH_STRATEGY__DESCRIPTION = 0;
-
-  /**
    * The feature id for the '<em><b>Mechanisms</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PUSH_STRATEGY__MECHANISMS = 1;
-
-  /**
-   * The feature id for the '<em><b>Processes</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PUSH_STRATEGY__PROCESSES = 2;
+  int PUSH_STRATEGY__MECHANISMS = 0;
 
   /**
    * The number of structural features of the '<em>Push Strategy</em>' class.
@@ -969,7 +933,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PUSH_STRATEGY_FEATURE_COUNT = 3;
+  int PUSH_STRATEGY_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.MechanismImpl <em>Mechanism</em>}' class.
@@ -1256,40 +1220,13 @@ public interface KanbanmodelPackage extends EPackage
   int WORK_ITEM__REQUIRED_SERVICES = 8;
 
   /**
-   * The feature id for the '<em><b>Maturity Levels</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WORK_ITEM__MATURITY_LEVELS = 9;
-
-  /**
-   * The feature id for the '<em><b>Uncertainty</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WORK_ITEM__UNCERTAINTY = 10;
-
-  /**
-   * The feature id for the '<em><b>Risk</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WORK_ITEM__RISK = 11;
-
-  /**
    * The feature id for the '<em><b>Has Impacts</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WORK_ITEM__HAS_IMPACTS = 12;
+  int WORK_ITEM__HAS_IMPACTS = 9;
 
   /**
    * The feature id for the '<em><b>Impacts</b></em>' containment reference list.
@@ -1298,7 +1235,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM__IMPACTS = 13;
+  int WORK_ITEM__IMPACTS = 10;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1307,43 +1244,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM__VALUE = 14;
-
-  /**
-   * The feature id for the '<em><b>Class Of Service</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WORK_ITEM__CLASS_OF_SERVICE = 15;
-
-  /**
-   * The feature id for the '<em><b>Work Source</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WORK_ITEM__WORK_SOURCE = 16;
-
-  /**
-   * The feature id for the '<em><b>Arrival Time</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WORK_ITEM__ARRIVAL_TIME = 17;
-
-  /**
-   * The feature id for the '<em><b>Due Date</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WORK_ITEM__DUE_DATE = 18;
+  int WORK_ITEM__VALUE = 11;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1352,7 +1253,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM__ID = 19;
+  int WORK_ITEM__ID = 12;
 
   /**
    * The number of structural features of the '<em>Work Item</em>' class.
@@ -1361,7 +1262,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM_FEATURE_COUNT = 20;
+  int WORK_ITEM_FEATURE_COUNT = 13;
 
   /**
    * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.RequiredServiceImpl <em>Required Service</em>}' class.
@@ -3541,59 +3442,81 @@ public interface KanbanmodelPackage extends EPackage
   EAttribute getExperimentVariable_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isTypeInteger <em>Type Integer</em>}'.
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isBoolean <em>Boolean</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type Integer</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isTypeInteger()
+   * @return the meta object for the attribute '<em>Boolean</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isBoolean()
    * @see #getExperimentVariable()
    * @generated
    */
-  EAttribute getExperimentVariable_TypeInteger();
+  EAttribute getExperimentVariable_Boolean();
 
   /**
-   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getIntValue <em>Int Value</em>}'.
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isBooleanValue <em>Boolean Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Int Value</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getIntValue()
+   * @return the meta object for the attribute '<em>Boolean Value</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isBooleanValue()
    * @see #getExperimentVariable()
    * @generated
    */
-  EAttribute getExperimentVariable_IntValue();
+  EAttribute getExperimentVariable_BooleanValue();
 
   /**
-   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isTypeDouble <em>Type Double</em>}'.
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isNum <em>Num</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type Double</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isTypeDouble()
+   * @return the meta object for the attribute '<em>Num</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isNum()
    * @see #getExperimentVariable()
    * @generated
    */
-  EAttribute getExperimentVariable_TypeDouble();
+  EAttribute getExperimentVariable_Num();
 
   /**
-   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getDoubleValue <em>Double Value</em>}'.
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getNumValue <em>Num Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Double Value</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getDoubleValue()
+   * @return the meta object for the attribute '<em>Num Value</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getNumValue()
    * @see #getExperimentVariable()
    * @generated
    */
-  EAttribute getExperimentVariable_DoubleValue();
+  EAttribute getExperimentVariable_NumValue();
 
   /**
-   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isTypeString <em>Type String</em>}'.
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isDistribution <em>Distribution</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type String</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isTypeString()
+   * @return the meta object for the attribute '<em>Distribution</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isDistribution()
    * @see #getExperimentVariable()
    * @generated
    */
-  EAttribute getExperimentVariable_TypeString();
+  EAttribute getExperimentVariable_Distribution();
+
+  /**
+   * Returns the meta object for the containment reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getNumDist <em>Num Dist</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Num Dist</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getNumDist()
+   * @see #getExperimentVariable()
+   * @generated
+   */
+  EReference getExperimentVariable_NumDist();
+
+  /**
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isString <em>String</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>String</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isString()
+   * @see #getExperimentVariable()
+   * @generated
+   */
+  EAttribute getExperimentVariable_String();
 
   /**
    * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getStringValue <em>String Value</em>}'.
@@ -3607,48 +3530,26 @@ public interface KanbanmodelPackage extends EPackage
   EAttribute getExperimentVariable_StringValue();
 
   /**
-   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isTypeDistribution <em>Type Distribution</em>}'.
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isStrategy <em>Strategy</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type Distribution</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isTypeDistribution()
+   * @return the meta object for the attribute '<em>Strategy</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isStrategy()
    * @see #getExperimentVariable()
    * @generated
    */
-  EAttribute getExperimentVariable_TypeDistribution();
+  EAttribute getExperimentVariable_Strategy();
 
   /**
-   * Returns the meta object for the containment reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getDistrbution <em>Distrbution</em>}'.
+   * Returns the meta object for the containment reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getStrategyValue <em>Strategy Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Distrbution</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getDistrbution()
+   * @return the meta object for the containment reference '<em>Strategy Value</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getStrategyValue()
    * @see #getExperimentVariable()
    * @generated
    */
-  EReference getExperimentVariable_Distrbution();
-
-  /**
-   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isTypeStrategy <em>Type Strategy</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type Strategy</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isTypeStrategy()
-   * @see #getExperimentVariable()
-   * @generated
-   */
-  EAttribute getExperimentVariable_TypeStrategy();
-
-  /**
-   * Returns the meta object for the reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getStrategy <em>Strategy</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Strategy</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getStrategy()
-   * @see #getExperimentVariable()
-   * @generated
-   */
-  EReference getExperimentVariable_Strategy();
+  EReference getExperimentVariable_StrategyValue();
 
   /**
    * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution <em>Distribution</em>}'.
@@ -3694,15 +3595,15 @@ public interface KanbanmodelPackage extends EPackage
   EAttribute getDistribution_IsExponential();
 
   /**
-   * Returns the meta object for the containment reference list '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution#getParameters <em>Parameters</em>}'.
+   * Returns the meta object for the attribute list '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution#getParameters <em>Parameters</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Parameters</em>'.
+   * @return the meta object for the attribute list '<em>Parameters</em>'.
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution#getParameters()
    * @see #getDistribution()
    * @generated
    */
-  EReference getDistribution_Parameters();
+  EAttribute getDistribution_Parameters();
 
   /**
    * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WINReplication <em>WIN Replication</em>}'.
@@ -3769,6 +3670,17 @@ public interface KanbanmodelPackage extends EPackage
   EAttribute getGovernanceStrategy_Pull();
 
   /**
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getDescription()
+   * @see #getGovernanceStrategy()
+   * @generated
+   */
+  EAttribute getGovernanceStrategy_Description();
+
+  /**
    * Returns the meta object for the containment reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getPullStrategy <em>Pull Strategy</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3824,6 +3736,17 @@ public interface KanbanmodelPackage extends EPackage
   EReference getGovernanceStrategy_ContractNetProtocal();
 
   /**
+   * Returns the meta object for the reference list '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getProcesses <em>Processes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Processes</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getProcesses()
+   * @see #getGovernanceStrategy()
+   * @generated
+   */
+  EReference getGovernanceStrategy_Processes();
+
+  /**
    * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ContractNetProtocol <em>Contract Net Protocol</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3832,17 +3755,6 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    */
   EClass getContractNetProtocol();
-
-  /**
-   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ContractNetProtocol#getDescription <em>Description</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Description</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ContractNetProtocol#getDescription()
-   * @see #getContractNetProtocol()
-   * @generated
-   */
-  EAttribute getContractNetProtocol_Description();
 
   /**
    * Returns the meta object for the containment reference list '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ContractNetProtocol#getVariables <em>Variables</em>}'.
@@ -3865,17 +3777,6 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    */
   EReference getContractNetProtocol_RoleBehaviors();
-
-  /**
-   * Returns the meta object for the reference list '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ContractNetProtocol#getProcesses <em>Processes</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Processes</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ContractNetProtocol#getProcesses()
-   * @see #getContractNetProtocol()
-   * @generated
-   */
-  EReference getContractNetProtocol_Processes();
 
   /**
    * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.RoleBehavior <em>Role Behavior</em>}'.
@@ -3974,17 +3875,6 @@ public interface KanbanmodelPackage extends EPackage
   EClass getPullStrategy();
 
   /**
-   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.PullStrategy#getDescription <em>Description</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Description</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.PullStrategy#getDescription()
-   * @see #getPullStrategy()
-   * @generated
-   */
-  EAttribute getPullStrategy_Description();
-
-  /**
    * Returns the meta object for the containment reference list '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.PullStrategy#getMechanisms <em>Mechanisms</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3994,17 +3884,6 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    */
   EReference getPullStrategy_Mechanisms();
-
-  /**
-   * Returns the meta object for the reference list '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.PullStrategy#getProcesses <em>Processes</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Processes</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.PullStrategy#getProcesses()
-   * @see #getPullStrategy()
-   * @generated
-   */
-  EReference getPullStrategy_Processes();
 
   /**
    * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.PushStrategy <em>Push Strategy</em>}'.
@@ -4017,17 +3896,6 @@ public interface KanbanmodelPackage extends EPackage
   EClass getPushStrategy();
 
   /**
-   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.PushStrategy#getDescription <em>Description</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Description</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.PushStrategy#getDescription()
-   * @see #getPushStrategy()
-   * @generated
-   */
-  EAttribute getPushStrategy_Description();
-
-  /**
    * Returns the meta object for the containment reference list '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.PushStrategy#getMechanisms <em>Mechanisms</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4037,17 +3905,6 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    */
   EReference getPushStrategy_Mechanisms();
-
-  /**
-   * Returns the meta object for the reference list '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.PushStrategy#getProcesses <em>Processes</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Processes</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.PushStrategy#getProcesses()
-   * @see #getPushStrategy()
-   * @generated
-   */
-  EReference getPushStrategy_Processes();
 
   /**
    * Returns the meta object for class '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism <em>Mechanism</em>}'.
@@ -4342,39 +4199,6 @@ public interface KanbanmodelPackage extends EPackage
   EReference getWorkItem_RequiredServices();
 
   /**
-   * Returns the meta object for the containment reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getMaturityLevels <em>Maturity Levels</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Maturity Levels</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getMaturityLevels()
-   * @see #getWorkItem()
-   * @generated
-   */
-  EReference getWorkItem_MaturityLevels();
-
-  /**
-   * Returns the meta object for the containment reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getUncertainty <em>Uncertainty</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Uncertainty</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getUncertainty()
-   * @see #getWorkItem()
-   * @generated
-   */
-  EReference getWorkItem_Uncertainty();
-
-  /**
-   * Returns the meta object for the containment reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getRisk <em>Risk</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Risk</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getRisk()
-   * @see #getWorkItem()
-   * @generated
-   */
-  EReference getWorkItem_Risk();
-
-  /**
    * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#isHasImpacts <em>Has Impacts</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4406,50 +4230,6 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    */
   EReference getWorkItem_Value();
-
-  /**
-   * Returns the meta object for the reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getClassOfService <em>Class Of Service</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Class Of Service</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getClassOfService()
-   * @see #getWorkItem()
-   * @generated
-   */
-  EReference getWorkItem_ClassOfService();
-
-  /**
-   * Returns the meta object for the reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getWorkSource <em>Work Source</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Work Source</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getWorkSource()
-   * @see #getWorkItem()
-   * @generated
-   */
-  EReference getWorkItem_WorkSource();
-
-  /**
-   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getArrivalTime <em>Arrival Time</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Arrival Time</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getArrivalTime()
-   * @see #getWorkItem()
-   * @generated
-   */
-  EAttribute getWorkItem_ArrivalTime();
-
-  /**
-   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getDueDate <em>Due Date</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Due Date</em>'.
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getDueDate()
-   * @see #getWorkItem()
-   * @generated
-   */
-  EAttribute getWorkItem_DueDate();
 
   /**
    * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getId <em>Id</em>}'.
@@ -6450,44 +6230,60 @@ public interface KanbanmodelPackage extends EPackage
     EAttribute EXPERIMENT_VARIABLE__NAME = eINSTANCE.getExperimentVariable_Name();
 
     /**
-     * The meta object literal for the '<em><b>Type Integer</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Boolean</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXPERIMENT_VARIABLE__TYPE_INTEGER = eINSTANCE.getExperimentVariable_TypeInteger();
+    EAttribute EXPERIMENT_VARIABLE__BOOLEAN = eINSTANCE.getExperimentVariable_Boolean();
 
     /**
-     * The meta object literal for the '<em><b>Int Value</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Boolean Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXPERIMENT_VARIABLE__INT_VALUE = eINSTANCE.getExperimentVariable_IntValue();
+    EAttribute EXPERIMENT_VARIABLE__BOOLEAN_VALUE = eINSTANCE.getExperimentVariable_BooleanValue();
 
     /**
-     * The meta object literal for the '<em><b>Type Double</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Num</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXPERIMENT_VARIABLE__TYPE_DOUBLE = eINSTANCE.getExperimentVariable_TypeDouble();
+    EAttribute EXPERIMENT_VARIABLE__NUM = eINSTANCE.getExperimentVariable_Num();
 
     /**
-     * The meta object literal for the '<em><b>Double Value</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Num Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXPERIMENT_VARIABLE__DOUBLE_VALUE = eINSTANCE.getExperimentVariable_DoubleValue();
+    EAttribute EXPERIMENT_VARIABLE__NUM_VALUE = eINSTANCE.getExperimentVariable_NumValue();
 
     /**
-     * The meta object literal for the '<em><b>Type String</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Distribution</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXPERIMENT_VARIABLE__TYPE_STRING = eINSTANCE.getExperimentVariable_TypeString();
+    EAttribute EXPERIMENT_VARIABLE__DISTRIBUTION = eINSTANCE.getExperimentVariable_Distribution();
+
+    /**
+     * The meta object literal for the '<em><b>Num Dist</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPERIMENT_VARIABLE__NUM_DIST = eINSTANCE.getExperimentVariable_NumDist();
+
+    /**
+     * The meta object literal for the '<em><b>String</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPERIMENT_VARIABLE__STRING = eINSTANCE.getExperimentVariable_String();
 
     /**
      * The meta object literal for the '<em><b>String Value</b></em>' attribute feature.
@@ -6498,36 +6294,20 @@ public interface KanbanmodelPackage extends EPackage
     EAttribute EXPERIMENT_VARIABLE__STRING_VALUE = eINSTANCE.getExperimentVariable_StringValue();
 
     /**
-     * The meta object literal for the '<em><b>Type Distribution</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Strategy</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXPERIMENT_VARIABLE__TYPE_DISTRIBUTION = eINSTANCE.getExperimentVariable_TypeDistribution();
+    EAttribute EXPERIMENT_VARIABLE__STRATEGY = eINSTANCE.getExperimentVariable_Strategy();
 
     /**
-     * The meta object literal for the '<em><b>Distrbution</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Strategy Value</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPERIMENT_VARIABLE__DISTRBUTION = eINSTANCE.getExperimentVariable_Distrbution();
-
-    /**
-     * The meta object literal for the '<em><b>Type Strategy</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EXPERIMENT_VARIABLE__TYPE_STRATEGY = eINSTANCE.getExperimentVariable_TypeStrategy();
-
-    /**
-     * The meta object literal for the '<em><b>Strategy</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPERIMENT_VARIABLE__STRATEGY = eINSTANCE.getExperimentVariable_Strategy();
+    EReference EXPERIMENT_VARIABLE__STRATEGY_VALUE = eINSTANCE.getExperimentVariable_StrategyValue();
 
     /**
      * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.DistributionImpl <em>Distribution</em>}' class.
@@ -6564,12 +6344,12 @@ public interface KanbanmodelPackage extends EPackage
     EAttribute DISTRIBUTION__IS_EXPONENTIAL = eINSTANCE.getDistribution_IsExponential();
 
     /**
-     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Parameters</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DISTRIBUTION__PARAMETERS = eINSTANCE.getDistribution_Parameters();
+    EAttribute DISTRIBUTION__PARAMETERS = eINSTANCE.getDistribution_Parameters();
 
     /**
      * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WINReplicationImpl <em>WIN Replication</em>}' class.
@@ -6624,6 +6404,14 @@ public interface KanbanmodelPackage extends EPackage
     EAttribute GOVERNANCE_STRATEGY__PULL = eINSTANCE.getGovernanceStrategy_Pull();
 
     /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GOVERNANCE_STRATEGY__DESCRIPTION = eINSTANCE.getGovernanceStrategy_Description();
+
+    /**
      * The meta object literal for the '<em><b>Pull Strategy</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6664,6 +6452,14 @@ public interface KanbanmodelPackage extends EPackage
     EReference GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL = eINSTANCE.getGovernanceStrategy_ContractNetProtocal();
 
     /**
+     * The meta object literal for the '<em><b>Processes</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GOVERNANCE_STRATEGY__PROCESSES = eINSTANCE.getGovernanceStrategy_Processes();
+
+    /**
      * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ContractNetProtocolImpl <em>Contract Net Protocol</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6672,14 +6468,6 @@ public interface KanbanmodelPackage extends EPackage
      * @generated
      */
     EClass CONTRACT_NET_PROTOCOL = eINSTANCE.getContractNetProtocol();
-
-    /**
-     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CONTRACT_NET_PROTOCOL__DESCRIPTION = eINSTANCE.getContractNetProtocol_Description();
 
     /**
      * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.
@@ -6696,14 +6484,6 @@ public interface KanbanmodelPackage extends EPackage
      * @generated
      */
     EReference CONTRACT_NET_PROTOCOL__ROLE_BEHAVIORS = eINSTANCE.getContractNetProtocol_RoleBehaviors();
-
-    /**
-     * The meta object literal for the '<em><b>Processes</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CONTRACT_NET_PROTOCOL__PROCESSES = eINSTANCE.getContractNetProtocol_Processes();
 
     /**
      * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.RoleBehaviorImpl <em>Role Behavior</em>}' class.
@@ -6784,28 +6564,12 @@ public interface KanbanmodelPackage extends EPackage
     EClass PULL_STRATEGY = eINSTANCE.getPullStrategy();
 
     /**
-     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PULL_STRATEGY__DESCRIPTION = eINSTANCE.getPullStrategy_Description();
-
-    /**
      * The meta object literal for the '<em><b>Mechanisms</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference PULL_STRATEGY__MECHANISMS = eINSTANCE.getPullStrategy_Mechanisms();
-
-    /**
-     * The meta object literal for the '<em><b>Processes</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PULL_STRATEGY__PROCESSES = eINSTANCE.getPullStrategy_Processes();
 
     /**
      * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.PushStrategyImpl <em>Push Strategy</em>}' class.
@@ -6818,28 +6582,12 @@ public interface KanbanmodelPackage extends EPackage
     EClass PUSH_STRATEGY = eINSTANCE.getPushStrategy();
 
     /**
-     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PUSH_STRATEGY__DESCRIPTION = eINSTANCE.getPushStrategy_Description();
-
-    /**
      * The meta object literal for the '<em><b>Mechanisms</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference PUSH_STRATEGY__MECHANISMS = eINSTANCE.getPushStrategy_Mechanisms();
-
-    /**
-     * The meta object literal for the '<em><b>Processes</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PUSH_STRATEGY__PROCESSES = eINSTANCE.getPushStrategy_Processes();
 
     /**
      * The meta object literal for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.MechanismImpl <em>Mechanism</em>}' class.
@@ -7068,30 +6816,6 @@ public interface KanbanmodelPackage extends EPackage
     EReference WORK_ITEM__REQUIRED_SERVICES = eINSTANCE.getWorkItem_RequiredServices();
 
     /**
-     * The meta object literal for the '<em><b>Maturity Levels</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference WORK_ITEM__MATURITY_LEVELS = eINSTANCE.getWorkItem_MaturityLevels();
-
-    /**
-     * The meta object literal for the '<em><b>Uncertainty</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference WORK_ITEM__UNCERTAINTY = eINSTANCE.getWorkItem_Uncertainty();
-
-    /**
-     * The meta object literal for the '<em><b>Risk</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference WORK_ITEM__RISK = eINSTANCE.getWorkItem_Risk();
-
-    /**
      * The meta object literal for the '<em><b>Has Impacts</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7114,38 +6838,6 @@ public interface KanbanmodelPackage extends EPackage
      * @generated
      */
     EReference WORK_ITEM__VALUE = eINSTANCE.getWorkItem_Value();
-
-    /**
-     * The meta object literal for the '<em><b>Class Of Service</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference WORK_ITEM__CLASS_OF_SERVICE = eINSTANCE.getWorkItem_ClassOfService();
-
-    /**
-     * The meta object literal for the '<em><b>Work Source</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference WORK_ITEM__WORK_SOURCE = eINSTANCE.getWorkItem_WorkSource();
-
-    /**
-     * The meta object literal for the '<em><b>Arrival Time</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute WORK_ITEM__ARRIVAL_TIME = eINSTANCE.getWorkItem_ArrivalTime();
-
-    /**
-     * The meta object literal for the '<em><b>Due Date</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute WORK_ITEM__DUE_DATE = eINSTANCE.getWorkItem_DueDate();
 
     /**
      * The meta object literal for the '<em><b>Id</b></em>' attribute feature.

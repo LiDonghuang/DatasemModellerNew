@@ -2,9 +2,9 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
+import datasem.xtext.kanban.domainmodel.kanbanmodel.AbstractParameter;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Impact;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.NumExpression;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -51,7 +51,7 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
    * @generated
    * @ordered
    */
-  protected NumExpression likelihood;
+  protected AbstractParameter likelihood;
 
   /**
    * The cached value of the '{@link #getRisk() <em>Risk</em>}' containment reference.
@@ -61,7 +61,7 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
    * @generated
    * @ordered
    */
-  protected NumExpression risk;
+  protected AbstractParameter risk;
 
   /**
    * <!-- begin-user-doc -->
@@ -132,7 +132,7 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
    * <!-- end-user-doc -->
    * @generated
    */
-  public NumExpression getLikelihood()
+  public AbstractParameter getLikelihood()
   {
     return likelihood;
   }
@@ -142,9 +142,9 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLikelihood(NumExpression newLikelihood, NotificationChain msgs)
+  public NotificationChain basicSetLikelihood(AbstractParameter newLikelihood, NotificationChain msgs)
   {
-    NumExpression oldLikelihood = likelihood;
+    AbstractParameter oldLikelihood = likelihood;
     likelihood = newLikelihood;
     if (eNotificationRequired())
     {
@@ -159,7 +159,7 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLikelihood(NumExpression newLikelihood)
+  public void setLikelihood(AbstractParameter newLikelihood)
   {
     if (newLikelihood != likelihood)
     {
@@ -180,7 +180,7 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
    * <!-- end-user-doc -->
    * @generated
    */
-  public NumExpression getRisk()
+  public AbstractParameter getRisk()
   {
     return risk;
   }
@@ -190,9 +190,9 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRisk(NumExpression newRisk, NotificationChain msgs)
+  public NotificationChain basicSetRisk(AbstractParameter newRisk, NotificationChain msgs)
   {
-    NumExpression oldRisk = risk;
+    AbstractParameter oldRisk = risk;
     risk = newRisk;
     if (eNotificationRequired())
     {
@@ -207,7 +207,7 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRisk(NumExpression newRisk)
+  public void setRisk(AbstractParameter newRisk)
   {
     if (newRisk != risk)
     {
@@ -276,10 +276,10 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
         setImpactWI((WorkItem)newValue);
         return;
       case KanbanmodelPackage.IMPACT__LIKELIHOOD:
-        setLikelihood((NumExpression)newValue);
+        setLikelihood((AbstractParameter)newValue);
         return;
       case KanbanmodelPackage.IMPACT__RISK:
-        setRisk((NumExpression)newValue);
+        setRisk((AbstractParameter)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -299,10 +299,10 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact
         setImpactWI((WorkItem)null);
         return;
       case KanbanmodelPackage.IMPACT__LIKELIHOOD:
-        setLikelihood((NumExpression)null);
+        setLikelihood((AbstractParameter)null);
         return;
       case KanbanmodelPackage.IMPACT__RISK:
-        setRisk((NumExpression)null);
+        setRisk((AbstractParameter)null);
         return;
     }
     super.eUnset(featureID);

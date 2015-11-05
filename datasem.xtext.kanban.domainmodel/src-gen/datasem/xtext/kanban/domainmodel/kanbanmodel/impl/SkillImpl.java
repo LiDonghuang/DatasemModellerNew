@@ -2,8 +2,8 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
+import datasem.xtext.kanban.domainmodel.kanbanmodel.AbstractParameter;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.NumExpression;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Service;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Skill;
 
@@ -50,7 +50,7 @@ public class SkillImpl extends MinimalEObjectImpl.Container implements Skill
    * @generated
    * @ordered
    */
-  protected NumExpression efficiency;
+  protected AbstractParameter efficiency;
 
   /**
    * <!-- begin-user-doc -->
@@ -121,7 +121,7 @@ public class SkillImpl extends MinimalEObjectImpl.Container implements Skill
    * <!-- end-user-doc -->
    * @generated
    */
-  public NumExpression getEfficiency()
+  public AbstractParameter getEfficiency()
   {
     return efficiency;
   }
@@ -131,9 +131,9 @@ public class SkillImpl extends MinimalEObjectImpl.Container implements Skill
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetEfficiency(NumExpression newEfficiency, NotificationChain msgs)
+  public NotificationChain basicSetEfficiency(AbstractParameter newEfficiency, NotificationChain msgs)
   {
-    NumExpression oldEfficiency = efficiency;
+    AbstractParameter oldEfficiency = efficiency;
     efficiency = newEfficiency;
     if (eNotificationRequired())
     {
@@ -148,7 +148,7 @@ public class SkillImpl extends MinimalEObjectImpl.Container implements Skill
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setEfficiency(NumExpression newEfficiency)
+  public void setEfficiency(AbstractParameter newEfficiency)
   {
     if (newEfficiency != efficiency)
     {
@@ -213,7 +213,7 @@ public class SkillImpl extends MinimalEObjectImpl.Container implements Skill
         setService((Service)newValue);
         return;
       case KanbanmodelPackage.SKILL__EFFICIENCY:
-        setEfficiency((NumExpression)newValue);
+        setEfficiency((AbstractParameter)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -233,7 +233,7 @@ public class SkillImpl extends MinimalEObjectImpl.Container implements Skill
         setService((Service)null);
         return;
       case KanbanmodelPackage.SKILL__EFFICIENCY:
-        setEfficiency((NumExpression)null);
+        setEfficiency((AbstractParameter)null);
         return;
     }
     super.eUnset(featureID);

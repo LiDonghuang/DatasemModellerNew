@@ -2,6 +2,8 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,11 +16,13 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getName <em>Name</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#isPull <em>Pull</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getDescription <em>Description</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getPullStrategy <em>Pull Strategy</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#isPush <em>Push</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getPushStrategy <em>Push Strategy</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#isCnp <em>Cnp</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getContractNetProtocal <em>Contract Net Protocal</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getProcesses <em>Processes</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,6 +83,32 @@ public interface GovernanceStrategy extends EObject
    * @generated
    */
   void setPull(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Description</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Description</em>' attribute.
+   * @see #setDescription(String)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_Description()
+   * @model
+   * @generated
+   */
+  String getDescription();
+
+  /**
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.GovernanceStrategy#getDescription <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Description</em>' attribute.
+   * @see #getDescription()
+   * @generated
+   */
+  void setDescription(String value);
 
   /**
    * Returns the value of the '<em><b>Pull Strategy</b></em>' containment reference.
@@ -209,5 +239,21 @@ public interface GovernanceStrategy extends EObject
    * @generated
    */
   void setContractNetProtocal(ContractNetProtocol value);
+
+  /**
+   * Returns the value of the '<em><b>Processes</b></em>' reference list.
+   * The list contents are of type {@link datasem.xtext.kanban.domainmodel.kanbanmodel.ProcessModel}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Processes</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Processes</em>' reference list.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getGovernanceStrategy_Processes()
+   * @model
+   * @generated
+   */
+  EList<ProcessModel> getProcesses();
 
 } // GovernanceStrategy

@@ -2,15 +2,12 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
-import datasem.xtext.kanban.domainmodel.kanbanmodel.AbstractParameter;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.ClassOfService;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Impact;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.NumExpression;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.RequiredService;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItemType;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.WorkSource;
 
 import java.util.Collection;
 
@@ -45,16 +42,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getSTasks <em>STasks</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getRequiredAnalysis <em>Required Analysis</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getRequiredServices <em>Required Services</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getMaturityLevels <em>Maturity Levels</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getUncertainty <em>Uncertainty</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getRisk <em>Risk</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#isHasImpacts <em>Has Impacts</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getImpacts <em>Impacts</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getValue <em>Value</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getClassOfService <em>Class Of Service</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getWorkSource <em>Work Source</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getArrivalTime <em>Arrival Time</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getDueDate <em>Due Date</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getId <em>Id</em>}</li>
  * </ul>
  * </p>
@@ -194,36 +184,6 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
   protected EList<RequiredService> requiredServices;
 
   /**
-   * The cached value of the '{@link #getMaturityLevels() <em>Maturity Levels</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMaturityLevels()
-   * @generated
-   * @ordered
-   */
-  protected AbstractParameter maturityLevels;
-
-  /**
-   * The cached value of the '{@link #getUncertainty() <em>Uncertainty</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getUncertainty()
-   * @generated
-   * @ordered
-   */
-  protected AbstractParameter uncertainty;
-
-  /**
-   * The cached value of the '{@link #getRisk() <em>Risk</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRisk()
-   * @generated
-   * @ordered
-   */
-  protected AbstractParameter risk;
-
-  /**
    * The default value of the '{@link #isHasImpacts() <em>Has Impacts</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -262,66 +222,6 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * @ordered
    */
   protected NumExpression value;
-
-  /**
-   * The cached value of the '{@link #getClassOfService() <em>Class Of Service</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getClassOfService()
-   * @generated
-   * @ordered
-   */
-  protected ClassOfService classOfService;
-
-  /**
-   * The cached value of the '{@link #getWorkSource() <em>Work Source</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getWorkSource()
-   * @generated
-   * @ordered
-   */
-  protected WorkSource workSource;
-
-  /**
-   * The default value of the '{@link #getArrivalTime() <em>Arrival Time</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getArrivalTime()
-   * @generated
-   * @ordered
-   */
-  protected static final int ARRIVAL_TIME_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getArrivalTime() <em>Arrival Time</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getArrivalTime()
-   * @generated
-   * @ordered
-   */
-  protected int arrivalTime = ARRIVAL_TIME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getDueDate() <em>Due Date</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDueDate()
-   * @generated
-   * @ordered
-   */
-  protected static final int DUE_DATE_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getDueDate() <em>Due Date</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDueDate()
-   * @generated
-   * @ordered
-   */
-  protected int dueDate = DUE_DATE_EDEFAULT;
 
   /**
    * The default value of the '{@link #getId() <em>Id</em>}' attribute.
@@ -560,150 +460,6 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public AbstractParameter getMaturityLevels()
-  {
-    return maturityLevels;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetMaturityLevels(AbstractParameter newMaturityLevels, NotificationChain msgs)
-  {
-    AbstractParameter oldMaturityLevels = maturityLevels;
-    maturityLevels = newMaturityLevels;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__MATURITY_LEVELS, oldMaturityLevels, newMaturityLevels);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setMaturityLevels(AbstractParameter newMaturityLevels)
-  {
-    if (newMaturityLevels != maturityLevels)
-    {
-      NotificationChain msgs = null;
-      if (maturityLevels != null)
-        msgs = ((InternalEObject)maturityLevels).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.WORK_ITEM__MATURITY_LEVELS, null, msgs);
-      if (newMaturityLevels != null)
-        msgs = ((InternalEObject)newMaturityLevels).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.WORK_ITEM__MATURITY_LEVELS, null, msgs);
-      msgs = basicSetMaturityLevels(newMaturityLevels, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__MATURITY_LEVELS, newMaturityLevels, newMaturityLevels));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AbstractParameter getUncertainty()
-  {
-    return uncertainty;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetUncertainty(AbstractParameter newUncertainty, NotificationChain msgs)
-  {
-    AbstractParameter oldUncertainty = uncertainty;
-    uncertainty = newUncertainty;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__UNCERTAINTY, oldUncertainty, newUncertainty);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setUncertainty(AbstractParameter newUncertainty)
-  {
-    if (newUncertainty != uncertainty)
-    {
-      NotificationChain msgs = null;
-      if (uncertainty != null)
-        msgs = ((InternalEObject)uncertainty).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.WORK_ITEM__UNCERTAINTY, null, msgs);
-      if (newUncertainty != null)
-        msgs = ((InternalEObject)newUncertainty).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.WORK_ITEM__UNCERTAINTY, null, msgs);
-      msgs = basicSetUncertainty(newUncertainty, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__UNCERTAINTY, newUncertainty, newUncertainty));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AbstractParameter getRisk()
-  {
-    return risk;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetRisk(AbstractParameter newRisk, NotificationChain msgs)
-  {
-    AbstractParameter oldRisk = risk;
-    risk = newRisk;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__RISK, oldRisk, newRisk);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRisk(AbstractParameter newRisk)
-  {
-    if (newRisk != risk)
-    {
-      NotificationChain msgs = null;
-      if (risk != null)
-        msgs = ((InternalEObject)risk).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.WORK_ITEM__RISK, null, msgs);
-      if (newRisk != null)
-        msgs = ((InternalEObject)newRisk).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.WORK_ITEM__RISK, null, msgs);
-      msgs = basicSetRisk(newRisk, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__RISK, newRisk, newRisk));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public boolean isHasImpacts()
   {
     return hasImpacts;
@@ -789,138 +545,6 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public ClassOfService getClassOfService()
-  {
-    if (classOfService != null && classOfService.eIsProxy())
-    {
-      InternalEObject oldClassOfService = (InternalEObject)classOfService;
-      classOfService = (ClassOfService)eResolveProxy(oldClassOfService);
-      if (classOfService != oldClassOfService)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.WORK_ITEM__CLASS_OF_SERVICE, oldClassOfService, classOfService));
-      }
-    }
-    return classOfService;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ClassOfService basicGetClassOfService()
-  {
-    return classOfService;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setClassOfService(ClassOfService newClassOfService)
-  {
-    ClassOfService oldClassOfService = classOfService;
-    classOfService = newClassOfService;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__CLASS_OF_SERVICE, oldClassOfService, classOfService));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public WorkSource getWorkSource()
-  {
-    if (workSource != null && workSource.eIsProxy())
-    {
-      InternalEObject oldWorkSource = (InternalEObject)workSource;
-      workSource = (WorkSource)eResolveProxy(oldWorkSource);
-      if (workSource != oldWorkSource)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.WORK_ITEM__WORK_SOURCE, oldWorkSource, workSource));
-      }
-    }
-    return workSource;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public WorkSource basicGetWorkSource()
-  {
-    return workSource;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setWorkSource(WorkSource newWorkSource)
-  {
-    WorkSource oldWorkSource = workSource;
-    workSource = newWorkSource;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__WORK_SOURCE, oldWorkSource, workSource));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public int getArrivalTime()
-  {
-    return arrivalTime;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setArrivalTime(int newArrivalTime)
-  {
-    int oldArrivalTime = arrivalTime;
-    arrivalTime = newArrivalTime;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__ARRIVAL_TIME, oldArrivalTime, arrivalTime));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public int getDueDate()
-  {
-    return dueDate;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDueDate(int newDueDate)
-  {
-    int oldDueDate = dueDate;
-    dueDate = newDueDate;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__DUE_DATE, oldDueDate, dueDate));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public int getId()
   {
     return id;
@@ -953,12 +577,6 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         return ((InternalEList<?>)getRequiredAnalysis()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.WORK_ITEM__REQUIRED_SERVICES:
         return ((InternalEList<?>)getRequiredServices()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.WORK_ITEM__MATURITY_LEVELS:
-        return basicSetMaturityLevels(null, msgs);
-      case KanbanmodelPackage.WORK_ITEM__UNCERTAINTY:
-        return basicSetUncertainty(null, msgs);
-      case KanbanmodelPackage.WORK_ITEM__RISK:
-        return basicSetRisk(null, msgs);
       case KanbanmodelPackage.WORK_ITEM__IMPACTS:
         return ((InternalEList<?>)getImpacts()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.WORK_ITEM__VALUE:
@@ -996,28 +614,12 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         return getRequiredAnalysis();
       case KanbanmodelPackage.WORK_ITEM__REQUIRED_SERVICES:
         return getRequiredServices();
-      case KanbanmodelPackage.WORK_ITEM__MATURITY_LEVELS:
-        return getMaturityLevels();
-      case KanbanmodelPackage.WORK_ITEM__UNCERTAINTY:
-        return getUncertainty();
-      case KanbanmodelPackage.WORK_ITEM__RISK:
-        return getRisk();
       case KanbanmodelPackage.WORK_ITEM__HAS_IMPACTS:
         return isHasImpacts();
       case KanbanmodelPackage.WORK_ITEM__IMPACTS:
         return getImpacts();
       case KanbanmodelPackage.WORK_ITEM__VALUE:
         return getValue();
-      case KanbanmodelPackage.WORK_ITEM__CLASS_OF_SERVICE:
-        if (resolve) return getClassOfService();
-        return basicGetClassOfService();
-      case KanbanmodelPackage.WORK_ITEM__WORK_SOURCE:
-        if (resolve) return getWorkSource();
-        return basicGetWorkSource();
-      case KanbanmodelPackage.WORK_ITEM__ARRIVAL_TIME:
-        return getArrivalTime();
-      case KanbanmodelPackage.WORK_ITEM__DUE_DATE:
-        return getDueDate();
       case KanbanmodelPackage.WORK_ITEM__ID:
         return getId();
     }
@@ -1066,15 +668,6 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         getRequiredServices().clear();
         getRequiredServices().addAll((Collection<? extends RequiredService>)newValue);
         return;
-      case KanbanmodelPackage.WORK_ITEM__MATURITY_LEVELS:
-        setMaturityLevels((AbstractParameter)newValue);
-        return;
-      case KanbanmodelPackage.WORK_ITEM__UNCERTAINTY:
-        setUncertainty((AbstractParameter)newValue);
-        return;
-      case KanbanmodelPackage.WORK_ITEM__RISK:
-        setRisk((AbstractParameter)newValue);
-        return;
       case KanbanmodelPackage.WORK_ITEM__HAS_IMPACTS:
         setHasImpacts((Boolean)newValue);
         return;
@@ -1084,18 +677,6 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         return;
       case KanbanmodelPackage.WORK_ITEM__VALUE:
         setValue((NumExpression)newValue);
-        return;
-      case KanbanmodelPackage.WORK_ITEM__CLASS_OF_SERVICE:
-        setClassOfService((ClassOfService)newValue);
-        return;
-      case KanbanmodelPackage.WORK_ITEM__WORK_SOURCE:
-        setWorkSource((WorkSource)newValue);
-        return;
-      case KanbanmodelPackage.WORK_ITEM__ARRIVAL_TIME:
-        setArrivalTime((Integer)newValue);
-        return;
-      case KanbanmodelPackage.WORK_ITEM__DUE_DATE:
-        setDueDate((Integer)newValue);
         return;
       case KanbanmodelPackage.WORK_ITEM__ID:
         setId((Integer)newValue);
@@ -1141,15 +722,6 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
       case KanbanmodelPackage.WORK_ITEM__REQUIRED_SERVICES:
         getRequiredServices().clear();
         return;
-      case KanbanmodelPackage.WORK_ITEM__MATURITY_LEVELS:
-        setMaturityLevels((AbstractParameter)null);
-        return;
-      case KanbanmodelPackage.WORK_ITEM__UNCERTAINTY:
-        setUncertainty((AbstractParameter)null);
-        return;
-      case KanbanmodelPackage.WORK_ITEM__RISK:
-        setRisk((AbstractParameter)null);
-        return;
       case KanbanmodelPackage.WORK_ITEM__HAS_IMPACTS:
         setHasImpacts(HAS_IMPACTS_EDEFAULT);
         return;
@@ -1158,18 +730,6 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         return;
       case KanbanmodelPackage.WORK_ITEM__VALUE:
         setValue((NumExpression)null);
-        return;
-      case KanbanmodelPackage.WORK_ITEM__CLASS_OF_SERVICE:
-        setClassOfService((ClassOfService)null);
-        return;
-      case KanbanmodelPackage.WORK_ITEM__WORK_SOURCE:
-        setWorkSource((WorkSource)null);
-        return;
-      case KanbanmodelPackage.WORK_ITEM__ARRIVAL_TIME:
-        setArrivalTime(ARRIVAL_TIME_EDEFAULT);
-        return;
-      case KanbanmodelPackage.WORK_ITEM__DUE_DATE:
-        setDueDate(DUE_DATE_EDEFAULT);
         return;
       case KanbanmodelPackage.WORK_ITEM__ID:
         setId(ID_EDEFAULT);
@@ -1206,26 +766,12 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         return requiredAnalysis != null && !requiredAnalysis.isEmpty();
       case KanbanmodelPackage.WORK_ITEM__REQUIRED_SERVICES:
         return requiredServices != null && !requiredServices.isEmpty();
-      case KanbanmodelPackage.WORK_ITEM__MATURITY_LEVELS:
-        return maturityLevels != null;
-      case KanbanmodelPackage.WORK_ITEM__UNCERTAINTY:
-        return uncertainty != null;
-      case KanbanmodelPackage.WORK_ITEM__RISK:
-        return risk != null;
       case KanbanmodelPackage.WORK_ITEM__HAS_IMPACTS:
         return hasImpacts != HAS_IMPACTS_EDEFAULT;
       case KanbanmodelPackage.WORK_ITEM__IMPACTS:
         return impacts != null && !impacts.isEmpty();
       case KanbanmodelPackage.WORK_ITEM__VALUE:
         return value != null;
-      case KanbanmodelPackage.WORK_ITEM__CLASS_OF_SERVICE:
-        return classOfService != null;
-      case KanbanmodelPackage.WORK_ITEM__WORK_SOURCE:
-        return workSource != null;
-      case KanbanmodelPackage.WORK_ITEM__ARRIVAL_TIME:
-        return arrivalTime != ARRIVAL_TIME_EDEFAULT;
-      case KanbanmodelPackage.WORK_ITEM__DUE_DATE:
-        return dueDate != DUE_DATE_EDEFAULT;
       case KanbanmodelPackage.WORK_ITEM__ID:
         return id != ID_EDEFAULT;
     }
@@ -1253,10 +799,6 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
     result.append(hasSubtasks);
     result.append(", hasImpacts: ");
     result.append(hasImpacts);
-    result.append(", arrivalTime: ");
-    result.append(arrivalTime);
-    result.append(", dueDate: ");
-    result.append(dueDate);
     result.append(", id: ");
     result.append(id);
     result.append(')');

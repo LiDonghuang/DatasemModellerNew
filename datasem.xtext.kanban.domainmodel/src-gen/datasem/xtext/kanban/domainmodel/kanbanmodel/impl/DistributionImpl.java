@@ -2,25 +2,21 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
-import datasem.xtext.kanban.domainmodel.kanbanmodel.AbstractParameter;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Distribution;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -101,14 +97,14 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
   protected boolean isExponential = IS_EXPONENTIAL_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getParameters()
    * @generated
    * @ordered
    */
-  protected EList<AbstractParameter> parameters;
+  protected EList<String> parameters;
 
   /**
    * <!-- begin-user-doc -->
@@ -205,29 +201,13 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<AbstractParameter> getParameters()
+  public EList<String> getParameters()
   {
     if (parameters == null)
     {
-      parameters = new EObjectContainmentEList<AbstractParameter>(AbstractParameter.class, this, KanbanmodelPackage.DISTRIBUTION__PARAMETERS);
+      parameters = new EDataTypeEList<String>(String.class, this, KanbanmodelPackage.DISTRIBUTION__PARAMETERS);
     }
     return parameters;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case KanbanmodelPackage.DISTRIBUTION__PARAMETERS:
-        return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -274,7 +254,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
         return;
       case KanbanmodelPackage.DISTRIBUTION__PARAMETERS:
         getParameters().clear();
-        getParameters().addAll((Collection<? extends AbstractParameter>)newValue);
+        getParameters().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -345,6 +325,8 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
     result.append(isUniform);
     result.append(", isExponential: ");
     result.append(isExponential);
+    result.append(", parameters: ");
+    result.append(parameters);
     result.append(')');
     return result.toString();
   }

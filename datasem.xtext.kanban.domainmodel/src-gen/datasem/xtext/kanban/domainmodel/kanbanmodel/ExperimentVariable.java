@@ -13,16 +13,16 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getName <em>Name</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isTypeInteger <em>Type Integer</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getIntValue <em>Int Value</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isTypeDouble <em>Type Double</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getDoubleValue <em>Double Value</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isTypeString <em>Type String</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isBoolean <em>Boolean</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isBooleanValue <em>Boolean Value</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isNum <em>Num</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getNumValue <em>Num Value</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isDistribution <em>Distribution</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getNumDist <em>Num Dist</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isString <em>String</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getStringValue <em>String Value</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isTypeDistribution <em>Type Distribution</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getDistrbution <em>Distrbution</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isTypeStrategy <em>Type Strategy</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getStrategy <em>Strategy</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isStrategy <em>Strategy</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getStrategyValue <em>Strategy Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -59,134 +59,186 @@ public interface ExperimentVariable extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Type Integer</b></em>' attribute.
+   * Returns the value of the '<em><b>Boolean</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type Integer</em>' attribute isn't clear,
+   * If the meaning of the '<em>Boolean</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type Integer</em>' attribute.
-   * @see #setTypeInteger(boolean)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getExperimentVariable_TypeInteger()
+   * @return the value of the '<em>Boolean</em>' attribute.
+   * @see #setBoolean(boolean)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getExperimentVariable_Boolean()
    * @model
    * @generated
    */
-  boolean isTypeInteger();
+  boolean isBoolean();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isTypeInteger <em>Type Integer</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isBoolean <em>Boolean</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type Integer</em>' attribute.
-   * @see #isTypeInteger()
+   * @param value the new value of the '<em>Boolean</em>' attribute.
+   * @see #isBoolean()
    * @generated
    */
-  void setTypeInteger(boolean value);
+  void setBoolean(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Int Value</b></em>' attribute.
+   * Returns the value of the '<em><b>Boolean Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Int Value</em>' attribute isn't clear,
+   * If the meaning of the '<em>Boolean Value</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Int Value</em>' attribute.
-   * @see #setIntValue(int)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getExperimentVariable_IntValue()
+   * @return the value of the '<em>Boolean Value</em>' attribute.
+   * @see #setBooleanValue(boolean)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getExperimentVariable_BooleanValue()
    * @model
    * @generated
    */
-  int getIntValue();
+  boolean isBooleanValue();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getIntValue <em>Int Value</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isBooleanValue <em>Boolean Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Int Value</em>' attribute.
-   * @see #getIntValue()
+   * @param value the new value of the '<em>Boolean Value</em>' attribute.
+   * @see #isBooleanValue()
    * @generated
    */
-  void setIntValue(int value);
+  void setBooleanValue(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Type Double</b></em>' attribute.
+   * Returns the value of the '<em><b>Num</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type Double</em>' attribute isn't clear,
+   * If the meaning of the '<em>Num</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type Double</em>' attribute.
-   * @see #setTypeDouble(boolean)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getExperimentVariable_TypeDouble()
+   * @return the value of the '<em>Num</em>' attribute.
+   * @see #setNum(boolean)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getExperimentVariable_Num()
    * @model
    * @generated
    */
-  boolean isTypeDouble();
+  boolean isNum();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isTypeDouble <em>Type Double</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isNum <em>Num</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type Double</em>' attribute.
-   * @see #isTypeDouble()
+   * @param value the new value of the '<em>Num</em>' attribute.
+   * @see #isNum()
    * @generated
    */
-  void setTypeDouble(boolean value);
+  void setNum(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Double Value</b></em>' attribute.
+   * Returns the value of the '<em><b>Num Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Double Value</em>' attribute isn't clear,
+   * If the meaning of the '<em>Num Value</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Double Value</em>' attribute.
-   * @see #setDoubleValue(double)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getExperimentVariable_DoubleValue()
+   * @return the value of the '<em>Num Value</em>' attribute.
+   * @see #setNumValue(String)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getExperimentVariable_NumValue()
    * @model
    * @generated
    */
-  double getDoubleValue();
+  String getNumValue();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getDoubleValue <em>Double Value</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getNumValue <em>Num Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Double Value</em>' attribute.
-   * @see #getDoubleValue()
+   * @param value the new value of the '<em>Num Value</em>' attribute.
+   * @see #getNumValue()
    * @generated
    */
-  void setDoubleValue(double value);
+  void setNumValue(String value);
 
   /**
-   * Returns the value of the '<em><b>Type String</b></em>' attribute.
+   * Returns the value of the '<em><b>Distribution</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type String</em>' attribute isn't clear,
+   * If the meaning of the '<em>Distribution</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type String</em>' attribute.
-   * @see #setTypeString(boolean)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getExperimentVariable_TypeString()
+   * @return the value of the '<em>Distribution</em>' attribute.
+   * @see #setDistribution(boolean)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getExperimentVariable_Distribution()
    * @model
    * @generated
    */
-  boolean isTypeString();
+  boolean isDistribution();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isTypeString <em>Type String</em>}' attribute.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isDistribution <em>Distribution</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type String</em>' attribute.
-   * @see #isTypeString()
+   * @param value the new value of the '<em>Distribution</em>' attribute.
+   * @see #isDistribution()
    * @generated
    */
-  void setTypeString(boolean value);
+  void setDistribution(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Num Dist</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Num Dist</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Num Dist</em>' containment reference.
+   * @see #setNumDist(Distribution)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getExperimentVariable_NumDist()
+   * @model containment="true"
+   * @generated
+   */
+  Distribution getNumDist();
+
+  /**
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getNumDist <em>Num Dist</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Num Dist</em>' containment reference.
+   * @see #getNumDist()
+   * @generated
+   */
+  void setNumDist(Distribution value);
+
+  /**
+   * Returns the value of the '<em><b>String</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>String</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>String</em>' attribute.
+   * @see #setString(boolean)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getExperimentVariable_String()
+   * @model
+   * @generated
+   */
+  boolean isString();
+
+  /**
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isString <em>String</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>String</em>' attribute.
+   * @see #isString()
+   * @generated
+   */
+  void setString(boolean value);
 
   /**
    * Returns the value of the '<em><b>String Value</b></em>' attribute.
@@ -215,107 +267,55 @@ public interface ExperimentVariable extends EObject
   void setStringValue(String value);
 
   /**
-   * Returns the value of the '<em><b>Type Distribution</b></em>' attribute.
+   * Returns the value of the '<em><b>Strategy</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type Distribution</em>' attribute isn't clear,
+   * If the meaning of the '<em>Strategy</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type Distribution</em>' attribute.
-   * @see #setTypeDistribution(boolean)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getExperimentVariable_TypeDistribution()
-   * @model
-   * @generated
-   */
-  boolean isTypeDistribution();
-
-  /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isTypeDistribution <em>Type Distribution</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type Distribution</em>' attribute.
-   * @see #isTypeDistribution()
-   * @generated
-   */
-  void setTypeDistribution(boolean value);
-
-  /**
-   * Returns the value of the '<em><b>Distrbution</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Distrbution</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Distrbution</em>' containment reference.
-   * @see #setDistrbution(Distribution)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getExperimentVariable_Distrbution()
-   * @model containment="true"
-   * @generated
-   */
-  Distribution getDistrbution();
-
-  /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getDistrbution <em>Distrbution</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Distrbution</em>' containment reference.
-   * @see #getDistrbution()
-   * @generated
-   */
-  void setDistrbution(Distribution value);
-
-  /**
-   * Returns the value of the '<em><b>Type Strategy</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Type Strategy</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Type Strategy</em>' attribute.
-   * @see #setTypeStrategy(boolean)
-   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getExperimentVariable_TypeStrategy()
-   * @model
-   * @generated
-   */
-  boolean isTypeStrategy();
-
-  /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isTypeStrategy <em>Type Strategy</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type Strategy</em>' attribute.
-   * @see #isTypeStrategy()
-   * @generated
-   */
-  void setTypeStrategy(boolean value);
-
-  /**
-   * Returns the value of the '<em><b>Strategy</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Strategy</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Strategy</em>' reference.
-   * @see #setStrategy(GovernanceStrategy)
+   * @return the value of the '<em>Strategy</em>' attribute.
+   * @see #setStrategy(boolean)
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getExperimentVariable_Strategy()
    * @model
    * @generated
    */
-  GovernanceStrategy getStrategy();
+  boolean isStrategy();
 
   /**
-   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getStrategy <em>Strategy</em>}' reference.
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#isStrategy <em>Strategy</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Strategy</em>' reference.
-   * @see #getStrategy()
+   * @param value the new value of the '<em>Strategy</em>' attribute.
+   * @see #isStrategy()
    * @generated
    */
-  void setStrategy(GovernanceStrategy value);
+  void setStrategy(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Strategy Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Strategy Value</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Strategy Value</em>' containment reference.
+   * @see #setStrategyValue(GovernanceStrategy)
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getExperimentVariable_StrategyValue()
+   * @model containment="true"
+   * @generated
+   */
+  GovernanceStrategy getStrategyValue();
+
+  /**
+   * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ExperimentVariable#getStrategyValue <em>Strategy Value</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Strategy Value</em>' containment reference.
+   * @see #getStrategyValue()
+   * @generated
+   */
+  void setStrategyValue(GovernanceStrategy value);
 
 } // ExperimentVariable

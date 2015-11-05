@@ -61,24 +61,25 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExperimentVariable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeInteger" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="intValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeDouble" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="doubleValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stringValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeDistribution" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="distrbution" eType="#//Distribution"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="boolean" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="booleanValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="num" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distribution" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="numDist" eType="#//Distribution"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeStrategy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="strategy" eType="#//GovernanceStrategy"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="string" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stringValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="strategy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="strategyValue" eType="#//GovernanceStrategy"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Distribution">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isNormal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isUniform" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isExponential" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//AbstractParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameters" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WINReplication">
     <eStructuralFeatures xsi:type="ecore:EReference" name="workItemNetwork" eType="#//WorkItemNetwork"/>
@@ -87,6 +88,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="GovernanceStrategy">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pull" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pullStrategy" eType="#//PullStrategy"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="push" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -95,15 +97,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cnp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contractNetProtocal" eType="#//ContractNetProtocol"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processes" unique="false"
+        upperBound="-1" eType="#//ProcessModel"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContractNetProtocol">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
         eType="#//Variable" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="roleBehaviors" upperBound="-1"
         eType="#//RoleBehavior" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Processes" unique="false"
-        upperBound="-1" eType="#//ProcessModel"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RoleBehavior">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -120,18 +121,12 @@
         eType="#//State" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PullStrategy">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Mechanisms" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mechanisms" upperBound="-1"
         eType="#//Mechanism" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Processes" unique="false"
-        upperBound="-1" eType="#//ProcessModel"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PushStrategy">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Mechanisms" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mechanisms" upperBound="-1"
         eType="#//Mechanism" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Processes" unique="false"
-        upperBound="-1" eType="#//ProcessModel"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mechanism">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -171,33 +166,23 @@
         eType="#//RequiredService" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredServices" upperBound="-1"
         eType="#//RequiredService" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="maturityLevels" eType="#//AbstractParameter"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="uncertainty" eType="#//AbstractParameter"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="risk" eType="#//AbstractParameter"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasImpacts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="impacts" upperBound="-1"
         eType="#//Impact" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//NumExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="classOfService" eType="#//ClassOfService"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="workSource" eType="#//WorkSource"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="arrivalTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dueDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RequiredService">
     <eStructuralFeatures xsi:type="ecore:EReference" name="serviceType" eType="#//Service"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="efforts" eType="#//NumExpression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="efforts" eType="#//AbstractParameter"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Impact">
     <eStructuralFeatures xsi:type="ecore:EReference" name="impactWI" eType="#//WorkItem"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="likelihood" eType="#//NumExpression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="likelihood" eType="#//AbstractParameter"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="risk" eType="#//NumExpression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="risk" eType="#//AbstractParameter"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WorkItemType">
@@ -251,7 +236,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Skill">
     <eStructuralFeatures xsi:type="ecore:EReference" name="service" eType="#//Service"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="efficiency" eType="#//NumExpression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="efficiency" eType="#//AbstractParameter"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractType">

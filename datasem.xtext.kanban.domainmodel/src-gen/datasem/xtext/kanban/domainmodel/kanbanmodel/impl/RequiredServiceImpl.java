@@ -2,8 +2,8 @@
  */
 package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
+import datasem.xtext.kanban.domainmodel.kanbanmodel.AbstractParameter;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
-import datasem.xtext.kanban.domainmodel.kanbanmodel.NumExpression;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.RequiredService;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Service;
 
@@ -50,7 +50,7 @@ public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements
    * @generated
    * @ordered
    */
-  protected NumExpression efforts;
+  protected AbstractParameter efforts;
 
   /**
    * <!-- begin-user-doc -->
@@ -121,7 +121,7 @@ public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public NumExpression getEfforts()
+  public AbstractParameter getEfforts()
   {
     return efforts;
   }
@@ -131,9 +131,9 @@ public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetEfforts(NumExpression newEfforts, NotificationChain msgs)
+  public NotificationChain basicSetEfforts(AbstractParameter newEfforts, NotificationChain msgs)
   {
-    NumExpression oldEfforts = efforts;
+    AbstractParameter oldEfforts = efforts;
     efforts = newEfforts;
     if (eNotificationRequired())
     {
@@ -148,7 +148,7 @@ public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setEfforts(NumExpression newEfforts)
+  public void setEfforts(AbstractParameter newEfforts)
   {
     if (newEfforts != efforts)
     {
@@ -213,7 +213,7 @@ public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements
         setServiceType((Service)newValue);
         return;
       case KanbanmodelPackage.REQUIRED_SERVICE__EFFORTS:
-        setEfforts((NumExpression)newValue);
+        setEfforts((AbstractParameter)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -233,7 +233,7 @@ public class RequiredServiceImpl extends MinimalEObjectImpl.Container implements
         setServiceType((Service)null);
         return;
       case KanbanmodelPackage.REQUIRED_SERVICE__EFFORTS:
-        setEfforts((NumExpression)null);
+        setEfforts((AbstractParameter)null);
         return;
     }
     super.eUnset(featureID);

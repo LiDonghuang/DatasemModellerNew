@@ -58,12 +58,12 @@ public interface RequiredService extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Efforts</em>' containment reference.
-   * @see #setEfforts(NumExpression)
+   * @see #setEfforts(AbstractParameter)
    * @see datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getRequiredService_Efforts()
    * @model containment="true"
    * @generated
    */
-  NumExpression getEfforts();
+  AbstractParameter getEfforts();
 
   /**
    * Sets the value of the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.RequiredService#getEfforts <em>Efforts</em>}' containment reference.
@@ -73,6 +73,6 @@ public interface RequiredService extends EObject
    * @see #getEfforts()
    * @generated
    */
-  void setEfforts(NumExpression value);
+  void setEfforts(AbstractParameter value);
 
 } // RequiredService

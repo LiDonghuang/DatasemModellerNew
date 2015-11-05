@@ -24,16 +24,16 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentVariableImpl#getName <em>Name</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentVariableImpl#isTypeInteger <em>Type Integer</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentVariableImpl#getIntValue <em>Int Value</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentVariableImpl#isTypeDouble <em>Type Double</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentVariableImpl#getDoubleValue <em>Double Value</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentVariableImpl#isTypeString <em>Type String</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentVariableImpl#isBoolean <em>Boolean</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentVariableImpl#isBooleanValue <em>Boolean Value</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentVariableImpl#isNum <em>Num</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentVariableImpl#getNumValue <em>Num Value</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentVariableImpl#isDistribution <em>Distribution</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentVariableImpl#getNumDist <em>Num Dist</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentVariableImpl#isString <em>String</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentVariableImpl#getStringValue <em>String Value</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentVariableImpl#isTypeDistribution <em>Type Distribution</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentVariableImpl#getDistrbution <em>Distrbution</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentVariableImpl#isTypeStrategy <em>Type Strategy</em>}</li>
- *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentVariableImpl#getStrategy <em>Strategy</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentVariableImpl#isStrategy <em>Strategy</em>}</li>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ExperimentVariableImpl#getStrategyValue <em>Strategy Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,104 +62,134 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #isTypeInteger() <em>Type Integer</em>}' attribute.
+   * The default value of the '{@link #isBoolean() <em>Boolean</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isTypeInteger()
+   * @see #isBoolean()
    * @generated
    * @ordered
    */
-  protected static final boolean TYPE_INTEGER_EDEFAULT = false;
+  protected static final boolean BOOLEAN_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #isTypeInteger() <em>Type Integer</em>}' attribute.
+   * The cached value of the '{@link #isBoolean() <em>Boolean</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isTypeInteger()
+   * @see #isBoolean()
    * @generated
    * @ordered
    */
-  protected boolean typeInteger = TYPE_INTEGER_EDEFAULT;
+  protected boolean boolean_ = BOOLEAN_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getIntValue() <em>Int Value</em>}' attribute.
+   * The default value of the '{@link #isBooleanValue() <em>Boolean Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getIntValue()
+   * @see #isBooleanValue()
    * @generated
    * @ordered
    */
-  protected static final int INT_VALUE_EDEFAULT = 0;
+  protected static final boolean BOOLEAN_VALUE_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #getIntValue() <em>Int Value</em>}' attribute.
+   * The cached value of the '{@link #isBooleanValue() <em>Boolean Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getIntValue()
+   * @see #isBooleanValue()
    * @generated
    * @ordered
    */
-  protected int intValue = INT_VALUE_EDEFAULT;
+  protected boolean booleanValue = BOOLEAN_VALUE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #isTypeDouble() <em>Type Double</em>}' attribute.
+   * The default value of the '{@link #isNum() <em>Num</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isTypeDouble()
+   * @see #isNum()
    * @generated
    * @ordered
    */
-  protected static final boolean TYPE_DOUBLE_EDEFAULT = false;
+  protected static final boolean NUM_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #isTypeDouble() <em>Type Double</em>}' attribute.
+   * The cached value of the '{@link #isNum() <em>Num</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isTypeDouble()
+   * @see #isNum()
    * @generated
    * @ordered
    */
-  protected boolean typeDouble = TYPE_DOUBLE_EDEFAULT;
+  protected boolean num = NUM_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getDoubleValue() <em>Double Value</em>}' attribute.
+   * The default value of the '{@link #getNumValue() <em>Num Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDoubleValue()
+   * @see #getNumValue()
    * @generated
    * @ordered
    */
-  protected static final double DOUBLE_VALUE_EDEFAULT = 0.0;
+  protected static final String NUM_VALUE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getDoubleValue() <em>Double Value</em>}' attribute.
+   * The cached value of the '{@link #getNumValue() <em>Num Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDoubleValue()
+   * @see #getNumValue()
    * @generated
    * @ordered
    */
-  protected double doubleValue = DOUBLE_VALUE_EDEFAULT;
+  protected String numValue = NUM_VALUE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #isTypeString() <em>Type String</em>}' attribute.
+   * The default value of the '{@link #isDistribution() <em>Distribution</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isTypeString()
+   * @see #isDistribution()
    * @generated
    * @ordered
    */
-  protected static final boolean TYPE_STRING_EDEFAULT = false;
+  protected static final boolean DISTRIBUTION_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #isTypeString() <em>Type String</em>}' attribute.
+   * The cached value of the '{@link #isDistribution() <em>Distribution</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isTypeString()
+   * @see #isDistribution()
    * @generated
    * @ordered
    */
-  protected boolean typeString = TYPE_STRING_EDEFAULT;
+  protected boolean distribution = DISTRIBUTION_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getNumDist() <em>Num Dist</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNumDist()
+   * @generated
+   * @ordered
+   */
+  protected Distribution numDist;
+
+  /**
+   * The default value of the '{@link #isString() <em>String</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isString()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean STRING_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isString() <em>String</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isString()
+   * @generated
+   * @ordered
+   */
+  protected boolean string = STRING_EDEFAULT;
 
   /**
    * The default value of the '{@link #getStringValue() <em>String Value</em>}' attribute.
@@ -182,64 +212,34 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
   protected String stringValue = STRING_VALUE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #isTypeDistribution() <em>Type Distribution</em>}' attribute.
+   * The default value of the '{@link #isStrategy() <em>Strategy</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isTypeDistribution()
+   * @see #isStrategy()
    * @generated
    * @ordered
    */
-  protected static final boolean TYPE_DISTRIBUTION_EDEFAULT = false;
+  protected static final boolean STRATEGY_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #isTypeDistribution() <em>Type Distribution</em>}' attribute.
+   * The cached value of the '{@link #isStrategy() <em>Strategy</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isTypeDistribution()
+   * @see #isStrategy()
    * @generated
    * @ordered
    */
-  protected boolean typeDistribution = TYPE_DISTRIBUTION_EDEFAULT;
+  protected boolean strategy = STRATEGY_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getDistrbution() <em>Distrbution</em>}' containment reference.
+   * The cached value of the '{@link #getStrategyValue() <em>Strategy Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDistrbution()
+   * @see #getStrategyValue()
    * @generated
    * @ordered
    */
-  protected Distribution distrbution;
-
-  /**
-   * The default value of the '{@link #isTypeStrategy() <em>Type Strategy</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isTypeStrategy()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean TYPE_STRATEGY_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isTypeStrategy() <em>Type Strategy</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isTypeStrategy()
-   * @generated
-   * @ordered
-   */
-  protected boolean typeStrategy = TYPE_STRATEGY_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getStrategy() <em>Strategy</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getStrategy()
-   * @generated
-   * @ordered
-   */
-  protected GovernanceStrategy strategy;
+  protected GovernanceStrategy strategyValue;
 
   /**
    * <!-- begin-user-doc -->
@@ -290,9 +290,9 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isTypeInteger()
+  public boolean isBoolean()
   {
-    return typeInteger;
+    return boolean_;
   }
 
   /**
@@ -300,12 +300,12 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTypeInteger(boolean newTypeInteger)
+  public void setBoolean(boolean newBoolean)
   {
-    boolean oldTypeInteger = typeInteger;
-    typeInteger = newTypeInteger;
+    boolean oldBoolean = boolean_;
+    boolean_ = newBoolean;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_INTEGER, oldTypeInteger, typeInteger));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_VARIABLE__BOOLEAN, oldBoolean, boolean_));
   }
 
   /**
@@ -313,9 +313,9 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getIntValue()
+  public boolean isBooleanValue()
   {
-    return intValue;
+    return booleanValue;
   }
 
   /**
@@ -323,12 +323,12 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setIntValue(int newIntValue)
+  public void setBooleanValue(boolean newBooleanValue)
   {
-    int oldIntValue = intValue;
-    intValue = newIntValue;
+    boolean oldBooleanValue = booleanValue;
+    booleanValue = newBooleanValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_VARIABLE__INT_VALUE, oldIntValue, intValue));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_VARIABLE__BOOLEAN_VALUE, oldBooleanValue, booleanValue));
   }
 
   /**
@@ -336,9 +336,9 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isTypeDouble()
+  public boolean isNum()
   {
-    return typeDouble;
+    return num;
   }
 
   /**
@@ -346,12 +346,12 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTypeDouble(boolean newTypeDouble)
+  public void setNum(boolean newNum)
   {
-    boolean oldTypeDouble = typeDouble;
-    typeDouble = newTypeDouble;
+    boolean oldNum = num;
+    num = newNum;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_DOUBLE, oldTypeDouble, typeDouble));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_VARIABLE__NUM, oldNum, num));
   }
 
   /**
@@ -359,9 +359,9 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public double getDoubleValue()
+  public String getNumValue()
   {
-    return doubleValue;
+    return numValue;
   }
 
   /**
@@ -369,12 +369,12 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDoubleValue(double newDoubleValue)
+  public void setNumValue(String newNumValue)
   {
-    double oldDoubleValue = doubleValue;
-    doubleValue = newDoubleValue;
+    String oldNumValue = numValue;
+    numValue = newNumValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_VARIABLE__DOUBLE_VALUE, oldDoubleValue, doubleValue));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_VARIABLE__NUM_VALUE, oldNumValue, numValue));
   }
 
   /**
@@ -382,9 +382,9 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isTypeString()
+  public boolean isDistribution()
   {
-    return typeString;
+    return distribution;
   }
 
   /**
@@ -392,12 +392,83 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTypeString(boolean newTypeString)
+  public void setDistribution(boolean newDistribution)
   {
-    boolean oldTypeString = typeString;
-    typeString = newTypeString;
+    boolean oldDistribution = distribution;
+    distribution = newDistribution;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_STRING, oldTypeString, typeString));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_VARIABLE__DISTRIBUTION, oldDistribution, distribution));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Distribution getNumDist()
+  {
+    return numDist;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetNumDist(Distribution newNumDist, NotificationChain msgs)
+  {
+    Distribution oldNumDist = numDist;
+    numDist = newNumDist;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_VARIABLE__NUM_DIST, oldNumDist, newNumDist);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNumDist(Distribution newNumDist)
+  {
+    if (newNumDist != numDist)
+    {
+      NotificationChain msgs = null;
+      if (numDist != null)
+        msgs = ((InternalEObject)numDist).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.EXPERIMENT_VARIABLE__NUM_DIST, null, msgs);
+      if (newNumDist != null)
+        msgs = ((InternalEObject)newNumDist).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.EXPERIMENT_VARIABLE__NUM_DIST, null, msgs);
+      msgs = basicSetNumDist(newNumDist, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_VARIABLE__NUM_DIST, newNumDist, newNumDist));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isString()
+  {
+    return string;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setString(boolean newString)
+  {
+    boolean oldString = string;
+    string = newString;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_VARIABLE__STRING, oldString, string));
   }
 
   /**
@@ -428,9 +499,9 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isTypeDistribution()
+  public boolean isStrategy()
   {
-    return typeDistribution;
+    return strategy;
   }
 
   /**
@@ -438,12 +509,12 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTypeDistribution(boolean newTypeDistribution)
+  public void setStrategy(boolean newStrategy)
   {
-    boolean oldTypeDistribution = typeDistribution;
-    typeDistribution = newTypeDistribution;
+    boolean oldStrategy = strategy;
+    strategy = newStrategy;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_DISTRIBUTION, oldTypeDistribution, typeDistribution));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_VARIABLE__STRATEGY, oldStrategy, strategy));
   }
 
   /**
@@ -451,9 +522,9 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public Distribution getDistrbution()
+  public GovernanceStrategy getStrategyValue()
   {
-    return distrbution;
+    return strategyValue;
   }
 
   /**
@@ -461,13 +532,13 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetDistrbution(Distribution newDistrbution, NotificationChain msgs)
+  public NotificationChain basicSetStrategyValue(GovernanceStrategy newStrategyValue, NotificationChain msgs)
   {
-    Distribution oldDistrbution = distrbution;
-    distrbution = newDistrbution;
+    GovernanceStrategy oldStrategyValue = strategyValue;
+    strategyValue = newStrategyValue;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_VARIABLE__DISTRBUTION, oldDistrbution, newDistrbution);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_VARIABLE__STRATEGY_VALUE, oldStrategyValue, newStrategyValue);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -478,86 +549,20 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDistrbution(Distribution newDistrbution)
+  public void setStrategyValue(GovernanceStrategy newStrategyValue)
   {
-    if (newDistrbution != distrbution)
+    if (newStrategyValue != strategyValue)
     {
       NotificationChain msgs = null;
-      if (distrbution != null)
-        msgs = ((InternalEObject)distrbution).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.EXPERIMENT_VARIABLE__DISTRBUTION, null, msgs);
-      if (newDistrbution != null)
-        msgs = ((InternalEObject)newDistrbution).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.EXPERIMENT_VARIABLE__DISTRBUTION, null, msgs);
-      msgs = basicSetDistrbution(newDistrbution, msgs);
+      if (strategyValue != null)
+        msgs = ((InternalEObject)strategyValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.EXPERIMENT_VARIABLE__STRATEGY_VALUE, null, msgs);
+      if (newStrategyValue != null)
+        msgs = ((InternalEObject)newStrategyValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.EXPERIMENT_VARIABLE__STRATEGY_VALUE, null, msgs);
+      msgs = basicSetStrategyValue(newStrategyValue, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_VARIABLE__DISTRBUTION, newDistrbution, newDistrbution));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean isTypeStrategy()
-  {
-    return typeStrategy;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTypeStrategy(boolean newTypeStrategy)
-  {
-    boolean oldTypeStrategy = typeStrategy;
-    typeStrategy = newTypeStrategy;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_STRATEGY, oldTypeStrategy, typeStrategy));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public GovernanceStrategy getStrategy()
-  {
-    if (strategy != null && strategy.eIsProxy())
-    {
-      InternalEObject oldStrategy = (InternalEObject)strategy;
-      strategy = (GovernanceStrategy)eResolveProxy(oldStrategy);
-      if (strategy != oldStrategy)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.EXPERIMENT_VARIABLE__STRATEGY, oldStrategy, strategy));
-      }
-    }
-    return strategy;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public GovernanceStrategy basicGetStrategy()
-  {
-    return strategy;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setStrategy(GovernanceStrategy newStrategy)
-  {
-    GovernanceStrategy oldStrategy = strategy;
-    strategy = newStrategy;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_VARIABLE__STRATEGY, oldStrategy, strategy));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.EXPERIMENT_VARIABLE__STRATEGY_VALUE, newStrategyValue, newStrategyValue));
   }
 
   /**
@@ -570,8 +575,10 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__DISTRBUTION:
-        return basicSetDistrbution(null, msgs);
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__NUM_DIST:
+        return basicSetNumDist(null, msgs);
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__STRATEGY_VALUE:
+        return basicSetStrategyValue(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -588,27 +595,26 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
     {
       case KanbanmodelPackage.EXPERIMENT_VARIABLE__NAME:
         return getName();
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_INTEGER:
-        return isTypeInteger();
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__INT_VALUE:
-        return getIntValue();
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_DOUBLE:
-        return isTypeDouble();
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__DOUBLE_VALUE:
-        return getDoubleValue();
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_STRING:
-        return isTypeString();
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__BOOLEAN:
+        return isBoolean();
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__BOOLEAN_VALUE:
+        return isBooleanValue();
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__NUM:
+        return isNum();
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__NUM_VALUE:
+        return getNumValue();
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__DISTRIBUTION:
+        return isDistribution();
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__NUM_DIST:
+        return getNumDist();
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__STRING:
+        return isString();
       case KanbanmodelPackage.EXPERIMENT_VARIABLE__STRING_VALUE:
         return getStringValue();
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_DISTRIBUTION:
-        return isTypeDistribution();
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__DISTRBUTION:
-        return getDistrbution();
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_STRATEGY:
-        return isTypeStrategy();
       case KanbanmodelPackage.EXPERIMENT_VARIABLE__STRATEGY:
-        if (resolve) return getStrategy();
-        return basicGetStrategy();
+        return isStrategy();
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__STRATEGY_VALUE:
+        return getStrategyValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -626,35 +632,35 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
       case KanbanmodelPackage.EXPERIMENT_VARIABLE__NAME:
         setName((String)newValue);
         return;
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_INTEGER:
-        setTypeInteger((Boolean)newValue);
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__BOOLEAN:
+        setBoolean((Boolean)newValue);
         return;
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__INT_VALUE:
-        setIntValue((Integer)newValue);
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__BOOLEAN_VALUE:
+        setBooleanValue((Boolean)newValue);
         return;
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_DOUBLE:
-        setTypeDouble((Boolean)newValue);
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__NUM:
+        setNum((Boolean)newValue);
         return;
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__DOUBLE_VALUE:
-        setDoubleValue((Double)newValue);
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__NUM_VALUE:
+        setNumValue((String)newValue);
         return;
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_STRING:
-        setTypeString((Boolean)newValue);
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__DISTRIBUTION:
+        setDistribution((Boolean)newValue);
+        return;
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__NUM_DIST:
+        setNumDist((Distribution)newValue);
+        return;
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__STRING:
+        setString((Boolean)newValue);
         return;
       case KanbanmodelPackage.EXPERIMENT_VARIABLE__STRING_VALUE:
         setStringValue((String)newValue);
         return;
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_DISTRIBUTION:
-        setTypeDistribution((Boolean)newValue);
-        return;
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__DISTRBUTION:
-        setDistrbution((Distribution)newValue);
-        return;
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_STRATEGY:
-        setTypeStrategy((Boolean)newValue);
-        return;
       case KanbanmodelPackage.EXPERIMENT_VARIABLE__STRATEGY:
-        setStrategy((GovernanceStrategy)newValue);
+        setStrategy((Boolean)newValue);
+        return;
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__STRATEGY_VALUE:
+        setStrategyValue((GovernanceStrategy)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -673,35 +679,35 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
       case KanbanmodelPackage.EXPERIMENT_VARIABLE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_INTEGER:
-        setTypeInteger(TYPE_INTEGER_EDEFAULT);
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__BOOLEAN:
+        setBoolean(BOOLEAN_EDEFAULT);
         return;
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__INT_VALUE:
-        setIntValue(INT_VALUE_EDEFAULT);
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__BOOLEAN_VALUE:
+        setBooleanValue(BOOLEAN_VALUE_EDEFAULT);
         return;
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_DOUBLE:
-        setTypeDouble(TYPE_DOUBLE_EDEFAULT);
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__NUM:
+        setNum(NUM_EDEFAULT);
         return;
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__DOUBLE_VALUE:
-        setDoubleValue(DOUBLE_VALUE_EDEFAULT);
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__NUM_VALUE:
+        setNumValue(NUM_VALUE_EDEFAULT);
         return;
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_STRING:
-        setTypeString(TYPE_STRING_EDEFAULT);
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__DISTRIBUTION:
+        setDistribution(DISTRIBUTION_EDEFAULT);
+        return;
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__NUM_DIST:
+        setNumDist((Distribution)null);
+        return;
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__STRING:
+        setString(STRING_EDEFAULT);
         return;
       case KanbanmodelPackage.EXPERIMENT_VARIABLE__STRING_VALUE:
         setStringValue(STRING_VALUE_EDEFAULT);
         return;
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_DISTRIBUTION:
-        setTypeDistribution(TYPE_DISTRIBUTION_EDEFAULT);
-        return;
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__DISTRBUTION:
-        setDistrbution((Distribution)null);
-        return;
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_STRATEGY:
-        setTypeStrategy(TYPE_STRATEGY_EDEFAULT);
-        return;
       case KanbanmodelPackage.EXPERIMENT_VARIABLE__STRATEGY:
-        setStrategy((GovernanceStrategy)null);
+        setStrategy(STRATEGY_EDEFAULT);
+        return;
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__STRATEGY_VALUE:
+        setStrategyValue((GovernanceStrategy)null);
         return;
     }
     super.eUnset(featureID);
@@ -719,26 +725,26 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
     {
       case KanbanmodelPackage.EXPERIMENT_VARIABLE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_INTEGER:
-        return typeInteger != TYPE_INTEGER_EDEFAULT;
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__INT_VALUE:
-        return intValue != INT_VALUE_EDEFAULT;
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_DOUBLE:
-        return typeDouble != TYPE_DOUBLE_EDEFAULT;
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__DOUBLE_VALUE:
-        return doubleValue != DOUBLE_VALUE_EDEFAULT;
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_STRING:
-        return typeString != TYPE_STRING_EDEFAULT;
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__BOOLEAN:
+        return boolean_ != BOOLEAN_EDEFAULT;
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__BOOLEAN_VALUE:
+        return booleanValue != BOOLEAN_VALUE_EDEFAULT;
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__NUM:
+        return num != NUM_EDEFAULT;
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__NUM_VALUE:
+        return NUM_VALUE_EDEFAULT == null ? numValue != null : !NUM_VALUE_EDEFAULT.equals(numValue);
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__DISTRIBUTION:
+        return distribution != DISTRIBUTION_EDEFAULT;
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__NUM_DIST:
+        return numDist != null;
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__STRING:
+        return string != STRING_EDEFAULT;
       case KanbanmodelPackage.EXPERIMENT_VARIABLE__STRING_VALUE:
         return STRING_VALUE_EDEFAULT == null ? stringValue != null : !STRING_VALUE_EDEFAULT.equals(stringValue);
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_DISTRIBUTION:
-        return typeDistribution != TYPE_DISTRIBUTION_EDEFAULT;
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__DISTRBUTION:
-        return distrbution != null;
-      case KanbanmodelPackage.EXPERIMENT_VARIABLE__TYPE_STRATEGY:
-        return typeStrategy != TYPE_STRATEGY_EDEFAULT;
       case KanbanmodelPackage.EXPERIMENT_VARIABLE__STRATEGY:
-        return strategy != null;
+        return strategy != STRATEGY_EDEFAULT;
+      case KanbanmodelPackage.EXPERIMENT_VARIABLE__STRATEGY_VALUE:
+        return strategyValue != null;
     }
     return super.eIsSet(featureID);
   }
@@ -756,22 +762,22 @@ public class ExperimentVariableImpl extends MinimalEObjectImpl.Container impleme
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", typeInteger: ");
-    result.append(typeInteger);
-    result.append(", intValue: ");
-    result.append(intValue);
-    result.append(", typeDouble: ");
-    result.append(typeDouble);
-    result.append(", doubleValue: ");
-    result.append(doubleValue);
-    result.append(", typeString: ");
-    result.append(typeString);
+    result.append(", boolean: ");
+    result.append(boolean_);
+    result.append(", booleanValue: ");
+    result.append(booleanValue);
+    result.append(", num: ");
+    result.append(num);
+    result.append(", numValue: ");
+    result.append(numValue);
+    result.append(", distribution: ");
+    result.append(distribution);
+    result.append(", string: ");
+    result.append(string);
     result.append(", stringValue: ");
     result.append(stringValue);
-    result.append(", typeDistribution: ");
-    result.append(typeDistribution);
-    result.append(", typeStrategy: ");
-    result.append(typeStrategy);
+    result.append(", strategy: ");
+    result.append(strategy);
     result.append(')');
     return result.toString();
   }
