@@ -4,6 +4,7 @@ package datasem.xtext.kanban.domainmodel.kanbanmodel.impl;
 
 import datasem.xtext.kanban.domainmodel.kanbanmodel.ContractNetProtocol;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.RoleBehavior;
 import datasem.xtext.kanban.domainmodel.kanbanmodel.Variable;
 
@@ -28,6 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ContractNetProtocolImpl#getMechanisms <em>Mechanisms</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ContractNetProtocolImpl#getVariables <em>Variables</em>}</li>
  *   <li>{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ContractNetProtocolImpl#getRoleBehaviors <em>Role Behaviors</em>}</li>
  * </ul>
@@ -37,6 +39,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ContractNetProtocolImpl extends MinimalEObjectImpl.Container implements ContractNetProtocol
 {
+  /**
+   * The cached value of the '{@link #getMechanisms() <em>Mechanisms</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMechanisms()
+   * @generated
+   * @ordered
+   */
+  protected EList<Mechanism> mechanisms;
+
   /**
    * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -83,6 +95,20 @@ public class ContractNetProtocolImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Mechanism> getMechanisms()
+  {
+    if (mechanisms == null)
+    {
+      mechanisms = new EObjectContainmentEList<Mechanism>(Mechanism.class, this, KanbanmodelPackage.CONTRACT_NET_PROTOCOL__MECHANISMS);
+    }
+    return mechanisms;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Variable> getVariables()
   {
     if (variables == null)
@@ -116,6 +142,8 @@ public class ContractNetProtocolImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.CONTRACT_NET_PROTOCOL__MECHANISMS:
+        return ((InternalEList<?>)getMechanisms()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.CONTRACT_NET_PROTOCOL__VARIABLES:
         return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.CONTRACT_NET_PROTOCOL__ROLE_BEHAVIORS:
@@ -134,6 +162,8 @@ public class ContractNetProtocolImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.CONTRACT_NET_PROTOCOL__MECHANISMS:
+        return getMechanisms();
       case KanbanmodelPackage.CONTRACT_NET_PROTOCOL__VARIABLES:
         return getVariables();
       case KanbanmodelPackage.CONTRACT_NET_PROTOCOL__ROLE_BEHAVIORS:
@@ -153,6 +183,10 @@ public class ContractNetProtocolImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.CONTRACT_NET_PROTOCOL__MECHANISMS:
+        getMechanisms().clear();
+        getMechanisms().addAll((Collection<? extends Mechanism>)newValue);
+        return;
       case KanbanmodelPackage.CONTRACT_NET_PROTOCOL__VARIABLES:
         getVariables().clear();
         getVariables().addAll((Collection<? extends Variable>)newValue);
@@ -175,6 +209,9 @@ public class ContractNetProtocolImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.CONTRACT_NET_PROTOCOL__MECHANISMS:
+        getMechanisms().clear();
+        return;
       case KanbanmodelPackage.CONTRACT_NET_PROTOCOL__VARIABLES:
         getVariables().clear();
         return;
@@ -195,6 +232,8 @@ public class ContractNetProtocolImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.CONTRACT_NET_PROTOCOL__MECHANISMS:
+        return mechanisms != null && !mechanisms.isEmpty();
       case KanbanmodelPackage.CONTRACT_NET_PROTOCOL__VARIABLES:
         return variables != null && !variables.isEmpty();
       case KanbanmodelPackage.CONTRACT_NET_PROTOCOL__ROLE_BEHAVIORS:

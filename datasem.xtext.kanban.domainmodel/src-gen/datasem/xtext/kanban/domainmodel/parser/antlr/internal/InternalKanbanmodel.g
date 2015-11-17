@@ -95,7 +95,7 @@ ruleModelBuilder returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -117,7 +117,7 @@ ruleModelBuilder returns [EObject current=null]
        			$current, 
        			"Description",
         		lv_Description_3_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -134,7 +134,7 @@ ruleModelBuilder returns [EObject current=null]
        			$current, 
        			"UserLibraries",
         		lv_UserLibraries_4_0, 
-        		"UserLibraries");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.UserLibraries");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -152,7 +152,7 @@ ruleModelBuilder returns [EObject current=null]
        			$current, 
        			"ExperimentModel",
         		lv_ExperimentModel_5_0, 
-        		"ExperimentModel");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.ExperimentModel");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -196,7 +196,7 @@ ruleExperimentModel returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -217,7 +217,7 @@ ruleExperimentModel returns [EObject current=null]
        			$current, 
        			"Path",
         		lv_Path_3_0, 
-        		"QualifiedName");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.QualifiedName");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -239,7 +239,7 @@ ruleExperimentModel returns [EObject current=null]
        			$current, 
        			"ExperimentVariables",
         		lv_ExperimentVariables_5_0, 
-        		"ExperimentVariable");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.ExperimentVariable");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -269,7 +269,7 @@ ruleExperimentModel returns [EObject current=null]
        			$current, 
        			"ServiceProviders",
         		lv_ServiceProviders_9_0, 
-        		"ServiceProvider");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.ServiceProvider");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -303,7 +303,7 @@ ruleExperimentModel returns [EObject current=null]
        			$current, 
        			"WorkSources",
         		lv_WorkSources_14_0, 
-        		"WorkSource");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.WorkSource");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -329,7 +329,7 @@ ruleExperimentModel returns [EObject current=null]
        			$current, 
        			"WorkItemNetworks",
         		lv_WorkItemNetworks_17_0, 
-        		"WorkItemNetwork");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.WorkItemNetwork");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -363,7 +363,7 @@ ruleExperimentModel returns [EObject current=null]
        			$current, 
        			"WINReplications",
         		lv_WINReplications_22_0, 
-        		"WINReplication");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.WINReplication");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -390,7 +390,7 @@ ruleExperimentModel returns [EObject current=null]
        			$current, 
        			"Indicators",
         		lv_Indicators_25_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -448,7 +448,7 @@ ruleUserLibraries returns [EObject current=null]
        			$current, 
        			"ServiceProviderTypes",
         		lv_ServiceProviderTypes_2_0, 
-        		"ServiceProviderType");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.ServiceProviderType");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -474,7 +474,7 @@ ruleUserLibraries returns [EObject current=null]
        			$current, 
        			"WorkItemTypes",
         		lv_WorkItemTypes_5_0, 
-        		"WorkItemType");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.WorkItemType");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -500,7 +500,7 @@ ruleUserLibraries returns [EObject current=null]
        			$current, 
        			"ProcessModels",
         		lv_ProcessModels_8_0, 
-        		"ProcessModel");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.ProcessModel");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -526,7 +526,7 @@ ruleUserLibraries returns [EObject current=null]
        			$current, 
        			"ClassOfServices",
         		lv_ClassOfServices_11_0, 
-        		"ClassOfService");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.ClassOfService");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -552,7 +552,7 @@ ruleUserLibraries returns [EObject current=null]
        			$current, 
        			"Services",
         		lv_Services_14_0, 
-        		"Service");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Service");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -578,7 +578,7 @@ ruleUserLibraries returns [EObject current=null]
        			$current, 
        			"GovernanceStrategies",
         		lv_GovernanceStrategies_17_0, 
-        		"GovernanceStrategy");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.GovernanceStrategy");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -800,7 +800,7 @@ ruleAbstractParameter returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_2_0, 
-        		"Parameter");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Parameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -839,7 +839,7 @@ ruleNumExpression returns [EObject current=null]
        			$current, 
        			"numValue",
         		lv_numValue_0_0, 
-        		"Number");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Number");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -873,7 +873,7 @@ ruleNumExpression returns [EObject current=null]
        			$current, 
        			"numDist",
         		lv_numDist_2_0, 
-        		"Distribution");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Distribution");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1029,7 +1029,7 @@ ruleExperimentVariable returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_0_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -1066,7 +1066,7 @@ ruleExperimentVariable returns [EObject current=null]
        			$current, 
        			"booleanValue",
         		lv_booleanValue_3_0, 
-        		"BOOLEAN");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.BOOLEAN");
 	    }
 
 )
@@ -1099,7 +1099,7 @@ ruleExperimentVariable returns [EObject current=null]
        			$current, 
        			"numValue",
         		lv_numValue_5_0, 
-        		"Number");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Number");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1133,7 +1133,7 @@ ruleExperimentVariable returns [EObject current=null]
        			$current, 
        			"numDist",
         		lv_numDist_7_0, 
-        		"Distribution");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Distribution");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1168,7 +1168,7 @@ ruleExperimentVariable returns [EObject current=null]
        			$current, 
        			"stringValue",
         		lv_stringValue_9_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -1201,7 +1201,7 @@ ruleExperimentVariable returns [EObject current=null]
        			$current, 
        			"strategyValue",
         		lv_strategyValue_11_0, 
-        		"GovernanceStrategy");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.GovernanceStrategy");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1291,7 +1291,7 @@ ruleDistribution returns [EObject current=null]
        			$current, 
        			"parameters",
         		lv_parameters_4_0, 
-        		"Parameter");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Parameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1313,7 +1313,7 @@ ruleDistribution returns [EObject current=null]
        			$current, 
        			"parameters",
         		lv_parameters_6_0, 
-        		"Parameter");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Parameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1378,7 +1378,7 @@ ruleWINReplication returns [EObject current=null]
        			$current, 
        			"numReplications",
         		lv_numReplications_3_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -1417,19 +1417,23 @@ ruleGovernanceStrategy returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_0_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
-)	otherlv_1='type:' 
+)	otherlv_1='type' 
     {
     	newLeafNode(otherlv_1, grammarAccess.getGovernanceStrategyAccess().getTypeKeyword_1());
     }
+	otherlv_2=':' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getGovernanceStrategyAccess().getColonKeyword_2());
+    }
 (((
 (
-		lv_pull_2_0=	'Pull' 
+		lv_pull_3_0=	'Pull' 
     {
-        newLeafNode(lv_pull_2_0, grammarAccess.getGovernanceStrategyAccess().getPullPullKeyword_2_0_0_0());
+        newLeafNode(lv_pull_3_0, grammarAccess.getGovernanceStrategyAccess().getPullPullKeyword_3_0_0_0());
     }
  
 	    {
@@ -1440,19 +1444,19 @@ ruleGovernanceStrategy returns [EObject current=null]
 	    }
 
 )
-)	otherlv_3='{' 
+)	otherlv_4='{' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getGovernanceStrategyAccess().getLeftCurlyBracketKeyword_2_0_1());
+    	newLeafNode(otherlv_4, grammarAccess.getGovernanceStrategyAccess().getLeftCurlyBracketKeyword_3_0_1());
     }
-(	otherlv_4='desc' 
+(	otherlv_5='desc' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getGovernanceStrategyAccess().getDescKeyword_2_0_2_0());
+    	newLeafNode(otherlv_5, grammarAccess.getGovernanceStrategyAccess().getDescKeyword_3_0_2_0());
     }
 (
 (
-		lv_description_5_0=RULE_STRING
+		lv_description_6_0=RULE_STRING
 		{
-			newLeafNode(lv_description_5_0, grammarAccess.getGovernanceStrategyAccess().getDescriptionSTRINGTerminalRuleCall_2_0_2_1_0()); 
+			newLeafNode(lv_description_6_0, grammarAccess.getGovernanceStrategyAccess().getDescriptionSTRINGTerminalRuleCall_3_0_2_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1461,25 +1465,25 @@ ruleGovernanceStrategy returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"description",
-        		lv_description_5_0, 
-        		"STRING");
+        		lv_description_6_0, 
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
 ))?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getGovernanceStrategyAccess().getPullStrategyPullStrategyParserRuleCall_2_0_3_0()); 
+	        newCompositeNode(grammarAccess.getGovernanceStrategyAccess().getPullStrategyPullStrategyParserRuleCall_3_0_3_0()); 
 	    }
-		lv_pullStrategy_6_0=rulePullStrategy		{
+		lv_pullStrategy_7_0=rulePullStrategy		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getGovernanceStrategyRule());
 	        }
        		set(
        			$current, 
        			"pullStrategy",
-        		lv_pullStrategy_6_0, 
-        		"PullStrategy");
+        		lv_pullStrategy_7_0, 
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.PullStrategy");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1487,9 +1491,9 @@ ruleGovernanceStrategy returns [EObject current=null]
 ))
     |((
 (
-		lv_push_7_0=	'Push' 
+		lv_push_8_0=	'Push' 
     {
-        newLeafNode(lv_push_7_0, grammarAccess.getGovernanceStrategyAccess().getPushPushKeyword_2_1_0_0());
+        newLeafNode(lv_push_8_0, grammarAccess.getGovernanceStrategyAccess().getPushPushKeyword_3_1_0_0());
     }
  
 	    {
@@ -1500,19 +1504,19 @@ ruleGovernanceStrategy returns [EObject current=null]
 	    }
 
 )
-)	otherlv_8='{' 
+)	otherlv_9='{' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getGovernanceStrategyAccess().getLeftCurlyBracketKeyword_2_1_1());
+    	newLeafNode(otherlv_9, grammarAccess.getGovernanceStrategyAccess().getLeftCurlyBracketKeyword_3_1_1());
     }
-(	otherlv_9='desc' 
+(	otherlv_10='desc' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getGovernanceStrategyAccess().getDescKeyword_2_1_2_0());
+    	newLeafNode(otherlv_10, grammarAccess.getGovernanceStrategyAccess().getDescKeyword_3_1_2_0());
     }
 (
 (
-		lv_description_10_0=RULE_STRING
+		lv_description_11_0=RULE_STRING
 		{
-			newLeafNode(lv_description_10_0, grammarAccess.getGovernanceStrategyAccess().getDescriptionSTRINGTerminalRuleCall_2_1_2_1_0()); 
+			newLeafNode(lv_description_11_0, grammarAccess.getGovernanceStrategyAccess().getDescriptionSTRINGTerminalRuleCall_3_1_2_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1521,25 +1525,25 @@ ruleGovernanceStrategy returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"description",
-        		lv_description_10_0, 
-        		"STRING");
+        		lv_description_11_0, 
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
 ))?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getGovernanceStrategyAccess().getPushStrategyPushStrategyParserRuleCall_2_1_3_0()); 
+	        newCompositeNode(grammarAccess.getGovernanceStrategyAccess().getPushStrategyPushStrategyParserRuleCall_3_1_3_0()); 
 	    }
-		lv_pushStrategy_11_0=rulePushStrategy		{
+		lv_pushStrategy_12_0=rulePushStrategy		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getGovernanceStrategyRule());
 	        }
        		set(
        			$current, 
        			"pushStrategy",
-        		lv_pushStrategy_11_0, 
-        		"PushStrategy");
+        		lv_pushStrategy_12_0, 
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.PushStrategy");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1547,9 +1551,9 @@ ruleGovernanceStrategy returns [EObject current=null]
 ))
     |((
 (
-		lv_cnp_12_0=	'CNP' 
+		lv_cnp_13_0=	'CNP' 
     {
-        newLeafNode(lv_cnp_12_0, grammarAccess.getGovernanceStrategyAccess().getCnpCNPKeyword_2_2_0_0());
+        newLeafNode(lv_cnp_13_0, grammarAccess.getGovernanceStrategyAccess().getCnpCNPKeyword_3_2_0_0());
     }
  
 	    {
@@ -1560,19 +1564,19 @@ ruleGovernanceStrategy returns [EObject current=null]
 	    }
 
 )
-)	otherlv_13='{' 
+)	otherlv_14='{' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getGovernanceStrategyAccess().getLeftCurlyBracketKeyword_2_2_1());
+    	newLeafNode(otherlv_14, grammarAccess.getGovernanceStrategyAccess().getLeftCurlyBracketKeyword_3_2_1());
     }
-(	otherlv_14='desc' 
+(	otherlv_15='desc' 
     {
-    	newLeafNode(otherlv_14, grammarAccess.getGovernanceStrategyAccess().getDescKeyword_2_2_2_0());
+    	newLeafNode(otherlv_15, grammarAccess.getGovernanceStrategyAccess().getDescKeyword_3_2_2_0());
     }
 (
 (
-		lv_description_15_0=RULE_STRING
+		lv_description_16_0=RULE_STRING
 		{
-			newLeafNode(lv_description_15_0, grammarAccess.getGovernanceStrategyAccess().getDescriptionSTRINGTerminalRuleCall_2_2_2_1_0()); 
+			newLeafNode(lv_description_16_0, grammarAccess.getGovernanceStrategyAccess().getDescriptionSTRINGTerminalRuleCall_3_2_2_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1581,36 +1585,36 @@ ruleGovernanceStrategy returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"description",
-        		lv_description_15_0, 
-        		"STRING");
+        		lv_description_16_0, 
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
 ))?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getGovernanceStrategyAccess().getContractNetProtocalContractNetProtocolParserRuleCall_2_2_3_0()); 
+	        newCompositeNode(grammarAccess.getGovernanceStrategyAccess().getContractNetProtocalContractNetProtocolParserRuleCall_3_2_3_0()); 
 	    }
-		lv_contractNetProtocal_16_0=ruleContractNetProtocol		{
+		lv_contractNetProtocal_17_0=ruleContractNetProtocol		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getGovernanceStrategyRule());
 	        }
        		set(
        			$current, 
        			"contractNetProtocal",
-        		lv_contractNetProtocal_16_0, 
-        		"ContractNetProtocol");
+        		lv_contractNetProtocal_17_0, 
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.ContractNetProtocol");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)))	otherlv_17='processes' 
+)))	otherlv_18='processes' 
     {
-    	newLeafNode(otherlv_17, grammarAccess.getGovernanceStrategyAccess().getProcessesKeyword_3());
+    	newLeafNode(otherlv_18, grammarAccess.getGovernanceStrategyAccess().getProcessesKeyword_4());
     }
-	otherlv_18='{' 
+	otherlv_19='{' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getGovernanceStrategyAccess().getLeftCurlyBracketKeyword_4());
+    	newLeafNode(otherlv_19, grammarAccess.getGovernanceStrategyAccess().getLeftCurlyBracketKeyword_5());
     }
 (
 (
@@ -1619,19 +1623,19 @@ ruleGovernanceStrategy returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getGovernanceStrategyRule());
 	        }
         }
-	otherlv_19=RULE_ID
+	otherlv_20=RULE_ID
 	{
-		newLeafNode(otherlv_19, grammarAccess.getGovernanceStrategyAccess().getProcessesProcessModelCrossReference_5_0()); 
+		newLeafNode(otherlv_20, grammarAccess.getGovernanceStrategyAccess().getProcessesProcessModelCrossReference_6_0()); 
 	}
 
 )
-)+	otherlv_20='}' 
-    {
-    	newLeafNode(otherlv_20, grammarAccess.getGovernanceStrategyAccess().getRightCurlyBracketKeyword_6());
-    }
-	otherlv_21='}' 
+)+	otherlv_21='}' 
     {
     	newLeafNode(otherlv_21, grammarAccess.getGovernanceStrategyAccess().getRightCurlyBracketKeyword_7());
+    }
+	otherlv_22='}' 
+    {
+    	newLeafNode(otherlv_22, grammarAccess.getGovernanceStrategyAccess().getRightCurlyBracketKeyword_8());
     }
 )
 ;
@@ -1654,53 +1658,83 @@ ruleContractNetProtocol returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((
+(	otherlv_0='mechanisms' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getContractNetProtocolAccess().getMechanismsKeyword_0());
+    }
+	otherlv_1='{' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getContractNetProtocolAccess().getLeftCurlyBracketKeyword_1());
+    }
+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getContractNetProtocolAccess().getVariablesVariableParserRuleCall_0_0()); 
+	        newCompositeNode(grammarAccess.getContractNetProtocolAccess().getMechanismsMechanismParserRuleCall_2_0()); 
 	    }
-		lv_variables_0_0=ruleVariable		{
+		lv_mechanisms_2_0=ruleMechanism		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getContractNetProtocolRule());
+	        }
+       		add(
+       			$current, 
+       			"mechanisms",
+        		lv_mechanisms_2_0, 
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Mechanism");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)+	otherlv_3='}' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getContractNetProtocolAccess().getRightCurlyBracketKeyword_3());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getContractNetProtocolAccess().getVariablesVariableParserRuleCall_4_0()); 
+	    }
+		lv_variables_4_0=ruleVariable		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getContractNetProtocolRule());
 	        }
        		add(
        			$current, 
        			"variables",
-        		lv_variables_0_0, 
-        		"Variable");
+        		lv_variables_4_0, 
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Variable");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*	otherlv_1='roleBehaviors' 
+)*	otherlv_5='roleBehaviors' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getContractNetProtocolAccess().getRoleBehaviorsKeyword_1());
+    	newLeafNode(otherlv_5, grammarAccess.getContractNetProtocolAccess().getRoleBehaviorsKeyword_5());
     }
-	otherlv_2='{' 
+	otherlv_6='{' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getContractNetProtocolAccess().getLeftCurlyBracketKeyword_2());
+    	newLeafNode(otherlv_6, grammarAccess.getContractNetProtocolAccess().getLeftCurlyBracketKeyword_6());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getContractNetProtocolAccess().getRoleBehaviorsRoleBehaviorParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getContractNetProtocolAccess().getRoleBehaviorsRoleBehaviorParserRuleCall_7_0()); 
 	    }
-		lv_roleBehaviors_3_0=ruleRoleBehavior		{
+		lv_roleBehaviors_7_0=ruleRoleBehavior		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getContractNetProtocolRule());
 	        }
        		add(
        			$current, 
        			"roleBehaviors",
-        		lv_roleBehaviors_3_0, 
-        		"RoleBehavior");
+        		lv_roleBehaviors_7_0, 
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.RoleBehavior");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)+	otherlv_4='}' 
+)+	otherlv_8='}' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getContractNetProtocolAccess().getRightCurlyBracketKeyword_4());
+    	newLeafNode(otherlv_8, grammarAccess.getContractNetProtocolAccess().getRightCurlyBracketKeyword_8());
     }
 )
 ;
@@ -1741,7 +1775,7 @@ ruleRoleBehavior returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -1770,7 +1804,7 @@ ruleRoleBehavior returns [EObject current=null]
        			$current, 
        			"actions",
         		lv_actions_5_0, 
-        		"Action");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Action");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1792,7 +1826,7 @@ ruleRoleBehavior returns [EObject current=null]
        			$current, 
        			"states",
         		lv_states_7_0, 
-        		"State");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.State");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1836,7 +1870,7 @@ ruleProcessModel returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_0_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -1865,7 +1899,7 @@ ruleProcessModel returns [EObject current=null]
        			$current, 
        			"actions",
         		lv_actions_4_0, 
-        		"Action");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Action");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1887,7 +1921,7 @@ ruleProcessModel returns [EObject current=null]
        			$current, 
        			"states",
         		lv_states_6_0, 
-        		"State");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.State");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1938,7 +1972,7 @@ rulePullStrategy returns [EObject current=null]
        			$current, 
        			"mechanisms",
         		lv_mechanisms_2_0, 
-        		"Mechanism");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Mechanism");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1989,7 +2023,7 @@ rulePushStrategy returns [EObject current=null]
        			$current, 
        			"mechanisms",
         		lv_mechanisms_2_0, 
-        		"Mechanism");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Mechanism");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2033,7 +2067,7 @@ ruleMechanism returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_0_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -2054,7 +2088,7 @@ ruleMechanism returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_2_0, 
-        		"Parameter");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Parameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2081,7 +2115,7 @@ ruleMechanism returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_5_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -2106,7 +2140,7 @@ ruleMechanism returns [EObject current=null]
        			$current, 
        			"attributes",
         		lv_attributes_8_0, 
-        		"MechanismAttribute");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.MechanismAttribute");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2154,7 +2188,7 @@ ruleMechanismAttribute returns [EObject current=null]
        			$current, 
        			"attribute",
         		lv_attribute_0_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -2175,7 +2209,7 @@ ruleMechanismAttribute returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_2_0, 
-        		"Parameter");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Parameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2219,7 +2253,7 @@ ruleWorkSource returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -2245,7 +2279,7 @@ ruleWorkSource returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_4_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -2317,7 +2351,7 @@ ruleWorkItemNetwork returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -2343,7 +2377,7 @@ ruleWorkItemNetwork returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_4_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -2368,7 +2402,7 @@ ruleWorkItemNetwork returns [EObject current=null]
        			$current, 
        			"workItems",
         		lv_workItems_7_0, 
-        		"WorkItem");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.WorkItem");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2395,7 +2429,7 @@ ruleWorkItemNetwork returns [EObject current=null]
        			$current, 
        			"id",
         		lv_id_10_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -2434,13 +2468,17 @@ ruleWorkItem returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_0_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
-)(	otherlv_1='type:' 
+)(	otherlv_1='type' 
     {
     	newLeafNode(otherlv_1, grammarAccess.getWorkItemAccess().getTypeKeyword_1_0());
+    }
+	otherlv_2=':' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getWorkItemAccess().getColonKeyword_1_1());
     }
 (
 (
@@ -2449,25 +2487,25 @@ ruleWorkItem returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getWorkItemRule());
 	        }
         }
-	otherlv_2=RULE_ID
+	otherlv_3=RULE_ID
 	{
-		newLeafNode(otherlv_2, grammarAccess.getWorkItemAccess().getTypeWorkItemTypeCrossReference_1_1_0()); 
+		newLeafNode(otherlv_3, grammarAccess.getWorkItemAccess().getTypeWorkItemTypeCrossReference_1_2_0()); 
 	}
 
 )
-))?	otherlv_3='{' 
+))?	otherlv_4='{' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_2());
+    	newLeafNode(otherlv_4, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_2());
     }
-(	otherlv_4='desc' 
+(	otherlv_5='desc' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getWorkItemAccess().getDescKeyword_3_0());
+    	newLeafNode(otherlv_5, grammarAccess.getWorkItemAccess().getDescKeyword_3_0());
     }
 (
 (
-		lv_description_5_0=RULE_STRING
+		lv_description_6_0=RULE_STRING
 		{
-			newLeafNode(lv_description_5_0, grammarAccess.getWorkItemAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
+			newLeafNode(lv_description_6_0, grammarAccess.getWorkItemAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2476,16 +2514,16 @@ ruleWorkItem returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"description",
-        		lv_description_5_0, 
-        		"STRING");
+        		lv_description_6_0, 
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
 ))?((
 (
-		lv_hasPredecessors_6_0=	'prerequisites' 
+		lv_hasPredecessors_7_0=	'prerequisites' 
     {
-        newLeafNode(lv_hasPredecessors_6_0, grammarAccess.getWorkItemAccess().getHasPredecessorsPrerequisitesKeyword_4_0_0());
+        newLeafNode(lv_hasPredecessors_7_0, grammarAccess.getWorkItemAccess().getHasPredecessorsPrerequisitesKeyword_4_0_0());
     }
  
 	    {
@@ -2496,9 +2534,9 @@ ruleWorkItem returns [EObject current=null]
 	    }
 
 )
-)	otherlv_7='{' 
+)	otherlv_8='{' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_4_1());
+    	newLeafNode(otherlv_8, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_4_1());
     }
 (
 (
@@ -2507,15 +2545,15 @@ ruleWorkItem returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getWorkItemRule());
 	        }
         }
-	otherlv_8=RULE_ID
+	otherlv_9=RULE_ID
 	{
-		newLeafNode(otherlv_8, grammarAccess.getWorkItemAccess().getPTasksWorkItemCrossReference_4_2_0()); 
+		newLeafNode(otherlv_9, grammarAccess.getWorkItemAccess().getPTasksWorkItemCrossReference_4_2_0()); 
 	}
 
 )
-)(	otherlv_9=',' 
+)(	otherlv_10=',' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getWorkItemAccess().getCommaKeyword_4_3_0());
+    	newLeafNode(otherlv_10, grammarAccess.getWorkItemAccess().getCommaKeyword_4_3_0());
     }
 (
 (
@@ -2524,21 +2562,21 @@ ruleWorkItem returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getWorkItemRule());
 	        }
         }
-	otherlv_10=RULE_ID
+	otherlv_11=RULE_ID
 	{
-		newLeafNode(otherlv_10, grammarAccess.getWorkItemAccess().getPTasksWorkItemCrossReference_4_3_1_0()); 
+		newLeafNode(otherlv_11, grammarAccess.getWorkItemAccess().getPTasksWorkItemCrossReference_4_3_1_0()); 
 	}
 
 )
-))*	otherlv_11='}' 
+))*	otherlv_12='}' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_4_4());
+    	newLeafNode(otherlv_12, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_4_4());
     }
 )?(((
 (
-		lv_hasSubtasks_12_0=	'decomposites' 
+		lv_hasSubtasks_13_0=	'decomposites' 
     {
-        newLeafNode(lv_hasSubtasks_12_0, grammarAccess.getWorkItemAccess().getHasSubtasksDecompositesKeyword_5_0_0_0());
+        newLeafNode(lv_hasSubtasks_13_0, grammarAccess.getWorkItemAccess().getHasSubtasksDecompositesKeyword_5_0_0_0());
     }
  
 	    {
@@ -2549,9 +2587,9 @@ ruleWorkItem returns [EObject current=null]
 	    }
 
 )
-)	otherlv_13='{' 
+)	otherlv_14='{' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_5_0_1());
+    	newLeafNode(otherlv_14, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_5_0_1());
     }
 (
 (
@@ -2560,15 +2598,15 @@ ruleWorkItem returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getWorkItemRule());
 	        }
         }
-	otherlv_14=RULE_ID
+	otherlv_15=RULE_ID
 	{
-		newLeafNode(otherlv_14, grammarAccess.getWorkItemAccess().getSTasksWorkItemCrossReference_5_0_2_0()); 
+		newLeafNode(otherlv_15, grammarAccess.getWorkItemAccess().getSTasksWorkItemCrossReference_5_0_2_0()); 
 	}
 
 )
-)(	otherlv_15=',' 
+)(	otherlv_16=',' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getWorkItemAccess().getCommaKeyword_5_0_3_0());
+    	newLeafNode(otherlv_16, grammarAccess.getWorkItemAccess().getCommaKeyword_5_0_3_0());
     }
 (
 (
@@ -2577,178 +2615,222 @@ ruleWorkItem returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getWorkItemRule());
 	        }
         }
-	otherlv_16=RULE_ID
+	otherlv_17=RULE_ID
 	{
-		newLeafNode(otherlv_16, grammarAccess.getWorkItemAccess().getSTasksWorkItemCrossReference_5_0_3_1_0()); 
+		newLeafNode(otherlv_17, grammarAccess.getWorkItemAccess().getSTasksWorkItemCrossReference_5_0_3_1_0()); 
 	}
 
 )
-))*	otherlv_17='}' 
+))*	otherlv_18='}' 
     {
-    	newLeafNode(otherlv_17, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_5_0_4());
+    	newLeafNode(otherlv_18, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_5_0_4());
     }
-	otherlv_18='analysisEfforts' 
+	otherlv_19='analysisEfforts' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getWorkItemAccess().getAnalysisEffortsKeyword_5_0_5());
+    	newLeafNode(otherlv_19, grammarAccess.getWorkItemAccess().getAnalysisEffortsKeyword_5_0_5());
     }
-	otherlv_19='{' 
+	otherlv_20='{' 
     {
-    	newLeafNode(otherlv_19, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_5_0_6());
+    	newLeafNode(otherlv_20, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_5_0_6());
     }
 (
 (
 		{ 
 	        newCompositeNode(grammarAccess.getWorkItemAccess().getRequiredAnalysisRequiredServiceParserRuleCall_5_0_7_0()); 
 	    }
-		lv_requiredAnalysis_20_0=ruleRequiredService		{
+		lv_requiredAnalysis_21_0=ruleRequiredService		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
 	        }
        		add(
        			$current, 
        			"requiredAnalysis",
-        		lv_requiredAnalysis_20_0, 
-        		"RequiredService");
+        		lv_requiredAnalysis_21_0, 
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.RequiredService");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_21=',' 
+)(	otherlv_22=',' 
     {
-    	newLeafNode(otherlv_21, grammarAccess.getWorkItemAccess().getCommaKeyword_5_0_8_0());
+    	newLeafNode(otherlv_22, grammarAccess.getWorkItemAccess().getCommaKeyword_5_0_8_0());
     }
 (
 (
 		{ 
 	        newCompositeNode(grammarAccess.getWorkItemAccess().getRequiredAnalysisRequiredServiceParserRuleCall_5_0_8_1_0()); 
 	    }
-		lv_requiredAnalysis_22_0=ruleRequiredService		{
+		lv_requiredAnalysis_23_0=ruleRequiredService		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
 	        }
        		add(
        			$current, 
        			"requiredAnalysis",
-        		lv_requiredAnalysis_22_0, 
-        		"RequiredService");
+        		lv_requiredAnalysis_23_0, 
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.RequiredService");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*	otherlv_23='}' 
+))*	otherlv_24='}' 
     {
-    	newLeafNode(otherlv_23, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_5_0_9());
+    	newLeafNode(otherlv_24, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_5_0_9());
     }
 )?
-    |((	otherlv_24='analysisEfforts' 
+    |((	otherlv_25='analysisEfforts' 
     {
-    	newLeafNode(otherlv_24, grammarAccess.getWorkItemAccess().getAnalysisEffortsKeyword_5_1_0_0());
+    	newLeafNode(otherlv_25, grammarAccess.getWorkItemAccess().getAnalysisEffortsKeyword_5_1_0_0());
     }
-	otherlv_25='{' 
+	otherlv_26='{' 
     {
-    	newLeafNode(otherlv_25, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_5_1_0_1());
+    	newLeafNode(otherlv_26, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_5_1_0_1());
     }
 (
 (
 		{ 
 	        newCompositeNode(grammarAccess.getWorkItemAccess().getRequiredAnalysisRequiredServiceParserRuleCall_5_1_0_2_0()); 
 	    }
-		lv_requiredAnalysis_26_0=ruleRequiredService		{
+		lv_requiredAnalysis_27_0=ruleRequiredService		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
 	        }
        		add(
        			$current, 
        			"requiredAnalysis",
-        		lv_requiredAnalysis_26_0, 
-        		"RequiredService");
+        		lv_requiredAnalysis_27_0, 
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.RequiredService");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_27=',' 
+)(	otherlv_28=',' 
     {
-    	newLeafNode(otherlv_27, grammarAccess.getWorkItemAccess().getCommaKeyword_5_1_0_3_0());
+    	newLeafNode(otherlv_28, grammarAccess.getWorkItemAccess().getCommaKeyword_5_1_0_3_0());
     }
 (
 (
 		{ 
 	        newCompositeNode(grammarAccess.getWorkItemAccess().getRequiredAnalysisRequiredServiceParserRuleCall_5_1_0_3_1_0()); 
 	    }
-		lv_requiredAnalysis_28_0=ruleRequiredService		{
+		lv_requiredAnalysis_29_0=ruleRequiredService		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
 	        }
        		add(
        			$current, 
        			"requiredAnalysis",
-        		lv_requiredAnalysis_28_0, 
-        		"RequiredService");
+        		lv_requiredAnalysis_29_0, 
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.RequiredService");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*	otherlv_29='}' 
+))*	otherlv_30='}' 
     {
-    	newLeafNode(otherlv_29, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_5_1_0_4());
+    	newLeafNode(otherlv_30, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_5_1_0_4());
     }
-)?	otherlv_30='efforts' 
+)?	otherlv_31='efforts' 
     {
-    	newLeafNode(otherlv_30, grammarAccess.getWorkItemAccess().getEffortsKeyword_5_1_1());
+    	newLeafNode(otherlv_31, grammarAccess.getWorkItemAccess().getEffortsKeyword_5_1_1());
     }
-	otherlv_31='{' 
+	otherlv_32='{' 
     {
-    	newLeafNode(otherlv_31, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_5_1_2());
+    	newLeafNode(otherlv_32, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_5_1_2());
     }
 (
 (
 		{ 
 	        newCompositeNode(grammarAccess.getWorkItemAccess().getRequiredServicesRequiredServiceParserRuleCall_5_1_3_0()); 
 	    }
-		lv_requiredServices_32_0=ruleRequiredService		{
+		lv_requiredServices_33_0=ruleRequiredService		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
 	        }
        		add(
        			$current, 
        			"requiredServices",
-        		lv_requiredServices_32_0, 
-        		"RequiredService");
+        		lv_requiredServices_33_0, 
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.RequiredService");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_33=',' 
+)(	otherlv_34=',' 
     {
-    	newLeafNode(otherlv_33, grammarAccess.getWorkItemAccess().getCommaKeyword_5_1_4_0());
+    	newLeafNode(otherlv_34, grammarAccess.getWorkItemAccess().getCommaKeyword_5_1_4_0());
     }
 (
 (
 		{ 
 	        newCompositeNode(grammarAccess.getWorkItemAccess().getRequiredServicesRequiredServiceParserRuleCall_5_1_4_1_0()); 
 	    }
-		lv_requiredServices_34_0=ruleRequiredService		{
+		lv_requiredServices_35_0=ruleRequiredService		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
 	        }
        		add(
        			$current, 
        			"requiredServices",
-        		lv_requiredServices_34_0, 
-        		"RequiredService");
+        		lv_requiredServices_35_0, 
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.RequiredService");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*	otherlv_35='}' 
+))*	otherlv_36='}' 
     {
-    	newLeafNode(otherlv_35, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_5_1_5());
+    	newLeafNode(otherlv_36, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_5_1_5());
     }
-))((
-(
-		lv_hasImpacts_36_0=	'impacts' 
+))(	otherlv_37='maturityLevels' 
     {
-        newLeafNode(lv_hasImpacts_36_0, grammarAccess.getWorkItemAccess().getHasImpactsImpactsKeyword_6_0_0());
+    	newLeafNode(otherlv_37, grammarAccess.getWorkItemAccess().getMaturityLevelsKeyword_6_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getWorkItemAccess().getMaturityLevelsAbstractParameterParserRuleCall_6_1_0()); 
+	    }
+		lv_maturityLevels_38_0=ruleAbstractParameter		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
+	        }
+       		set(
+       			$current, 
+       			"maturityLevels",
+        		lv_maturityLevels_38_0, 
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.AbstractParameter");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?(	otherlv_39='uncertainty' 
+    {
+    	newLeafNode(otherlv_39, grammarAccess.getWorkItemAccess().getUncertaintyKeyword_7_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getWorkItemAccess().getUncertaintyAbstractParameterParserRuleCall_7_1_0()); 
+	    }
+		lv_uncertainty_40_0=ruleAbstractParameter		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
+	        }
+       		set(
+       			$current, 
+       			"uncertainty",
+        		lv_uncertainty_40_0, 
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.AbstractParameter");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?((
+(
+		lv_hasImpacts_41_0=	'impacts' 
+    {
+        newLeafNode(lv_hasImpacts_41_0, grammarAccess.getWorkItemAccess().getHasImpactsImpactsKeyword_8_0_0());
     }
  
 	    {
@@ -2759,85 +2841,185 @@ ruleWorkItem returns [EObject current=null]
 	    }
 
 )
-)	otherlv_37='{' 
+)	otherlv_42='{' 
     {
-    	newLeafNode(otherlv_37, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_6_1());
+    	newLeafNode(otherlv_42, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_8_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getWorkItemAccess().getImpactsImpactParserRuleCall_6_2_0()); 
+	        newCompositeNode(grammarAccess.getWorkItemAccess().getImpactsImpactParserRuleCall_8_2_0()); 
 	    }
-		lv_impacts_38_0=ruleImpact		{
+		lv_impacts_43_0=ruleImpact		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
 	        }
        		add(
        			$current, 
        			"impacts",
-        		lv_impacts_38_0, 
-        		"Impact");
+        		lv_impacts_43_0, 
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Impact");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_39=',' 
+)(	otherlv_44=',' 
     {
-    	newLeafNode(otherlv_39, grammarAccess.getWorkItemAccess().getCommaKeyword_6_3_0());
+    	newLeafNode(otherlv_44, grammarAccess.getWorkItemAccess().getCommaKeyword_8_3_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getWorkItemAccess().getImpactsImpactParserRuleCall_6_3_1_0()); 
+	        newCompositeNode(grammarAccess.getWorkItemAccess().getImpactsImpactParserRuleCall_8_3_1_0()); 
 	    }
-		lv_impacts_40_0=ruleImpact		{
+		lv_impacts_45_0=ruleImpact		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
 	        }
        		add(
        			$current, 
        			"impacts",
-        		lv_impacts_40_0, 
-        		"Impact");
+        		lv_impacts_45_0, 
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Impact");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*	otherlv_41='}' 
+))*	otherlv_46='}' 
     {
-    	newLeafNode(otherlv_41, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_6_4());
+    	newLeafNode(otherlv_46, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_8_4());
     }
-)?(	otherlv_42='value' 
+)?(	otherlv_47='value' 
     {
-    	newLeafNode(otherlv_42, grammarAccess.getWorkItemAccess().getValueKeyword_7_0());
+    	newLeafNode(otherlv_47, grammarAccess.getWorkItemAccess().getValueKeyword_9_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getWorkItemAccess().getValueNumExpressionParserRuleCall_7_1_0()); 
+	        newCompositeNode(grammarAccess.getWorkItemAccess().getValueNumExpressionParserRuleCall_9_1_0()); 
 	    }
-		lv_value_43_0=ruleNumExpression		{
+		lv_value_48_0=ruleNumExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
 	        }
        		set(
        			$current, 
        			"value",
-        		lv_value_43_0, 
-        		"NumExpression");
+        		lv_value_48_0, 
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.NumExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))?	otherlv_44='}' 
+))?(	otherlv_49='risk' 
     {
-    	newLeafNode(otherlv_44, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_8());
+    	newLeafNode(otherlv_49, grammarAccess.getWorkItemAccess().getRiskKeyword_10_0());
     }
 (
 (
-		lv_id_45_0=RULE_INT
+		{ 
+	        newCompositeNode(grammarAccess.getWorkItemAccess().getRiskAbstractParameterParserRuleCall_10_1_0()); 
+	    }
+		lv_risk_50_0=ruleAbstractParameter		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
+	        }
+       		set(
+       			$current, 
+       			"risk",
+        		lv_risk_50_0, 
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.AbstractParameter");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?(	otherlv_51='classOfService' 
+    {
+    	newLeafNode(otherlv_51, grammarAccess.getWorkItemAccess().getClassOfServiceKeyword_11_0());
+    }
+(
+(
 		{
-			newLeafNode(lv_id_45_0, grammarAccess.getWorkItemAccess().getIdINTTerminalRuleCall_9_0()); 
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getWorkItemRule());
+	        }
+        }
+	otherlv_52=RULE_ID
+	{
+		newLeafNode(otherlv_52, grammarAccess.getWorkItemAccess().getClassOfServiceClassOfServiceCrossReference_11_1_0()); 
+	}
+
+)
+))?(	otherlv_53='workSource' 
+    {
+    	newLeafNode(otherlv_53, grammarAccess.getWorkItemAccess().getWorkSourceKeyword_12_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getWorkItemRule());
+	        }
+        }
+	otherlv_54=RULE_ID
+	{
+		newLeafNode(otherlv_54, grammarAccess.getWorkItemAccess().getWorkSourceWorkSourceCrossReference_12_1_0()); 
+	}
+
+)
+))?(	otherlv_55='arrivalTime' 
+    {
+    	newLeafNode(otherlv_55, grammarAccess.getWorkItemAccess().getArrivalTimeKeyword_13_0());
+    }
+(
+(
+		lv_arrivalTime_56_0=RULE_INT
+		{
+			newLeafNode(lv_arrivalTime_56_0, grammarAccess.getWorkItemAccess().getArrivalTimeINTTerminalRuleCall_13_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getWorkItemRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"arrivalTime",
+        		lv_arrivalTime_56_0, 
+        		"org.eclipse.xtext.common.Terminals.INT");
+	    }
+
+)
+))?(	otherlv_57='dueDate' 
+    {
+    	newLeafNode(otherlv_57, grammarAccess.getWorkItemAccess().getDueDateKeyword_14_0());
+    }
+(
+(
+		lv_dueDate_58_0=RULE_INT
+		{
+			newLeafNode(lv_dueDate_58_0, grammarAccess.getWorkItemAccess().getDueDateINTTerminalRuleCall_14_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getWorkItemRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"dueDate",
+        		lv_dueDate_58_0, 
+        		"org.eclipse.xtext.common.Terminals.INT");
+	    }
+
+)
+))?	otherlv_59='}' 
+    {
+    	newLeafNode(otherlv_59, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_15());
+    }
+(
+(
+		lv_id_60_0=RULE_INT
+		{
+			newLeafNode(lv_id_60_0, grammarAccess.getWorkItemAccess().getIdINTTerminalRuleCall_16_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2846,8 +3028,8 @@ ruleWorkItem returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"id",
-        		lv_id_45_0, 
-        		"INT");
+        		lv_id_60_0, 
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -2906,7 +3088,7 @@ ruleRequiredService returns [EObject current=null]
        			$current, 
        			"efforts",
         		lv_efforts_3_0, 
-        		"AbstractParameter");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.AbstractParameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2966,7 +3148,7 @@ ruleImpact returns [EObject current=null]
        			$current, 
        			"likelihood",
         		lv_likelihood_2_0, 
-        		"AbstractParameter");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.AbstractParameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2988,7 +3170,7 @@ ruleImpact returns [EObject current=null]
        			$current, 
        			"risk",
         		lv_risk_4_0, 
-        		"AbstractParameter");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.AbstractParameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3032,7 +3214,7 @@ ruleWorkItemType returns [EObject current=null]
        			$current, 
        			"id",
         		lv_id_0_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -3050,7 +3232,7 @@ ruleWorkItemType returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -3076,7 +3258,7 @@ ruleWorkItemType returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_4_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -3102,7 +3284,7 @@ ruleWorkItemType returns [EObject current=null]
        			$current, 
        			"hierarchy",
         		lv_hierarchy_7_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -3147,7 +3329,7 @@ ruleClassOfService returns [EObject current=null]
        			$current, 
        			"id",
         		lv_id_0_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -3165,7 +3347,7 @@ ruleClassOfService returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -3191,7 +3373,7 @@ ruleClassOfService returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_4_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -3217,7 +3399,7 @@ ruleClassOfService returns [EObject current=null]
        			$current, 
        			"priority",
         		lv_priority_7_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -3243,7 +3425,7 @@ ruleClassOfService returns [EObject current=null]
        			$current, 
        			"disruptive",
         		lv_disruptive_10_0, 
-        		"BOOLEAN");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.BOOLEAN");
 	    }
 
 )
@@ -3286,7 +3468,7 @@ ruleService returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_0_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -3312,7 +3494,7 @@ ruleService returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_3_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -3338,7 +3520,7 @@ ruleService returns [EObject current=null]
        			$current, 
        			"hierarchy",
         		lv_hierarchy_6_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -3360,7 +3542,7 @@ ruleService returns [EObject current=null]
        			$current, 
        			"id",
         		lv_id_8_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -3399,38 +3581,17 @@ ruleServiceProvider returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_0_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
-)(	otherlv_1='type:' 
+)(	otherlv_1='type' 
     {
     	newLeafNode(otherlv_1, grammarAccess.getServiceProviderAccess().getTypeKeyword_1_0());
     }
-(
-(
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getServiceProviderRule());
-	        }
-        }
-	otherlv_2=RULE_ID
-	{
-		newLeafNode(otherlv_2, grammarAccess.getServiceProviderAccess().getTypeServiceProviderTypeCrossReference_1_1_0()); 
-	}
-
-)
-))?	otherlv_3='{' 
+	otherlv_2=':' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getServiceProviderAccess().getLeftCurlyBracketKeyword_2());
-    }
-(	otherlv_4='assignTo' 
-    {
-    	newLeafNode(otherlv_4, grammarAccess.getServiceProviderAccess().getAssignToKeyword_3_0());
-    }
-	otherlv_5='{' 
-    {
-    	newLeafNode(otherlv_5, grammarAccess.getServiceProviderAccess().getLeftCurlyBracketKeyword_3_1());
+    	newLeafNode(otherlv_2, grammarAccess.getServiceProviderAccess().getColonKeyword_1_1());
     }
 (
 (
@@ -3439,15 +3600,23 @@ ruleServiceProvider returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getServiceProviderRule());
 	        }
         }
-	otherlv_6=RULE_ID
+	otherlv_3=RULE_ID
 	{
-		newLeafNode(otherlv_6, grammarAccess.getServiceProviderAccess().getAssignToServiceProviderCrossReference_3_2_0()); 
+		newLeafNode(otherlv_3, grammarAccess.getServiceProviderAccess().getTypeServiceProviderTypeCrossReference_1_2_0()); 
 	}
 
 )
-)(	otherlv_7=',' 
+))?	otherlv_4='{' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getServiceProviderAccess().getCommaKeyword_3_3_0());
+    	newLeafNode(otherlv_4, grammarAccess.getServiceProviderAccess().getLeftCurlyBracketKeyword_2());
+    }
+(	otherlv_5='assignTo' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getServiceProviderAccess().getAssignToKeyword_3_0());
+    }
+	otherlv_6='{' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getServiceProviderAccess().getLeftCurlyBracketKeyword_3_1());
     }
 (
 (
@@ -3456,23 +3625,15 @@ ruleServiceProvider returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getServiceProviderRule());
 	        }
         }
-	otherlv_8=RULE_ID
+	otherlv_7=RULE_ID
 	{
-		newLeafNode(otherlv_8, grammarAccess.getServiceProviderAccess().getAssignToServiceProviderCrossReference_3_3_1_0()); 
+		newLeafNode(otherlv_7, grammarAccess.getServiceProviderAccess().getAssignToServiceProviderCrossReference_3_2_0()); 
 	}
 
 )
-))*	otherlv_9='}' 
+)(	otherlv_8=',' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_3_4());
-    }
-)?(	otherlv_10='outsourceFrom' 
-    {
-    	newLeafNode(otherlv_10, grammarAccess.getServiceProviderAccess().getOutsourceFromKeyword_4_0());
-    }
-	otherlv_11='{' 
-    {
-    	newLeafNode(otherlv_11, grammarAccess.getServiceProviderAccess().getLeftCurlyBracketKeyword_4_1());
+    	newLeafNode(otherlv_8, grammarAccess.getServiceProviderAccess().getCommaKeyword_3_3_0());
     }
 (
 (
@@ -3481,15 +3642,23 @@ ruleServiceProvider returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getServiceProviderRule());
 	        }
         }
-	otherlv_12=RULE_ID
+	otherlv_9=RULE_ID
 	{
-		newLeafNode(otherlv_12, grammarAccess.getServiceProviderAccess().getOutsourceFromServiceProviderCrossReference_4_2_0()); 
+		newLeafNode(otherlv_9, grammarAccess.getServiceProviderAccess().getAssignToServiceProviderCrossReference_3_3_1_0()); 
 	}
 
 )
-)(	otherlv_13=',' 
+))*	otherlv_10='}' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getServiceProviderAccess().getCommaKeyword_4_3_0());
+    	newLeafNode(otherlv_10, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_3_4());
+    }
+)?(	otherlv_11='outsourceFrom' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getServiceProviderAccess().getOutsourceFromKeyword_4_0());
+    }
+	otherlv_12='{' 
+    {
+    	newLeafNode(otherlv_12, grammarAccess.getServiceProviderAccess().getLeftCurlyBracketKeyword_4_1());
     }
 (
 (
@@ -3498,19 +3667,15 @@ ruleServiceProvider returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getServiceProviderRule());
 	        }
         }
-	otherlv_14=RULE_ID
+	otherlv_13=RULE_ID
 	{
-		newLeafNode(otherlv_14, grammarAccess.getServiceProviderAccess().getOutsourceFromServiceProviderCrossReference_4_3_1_0()); 
+		newLeafNode(otherlv_13, grammarAccess.getServiceProviderAccess().getOutsourceFromServiceProviderCrossReference_4_2_0()); 
 	}
 
 )
-))*	otherlv_15='}' 
+)(	otherlv_14=',' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_4_4());
-    }
-)?(	otherlv_16='strategy' 
-    {
-    	newLeafNode(otherlv_16, grammarAccess.getServiceProviderAccess().getStrategyKeyword_5_0());
+    	newLeafNode(otherlv_14, grammarAccess.getServiceProviderAccess().getCommaKeyword_4_3_0());
     }
 (
 (
@@ -3519,47 +3684,72 @@ ruleServiceProvider returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getServiceProviderRule());
 	        }
         }
-	otherlv_17=RULE_ID
+	otherlv_15=RULE_ID
 	{
-		newLeafNode(otherlv_17, grammarAccess.getServiceProviderAccess().getGovernanceStrategyGovernanceStrategyCrossReference_5_1_0()); 
+		newLeafNode(otherlv_15, grammarAccess.getServiceProviderAccess().getOutsourceFromServiceProviderCrossReference_4_3_1_0()); 
 	}
 
 )
-))?(	otherlv_18='resources' 
+))*	otherlv_16='}' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getServiceProviderAccess().getResourcesKeyword_6_0());
+    	newLeafNode(otherlv_16, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_4_4());
     }
-	otherlv_19=':' 
+)?(	otherlv_17='strategy' 
     {
-    	newLeafNode(otherlv_19, grammarAccess.getServiceProviderAccess().getColonKeyword_6_1());
+    	newLeafNode(otherlv_17, grammarAccess.getServiceProviderAccess().getStrategyKeyword_5_0());
+    }
+	otherlv_18=':' 
+    {
+    	newLeafNode(otherlv_18, grammarAccess.getServiceProviderAccess().getColonKeyword_5_1());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getServiceProviderRule());
+	        }
+        }
+	otherlv_19=RULE_ID
+	{
+		newLeafNode(otherlv_19, grammarAccess.getServiceProviderAccess().getGovernanceStrategyGovernanceStrategyCrossReference_5_2_0()); 
+	}
+
+)
+))?(	otherlv_20='resources' 
+    {
+    	newLeafNode(otherlv_20, grammarAccess.getServiceProviderAccess().getResourcesKeyword_6_0());
+    }
+	otherlv_21=':' 
+    {
+    	newLeafNode(otherlv_21, grammarAccess.getServiceProviderAccess().getColonKeyword_6_1());
     }
 (
 (
 		{ 
 	        newCompositeNode(grammarAccess.getServiceProviderAccess().getResourcesAssetParserRuleCall_6_2_0()); 
 	    }
-		lv_resources_20_0=ruleAsset		{
+		lv_resources_22_0=ruleAsset		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getServiceProviderRule());
 	        }
        		add(
        			$current, 
        			"resources",
-        		lv_resources_20_0, 
-        		"Asset");
+        		lv_resources_22_0, 
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Asset");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)+)?	otherlv_21='}' 
+)+)?	otherlv_23='}' 
     {
-    	newLeafNode(otherlv_21, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_7());
+    	newLeafNode(otherlv_23, grammarAccess.getServiceProviderAccess().getRightCurlyBracketKeyword_7());
     }
 (
 (
-		lv_id_22_0=RULE_INT
+		lv_id_24_0=RULE_INT
 		{
-			newLeafNode(lv_id_22_0, grammarAccess.getServiceProviderAccess().getIdINTTerminalRuleCall_8_0()); 
+			newLeafNode(lv_id_24_0, grammarAccess.getServiceProviderAccess().getIdINTTerminalRuleCall_8_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3568,8 +3758,8 @@ ruleServiceProvider returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"id",
-        		lv_id_22_0, 
-        		"INT");
+        		lv_id_24_0, 
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -3608,7 +3798,7 @@ ruleServiceProviderType returns [EObject current=null]
        			$current, 
        			"id",
         		lv_id_0_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -3626,7 +3816,7 @@ ruleServiceProviderType returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -3652,7 +3842,7 @@ ruleServiceProviderType returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_4_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -3678,7 +3868,7 @@ ruleServiceProviderType returns [EObject current=null]
        			$current, 
        			"hierarchy",
         		lv_hierarchy_7_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -3721,7 +3911,7 @@ ruleAsset returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_0_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -3742,7 +3932,7 @@ ruleAsset returns [EObject current=null]
        			$current, 
        			"number",
         		lv_number_2_0, 
-        		"AbstractParameter");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.AbstractParameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3772,7 +3962,7 @@ ruleAsset returns [EObject current=null]
        			$current, 
        			"skillSet",
         		lv_skillSet_6_0, 
-        		"Skill");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Skill");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3794,7 +3984,7 @@ ruleAsset returns [EObject current=null]
        			$current, 
        			"skillSet",
         		lv_skillSet_8_0, 
-        		"Skill");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Skill");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3817,7 +4007,7 @@ ruleAsset returns [EObject current=null]
        			$current, 
        			"id",
         		lv_id_10_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -3876,7 +4066,7 @@ ruleSkill returns [EObject current=null]
        			$current, 
        			"efficiency",
         		lv_efficiency_3_0, 
-        		"AbstractParameter");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.AbstractParameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4066,7 +4256,7 @@ ruleAbstractType returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_0_0, 
-        		"Type");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Type");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4104,7 +4294,7 @@ ruleAbstractType returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_3_0, 
-        		"Type");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Type");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4146,7 +4336,7 @@ ruleAbstractType returns [EObject current=null]
        			$current, 
        			"keyType",
         		lv_keyType_7_0, 
-        		"Type");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Type");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4168,7 +4358,7 @@ ruleAbstractType returns [EObject current=null]
        			$current, 
        			"valueType",
         		lv_valueType_9_0, 
-        		"Type");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Type");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4217,7 +4407,7 @@ ruleAttribute returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_0_0, 
-        		"AbstractType");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.AbstractType");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4236,7 +4426,7 @@ ruleAttribute returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -4257,7 +4447,7 @@ ruleAttribute returns [EObject current=null]
        			$current, 
        			"default",
         		lv_default_3_0, 
-        		"Parameter");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Parameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4313,7 +4503,7 @@ ruleAttributeValue returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_2_0, 
-        		"Parameter");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Parameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4352,7 +4542,7 @@ ruleVariable returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_0_0, 
-        		"AbstractType");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.AbstractType");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4371,7 +4561,7 @@ ruleVariable returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -4414,7 +4604,7 @@ ruleAction returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -4435,7 +4625,7 @@ ruleAction returns [EObject current=null]
        			$current, 
        			"inputs",
         		lv_inputs_3_0, 
-        		"Variable");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Variable");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4457,7 +4647,7 @@ ruleAction returns [EObject current=null]
        			$current, 
        			"inputs",
         		lv_inputs_5_0, 
-        		"Variable");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Variable");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4516,7 +4706,7 @@ ruleState returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -4539,7 +4729,7 @@ ruleState returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_3_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -4560,7 +4750,7 @@ ruleState returns [EObject current=null]
        			$current, 
        			"statements",
         		lv_statements_5_0, 
-        		"Statement");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4607,7 +4797,7 @@ ruleIfExpression returns [EObject current=null]
        			$current, 
        			"condition",
         		lv_condition_1_0, 
-        		"Condition");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Condition");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4633,7 +4823,7 @@ ruleIfExpression returns [EObject current=null]
        			$current, 
        			"statements",
         		lv_statements_4_0, 
-        		"Statement");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4674,7 +4864,7 @@ ruleIfExpression returns [EObject current=null]
        			$current, 
        			"elseIf",
         		lv_elseIf_8_0, 
-        		"IfExpression");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.IfExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4697,7 +4887,7 @@ ruleIfExpression returns [EObject current=null]
        			$current, 
        			"elses",
         		lv_elses_10_0, 
-        		"Statement");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4744,7 +4934,7 @@ ruleForExpression returns [EObject current=null]
        			$current, 
        			"object",
         		lv_object_1_0, 
-        		"VarExpression");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.VarExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4766,7 +4956,7 @@ ruleForExpression returns [EObject current=null]
        			$current, 
        			"set",
         		lv_set_3_0, 
-        		"VarExpression");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.VarExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4792,7 +4982,7 @@ ruleForExpression returns [EObject current=null]
        			$current, 
        			"statements",
         		lv_statements_6_0, 
-        		"Statement");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4839,7 +5029,7 @@ ruleWhileExpression returns [EObject current=null]
        			$current, 
        			"condition",
         		lv_condition_1_0, 
-        		"Condition");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Condition");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4865,7 +5055,7 @@ ruleWhileExpression returns [EObject current=null]
        			$current, 
        			"statements",
         		lv_statements_4_0, 
-        		"Statement");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4908,7 +5098,7 @@ ruleCondition returns [EObject current=null]
        			$current, 
        			"subjective",
         		lv_subjective_0_0, 
-        		"VarExpression");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.VarExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4926,7 +5116,7 @@ ruleCondition returns [EObject current=null]
        			$current, 
        			"operator",
         		lv_operator_1_0, 
-        		"Operator");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Operator");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4944,7 +5134,7 @@ ruleCondition returns [EObject current=null]
        			$current, 
        			"objective",
         		lv_objective_2_0, 
-        		"Expression");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4967,7 +5157,7 @@ ruleCondition returns [EObject current=null]
        			$current, 
        			"subjective",
         		lv_subjective_4_0, 
-        		"VarExpression");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.VarExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4985,7 +5175,7 @@ ruleCondition returns [EObject current=null]
        			$current, 
        			"operator",
         		lv_operator_5_0, 
-        		"Operator");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Operator");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5003,7 +5193,7 @@ ruleCondition returns [EObject current=null]
        			$current, 
        			"objective",
         		lv_objective_6_0, 
-        		"Expression");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5044,7 +5234,7 @@ ruleCondition returns [EObject current=null]
        			$current, 
        			"andCondition",
         		lv_andCondition_10_0, 
-        		"Condition");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Condition");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5086,7 +5276,7 @@ ruleCondition returns [EObject current=null]
        			$current, 
        			"orCondition",
         		lv_orCondition_14_0, 
-        		"Condition");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Condition");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5144,7 +5334,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"actionStatement",
         		lv_actionStatement_1_0, 
-        		"ActionStatement");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.ActionStatement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5178,7 +5368,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"changeStateStatement",
         		lv_changeStateStatement_3_0, 
-        		"ChangeStateStatement");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.ChangeStateStatement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5212,7 +5402,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"declarationStatement",
         		lv_declarationStatement_5_0, 
-        		"DeclarationStatement");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.DeclarationStatement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5246,7 +5436,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"ifExpression",
         		lv_ifExpression_7_0, 
-        		"IfExpression");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.IfExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5284,7 +5474,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"forExpression",
         		lv_forExpression_10_0, 
-        		"ForExpression");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.ForExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5322,7 +5512,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"whileExpression",
         		lv_whileExpression_13_0, 
-        		"WhileExpression");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.WhileExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5345,7 +5535,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"assertStatement",
         		lv_assertStatement_15_0, 
-        		"AssertStatement");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.AssertStatement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5403,7 +5593,7 @@ ruleDeclarationStatement returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_3_0, 
-        		"Expression");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5459,12 +5649,12 @@ ruleActionStatement returns [EObject current=null]
        			$current, 
        			"inputs",
         		lv_inputs_2_0, 
-        		"VarExpression");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.VarExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?	otherlv_3=')' 
+)+	otherlv_3=')' 
     {
     	newLeafNode(otherlv_3, grammarAccess.getActionStatementAccess().getRightParenthesisKeyword_3());
     }
@@ -5502,7 +5692,7 @@ ruleAssertStatement returns [EObject current=null]
        			$current, 
        			"input",
         		lv_input_0_0, 
-        		"VarExpression");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.VarExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5524,7 +5714,7 @@ ruleAssertStatement returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_2_0, 
-        		"Expression");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5631,7 +5821,7 @@ ruleExpression returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_5_0, 
-        		"Term");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Term");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5700,7 +5890,7 @@ ruleTerm returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_5_0, 
-        		"Factor");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Factor");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5739,7 +5929,7 @@ ruleFactor returns [EObject current=null]
        			$current, 
        			"number",
         		lv_number_0_0, 
-        		"Number");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Number");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5758,7 +5948,7 @@ ruleFactor returns [EObject current=null]
        			$current, 
        			"variable",
         		lv_variable_1_0, 
-        		"VarExpression");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.VarExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5778,7 +5968,7 @@ ruleFactor returns [EObject current=null]
        			$current, 
        			"string",
         		lv_string_2_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -5797,7 +5987,7 @@ ruleFactor returns [EObject current=null]
        			$current, 
        			"boolean",
         		lv_boolean_3_0, 
-        		"BOOLEAN");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.BOOLEAN");
 	    }
 
 )
@@ -5819,7 +6009,7 @@ ruleFactor returns [EObject current=null]
        			$current, 
        			"expression",
         		lv_expression_5_0, 
-        		"Expression");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5894,7 +6084,7 @@ ruleVarExpression returns [EObject current=null]
        			$current, 
        			"variable",
         		lv_variable_2_0, 
-        		"QualifiedName");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.QualifiedName");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5916,7 +6106,7 @@ ruleVarExpression returns [EObject current=null]
        			$current, 
        			"methods",
         		lv_methods_4_0, 
-        		"Method");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Method");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5956,7 +6146,7 @@ ruleMethod returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_0_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -5988,7 +6178,7 @@ ruleMethod returns [EObject current=null]
        			$current, 
        			"inputs",
         		lv_inputs_2_0, 
-        		"Parameter");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Parameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6010,7 +6200,7 @@ ruleMethod returns [EObject current=null]
        			$current, 
        			"inputs",
         		lv_inputs_4_0, 
-        		"Parameter");
+        		"datasem.xtext.kanban.domainmodel.Kanbanmodel.Parameter");
 	        afterParserOrEnumRuleCall();
 	    }
 

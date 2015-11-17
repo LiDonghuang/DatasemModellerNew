@@ -1214,7 +1214,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getContractNetProtocol_Variables()
+  public EReference getContractNetProtocol_Mechanisms()
   {
     return (EReference)contractNetProtocolEClass.getEStructuralFeatures().get(0);
   }
@@ -1224,9 +1224,19 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getContractNetProtocol_RoleBehaviors()
+  public EReference getContractNetProtocol_Variables()
   {
     return (EReference)contractNetProtocolEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getContractNetProtocol_RoleBehaviors()
+  {
+    return (EReference)contractNetProtocolEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1624,9 +1634,9 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkItem_HasImpacts()
+  public EReference getWorkItem_MaturityLevels()
   {
-    return (EAttribute)workItemEClass.getEStructuralFeatures().get(9);
+    return (EReference)workItemEClass.getEStructuralFeatures().get(9);
   }
 
   /**
@@ -1634,7 +1644,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItem_Impacts()
+  public EReference getWorkItem_Uncertainty()
   {
     return (EReference)workItemEClass.getEStructuralFeatures().get(10);
   }
@@ -1644,9 +1654,79 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getWorkItem_HasImpacts()
+  {
+    return (EAttribute)workItemEClass.getEStructuralFeatures().get(11);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getWorkItem_Impacts()
+  {
+    return (EReference)workItemEClass.getEStructuralFeatures().get(12);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getWorkItem_Value()
   {
-    return (EReference)workItemEClass.getEStructuralFeatures().get(11);
+    return (EReference)workItemEClass.getEStructuralFeatures().get(13);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getWorkItem_Risk()
+  {
+    return (EReference)workItemEClass.getEStructuralFeatures().get(14);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getWorkItem_ClassOfService()
+  {
+    return (EReference)workItemEClass.getEStructuralFeatures().get(15);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getWorkItem_WorkSource()
+  {
+    return (EReference)workItemEClass.getEStructuralFeatures().get(16);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getWorkItem_ArrivalTime()
+  {
+    return (EAttribute)workItemEClass.getEStructuralFeatures().get(17);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getWorkItem_DueDate()
+  {
+    return (EAttribute)workItemEClass.getEStructuralFeatures().get(18);
   }
 
   /**
@@ -1656,7 +1736,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
    */
   public EAttribute getWorkItem_Id()
   {
-    return (EAttribute)workItemEClass.getEStructuralFeatures().get(12);
+    return (EAttribute)workItemEClass.getEStructuralFeatures().get(19);
   }
 
   /**
@@ -3296,6 +3376,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     createEReference(governanceStrategyEClass, GOVERNANCE_STRATEGY__PROCESSES);
 
     contractNetProtocolEClass = createEClass(CONTRACT_NET_PROTOCOL);
+    createEReference(contractNetProtocolEClass, CONTRACT_NET_PROTOCOL__MECHANISMS);
     createEReference(contractNetProtocolEClass, CONTRACT_NET_PROTOCOL__VARIABLES);
     createEReference(contractNetProtocolEClass, CONTRACT_NET_PROTOCOL__ROLE_BEHAVIORS);
 
@@ -3346,9 +3427,16 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     createEReference(workItemEClass, WORK_ITEM__STASKS);
     createEReference(workItemEClass, WORK_ITEM__REQUIRED_ANALYSIS);
     createEReference(workItemEClass, WORK_ITEM__REQUIRED_SERVICES);
+    createEReference(workItemEClass, WORK_ITEM__MATURITY_LEVELS);
+    createEReference(workItemEClass, WORK_ITEM__UNCERTAINTY);
     createEAttribute(workItemEClass, WORK_ITEM__HAS_IMPACTS);
     createEReference(workItemEClass, WORK_ITEM__IMPACTS);
     createEReference(workItemEClass, WORK_ITEM__VALUE);
+    createEReference(workItemEClass, WORK_ITEM__RISK);
+    createEReference(workItemEClass, WORK_ITEM__CLASS_OF_SERVICE);
+    createEReference(workItemEClass, WORK_ITEM__WORK_SOURCE);
+    createEAttribute(workItemEClass, WORK_ITEM__ARRIVAL_TIME);
+    createEAttribute(workItemEClass, WORK_ITEM__DUE_DATE);
     createEAttribute(workItemEClass, WORK_ITEM__ID);
 
     requiredServiceEClass = createEClass(REQUIRED_SERVICE);
@@ -3657,6 +3745,7 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEReference(getGovernanceStrategy_Processes(), this.getProcessModel(), null, "processes", null, 0, -1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(contractNetProtocolEClass, ContractNetProtocol.class, "ContractNetProtocol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getContractNetProtocol_Mechanisms(), this.getMechanism(), null, "mechanisms", null, 0, -1, ContractNetProtocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getContractNetProtocol_Variables(), this.getVariable(), null, "variables", null, 0, -1, ContractNetProtocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getContractNetProtocol_RoleBehaviors(), this.getRoleBehavior(), null, "roleBehaviors", null, 0, -1, ContractNetProtocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3707,9 +3796,16 @@ public class KanbanmodelPackageImpl extends EPackageImpl implements KanbanmodelP
     initEReference(getWorkItem_STasks(), this.getWorkItem(), null, "sTasks", null, 0, -1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_RequiredAnalysis(), this.getRequiredService(), null, "requiredAnalysis", null, 0, -1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_RequiredServices(), this.getRequiredService(), null, "requiredServices", null, 0, -1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkItem_MaturityLevels(), this.getAbstractParameter(), null, "maturityLevels", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkItem_Uncertainty(), this.getAbstractParameter(), null, "uncertainty", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkItem_HasImpacts(), ecorePackage.getEBoolean(), "hasImpacts", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_Impacts(), this.getImpact(), null, "impacts", null, 0, -1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_Value(), this.getNumExpression(), null, "value", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkItem_Risk(), this.getAbstractParameter(), null, "risk", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkItem_ClassOfService(), this.getClassOfService(), null, "classOfService", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkItem_WorkSource(), this.getWorkSource(), null, "workSource", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getWorkItem_ArrivalTime(), ecorePackage.getEInt(), "arrivalTime", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getWorkItem_DueDate(), ecorePackage.getEInt(), "dueDate", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkItem_Id(), ecorePackage.getEInt(), "id", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(requiredServiceEClass, RequiredService.class, "RequiredService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

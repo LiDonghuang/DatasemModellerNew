@@ -57,7 +57,7 @@ public class Main {
 		}
 		
 		// configure and start the generator
-		fileAccess.setOutputPath("/Users/dzl0023/Desktop/DatasemFiles");
+		fileAccess.setOutputPath("/Users/dzl0023/Desktop");
 		generator.doGenerate(resource, fileAccess);
 		
 		System.out.println("Experiment Scenario XML generation finished. \nPath: "+Path);

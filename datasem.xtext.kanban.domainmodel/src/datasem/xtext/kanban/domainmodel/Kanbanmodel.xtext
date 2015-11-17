@@ -1,18 +1,13 @@
 grammar datasem.xtext.kanban.domainmodel.Kanbanmodel with org.eclipse.xtext.common.Terminals
-
 generate kanbanmodel "http://www.xtext.datasem/kanban/domainmodel/Kanbanmodel"
-
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 	ModelBuilder:
 		'ModelBuilder' name=ID
 		'desc' Description=STRING
 		UserLibraries=UserLibraries
-//		SystemLibraries=SystemLibraries			
 		ExperimentModel=ExperimentModel			
 	;
-
-
 	ExperimentModel:
 		'ExperimentModel' name=ID
 		('Path' Path = QualifiedName)?	
@@ -30,7 +25,6 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 		    'WorkItemNetworks'
 			(WorkItemNetworks += WorkItemNetwork)+
 			'end WorkItemNetworks'
-	//		(kssWorkFlow=KanbanTaskModel)
 		'end WorkItemNetworkModel'
 		'ExperimentSettings'
 			'WINReplications' (WINReplications+=WINReplication)+
@@ -150,7 +144,7 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 	// ------------------------ Governance Objects ---------------------------------
 	GovernanceStrategy: 
 		name = ID 
-		"type:" (
+		"type"":" (
 		(pull?="Pull" "{"('desc' description=STRING)? pullStrategy=PullStrategy)|
 		(push?="Push""{"('desc' description=STRING)? pushStrategy=PushStrategy)|
 		(cnp?="CNP""{"('desc' description=STRING)? contractNetProtocal=ContractNetProtocol)		
@@ -159,6 +153,7 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 		"}"	
 	;
 	ContractNetProtocol:
+		'mechanisms' '{'(mechanisms += Mechanism)+ '}'
 		(variables+=Variable)*
 		'roleBehaviors' '{'(roleBehaviors += RoleBehavior)+ '}'
 	;
@@ -206,22 +201,22 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
     	(id=INT)?
     ;
 	WorkItem:		
-		name=ID ("type:" type=[WorkItemType])?'{'
+		name=ID ("type"":" type=[WorkItemType])?'{'
 		('desc' description=STRING)?	
 		(hasPredecessors?='prerequisites''{'(pTasks+=[WorkItem])(','pTasks+=[WorkItem])*'}')?	
 		((hasSubtasks?='decomposites''{'(sTasks+=[WorkItem])(','sTasks+=[WorkItem])* '}'
 		'analysisEfforts''{'(requiredAnalysis+=RequiredService)(','requiredAnalysis+=RequiredService)*'}')?|
 		(('analysisEfforts''{'(requiredAnalysis+=RequiredService)(','requiredAnalysis+=RequiredService)*'}')?
 		'efforts' '{'(requiredServices+=RequiredService)(','requiredServices+=RequiredService)*'}'))
-//		('MaturityLevels' maturityLevels=AbstractParameter)?
-//		('Uncertainty' uncertainty=AbstractParameter)?
+		('maturityLevels' maturityLevels=AbstractParameter)?
+		('uncertainty' uncertainty=AbstractParameter)?
 		(hasImpacts?='impacts' '{'(impacts+=Impact)(','impacts+=Impact)*'}')?
 		('value' value=NumExpression)?
-//		('Risk' risk=AbstractParameter)?
-//		('ClassOfService' classOfService=[ClassOfService])?
-//		('WorkSource' workSource=[WorkSource])?
-//		('ArrivalTime' arrivalTime=INT)?
-//		('DueDate' dueDate=INT)?
+		('risk' risk=AbstractParameter)?
+		('classOfService' classOfService=[ClassOfService])?
+		('workSource' workSource=[WorkSource])?
+		('arrivalTime' arrivalTime=INT)?
+		('dueDate' dueDate=INT)?
 		'}'
 		(id=INT)?
 	;
@@ -260,10 +255,10 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 		(id=INT)?	
 	;		
 	ServiceProvider:
-		name=ID ('type:' type=[ServiceProviderType])? '{'
+		name=ID ("type"":" type=[ServiceProviderType])? '{'
 		('assignTo' '{' (assignTo+=[ServiceProvider])(','assignTo+=[ServiceProvider])* '}')?
 		('outsourceFrom' '{' (outsourceFrom+=[ServiceProvider])(','outsourceFrom+=[ServiceProvider])* '}')?			
-		('strategy' governanceStrategy=[GovernanceStrategy])?
+		('strategy'":" governanceStrategy=[GovernanceStrategy])?
 	    ('resources'':' resources+=Asset+)?
 	    '}'
 	    (id=INT)?
@@ -364,7 +359,7 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 		Variable {DeclarationStatement.variable=current} ('='value=Expression)?
 	;
 	ActionStatement:
-		action = [Action] '('((inputs+=VarExpression)+)?')'
+		action = [Action] '('((inputs+=VarExpression)+)')'
 	;
 	AssertStatement:
 		input=VarExpression'='value=Expression

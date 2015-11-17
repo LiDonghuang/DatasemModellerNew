@@ -101,6 +101,8 @@
         upperBound="-1" eType="#//ProcessModel"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContractNetProtocol">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mechanisms" upperBound="-1"
+        eType="#//Mechanism" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
         eType="#//Variable" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="roleBehaviors" upperBound="-1"
@@ -166,11 +168,21 @@
         eType="#//RequiredService" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredServices" upperBound="-1"
         eType="#//RequiredService" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="maturityLevels" eType="#//AbstractParameter"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="uncertainty" eType="#//AbstractParameter"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasImpacts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="impacts" upperBound="-1"
         eType="#//Impact" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//NumExpression"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="risk" eType="#//AbstractParameter"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classOfService" eType="#//ClassOfService"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workSource" eType="#//WorkSource"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="arrivalTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dueDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RequiredService">

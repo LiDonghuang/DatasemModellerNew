@@ -43,9 +43,9 @@ public class KanbanmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_IfExpression___ElseKeyword_6_0_LeftCurlyBracketKeyword_6_1_1_0_RightCurlyBracketKeyword_6_1_1_2__q.equals(syntax))
+			if (match_IfExpression___ElseKeyword_6_0_LeftCurlyBracketKeyword_6_1_1_0_RightCurlyBracketKeyword_6_1_1_2__q.equals(syntax))
 				emit_IfExpression___ElseKeyword_6_0_LeftCurlyBracketKeyword_6_1_1_0_RightCurlyBracketKeyword_6_1_1_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Service___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_3__q.equals(syntax))
+			else if (match_Service___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_3__q.equals(syntax))
 				emit_Service___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}

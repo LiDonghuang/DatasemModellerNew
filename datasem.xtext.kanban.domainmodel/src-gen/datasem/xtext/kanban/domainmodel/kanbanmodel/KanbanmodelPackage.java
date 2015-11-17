@@ -761,13 +761,22 @@ public interface KanbanmodelPackage extends EPackage
   int CONTRACT_NET_PROTOCOL = 10;
 
   /**
+   * The feature id for the '<em><b>Mechanisms</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTRACT_NET_PROTOCOL__MECHANISMS = 0;
+
+  /**
    * The feature id for the '<em><b>Variables</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTRACT_NET_PROTOCOL__VARIABLES = 0;
+  int CONTRACT_NET_PROTOCOL__VARIABLES = 1;
 
   /**
    * The feature id for the '<em><b>Role Behaviors</b></em>' containment reference list.
@@ -776,7 +785,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTRACT_NET_PROTOCOL__ROLE_BEHAVIORS = 1;
+  int CONTRACT_NET_PROTOCOL__ROLE_BEHAVIORS = 2;
 
   /**
    * The number of structural features of the '<em>Contract Net Protocol</em>' class.
@@ -785,7 +794,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTRACT_NET_PROTOCOL_FEATURE_COUNT = 2;
+  int CONTRACT_NET_PROTOCOL_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.RoleBehaviorImpl <em>Role Behavior</em>}' class.
@@ -1220,13 +1229,31 @@ public interface KanbanmodelPackage extends EPackage
   int WORK_ITEM__REQUIRED_SERVICES = 8;
 
   /**
+   * The feature id for the '<em><b>Maturity Levels</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORK_ITEM__MATURITY_LEVELS = 9;
+
+  /**
+   * The feature id for the '<em><b>Uncertainty</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORK_ITEM__UNCERTAINTY = 10;
+
+  /**
    * The feature id for the '<em><b>Has Impacts</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WORK_ITEM__HAS_IMPACTS = 9;
+  int WORK_ITEM__HAS_IMPACTS = 11;
 
   /**
    * The feature id for the '<em><b>Impacts</b></em>' containment reference list.
@@ -1235,7 +1262,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM__IMPACTS = 10;
+  int WORK_ITEM__IMPACTS = 12;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1244,7 +1271,52 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM__VALUE = 11;
+  int WORK_ITEM__VALUE = 13;
+
+  /**
+   * The feature id for the '<em><b>Risk</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORK_ITEM__RISK = 14;
+
+  /**
+   * The feature id for the '<em><b>Class Of Service</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORK_ITEM__CLASS_OF_SERVICE = 15;
+
+  /**
+   * The feature id for the '<em><b>Work Source</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORK_ITEM__WORK_SOURCE = 16;
+
+  /**
+   * The feature id for the '<em><b>Arrival Time</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORK_ITEM__ARRIVAL_TIME = 17;
+
+  /**
+   * The feature id for the '<em><b>Due Date</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORK_ITEM__DUE_DATE = 18;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1253,7 +1325,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM__ID = 12;
+  int WORK_ITEM__ID = 19;
 
   /**
    * The number of structural features of the '<em>Work Item</em>' class.
@@ -1262,7 +1334,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM_FEATURE_COUNT = 13;
+  int WORK_ITEM_FEATURE_COUNT = 20;
 
   /**
    * The meta object id for the '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.impl.RequiredServiceImpl <em>Required Service</em>}' class.
@@ -3757,6 +3829,17 @@ public interface KanbanmodelPackage extends EPackage
   EClass getContractNetProtocol();
 
   /**
+   * Returns the meta object for the containment reference list '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ContractNetProtocol#getMechanisms <em>Mechanisms</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Mechanisms</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.ContractNetProtocol#getMechanisms()
+   * @see #getContractNetProtocol()
+   * @generated
+   */
+  EReference getContractNetProtocol_Mechanisms();
+
+  /**
    * Returns the meta object for the containment reference list '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.ContractNetProtocol#getVariables <em>Variables</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4199,6 +4282,28 @@ public interface KanbanmodelPackage extends EPackage
   EReference getWorkItem_RequiredServices();
 
   /**
+   * Returns the meta object for the containment reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getMaturityLevels <em>Maturity Levels</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Maturity Levels</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getMaturityLevels()
+   * @see #getWorkItem()
+   * @generated
+   */
+  EReference getWorkItem_MaturityLevels();
+
+  /**
+   * Returns the meta object for the containment reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getUncertainty <em>Uncertainty</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Uncertainty</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getUncertainty()
+   * @see #getWorkItem()
+   * @generated
+   */
+  EReference getWorkItem_Uncertainty();
+
+  /**
    * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#isHasImpacts <em>Has Impacts</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4230,6 +4335,61 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    */
   EReference getWorkItem_Value();
+
+  /**
+   * Returns the meta object for the containment reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getRisk <em>Risk</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Risk</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getRisk()
+   * @see #getWorkItem()
+   * @generated
+   */
+  EReference getWorkItem_Risk();
+
+  /**
+   * Returns the meta object for the reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getClassOfService <em>Class Of Service</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Class Of Service</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getClassOfService()
+   * @see #getWorkItem()
+   * @generated
+   */
+  EReference getWorkItem_ClassOfService();
+
+  /**
+   * Returns the meta object for the reference '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getWorkSource <em>Work Source</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Work Source</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getWorkSource()
+   * @see #getWorkItem()
+   * @generated
+   */
+  EReference getWorkItem_WorkSource();
+
+  /**
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getArrivalTime <em>Arrival Time</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Arrival Time</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getArrivalTime()
+   * @see #getWorkItem()
+   * @generated
+   */
+  EAttribute getWorkItem_ArrivalTime();
+
+  /**
+   * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getDueDate <em>Due Date</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Due Date</em>'.
+   * @see datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getDueDate()
+   * @see #getWorkItem()
+   * @generated
+   */
+  EAttribute getWorkItem_DueDate();
 
   /**
    * Returns the meta object for the attribute '{@link datasem.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getId <em>Id</em>}'.
@@ -6470,6 +6630,14 @@ public interface KanbanmodelPackage extends EPackage
     EClass CONTRACT_NET_PROTOCOL = eINSTANCE.getContractNetProtocol();
 
     /**
+     * The meta object literal for the '<em><b>Mechanisms</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTRACT_NET_PROTOCOL__MECHANISMS = eINSTANCE.getContractNetProtocol_Mechanisms();
+
+    /**
      * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6816,6 +6984,22 @@ public interface KanbanmodelPackage extends EPackage
     EReference WORK_ITEM__REQUIRED_SERVICES = eINSTANCE.getWorkItem_RequiredServices();
 
     /**
+     * The meta object literal for the '<em><b>Maturity Levels</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WORK_ITEM__MATURITY_LEVELS = eINSTANCE.getWorkItem_MaturityLevels();
+
+    /**
+     * The meta object literal for the '<em><b>Uncertainty</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WORK_ITEM__UNCERTAINTY = eINSTANCE.getWorkItem_Uncertainty();
+
+    /**
      * The meta object literal for the '<em><b>Has Impacts</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6838,6 +7022,46 @@ public interface KanbanmodelPackage extends EPackage
      * @generated
      */
     EReference WORK_ITEM__VALUE = eINSTANCE.getWorkItem_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Risk</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WORK_ITEM__RISK = eINSTANCE.getWorkItem_Risk();
+
+    /**
+     * The meta object literal for the '<em><b>Class Of Service</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WORK_ITEM__CLASS_OF_SERVICE = eINSTANCE.getWorkItem_ClassOfService();
+
+    /**
+     * The meta object literal for the '<em><b>Work Source</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WORK_ITEM__WORK_SOURCE = eINSTANCE.getWorkItem_WorkSource();
+
+    /**
+     * The meta object literal for the '<em><b>Arrival Time</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WORK_ITEM__ARRIVAL_TIME = eINSTANCE.getWorkItem_ArrivalTime();
+
+    /**
+     * The meta object literal for the '<em><b>Due Date</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WORK_ITEM__DUE_DATE = eINSTANCE.getWorkItem_DueDate();
 
     /**
      * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
