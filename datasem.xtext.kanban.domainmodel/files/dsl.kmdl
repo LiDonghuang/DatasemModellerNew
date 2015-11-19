@@ -1,0 +1,652 @@
+ModelBuilder AerospaceAndDefenceProjects
+desc "Aerospace and Defence Projects Model Builder."
+
+UserLibraries
+	ServiceProviderTypes
+		SETeam {desc "System Engineering Team" hierarchy=0}
+		DomainTeam {desc "Domain Team" hierarchy=1}
+		DevTeam {desc "Product Team" hierarchy=2}
+		CntrTeam {desc "Outsourced Contractor" hierarchy=2} 
+	end ServiceProviderTypes
+	WorkItemTypes
+		SoSCap {desc "System-of-Systems Capability" hierarchy=0}
+		SysFuncCap {desc "System Functional Capability" hierarchy=1}
+		SysOperCap {desc "System Operational Capability" hierarchy=1}		
+		SubSysReq {desc "Subsystem Requirement" hierarchy=2}
+		DevTask {desc "General Development Task" hierarchy=3}
+		Analysis {desc "decomposites Decomposition Analysis" hierarchy=3}
+		Resolution {desc "Bottleneck Resolution" hierarchy=3}
+	end WorkItemTypes 
+	ProcessModels
+		CapabilityEngineering {
+			actions {	
+			}
+			state StartState {->state RequirementsAnalysis}
+			state RequirementsAnalysis {->state Design}
+			state Design {->state Implementation}
+			state Implementation {->state Test}
+			state Test {->state Deployment}
+			state Deployment {->state StopState}
+			state StopState {}
+		}
+		RollingWavePlanning {
+			actions {
+				action releaseSubtasks(List<string> parameter1, List<double> parameter2)
+				action requestAnalysis(Task subtask)
+				action deliverValue(double percent,double penalty)
+				action propagateChange(Map<Task,double>impactDSM)
+			}
+			state Acceptance {
+				-> state Inception
+			}
+			state Inception {
+				self.maxIterations() = 5 + self.complexity()
+				if (started==false) {
+					Do requestAnalysis(self.a())
+					->state Progress
+				}
+				else {
+					->state Elaboration
+				}
+				end if
+			}
+			backgroundState Progress
+			state Construction {}
+			state Elaboration {
+				for (subtask in self.subtasks()) {
+					Do requestAnalysis(subtask)
+					->state Progress
+				}
+				end for
+				if (self.subtasks().finished() == true) {
+					if (success==true) {
+						->state Increment
+					}
+					else {
+						->state Elaboration
+					}
+					end if
+				}
+				end if
+			}
+			state Increment {
+				Do requestAnalysis(a)
+				Do releaseSubtasks(a)
+			}
+			state Delivery {
+				Do deliverValue(a)
+			}
+		}
+	end ProcessModels
+	ClassOfServices 		
+		Standard {desc "Standard or Normal" priority=1 disruptive:false} 
+		Important {desc "Important" priority=2 disruptive:false} 
+		DateCertain {desc "No value After Due Date" priority=2 disruptive:false} 
+		Expediate {desc "Expediated or Emergent" priority=3 disruptive:true}
+		Background {desc "Background" priority=0 disruptive:false} 
+	end ClassOfServices 
+	Services
+		SoSE {desc "System-of-Systems Engineering" hierarchy=0}
+		SE_Elec {desc "System Engineering: Electrical Domain" hierarchy=1}
+		SE_Aero {desc "System Engineering: Aerospace Domain" hierarchy=1}
+		SE_Power {desc "System Engineering: Power Domain" hierarchy=1}
+		SE_Infra {desc "System Engineering: Infrastructrue Domain" hierarchy=1}
+		SE_WD {desc "System Engineering: Weapons and Defense Domain" hierarchy=1}
+		SE_SW {desc "System Engineering: Software Domain" hierarchy=1}
+		Eng_Elec {desc "Engineering: Electrical" hierarchy=2}
+		Eng_Mech {desc "Engineering: Mechanical" hierarchy=2}
+		Eng_Aero {desc "Engineering: Aerospace" hierarchy=2}
+		Eng_Ctrl {desc "Engineering Control" hierarchy=2}
+		IT_IS {desc "IT: Information System" hierarchy=2}
+		IT_SW {desc "IT: Software" hierarchy=2}
+		IT_DB {desc "IT: Database" hierarchy=2}
+		IT_SS {desc "IT: Security and Safty" hierarchy=2}
+		Testing {desc "Integration Testing" hierarchy=2}
+	end Services 
+	GovernanceStrategies 
+		CNP1 type:CNP {
+			desc "ContractNetProtocal1"
+			mechanisms {
+				Selection=RPW {}
+				Assignment=LeastLoad {}
+			}
+			roleBehaviors {
+			role Analyst {
+				actions {}
+				state EndState{}
+			}			
+			role Developer {
+				actions {
+					action requestAssistance(Task targetTask)
+					action plan(string softwareDevelopmentPlan, string currentIterationPlan,string nextIterationPlan)
+					action createTask(double nominalEfforts,List<Service> requiredServices)	
+					action riskManagement(string avoid,string transfer,string mitigate,string accept,string contingent)
+					action emergencyRespond(Task targetTask,List<Agent> requestTo)
+				}
+				state InitialState{->state EndState}
+				state EndState{}
+			}
+			role Manager {
+				actions {
+					action announcetask(Task task)
+					action acceptbid(Bid bid)
+					action establishcontract(Task task, Agent bidder)	
+					action assessment(Task targetTask,string criteria)		
+					action upgradeTask(Task task)
+					action cancelcontract(Contract contract)	
+				}
+				state InitialState {
+					if (this.assignmentTasks.Count >= 0) {
+						->state TaskAnnouncement
+					}
+					else if (this.contractedTasks.Count >= 0) {				
+						->state ProgressTracking
+					}		
+					else if (error==true) {				
+						->state ErrorState
+					}
+					else {
+						->state EndState
+					}
+					end if			
+				}
+				state TaskAnnouncement {
+					var List<Task> assignmentTasks = assignmentTasks.get()
+					for (t in this.assignmentTasks) {
+						var Task selected = t
+						if (selected.TaskType == "Development") {
+							selected.Priority = this.Priority + 1
+							Do announcetask(selected)
+						}
+						else if (selected.TaskType == "Analysis" and (selected.Hierarchy >= 0)) {
+							selected.Hierarchy = selected.Hierarchy + 1		     
+							Do announcetask(selected)
+						}
+						end if
+					}
+					end for
+					-> state BidAcceptance	
+				}
+				state TaskPackaging {
+					if ((selected.TaskType == "Development") or (selected.TaskType == "Analysis")) {
+						selected.Priority = this.Priority + 1
+						Do announcetask(selected)
+						-> state BidAcceptance
+					}
+					else if (selected.TaskType == "Assistance") {
+						this.Hierarchy = 1  				     
+						Do announcetask(selected)
+						-> state BidAcceptance
+					}
+					end if
+				}
+				state BidAcceptance {
+					var Task announcedTask = this.announcedTasks.iterate
+					var List<Agent> bidders = AnnouncedTask.bidders
+					while (hasBidders == true) {
+						if (bid.bidder.isTrustable == true) {				
+							Do acceptbid(bid)
+							Do establishcontract(bidder)
+						}
+						end if
+					}
+					end while
+				}
+				state ProgressTracking {
+					if (this.isFailed == True) {			
+						Do cancelcontract(a)
+						Do announcetask(new)
+					}
+					else if (this.CriticalValue >= Progress/3+0.5) {
+						this.CriticalValue = 0 
+						this.Status = "Suspended"
+						Do acceptbid(a)
+					}
+					else {
+						Do cancelcontract(a)
+					}
+					end if
+				}
+				state SubmissionVerification {
+					if (this.meetRequirements != true) {
+						this.Constractor.isTrustable = false
+					}
+					end if
+				}
+				state ErrorState {
+					if (error==true){
+						error=true
+					}
+					end if
+				}
+				backgroundState EndState 
+			}
+		    role Contractor {
+		    	actions {
+		    		action bid( )
+		    	}
+		    	state InitialState {
+					if (Requested.Number >= 0) {
+						->state Bidding
+					}
+					end if
+				}
+				state Bidding {
+					if (this.hasIdleResource == True) {
+						Do bid(this)
+					}
+					end if
+				}
+				backgroundState TaskDecomposition
+				state ProgressFeedback {
+					if (a != 1) {
+						b = 2
+					}
+					end if
+				}
+				state TasksSubmission {
+					if (a != 1) {
+						b = 2
+					}
+					end if
+				}
+				backgroundState EndState 
+				}
+			}
+			processes {CapabilityEngineering}
+		}
+		PullStrategy type:Pull {
+			desc "Pull Strategy"
+			mechanisms {  
+				ValueFunction=Derived {
+					desc "Static Derived"
+					attributes{"HierarchyFactor"=0.5 "PrecedencyFactor"=0.5}
+				}
+				Acceptance=FIFO {
+					desc "FIFO Acceptance" 		
+					attributes{"BacklogLimit"=8}
+				}
+				Selection=RPW {
+					desc "Rated Precedency Weight"
+					attributes {"WeightPrecedency"=0.3 "WeightCOS"=0.25 "WeightProgress"=0.1}
+				}
+				Assignment=LeastLoad {desc "Assign to Least-loaded Agent"}
+				Allocation=BestMatch {
+					desc "Resource with best match"
+					attributes {"WeightEfficiency"=0.5 "WeightMultiSkill"=0.5}
+				}
+			}
+			processes {CapabilityEngineering}
+		}
+		PushStrategy type:Push {
+			desc "Push Strategy"
+			mechanisms {
+				ValueFunction=Derived {
+					desc "Static Derived"
+					attributes{"HierarchyFactor"=0.5 "PrecedencyFactor"=0.5}
+				} 
+			}
+			processes {CapabilityEngineering}
+		}
+	end GovernanceStrategies
+end UserLibraries
+
+ExperimentModel AerospaceDefence
+	Path donghuangli.Datasem.Models
+	Variables
+	end Variables		
+	OrganizationalModel
+		ServiceProviders
+			LeadTeam type: SETeam{
+				assignTo {SE_Elec,SE_Aero,SE_Power,SE_Infra,SE_WD,SE_SW,TestingBase}
+				strategy: PullStrategy
+				resources:
+					S_SysEng*3 {skills:[SoSE,1.0]}
+			}
+			SE_Elec type: DomainTeam{
+				assignTo {Contractor_1,Contractor_2,Contractor_3}
+				strategy: PullStrategy
+				resources:
+					SysEng*3 {skills:[SE_Elec,1.0]}
+			}
+			SE_Aero type: DomainTeam{
+				assignTo {Contractor_2,Contractor_4}
+				strategy: PullStrategy
+				resources:
+					SysEng*3 {skills:[SE_Aero,1.0]}
+			}
+			SE_Power type: DomainTeam{
+				assignTo {Contractor_1,Contractor_3}
+				strategy: PullStrategy
+				resources:
+					SysEng*3 {skills:[SE_Power,1.0]}
+			}
+			SE_Infra type: DomainTeam{
+				assignTo {Contractor_1,Contractor_4,Contractor_5}
+				strategy: PullStrategy
+				resources:
+					SysEng*3 {skills:[SE_Infra,1.0]}
+			}
+			SE_WD type: DomainTeam{
+				assignTo {Contractor_2,Contractor_3,Contractor_5}
+				strategy: PullStrategy
+				resources:
+					SysEng*3 {skills:[SE_WD,1.0]}
+			}
+			SE_SW type: DomainTeam{
+				assignTo {IT_Team_1,IT_Team_2,IT_Team_3}
+				strategy: PullStrategy
+				resources:
+					SysEng*5 {skills:[SE_SW,1.0]}
+			}
+			Contractor_1 type: CntrTeam{
+				strategy: PullStrategy
+				resources:
+				Elec_Eng*2 	{skills:[Eng_Elec,1.2]}
+				Mech_Eng*2 	{skills:[Eng_Mech,1.0]}
+				Aero_Eng*1 	{skills:[Eng_Aero, 1.0]}
+				Ctrl_Eng*1	{skills:[Eng_Ctrl, 0.8]}
+			}
+			Contractor_2 type: CntrTeam{
+				strategy: PullStrategy
+				resources:
+				Elec_Eng*1 	{skills:[Eng_Elec,1.0]}
+				Mech_Eng*3 	{skills:[Eng_Mech,1.2]}
+				Aero_Eng*1 	{skills:[Eng_Aero, 1.0]}
+				Ctrl_Eng*1	{skills:[Eng_Ctrl, 0.8]}
+			}
+			Contractor_3 type: CntrTeam{
+				strategy: PullStrategy
+				resources:
+				Elec_Eng*1 	{skills:[Eng_Elec,1.0]}
+				Mech_Eng*1 	{skills:[Eng_Mech,0.8]}
+				Aero_Eng*2 	{skills:[Eng_Aero, 1.2]}
+				Ctrl_Eng*1	{skills:[Eng_Ctrl, 1.0]}
+			}
+			Contractor_4 type: CntrTeam{
+				strategy: PullStrategy
+				resources:
+				Elec_Eng*1 	{skills:[Eng_Elec,1.0]}
+				Mech_Eng*1 	{skills:[Eng_Mech,0.8]}
+				Aero_Eng*1 	{skills:[Eng_Aero, 1.0]}
+				Ctrl_Eng*2	{skills:[Eng_Ctrl, 1.2]}
+			}
+			Contractor_5 type: CntrTeam{
+				strategy: PullStrategy
+				resources:
+				Elec_Eng*1 	{skills:[Eng_Elec,1.0]}
+				Mech_Eng*2 	{skills:[Eng_Mech,1.2]}
+				Aero_Eng*1 	{skills:[Eng_Aero, 1.0]}
+				Ctrl_Eng*1	{skills:[Eng_Ctrl, 0.8]}
+			}
+			IT_Team_1 type: DevTeam{
+				strategy: PullStrategy
+				resources:
+				IT_Mng*1 {skills:[SE_SW,1.0]}
+				IT_Dev*6 {skills:[IT_IS,1.0],[IT_SW,1.0],[IT_DB,1.0],[IT_SS,1.0]}	
+			}	
+			IT_Team_2 type: DevTeam{
+				strategy: PullStrategy
+				resources:
+				IT_Mng*1 {skills:[SE_SW,1.0]}
+				IT_Dev*4 {skills:[IT_IS,1.2],[IT_SW,0.8],[IT_DB,1.2],[IT_SS,1.0]}	
+			}	
+			IT_Team_3 type: DevTeam{
+				strategy: PullStrategy
+				resources:
+				IT_Mng*1 {skills:[SE_SW,1.0]}
+				IT_Dev*4 {skills:[IT_IS,1.0],[IT_SW,1.2],[IT_DB,0.8],[IT_SS,0.8]}
+			}	
+			TestingBase type: DomainTeam{
+				strategy: PullStrategy
+				resources:
+				Tester*3 {skills:[Testing, 1.0]}
+			}													
+		end ServiceProviders
+	end OrganizationalModel
+	WorkItemNetworkModel	
+		WorkSources
+			WorkSource Stakeholder1 {
+				desc "Stakeholder 1"
+				AssignTo {LeadTeam}
+			}
+			WorkSource Stakeholder2 {
+				desc "Stakeholder 2"
+				AssignTo {LeadTeam}
+			}
+		end WorkSources				
+		WorkItemNetworks
+			WorkItemNetwork Aircraft {
+			desc "PX49 Helicopter Development WIN"	
+			WorkItems {
+				PX49 type: SoSCap {
+					desc "PX49 Helicopter Development Project"	
+					decomposites {ESys,ASys,PSys,Infra,WDSys}
+					analysisEfforts {[SoSE,30]}
+					value 4500
+					arrivalTime 1
+				}
+				AOCWS type: SoSCap {
+					desc "AOC Weapon Sys Integration Project"	
+					decomposites {Infra,WDSys,SI}
+					analysisEfforts {[SoSE,30]}
+					value 3000
+					arrivalTime 201
+				}
+				ESys type: SysFuncCap {
+					desc "Electronics System"									
+					decomposites {R1,R2,R3,R5,R8,R9}
+					analysisEfforts {[SE_Elec,30],[SoSE,30]}
+					value 1500
+				}
+				ASys type: SysFuncCap {
+					desc "Aerospace System"
+					decomposites {R4,R8,R13,R10,R14,R12,R15}
+					analysisEfforts {[SE_Aero,30],[SoSE,30]}
+					value 2700
+				}
+				PSys type: SysFuncCap {
+					desc "Power System"
+					decomposites {R6,R7,R16,R17,R11,R18}
+					analysisEfforts {[SE_Power,30],[SoSE,30]}
+					value 1200
+				}
+				Infra type: SysFuncCap {
+					desc "Infrastructure"					
+					decomposites {R8,R18,R20,R22}
+					analysisEfforts {[SE_Infra,30],[SoSE,30]}
+					value 900
+				}
+				WDSys type: SysFuncCap {
+					desc "Weapons and Defense System"			
+					prerequisites {Infra}		
+					decomposites {R19,R21,R23}
+					analysisEfforts {[SE_WD,30],[SoSE,30]}
+					value 300
+				}
+				SI type: SysFuncCap {
+					desc "Software Integration"		
+					prerequisites {ESys,ASys,PSys}			
+					decomposites {R23,R24,R25}
+					analysisEfforts {[SE_SW,30],[SoSE,30]}
+					value 900
+				}				
+				R1 type: SubSysReq {
+					desc "Air Conditioning"
+					analysisEfforts {[SE_Elec,10],[SE_Aero,10],[SE_SW,10]}			
+					efforts {[Eng_Aero,15],[Eng_Elec,30],[IT_IS,30],[IT_SS,20],[Eng_Ctrl,40]}
+					impacts {R3[0.2,0.2],R4[0.2,0.2],R6[0.2,0.2],R7[0.2,0.2],
+						R8[0.2,0.2],R12[0.2,0.2]}
+				}
+				R2 type: SubSysReq {
+					desc "Auxiliary Electrics"
+					analysisEfforts {[SE_Elec,10],[SE_Aero,10],[SE_SW,10]}	
+					efforts {[Eng_Elec,50],[IT_SW,15],[IT_SS,30],[IT_DB,15]}
+					impacts {R1[0.2,0.2],R3[0.2,0.2],R4[0.2,0.2],R14[0.2,0.2],
+						R16[0.2,0.2],R18[0.2,0.2],R12[0.5,0.2]}
+				}
+				R3 type: SubSysReq {
+					desc "Avionics"
+					analysisEfforts {[SE_Elec,10],[SE_Aero,10],[SE_SW,10]}	
+					efforts {[Eng_Aero,70],[IT_SW,20],[IT_SS,30],[IT_IS,30], [Eng_Elec,30], [Eng_Ctrl,20]}
+					impacts {R1[0.2,0.2],R9[0.2,0.2],R11[0.2,0.2],R14[0.2,0.2],
+						R18[0.2,0.2],R6[0.5,0.2],R10[0.5,0.2],R12[0.5,0.2],
+						R15[0.5,0.2],R7[0.7,0.2],R19[0.5,0.4]}
+				}
+				R4 type: SubSysReq {
+					desc "Bare Fuselage"
+					analysisEfforts {[SE_Elec,15],[SE_Aero,15]}	
+					efforts {[Eng_Aero,70],[Eng_Ctrl,50]}
+					impacts{R2[0.2,0.2],R10[0.2,0.2],R13[0.2,0.2],R14[0.2,0.2],
+						R15[0.2,0.2],R17[0.2,0.2],R18[0.2,0.2],R1[0.7,0.2],
+						R3[0.7,0.2],R5[0.7,0.2],R7[0.7,0.2],R8[0.7,0.2],
+						R9[0.7,0.2],R12[0.7,0.2],R11[0.5,0.2],R19[0.5,0.2]}
+				}
+				R5 type: SubSysReq {
+					desc "Cabling and Piping"
+					analysisEfforts {[SE_Elec,30]}	
+					efforts {[Eng_Elec,60]}
+					impacts{R6[0.2,0.2],R1[0.5,0.2],R4[0.5,0.2],R10[0.5,0.2],
+						R11[0.5,0.2],R12[0.5,0.2],R13[0.5,0.2],R14[0.5,0.2],
+						R18[0.5,0.2],R19[0.5,0.2],R2[0.7,0.2],R3[0.7,0.2],
+						R7[0.7,0.2],R9[0.7,0.2]}					
+				}
+				R6 type: SubSysReq {
+					desc "Engine Auxilizries"
+					analysisEfforts {[SE_Elec,15],[SE_Aero,15],[SE_Power,30]}	
+					efforts {[Eng_Elec,15],[Eng_Aero,15],[Eng_Mech,30], [Eng_Ctrl, 40]}
+					impacts{R7[0.7,0.2],R10[0.2,0.2]}
+				}
+				R7 type: SubSysReq {
+					desc "Engine"
+					analysisEfforts {[SE_Elec,10],[SE_Aero,10],[SE_SW,10],[SE_Power,30]}	
+					efforts {[Eng_Mech,100],[Eng_Ctrl,80],[IT_IS,30]}
+					impacts{R6[0.7,0.2],R14[0.2,0.4]}					
+				}
+				R8 type: SubSysReq {
+					desc "Equipment and Furnishings"
+					analysisEfforts {[SE_Aero,30],[SE_Power,30]}	
+					efforts {[Eng_Aero,25],[Eng_Mech,25],[Eng_Ctrl,20]}
+					impacts{R1[0.2,0.2],R4[0.2,0.2],R11[0.2,0.2],R12[0.2,0.2],
+						R13[0.2,0.2]}
+				}
+				R9 type: SubSysReq {
+					desc "Fire Protection"
+					analysisEfforts {[SE_Elec,10],[SE_Aero,10],[SE_SW,10]}	
+					efforts {[Eng_Mech,30],[Eng_Elec,10],[IT_SS,10],[IT_IS,10],[Eng_Ctrl,20]}
+					impacts{R4[0.2,0.2],R7[0.2,0.2],R11[0.2,0.2]}					
+				}
+				R10 type: SubSysReq {
+					desc "Flight Control System"
+					analysisEfforts {[SE_Elec,10],[SE_Aero,10],[SE_SW,10]}	
+					efforts {[Eng_Elec,40],[Eng_Aero,50],[IT_SW,45],[IT_DB,45],[IT_DB,35],[Eng_Ctrl,60]}
+					impacts{R3[0.2,0.2],R6[0.2,0.2],R7[0.2,0.2],R13[0.2,0.2],
+						R15[0.2,0.2],R16[0.2,0.2],R17[0.2,0.2],R18[0.2,0.2],
+						R19[0.2,0.2]}					
+				}
+				R11 type: SubSysReq {
+					desc "Fuel"
+					analysisEfforts {[SE_Elec,10],[SE_Aero,10],[SE_SW,10],[SE_Power,30]}	
+					efforts {[Eng_Mech,20],[Eng_Elec,20],[IT_SW,10],[IT_SS,10],[IT_IS,10],[Eng_Ctrl,40]}
+					impacts{R4[0.2,0.2],R6[0.2,0.2],R12[0.2,0.2],R7[0.7,0.2]}			
+				}
+				R12 type: SubSysReq {
+					desc "Fuselage Additional Items"
+					analysisEfforts {[SE_Elec,15],[SE_Aero,15]}	
+					efforts {[Eng_Mech,50]}
+					impacts{R4[0.2,0.2]}					
+				}
+				R13 type: SubSysReq {
+					desc "Hydraulics"
+					analysisEfforts {[SE_Elec,10],[SE_Aero,10],[SE_SW,10]}	
+					efforts {[Eng_Mech,65],[Eng_Elec,20],[IT_SW,10],[IT_SS,10],[IT_IS,10],[Eng_Ctrl,40]}
+					impacts{R4[0.2,0.2],R10[0.2,0.2],R12[0.2,0.2],R17[0.2,0.2],
+						R18[0.2,0.2],R19[0.2,0.2]}					
+				}
+				R14 type: SubSysReq {
+					desc "Ice and Rain Protection"
+					analysisEfforts {[SE_Aero,30]}	
+					efforts {[Eng_Mech,50], [Eng_Aero,35]}					
+					impacts{R15[0.2,0.2],R17[0.2,0.2],R18[0.2,0.2],R7[0.5,0.2]}					
+				}
+				R15 type: SubSysReq {
+					desc "Main Rotor Blades"
+					analysisEfforts {[SE_Aero,30]}	
+					efforts {[Eng_Mech,55],[Eng_Aero,45],[Eng_Ctrl,40]}
+					impacts{R14[0.2,0.6],R16[0.2,0.6]}
+				}
+				R16 type: SubSysReq {
+					desc "Main Rotor Heads"	
+					analysisEfforts {[SE_Aero,30]}	
+					efforts {[Eng_Mech,50],[Eng_Aero,60],[Eng_Ctrl,50]}
+					impacts{R10[0.2,0.2],R14[0.2,0.2],R15[0.2,0.2],R18[0.2,0.2],R19[0.2,0.6]}					
+				}
+				R17 type: SubSysReq {
+					desc "Tail Rotor"
+					analysisEfforts {[SE_Aero,30]}	
+					efforts  {[Eng_Mech,75],[Eng_Aero,25],[Eng_Ctrl, 20]}
+					impacts{R10[0.2,0.2],R15[0.2,0.2],R18[0.2,0.2],R14[0.2,0.4]}					
+				}
+				R18 type: SubSysReq {
+					desc "Transmission"
+					analysisEfforts {[SE_Elec,10],[SE_Aero,10],[SE_SW,10]}	
+					efforts {[Eng_Elec,65],[IT_SW,10],[IT_SS,10],[IT_IS,10],[Eng_Mech,75],[Eng_Ctrl,40]}
+					impacts{R10[0.2,0.2],R13[0.2,0.2],R16[0.2,0.2],R17[0.2,0.2],R7[0.5,0.2],R19[0.2,0.6]}
+				}
+				R19 type: SubSysReq {
+					desc "Operational Platform"
+					analysisEfforts {[SE_Elec,10],[SE_Aero,10],[SE_SW,10]}	
+					efforts {[Eng_Elec,10],[Eng_Mech,10],[IT_SW,85],[IT_DB,90],[IT_SS,100],[IT_IS,100],[Eng_Aero,25],[Eng_Ctrl,20]}
+					impacts{R7[0.2,0.2],R8[0.2,0.2]}
+				}
+				R20 type: SubSysReq {
+					desc "Data Protocals"
+					analysisEfforts {[SE_SW,30],[SE_Infra,30]}	
+					efforts {[Eng_Elec,20],[IT_SS,60],[IT_IS,60],[IT_SW,75],[IT_DB,40]}
+					impacts{R8[0.3,0.2],R18[0.3,0.2],R21[0.3,0.2],R22[0.3,0.2]}
+				}
+				R21 type: SubSysReq {
+					desc "Weapons Testing"
+					analysisEfforts {[SE_SW,30],[SE_Infra,30],[SE_WD,60]}	
+					efforts {[Testing ,100]}
+				}
+				R22 type: SubSysReq {
+					desc "Interfacing"
+					analysisEfforts {[SE_Elec,10],[SE_Aero,10],[SE_SW,10],[SE_Infra,30]}	
+					efforts {[Eng_Elec,20],[IT_SS,40],[IT_IS,65],[IT_SW,85],[IT_DB,55]}
+					impacts{R23[0.2,0.2],R24[0.2,0.2]}
+				}
+				R23 type: SubSysReq {
+					desc "SOA"
+					analysisEfforts {[SE_SW,30],[SE_Infra,30]}	
+					efforts {[IT_SS,50],[IT_IS,50],[IT_SW,50],[IT_DB,75], [Testing,40]}					
+				}
+				R24 type: SubSysReq {
+					desc "Pilot Testing"										
+					analysisEfforts {[SE_Elec,10],[SE_Aero,10],[SE_SW,10],[SE_WD,30]}	
+					efforts {[Testing,100]}
+					impacts{R12[0.4,0.2],R13[0.4,0.2],R14[0.4,0.2],R15[0.4,0.2],R16[0.4,0.2]}
+				}
+				R25 type: SubSysReq {
+					desc "Intergrated Testing 2"
+					prerequisites {R24}
+					analysisEfforts {[SE_Elec,15],[SE_SW,15],[SE_WD,30]}	
+					efforts {[Eng_Elec,50],[IT_SS,50],[IT_IS,50],[IT_SW,50],[IT_DB,50],[Testing,60]}
+					impacts{R17[0.4,0.2],R18[0.4,0.2],R19[0.4,0.2],R20[0.4,0.2],R21[0.4,0.2]}
+				}
+			}
+		}
+		end WorkItemNetworks
+	end WorkItemNetworkModel
+	
+	ExperimentSettings
+		WINReplications 
+			WorkItemNetwork Aircraft NumReplications 1
+		end WINReplications
+		Indicators 
+			Total_Value
+			Active_WorkLoad
+		end Indicators		
+	end ExperimentSettings	
+end ExperimentModel
+
