@@ -3,6 +3,7 @@
  */
 package datasem.xtext.kanban.domainmodel.generator;
 
+import java.io.File;
 import java.util.List;
 
 import org.eclipse.emf.common.util.URI;
@@ -20,15 +21,12 @@ import com.google.inject.Injector;
 import com.google.inject.Provider;
 
 public class Main {
-	protected static String Path = "/Users/dzl0023/Desktop/DatasemFiles";
-	public static void main(String[] args) {
-		/*if (args.length==0) {
-			System.err.println("Aborting: no path to EMF resource provided!");
-			return;
-		}*/
+	public static File directory;
+	public static void main(String[] args) {	
+		directory = new File(System.getProperty("user.dir"));
 		Injector injector = new datasem.xtext.kanban.domainmodel.KanbanmodelStandaloneSetup().createInjectorAndDoEMFRegistration();
 		Main main = injector.getInstance(Main.class);
-		main.runGenerator(Path+"/demo_model.kmdl");
+		main.runGenerator(directory.toURI()+"dsl.kmdl");
 	}
 	
 	@Inject 
@@ -57,9 +55,9 @@ public class Main {
 		}
 		
 		// configure and start the generator
-		fileAccess.setOutputPath("/Users/dzl0023/Desktop");
+		fileAccess.setOutputPath(directory.toString());
 		generator.doGenerate(resource, fileAccess);
 		
-		System.out.println("Experiment Scenario XML generation finished. \nPath: "+Path);
+		System.out.println("Experiment Scenario XML generation finished. \nPath: "+directory.toString());
 	}
 }
