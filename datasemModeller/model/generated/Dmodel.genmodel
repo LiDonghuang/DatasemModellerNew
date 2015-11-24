@@ -13,6 +13,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ModelBuilder/UserLibraries"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ModelBuilder/ExperimentModel"/>
     </genClasses>
+    <genClasses ecoreClass="Dmodel.ecore#//UserLibraries">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//UserLibraries/ServiceProviderTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//UserLibraries/WorkItemTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//UserLibraries/ClassOfServices"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//UserLibraries/Services"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//UserLibraries/ProcessModels"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//UserLibraries/GovernanceStrategies"/>
+    </genClasses>
     <genClasses ecoreClass="Dmodel.ecore#//ExperimentModel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ExperimentModel/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ExperimentModel/Path"/>
@@ -22,14 +30,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ExperimentModel/WorkItemNetworks"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ExperimentModel/WINReplications"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ExperimentModel/Indicators"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//UserLibraries">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//UserLibraries/ServiceProviderTypes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//UserLibraries/WorkItemTypes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//UserLibraries/ProcessModels"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//UserLibraries/ClassOfServices"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//UserLibraries/Services"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//UserLibraries/GovernanceStrategies"/>
     </genClasses>
     <genClasses ecoreClass="Dmodel.ecore#//AbstractParameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//AbstractParameter/isVariable"/>
@@ -81,7 +81,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//GovernanceStrategy/pushStrategy"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//GovernanceStrategy/cnp"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//GovernanceStrategy/contractNetProtocal"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//GovernanceStrategy/processes"/>
     </genClasses>
     <genClasses ecoreClass="Dmodel.ecore#//ContractNetProtocol">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ContractNetProtocol/mechanisms"/>
@@ -95,6 +94,8 @@
     </genClasses>
     <genClasses ecoreClass="Dmodel.ecore#//ProcessModel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ProcessModel/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ProcessModel/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ProcessModel/mechanisms"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ProcessModel/actions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ProcessModel/states"/>
     </genClasses>
@@ -111,7 +112,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Mechanism/attributes"/>
     </genClasses>
     <genClasses ecoreClass="Dmodel.ecore#//MechanismAttribute">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//MechanismAttribute/attribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//MechanismAttribute/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//MechanismAttribute/value"/>
     </genClasses>
     <genClasses ecoreClass="Dmodel.ecore#//WorkSource">
@@ -134,17 +135,18 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/hasSubtasks"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/sTasks"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/requiredAnalysis"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/hasDecompositionMechanism"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/decompositionMechanism"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/requiredServices"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/maturityLevels"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/uncertainty"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/risk"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/hasImpacts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/impacts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/value"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/risk"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/classOfService"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/workSource"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/arrivalTime"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/dueDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/duration"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/id"/>
     </genClasses>
     <genClasses ecoreClass="Dmodel.ecore#//RequiredService">
@@ -157,10 +159,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Impact/risk"/>
     </genClasses>
     <genClasses ecoreClass="Dmodel.ecore#//WorkItemType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItemType/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItemType/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItemType/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItemType/hierarchy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItemType/id"/>
     </genClasses>
     <genClasses ecoreClass="Dmodel.ecore#//ValueFunction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ValueFunction/name"/>

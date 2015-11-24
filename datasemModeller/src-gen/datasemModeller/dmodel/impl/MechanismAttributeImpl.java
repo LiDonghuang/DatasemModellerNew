@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link datasemModeller.dmodel.impl.MechanismAttributeImpl#getAttribute <em>Attribute</em>}</li>
+ *   <li>{@link datasemModeller.dmodel.impl.MechanismAttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.MechanismAttributeImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -29,24 +29,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class MechanismAttributeImpl extends MinimalEObjectImpl.Container implements MechanismAttribute
 {
   /**
-   * The default value of the '{@link #getAttribute() <em>Attribute</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAttribute()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String ATTRIBUTE_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAttribute()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String attribute = ATTRIBUTE_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -94,9 +94,9 @@ public class MechanismAttributeImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getAttribute()
+  public String getName()
   {
-    return attribute;
+    return name;
   }
 
   /**
@@ -104,12 +104,12 @@ public class MechanismAttributeImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setAttribute(String newAttribute)
+  public void setName(String newName)
   {
-    String oldAttribute = attribute;
-    attribute = newAttribute;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.MECHANISM_ATTRIBUTE__ATTRIBUTE, oldAttribute, attribute));
+      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.MECHANISM_ATTRIBUTE__NAME, oldName, name));
   }
 
   /**
@@ -145,8 +145,8 @@ public class MechanismAttributeImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case DmodelPackage.MECHANISM_ATTRIBUTE__ATTRIBUTE:
-        return getAttribute();
+      case DmodelPackage.MECHANISM_ATTRIBUTE__NAME:
+        return getName();
       case DmodelPackage.MECHANISM_ATTRIBUTE__VALUE:
         return getValue();
     }
@@ -163,8 +163,8 @@ public class MechanismAttributeImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case DmodelPackage.MECHANISM_ATTRIBUTE__ATTRIBUTE:
-        setAttribute((String)newValue);
+      case DmodelPackage.MECHANISM_ATTRIBUTE__NAME:
+        setName((String)newValue);
         return;
       case DmodelPackage.MECHANISM_ATTRIBUTE__VALUE:
         setValue((String)newValue);
@@ -183,8 +183,8 @@ public class MechanismAttributeImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case DmodelPackage.MECHANISM_ATTRIBUTE__ATTRIBUTE:
-        setAttribute(ATTRIBUTE_EDEFAULT);
+      case DmodelPackage.MECHANISM_ATTRIBUTE__NAME:
+        setName(NAME_EDEFAULT);
         return;
       case DmodelPackage.MECHANISM_ATTRIBUTE__VALUE:
         setValue(VALUE_EDEFAULT);
@@ -203,8 +203,8 @@ public class MechanismAttributeImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case DmodelPackage.MECHANISM_ATTRIBUTE__ATTRIBUTE:
-        return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals(attribute);
+      case DmodelPackage.MECHANISM_ATTRIBUTE__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DmodelPackage.MECHANISM_ATTRIBUTE__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
@@ -222,8 +222,8 @@ public class MechanismAttributeImpl extends MinimalEObjectImpl.Container impleme
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (attribute: ");
-    result.append(attribute);
+    result.append(" (name: ");
+    result.append(name);
     result.append(", value: ");
     result.append(value);
     result.append(')');

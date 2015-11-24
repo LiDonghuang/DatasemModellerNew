@@ -3,9 +3,9 @@
 package datasemModeller.dmodel.impl;
 
 import datasemModeller.dmodel.AbstractParameter;
-import datasemModeller.dmodel.ClassOfService;
 import datasemModeller.dmodel.DmodelPackage;
 import datasemModeller.dmodel.Impact;
+import datasemModeller.dmodel.Mechanism;
 import datasemModeller.dmodel.NumExpression;
 import datasemModeller.dmodel.RequiredService;
 import datasemModeller.dmodel.WorkItem;
@@ -44,17 +44,18 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link datasemModeller.dmodel.impl.WorkItemImpl#isHasSubtasks <em>Has Subtasks</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.WorkItemImpl#getSTasks <em>STasks</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.WorkItemImpl#getRequiredAnalysis <em>Required Analysis</em>}</li>
+ *   <li>{@link datasemModeller.dmodel.impl.WorkItemImpl#isHasDecompositionMechanism <em>Has Decomposition Mechanism</em>}</li>
+ *   <li>{@link datasemModeller.dmodel.impl.WorkItemImpl#getDecompositionMechanism <em>Decomposition Mechanism</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.WorkItemImpl#getRequiredServices <em>Required Services</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.WorkItemImpl#getMaturityLevels <em>Maturity Levels</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.WorkItemImpl#getUncertainty <em>Uncertainty</em>}</li>
+ *   <li>{@link datasemModeller.dmodel.impl.WorkItemImpl#getRisk <em>Risk</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.WorkItemImpl#isHasImpacts <em>Has Impacts</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.WorkItemImpl#getImpacts <em>Impacts</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.WorkItemImpl#getValue <em>Value</em>}</li>
- *   <li>{@link datasemModeller.dmodel.impl.WorkItemImpl#getRisk <em>Risk</em>}</li>
- *   <li>{@link datasemModeller.dmodel.impl.WorkItemImpl#getClassOfService <em>Class Of Service</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.WorkItemImpl#getWorkSource <em>Work Source</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.WorkItemImpl#getArrivalTime <em>Arrival Time</em>}</li>
- *   <li>{@link datasemModeller.dmodel.impl.WorkItemImpl#getDueDate <em>Due Date</em>}</li>
+ *   <li>{@link datasemModeller.dmodel.impl.WorkItemImpl#getDuration <em>Duration</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.WorkItemImpl#getId <em>Id</em>}</li>
  * </ul>
  * </p>
@@ -184,6 +185,36 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
   protected EList<RequiredService> requiredAnalysis;
 
   /**
+   * The default value of the '{@link #isHasDecompositionMechanism() <em>Has Decomposition Mechanism</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isHasDecompositionMechanism()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean HAS_DECOMPOSITION_MECHANISM_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isHasDecompositionMechanism() <em>Has Decomposition Mechanism</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isHasDecompositionMechanism()
+   * @generated
+   * @ordered
+   */
+  protected boolean hasDecompositionMechanism = HAS_DECOMPOSITION_MECHANISM_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getDecompositionMechanism() <em>Decomposition Mechanism</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDecompositionMechanism()
+   * @generated
+   * @ordered
+   */
+  protected Mechanism decompositionMechanism;
+
+  /**
    * The cached value of the '{@link #getRequiredServices() <em>Required Services</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -212,6 +243,16 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * @ordered
    */
   protected AbstractParameter uncertainty;
+
+  /**
+   * The cached value of the '{@link #getRisk() <em>Risk</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRisk()
+   * @generated
+   * @ordered
+   */
+  protected AbstractParameter risk;
 
   /**
    * The default value of the '{@link #isHasImpacts() <em>Has Impacts</em>}' attribute.
@@ -254,26 +295,6 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
   protected NumExpression value;
 
   /**
-   * The cached value of the '{@link #getRisk() <em>Risk</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRisk()
-   * @generated
-   * @ordered
-   */
-  protected AbstractParameter risk;
-
-  /**
-   * The cached value of the '{@link #getClassOfService() <em>Class Of Service</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getClassOfService()
-   * @generated
-   * @ordered
-   */
-  protected ClassOfService classOfService;
-
-  /**
    * The cached value of the '{@link #getWorkSource() <em>Work Source</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -304,24 +325,24 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
   protected int arrivalTime = ARRIVAL_TIME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getDueDate() <em>Due Date</em>}' attribute.
+   * The default value of the '{@link #getDuration() <em>Duration</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDueDate()
+   * @see #getDuration()
    * @generated
    * @ordered
    */
-  protected static final int DUE_DATE_EDEFAULT = 0;
+  protected static final int DURATION_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getDueDate() <em>Due Date</em>}' attribute.
+   * The cached value of the '{@link #getDuration() <em>Duration</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDueDate()
+   * @see #getDuration()
    * @generated
    * @ordered
    */
-  protected int dueDate = DUE_DATE_EDEFAULT;
+  protected int duration = DURATION_EDEFAULT;
 
   /**
    * The default value of the '{@link #getId() <em>Id</em>}' attribute.
@@ -546,6 +567,77 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isHasDecompositionMechanism()
+  {
+    return hasDecompositionMechanism;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setHasDecompositionMechanism(boolean newHasDecompositionMechanism)
+  {
+    boolean oldHasDecompositionMechanism = hasDecompositionMechanism;
+    hasDecompositionMechanism = newHasDecompositionMechanism;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.WORK_ITEM__HAS_DECOMPOSITION_MECHANISM, oldHasDecompositionMechanism, hasDecompositionMechanism));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Mechanism getDecompositionMechanism()
+  {
+    return decompositionMechanism;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetDecompositionMechanism(Mechanism newDecompositionMechanism, NotificationChain msgs)
+  {
+    Mechanism oldDecompositionMechanism = decompositionMechanism;
+    decompositionMechanism = newDecompositionMechanism;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DmodelPackage.WORK_ITEM__DECOMPOSITION_MECHANISM, oldDecompositionMechanism, newDecompositionMechanism);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDecompositionMechanism(Mechanism newDecompositionMechanism)
+  {
+    if (newDecompositionMechanism != decompositionMechanism)
+    {
+      NotificationChain msgs = null;
+      if (decompositionMechanism != null)
+        msgs = ((InternalEObject)decompositionMechanism).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DmodelPackage.WORK_ITEM__DECOMPOSITION_MECHANISM, null, msgs);
+      if (newDecompositionMechanism != null)
+        msgs = ((InternalEObject)newDecompositionMechanism).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DmodelPackage.WORK_ITEM__DECOMPOSITION_MECHANISM, null, msgs);
+      msgs = basicSetDecompositionMechanism(newDecompositionMechanism, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.WORK_ITEM__DECOMPOSITION_MECHANISM, newDecompositionMechanism, newDecompositionMechanism));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<RequiredService> getRequiredServices()
   {
     if (requiredServices == null)
@@ -656,6 +748,54 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
+  public AbstractParameter getRisk()
+  {
+    return risk;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetRisk(AbstractParameter newRisk, NotificationChain msgs)
+  {
+    AbstractParameter oldRisk = risk;
+    risk = newRisk;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DmodelPackage.WORK_ITEM__RISK, oldRisk, newRisk);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRisk(AbstractParameter newRisk)
+  {
+    if (newRisk != risk)
+    {
+      NotificationChain msgs = null;
+      if (risk != null)
+        msgs = ((InternalEObject)risk).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DmodelPackage.WORK_ITEM__RISK, null, msgs);
+      if (newRisk != null)
+        msgs = ((InternalEObject)newRisk).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DmodelPackage.WORK_ITEM__RISK, null, msgs);
+      msgs = basicSetRisk(newRisk, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.WORK_ITEM__RISK, newRisk, newRisk));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public boolean isHasImpacts()
   {
     return hasImpacts;
@@ -741,97 +881,6 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public AbstractParameter getRisk()
-  {
-    return risk;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetRisk(AbstractParameter newRisk, NotificationChain msgs)
-  {
-    AbstractParameter oldRisk = risk;
-    risk = newRisk;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DmodelPackage.WORK_ITEM__RISK, oldRisk, newRisk);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRisk(AbstractParameter newRisk)
-  {
-    if (newRisk != risk)
-    {
-      NotificationChain msgs = null;
-      if (risk != null)
-        msgs = ((InternalEObject)risk).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DmodelPackage.WORK_ITEM__RISK, null, msgs);
-      if (newRisk != null)
-        msgs = ((InternalEObject)newRisk).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DmodelPackage.WORK_ITEM__RISK, null, msgs);
-      msgs = basicSetRisk(newRisk, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.WORK_ITEM__RISK, newRisk, newRisk));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ClassOfService getClassOfService()
-  {
-    if (classOfService != null && classOfService.eIsProxy())
-    {
-      InternalEObject oldClassOfService = (InternalEObject)classOfService;
-      classOfService = (ClassOfService)eResolveProxy(oldClassOfService);
-      if (classOfService != oldClassOfService)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DmodelPackage.WORK_ITEM__CLASS_OF_SERVICE, oldClassOfService, classOfService));
-      }
-    }
-    return classOfService;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ClassOfService basicGetClassOfService()
-  {
-    return classOfService;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setClassOfService(ClassOfService newClassOfService)
-  {
-    ClassOfService oldClassOfService = classOfService;
-    classOfService = newClassOfService;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.WORK_ITEM__CLASS_OF_SERVICE, oldClassOfService, classOfService));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public WorkSource getWorkSource()
   {
     if (workSource != null && workSource.eIsProxy())
@@ -898,9 +947,9 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getDueDate()
+  public int getDuration()
   {
-    return dueDate;
+    return duration;
   }
 
   /**
@@ -908,12 +957,12 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDueDate(int newDueDate)
+  public void setDuration(int newDuration)
   {
-    int oldDueDate = dueDate;
-    dueDate = newDueDate;
+    int oldDuration = duration;
+    duration = newDuration;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.WORK_ITEM__DUE_DATE, oldDueDate, dueDate));
+      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.WORK_ITEM__DURATION, oldDuration, duration));
   }
 
   /**
@@ -951,18 +1000,20 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
     {
       case DmodelPackage.WORK_ITEM__REQUIRED_ANALYSIS:
         return ((InternalEList<?>)getRequiredAnalysis()).basicRemove(otherEnd, msgs);
+      case DmodelPackage.WORK_ITEM__DECOMPOSITION_MECHANISM:
+        return basicSetDecompositionMechanism(null, msgs);
       case DmodelPackage.WORK_ITEM__REQUIRED_SERVICES:
         return ((InternalEList<?>)getRequiredServices()).basicRemove(otherEnd, msgs);
       case DmodelPackage.WORK_ITEM__MATURITY_LEVELS:
         return basicSetMaturityLevels(null, msgs);
       case DmodelPackage.WORK_ITEM__UNCERTAINTY:
         return basicSetUncertainty(null, msgs);
+      case DmodelPackage.WORK_ITEM__RISK:
+        return basicSetRisk(null, msgs);
       case DmodelPackage.WORK_ITEM__IMPACTS:
         return ((InternalEList<?>)getImpacts()).basicRemove(otherEnd, msgs);
       case DmodelPackage.WORK_ITEM__VALUE:
         return basicSetValue(null, msgs);
-      case DmodelPackage.WORK_ITEM__RISK:
-        return basicSetRisk(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -994,30 +1045,31 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         return getSTasks();
       case DmodelPackage.WORK_ITEM__REQUIRED_ANALYSIS:
         return getRequiredAnalysis();
+      case DmodelPackage.WORK_ITEM__HAS_DECOMPOSITION_MECHANISM:
+        return isHasDecompositionMechanism();
+      case DmodelPackage.WORK_ITEM__DECOMPOSITION_MECHANISM:
+        return getDecompositionMechanism();
       case DmodelPackage.WORK_ITEM__REQUIRED_SERVICES:
         return getRequiredServices();
       case DmodelPackage.WORK_ITEM__MATURITY_LEVELS:
         return getMaturityLevels();
       case DmodelPackage.WORK_ITEM__UNCERTAINTY:
         return getUncertainty();
+      case DmodelPackage.WORK_ITEM__RISK:
+        return getRisk();
       case DmodelPackage.WORK_ITEM__HAS_IMPACTS:
         return isHasImpacts();
       case DmodelPackage.WORK_ITEM__IMPACTS:
         return getImpacts();
       case DmodelPackage.WORK_ITEM__VALUE:
         return getValue();
-      case DmodelPackage.WORK_ITEM__RISK:
-        return getRisk();
-      case DmodelPackage.WORK_ITEM__CLASS_OF_SERVICE:
-        if (resolve) return getClassOfService();
-        return basicGetClassOfService();
       case DmodelPackage.WORK_ITEM__WORK_SOURCE:
         if (resolve) return getWorkSource();
         return basicGetWorkSource();
       case DmodelPackage.WORK_ITEM__ARRIVAL_TIME:
         return getArrivalTime();
-      case DmodelPackage.WORK_ITEM__DUE_DATE:
-        return getDueDate();
+      case DmodelPackage.WORK_ITEM__DURATION:
+        return getDuration();
       case DmodelPackage.WORK_ITEM__ID:
         return getId();
     }
@@ -1062,6 +1114,12 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         getRequiredAnalysis().clear();
         getRequiredAnalysis().addAll((Collection<? extends RequiredService>)newValue);
         return;
+      case DmodelPackage.WORK_ITEM__HAS_DECOMPOSITION_MECHANISM:
+        setHasDecompositionMechanism((Boolean)newValue);
+        return;
+      case DmodelPackage.WORK_ITEM__DECOMPOSITION_MECHANISM:
+        setDecompositionMechanism((Mechanism)newValue);
+        return;
       case DmodelPackage.WORK_ITEM__REQUIRED_SERVICES:
         getRequiredServices().clear();
         getRequiredServices().addAll((Collection<? extends RequiredService>)newValue);
@@ -1071,6 +1129,9 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         return;
       case DmodelPackage.WORK_ITEM__UNCERTAINTY:
         setUncertainty((AbstractParameter)newValue);
+        return;
+      case DmodelPackage.WORK_ITEM__RISK:
+        setRisk((AbstractParameter)newValue);
         return;
       case DmodelPackage.WORK_ITEM__HAS_IMPACTS:
         setHasImpacts((Boolean)newValue);
@@ -1082,20 +1143,14 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
       case DmodelPackage.WORK_ITEM__VALUE:
         setValue((NumExpression)newValue);
         return;
-      case DmodelPackage.WORK_ITEM__RISK:
-        setRisk((AbstractParameter)newValue);
-        return;
-      case DmodelPackage.WORK_ITEM__CLASS_OF_SERVICE:
-        setClassOfService((ClassOfService)newValue);
-        return;
       case DmodelPackage.WORK_ITEM__WORK_SOURCE:
         setWorkSource((WorkSource)newValue);
         return;
       case DmodelPackage.WORK_ITEM__ARRIVAL_TIME:
         setArrivalTime((Integer)newValue);
         return;
-      case DmodelPackage.WORK_ITEM__DUE_DATE:
-        setDueDate((Integer)newValue);
+      case DmodelPackage.WORK_ITEM__DURATION:
+        setDuration((Integer)newValue);
         return;
       case DmodelPackage.WORK_ITEM__ID:
         setId((Integer)newValue);
@@ -1138,6 +1193,12 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
       case DmodelPackage.WORK_ITEM__REQUIRED_ANALYSIS:
         getRequiredAnalysis().clear();
         return;
+      case DmodelPackage.WORK_ITEM__HAS_DECOMPOSITION_MECHANISM:
+        setHasDecompositionMechanism(HAS_DECOMPOSITION_MECHANISM_EDEFAULT);
+        return;
+      case DmodelPackage.WORK_ITEM__DECOMPOSITION_MECHANISM:
+        setDecompositionMechanism((Mechanism)null);
+        return;
       case DmodelPackage.WORK_ITEM__REQUIRED_SERVICES:
         getRequiredServices().clear();
         return;
@@ -1146,6 +1207,9 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         return;
       case DmodelPackage.WORK_ITEM__UNCERTAINTY:
         setUncertainty((AbstractParameter)null);
+        return;
+      case DmodelPackage.WORK_ITEM__RISK:
+        setRisk((AbstractParameter)null);
         return;
       case DmodelPackage.WORK_ITEM__HAS_IMPACTS:
         setHasImpacts(HAS_IMPACTS_EDEFAULT);
@@ -1156,20 +1220,14 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
       case DmodelPackage.WORK_ITEM__VALUE:
         setValue((NumExpression)null);
         return;
-      case DmodelPackage.WORK_ITEM__RISK:
-        setRisk((AbstractParameter)null);
-        return;
-      case DmodelPackage.WORK_ITEM__CLASS_OF_SERVICE:
-        setClassOfService((ClassOfService)null);
-        return;
       case DmodelPackage.WORK_ITEM__WORK_SOURCE:
         setWorkSource((WorkSource)null);
         return;
       case DmodelPackage.WORK_ITEM__ARRIVAL_TIME:
         setArrivalTime(ARRIVAL_TIME_EDEFAULT);
         return;
-      case DmodelPackage.WORK_ITEM__DUE_DATE:
-        setDueDate(DUE_DATE_EDEFAULT);
+      case DmodelPackage.WORK_ITEM__DURATION:
+        setDuration(DURATION_EDEFAULT);
         return;
       case DmodelPackage.WORK_ITEM__ID:
         setId(ID_EDEFAULT);
@@ -1204,28 +1262,30 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         return sTasks != null && !sTasks.isEmpty();
       case DmodelPackage.WORK_ITEM__REQUIRED_ANALYSIS:
         return requiredAnalysis != null && !requiredAnalysis.isEmpty();
+      case DmodelPackage.WORK_ITEM__HAS_DECOMPOSITION_MECHANISM:
+        return hasDecompositionMechanism != HAS_DECOMPOSITION_MECHANISM_EDEFAULT;
+      case DmodelPackage.WORK_ITEM__DECOMPOSITION_MECHANISM:
+        return decompositionMechanism != null;
       case DmodelPackage.WORK_ITEM__REQUIRED_SERVICES:
         return requiredServices != null && !requiredServices.isEmpty();
       case DmodelPackage.WORK_ITEM__MATURITY_LEVELS:
         return maturityLevels != null;
       case DmodelPackage.WORK_ITEM__UNCERTAINTY:
         return uncertainty != null;
+      case DmodelPackage.WORK_ITEM__RISK:
+        return risk != null;
       case DmodelPackage.WORK_ITEM__HAS_IMPACTS:
         return hasImpacts != HAS_IMPACTS_EDEFAULT;
       case DmodelPackage.WORK_ITEM__IMPACTS:
         return impacts != null && !impacts.isEmpty();
       case DmodelPackage.WORK_ITEM__VALUE:
         return value != null;
-      case DmodelPackage.WORK_ITEM__RISK:
-        return risk != null;
-      case DmodelPackage.WORK_ITEM__CLASS_OF_SERVICE:
-        return classOfService != null;
       case DmodelPackage.WORK_ITEM__WORK_SOURCE:
         return workSource != null;
       case DmodelPackage.WORK_ITEM__ARRIVAL_TIME:
         return arrivalTime != ARRIVAL_TIME_EDEFAULT;
-      case DmodelPackage.WORK_ITEM__DUE_DATE:
-        return dueDate != DUE_DATE_EDEFAULT;
+      case DmodelPackage.WORK_ITEM__DURATION:
+        return duration != DURATION_EDEFAULT;
       case DmodelPackage.WORK_ITEM__ID:
         return id != ID_EDEFAULT;
     }
@@ -1251,12 +1311,14 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
     result.append(hasPredecessors);
     result.append(", hasSubtasks: ");
     result.append(hasSubtasks);
+    result.append(", hasDecompositionMechanism: ");
+    result.append(hasDecompositionMechanism);
     result.append(", hasImpacts: ");
     result.append(hasImpacts);
     result.append(", arrivalTime: ");
     result.append(arrivalTime);
-    result.append(", dueDate: ");
-    result.append(dueDate);
+    result.append(", duration: ");
+    result.append(duration);
     result.append(", id: ");
     result.append(id);
     result.append(')');

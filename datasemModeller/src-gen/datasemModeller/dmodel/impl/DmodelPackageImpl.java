@@ -89,14 +89,14 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass experimentModelEClass = null;
+  private EClass userLibrariesEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass userLibrariesEClass = null;
+  private EClass experimentModelEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -594,6 +594,76 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getUserLibraries()
+  {
+    return userLibrariesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUserLibraries_ServiceProviderTypes()
+  {
+    return (EReference)userLibrariesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUserLibraries_WorkItemTypes()
+  {
+    return (EReference)userLibrariesEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUserLibraries_ClassOfServices()
+  {
+    return (EReference)userLibrariesEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUserLibraries_Services()
+  {
+    return (EReference)userLibrariesEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUserLibraries_ProcessModels()
+  {
+    return (EReference)userLibrariesEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUserLibraries_GovernanceStrategies()
+  {
+    return (EReference)userLibrariesEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getExperimentModel()
   {
     return experimentModelEClass;
@@ -677,76 +747,6 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
   public EAttribute getExperimentModel_Indicators()
   {
     return (EAttribute)experimentModelEClass.getEStructuralFeatures().get(7);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getUserLibraries()
-  {
-    return userLibrariesEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getUserLibraries_ServiceProviderTypes()
-  {
-    return (EReference)userLibrariesEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getUserLibraries_WorkItemTypes()
-  {
-    return (EReference)userLibrariesEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getUserLibraries_ProcessModels()
-  {
-    return (EReference)userLibrariesEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getUserLibraries_ClassOfServices()
-  {
-    return (EReference)userLibrariesEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getUserLibraries_Services()
-  {
-    return (EReference)userLibrariesEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getUserLibraries_GovernanceStrategies()
-  {
-    return (EReference)userLibrariesEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1194,16 +1194,6 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getGovernanceStrategy_Processes()
-  {
-    return (EReference)governanceStrategyEClass.getEStructuralFeatures().get(8);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getContractNetProtocol()
   {
     return contractNetProtocolEClass;
@@ -1304,9 +1294,29 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getProcessModel_Description()
+  {
+    return (EAttribute)processModelEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getProcessModel_Mechanisms()
+  {
+    return (EReference)processModelEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getProcessModel_Actions()
   {
-    return (EReference)processModelEClass.getEStructuralFeatures().get(1);
+    return (EReference)processModelEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1316,7 +1326,7 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    */
   public EReference getProcessModel_States()
   {
-    return (EReference)processModelEClass.getEStructuralFeatures().get(2);
+    return (EReference)processModelEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1424,7 +1434,7 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMechanismAttribute_Attribute()
+  public EAttribute getMechanismAttribute_Name()
   {
     return (EAttribute)mechanismAttributeEClass.getEStructuralFeatures().get(0);
   }
@@ -1624,9 +1634,9 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItem_RequiredServices()
+  public EAttribute getWorkItem_HasDecompositionMechanism()
   {
-    return (EReference)workItemEClass.getEStructuralFeatures().get(8);
+    return (EAttribute)workItemEClass.getEStructuralFeatures().get(8);
   }
 
   /**
@@ -1634,7 +1644,7 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItem_MaturityLevels()
+  public EReference getWorkItem_DecompositionMechanism()
   {
     return (EReference)workItemEClass.getEStructuralFeatures().get(9);
   }
@@ -1644,7 +1654,7 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItem_Uncertainty()
+  public EReference getWorkItem_RequiredServices()
   {
     return (EReference)workItemEClass.getEStructuralFeatures().get(10);
   }
@@ -1654,9 +1664,9 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkItem_HasImpacts()
+  public EReference getWorkItem_MaturityLevels()
   {
-    return (EAttribute)workItemEClass.getEStructuralFeatures().get(11);
+    return (EReference)workItemEClass.getEStructuralFeatures().get(11);
   }
 
   /**
@@ -1664,7 +1674,7 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItem_Impacts()
+  public EReference getWorkItem_Uncertainty()
   {
     return (EReference)workItemEClass.getEStructuralFeatures().get(12);
   }
@@ -1674,7 +1684,7 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItem_Value()
+  public EReference getWorkItem_Risk()
   {
     return (EReference)workItemEClass.getEStructuralFeatures().get(13);
   }
@@ -1684,9 +1694,9 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItem_Risk()
+  public EAttribute getWorkItem_HasImpacts()
   {
-    return (EReference)workItemEClass.getEStructuralFeatures().get(14);
+    return (EAttribute)workItemEClass.getEStructuralFeatures().get(14);
   }
 
   /**
@@ -1694,7 +1704,7 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItem_ClassOfService()
+  public EReference getWorkItem_Impacts()
   {
     return (EReference)workItemEClass.getEStructuralFeatures().get(15);
   }
@@ -1704,7 +1714,7 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getWorkItem_WorkSource()
+  public EReference getWorkItem_Value()
   {
     return (EReference)workItemEClass.getEStructuralFeatures().get(16);
   }
@@ -1714,9 +1724,9 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkItem_ArrivalTime()
+  public EReference getWorkItem_WorkSource()
   {
-    return (EAttribute)workItemEClass.getEStructuralFeatures().get(17);
+    return (EReference)workItemEClass.getEStructuralFeatures().get(17);
   }
 
   /**
@@ -1724,7 +1734,7 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkItem_DueDate()
+  public EAttribute getWorkItem_ArrivalTime()
   {
     return (EAttribute)workItemEClass.getEStructuralFeatures().get(18);
   }
@@ -1734,9 +1744,19 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkItem_Id()
+  public EAttribute getWorkItem_Duration()
   {
     return (EAttribute)workItemEClass.getEStructuralFeatures().get(19);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getWorkItem_Id()
+  {
+    return (EAttribute)workItemEClass.getEStructuralFeatures().get(20);
   }
 
   /**
@@ -1824,7 +1844,7 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkItemType_Id()
+  public EAttribute getWorkItemType_Name()
   {
     return (EAttribute)workItemTypeEClass.getEStructuralFeatures().get(0);
   }
@@ -1834,7 +1854,7 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkItemType_Name()
+  public EAttribute getWorkItemType_Description()
   {
     return (EAttribute)workItemTypeEClass.getEStructuralFeatures().get(1);
   }
@@ -1844,7 +1864,7 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkItemType_Description()
+  public EAttribute getWorkItemType_Hierarchy()
   {
     return (EAttribute)workItemTypeEClass.getEStructuralFeatures().get(2);
   }
@@ -1854,7 +1874,7 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWorkItemType_Hierarchy()
+  public EAttribute getWorkItemType_Id()
   {
     return (EAttribute)workItemTypeEClass.getEStructuralFeatures().get(3);
   }
@@ -3305,6 +3325,14 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
     createEReference(modelBuilderEClass, MODEL_BUILDER__USER_LIBRARIES);
     createEReference(modelBuilderEClass, MODEL_BUILDER__EXPERIMENT_MODEL);
 
+    userLibrariesEClass = createEClass(USER_LIBRARIES);
+    createEReference(userLibrariesEClass, USER_LIBRARIES__SERVICE_PROVIDER_TYPES);
+    createEReference(userLibrariesEClass, USER_LIBRARIES__WORK_ITEM_TYPES);
+    createEReference(userLibrariesEClass, USER_LIBRARIES__CLASS_OF_SERVICES);
+    createEReference(userLibrariesEClass, USER_LIBRARIES__SERVICES);
+    createEReference(userLibrariesEClass, USER_LIBRARIES__PROCESS_MODELS);
+    createEReference(userLibrariesEClass, USER_LIBRARIES__GOVERNANCE_STRATEGIES);
+
     experimentModelEClass = createEClass(EXPERIMENT_MODEL);
     createEAttribute(experimentModelEClass, EXPERIMENT_MODEL__NAME);
     createEAttribute(experimentModelEClass, EXPERIMENT_MODEL__PATH);
@@ -3314,14 +3342,6 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
     createEReference(experimentModelEClass, EXPERIMENT_MODEL__WORK_ITEM_NETWORKS);
     createEReference(experimentModelEClass, EXPERIMENT_MODEL__WIN_REPLICATIONS);
     createEAttribute(experimentModelEClass, EXPERIMENT_MODEL__INDICATORS);
-
-    userLibrariesEClass = createEClass(USER_LIBRARIES);
-    createEReference(userLibrariesEClass, USER_LIBRARIES__SERVICE_PROVIDER_TYPES);
-    createEReference(userLibrariesEClass, USER_LIBRARIES__WORK_ITEM_TYPES);
-    createEReference(userLibrariesEClass, USER_LIBRARIES__PROCESS_MODELS);
-    createEReference(userLibrariesEClass, USER_LIBRARIES__CLASS_OF_SERVICES);
-    createEReference(userLibrariesEClass, USER_LIBRARIES__SERVICES);
-    createEReference(userLibrariesEClass, USER_LIBRARIES__GOVERNANCE_STRATEGIES);
 
     abstractParameterEClass = createEClass(ABSTRACT_PARAMETER);
     createEAttribute(abstractParameterEClass, ABSTRACT_PARAMETER__IS_VARIABLE);
@@ -3373,7 +3393,6 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
     createEReference(governanceStrategyEClass, GOVERNANCE_STRATEGY__PUSH_STRATEGY);
     createEAttribute(governanceStrategyEClass, GOVERNANCE_STRATEGY__CNP);
     createEReference(governanceStrategyEClass, GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL);
-    createEReference(governanceStrategyEClass, GOVERNANCE_STRATEGY__PROCESSES);
 
     contractNetProtocolEClass = createEClass(CONTRACT_NET_PROTOCOL);
     createEReference(contractNetProtocolEClass, CONTRACT_NET_PROTOCOL__MECHANISMS);
@@ -3387,6 +3406,8 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
 
     processModelEClass = createEClass(PROCESS_MODEL);
     createEAttribute(processModelEClass, PROCESS_MODEL__NAME);
+    createEAttribute(processModelEClass, PROCESS_MODEL__DESCRIPTION);
+    createEReference(processModelEClass, PROCESS_MODEL__MECHANISMS);
     createEReference(processModelEClass, PROCESS_MODEL__ACTIONS);
     createEReference(processModelEClass, PROCESS_MODEL__STATES);
 
@@ -3403,7 +3424,7 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
     createEReference(mechanismEClass, MECHANISM__ATTRIBUTES);
 
     mechanismAttributeEClass = createEClass(MECHANISM_ATTRIBUTE);
-    createEAttribute(mechanismAttributeEClass, MECHANISM_ATTRIBUTE__ATTRIBUTE);
+    createEAttribute(mechanismAttributeEClass, MECHANISM_ATTRIBUTE__NAME);
     createEAttribute(mechanismAttributeEClass, MECHANISM_ATTRIBUTE__VALUE);
 
     workSourceEClass = createEClass(WORK_SOURCE);
@@ -3426,17 +3447,18 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
     createEAttribute(workItemEClass, WORK_ITEM__HAS_SUBTASKS);
     createEReference(workItemEClass, WORK_ITEM__STASKS);
     createEReference(workItemEClass, WORK_ITEM__REQUIRED_ANALYSIS);
+    createEAttribute(workItemEClass, WORK_ITEM__HAS_DECOMPOSITION_MECHANISM);
+    createEReference(workItemEClass, WORK_ITEM__DECOMPOSITION_MECHANISM);
     createEReference(workItemEClass, WORK_ITEM__REQUIRED_SERVICES);
     createEReference(workItemEClass, WORK_ITEM__MATURITY_LEVELS);
     createEReference(workItemEClass, WORK_ITEM__UNCERTAINTY);
+    createEReference(workItemEClass, WORK_ITEM__RISK);
     createEAttribute(workItemEClass, WORK_ITEM__HAS_IMPACTS);
     createEReference(workItemEClass, WORK_ITEM__IMPACTS);
     createEReference(workItemEClass, WORK_ITEM__VALUE);
-    createEReference(workItemEClass, WORK_ITEM__RISK);
-    createEReference(workItemEClass, WORK_ITEM__CLASS_OF_SERVICE);
     createEReference(workItemEClass, WORK_ITEM__WORK_SOURCE);
     createEAttribute(workItemEClass, WORK_ITEM__ARRIVAL_TIME);
-    createEAttribute(workItemEClass, WORK_ITEM__DUE_DATE);
+    createEAttribute(workItemEClass, WORK_ITEM__DURATION);
     createEAttribute(workItemEClass, WORK_ITEM__ID);
 
     requiredServiceEClass = createEClass(REQUIRED_SERVICE);
@@ -3449,10 +3471,10 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
     createEReference(impactEClass, IMPACT__RISK);
 
     workItemTypeEClass = createEClass(WORK_ITEM_TYPE);
-    createEAttribute(workItemTypeEClass, WORK_ITEM_TYPE__ID);
     createEAttribute(workItemTypeEClass, WORK_ITEM_TYPE__NAME);
     createEAttribute(workItemTypeEClass, WORK_ITEM_TYPE__DESCRIPTION);
     createEAttribute(workItemTypeEClass, WORK_ITEM_TYPE__HIERARCHY);
+    createEAttribute(workItemTypeEClass, WORK_ITEM_TYPE__ID);
 
     valueFunctionEClass = createEClass(VALUE_FUNCTION);
     createEAttribute(valueFunctionEClass, VALUE_FUNCTION__NAME);
@@ -3674,6 +3696,14 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
     initEReference(getModelBuilder_UserLibraries(), this.getUserLibraries(), null, "UserLibraries", null, 0, 1, ModelBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModelBuilder_ExperimentModel(), this.getExperimentModel(), null, "ExperimentModel", null, 0, 1, ModelBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(userLibrariesEClass, UserLibraries.class, "UserLibraries", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUserLibraries_ServiceProviderTypes(), this.getServiceProviderType(), null, "ServiceProviderTypes", null, 0, -1, UserLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUserLibraries_WorkItemTypes(), this.getWorkItemType(), null, "WorkItemTypes", null, 0, -1, UserLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUserLibraries_ClassOfServices(), this.getClassOfService(), null, "ClassOfServices", null, 0, -1, UserLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUserLibraries_Services(), this.getService(), null, "Services", null, 0, -1, UserLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUserLibraries_ProcessModels(), this.getProcessModel(), null, "ProcessModels", null, 0, -1, UserLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUserLibraries_GovernanceStrategies(), this.getGovernanceStrategy(), null, "GovernanceStrategies", null, 0, -1, UserLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(experimentModelEClass, ExperimentModel.class, "ExperimentModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getExperimentModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, ExperimentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExperimentModel_Path(), ecorePackage.getEString(), "Path", null, 0, 1, ExperimentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3683,14 +3713,6 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
     initEReference(getExperimentModel_WorkItemNetworks(), this.getWorkItemNetwork(), null, "WorkItemNetworks", null, 0, -1, ExperimentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExperimentModel_WINReplications(), this.getWINReplication(), null, "WINReplications", null, 0, -1, ExperimentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExperimentModel_Indicators(), ecorePackage.getEString(), "Indicators", null, 0, -1, ExperimentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(userLibrariesEClass, UserLibraries.class, "UserLibraries", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getUserLibraries_ServiceProviderTypes(), this.getServiceProviderType(), null, "ServiceProviderTypes", null, 0, -1, UserLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getUserLibraries_WorkItemTypes(), this.getWorkItemType(), null, "WorkItemTypes", null, 0, -1, UserLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getUserLibraries_ProcessModels(), this.getProcessModel(), null, "ProcessModels", null, 0, -1, UserLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getUserLibraries_ClassOfServices(), this.getClassOfService(), null, "ClassOfServices", null, 0, -1, UserLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getUserLibraries_Services(), this.getService(), null, "Services", null, 0, -1, UserLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getUserLibraries_GovernanceStrategies(), this.getGovernanceStrategy(), null, "GovernanceStrategies", null, 0, -1, UserLibraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(abstractParameterEClass, AbstractParameter.class, "AbstractParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAbstractParameter_IsVariable(), ecorePackage.getEBoolean(), "isVariable", null, 0, 1, AbstractParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3742,7 +3764,6 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
     initEReference(getGovernanceStrategy_PushStrategy(), this.getPushStrategy(), null, "pushStrategy", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getGovernanceStrategy_Cnp(), ecorePackage.getEBoolean(), "cnp", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGovernanceStrategy_ContractNetProtocal(), this.getContractNetProtocol(), null, "contractNetProtocal", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getGovernanceStrategy_Processes(), this.getProcessModel(), null, "processes", null, 0, -1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(contractNetProtocolEClass, ContractNetProtocol.class, "ContractNetProtocol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getContractNetProtocol_Mechanisms(), this.getMechanism(), null, "mechanisms", null, 0, -1, ContractNetProtocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3756,6 +3777,8 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
 
     initEClass(processModelEClass, ProcessModel.class, "ProcessModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProcessModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, ProcessModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getProcessModel_Description(), ecorePackage.getEString(), "description", null, 0, 1, ProcessModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProcessModel_Mechanisms(), this.getMechanism(), null, "mechanisms", null, 0, -1, ProcessModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProcessModel_Actions(), this.getAction(), null, "actions", null, 0, -1, ProcessModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProcessModel_States(), this.getState(), null, "states", null, 0, -1, ProcessModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3772,7 +3795,7 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
     initEReference(getMechanism_Attributes(), this.getMechanismAttribute(), null, "attributes", null, 0, -1, Mechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mechanismAttributeEClass, MechanismAttribute.class, "MechanismAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getMechanismAttribute_Attribute(), ecorePackage.getEString(), "attribute", null, 0, 1, MechanismAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMechanismAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, MechanismAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMechanismAttribute_Value(), ecorePackage.getEString(), "value", null, 0, 1, MechanismAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(workSourceEClass, WorkSource.class, "WorkSource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3795,17 +3818,18 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
     initEAttribute(getWorkItem_HasSubtasks(), ecorePackage.getEBoolean(), "hasSubtasks", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_STasks(), this.getWorkItem(), null, "sTasks", null, 0, -1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_RequiredAnalysis(), this.getRequiredService(), null, "requiredAnalysis", null, 0, -1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getWorkItem_HasDecompositionMechanism(), ecorePackage.getEBoolean(), "hasDecompositionMechanism", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkItem_DecompositionMechanism(), this.getMechanism(), null, "decompositionMechanism", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_RequiredServices(), this.getRequiredService(), null, "requiredServices", null, 0, -1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_MaturityLevels(), this.getAbstractParameter(), null, "maturityLevels", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_Uncertainty(), this.getAbstractParameter(), null, "uncertainty", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkItem_Risk(), this.getAbstractParameter(), null, "risk", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkItem_HasImpacts(), ecorePackage.getEBoolean(), "hasImpacts", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_Impacts(), this.getImpact(), null, "impacts", null, 0, -1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_Value(), this.getNumExpression(), null, "value", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getWorkItem_Risk(), this.getAbstractParameter(), null, "risk", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getWorkItem_ClassOfService(), this.getClassOfService(), null, "classOfService", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWorkItem_WorkSource(), this.getWorkSource(), null, "workSource", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkItem_ArrivalTime(), ecorePackage.getEInt(), "arrivalTime", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getWorkItem_DueDate(), ecorePackage.getEInt(), "dueDate", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getWorkItem_Duration(), ecorePackage.getEInt(), "duration", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkItem_Id(), ecorePackage.getEInt(), "id", null, 0, 1, WorkItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(requiredServiceEClass, RequiredService.class, "RequiredService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3818,10 +3842,10 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
     initEReference(getImpact_Risk(), this.getAbstractParameter(), null, "risk", null, 0, 1, Impact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(workItemTypeEClass, WorkItemType.class, "WorkItemType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getWorkItemType_Id(), ecorePackage.getEInt(), "id", null, 0, 1, WorkItemType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkItemType_Name(), ecorePackage.getEString(), "name", null, 0, 1, WorkItemType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkItemType_Description(), ecorePackage.getEString(), "description", null, 0, 1, WorkItemType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkItemType_Hierarchy(), ecorePackage.getEInt(), "hierarchy", null, 0, 1, WorkItemType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getWorkItemType_Id(), ecorePackage.getEInt(), "id", null, 0, 1, WorkItemType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(valueFunctionEClass, ValueFunction.class, "ValueFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getValueFunction_Name(), ecorePackage.getEString(), "name", null, 0, 1, ValueFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

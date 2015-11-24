@@ -80,14 +80,14 @@ public class DmodelAdapterFactory extends AdapterFactoryImpl
         return createModelBuilderAdapter();
       }
       @Override
-      public Adapter caseExperimentModel(ExperimentModel object)
-      {
-        return createExperimentModelAdapter();
-      }
-      @Override
       public Adapter caseUserLibraries(UserLibraries object)
       {
         return createUserLibrariesAdapter();
+      }
+      @Override
+      public Adapter caseExperimentModel(ExperimentModel object)
+      {
+        return createExperimentModelAdapter();
       }
       @Override
       public Adapter caseAbstractParameter(AbstractParameter object)
@@ -397,21 +397,6 @@ public class DmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.ExperimentModel <em>Experiment Model</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.ExperimentModel
-   * @generated
-   */
-  public Adapter createExperimentModelAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.UserLibraries <em>User Libraries</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -422,6 +407,21 @@ public class DmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createUserLibrariesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.ExperimentModel <em>Experiment Model</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasemModeller.dmodel.ExperimentModel
+   * @generated
+   */
+  public Adapter createExperimentModelAdapter()
   {
     return null;
   }

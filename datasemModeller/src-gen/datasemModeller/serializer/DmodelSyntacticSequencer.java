@@ -22,13 +22,17 @@ public class DmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected DmodelGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_IfExpression___ElseKeyword_6_0_LeftCurlyBracketKeyword_6_1_1_0_RightCurlyBracketKeyword_6_1_1_2__q;
+	protected AbstractElementAlias match_Mechanism___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q;
 	protected AbstractElementAlias match_Service___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_3__q;
+	protected AbstractElementAlias match_UserLibraries___ClassOfServicesKeyword_7_0_EndClassOfServicesKeyword_7_2__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (DmodelGrammarAccess) access;
 		match_IfExpression___ElseKeyword_6_0_LeftCurlyBracketKeyword_6_1_1_0_RightCurlyBracketKeyword_6_1_1_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getIfExpressionAccess().getElseKeyword_6_0()), new TokenAlias(false, false, grammarAccess.getIfExpressionAccess().getLeftCurlyBracketKeyword_6_1_1_0()), new TokenAlias(false, false, grammarAccess.getIfExpressionAccess().getRightCurlyBracketKeyword_6_1_1_2()));
+		match_Mechanism___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getMechanismAccess().getLeftCurlyBracketKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getMechanismAccess().getRightCurlyBracketKeyword_3_3()));
 		match_Service___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getServiceAccess().getLeftCurlyBracketKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getServiceAccess().getRightCurlyBracketKeyword_1_3()));
+		match_UserLibraries___ClassOfServicesKeyword_7_0_EndClassOfServicesKeyword_7_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUserLibrariesAccess().getClassOfServicesKeyword_7_0()), new TokenAlias(false, false, grammarAccess.getUserLibrariesAccess().getEndClassOfServicesKeyword_7_2()));
 	}
 	
 	@Override
@@ -43,10 +47,14 @@ public class DmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_IfExpression___ElseKeyword_6_0_LeftCurlyBracketKeyword_6_1_1_0_RightCurlyBracketKeyword_6_1_1_2__q.equals(syntax))
+			if (match_IfExpression___ElseKeyword_6_0_LeftCurlyBracketKeyword_6_1_1_0_RightCurlyBracketKeyword_6_1_1_2__q.equals(syntax))
 				emit_IfExpression___ElseKeyword_6_0_LeftCurlyBracketKeyword_6_1_1_0_RightCurlyBracketKeyword_6_1_1_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Service___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_3__q.equals(syntax))
+			else if (match_Mechanism___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q.equals(syntax))
+				emit_Mechanism___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Service___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_3__q.equals(syntax))
 				emit_Service___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_UserLibraries___ClassOfServicesKeyword_7_0_EndClassOfServicesKeyword_7_2__q.equals(syntax))
+				emit_UserLibraries___ClassOfServicesKeyword_7_0_EndClassOfServicesKeyword_7_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -68,10 +76,35 @@ public class DmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ('{' '}')?
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     value=Parameter (ambiguity) (rule end)
+	 */
+	protected void emit_Mechanism___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('{' '}')?
+	 *
+	 * This ambiguous syntax occurs at:
 	 *     name=ID (ambiguity) (rule end)
 	 *     name=ID (ambiguity) id=INT
 	 */
 	protected void emit_Service___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('ClassOfServices' 'end ClassOfServices')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     WorkItemTypes+=WorkItemType 'end WorkItemTypes' (ambiguity) 'Services' 'end Services' 'ProcessModels' 'end ProcessModels' 'GovernanceStrategies' 'end GovernanceStrategies' 'end UserLibraries' (rule end)
+	 *     WorkItemTypes+=WorkItemType 'end WorkItemTypes' (ambiguity) 'Services' 'end Services' 'ProcessModels' 'end ProcessModels' 'GovernanceStrategies' GovernanceStrategies+=GovernanceStrategy
+	 *     WorkItemTypes+=WorkItemType 'end WorkItemTypes' (ambiguity) 'Services' 'end Services' 'ProcessModels' ProcessModels+=ProcessModel
+	 *     WorkItemTypes+=WorkItemType 'end WorkItemTypes' (ambiguity) 'Services' Services+=Service
+	 */
+	protected void emit_UserLibraries___ClassOfServicesKeyword_7_0_EndClassOfServicesKeyword_7_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

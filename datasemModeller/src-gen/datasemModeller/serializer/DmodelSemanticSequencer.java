@@ -4,10 +4,8 @@
 package datasemModeller.serializer;
 
 import com.google.inject.Inject;
-import com.google.inject.Provider;
 import datasemModeller.dmodel.AbstractParameter;
 import datasemModeller.dmodel.AbstractType;
-import datasemModeller.dmodel.Action;
 import datasemModeller.dmodel.ActionStatement;
 import datasemModeller.dmodel.Agent;
 import datasemModeller.dmodel.AssertStatement;
@@ -62,16 +60,15 @@ import datasemModeller.dmodel.WorkItemNetwork;
 import datasemModeller.dmodel.WorkItemType;
 import datasemModeller.dmodel.WorkSource;
 import datasemModeller.services.DmodelGrammarAccess;
+import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.serializer.acceptor.ISemanticSequenceAcceptor;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.xtext.Action;
+import org.eclipse.xtext.Parameter;
+import org.eclipse.xtext.ParserRule;
+import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
-import org.eclipse.xtext.serializer.diagnostic.ISemanticSequencerDiagnosticProvider;
-import org.eclipse.xtext.serializer.diagnostic.ISerializationDiagnostic.Acceptor;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
-import org.eclipse.xtext.serializer.sequencer.GenericSequencer;
-import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEObjectProvider;
-import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
-import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 
 @SuppressWarnings("all")
@@ -81,8 +78,13 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	private DmodelGrammarAccess grammarAccess;
 	
 	@Override
-	public void createSequence(EObject context, EObject semanticObject) {
-		if(semanticObject.eClass().getEPackage() == DmodelPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+	public void sequence(ISerializationContext context, EObject semanticObject) {
+		EPackage epackage = semanticObject.eClass().getEPackage();
+		ParserRule rule = context.getParserRule();
+		Action action = context.getAssignedAction();
+		Set<Parameter> parameters = context.getEnabledBooleanParameters();
+		if (epackage == DmodelPackage.eINSTANCE)
+			switch (semanticObject.eClass().getClassifierID()) {
 			case DmodelPackage.ABSTRACT_PARAMETER:
 				sequence_AbstractParameter(context, (AbstractParameter) semanticObject); 
 				return; 
@@ -90,7 +92,7 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				sequence_AbstractType(context, (AbstractType) semanticObject); 
 				return; 
 			case DmodelPackage.ACTION:
-				sequence_Action(context, (Action) semanticObject); 
+				sequence_Action(context, (datasemModeller.dmodel.Action) semanticObject); 
 				return; 
 			case DmodelPackage.ACTION_STATEMENT:
 				sequence_ActionStatement(context, (ActionStatement) semanticObject); 
@@ -249,67 +251,85 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				sequence_WorkSource(context, (WorkSource) semanticObject); 
 				return; 
 			}
-		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
+		if (errorAcceptor != null)
+			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
 	
 	/**
+	 * Contexts:
+	 *     AbstractParameter returns AbstractParameter
+	 *
 	 * Constraint:
 	 *     ((isVariable?='var:' variable=[ExperimentVariable|ID]) | value=Parameter)
 	 */
-	protected void sequence_AbstractParameter(EObject context, AbstractParameter semanticObject) {
+	protected void sequence_AbstractParameter(ISerializationContext context, AbstractParameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     AbstractType returns AbstractType
+	 *
 	 * Constraint:
 	 *     (type=Type | (listType?='List' type=Type) | (mapType?='Map' keyType=Type valueType=Type))
 	 */
-	protected void sequence_AbstractType(EObject context, AbstractType semanticObject) {
+	protected void sequence_AbstractType(ISerializationContext context, AbstractType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     ActionStatement returns ActionStatement
+	 *
 	 * Constraint:
 	 *     (action=[Action|ID] inputs+=VarExpression+)
 	 */
-	protected void sequence_ActionStatement(EObject context, ActionStatement semanticObject) {
+	protected void sequence_ActionStatement(ISerializationContext context, ActionStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Action returns Action
+	 *
 	 * Constraint:
 	 *     (name=ID inputs+=Variable? inputs+=Variable*)
 	 */
-	protected void sequence_Action(EObject context, Action semanticObject) {
+	protected void sequence_Action(ISerializationContext context, datasemModeller.dmodel.Action semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Agent returns Agent
+	 *
 	 * Constraint:
 	 *     (name=ID attributeValues+=AttributeValue*)
 	 */
-	protected void sequence_Agent(EObject context, Agent semanticObject) {
+	protected void sequence_Agent(ISerializationContext context, Agent semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     AssertStatement returns AssertStatement
+	 *
 	 * Constraint:
 	 *     (input=VarExpression value=Expression)
 	 */
-	protected void sequence_AssertStatement(EObject context, AssertStatement semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.ASSERT_STATEMENT__INPUT) == ValueTransient.YES)
+	protected void sequence_AssertStatement(ISerializationContext context, AssertStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.ASSERT_STATEMENT__INPUT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.ASSERT_STATEMENT__INPUT));
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.ASSERT_STATEMENT__VALUE) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.ASSERT_STATEMENT__VALUE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.ASSERT_STATEMENT__VALUE));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAssertStatementAccess().getInputVarExpressionParserRuleCall_0_0(), semanticObject.getInput());
 		feeder.accept(grammarAccess.getAssertStatementAccess().getValueExpressionParserRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
@@ -317,27 +337,32 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	
 	/**
+	 * Contexts:
+	 *     Asset returns Asset
+	 *
 	 * Constraint:
 	 *     (name=ID number=AbstractParameter (skillSet+=Skill skillSet+=Skill*)? id=INT?)
 	 */
-	protected void sequence_Asset(EObject context, Asset semanticObject) {
+	protected void sequence_Asset(ISerializationContext context, Asset semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     AttributeValue returns AttributeValue
+	 *
 	 * Constraint:
 	 *     (attribute=[Attribute|ID] value=Parameter)
 	 */
-	protected void sequence_AttributeValue(EObject context, AttributeValue semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.ATTRIBUTE_VALUE__ATTRIBUTE) == ValueTransient.YES)
+	protected void sequence_AttributeValue(ISerializationContext context, AttributeValue semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.ATTRIBUTE_VALUE__ATTRIBUTE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.ATTRIBUTE_VALUE__ATTRIBUTE));
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.ATTRIBUTE_VALUE__VALUE) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.ATTRIBUTE_VALUE__VALUE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.ATTRIBUTE_VALUE__VALUE));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAttributeValueAccess().getAttributeAttributeIDTerminalRuleCall_0_0_1(), semanticObject.getAttribute());
 		feeder.accept(grammarAccess.getAttributeValueAccess().getValueParameterParserRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
@@ -345,88 +370,114 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	
 	/**
+	 * Contexts:
+	 *     Attribute returns Attribute
+	 *
 	 * Constraint:
 	 *     (type=AbstractType name=ID default=Parameter?)
 	 */
-	protected void sequence_Attribute(EObject context, Attribute semanticObject) {
+	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     ChangeStateStatement returns ChangeStateStatement
+	 *
 	 * Constraint:
 	 *     targetState=[State|ID]
 	 */
-	protected void sequence_ChangeStateStatement(EObject context, ChangeStateStatement semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.CHANGE_STATE_STATEMENT__TARGET_STATE) == ValueTransient.YES)
+	protected void sequence_ChangeStateStatement(ISerializationContext context, ChangeStateStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.CHANGE_STATE_STATEMENT__TARGET_STATE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.CHANGE_STATE_STATEMENT__TARGET_STATE));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getChangeStateStatementAccess().getTargetStateStateIDTerminalRuleCall_1_0_1(), semanticObject.getTargetState());
 		feeder.finish();
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     ClassAttributes returns ClassAttributes
+	 *
 	 * Constraint:
 	 *     agentAttributes+=Attribute+
 	 */
-	protected void sequence_ClassAttributes(EObject context, ClassAttributes semanticObject) {
+	protected void sequence_ClassAttributes(ISerializationContext context, ClassAttributes semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     ClassOfService returns ClassOfService
+	 *
 	 * Constraint:
 	 *     (id=INT? name=ID description=STRING? priority=INT? disruptive=BOOLEAN?)
 	 */
-	protected void sequence_ClassOfService(EObject context, ClassOfService semanticObject) {
+	protected void sequence_ClassOfService(ISerializationContext context, ClassOfService semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Condition returns Condition
+	 *
 	 * Constraint:
 	 *     (
 	 *         ((subjective=VarExpression operator=Operator objective=Expression) | (subjective=VarExpression operator=Operator objective=Expression)) 
 	 *         ((hasAnd?='and' andCondition=Condition) | (hasOr?='or' orCondition=Condition))?
 	 *     )
 	 */
-	protected void sequence_Condition(EObject context, Condition semanticObject) {
+	protected void sequence_Condition(ISerializationContext context, Condition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     ContractNetProtocol returns ContractNetProtocol
+	 *
 	 * Constraint:
 	 *     (mechanisms+=Mechanism+ variables+=Variable* roleBehaviors+=RoleBehavior+)
 	 */
-	protected void sequence_ContractNetProtocol(EObject context, ContractNetProtocol semanticObject) {
+	protected void sequence_ContractNetProtocol(ISerializationContext context, ContractNetProtocol semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     DeclarationStatement returns DeclarationStatement
+	 *
 	 * Constraint:
-	 *     ((variable=DeclarationStatement_DeclarationStatement_1 value=Expression?) | variable=DeclarationStatement_DeclarationStatement_1)
+	 *     (variable=DeclarationStatement_DeclarationStatement_1 value=Expression?)
 	 */
-	protected void sequence_DeclarationStatement(EObject context, DeclarationStatement semanticObject) {
+	protected void sequence_DeclarationStatement(ISerializationContext context, DeclarationStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Distribution returns Distribution
+	 *
 	 * Constraint:
 	 *     ((isNormal?='Normal' | isUniform?='Uniform' | isExponential?='Exponential') parameters+=Parameter parameters+=Parameter*)
 	 */
-	protected void sequence_Distribution(EObject context, Distribution semanticObject) {
+	protected void sequence_Distribution(ISerializationContext context, Distribution semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     ExperimentModel returns ExperimentModel
+	 *
 	 * Constraint:
 	 *     (
 	 *         name=ID 
@@ -439,12 +490,15 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         Indicators+=ID*
 	 *     )
 	 */
-	protected void sequence_ExperimentModel(EObject context, ExperimentModel semanticObject) {
+	protected void sequence_ExperimentModel(ISerializationContext context, ExperimentModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     ExperimentVariable returns ExperimentVariable
+	 *
 	 * Constraint:
 	 *     (
 	 *         name=ID 
@@ -457,24 +511,28 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         )
 	 *     )
 	 */
-	protected void sequence_ExperimentVariable(EObject context, ExperimentVariable semanticObject) {
+	protected void sequence_ExperimentVariable(ISerializationContext context, ExperimentVariable semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Expression returns Minus
+	 *     Expression.Plus_1_0_0_0 returns Minus
+	 *     Expression.Minus_1_0_1_0 returns Minus
+	 *
 	 * Constraint:
 	 *     (left=Expression_Minus_1_0_1_0 right=Term)
 	 */
-	protected void sequence_Expression(EObject context, Minus semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MINUS__LEFT) == ValueTransient.YES)
+	protected void sequence_Expression(ISerializationContext context, Minus semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MINUS__LEFT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.MINUS__LEFT));
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MINUS__RIGHT) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MINUS__RIGHT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.MINUS__RIGHT));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getExpressionAccess().getMinusLeftAction_1_0_1_0(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getExpressionAccess().getRightTermParserRuleCall_1_1_0(), semanticObject.getRight());
 		feeder.finish();
@@ -482,18 +540,22 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	
 	/**
+	 * Contexts:
+	 *     Expression returns Plus
+	 *     Expression.Plus_1_0_0_0 returns Plus
+	 *     Expression.Minus_1_0_1_0 returns Plus
+	 *
 	 * Constraint:
 	 *     (left=Expression_Plus_1_0_0_0 right=Term)
 	 */
-	protected void sequence_Expression(EObject context, Plus semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.PLUS__LEFT) == ValueTransient.YES)
+	protected void sequence_Expression(ISerializationContext context, Plus semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.PLUS__LEFT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.PLUS__LEFT));
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.PLUS__RIGHT) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.PLUS__RIGHT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.PLUS__RIGHT));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getExpressionAccess().getPlusLeftAction_1_0_0_0(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getExpressionAccess().getRightTermParserRuleCall_1_1_0(), semanticObject.getRight());
 		feeder.finish();
@@ -501,24 +563,39 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	
 	/**
+	 * Contexts:
+	 *     Expression returns Factor
+	 *     Expression.Plus_1_0_0_0 returns Factor
+	 *     Expression.Minus_1_0_1_0 returns Factor
+	 *     Term returns Factor
+	 *     Term.Multiply_1_0_0_0 returns Factor
+	 *     Term.Division_1_0_1_0 returns Factor
+	 *     Factor returns Factor
+	 *
 	 * Constraint:
 	 *     (number=Number | variable=VarExpression | string=STRING | boolean=BOOLEAN | expression=Expression)
 	 */
-	protected void sequence_Factor(EObject context, Factor semanticObject) {
+	protected void sequence_Factor(ISerializationContext context, Factor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     ForExpression returns ForExpression
+	 *
 	 * Constraint:
 	 *     (object=VarExpression set=VarExpression statements+=Statement*)
 	 */
-	protected void sequence_ForExpression(EObject context, ForExpression semanticObject) {
+	protected void sequence_ForExpression(ISerializationContext context, ForExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     GovernanceStrategy returns GovernanceStrategy
+	 *
 	 * Constraint:
 	 *     (
 	 *         name=ID 
@@ -526,39 +603,43 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *             (pull?='Pull' description=STRING? pullStrategy=PullStrategy) | 
 	 *             (push?='Push' description=STRING? pushStrategy=PushStrategy) | 
 	 *             (cnp?='CNP' description=STRING? contractNetProtocal=ContractNetProtocol)
-	 *         ) 
-	 *         processes+=[ProcessModel|ID]+
+	 *         )
 	 *     )
 	 */
-	protected void sequence_GovernanceStrategy(EObject context, GovernanceStrategy semanticObject) {
+	protected void sequence_GovernanceStrategy(ISerializationContext context, GovernanceStrategy semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     IfExpression returns IfExpression
+	 *
 	 * Constraint:
-	 *     (condition=Condition statements+=Statement* ((hasElseIf?='if' elseIf=IfExpression) | elses+=Statement*)?)
+	 *     (condition=Condition statements+=Statement* ((hasElseIf?='if' elseIf=IfExpression) | elses+=Statement+)?)
 	 */
-	protected void sequence_IfExpression(EObject context, IfExpression semanticObject) {
+	protected void sequence_IfExpression(ISerializationContext context, IfExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Impact returns Impact
+	 *
 	 * Constraint:
 	 *     (impactWI=[WorkItem|ID] likelihood=AbstractParameter risk=AbstractParameter)
 	 */
-	protected void sequence_Impact(EObject context, Impact semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.IMPACT__IMPACT_WI) == ValueTransient.YES)
+	protected void sequence_Impact(ISerializationContext context, Impact semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.IMPACT__IMPACT_WI) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.IMPACT__IMPACT_WI));
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.IMPACT__LIKELIHOOD) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.IMPACT__LIKELIHOOD) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.IMPACT__LIKELIHOOD));
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.IMPACT__RISK) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.IMPACT__RISK) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.IMPACT__RISK));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getImpactAccess().getImpactWIWorkItemIDTerminalRuleCall_0_0_1(), semanticObject.getImpactWI());
 		feeder.accept(grammarAccess.getImpactAccess().getLikelihoodAbstractParameterParserRuleCall_2_0(), semanticObject.getLikelihood());
 		feeder.accept(grammarAccess.getImpactAccess().getRiskAbstractParameterParserRuleCall_4_0(), semanticObject.getRisk());
@@ -567,59 +648,69 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	
 	/**
+	 * Contexts:
+	 *     MechanismAttribute returns MechanismAttribute
+	 *
 	 * Constraint:
-	 *     (attribute=STRING value=Parameter)
+	 *     (name=ID value=Parameter)
 	 */
-	protected void sequence_MechanismAttribute(EObject context, MechanismAttribute semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MECHANISM_ATTRIBUTE__ATTRIBUTE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.MECHANISM_ATTRIBUTE__ATTRIBUTE));
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MECHANISM_ATTRIBUTE__VALUE) == ValueTransient.YES)
+	protected void sequence_MechanismAttribute(ISerializationContext context, MechanismAttribute semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MECHANISM_ATTRIBUTE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.MECHANISM_ATTRIBUTE__NAME));
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MECHANISM_ATTRIBUTE__VALUE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.MECHANISM_ATTRIBUTE__VALUE));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getMechanismAttributeAccess().getAttributeSTRINGTerminalRuleCall_0_0(), semanticObject.getAttribute());
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMechanismAttributeAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getMechanismAttributeAccess().getValueParameterParserRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Mechanism returns Mechanism
+	 *
 	 * Constraint:
-	 *     (name=ID value=Parameter description=STRING? attributes+=MechanismAttribute*)
+	 *     (name=ID value=Parameter description=STRING? (attributes+=MechanismAttribute attributes+=MechanismAttribute*)?)
 	 */
-	protected void sequence_Mechanism(EObject context, Mechanism semanticObject) {
+	protected void sequence_Mechanism(ISerializationContext context, Mechanism semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Method returns Method
+	 *
 	 * Constraint:
 	 *     (name=ID functionMethod?='(' inputs+=Parameter? inputs+=Parameter*)
 	 */
-	protected void sequence_Method(EObject context, Method semanticObject) {
+	protected void sequence_Method(ISerializationContext context, Method semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     ModelBuilder returns ModelBuilder
+	 *
 	 * Constraint:
 	 *     (name=ID Description=STRING UserLibraries=UserLibraries ExperimentModel=ExperimentModel)
 	 */
-	protected void sequence_ModelBuilder(EObject context, ModelBuilder semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MODEL_BUILDER__NAME) == ValueTransient.YES)
+	protected void sequence_ModelBuilder(ISerializationContext context, ModelBuilder semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MODEL_BUILDER__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.MODEL_BUILDER__NAME));
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MODEL_BUILDER__DESCRIPTION) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MODEL_BUILDER__DESCRIPTION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.MODEL_BUILDER__DESCRIPTION));
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MODEL_BUILDER__USER_LIBRARIES) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MODEL_BUILDER__USER_LIBRARIES) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.MODEL_BUILDER__USER_LIBRARIES));
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MODEL_BUILDER__EXPERIMENT_MODEL) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MODEL_BUILDER__EXPERIMENT_MODEL) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.MODEL_BUILDER__EXPERIMENT_MODEL));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getModelBuilderAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getModelBuilderAccess().getDescriptionSTRINGTerminalRuleCall_3_0(), semanticObject.getDescription());
 		feeder.accept(grammarAccess.getModelBuilderAccess().getUserLibrariesUserLibrariesParserRuleCall_4_0(), semanticObject.getUserLibraries());
@@ -629,15 +720,21 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	
 	/**
+	 * Contexts:
+	 *     NumExpression returns NumExpression
+	 *
 	 * Constraint:
 	 *     (numValue=Number | (distribution?='Random.' numDist=Distribution))
 	 */
-	protected void sequence_NumExpression(EObject context, NumExpression semanticObject) {
+	protected void sequence_NumExpression(ISerializationContext context, NumExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Operator returns Operator
+	 *
 	 * Constraint:
 	 *     (
 	 *         equalTo?='==' | 
@@ -648,51 +745,62 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         notEqualTo?='!='
 	 *     )
 	 */
-	protected void sequence_Operator(EObject context, Operator semanticObject) {
+	protected void sequence_Operator(ISerializationContext context, Operator semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     ProcessModel returns ProcessModel
+	 *
 	 * Constraint:
-	 *     (name=ID actions+=Action* states+=State+)
+	 *     (name=ID description=STRING? mechanisms+=Mechanism* (actions+=Action* states+=State+)?)
 	 */
-	protected void sequence_ProcessModel(EObject context, ProcessModel semanticObject) {
+	protected void sequence_ProcessModel(ISerializationContext context, ProcessModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
-	 * Constraint:
-	 *     mechanisms+=Mechanism+
-	 */
-	protected void sequence_PullStrategy(EObject context, PullStrategy semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
+	 * Contexts:
+	 *     PullStrategy returns PullStrategy
+	 *
 	 * Constraint:
 	 *     mechanisms+=Mechanism+
 	 */
-	protected void sequence_PushStrategy(EObject context, PushStrategy semanticObject) {
+	protected void sequence_PullStrategy(ISerializationContext context, PullStrategy semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     PushStrategy returns PushStrategy
+	 *
+	 * Constraint:
+	 *     mechanisms+=Mechanism+
+	 */
+	protected void sequence_PushStrategy(ISerializationContext context, PushStrategy semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     RequiredService returns RequiredService
+	 *
 	 * Constraint:
 	 *     (serviceType=[Service|ID] efforts=AbstractParameter)
 	 */
-	protected void sequence_RequiredService(EObject context, RequiredService semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.REQUIRED_SERVICE__SERVICE_TYPE) == ValueTransient.YES)
+	protected void sequence_RequiredService(ISerializationContext context, RequiredService semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.REQUIRED_SERVICE__SERVICE_TYPE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.REQUIRED_SERVICE__SERVICE_TYPE));
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.REQUIRED_SERVICE__EFFORTS) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.REQUIRED_SERVICE__EFFORTS) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.REQUIRED_SERVICE__EFFORTS));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getRequiredServiceAccess().getServiceTypeServiceIDTerminalRuleCall_1_0_1(), semanticObject.getServiceType());
 		feeder.accept(grammarAccess.getRequiredServiceAccess().getEffortsAbstractParameterParserRuleCall_3_0(), semanticObject.getEfforts());
 		feeder.finish();
@@ -700,24 +808,33 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	
 	/**
+	 * Contexts:
+	 *     RoleBehavior returns RoleBehavior
+	 *
 	 * Constraint:
 	 *     (name=ID actions+=Action* states+=State+)
 	 */
-	protected void sequence_RoleBehavior(EObject context, RoleBehavior semanticObject) {
+	protected void sequence_RoleBehavior(ISerializationContext context, RoleBehavior semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     ServiceProviderType returns ServiceProviderType
+	 *
 	 * Constraint:
 	 *     (id=INT? name=ID description=STRING? hierarchy=INT?)
 	 */
-	protected void sequence_ServiceProviderType(EObject context, ServiceProviderType semanticObject) {
+	protected void sequence_ServiceProviderType(ISerializationContext context, ServiceProviderType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     ServiceProvider returns ServiceProvider
+	 *
 	 * Constraint:
 	 *     (
 	 *         name=ID 
@@ -729,33 +846,38 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         id=INT?
 	 *     )
 	 */
-	protected void sequence_ServiceProvider(EObject context, ServiceProvider semanticObject) {
+	protected void sequence_ServiceProvider(ISerializationContext context, ServiceProvider semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Service returns Service
+	 *
 	 * Constraint:
-	 *     (name=ID (description=STRING? hierarchy=INT?)? id=INT?)
+	 *     (name=ID description=STRING? hierarchy=INT? id=INT?)
 	 */
-	protected void sequence_Service(EObject context, Service semanticObject) {
+	protected void sequence_Service(ISerializationContext context, Service semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Skill returns Skill
+	 *
 	 * Constraint:
 	 *     (service=[Service|ID] efficiency=AbstractParameter)
 	 */
-	protected void sequence_Skill(EObject context, Skill semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.SKILL__SERVICE) == ValueTransient.YES)
+	protected void sequence_Skill(ISerializationContext context, Skill semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.SKILL__SERVICE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.SKILL__SERVICE));
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.SKILL__EFFICIENCY) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.SKILL__EFFICIENCY) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.SKILL__EFFICIENCY));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getSkillAccess().getServiceServiceIDTerminalRuleCall_1_0_1(), semanticObject.getService());
 		feeder.accept(grammarAccess.getSkillAccess().getEfficiencyAbstractParameterParserRuleCall_3_0(), semanticObject.getEfficiency());
 		feeder.finish();
@@ -763,15 +885,21 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	
 	/**
+	 * Contexts:
+	 *     State returns State
+	 *
 	 * Constraint:
 	 *     ((backgroundState?='backgroundState' name=ID) | (name=ID statements+=Statement*))
 	 */
-	protected void sequence_State(EObject context, State semanticObject) {
+	protected void sequence_State(ISerializationContext context, State semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Statement returns Statement
+	 *
 	 * Constraint:
 	 *     (
 	 *         (isAction?='Do' actionStatement=ActionStatement) | 
@@ -783,33 +911,43 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         assertStatement=AssertStatement
 	 *     )
 	 */
-	protected void sequence_Statement(EObject context, Statement semanticObject) {
+	protected void sequence_Statement(ISerializationContext context, Statement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Task returns Task
+	 *
 	 * Constraint:
 	 *     (name=ID attributeValues+=AttributeValue*)
 	 */
-	protected void sequence_Task(EObject context, Task semanticObject) {
+	protected void sequence_Task(ISerializationContext context, Task semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Expression returns Division
+	 *     Expression.Plus_1_0_0_0 returns Division
+	 *     Expression.Minus_1_0_1_0 returns Division
+	 *     Term returns Division
+	 *     Term.Multiply_1_0_0_0 returns Division
+	 *     Term.Division_1_0_1_0 returns Division
+	 *
 	 * Constraint:
 	 *     (left=Term_Division_1_0_1_0 right=Factor)
 	 */
-	protected void sequence_Term(EObject context, Division semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.DIVISION__LEFT) == ValueTransient.YES)
+	protected void sequence_Term(ISerializationContext context, Division semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.DIVISION__LEFT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.DIVISION__LEFT));
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.DIVISION__RIGHT) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.DIVISION__RIGHT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.DIVISION__RIGHT));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTermAccess().getDivisionLeftAction_1_0_1_0(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getTermAccess().getRightFactorParserRuleCall_1_1_0(), semanticObject.getRight());
 		feeder.finish();
@@ -817,18 +955,25 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	
 	/**
+	 * Contexts:
+	 *     Expression returns Multiply
+	 *     Expression.Plus_1_0_0_0 returns Multiply
+	 *     Expression.Minus_1_0_1_0 returns Multiply
+	 *     Term returns Multiply
+	 *     Term.Multiply_1_0_0_0 returns Multiply
+	 *     Term.Division_1_0_1_0 returns Multiply
+	 *
 	 * Constraint:
 	 *     (left=Term_Multiply_1_0_0_0 right=Factor)
 	 */
-	protected void sequence_Term(EObject context, Multiply semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MULTIPLY__LEFT) == ValueTransient.YES)
+	protected void sequence_Term(ISerializationContext context, Multiply semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MULTIPLY__LEFT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.MULTIPLY__LEFT));
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MULTIPLY__RIGHT) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MULTIPLY__RIGHT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.MULTIPLY__RIGHT));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTermAccess().getMultiplyLeftAction_1_0_0_0(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getTermAccess().getRightFactorParserRuleCall_1_1_0(), semanticObject.getRight());
 		feeder.finish();
@@ -836,61 +981,85 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	
 	/**
+	 * Contexts:
+	 *     UserLibraries returns UserLibraries
+	 *
 	 * Constraint:
 	 *     (
 	 *         ServiceProviderTypes+=ServiceProviderType+ 
 	 *         WorkItemTypes+=WorkItemType+ 
-	 *         ProcessModels+=ProcessModel* 
 	 *         ClassOfServices+=ClassOfService* 
 	 *         Services+=Service* 
+	 *         ProcessModels+=ProcessModel* 
 	 *         GovernanceStrategies+=GovernanceStrategy*
 	 *     )
 	 */
-	protected void sequence_UserLibraries(EObject context, UserLibraries semanticObject) {
+	protected void sequence_UserLibraries(ISerializationContext context, UserLibraries semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     ValueFunction returns ValueFunction
+	 *
 	 * Constraint:
 	 *     (name=ID description=STRING?)
 	 */
-	protected void sequence_ValueFunction(EObject context, ValueFunction semanticObject) {
+	protected void sequence_ValueFunction(ISerializationContext context, ValueFunction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     VarExpression returns VarExpression
+	 *
 	 * Constraint:
 	 *     ((self?='self' | context?='context' | variable=QualifiedName) methods+=Method*)
 	 */
-	protected void sequence_VarExpression(EObject context, VarExpression semanticObject) {
+	protected void sequence_VarExpression(ISerializationContext context, VarExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Variable returns Variable
+	 *     DeclarationStatement.DeclarationStatement_1 returns Variable
+	 *
 	 * Constraint:
 	 *     (type=AbstractType name=ID)
 	 */
-	protected void sequence_Variable(EObject context, Variable semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_Variable(ISerializationContext context, Variable semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.VARIABLE__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.VARIABLE__TYPE));
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.VARIABLE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.VARIABLE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getVariableAccess().getTypeAbstractTypeParserRuleCall_0_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getVariableAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     WINReplication returns WINReplication
+	 *
 	 * Constraint:
 	 *     (workItemNetwork=[WorkItemNetwork|ID] numReplications=INT)
 	 */
-	protected void sequence_WINReplication(EObject context, WINReplication semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.WIN_REPLICATION__WORK_ITEM_NETWORK) == ValueTransient.YES)
+	protected void sequence_WINReplication(ISerializationContext context, WINReplication semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.WIN_REPLICATION__WORK_ITEM_NETWORK) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.WIN_REPLICATION__WORK_ITEM_NETWORK));
-			if(transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.WIN_REPLICATION__NUM_REPLICATIONS) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.WIN_REPLICATION__NUM_REPLICATIONS) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.WIN_REPLICATION__NUM_REPLICATIONS));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getWINReplicationAccess().getWorkItemNetworkWorkItemNetworkIDTerminalRuleCall_1_0_1(), semanticObject.getWorkItemNetwork());
 		feeder.accept(grammarAccess.getWINReplicationAccess().getNumReplicationsINTTerminalRuleCall_3_0(), semanticObject.getNumReplications());
 		feeder.finish();
@@ -898,33 +1067,45 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	
 	/**
+	 * Contexts:
+	 *     WhileExpression returns WhileExpression
+	 *
 	 * Constraint:
 	 *     (condition=Condition statements+=Statement*)
 	 */
-	protected void sequence_WhileExpression(EObject context, WhileExpression semanticObject) {
+	protected void sequence_WhileExpression(ISerializationContext context, WhileExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     WorkItemNetwork returns WorkItemNetwork
+	 *
 	 * Constraint:
 	 *     (name=ID description=STRING? workItems+=WorkItem+ id=INT?)
 	 */
-	protected void sequence_WorkItemNetwork(EObject context, WorkItemNetwork semanticObject) {
+	protected void sequence_WorkItemNetwork(ISerializationContext context, WorkItemNetwork semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     WorkItemType returns WorkItemType
+	 *
 	 * Constraint:
-	 *     (id=INT? name=ID description=STRING? hierarchy=INT?)
+	 *     (name=ID description=STRING? hierarchy=INT? id=INT?)
 	 */
-	protected void sequence_WorkItemType(EObject context, WorkItemType semanticObject) {
+	protected void sequence_WorkItemType(ISerializationContext context, WorkItemType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     WorkItem returns WorkItem
+	 *
 	 * Constraint:
 	 *     (
 	 *         name=ID 
@@ -932,31 +1113,40 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         description=STRING? 
 	 *         (hasPredecessors?='prerequisites' pTasks+=[WorkItem|ID] pTasks+=[WorkItem|ID]*)? 
 	 *         (
-	 *             (hasSubtasks?='decomposites' sTasks+=[WorkItem|ID] sTasks+=[WorkItem|ID]* requiredAnalysis+=RequiredService requiredAnalysis+=RequiredService*)? | 
-	 *             ((requiredAnalysis+=RequiredService requiredAnalysis+=RequiredService*)? requiredServices+=RequiredService requiredServices+=RequiredService*)
-	 *         ) 
+	 *             (hasSubtasks?='decomposites' sTasks+=[WorkItem|ID] sTasks+=[WorkItem|ID]* requiredAnalysis+=RequiredService requiredAnalysis+=RequiredService*) | 
+	 *             (
+	 *                 (hasDecompositionMechanism?='decompositionMechanism' decompositionMechanism=Mechanism)? 
+	 *                 (requiredAnalysis+=RequiredService requiredAnalysis+=RequiredService*)? 
+	 *                 requiredServices+=RequiredService 
+	 *                 requiredServices+=RequiredService*
+	 *             )
+	 *         )? 
 	 *         maturityLevels=AbstractParameter? 
 	 *         uncertainty=AbstractParameter? 
+	 *         risk=AbstractParameter? 
 	 *         (hasImpacts?='impacts' impacts+=Impact impacts+=Impact*)? 
 	 *         value=NumExpression? 
-	 *         risk=AbstractParameter? 
-	 *         classOfService=[ClassOfService|ID]? 
 	 *         workSource=[WorkSource|ID]? 
 	 *         arrivalTime=INT? 
-	 *         dueDate=INT? 
+	 *         duration=INT? 
 	 *         id=INT?
 	 *     )
 	 */
-	protected void sequence_WorkItem(EObject context, WorkItem semanticObject) {
+	protected void sequence_WorkItem(ISerializationContext context, WorkItem semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     WorkSource returns WorkSource
+	 *
 	 * Constraint:
-	 *     (name=ID description=STRING? assignTo+=[ServiceProvider|ID]*)
+	 *     (name=ID description=STRING? (assignTo+=[ServiceProvider|ID] assignTo+=[ServiceProvider|ID]*)?)
 	 */
-	protected void sequence_WorkSource(EObject context, WorkSource semanticObject) {
+	protected void sequence_WorkSource(ISerializationContext context, WorkSource semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
+	
+	
 }

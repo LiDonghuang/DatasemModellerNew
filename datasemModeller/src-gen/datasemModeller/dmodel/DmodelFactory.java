@@ -32,15 +32,6 @@ public interface DmodelFactory extends EFactory
   ModelBuilder createModelBuilder();
 
   /**
-   * Returns a new object of class '<em>Experiment Model</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Experiment Model</em>'.
-   * @generated
-   */
-  ExperimentModel createExperimentModel();
-
-  /**
    * Returns a new object of class '<em>User Libraries</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -48,6 +39,15 @@ public interface DmodelFactory extends EFactory
    * @generated
    */
   UserLibraries createUserLibraries();
+
+  /**
+   * Returns a new object of class '<em>Experiment Model</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Experiment Model</em>'.
+   * @generated
+   */
+  ExperimentModel createExperimentModel();
 
   /**
    * Returns a new object of class '<em>Abstract Parameter</em>'.

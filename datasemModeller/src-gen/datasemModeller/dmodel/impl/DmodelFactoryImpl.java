@@ -65,8 +65,8 @@ public class DmodelFactoryImpl extends EFactoryImpl implements DmodelFactory
     switch (eClass.getClassifierID())
     {
       case DmodelPackage.MODEL_BUILDER: return createModelBuilder();
-      case DmodelPackage.EXPERIMENT_MODEL: return createExperimentModel();
       case DmodelPackage.USER_LIBRARIES: return createUserLibraries();
+      case DmodelPackage.EXPERIMENT_MODEL: return createExperimentModel();
       case DmodelPackage.ABSTRACT_PARAMETER: return createAbstractParameter();
       case DmodelPackage.NUM_EXPRESSION: return createNumExpression();
       case DmodelPackage.OPERATOR: return createOperator();
@@ -142,10 +142,10 @@ public class DmodelFactoryImpl extends EFactoryImpl implements DmodelFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ExperimentModel createExperimentModel()
+  public UserLibraries createUserLibraries()
   {
-    ExperimentModelImpl experimentModel = new ExperimentModelImpl();
-    return experimentModel;
+    UserLibrariesImpl userLibraries = new UserLibrariesImpl();
+    return userLibraries;
   }
 
   /**
@@ -153,10 +153,10 @@ public class DmodelFactoryImpl extends EFactoryImpl implements DmodelFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public UserLibraries createUserLibraries()
+  public ExperimentModel createExperimentModel()
   {
-    UserLibrariesImpl userLibraries = new UserLibrariesImpl();
-    return userLibraries;
+    ExperimentModelImpl experimentModel = new ExperimentModelImpl();
+    return experimentModel;
   }
 
   /**

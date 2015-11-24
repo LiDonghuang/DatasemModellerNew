@@ -79,17 +79,17 @@ public class DmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DmodelPackage.EXPERIMENT_MODEL:
-      {
-        ExperimentModel experimentModel = (ExperimentModel)theEObject;
-        T result = caseExperimentModel(experimentModel);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case DmodelPackage.USER_LIBRARIES:
       {
         UserLibraries userLibraries = (UserLibraries)theEObject;
         T result = caseUserLibraries(userLibraries);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DmodelPackage.EXPERIMENT_MODEL:
+      {
+        ExperimentModel experimentModel = (ExperimentModel)theEObject;
+        T result = caseExperimentModel(experimentModel);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -502,22 +502,6 @@ public class DmodelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Experiment Model</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Experiment Model</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseExperimentModel(ExperimentModel object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>User Libraries</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -529,6 +513,22 @@ public class DmodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseUserLibraries(UserLibraries object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Experiment Model</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Experiment Model</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExperimentModel(ExperimentModel object)
   {
     return null;
   }

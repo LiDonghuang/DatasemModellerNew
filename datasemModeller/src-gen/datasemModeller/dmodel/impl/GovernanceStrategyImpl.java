@@ -5,24 +5,17 @@ package datasemModeller.dmodel.impl;
 import datasemModeller.dmodel.ContractNetProtocol;
 import datasemModeller.dmodel.DmodelPackage;
 import datasemModeller.dmodel.GovernanceStrategy;
-import datasemModeller.dmodel.ProcessModel;
 import datasemModeller.dmodel.PullStrategy;
 import datasemModeller.dmodel.PushStrategy;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +32,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link datasemModeller.dmodel.impl.GovernanceStrategyImpl#getPushStrategy <em>Push Strategy</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.GovernanceStrategyImpl#isCnp <em>Cnp</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.GovernanceStrategyImpl#getContractNetProtocal <em>Contract Net Protocal</em>}</li>
- *   <li>{@link datasemModeller.dmodel.impl.GovernanceStrategyImpl#getProcesses <em>Processes</em>}</li>
  * </ul>
  * </p>
  *
@@ -176,16 +168,6 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
    * @ordered
    */
   protected ContractNetProtocol contractNetProtocal;
-
-  /**
-   * The cached value of the '{@link #getProcesses() <em>Processes</em>}' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getProcesses()
-   * @generated
-   * @ordered
-   */
-  protected EList<ProcessModel> processes;
 
   /**
    * <!-- begin-user-doc -->
@@ -472,20 +454,6 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ProcessModel> getProcesses()
-  {
-    if (processes == null)
-    {
-      processes = new EObjectResolvingEList<ProcessModel>(ProcessModel.class, this, DmodelPackage.GOVERNANCE_STRATEGY__PROCESSES);
-    }
-    return processes;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -527,8 +495,6 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
         return isCnp();
       case DmodelPackage.GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL:
         return getContractNetProtocal();
-      case DmodelPackage.GOVERNANCE_STRATEGY__PROCESSES:
-        return getProcesses();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -538,7 +504,6 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -567,10 +532,6 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
         return;
       case DmodelPackage.GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL:
         setContractNetProtocal((ContractNetProtocol)newValue);
-        return;
-      case DmodelPackage.GOVERNANCE_STRATEGY__PROCESSES:
-        getProcesses().clear();
-        getProcesses().addAll((Collection<? extends ProcessModel>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -610,9 +571,6 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
       case DmodelPackage.GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL:
         setContractNetProtocal((ContractNetProtocol)null);
         return;
-      case DmodelPackage.GOVERNANCE_STRATEGY__PROCESSES:
-        getProcesses().clear();
-        return;
     }
     super.eUnset(featureID);
   }
@@ -643,8 +601,6 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
         return cnp != CNP_EDEFAULT;
       case DmodelPackage.GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL:
         return contractNetProtocal != null;
-      case DmodelPackage.GOVERNANCE_STRATEGY__PROCESSES:
-        return processes != null && !processes.isEmpty();
     }
     return super.eIsSet(featureID);
   }

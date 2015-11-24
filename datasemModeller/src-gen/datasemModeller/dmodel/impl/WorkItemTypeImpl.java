@@ -19,10 +19,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link datasemModeller.dmodel.impl.WorkItemTypeImpl#getId <em>Id</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.WorkItemTypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.WorkItemTypeImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.WorkItemTypeImpl#getHierarchy <em>Hierarchy</em>}</li>
+ *   <li>{@link datasemModeller.dmodel.impl.WorkItemTypeImpl#getId <em>Id</em>}</li>
  * </ul>
  * </p>
  *
@@ -30,26 +30,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class WorkItemTypeImpl extends MinimalEObjectImpl.Container implements WorkItemType
 {
-  /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected static final int ID_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected int id = ID_EDEFAULT;
-
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -111,6 +91,26 @@ public class WorkItemTypeImpl extends MinimalEObjectImpl.Container implements Wo
   protected int hierarchy = HIERARCHY_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected static final int ID_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected int id = ID_EDEFAULT;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -129,29 +129,6 @@ public class WorkItemTypeImpl extends MinimalEObjectImpl.Container implements Wo
   protected EClass eStaticClass()
   {
     return DmodelPackage.Literals.WORK_ITEM_TYPE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public int getId()
-  {
-    return id;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setId(int newId)
-  {
-    int oldId = id;
-    id = newId;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.WORK_ITEM_TYPE__ID, oldId, id));
   }
 
   /**
@@ -228,19 +205,42 @@ public class WorkItemTypeImpl extends MinimalEObjectImpl.Container implements Wo
    * <!-- end-user-doc -->
    * @generated
    */
+  public int getId()
+  {
+    return id;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setId(int newId)
+  {
+    int oldId = id;
+    id = newId;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.WORK_ITEM_TYPE__ID, oldId, id));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
-      case DmodelPackage.WORK_ITEM_TYPE__ID:
-        return getId();
       case DmodelPackage.WORK_ITEM_TYPE__NAME:
         return getName();
       case DmodelPackage.WORK_ITEM_TYPE__DESCRIPTION:
         return getDescription();
       case DmodelPackage.WORK_ITEM_TYPE__HIERARCHY:
         return getHierarchy();
+      case DmodelPackage.WORK_ITEM_TYPE__ID:
+        return getId();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -255,9 +255,6 @@ public class WorkItemTypeImpl extends MinimalEObjectImpl.Container implements Wo
   {
     switch (featureID)
     {
-      case DmodelPackage.WORK_ITEM_TYPE__ID:
-        setId((Integer)newValue);
-        return;
       case DmodelPackage.WORK_ITEM_TYPE__NAME:
         setName((String)newValue);
         return;
@@ -266,6 +263,9 @@ public class WorkItemTypeImpl extends MinimalEObjectImpl.Container implements Wo
         return;
       case DmodelPackage.WORK_ITEM_TYPE__HIERARCHY:
         setHierarchy((Integer)newValue);
+        return;
+      case DmodelPackage.WORK_ITEM_TYPE__ID:
+        setId((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -281,9 +281,6 @@ public class WorkItemTypeImpl extends MinimalEObjectImpl.Container implements Wo
   {
     switch (featureID)
     {
-      case DmodelPackage.WORK_ITEM_TYPE__ID:
-        setId(ID_EDEFAULT);
-        return;
       case DmodelPackage.WORK_ITEM_TYPE__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -292,6 +289,9 @@ public class WorkItemTypeImpl extends MinimalEObjectImpl.Container implements Wo
         return;
       case DmodelPackage.WORK_ITEM_TYPE__HIERARCHY:
         setHierarchy(HIERARCHY_EDEFAULT);
+        return;
+      case DmodelPackage.WORK_ITEM_TYPE__ID:
+        setId(ID_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -307,14 +307,14 @@ public class WorkItemTypeImpl extends MinimalEObjectImpl.Container implements Wo
   {
     switch (featureID)
     {
-      case DmodelPackage.WORK_ITEM_TYPE__ID:
-        return id != ID_EDEFAULT;
       case DmodelPackage.WORK_ITEM_TYPE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DmodelPackage.WORK_ITEM_TYPE__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case DmodelPackage.WORK_ITEM_TYPE__HIERARCHY:
         return hierarchy != HIERARCHY_EDEFAULT;
+      case DmodelPackage.WORK_ITEM_TYPE__ID:
+        return id != ID_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -330,14 +330,14 @@ public class WorkItemTypeImpl extends MinimalEObjectImpl.Container implements Wo
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (id: ");
-    result.append(id);
-    result.append(", name: ");
+    result.append(" (name: ");
     result.append(name);
     result.append(", description: ");
     result.append(description);
     result.append(", hierarchy: ");
     result.append(hierarchy);
+    result.append(", id: ");
+    result.append(id);
     result.append(')');
     return result.toString();
   }

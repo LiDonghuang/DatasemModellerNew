@@ -10,6 +10,28 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 		UserLibraries=UserLibraries
 		ExperimentModel=ExperimentModel			
 	;
+	UserLibraries:
+	'UserLibraries' 
+		'ServiceProviderTypes' 
+		(ServiceProviderTypes += ServiceProviderType)+		
+		'end ServiceProviderTypes'
+		'WorkItemTypes' 
+		(WorkItemTypes += WorkItemType)+
+		'end WorkItemTypes'		
+		('ClassOfServices' 
+		(ClassOfServices += ClassOfService)*
+		'end ClassOfServices')?
+		'Services' 
+		(Services += Service)*
+		'end Services'
+		'ProcessModels'
+		(ProcessModels += ProcessModel)*
+		'end ProcessModels'
+		'GovernanceStrategies' 
+	    (GovernanceStrategies += GovernanceStrategy)*
+	    'end GovernanceStrategies'    
+	'end UserLibraries'
+	;	
 	ExperimentModel:
 		'ExperimentModel' name=ID
 		('Path' Path = QualifiedName)?	
@@ -34,75 +56,15 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 			'Indicators' (Indicators+=ID)*
 			'end Indicators'			
 		'end ExperimentSettings'
-	'end ExperimentModel';
-			
-//	SystemLibraries:		
-//	'SystemLibraries' 
-//		'EventTypes' 
-//		(EventTypes += EventType)+
-//		'end EventTypes'
-//		'ConditionTypes' 
-//		(ConditionTypes += ConditionType)+
-//		'end ConditionTypes'
-//		'TransitionTypes' 
-//		(TransitionTypes += TransitionType)+
-//		'end TransitionTypes'
-//		'GovernanceLibrary' 
-//			'WIAcceptanceRuleTypes' '{'
-//			(WIAcceptanceRuleTypes += WIAcceptanceRuleType)+
-//			'}'
-//			'WISelectionRuleTypes' '{'
-//			(WISelectionRuleTypes += WISelectionRuleType)+
-//			'}'
-//			'WIAssignmentRuleTypes' '{'
-//			(WIAssignmentRuleTypes += WIAssignmentRuleType)+
-//			'}'
-//			'ResourceAllocationRuleTypes' '{'
-//			(ResourceAllocationRuleTypes += ResourceAllocationRuleType)+
-//			'}'
-//			'ResourceOutsourcingRuleTypes' '{'
-//			(ResourceOutsourcingRuleTypes += ResourceOutsourcingRuleType)+
-//			'}'	
-//		'end GovernanceLibrary'
-//		'TaskLibrary'
-//			'ProcessModels'
-//			(ProcessModels += ProcessModel)+
-//			'end ProcessModels'		    			
-//			'ValueFunctions'
-//			(ValueFunctions += ValueFunction)+
-//			'end ValueFunctions'			
-//		'end TaskLibrary'
-//	'end SystemLibraries';
-		
-	UserLibraries:
-	'UserLibraries' 
-		'ServiceProviderTypes' 
-		(ServiceProviderTypes += ServiceProviderType)+		
-		'end ServiceProviderTypes'
-		'WorkItemTypes' 
-		(WorkItemTypes += WorkItemType)+	
-		'end WorkItemTypes'
-		'ProcessModels'
-		(ProcessModels += ProcessModel)*
-		'end ProcessModels'
-		'ClassOfServices' 
-		(ClassOfServices += ClassOfService)*
-		'end ClassOfServices'
-		'Services' 
-		(Services += Service)*
-		'end Services'
-		'GovernanceStrategies' 
-	    (GovernanceStrategies += GovernanceStrategy)*
-	    'end GovernanceStrategies'    
-	'end UserLibraries';
-		
+	'end ExperimentModel'
+	;
+				
 	terminal DOUBLE returns ecore::EDouble:
 		('0'..'9')+('.' ('0'..'9')+)
 	;
 	terminal BOOLEAN returns ecore::EBoolean:
 		'false'|'true'
 	;
-	//
 	Number:
 		INT|DOUBLE
 	;
@@ -151,7 +113,6 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 		(push?="Push""{"('desc' description=STRING)? pushStrategy=PushStrategy)|
 		(cnp?="CNP""{"('desc' description=STRING)? contractNetProtocal=ContractNetProtocol)		
 		)
-		'processes' '{'(processes += [ProcessModel])+ '}'	
 		"}"	
 	;
 	ContractNetProtocol:
@@ -166,10 +127,14 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 		"}"
 	;
 	ProcessModel: 	
-	 	name=ID "{"
-	 	'actions''{'(actions+=Action)*'}'
-		(states += State)+
-		"}"
+	 	name=ID 
+	 	("{"
+	 	('desc' description=STRING)?
+	 	('mechanisms' '{'(mechanisms += Mechanism)+ '}')?
+	 	('actions''{'(actions+=Action)*'}'
+		(states += State)+)?
+		"}")
+
 	;
 	PullStrategy:	
 		'mechanisms' '{'(mechanisms += Mechanism)+ '}'
@@ -178,21 +143,20 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 		'mechanisms' '{'(mechanisms += Mechanism)+ '}'
 	;
 	Mechanism:
-		name=ID'='value=Parameter
-		'{'
-		('desc' description=STRING)?
-		('attributes' '{' (attributes+=MechanismAttribute)+ '}')?
-		'}'
+		name=ID'='value=Parameter		
+		('{'
+			('desc' description=STRING)?
+			('attributes' '{' (attributes+=MechanismAttribute)(','attributes+=MechanismAttribute)* '}')?
+		'}')?	
 	;	
 	MechanismAttribute:
-		attribute=STRING'='value=Parameter
+		name=ID'='value=Parameter
 	;
     // ------------------------ WorkItem Objects ---------------------------------
     WorkSource:
     	'WorkSource' name=ID '{'
     	('desc' description=STRING)?
-    	('AssignTo' '{' (assignTo+=[ServiceProvider])+ '}')?
-//    	(assignmentRule=WIAssignment)?
+    	('assignTo' '{' (assignTo+=[ServiceProvider])(','assignTo+=[ServiceProvider])* '}')?
     	'}'
     ;
 	WorkItemNetwork:
@@ -204,21 +168,28 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
     ;
 	WorkItem:		
 		name=ID ("type"":" type=[WorkItemType])?'{'
-		('desc' description=STRING)?	
-		(hasPredecessors?='prerequisites''{'(pTasks+=[WorkItem])(','pTasks+=[WorkItem])*'}')?	
-		((hasSubtasks?='decomposites''{'(sTasks+=[WorkItem])(','sTasks+=[WorkItem])* '}'
-		'analysisEfforts''{'(requiredAnalysis+=RequiredService)(','requiredAnalysis+=RequiredService)*'}')?|
-		(('analysisEfforts''{'(requiredAnalysis+=RequiredService)(','requiredAnalysis+=RequiredService)*'}')?
-		'efforts' '{'(requiredServices+=RequiredService)(','requiredServices+=RequiredService)*'}'))
+		('desc' description=STRING)?
+		
+		(hasPredecessors?='prerequisites''{'(pTasks+=[WorkItem])(','pTasks+=[WorkItem])*'}')?		
+		(
+		(hasSubtasks?='decomposites''{'(sTasks+=[WorkItem])(','sTasks+=[WorkItem])* '}'
+		'analysisEfforts''{'(requiredAnalysis+=RequiredService)(','requiredAnalysis+=RequiredService)*'}')?
+		|
+		(
+		(hasDecompositionMechanism?='decompositionMechanism'decompositionMechanism=Mechanism)?
+		('analysisEfforts''{'(requiredAnalysis+=RequiredService)(','requiredAnalysis+=RequiredService)*'}')?
+		'efforts' '{'(requiredServices+=RequiredService)(','requiredServices+=RequiredService)*'}')
+		)
+		
 		('maturityLevels' maturityLevels=AbstractParameter)?
-		('uncertainty' uncertainty=AbstractParameter)?
+		('uncertainty' uncertainty=AbstractParameter)?('risk' risk=AbstractParameter)?
 		(hasImpacts?='impacts' '{'(impacts+=Impact)(','impacts+=Impact)*'}')?
+		
 		('value' value=NumExpression)?
-		('risk' risk=AbstractParameter)?
-		('classOfService' classOfService=[ClassOfService])?
+		
 		('workSource' workSource=[WorkSource])?
-		('arrivalTime' arrivalTime=INT)?
-		('dueDate' dueDate=INT)?
+		('arrival' arrivalTime=INT)?
+		('duration' duration=INT)?
 		'}'
 		(id=INT)?
 	;
@@ -228,12 +199,12 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 	Impact:
 		impactWI=[WorkItem]'['likelihood=AbstractParameter','risk=AbstractParameter']'
 	;
-	WorkItemType:
-		(id=INT)?
+	WorkItemType:		
 		name=ID '{'
 		('desc' description=STRING)?
 		('hierarchy''='hierarchy=INT)?
 		'}'
+		(id=INT)?
 	;	
 	ValueFunction:
 		'ValueFunction' name=ID '{'

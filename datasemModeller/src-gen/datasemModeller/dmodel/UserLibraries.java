@@ -16,9 +16,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link datasemModeller.dmodel.UserLibraries#getServiceProviderTypes <em>Service Provider Types</em>}</li>
  *   <li>{@link datasemModeller.dmodel.UserLibraries#getWorkItemTypes <em>Work Item Types</em>}</li>
- *   <li>{@link datasemModeller.dmodel.UserLibraries#getProcessModels <em>Process Models</em>}</li>
  *   <li>{@link datasemModeller.dmodel.UserLibraries#getClassOfServices <em>Class Of Services</em>}</li>
  *   <li>{@link datasemModeller.dmodel.UserLibraries#getServices <em>Services</em>}</li>
+ *   <li>{@link datasemModeller.dmodel.UserLibraries#getProcessModels <em>Process Models</em>}</li>
  *   <li>{@link datasemModeller.dmodel.UserLibraries#getGovernanceStrategies <em>Governance Strategies</em>}</li>
  * </ul>
  * </p>
@@ -62,22 +62,6 @@ public interface UserLibraries extends EObject
   EList<WorkItemType> getWorkItemTypes();
 
   /**
-   * Returns the value of the '<em><b>Process Models</b></em>' containment reference list.
-   * The list contents are of type {@link datasemModeller.dmodel.ProcessModel}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Process Models</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Process Models</em>' containment reference list.
-   * @see datasemModeller.dmodel.DmodelPackage#getUserLibraries_ProcessModels()
-   * @model containment="true"
-   * @generated
-   */
-  EList<ProcessModel> getProcessModels();
-
-  /**
    * Returns the value of the '<em><b>Class Of Services</b></em>' containment reference list.
    * The list contents are of type {@link datasemModeller.dmodel.ClassOfService}.
    * <!-- begin-user-doc -->
@@ -108,6 +92,22 @@ public interface UserLibraries extends EObject
    * @generated
    */
   EList<Service> getServices();
+
+  /**
+   * Returns the value of the '<em><b>Process Models</b></em>' containment reference list.
+   * The list contents are of type {@link datasemModeller.dmodel.ProcessModel}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Process Models</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Process Models</em>' containment reference list.
+   * @see datasemModeller.dmodel.DmodelPackage#getUserLibraries_ProcessModels()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ProcessModel> getProcessModels();
 
   /**
    * Returns the value of the '<em><b>Governance Strategies</b></em>' containment reference list.

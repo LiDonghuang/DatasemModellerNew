@@ -112,6 +112,79 @@ public interface DmodelPackage extends EPackage
   int MODEL_BUILDER_FEATURE_COUNT = 4;
 
   /**
+   * The meta object id for the '{@link datasemModeller.dmodel.impl.UserLibrariesImpl <em>User Libraries</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see datasemModeller.dmodel.impl.UserLibrariesImpl
+   * @see datasemModeller.dmodel.impl.DmodelPackageImpl#getUserLibraries()
+   * @generated
+   */
+  int USER_LIBRARIES = 1;
+
+  /**
+   * The feature id for the '<em><b>Service Provider Types</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USER_LIBRARIES__SERVICE_PROVIDER_TYPES = 0;
+
+  /**
+   * The feature id for the '<em><b>Work Item Types</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USER_LIBRARIES__WORK_ITEM_TYPES = 1;
+
+  /**
+   * The feature id for the '<em><b>Class Of Services</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USER_LIBRARIES__CLASS_OF_SERVICES = 2;
+
+  /**
+   * The feature id for the '<em><b>Services</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USER_LIBRARIES__SERVICES = 3;
+
+  /**
+   * The feature id for the '<em><b>Process Models</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USER_LIBRARIES__PROCESS_MODELS = 4;
+
+  /**
+   * The feature id for the '<em><b>Governance Strategies</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USER_LIBRARIES__GOVERNANCE_STRATEGIES = 5;
+
+  /**
+   * The number of structural features of the '<em>User Libraries</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USER_LIBRARIES_FEATURE_COUNT = 6;
+
+  /**
    * The meta object id for the '{@link datasemModeller.dmodel.impl.ExperimentModelImpl <em>Experiment Model</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -119,7 +192,7 @@ public interface DmodelPackage extends EPackage
    * @see datasemModeller.dmodel.impl.DmodelPackageImpl#getExperimentModel()
    * @generated
    */
-  int EXPERIMENT_MODEL = 1;
+  int EXPERIMENT_MODEL = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -201,79 +274,6 @@ public interface DmodelPackage extends EPackage
    * @ordered
    */
   int EXPERIMENT_MODEL_FEATURE_COUNT = 8;
-
-  /**
-   * The meta object id for the '{@link datasemModeller.dmodel.impl.UserLibrariesImpl <em>User Libraries</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see datasemModeller.dmodel.impl.UserLibrariesImpl
-   * @see datasemModeller.dmodel.impl.DmodelPackageImpl#getUserLibraries()
-   * @generated
-   */
-  int USER_LIBRARIES = 2;
-
-  /**
-   * The feature id for the '<em><b>Service Provider Types</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int USER_LIBRARIES__SERVICE_PROVIDER_TYPES = 0;
-
-  /**
-   * The feature id for the '<em><b>Work Item Types</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int USER_LIBRARIES__WORK_ITEM_TYPES = 1;
-
-  /**
-   * The feature id for the '<em><b>Process Models</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int USER_LIBRARIES__PROCESS_MODELS = 2;
-
-  /**
-   * The feature id for the '<em><b>Class Of Services</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int USER_LIBRARIES__CLASS_OF_SERVICES = 3;
-
-  /**
-   * The feature id for the '<em><b>Services</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int USER_LIBRARIES__SERVICES = 4;
-
-  /**
-   * The feature id for the '<em><b>Governance Strategies</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int USER_LIBRARIES__GOVERNANCE_STRATEGIES = 5;
-
-  /**
-   * The number of structural features of the '<em>User Libraries</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int USER_LIBRARIES_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link datasemModeller.dmodel.impl.AbstractParameterImpl <em>Abstract Parameter</em>}' class.
@@ -733,22 +733,13 @@ public interface DmodelPackage extends EPackage
   int GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL = 7;
 
   /**
-   * The feature id for the '<em><b>Processes</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GOVERNANCE_STRATEGY__PROCESSES = 8;
-
-  /**
    * The number of structural features of the '<em>Governance Strategy</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GOVERNANCE_STRATEGY_FEATURE_COUNT = 9;
+  int GOVERNANCE_STRATEGY_FEATURE_COUNT = 8;
 
   /**
    * The meta object id for the '{@link datasemModeller.dmodel.impl.ContractNetProtocolImpl <em>Contract Net Protocol</em>}' class.
@@ -862,13 +853,31 @@ public interface DmodelPackage extends EPackage
   int PROCESS_MODEL__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROCESS_MODEL__DESCRIPTION = 1;
+
+  /**
+   * The feature id for the '<em><b>Mechanisms</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROCESS_MODEL__MECHANISMS = 2;
+
+  /**
    * The feature id for the '<em><b>Actions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROCESS_MODEL__ACTIONS = 1;
+  int PROCESS_MODEL__ACTIONS = 3;
 
   /**
    * The feature id for the '<em><b>States</b></em>' containment reference list.
@@ -877,7 +886,7 @@ public interface DmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROCESS_MODEL__STATES = 2;
+  int PROCESS_MODEL__STATES = 4;
 
   /**
    * The number of structural features of the '<em>Process Model</em>' class.
@@ -886,7 +895,7 @@ public interface DmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROCESS_MODEL_FEATURE_COUNT = 3;
+  int PROCESS_MODEL_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link datasemModeller.dmodel.impl.PullStrategyImpl <em>Pull Strategy</em>}' class.
@@ -1010,13 +1019,13 @@ public interface DmodelPackage extends EPackage
   int MECHANISM_ATTRIBUTE = 16;
 
   /**
-   * The feature id for the '<em><b>Attribute</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MECHANISM_ATTRIBUTE__ATTRIBUTE = 0;
+  int MECHANISM_ATTRIBUTE__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1220,13 +1229,31 @@ public interface DmodelPackage extends EPackage
   int WORK_ITEM__REQUIRED_ANALYSIS = 7;
 
   /**
+   * The feature id for the '<em><b>Has Decomposition Mechanism</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORK_ITEM__HAS_DECOMPOSITION_MECHANISM = 8;
+
+  /**
+   * The feature id for the '<em><b>Decomposition Mechanism</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORK_ITEM__DECOMPOSITION_MECHANISM = 9;
+
+  /**
    * The feature id for the '<em><b>Required Services</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WORK_ITEM__REQUIRED_SERVICES = 8;
+  int WORK_ITEM__REQUIRED_SERVICES = 10;
 
   /**
    * The feature id for the '<em><b>Maturity Levels</b></em>' containment reference.
@@ -1235,7 +1262,7 @@ public interface DmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM__MATURITY_LEVELS = 9;
+  int WORK_ITEM__MATURITY_LEVELS = 11;
 
   /**
    * The feature id for the '<em><b>Uncertainty</b></em>' containment reference.
@@ -1244,34 +1271,7 @@ public interface DmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM__UNCERTAINTY = 10;
-
-  /**
-   * The feature id for the '<em><b>Has Impacts</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WORK_ITEM__HAS_IMPACTS = 11;
-
-  /**
-   * The feature id for the '<em><b>Impacts</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WORK_ITEM__IMPACTS = 12;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WORK_ITEM__VALUE = 13;
+  int WORK_ITEM__UNCERTAINTY = 12;
 
   /**
    * The feature id for the '<em><b>Risk</b></em>' containment reference.
@@ -1280,16 +1280,34 @@ public interface DmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM__RISK = 14;
+  int WORK_ITEM__RISK = 13;
 
   /**
-   * The feature id for the '<em><b>Class Of Service</b></em>' reference.
+   * The feature id for the '<em><b>Has Impacts</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WORK_ITEM__CLASS_OF_SERVICE = 15;
+  int WORK_ITEM__HAS_IMPACTS = 14;
+
+  /**
+   * The feature id for the '<em><b>Impacts</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORK_ITEM__IMPACTS = 15;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORK_ITEM__VALUE = 16;
 
   /**
    * The feature id for the '<em><b>Work Source</b></em>' reference.
@@ -1298,7 +1316,7 @@ public interface DmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM__WORK_SOURCE = 16;
+  int WORK_ITEM__WORK_SOURCE = 17;
 
   /**
    * The feature id for the '<em><b>Arrival Time</b></em>' attribute.
@@ -1307,16 +1325,16 @@ public interface DmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM__ARRIVAL_TIME = 17;
+  int WORK_ITEM__ARRIVAL_TIME = 18;
 
   /**
-   * The feature id for the '<em><b>Due Date</b></em>' attribute.
+   * The feature id for the '<em><b>Duration</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WORK_ITEM__DUE_DATE = 18;
+  int WORK_ITEM__DURATION = 19;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1325,7 +1343,7 @@ public interface DmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM__ID = 19;
+  int WORK_ITEM__ID = 20;
 
   /**
    * The number of structural features of the '<em>Work Item</em>' class.
@@ -1334,7 +1352,7 @@ public interface DmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM_FEATURE_COUNT = 20;
+  int WORK_ITEM_FEATURE_COUNT = 21;
 
   /**
    * The meta object id for the '{@link datasemModeller.dmodel.impl.RequiredServiceImpl <em>Required Service</em>}' class.
@@ -1430,22 +1448,13 @@ public interface DmodelPackage extends EPackage
   int WORK_ITEM_TYPE = 22;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WORK_ITEM_TYPE__ID = 0;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WORK_ITEM_TYPE__NAME = 1;
+  int WORK_ITEM_TYPE__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1454,7 +1463,7 @@ public interface DmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM_TYPE__DESCRIPTION = 2;
+  int WORK_ITEM_TYPE__DESCRIPTION = 1;
 
   /**
    * The feature id for the '<em><b>Hierarchy</b></em>' attribute.
@@ -1463,7 +1472,16 @@ public interface DmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM_TYPE__HIERARCHY = 3;
+  int WORK_ITEM_TYPE__HIERARCHY = 2;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORK_ITEM_TYPE__ID = 3;
 
   /**
    * The number of structural features of the '<em>Work Item Type</em>' class.
@@ -3157,6 +3175,82 @@ public interface DmodelPackage extends EPackage
   EReference getModelBuilder_ExperimentModel();
 
   /**
+   * Returns the meta object for class '{@link datasemModeller.dmodel.UserLibraries <em>User Libraries</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>User Libraries</em>'.
+   * @see datasemModeller.dmodel.UserLibraries
+   * @generated
+   */
+  EClass getUserLibraries();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link datasemModeller.dmodel.UserLibraries#getServiceProviderTypes <em>Service Provider Types</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Service Provider Types</em>'.
+   * @see datasemModeller.dmodel.UserLibraries#getServiceProviderTypes()
+   * @see #getUserLibraries()
+   * @generated
+   */
+  EReference getUserLibraries_ServiceProviderTypes();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link datasemModeller.dmodel.UserLibraries#getWorkItemTypes <em>Work Item Types</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Work Item Types</em>'.
+   * @see datasemModeller.dmodel.UserLibraries#getWorkItemTypes()
+   * @see #getUserLibraries()
+   * @generated
+   */
+  EReference getUserLibraries_WorkItemTypes();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link datasemModeller.dmodel.UserLibraries#getClassOfServices <em>Class Of Services</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Class Of Services</em>'.
+   * @see datasemModeller.dmodel.UserLibraries#getClassOfServices()
+   * @see #getUserLibraries()
+   * @generated
+   */
+  EReference getUserLibraries_ClassOfServices();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link datasemModeller.dmodel.UserLibraries#getServices <em>Services</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Services</em>'.
+   * @see datasemModeller.dmodel.UserLibraries#getServices()
+   * @see #getUserLibraries()
+   * @generated
+   */
+  EReference getUserLibraries_Services();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link datasemModeller.dmodel.UserLibraries#getProcessModels <em>Process Models</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Process Models</em>'.
+   * @see datasemModeller.dmodel.UserLibraries#getProcessModels()
+   * @see #getUserLibraries()
+   * @generated
+   */
+  EReference getUserLibraries_ProcessModels();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link datasemModeller.dmodel.UserLibraries#getGovernanceStrategies <em>Governance Strategies</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Governance Strategies</em>'.
+   * @see datasemModeller.dmodel.UserLibraries#getGovernanceStrategies()
+   * @see #getUserLibraries()
+   * @generated
+   */
+  EReference getUserLibraries_GovernanceStrategies();
+
+  /**
    * Returns the meta object for class '{@link datasemModeller.dmodel.ExperimentModel <em>Experiment Model</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3253,82 +3347,6 @@ public interface DmodelPackage extends EPackage
    * @generated
    */
   EAttribute getExperimentModel_Indicators();
-
-  /**
-   * Returns the meta object for class '{@link datasemModeller.dmodel.UserLibraries <em>User Libraries</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>User Libraries</em>'.
-   * @see datasemModeller.dmodel.UserLibraries
-   * @generated
-   */
-  EClass getUserLibraries();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link datasemModeller.dmodel.UserLibraries#getServiceProviderTypes <em>Service Provider Types</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Service Provider Types</em>'.
-   * @see datasemModeller.dmodel.UserLibraries#getServiceProviderTypes()
-   * @see #getUserLibraries()
-   * @generated
-   */
-  EReference getUserLibraries_ServiceProviderTypes();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link datasemModeller.dmodel.UserLibraries#getWorkItemTypes <em>Work Item Types</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Work Item Types</em>'.
-   * @see datasemModeller.dmodel.UserLibraries#getWorkItemTypes()
-   * @see #getUserLibraries()
-   * @generated
-   */
-  EReference getUserLibraries_WorkItemTypes();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link datasemModeller.dmodel.UserLibraries#getProcessModels <em>Process Models</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Process Models</em>'.
-   * @see datasemModeller.dmodel.UserLibraries#getProcessModels()
-   * @see #getUserLibraries()
-   * @generated
-   */
-  EReference getUserLibraries_ProcessModels();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link datasemModeller.dmodel.UserLibraries#getClassOfServices <em>Class Of Services</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Class Of Services</em>'.
-   * @see datasemModeller.dmodel.UserLibraries#getClassOfServices()
-   * @see #getUserLibraries()
-   * @generated
-   */
-  EReference getUserLibraries_ClassOfServices();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link datasemModeller.dmodel.UserLibraries#getServices <em>Services</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Services</em>'.
-   * @see datasemModeller.dmodel.UserLibraries#getServices()
-   * @see #getUserLibraries()
-   * @generated
-   */
-  EReference getUserLibraries_Services();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link datasemModeller.dmodel.UserLibraries#getGovernanceStrategies <em>Governance Strategies</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Governance Strategies</em>'.
-   * @see datasemModeller.dmodel.UserLibraries#getGovernanceStrategies()
-   * @see #getUserLibraries()
-   * @generated
-   */
-  EReference getUserLibraries_GovernanceStrategies();
 
   /**
    * Returns the meta object for class '{@link datasemModeller.dmodel.AbstractParameter <em>Abstract Parameter</em>}'.
@@ -3808,17 +3826,6 @@ public interface DmodelPackage extends EPackage
   EReference getGovernanceStrategy_ContractNetProtocal();
 
   /**
-   * Returns the meta object for the reference list '{@link datasemModeller.dmodel.GovernanceStrategy#getProcesses <em>Processes</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Processes</em>'.
-   * @see datasemModeller.dmodel.GovernanceStrategy#getProcesses()
-   * @see #getGovernanceStrategy()
-   * @generated
-   */
-  EReference getGovernanceStrategy_Processes();
-
-  /**
    * Returns the meta object for class '{@link datasemModeller.dmodel.ContractNetProtocol <em>Contract Net Protocol</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3924,6 +3931,28 @@ public interface DmodelPackage extends EPackage
    * @generated
    */
   EAttribute getProcessModel_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link datasemModeller.dmodel.ProcessModel#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see datasemModeller.dmodel.ProcessModel#getDescription()
+   * @see #getProcessModel()
+   * @generated
+   */
+  EAttribute getProcessModel_Description();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link datasemModeller.dmodel.ProcessModel#getMechanisms <em>Mechanisms</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Mechanisms</em>'.
+   * @see datasemModeller.dmodel.ProcessModel#getMechanisms()
+   * @see #getProcessModel()
+   * @generated
+   */
+  EReference getProcessModel_Mechanisms();
 
   /**
    * Returns the meta object for the containment reference list '{@link datasemModeller.dmodel.ProcessModel#getActions <em>Actions</em>}'.
@@ -4054,15 +4083,15 @@ public interface DmodelPackage extends EPackage
   EClass getMechanismAttribute();
 
   /**
-   * Returns the meta object for the attribute '{@link datasemModeller.dmodel.MechanismAttribute#getAttribute <em>Attribute</em>}'.
+   * Returns the meta object for the attribute '{@link datasemModeller.dmodel.MechanismAttribute#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Attribute</em>'.
-   * @see datasemModeller.dmodel.MechanismAttribute#getAttribute()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see datasemModeller.dmodel.MechanismAttribute#getName()
    * @see #getMechanismAttribute()
    * @generated
    */
-  EAttribute getMechanismAttribute_Attribute();
+  EAttribute getMechanismAttribute_Name();
 
   /**
    * Returns the meta object for the attribute '{@link datasemModeller.dmodel.MechanismAttribute#getValue <em>Value</em>}'.
@@ -4271,6 +4300,28 @@ public interface DmodelPackage extends EPackage
   EReference getWorkItem_RequiredAnalysis();
 
   /**
+   * Returns the meta object for the attribute '{@link datasemModeller.dmodel.WorkItem#isHasDecompositionMechanism <em>Has Decomposition Mechanism</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Has Decomposition Mechanism</em>'.
+   * @see datasemModeller.dmodel.WorkItem#isHasDecompositionMechanism()
+   * @see #getWorkItem()
+   * @generated
+   */
+  EAttribute getWorkItem_HasDecompositionMechanism();
+
+  /**
+   * Returns the meta object for the containment reference '{@link datasemModeller.dmodel.WorkItem#getDecompositionMechanism <em>Decomposition Mechanism</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Decomposition Mechanism</em>'.
+   * @see datasemModeller.dmodel.WorkItem#getDecompositionMechanism()
+   * @see #getWorkItem()
+   * @generated
+   */
+  EReference getWorkItem_DecompositionMechanism();
+
+  /**
    * Returns the meta object for the containment reference list '{@link datasemModeller.dmodel.WorkItem#getRequiredServices <em>Required Services</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4302,6 +4353,17 @@ public interface DmodelPackage extends EPackage
    * @generated
    */
   EReference getWorkItem_Uncertainty();
+
+  /**
+   * Returns the meta object for the containment reference '{@link datasemModeller.dmodel.WorkItem#getRisk <em>Risk</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Risk</em>'.
+   * @see datasemModeller.dmodel.WorkItem#getRisk()
+   * @see #getWorkItem()
+   * @generated
+   */
+  EReference getWorkItem_Risk();
 
   /**
    * Returns the meta object for the attribute '{@link datasemModeller.dmodel.WorkItem#isHasImpacts <em>Has Impacts</em>}'.
@@ -4337,28 +4399,6 @@ public interface DmodelPackage extends EPackage
   EReference getWorkItem_Value();
 
   /**
-   * Returns the meta object for the containment reference '{@link datasemModeller.dmodel.WorkItem#getRisk <em>Risk</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Risk</em>'.
-   * @see datasemModeller.dmodel.WorkItem#getRisk()
-   * @see #getWorkItem()
-   * @generated
-   */
-  EReference getWorkItem_Risk();
-
-  /**
-   * Returns the meta object for the reference '{@link datasemModeller.dmodel.WorkItem#getClassOfService <em>Class Of Service</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Class Of Service</em>'.
-   * @see datasemModeller.dmodel.WorkItem#getClassOfService()
-   * @see #getWorkItem()
-   * @generated
-   */
-  EReference getWorkItem_ClassOfService();
-
-  /**
    * Returns the meta object for the reference '{@link datasemModeller.dmodel.WorkItem#getWorkSource <em>Work Source</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4381,15 +4421,15 @@ public interface DmodelPackage extends EPackage
   EAttribute getWorkItem_ArrivalTime();
 
   /**
-   * Returns the meta object for the attribute '{@link datasemModeller.dmodel.WorkItem#getDueDate <em>Due Date</em>}'.
+   * Returns the meta object for the attribute '{@link datasemModeller.dmodel.WorkItem#getDuration <em>Duration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Due Date</em>'.
-   * @see datasemModeller.dmodel.WorkItem#getDueDate()
+   * @return the meta object for the attribute '<em>Duration</em>'.
+   * @see datasemModeller.dmodel.WorkItem#getDuration()
    * @see #getWorkItem()
    * @generated
    */
-  EAttribute getWorkItem_DueDate();
+  EAttribute getWorkItem_Duration();
 
   /**
    * Returns the meta object for the attribute '{@link datasemModeller.dmodel.WorkItem#getId <em>Id</em>}'.
@@ -4488,17 +4528,6 @@ public interface DmodelPackage extends EPackage
   EClass getWorkItemType();
 
   /**
-   * Returns the meta object for the attribute '{@link datasemModeller.dmodel.WorkItemType#getId <em>Id</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see datasemModeller.dmodel.WorkItemType#getId()
-   * @see #getWorkItemType()
-   * @generated
-   */
-  EAttribute getWorkItemType_Id();
-
-  /**
    * Returns the meta object for the attribute '{@link datasemModeller.dmodel.WorkItemType#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4530,6 +4559,17 @@ public interface DmodelPackage extends EPackage
    * @generated
    */
   EAttribute getWorkItemType_Hierarchy();
+
+  /**
+   * Returns the meta object for the attribute '{@link datasemModeller.dmodel.WorkItemType#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see datasemModeller.dmodel.WorkItemType#getId()
+   * @see #getWorkItemType()
+   * @generated
+   */
+  EAttribute getWorkItemType_Id();
 
   /**
    * Returns the meta object for class '{@link datasemModeller.dmodel.ValueFunction <em>Value Function</em>}'.
@@ -6114,6 +6154,64 @@ public interface DmodelPackage extends EPackage
     EReference MODEL_BUILDER__EXPERIMENT_MODEL = eINSTANCE.getModelBuilder_ExperimentModel();
 
     /**
+     * The meta object literal for the '{@link datasemModeller.dmodel.impl.UserLibrariesImpl <em>User Libraries</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see datasemModeller.dmodel.impl.UserLibrariesImpl
+     * @see datasemModeller.dmodel.impl.DmodelPackageImpl#getUserLibraries()
+     * @generated
+     */
+    EClass USER_LIBRARIES = eINSTANCE.getUserLibraries();
+
+    /**
+     * The meta object literal for the '<em><b>Service Provider Types</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USER_LIBRARIES__SERVICE_PROVIDER_TYPES = eINSTANCE.getUserLibraries_ServiceProviderTypes();
+
+    /**
+     * The meta object literal for the '<em><b>Work Item Types</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USER_LIBRARIES__WORK_ITEM_TYPES = eINSTANCE.getUserLibraries_WorkItemTypes();
+
+    /**
+     * The meta object literal for the '<em><b>Class Of Services</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USER_LIBRARIES__CLASS_OF_SERVICES = eINSTANCE.getUserLibraries_ClassOfServices();
+
+    /**
+     * The meta object literal for the '<em><b>Services</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USER_LIBRARIES__SERVICES = eINSTANCE.getUserLibraries_Services();
+
+    /**
+     * The meta object literal for the '<em><b>Process Models</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USER_LIBRARIES__PROCESS_MODELS = eINSTANCE.getUserLibraries_ProcessModels();
+
+    /**
+     * The meta object literal for the '<em><b>Governance Strategies</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USER_LIBRARIES__GOVERNANCE_STRATEGIES = eINSTANCE.getUserLibraries_GovernanceStrategies();
+
+    /**
      * The meta object literal for the '{@link datasemModeller.dmodel.impl.ExperimentModelImpl <em>Experiment Model</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6186,64 +6284,6 @@ public interface DmodelPackage extends EPackage
      * @generated
      */
     EAttribute EXPERIMENT_MODEL__INDICATORS = eINSTANCE.getExperimentModel_Indicators();
-
-    /**
-     * The meta object literal for the '{@link datasemModeller.dmodel.impl.UserLibrariesImpl <em>User Libraries</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see datasemModeller.dmodel.impl.UserLibrariesImpl
-     * @see datasemModeller.dmodel.impl.DmodelPackageImpl#getUserLibraries()
-     * @generated
-     */
-    EClass USER_LIBRARIES = eINSTANCE.getUserLibraries();
-
-    /**
-     * The meta object literal for the '<em><b>Service Provider Types</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference USER_LIBRARIES__SERVICE_PROVIDER_TYPES = eINSTANCE.getUserLibraries_ServiceProviderTypes();
-
-    /**
-     * The meta object literal for the '<em><b>Work Item Types</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference USER_LIBRARIES__WORK_ITEM_TYPES = eINSTANCE.getUserLibraries_WorkItemTypes();
-
-    /**
-     * The meta object literal for the '<em><b>Process Models</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference USER_LIBRARIES__PROCESS_MODELS = eINSTANCE.getUserLibraries_ProcessModels();
-
-    /**
-     * The meta object literal for the '<em><b>Class Of Services</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference USER_LIBRARIES__CLASS_OF_SERVICES = eINSTANCE.getUserLibraries_ClassOfServices();
-
-    /**
-     * The meta object literal for the '<em><b>Services</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference USER_LIBRARIES__SERVICES = eINSTANCE.getUserLibraries_Services();
-
-    /**
-     * The meta object literal for the '<em><b>Governance Strategies</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference USER_LIBRARIES__GOVERNANCE_STRATEGIES = eINSTANCE.getUserLibraries_GovernanceStrategies();
 
     /**
      * The meta object literal for the '{@link datasemModeller.dmodel.impl.AbstractParameterImpl <em>Abstract Parameter</em>}' class.
@@ -6612,14 +6652,6 @@ public interface DmodelPackage extends EPackage
     EReference GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL = eINSTANCE.getGovernanceStrategy_ContractNetProtocal();
 
     /**
-     * The meta object literal for the '<em><b>Processes</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference GOVERNANCE_STRATEGY__PROCESSES = eINSTANCE.getGovernanceStrategy_Processes();
-
-    /**
      * The meta object literal for the '{@link datasemModeller.dmodel.impl.ContractNetProtocolImpl <em>Contract Net Protocol</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6704,6 +6736,22 @@ public interface DmodelPackage extends EPackage
      * @generated
      */
     EAttribute PROCESS_MODEL__NAME = eINSTANCE.getProcessModel_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROCESS_MODEL__DESCRIPTION = eINSTANCE.getProcessModel_Description();
+
+    /**
+     * The meta object literal for the '<em><b>Mechanisms</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROCESS_MODEL__MECHANISMS = eINSTANCE.getProcessModel_Mechanisms();
 
     /**
      * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
@@ -6810,12 +6858,12 @@ public interface DmodelPackage extends EPackage
     EClass MECHANISM_ATTRIBUTE = eINSTANCE.getMechanismAttribute();
 
     /**
-     * The meta object literal for the '<em><b>Attribute</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MECHANISM_ATTRIBUTE__ATTRIBUTE = eINSTANCE.getMechanismAttribute_Attribute();
+    EAttribute MECHANISM_ATTRIBUTE__NAME = eINSTANCE.getMechanismAttribute_Name();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -6976,6 +7024,22 @@ public interface DmodelPackage extends EPackage
     EReference WORK_ITEM__REQUIRED_ANALYSIS = eINSTANCE.getWorkItem_RequiredAnalysis();
 
     /**
+     * The meta object literal for the '<em><b>Has Decomposition Mechanism</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WORK_ITEM__HAS_DECOMPOSITION_MECHANISM = eINSTANCE.getWorkItem_HasDecompositionMechanism();
+
+    /**
+     * The meta object literal for the '<em><b>Decomposition Mechanism</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WORK_ITEM__DECOMPOSITION_MECHANISM = eINSTANCE.getWorkItem_DecompositionMechanism();
+
+    /**
      * The meta object literal for the '<em><b>Required Services</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6998,6 +7062,14 @@ public interface DmodelPackage extends EPackage
      * @generated
      */
     EReference WORK_ITEM__UNCERTAINTY = eINSTANCE.getWorkItem_Uncertainty();
+
+    /**
+     * The meta object literal for the '<em><b>Risk</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WORK_ITEM__RISK = eINSTANCE.getWorkItem_Risk();
 
     /**
      * The meta object literal for the '<em><b>Has Impacts</b></em>' attribute feature.
@@ -7024,22 +7096,6 @@ public interface DmodelPackage extends EPackage
     EReference WORK_ITEM__VALUE = eINSTANCE.getWorkItem_Value();
 
     /**
-     * The meta object literal for the '<em><b>Risk</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference WORK_ITEM__RISK = eINSTANCE.getWorkItem_Risk();
-
-    /**
-     * The meta object literal for the '<em><b>Class Of Service</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference WORK_ITEM__CLASS_OF_SERVICE = eINSTANCE.getWorkItem_ClassOfService();
-
-    /**
      * The meta object literal for the '<em><b>Work Source</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7056,12 +7112,12 @@ public interface DmodelPackage extends EPackage
     EAttribute WORK_ITEM__ARRIVAL_TIME = eINSTANCE.getWorkItem_ArrivalTime();
 
     /**
-     * The meta object literal for the '<em><b>Due Date</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Duration</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute WORK_ITEM__DUE_DATE = eINSTANCE.getWorkItem_DueDate();
+    EAttribute WORK_ITEM__DURATION = eINSTANCE.getWorkItem_Duration();
 
     /**
      * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
@@ -7142,14 +7198,6 @@ public interface DmodelPackage extends EPackage
     EClass WORK_ITEM_TYPE = eINSTANCE.getWorkItemType();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute WORK_ITEM_TYPE__ID = eINSTANCE.getWorkItemType_Id();
-
-    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7172,6 +7220,14 @@ public interface DmodelPackage extends EPackage
      * @generated
      */
     EAttribute WORK_ITEM_TYPE__HIERARCHY = eINSTANCE.getWorkItemType_Hierarchy();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WORK_ITEM_TYPE__ID = eINSTANCE.getWorkItemType_Id();
 
     /**
      * The meta object literal for the '{@link datasemModeller.dmodel.impl.ValueFunctionImpl <em>Value Function</em>}' class.

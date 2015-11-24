@@ -22,17 +22,18 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link datasemModeller.dmodel.WorkItem#isHasSubtasks <em>Has Subtasks</em>}</li>
  *   <li>{@link datasemModeller.dmodel.WorkItem#getSTasks <em>STasks</em>}</li>
  *   <li>{@link datasemModeller.dmodel.WorkItem#getRequiredAnalysis <em>Required Analysis</em>}</li>
+ *   <li>{@link datasemModeller.dmodel.WorkItem#isHasDecompositionMechanism <em>Has Decomposition Mechanism</em>}</li>
+ *   <li>{@link datasemModeller.dmodel.WorkItem#getDecompositionMechanism <em>Decomposition Mechanism</em>}</li>
  *   <li>{@link datasemModeller.dmodel.WorkItem#getRequiredServices <em>Required Services</em>}</li>
  *   <li>{@link datasemModeller.dmodel.WorkItem#getMaturityLevels <em>Maturity Levels</em>}</li>
  *   <li>{@link datasemModeller.dmodel.WorkItem#getUncertainty <em>Uncertainty</em>}</li>
+ *   <li>{@link datasemModeller.dmodel.WorkItem#getRisk <em>Risk</em>}</li>
  *   <li>{@link datasemModeller.dmodel.WorkItem#isHasImpacts <em>Has Impacts</em>}</li>
  *   <li>{@link datasemModeller.dmodel.WorkItem#getImpacts <em>Impacts</em>}</li>
  *   <li>{@link datasemModeller.dmodel.WorkItem#getValue <em>Value</em>}</li>
- *   <li>{@link datasemModeller.dmodel.WorkItem#getRisk <em>Risk</em>}</li>
- *   <li>{@link datasemModeller.dmodel.WorkItem#getClassOfService <em>Class Of Service</em>}</li>
  *   <li>{@link datasemModeller.dmodel.WorkItem#getWorkSource <em>Work Source</em>}</li>
  *   <li>{@link datasemModeller.dmodel.WorkItem#getArrivalTime <em>Arrival Time</em>}</li>
- *   <li>{@link datasemModeller.dmodel.WorkItem#getDueDate <em>Due Date</em>}</li>
+ *   <li>{@link datasemModeller.dmodel.WorkItem#getDuration <em>Duration</em>}</li>
  *   <li>{@link datasemModeller.dmodel.WorkItem#getId <em>Id</em>}</li>
  * </ul>
  * </p>
@@ -222,6 +223,58 @@ public interface WorkItem extends EObject
   EList<RequiredService> getRequiredAnalysis();
 
   /**
+   * Returns the value of the '<em><b>Has Decomposition Mechanism</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Has Decomposition Mechanism</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Has Decomposition Mechanism</em>' attribute.
+   * @see #setHasDecompositionMechanism(boolean)
+   * @see datasemModeller.dmodel.DmodelPackage#getWorkItem_HasDecompositionMechanism()
+   * @model
+   * @generated
+   */
+  boolean isHasDecompositionMechanism();
+
+  /**
+   * Sets the value of the '{@link datasemModeller.dmodel.WorkItem#isHasDecompositionMechanism <em>Has Decomposition Mechanism</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Has Decomposition Mechanism</em>' attribute.
+   * @see #isHasDecompositionMechanism()
+   * @generated
+   */
+  void setHasDecompositionMechanism(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Decomposition Mechanism</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Decomposition Mechanism</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Decomposition Mechanism</em>' containment reference.
+   * @see #setDecompositionMechanism(Mechanism)
+   * @see datasemModeller.dmodel.DmodelPackage#getWorkItem_DecompositionMechanism()
+   * @model containment="true"
+   * @generated
+   */
+  Mechanism getDecompositionMechanism();
+
+  /**
+   * Sets the value of the '{@link datasemModeller.dmodel.WorkItem#getDecompositionMechanism <em>Decomposition Mechanism</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Decomposition Mechanism</em>' containment reference.
+   * @see #getDecompositionMechanism()
+   * @generated
+   */
+  void setDecompositionMechanism(Mechanism value);
+
+  /**
    * Returns the value of the '<em><b>Required Services</b></em>' containment reference list.
    * The list contents are of type {@link datasemModeller.dmodel.RequiredService}.
    * <!-- begin-user-doc -->
@@ -288,6 +341,32 @@ public interface WorkItem extends EObject
    * @generated
    */
   void setUncertainty(AbstractParameter value);
+
+  /**
+   * Returns the value of the '<em><b>Risk</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Risk</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Risk</em>' containment reference.
+   * @see #setRisk(AbstractParameter)
+   * @see datasemModeller.dmodel.DmodelPackage#getWorkItem_Risk()
+   * @model containment="true"
+   * @generated
+   */
+  AbstractParameter getRisk();
+
+  /**
+   * Sets the value of the '{@link datasemModeller.dmodel.WorkItem#getRisk <em>Risk</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Risk</em>' containment reference.
+   * @see #getRisk()
+   * @generated
+   */
+  void setRisk(AbstractParameter value);
 
   /**
    * Returns the value of the '<em><b>Has Impacts</b></em>' attribute.
@@ -358,58 +437,6 @@ public interface WorkItem extends EObject
   void setValue(NumExpression value);
 
   /**
-   * Returns the value of the '<em><b>Risk</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Risk</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Risk</em>' containment reference.
-   * @see #setRisk(AbstractParameter)
-   * @see datasemModeller.dmodel.DmodelPackage#getWorkItem_Risk()
-   * @model containment="true"
-   * @generated
-   */
-  AbstractParameter getRisk();
-
-  /**
-   * Sets the value of the '{@link datasemModeller.dmodel.WorkItem#getRisk <em>Risk</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Risk</em>' containment reference.
-   * @see #getRisk()
-   * @generated
-   */
-  void setRisk(AbstractParameter value);
-
-  /**
-   * Returns the value of the '<em><b>Class Of Service</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Class Of Service</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Class Of Service</em>' reference.
-   * @see #setClassOfService(ClassOfService)
-   * @see datasemModeller.dmodel.DmodelPackage#getWorkItem_ClassOfService()
-   * @model
-   * @generated
-   */
-  ClassOfService getClassOfService();
-
-  /**
-   * Sets the value of the '{@link datasemModeller.dmodel.WorkItem#getClassOfService <em>Class Of Service</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Class Of Service</em>' reference.
-   * @see #getClassOfService()
-   * @generated
-   */
-  void setClassOfService(ClassOfService value);
-
-  /**
    * Returns the value of the '<em><b>Work Source</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
@@ -462,30 +489,30 @@ public interface WorkItem extends EObject
   void setArrivalTime(int value);
 
   /**
-   * Returns the value of the '<em><b>Due Date</b></em>' attribute.
+   * Returns the value of the '<em><b>Duration</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Due Date</em>' attribute isn't clear,
+   * If the meaning of the '<em>Duration</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Due Date</em>' attribute.
-   * @see #setDueDate(int)
-   * @see datasemModeller.dmodel.DmodelPackage#getWorkItem_DueDate()
+   * @return the value of the '<em>Duration</em>' attribute.
+   * @see #setDuration(int)
+   * @see datasemModeller.dmodel.DmodelPackage#getWorkItem_Duration()
    * @model
    * @generated
    */
-  int getDueDate();
+  int getDuration();
 
   /**
-   * Sets the value of the '{@link datasemModeller.dmodel.WorkItem#getDueDate <em>Due Date</em>}' attribute.
+   * Sets the value of the '{@link datasemModeller.dmodel.WorkItem#getDuration <em>Duration</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Due Date</em>' attribute.
-   * @see #getDueDate()
+   * @param value the new value of the '<em>Duration</em>' attribute.
+   * @see #getDuration()
    * @generated
    */
-  void setDueDate(int value);
+  void setDuration(int value);
 
   /**
    * Returns the value of the '<em><b>Id</b></em>' attribute.

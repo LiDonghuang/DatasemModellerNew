@@ -26,7 +26,7 @@ public class Main {
 		directory = new File(System.getProperty("user.dir"));
 		Injector injector = new datasemModeller.DmodelStandaloneSetup().createInjectorAndDoEMFRegistration();
 		Main main = injector.getInstance(Main.class);
-		main.runGenerator(directory.toURI()+"dsl.kmdl");
+		main.runGenerator(directory.toURI()+"dsl.dmodel");
 	}
 	
 	@Inject 

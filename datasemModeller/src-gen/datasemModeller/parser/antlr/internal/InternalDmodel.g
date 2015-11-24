@@ -95,7 +95,7 @@ ruleModelBuilder returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -117,7 +117,7 @@ ruleModelBuilder returns [EObject current=null]
        			$current, 
        			"Description",
         		lv_Description_3_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -134,7 +134,7 @@ ruleModelBuilder returns [EObject current=null]
        			$current, 
        			"UserLibraries",
         		lv_UserLibraries_4_0, 
-        		"UserLibraries");
+        		"datasemModeller.Dmodel.UserLibraries");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -152,261 +152,12 @@ ruleModelBuilder returns [EObject current=null]
        			$current, 
        			"ExperimentModel",
         		lv_ExperimentModel_5_0, 
-        		"ExperimentModel");
+        		"datasemModeller.Dmodel.ExperimentModel");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 ))
-;
-
-
-
-
-
-// Entry rule entryRuleExperimentModel
-entryRuleExperimentModel returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getExperimentModelRule()); }
-	 iv_ruleExperimentModel=ruleExperimentModel 
-	 { $current=$iv_ruleExperimentModel.current; } 
-	 EOF 
-;
-
-// Rule ExperimentModel
-ruleExperimentModel returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-(	otherlv_0='ExperimentModel' 
-    {
-    	newLeafNode(otherlv_0, grammarAccess.getExperimentModelAccess().getExperimentModelKeyword_0());
-    }
-(
-(
-		lv_name_1_0=RULE_ID
-		{
-			newLeafNode(lv_name_1_0, grammarAccess.getExperimentModelAccess().getNameIDTerminalRuleCall_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getExperimentModelRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"name",
-        		lv_name_1_0, 
-        		"ID");
-	    }
-
-)
-)(	otherlv_2='Path' 
-    {
-    	newLeafNode(otherlv_2, grammarAccess.getExperimentModelAccess().getPathKeyword_2_0());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getExperimentModelAccess().getPathQualifiedNameParserRuleCall_2_1_0()); 
-	    }
-		lv_Path_3_0=ruleQualifiedName		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getExperimentModelRule());
-	        }
-       		set(
-       			$current, 
-       			"Path",
-        		lv_Path_3_0, 
-        		"QualifiedName");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))?	otherlv_4='Variables' 
-    {
-    	newLeafNode(otherlv_4, grammarAccess.getExperimentModelAccess().getVariablesKeyword_3());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getExperimentModelAccess().getExperimentVariablesExperimentVariableParserRuleCall_4_0()); 
-	    }
-		lv_ExperimentVariables_5_0=ruleExperimentVariable		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getExperimentModelRule());
-	        }
-       		add(
-       			$current, 
-       			"ExperimentVariables",
-        		lv_ExperimentVariables_5_0, 
-        		"ExperimentVariable");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)*	otherlv_6='end Variables' 
-    {
-    	newLeafNode(otherlv_6, grammarAccess.getExperimentModelAccess().getEndVariablesKeyword_5());
-    }
-	otherlv_7='OrganizationalModel' 
-    {
-    	newLeafNode(otherlv_7, grammarAccess.getExperimentModelAccess().getOrganizationalModelKeyword_6());
-    }
-	otherlv_8='ServiceProviders' 
-    {
-    	newLeafNode(otherlv_8, grammarAccess.getExperimentModelAccess().getServiceProvidersKeyword_7());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getExperimentModelAccess().getServiceProvidersServiceProviderParserRuleCall_8_0()); 
-	    }
-		lv_ServiceProviders_9_0=ruleServiceProvider		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getExperimentModelRule());
-	        }
-       		add(
-       			$current, 
-       			"ServiceProviders",
-        		lv_ServiceProviders_9_0, 
-        		"ServiceProvider");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)+	otherlv_10='end ServiceProviders' 
-    {
-    	newLeafNode(otherlv_10, grammarAccess.getExperimentModelAccess().getEndServiceProvidersKeyword_9());
-    }
-	otherlv_11='end OrganizationalModel' 
-    {
-    	newLeafNode(otherlv_11, grammarAccess.getExperimentModelAccess().getEndOrganizationalModelKeyword_10());
-    }
-	otherlv_12='WorkItemNetworkModel' 
-    {
-    	newLeafNode(otherlv_12, grammarAccess.getExperimentModelAccess().getWorkItemNetworkModelKeyword_11());
-    }
-	otherlv_13='WorkSources' 
-    {
-    	newLeafNode(otherlv_13, grammarAccess.getExperimentModelAccess().getWorkSourcesKeyword_12());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getExperimentModelAccess().getWorkSourcesWorkSourceParserRuleCall_13_0()); 
-	    }
-		lv_WorkSources_14_0=ruleWorkSource		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getExperimentModelRule());
-	        }
-       		add(
-       			$current, 
-       			"WorkSources",
-        		lv_WorkSources_14_0, 
-        		"WorkSource");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)+	otherlv_15='end WorkSources' 
-    {
-    	newLeafNode(otherlv_15, grammarAccess.getExperimentModelAccess().getEndWorkSourcesKeyword_14());
-    }
-	otherlv_16='WorkItemNetworks' 
-    {
-    	newLeafNode(otherlv_16, grammarAccess.getExperimentModelAccess().getWorkItemNetworksKeyword_15());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getExperimentModelAccess().getWorkItemNetworksWorkItemNetworkParserRuleCall_16_0()); 
-	    }
-		lv_WorkItemNetworks_17_0=ruleWorkItemNetwork		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getExperimentModelRule());
-	        }
-       		add(
-       			$current, 
-       			"WorkItemNetworks",
-        		lv_WorkItemNetworks_17_0, 
-        		"WorkItemNetwork");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)+	otherlv_18='end WorkItemNetworks' 
-    {
-    	newLeafNode(otherlv_18, grammarAccess.getExperimentModelAccess().getEndWorkItemNetworksKeyword_17());
-    }
-	otherlv_19='end WorkItemNetworkModel' 
-    {
-    	newLeafNode(otherlv_19, grammarAccess.getExperimentModelAccess().getEndWorkItemNetworkModelKeyword_18());
-    }
-	otherlv_20='ExperimentSettings' 
-    {
-    	newLeafNode(otherlv_20, grammarAccess.getExperimentModelAccess().getExperimentSettingsKeyword_19());
-    }
-	otherlv_21='WINReplications' 
-    {
-    	newLeafNode(otherlv_21, grammarAccess.getExperimentModelAccess().getWINReplicationsKeyword_20());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getExperimentModelAccess().getWINReplicationsWINReplicationParserRuleCall_21_0()); 
-	    }
-		lv_WINReplications_22_0=ruleWINReplication		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getExperimentModelRule());
-	        }
-       		add(
-       			$current, 
-       			"WINReplications",
-        		lv_WINReplications_22_0, 
-        		"WINReplication");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)+	otherlv_23='end WINReplications' 
-    {
-    	newLeafNode(otherlv_23, grammarAccess.getExperimentModelAccess().getEndWINReplicationsKeyword_22());
-    }
-	otherlv_24='Indicators' 
-    {
-    	newLeafNode(otherlv_24, grammarAccess.getExperimentModelAccess().getIndicatorsKeyword_23());
-    }
-(
-(
-		lv_Indicators_25_0=RULE_ID
-		{
-			newLeafNode(lv_Indicators_25_0, grammarAccess.getExperimentModelAccess().getIndicatorsIDTerminalRuleCall_24_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getExperimentModelRule());
-	        }
-       		addWithLastConsumed(
-       			$current, 
-       			"Indicators",
-        		lv_Indicators_25_0, 
-        		"ID");
-	    }
-
-)
-)*	otherlv_26='end Indicators' 
-    {
-    	newLeafNode(otherlv_26, grammarAccess.getExperimentModelAccess().getEndIndicatorsKeyword_25());
-    }
-	otherlv_27='end ExperimentSettings' 
-    {
-    	newLeafNode(otherlv_27, grammarAccess.getExperimentModelAccess().getEndExperimentSettingsKeyword_26());
-    }
-	otherlv_28='end ExperimentModel' 
-    {
-    	newLeafNode(otherlv_28, grammarAccess.getExperimentModelAccess().getEndExperimentModelKeyword_27());
-    }
-)
 ;
 
 
@@ -448,7 +199,7 @@ ruleUserLibraries returns [EObject current=null]
        			$current, 
        			"ServiceProviderTypes",
         		lv_ServiceProviderTypes_2_0, 
-        		"ServiceProviderType");
+        		"datasemModeller.Dmodel.ServiceProviderType");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -474,7 +225,7 @@ ruleUserLibraries returns [EObject current=null]
        			$current, 
        			"WorkItemTypes",
         		lv_WorkItemTypes_5_0, 
-        		"WorkItemType");
+        		"datasemModeller.Dmodel.WorkItemType");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -483,92 +234,92 @@ ruleUserLibraries returns [EObject current=null]
     {
     	newLeafNode(otherlv_6, grammarAccess.getUserLibrariesAccess().getEndWorkItemTypesKeyword_6());
     }
-	otherlv_7='ProcessModels' 
+(	otherlv_7='ClassOfServices' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getUserLibrariesAccess().getProcessModelsKeyword_7());
+    	newLeafNode(otherlv_7, grammarAccess.getUserLibrariesAccess().getClassOfServicesKeyword_7_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUserLibrariesAccess().getProcessModelsProcessModelParserRuleCall_8_0()); 
+	        newCompositeNode(grammarAccess.getUserLibrariesAccess().getClassOfServicesClassOfServiceParserRuleCall_7_1_0()); 
 	    }
-		lv_ProcessModels_8_0=ruleProcessModel		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getUserLibrariesRule());
-	        }
-       		add(
-       			$current, 
-       			"ProcessModels",
-        		lv_ProcessModels_8_0, 
-        		"ProcessModel");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)*	otherlv_9='end ProcessModels' 
-    {
-    	newLeafNode(otherlv_9, grammarAccess.getUserLibrariesAccess().getEndProcessModelsKeyword_9());
-    }
-	otherlv_10='ClassOfServices' 
-    {
-    	newLeafNode(otherlv_10, grammarAccess.getUserLibrariesAccess().getClassOfServicesKeyword_10());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getUserLibrariesAccess().getClassOfServicesClassOfServiceParserRuleCall_11_0()); 
-	    }
-		lv_ClassOfServices_11_0=ruleClassOfService		{
+		lv_ClassOfServices_8_0=ruleClassOfService		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUserLibrariesRule());
 	        }
        		add(
        			$current, 
        			"ClassOfServices",
-        		lv_ClassOfServices_11_0, 
-        		"ClassOfService");
+        		lv_ClassOfServices_8_0, 
+        		"datasemModeller.Dmodel.ClassOfService");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*	otherlv_12='end ClassOfServices' 
+)*	otherlv_9='end ClassOfServices' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getUserLibrariesAccess().getEndClassOfServicesKeyword_12());
+    	newLeafNode(otherlv_9, grammarAccess.getUserLibrariesAccess().getEndClassOfServicesKeyword_7_2());
     }
-	otherlv_13='Services' 
+)?	otherlv_10='Services' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getUserLibrariesAccess().getServicesKeyword_13());
+    	newLeafNode(otherlv_10, grammarAccess.getUserLibrariesAccess().getServicesKeyword_8());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUserLibrariesAccess().getServicesServiceParserRuleCall_14_0()); 
+	        newCompositeNode(grammarAccess.getUserLibrariesAccess().getServicesServiceParserRuleCall_9_0()); 
 	    }
-		lv_Services_14_0=ruleService		{
+		lv_Services_11_0=ruleService		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUserLibrariesRule());
 	        }
        		add(
        			$current, 
        			"Services",
-        		lv_Services_14_0, 
-        		"Service");
+        		lv_Services_11_0, 
+        		"datasemModeller.Dmodel.Service");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*	otherlv_15='end Services' 
+)*	otherlv_12='end Services' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getUserLibrariesAccess().getEndServicesKeyword_15());
+    	newLeafNode(otherlv_12, grammarAccess.getUserLibrariesAccess().getEndServicesKeyword_10());
     }
-	otherlv_16='GovernanceStrategies' 
+	otherlv_13='ProcessModels' 
     {
-    	newLeafNode(otherlv_16, grammarAccess.getUserLibrariesAccess().getGovernanceStrategiesKeyword_16());
+    	newLeafNode(otherlv_13, grammarAccess.getUserLibrariesAccess().getProcessModelsKeyword_11());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUserLibrariesAccess().getGovernanceStrategiesGovernanceStrategyParserRuleCall_17_0()); 
+	        newCompositeNode(grammarAccess.getUserLibrariesAccess().getProcessModelsProcessModelParserRuleCall_12_0()); 
+	    }
+		lv_ProcessModels_14_0=ruleProcessModel		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUserLibrariesRule());
+	        }
+       		add(
+       			$current, 
+       			"ProcessModels",
+        		lv_ProcessModels_14_0, 
+        		"datasemModeller.Dmodel.ProcessModel");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_15='end ProcessModels' 
+    {
+    	newLeafNode(otherlv_15, grammarAccess.getUserLibrariesAccess().getEndProcessModelsKeyword_13());
+    }
+	otherlv_16='GovernanceStrategies' 
+    {
+    	newLeafNode(otherlv_16, grammarAccess.getUserLibrariesAccess().getGovernanceStrategiesKeyword_14());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUserLibrariesAccess().getGovernanceStrategiesGovernanceStrategyParserRuleCall_15_0()); 
 	    }
 		lv_GovernanceStrategies_17_0=ruleGovernanceStrategy		{
 	        if ($current==null) {
@@ -578,18 +329,267 @@ ruleUserLibraries returns [EObject current=null]
        			$current, 
        			"GovernanceStrategies",
         		lv_GovernanceStrategies_17_0, 
-        		"GovernanceStrategy");
+        		"datasemModeller.Dmodel.GovernanceStrategy");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 )*	otherlv_18='end GovernanceStrategies' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getUserLibrariesAccess().getEndGovernanceStrategiesKeyword_18());
+    	newLeafNode(otherlv_18, grammarAccess.getUserLibrariesAccess().getEndGovernanceStrategiesKeyword_16());
     }
 	otherlv_19='end UserLibraries' 
     {
-    	newLeafNode(otherlv_19, grammarAccess.getUserLibrariesAccess().getEndUserLibrariesKeyword_19());
+    	newLeafNode(otherlv_19, grammarAccess.getUserLibrariesAccess().getEndUserLibrariesKeyword_17());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleExperimentModel
+entryRuleExperimentModel returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getExperimentModelRule()); }
+	 iv_ruleExperimentModel=ruleExperimentModel 
+	 { $current=$iv_ruleExperimentModel.current; } 
+	 EOF 
+;
+
+// Rule ExperimentModel
+ruleExperimentModel returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='ExperimentModel' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getExperimentModelAccess().getExperimentModelKeyword_0());
+    }
+(
+(
+		lv_name_1_0=RULE_ID
+		{
+			newLeafNode(lv_name_1_0, grammarAccess.getExperimentModelAccess().getNameIDTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getExperimentModelRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_1_0, 
+        		"org.eclipse.xtext.common.Terminals.ID");
+	    }
+
+)
+)(	otherlv_2='Path' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getExperimentModelAccess().getPathKeyword_2_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getExperimentModelAccess().getPathQualifiedNameParserRuleCall_2_1_0()); 
+	    }
+		lv_Path_3_0=ruleQualifiedName		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getExperimentModelRule());
+	        }
+       		set(
+       			$current, 
+       			"Path",
+        		lv_Path_3_0, 
+        		"datasemModeller.Dmodel.QualifiedName");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?	otherlv_4='Variables' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getExperimentModelAccess().getVariablesKeyword_3());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getExperimentModelAccess().getExperimentVariablesExperimentVariableParserRuleCall_4_0()); 
+	    }
+		lv_ExperimentVariables_5_0=ruleExperimentVariable		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getExperimentModelRule());
+	        }
+       		add(
+       			$current, 
+       			"ExperimentVariables",
+        		lv_ExperimentVariables_5_0, 
+        		"datasemModeller.Dmodel.ExperimentVariable");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_6='end Variables' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getExperimentModelAccess().getEndVariablesKeyword_5());
+    }
+	otherlv_7='OrganizationalModel' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getExperimentModelAccess().getOrganizationalModelKeyword_6());
+    }
+	otherlv_8='ServiceProviders' 
+    {
+    	newLeafNode(otherlv_8, grammarAccess.getExperimentModelAccess().getServiceProvidersKeyword_7());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getExperimentModelAccess().getServiceProvidersServiceProviderParserRuleCall_8_0()); 
+	    }
+		lv_ServiceProviders_9_0=ruleServiceProvider		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getExperimentModelRule());
+	        }
+       		add(
+       			$current, 
+       			"ServiceProviders",
+        		lv_ServiceProviders_9_0, 
+        		"datasemModeller.Dmodel.ServiceProvider");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)+	otherlv_10='end ServiceProviders' 
+    {
+    	newLeafNode(otherlv_10, grammarAccess.getExperimentModelAccess().getEndServiceProvidersKeyword_9());
+    }
+	otherlv_11='end OrganizationalModel' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getExperimentModelAccess().getEndOrganizationalModelKeyword_10());
+    }
+	otherlv_12='WorkItemNetworkModel' 
+    {
+    	newLeafNode(otherlv_12, grammarAccess.getExperimentModelAccess().getWorkItemNetworkModelKeyword_11());
+    }
+	otherlv_13='WorkSources' 
+    {
+    	newLeafNode(otherlv_13, grammarAccess.getExperimentModelAccess().getWorkSourcesKeyword_12());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getExperimentModelAccess().getWorkSourcesWorkSourceParserRuleCall_13_0()); 
+	    }
+		lv_WorkSources_14_0=ruleWorkSource		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getExperimentModelRule());
+	        }
+       		add(
+       			$current, 
+       			"WorkSources",
+        		lv_WorkSources_14_0, 
+        		"datasemModeller.Dmodel.WorkSource");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)+	otherlv_15='end WorkSources' 
+    {
+    	newLeafNode(otherlv_15, grammarAccess.getExperimentModelAccess().getEndWorkSourcesKeyword_14());
+    }
+	otherlv_16='WorkItemNetworks' 
+    {
+    	newLeafNode(otherlv_16, grammarAccess.getExperimentModelAccess().getWorkItemNetworksKeyword_15());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getExperimentModelAccess().getWorkItemNetworksWorkItemNetworkParserRuleCall_16_0()); 
+	    }
+		lv_WorkItemNetworks_17_0=ruleWorkItemNetwork		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getExperimentModelRule());
+	        }
+       		add(
+       			$current, 
+       			"WorkItemNetworks",
+        		lv_WorkItemNetworks_17_0, 
+        		"datasemModeller.Dmodel.WorkItemNetwork");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)+	otherlv_18='end WorkItemNetworks' 
+    {
+    	newLeafNode(otherlv_18, grammarAccess.getExperimentModelAccess().getEndWorkItemNetworksKeyword_17());
+    }
+	otherlv_19='end WorkItemNetworkModel' 
+    {
+    	newLeafNode(otherlv_19, grammarAccess.getExperimentModelAccess().getEndWorkItemNetworkModelKeyword_18());
+    }
+	otherlv_20='ExperimentSettings' 
+    {
+    	newLeafNode(otherlv_20, grammarAccess.getExperimentModelAccess().getExperimentSettingsKeyword_19());
+    }
+	otherlv_21='WINReplications' 
+    {
+    	newLeafNode(otherlv_21, grammarAccess.getExperimentModelAccess().getWINReplicationsKeyword_20());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getExperimentModelAccess().getWINReplicationsWINReplicationParserRuleCall_21_0()); 
+	    }
+		lv_WINReplications_22_0=ruleWINReplication		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getExperimentModelRule());
+	        }
+       		add(
+       			$current, 
+       			"WINReplications",
+        		lv_WINReplications_22_0, 
+        		"datasemModeller.Dmodel.WINReplication");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)+	otherlv_23='end WINReplications' 
+    {
+    	newLeafNode(otherlv_23, grammarAccess.getExperimentModelAccess().getEndWINReplicationsKeyword_22());
+    }
+	otherlv_24='Indicators' 
+    {
+    	newLeafNode(otherlv_24, grammarAccess.getExperimentModelAccess().getIndicatorsKeyword_23());
+    }
+(
+(
+		lv_Indicators_25_0=RULE_ID
+		{
+			newLeafNode(lv_Indicators_25_0, grammarAccess.getExperimentModelAccess().getIndicatorsIDTerminalRuleCall_24_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getExperimentModelRule());
+	        }
+       		addWithLastConsumed(
+       			$current, 
+       			"Indicators",
+        		lv_Indicators_25_0, 
+        		"org.eclipse.xtext.common.Terminals.ID");
+	    }
+
+)
+)*	otherlv_26='end Indicators' 
+    {
+    	newLeafNode(otherlv_26, grammarAccess.getExperimentModelAccess().getEndIndicatorsKeyword_25());
+    }
+	otherlv_27='end ExperimentSettings' 
+    {
+    	newLeafNode(otherlv_27, grammarAccess.getExperimentModelAccess().getEndExperimentSettingsKeyword_26());
+    }
+	otherlv_28='end ExperimentModel' 
+    {
+    	newLeafNode(otherlv_28, grammarAccess.getExperimentModelAccess().getEndExperimentModelKeyword_27());
     }
 )
 ;
@@ -800,7 +800,7 @@ ruleAbstractParameter returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_2_0, 
-        		"Parameter");
+        		"datasemModeller.Dmodel.Parameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -839,7 +839,7 @@ ruleNumExpression returns [EObject current=null]
        			$current, 
        			"numValue",
         		lv_numValue_0_0, 
-        		"Number");
+        		"datasemModeller.Dmodel.Number");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -873,7 +873,7 @@ ruleNumExpression returns [EObject current=null]
        			$current, 
        			"numDist",
         		lv_numDist_2_0, 
-        		"Distribution");
+        		"datasemModeller.Dmodel.Distribution");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1029,7 +1029,7 @@ ruleExperimentVariable returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_0_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -1066,7 +1066,7 @@ ruleExperimentVariable returns [EObject current=null]
        			$current, 
        			"booleanValue",
         		lv_booleanValue_3_0, 
-        		"BOOLEAN");
+        		"datasemModeller.Dmodel.BOOLEAN");
 	    }
 
 )
@@ -1099,7 +1099,7 @@ ruleExperimentVariable returns [EObject current=null]
        			$current, 
        			"numValue",
         		lv_numValue_5_0, 
-        		"Number");
+        		"datasemModeller.Dmodel.Number");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1133,7 +1133,7 @@ ruleExperimentVariable returns [EObject current=null]
        			$current, 
        			"numDist",
         		lv_numDist_7_0, 
-        		"Distribution");
+        		"datasemModeller.Dmodel.Distribution");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1168,7 +1168,7 @@ ruleExperimentVariable returns [EObject current=null]
        			$current, 
        			"stringValue",
         		lv_stringValue_9_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -1201,7 +1201,7 @@ ruleExperimentVariable returns [EObject current=null]
        			$current, 
        			"strategyValue",
         		lv_strategyValue_11_0, 
-        		"GovernanceStrategy");
+        		"datasemModeller.Dmodel.GovernanceStrategy");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1291,7 +1291,7 @@ ruleDistribution returns [EObject current=null]
        			$current, 
        			"parameters",
         		lv_parameters_4_0, 
-        		"Parameter");
+        		"datasemModeller.Dmodel.Parameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1313,7 +1313,7 @@ ruleDistribution returns [EObject current=null]
        			$current, 
        			"parameters",
         		lv_parameters_6_0, 
-        		"Parameter");
+        		"datasemModeller.Dmodel.Parameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1378,7 +1378,7 @@ ruleWINReplication returns [EObject current=null]
        			$current, 
        			"numReplications",
         		lv_numReplications_3_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -1417,7 +1417,7 @@ ruleGovernanceStrategy returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_0_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -1466,7 +1466,7 @@ ruleGovernanceStrategy returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_6_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -1483,7 +1483,7 @@ ruleGovernanceStrategy returns [EObject current=null]
        			$current, 
        			"pullStrategy",
         		lv_pullStrategy_7_0, 
-        		"PullStrategy");
+        		"datasemModeller.Dmodel.PullStrategy");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1526,7 +1526,7 @@ ruleGovernanceStrategy returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_11_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -1543,7 +1543,7 @@ ruleGovernanceStrategy returns [EObject current=null]
        			$current, 
        			"pushStrategy",
         		lv_pushStrategy_12_0, 
-        		"PushStrategy");
+        		"datasemModeller.Dmodel.PushStrategy");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1586,7 +1586,7 @@ ruleGovernanceStrategy returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_16_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -1603,39 +1603,14 @@ ruleGovernanceStrategy returns [EObject current=null]
        			$current, 
        			"contractNetProtocal",
         		lv_contractNetProtocal_17_0, 
-        		"ContractNetProtocol");
+        		"datasemModeller.Dmodel.ContractNetProtocol");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)))	otherlv_18='processes' 
+)))	otherlv_18='}' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getGovernanceStrategyAccess().getProcessesKeyword_4());
-    }
-	otherlv_19='{' 
-    {
-    	newLeafNode(otherlv_19, grammarAccess.getGovernanceStrategyAccess().getLeftCurlyBracketKeyword_5());
-    }
-(
-(
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getGovernanceStrategyRule());
-	        }
-        }
-	otherlv_20=RULE_ID
-	{
-		newLeafNode(otherlv_20, grammarAccess.getGovernanceStrategyAccess().getProcessesProcessModelCrossReference_6_0()); 
-	}
-
-)
-)+	otherlv_21='}' 
-    {
-    	newLeafNode(otherlv_21, grammarAccess.getGovernanceStrategyAccess().getRightCurlyBracketKeyword_7());
-    }
-	otherlv_22='}' 
-    {
-    	newLeafNode(otherlv_22, grammarAccess.getGovernanceStrategyAccess().getRightCurlyBracketKeyword_8());
+    	newLeafNode(otherlv_18, grammarAccess.getGovernanceStrategyAccess().getRightCurlyBracketKeyword_4());
     }
 )
 ;
@@ -1679,7 +1654,7 @@ ruleContractNetProtocol returns [EObject current=null]
        			$current, 
        			"mechanisms",
         		lv_mechanisms_2_0, 
-        		"Mechanism");
+        		"datasemModeller.Dmodel.Mechanism");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1701,7 +1676,7 @@ ruleContractNetProtocol returns [EObject current=null]
        			$current, 
        			"variables",
         		lv_variables_4_0, 
-        		"Variable");
+        		"datasemModeller.Dmodel.Variable");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1727,7 +1702,7 @@ ruleContractNetProtocol returns [EObject current=null]
        			$current, 
        			"roleBehaviors",
         		lv_roleBehaviors_7_0, 
-        		"RoleBehavior");
+        		"datasemModeller.Dmodel.RoleBehavior");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1775,7 +1750,7 @@ ruleRoleBehavior returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -1804,7 +1779,7 @@ ruleRoleBehavior returns [EObject current=null]
        			$current, 
        			"actions",
         		lv_actions_5_0, 
-        		"Action");
+        		"datasemModeller.Dmodel.Action");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1826,7 +1801,7 @@ ruleRoleBehavior returns [EObject current=null]
        			$current, 
        			"states",
         		lv_states_7_0, 
-        		"State");
+        		"datasemModeller.Dmodel.State");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1870,67 +1845,119 @@ ruleProcessModel returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_0_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
-)	otherlv_1='{' 
+)(	otherlv_1='{' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getProcessModelAccess().getLeftCurlyBracketKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getProcessModelAccess().getLeftCurlyBracketKeyword_1_0());
     }
-	otherlv_2='actions' 
+(	otherlv_2='desc' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getProcessModelAccess().getActionsKeyword_2());
+    	newLeafNode(otherlv_2, grammarAccess.getProcessModelAccess().getDescKeyword_1_1_0());
     }
-	otherlv_3='{' 
+(
+(
+		lv_description_3_0=RULE_STRING
+		{
+			newLeafNode(lv_description_3_0, grammarAccess.getProcessModelAccess().getDescriptionSTRINGTerminalRuleCall_1_1_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getProcessModelRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"description",
+        		lv_description_3_0, 
+        		"org.eclipse.xtext.common.Terminals.STRING");
+	    }
+
+)
+))?(	otherlv_4='mechanisms' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getProcessModelAccess().getLeftCurlyBracketKeyword_3());
+    	newLeafNode(otherlv_4, grammarAccess.getProcessModelAccess().getMechanismsKeyword_1_2_0());
+    }
+	otherlv_5='{' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getProcessModelAccess().getLeftCurlyBracketKeyword_1_2_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getProcessModelAccess().getActionsActionParserRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getProcessModelAccess().getMechanismsMechanismParserRuleCall_1_2_2_0()); 
 	    }
-		lv_actions_4_0=ruleAction		{
+		lv_mechanisms_6_0=ruleMechanism		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getProcessModelRule());
 	        }
        		add(
        			$current, 
-       			"actions",
-        		lv_actions_4_0, 
-        		"Action");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)*	otherlv_5='}' 
-    {
-    	newLeafNode(otherlv_5, grammarAccess.getProcessModelAccess().getRightCurlyBracketKeyword_5());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getProcessModelAccess().getStatesStateParserRuleCall_6_0()); 
-	    }
-		lv_states_6_0=ruleState		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getProcessModelRule());
-	        }
-       		add(
-       			$current, 
-       			"states",
-        		lv_states_6_0, 
-        		"State");
+       			"mechanisms",
+        		lv_mechanisms_6_0, 
+        		"datasemModeller.Dmodel.Mechanism");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 )+	otherlv_7='}' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getProcessModelAccess().getRightCurlyBracketKeyword_7());
+    	newLeafNode(otherlv_7, grammarAccess.getProcessModelAccess().getRightCurlyBracketKeyword_1_2_3());
     }
+)?(	otherlv_8='actions' 
+    {
+    	newLeafNode(otherlv_8, grammarAccess.getProcessModelAccess().getActionsKeyword_1_3_0());
+    }
+	otherlv_9='{' 
+    {
+    	newLeafNode(otherlv_9, grammarAccess.getProcessModelAccess().getLeftCurlyBracketKeyword_1_3_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getProcessModelAccess().getActionsActionParserRuleCall_1_3_2_0()); 
+	    }
+		lv_actions_10_0=ruleAction		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getProcessModelRule());
+	        }
+       		add(
+       			$current, 
+       			"actions",
+        		lv_actions_10_0, 
+        		"datasemModeller.Dmodel.Action");
+	        afterParserOrEnumRuleCall();
+	    }
+
 )
+)*	otherlv_11='}' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getProcessModelAccess().getRightCurlyBracketKeyword_1_3_3());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getProcessModelAccess().getStatesStateParserRuleCall_1_3_4_0()); 
+	    }
+		lv_states_12_0=ruleState		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getProcessModelRule());
+	        }
+       		add(
+       			$current, 
+       			"states",
+        		lv_states_12_0, 
+        		"datasemModeller.Dmodel.State");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)+)?	otherlv_13='}' 
+    {
+    	newLeafNode(otherlv_13, grammarAccess.getProcessModelAccess().getRightCurlyBracketKeyword_1_4());
+    }
+))
 ;
 
 
@@ -1972,7 +1999,7 @@ rulePullStrategy returns [EObject current=null]
        			$current, 
        			"mechanisms",
         		lv_mechanisms_2_0, 
-        		"Mechanism");
+        		"datasemModeller.Dmodel.Mechanism");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2023,7 +2050,7 @@ rulePushStrategy returns [EObject current=null]
        			$current, 
        			"mechanisms",
         		lv_mechanisms_2_0, 
-        		"Mechanism");
+        		"datasemModeller.Dmodel.Mechanism");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2067,7 +2094,7 @@ ruleMechanism returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_0_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -2088,24 +2115,24 @@ ruleMechanism returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_2_0, 
-        		"Parameter");
+        		"datasemModeller.Dmodel.Parameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_3='{' 
+)(	otherlv_3='{' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getMechanismAccess().getLeftCurlyBracketKeyword_3());
+    	newLeafNode(otherlv_3, grammarAccess.getMechanismAccess().getLeftCurlyBracketKeyword_3_0());
     }
 (	otherlv_4='desc' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getMechanismAccess().getDescKeyword_4_0());
+    	newLeafNode(otherlv_4, grammarAccess.getMechanismAccess().getDescKeyword_3_1_0());
     }
 (
 (
 		lv_description_5_0=RULE_STRING
 		{
-			newLeafNode(lv_description_5_0, grammarAccess.getMechanismAccess().getDescriptionSTRINGTerminalRuleCall_4_1_0()); 
+			newLeafNode(lv_description_5_0, grammarAccess.getMechanismAccess().getDescriptionSTRINGTerminalRuleCall_3_1_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2115,22 +2142,22 @@ ruleMechanism returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_5_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
 ))?(	otherlv_6='attributes' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getMechanismAccess().getAttributesKeyword_5_0());
+    	newLeafNode(otherlv_6, grammarAccess.getMechanismAccess().getAttributesKeyword_3_2_0());
     }
 	otherlv_7='{' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getMechanismAccess().getLeftCurlyBracketKeyword_5_1());
+    	newLeafNode(otherlv_7, grammarAccess.getMechanismAccess().getLeftCurlyBracketKeyword_3_2_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getMechanismAccess().getAttributesMechanismAttributeParserRuleCall_5_2_0()); 
+	        newCompositeNode(grammarAccess.getMechanismAccess().getAttributesMechanismAttributeParserRuleCall_3_2_2_0()); 
 	    }
 		lv_attributes_8_0=ruleMechanismAttribute		{
 	        if ($current==null) {
@@ -2140,20 +2167,42 @@ ruleMechanism returns [EObject current=null]
        			$current, 
        			"attributes",
         		lv_attributes_8_0, 
-        		"MechanismAttribute");
+        		"datasemModeller.Dmodel.MechanismAttribute");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)+	otherlv_9='}' 
+)(	otherlv_9=',' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getMechanismAccess().getRightCurlyBracketKeyword_5_3());
+    	newLeafNode(otherlv_9, grammarAccess.getMechanismAccess().getCommaKeyword_3_2_3_0());
     }
-)?	otherlv_10='}' 
-    {
-    	newLeafNode(otherlv_10, grammarAccess.getMechanismAccess().getRightCurlyBracketKeyword_6());
-    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getMechanismAccess().getAttributesMechanismAttributeParserRuleCall_3_2_3_1_0()); 
+	    }
+		lv_attributes_10_0=ruleMechanismAttribute		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getMechanismRule());
+	        }
+       		add(
+       			$current, 
+       			"attributes",
+        		lv_attributes_10_0, 
+        		"datasemModeller.Dmodel.MechanismAttribute");
+	        afterParserOrEnumRuleCall();
+	    }
+
 )
+))*	otherlv_11='}' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getMechanismAccess().getRightCurlyBracketKeyword_3_2_4());
+    }
+)?	otherlv_12='}' 
+    {
+    	newLeafNode(otherlv_12, grammarAccess.getMechanismAccess().getRightCurlyBracketKeyword_3_3());
+    }
+)?)
 ;
 
 
@@ -2176,9 +2225,9 @@ ruleMechanismAttribute returns [EObject current=null]
     @after { leaveRule(); }:
 ((
 (
-		lv_attribute_0_0=RULE_STRING
+		lv_name_0_0=RULE_ID
 		{
-			newLeafNode(lv_attribute_0_0, grammarAccess.getMechanismAttributeAccess().getAttributeSTRINGTerminalRuleCall_0_0()); 
+			newLeafNode(lv_name_0_0, grammarAccess.getMechanismAttributeAccess().getNameIDTerminalRuleCall_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2186,9 +2235,9 @@ ruleMechanismAttribute returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"attribute",
-        		lv_attribute_0_0, 
-        		"STRING");
+       			"name",
+        		lv_name_0_0, 
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -2209,7 +2258,7 @@ ruleMechanismAttribute returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_2_0, 
-        		"Parameter");
+        		"datasemModeller.Dmodel.Parameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2253,7 +2302,7 @@ ruleWorkSource returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -2279,11 +2328,11 @@ ruleWorkSource returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_4_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
-))?(	otherlv_5='AssignTo' 
+))?(	otherlv_5='assignTo' 
     {
     	newLeafNode(otherlv_5, grammarAccess.getWorkSourceAccess().getAssignToKeyword_4_0());
     }
@@ -2304,13 +2353,30 @@ ruleWorkSource returns [EObject current=null]
 	}
 
 )
-)+	otherlv_8='}' 
+)(	otherlv_8=',' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getWorkSourceAccess().getRightCurlyBracketKeyword_4_3());
+    	newLeafNode(otherlv_8, grammarAccess.getWorkSourceAccess().getCommaKeyword_4_3_0());
     }
-)?	otherlv_9='}' 
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getWorkSourceRule());
+	        }
+        }
+	otherlv_9=RULE_ID
+	{
+		newLeafNode(otherlv_9, grammarAccess.getWorkSourceAccess().getAssignToServiceProviderCrossReference_4_3_1_0()); 
+	}
+
+)
+))*	otherlv_10='}' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getWorkSourceAccess().getRightCurlyBracketKeyword_5());
+    	newLeafNode(otherlv_10, grammarAccess.getWorkSourceAccess().getRightCurlyBracketKeyword_4_4());
+    }
+)?	otherlv_11='}' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getWorkSourceAccess().getRightCurlyBracketKeyword_5());
     }
 )
 ;
@@ -2351,7 +2417,7 @@ ruleWorkItemNetwork returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -2377,7 +2443,7 @@ ruleWorkItemNetwork returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_4_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -2402,7 +2468,7 @@ ruleWorkItemNetwork returns [EObject current=null]
        			$current, 
        			"workItems",
         		lv_workItems_7_0, 
-        		"WorkItem");
+        		"datasemModeller.Dmodel.WorkItem");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2429,7 +2495,7 @@ ruleWorkItemNetwork returns [EObject current=null]
        			$current, 
        			"id",
         		lv_id_10_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -2468,7 +2534,7 @@ ruleWorkItem returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_0_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -2515,7 +2581,7 @@ ruleWorkItem returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_6_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -2646,7 +2712,7 @@ ruleWorkItem returns [EObject current=null]
        			$current, 
        			"requiredAnalysis",
         		lv_requiredAnalysis_21_0, 
-        		"RequiredService");
+        		"datasemModeller.Dmodel.RequiredService");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2668,7 +2734,7 @@ ruleWorkItem returns [EObject current=null]
        			$current, 
        			"requiredAnalysis",
         		lv_requiredAnalysis_23_0, 
-        		"RequiredService");
+        		"datasemModeller.Dmodel.RequiredService");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2678,40 +2744,51 @@ ruleWorkItem returns [EObject current=null]
     	newLeafNode(otherlv_24, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_5_0_9());
     }
 )?
-    |((	otherlv_25='analysisEfforts' 
-    {
-    	newLeafNode(otherlv_25, grammarAccess.getWorkItemAccess().getAnalysisEffortsKeyword_5_1_0_0());
-    }
-	otherlv_26='{' 
-    {
-    	newLeafNode(otherlv_26, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_5_1_0_1());
-    }
+    |(((
 (
+		lv_hasDecompositionMechanism_25_0=	'decompositionMechanism' 
+    {
+        newLeafNode(lv_hasDecompositionMechanism_25_0, grammarAccess.getWorkItemAccess().getHasDecompositionMechanismDecompositionMechanismKeyword_5_1_0_0_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getWorkItemRule());
+	        }
+       		setWithLastConsumed($current, "hasDecompositionMechanism", true, "decompositionMechanism");
+	    }
+
+)
+)(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getWorkItemAccess().getRequiredAnalysisRequiredServiceParserRuleCall_5_1_0_2_0()); 
+	        newCompositeNode(grammarAccess.getWorkItemAccess().getDecompositionMechanismMechanismParserRuleCall_5_1_0_1_0()); 
 	    }
-		lv_requiredAnalysis_27_0=ruleRequiredService		{
+		lv_decompositionMechanism_26_0=ruleMechanism		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
 	        }
-       		add(
+       		set(
        			$current, 
-       			"requiredAnalysis",
-        		lv_requiredAnalysis_27_0, 
-        		"RequiredService");
+       			"decompositionMechanism",
+        		lv_decompositionMechanism_26_0, 
+        		"datasemModeller.Dmodel.Mechanism");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_28=',' 
+))?(	otherlv_27='analysisEfforts' 
     {
-    	newLeafNode(otherlv_28, grammarAccess.getWorkItemAccess().getCommaKeyword_5_1_0_3_0());
+    	newLeafNode(otherlv_27, grammarAccess.getWorkItemAccess().getAnalysisEffortsKeyword_5_1_1_0());
+    }
+	otherlv_28='{' 
+    {
+    	newLeafNode(otherlv_28, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_5_1_1_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getWorkItemAccess().getRequiredAnalysisRequiredServiceParserRuleCall_5_1_0_3_1_0()); 
+	        newCompositeNode(grammarAccess.getWorkItemAccess().getRequiredAnalysisRequiredServiceParserRuleCall_5_1_1_2_0()); 
 	    }
 		lv_requiredAnalysis_29_0=ruleRequiredService		{
 	        if ($current==null) {
@@ -2721,49 +2798,49 @@ ruleWorkItem returns [EObject current=null]
        			$current, 
        			"requiredAnalysis",
         		lv_requiredAnalysis_29_0, 
-        		"RequiredService");
+        		"datasemModeller.Dmodel.RequiredService");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*	otherlv_30='}' 
+)(	otherlv_30=',' 
     {
-    	newLeafNode(otherlv_30, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_5_1_0_4());
-    }
-)?	otherlv_31='efforts' 
-    {
-    	newLeafNode(otherlv_31, grammarAccess.getWorkItemAccess().getEffortsKeyword_5_1_1());
-    }
-	otherlv_32='{' 
-    {
-    	newLeafNode(otherlv_32, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_5_1_2());
+    	newLeafNode(otherlv_30, grammarAccess.getWorkItemAccess().getCommaKeyword_5_1_1_3_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getWorkItemAccess().getRequiredServicesRequiredServiceParserRuleCall_5_1_3_0()); 
+	        newCompositeNode(grammarAccess.getWorkItemAccess().getRequiredAnalysisRequiredServiceParserRuleCall_5_1_1_3_1_0()); 
 	    }
-		lv_requiredServices_33_0=ruleRequiredService		{
+		lv_requiredAnalysis_31_0=ruleRequiredService		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
 	        }
        		add(
        			$current, 
-       			"requiredServices",
-        		lv_requiredServices_33_0, 
-        		"RequiredService");
+       			"requiredAnalysis",
+        		lv_requiredAnalysis_31_0, 
+        		"datasemModeller.Dmodel.RequiredService");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_34=',' 
+))*	otherlv_32='}' 
     {
-    	newLeafNode(otherlv_34, grammarAccess.getWorkItemAccess().getCommaKeyword_5_1_4_0());
+    	newLeafNode(otherlv_32, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_5_1_1_4());
+    }
+)?	otherlv_33='efforts' 
+    {
+    	newLeafNode(otherlv_33, grammarAccess.getWorkItemAccess().getEffortsKeyword_5_1_2());
+    }
+	otherlv_34='{' 
+    {
+    	newLeafNode(otherlv_34, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_5_1_3());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getWorkItemAccess().getRequiredServicesRequiredServiceParserRuleCall_5_1_4_1_0()); 
+	        newCompositeNode(grammarAccess.getWorkItemAccess().getRequiredServicesRequiredServiceParserRuleCall_5_1_4_0()); 
 	    }
 		lv_requiredServices_35_0=ruleRequiredService		{
 	        if ($current==null) {
@@ -2773,64 +2850,108 @@ ruleWorkItem returns [EObject current=null]
        			$current, 
        			"requiredServices",
         		lv_requiredServices_35_0, 
-        		"RequiredService");
+        		"datasemModeller.Dmodel.RequiredService");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*	otherlv_36='}' 
+)(	otherlv_36=',' 
     {
-    	newLeafNode(otherlv_36, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_5_1_5());
+    	newLeafNode(otherlv_36, grammarAccess.getWorkItemAccess().getCommaKeyword_5_1_5_0());
     }
-))(	otherlv_37='maturityLevels' 
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getWorkItemAccess().getRequiredServicesRequiredServiceParserRuleCall_5_1_5_1_0()); 
+	    }
+		lv_requiredServices_37_0=ruleRequiredService		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
+	        }
+       		add(
+       			$current, 
+       			"requiredServices",
+        		lv_requiredServices_37_0, 
+        		"datasemModeller.Dmodel.RequiredService");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))*	otherlv_38='}' 
     {
-    	newLeafNode(otherlv_37, grammarAccess.getWorkItemAccess().getMaturityLevelsKeyword_6_0());
+    	newLeafNode(otherlv_38, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_5_1_6());
+    }
+))(	otherlv_39='maturityLevels' 
+    {
+    	newLeafNode(otherlv_39, grammarAccess.getWorkItemAccess().getMaturityLevelsKeyword_6_0());
     }
 (
 (
 		{ 
 	        newCompositeNode(grammarAccess.getWorkItemAccess().getMaturityLevelsAbstractParameterParserRuleCall_6_1_0()); 
 	    }
-		lv_maturityLevels_38_0=ruleAbstractParameter		{
+		lv_maturityLevels_40_0=ruleAbstractParameter		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
 	        }
        		set(
        			$current, 
        			"maturityLevels",
-        		lv_maturityLevels_38_0, 
-        		"AbstractParameter");
+        		lv_maturityLevels_40_0, 
+        		"datasemModeller.Dmodel.AbstractParameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))?(	otherlv_39='uncertainty' 
+))?(	otherlv_41='uncertainty' 
     {
-    	newLeafNode(otherlv_39, grammarAccess.getWorkItemAccess().getUncertaintyKeyword_7_0());
+    	newLeafNode(otherlv_41, grammarAccess.getWorkItemAccess().getUncertaintyKeyword_7_0());
     }
 (
 (
 		{ 
 	        newCompositeNode(grammarAccess.getWorkItemAccess().getUncertaintyAbstractParameterParserRuleCall_7_1_0()); 
 	    }
-		lv_uncertainty_40_0=ruleAbstractParameter		{
+		lv_uncertainty_42_0=ruleAbstractParameter		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
 	        }
        		set(
        			$current, 
        			"uncertainty",
-        		lv_uncertainty_40_0, 
-        		"AbstractParameter");
+        		lv_uncertainty_42_0, 
+        		"datasemModeller.Dmodel.AbstractParameter");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?(	otherlv_43='risk' 
+    {
+    	newLeafNode(otherlv_43, grammarAccess.getWorkItemAccess().getRiskKeyword_8_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getWorkItemAccess().getRiskAbstractParameterParserRuleCall_8_1_0()); 
+	    }
+		lv_risk_44_0=ruleAbstractParameter		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
+	        }
+       		set(
+       			$current, 
+       			"risk",
+        		lv_risk_44_0, 
+        		"datasemModeller.Dmodel.AbstractParameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 ))?((
 (
-		lv_hasImpacts_41_0=	'impacts' 
+		lv_hasImpacts_45_0=	'impacts' 
     {
-        newLeafNode(lv_hasImpacts_41_0, grammarAccess.getWorkItemAccess().getHasImpactsImpactsKeyword_8_0_0());
+        newLeafNode(lv_hasImpacts_45_0, grammarAccess.getWorkItemAccess().getHasImpactsImpactsKeyword_9_0_0());
     }
  
 	    {
@@ -2841,118 +2962,79 @@ ruleWorkItem returns [EObject current=null]
 	    }
 
 )
-)	otherlv_42='{' 
+)	otherlv_46='{' 
     {
-    	newLeafNode(otherlv_42, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_8_1());
+    	newLeafNode(otherlv_46, grammarAccess.getWorkItemAccess().getLeftCurlyBracketKeyword_9_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getWorkItemAccess().getImpactsImpactParserRuleCall_8_2_0()); 
+	        newCompositeNode(grammarAccess.getWorkItemAccess().getImpactsImpactParserRuleCall_9_2_0()); 
 	    }
-		lv_impacts_43_0=ruleImpact		{
+		lv_impacts_47_0=ruleImpact		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
 	        }
        		add(
        			$current, 
        			"impacts",
-        		lv_impacts_43_0, 
-        		"Impact");
+        		lv_impacts_47_0, 
+        		"datasemModeller.Dmodel.Impact");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_44=',' 
+)(	otherlv_48=',' 
     {
-    	newLeafNode(otherlv_44, grammarAccess.getWorkItemAccess().getCommaKeyword_8_3_0());
+    	newLeafNode(otherlv_48, grammarAccess.getWorkItemAccess().getCommaKeyword_9_3_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getWorkItemAccess().getImpactsImpactParserRuleCall_8_3_1_0()); 
+	        newCompositeNode(grammarAccess.getWorkItemAccess().getImpactsImpactParserRuleCall_9_3_1_0()); 
 	    }
-		lv_impacts_45_0=ruleImpact		{
+		lv_impacts_49_0=ruleImpact		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
 	        }
        		add(
        			$current, 
        			"impacts",
-        		lv_impacts_45_0, 
-        		"Impact");
+        		lv_impacts_49_0, 
+        		"datasemModeller.Dmodel.Impact");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*	otherlv_46='}' 
+))*	otherlv_50='}' 
     {
-    	newLeafNode(otherlv_46, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_8_4());
+    	newLeafNode(otherlv_50, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_9_4());
     }
-)?(	otherlv_47='value' 
+)?(	otherlv_51='value' 
     {
-    	newLeafNode(otherlv_47, grammarAccess.getWorkItemAccess().getValueKeyword_9_0());
+    	newLeafNode(otherlv_51, grammarAccess.getWorkItemAccess().getValueKeyword_10_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getWorkItemAccess().getValueNumExpressionParserRuleCall_9_1_0()); 
+	        newCompositeNode(grammarAccess.getWorkItemAccess().getValueNumExpressionParserRuleCall_10_1_0()); 
 	    }
-		lv_value_48_0=ruleNumExpression		{
+		lv_value_52_0=ruleNumExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
 	        }
        		set(
        			$current, 
        			"value",
-        		lv_value_48_0, 
-        		"NumExpression");
+        		lv_value_52_0, 
+        		"datasemModeller.Dmodel.NumExpression");
 	        afterParserOrEnumRuleCall();
 	    }
-
-)
-))?(	otherlv_49='risk' 
-    {
-    	newLeafNode(otherlv_49, grammarAccess.getWorkItemAccess().getRiskKeyword_10_0());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getWorkItemAccess().getRiskAbstractParameterParserRuleCall_10_1_0()); 
-	    }
-		lv_risk_50_0=ruleAbstractParameter		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getWorkItemRule());
-	        }
-       		set(
-       			$current, 
-       			"risk",
-        		lv_risk_50_0, 
-        		"AbstractParameter");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))?(	otherlv_51='classOfService' 
-    {
-    	newLeafNode(otherlv_51, grammarAccess.getWorkItemAccess().getClassOfServiceKeyword_11_0());
-    }
-(
-(
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getWorkItemRule());
-	        }
-        }
-	otherlv_52=RULE_ID
-	{
-		newLeafNode(otherlv_52, grammarAccess.getWorkItemAccess().getClassOfServiceClassOfServiceCrossReference_11_1_0()); 
-	}
 
 )
 ))?(	otherlv_53='workSource' 
     {
-    	newLeafNode(otherlv_53, grammarAccess.getWorkItemAccess().getWorkSourceKeyword_12_0());
+    	newLeafNode(otherlv_53, grammarAccess.getWorkItemAccess().getWorkSourceKeyword_11_0());
     }
 (
 (
@@ -2963,19 +3045,19 @@ ruleWorkItem returns [EObject current=null]
         }
 	otherlv_54=RULE_ID
 	{
-		newLeafNode(otherlv_54, grammarAccess.getWorkItemAccess().getWorkSourceWorkSourceCrossReference_12_1_0()); 
+		newLeafNode(otherlv_54, grammarAccess.getWorkItemAccess().getWorkSourceWorkSourceCrossReference_11_1_0()); 
 	}
 
 )
-))?(	otherlv_55='arrivalTime' 
+))?(	otherlv_55='arrival' 
     {
-    	newLeafNode(otherlv_55, grammarAccess.getWorkItemAccess().getArrivalTimeKeyword_13_0());
+    	newLeafNode(otherlv_55, grammarAccess.getWorkItemAccess().getArrivalKeyword_12_0());
     }
 (
 (
 		lv_arrivalTime_56_0=RULE_INT
 		{
-			newLeafNode(lv_arrivalTime_56_0, grammarAccess.getWorkItemAccess().getArrivalTimeINTTerminalRuleCall_13_1_0()); 
+			newLeafNode(lv_arrivalTime_56_0, grammarAccess.getWorkItemAccess().getArrivalTimeINTTerminalRuleCall_12_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2985,19 +3067,19 @@ ruleWorkItem returns [EObject current=null]
        			$current, 
        			"arrivalTime",
         		lv_arrivalTime_56_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
-))?(	otherlv_57='dueDate' 
+))?(	otherlv_57='duration' 
     {
-    	newLeafNode(otherlv_57, grammarAccess.getWorkItemAccess().getDueDateKeyword_14_0());
+    	newLeafNode(otherlv_57, grammarAccess.getWorkItemAccess().getDurationKeyword_13_0());
     }
 (
 (
-		lv_dueDate_58_0=RULE_INT
+		lv_duration_58_0=RULE_INT
 		{
-			newLeafNode(lv_dueDate_58_0, grammarAccess.getWorkItemAccess().getDueDateINTTerminalRuleCall_14_1_0()); 
+			newLeafNode(lv_duration_58_0, grammarAccess.getWorkItemAccess().getDurationINTTerminalRuleCall_13_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3005,21 +3087,21 @@ ruleWorkItem returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"dueDate",
-        		lv_dueDate_58_0, 
-        		"INT");
+       			"duration",
+        		lv_duration_58_0, 
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
 ))?	otherlv_59='}' 
     {
-    	newLeafNode(otherlv_59, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_15());
+    	newLeafNode(otherlv_59, grammarAccess.getWorkItemAccess().getRightCurlyBracketKeyword_14());
     }
 (
 (
 		lv_id_60_0=RULE_INT
 		{
-			newLeafNode(lv_id_60_0, grammarAccess.getWorkItemAccess().getIdINTTerminalRuleCall_16_0()); 
+			newLeafNode(lv_id_60_0, grammarAccess.getWorkItemAccess().getIdINTTerminalRuleCall_15_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3029,7 +3111,7 @@ ruleWorkItem returns [EObject current=null]
        			$current, 
        			"id",
         		lv_id_60_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -3088,7 +3170,7 @@ ruleRequiredService returns [EObject current=null]
        			$current, 
        			"efforts",
         		lv_efforts_3_0, 
-        		"AbstractParameter");
+        		"datasemModeller.Dmodel.AbstractParameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3148,7 +3230,7 @@ ruleImpact returns [EObject current=null]
        			$current, 
        			"likelihood",
         		lv_likelihood_2_0, 
-        		"AbstractParameter");
+        		"datasemModeller.Dmodel.AbstractParameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3170,7 +3252,7 @@ ruleImpact returns [EObject current=null]
        			$current, 
        			"risk",
         		lv_risk_4_0, 
-        		"AbstractParameter");
+        		"datasemModeller.Dmodel.AbstractParameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3202,27 +3284,9 @@ ruleWorkItemType returns [EObject current=null]
     @after { leaveRule(); }:
 ((
 (
-		lv_id_0_0=RULE_INT
+		lv_name_0_0=RULE_ID
 		{
-			newLeafNode(lv_id_0_0, grammarAccess.getWorkItemTypeAccess().getIdINTTerminalRuleCall_0_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getWorkItemTypeRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"id",
-        		lv_id_0_0, 
-        		"INT");
-	    }
-
-)
-)?(
-(
-		lv_name_1_0=RULE_ID
-		{
-			newLeafNode(lv_name_1_0, grammarAccess.getWorkItemTypeAccess().getNameIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_0_0, grammarAccess.getWorkItemTypeAccess().getNameIDTerminalRuleCall_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3231,24 +3295,24 @@ ruleWorkItemType returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"name",
-        		lv_name_1_0, 
-        		"ID");
+        		lv_name_0_0, 
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
-)	otherlv_2='{' 
+)	otherlv_1='{' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getWorkItemTypeAccess().getLeftCurlyBracketKeyword_2());
+    	newLeafNode(otherlv_1, grammarAccess.getWorkItemTypeAccess().getLeftCurlyBracketKeyword_1());
     }
-(	otherlv_3='desc' 
+(	otherlv_2='desc' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getWorkItemTypeAccess().getDescKeyword_3_0());
+    	newLeafNode(otherlv_2, grammarAccess.getWorkItemTypeAccess().getDescKeyword_2_0());
     }
 (
 (
-		lv_description_4_0=RULE_STRING
+		lv_description_3_0=RULE_STRING
 		{
-			newLeafNode(lv_description_4_0, grammarAccess.getWorkItemTypeAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
+			newLeafNode(lv_description_3_0, grammarAccess.getWorkItemTypeAccess().getDescriptionSTRINGTerminalRuleCall_2_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3257,24 +3321,24 @@ ruleWorkItemType returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"description",
-        		lv_description_4_0, 
-        		"STRING");
+        		lv_description_3_0, 
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
-))?(	otherlv_5='hierarchy' 
+))?(	otherlv_4='hierarchy' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getWorkItemTypeAccess().getHierarchyKeyword_4_0());
+    	newLeafNode(otherlv_4, grammarAccess.getWorkItemTypeAccess().getHierarchyKeyword_3_0());
     }
-	otherlv_6='=' 
+	otherlv_5='=' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getWorkItemTypeAccess().getEqualsSignKeyword_4_1());
+    	newLeafNode(otherlv_5, grammarAccess.getWorkItemTypeAccess().getEqualsSignKeyword_3_1());
     }
 (
 (
-		lv_hierarchy_7_0=RULE_INT
+		lv_hierarchy_6_0=RULE_INT
 		{
-			newLeafNode(lv_hierarchy_7_0, grammarAccess.getWorkItemTypeAccess().getHierarchyINTTerminalRuleCall_4_2_0()); 
+			newLeafNode(lv_hierarchy_6_0, grammarAccess.getWorkItemTypeAccess().getHierarchyINTTerminalRuleCall_3_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3283,16 +3347,34 @@ ruleWorkItemType returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"hierarchy",
-        		lv_hierarchy_7_0, 
-        		"INT");
+        		lv_hierarchy_6_0, 
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
-))?	otherlv_8='}' 
+))?	otherlv_7='}' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getWorkItemTypeAccess().getRightCurlyBracketKeyword_5());
+    	newLeafNode(otherlv_7, grammarAccess.getWorkItemTypeAccess().getRightCurlyBracketKeyword_4());
     }
+(
+(
+		lv_id_8_0=RULE_INT
+		{
+			newLeafNode(lv_id_8_0, grammarAccess.getWorkItemTypeAccess().getIdINTTerminalRuleCall_5_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getWorkItemTypeRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"id",
+        		lv_id_8_0, 
+        		"org.eclipse.xtext.common.Terminals.INT");
+	    }
+
 )
+)?)
 ;
 
 
@@ -3329,7 +3411,7 @@ ruleClassOfService returns [EObject current=null]
        			$current, 
        			"id",
         		lv_id_0_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -3347,7 +3429,7 @@ ruleClassOfService returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -3373,7 +3455,7 @@ ruleClassOfService returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_4_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -3399,7 +3481,7 @@ ruleClassOfService returns [EObject current=null]
        			$current, 
        			"priority",
         		lv_priority_7_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -3425,7 +3507,7 @@ ruleClassOfService returns [EObject current=null]
        			$current, 
        			"disruptive",
         		lv_disruptive_10_0, 
-        		"BOOLEAN");
+        		"datasemModeller.Dmodel.BOOLEAN");
 	    }
 
 )
@@ -3468,7 +3550,7 @@ ruleService returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_0_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -3494,7 +3576,7 @@ ruleService returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_3_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -3520,7 +3602,7 @@ ruleService returns [EObject current=null]
        			$current, 
        			"hierarchy",
         		lv_hierarchy_6_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -3542,7 +3624,7 @@ ruleService returns [EObject current=null]
        			$current, 
        			"id",
         		lv_id_8_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -3581,7 +3663,7 @@ ruleServiceProvider returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_0_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -3736,7 +3818,7 @@ ruleServiceProvider returns [EObject current=null]
        			$current, 
        			"resources",
         		lv_resources_22_0, 
-        		"Asset");
+        		"datasemModeller.Dmodel.Asset");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3759,7 +3841,7 @@ ruleServiceProvider returns [EObject current=null]
        			$current, 
        			"id",
         		lv_id_24_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -3798,7 +3880,7 @@ ruleServiceProviderType returns [EObject current=null]
        			$current, 
        			"id",
         		lv_id_0_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -3816,7 +3898,7 @@ ruleServiceProviderType returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -3842,7 +3924,7 @@ ruleServiceProviderType returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_4_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -3868,7 +3950,7 @@ ruleServiceProviderType returns [EObject current=null]
        			$current, 
        			"hierarchy",
         		lv_hierarchy_7_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -3911,7 +3993,7 @@ ruleAsset returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_0_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -3932,7 +4014,7 @@ ruleAsset returns [EObject current=null]
        			$current, 
        			"number",
         		lv_number_2_0, 
-        		"AbstractParameter");
+        		"datasemModeller.Dmodel.AbstractParameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3962,7 +4044,7 @@ ruleAsset returns [EObject current=null]
        			$current, 
        			"skillSet",
         		lv_skillSet_6_0, 
-        		"Skill");
+        		"datasemModeller.Dmodel.Skill");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3984,7 +4066,7 @@ ruleAsset returns [EObject current=null]
        			$current, 
        			"skillSet",
         		lv_skillSet_8_0, 
-        		"Skill");
+        		"datasemModeller.Dmodel.Skill");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4007,7 +4089,7 @@ ruleAsset returns [EObject current=null]
        			$current, 
        			"id",
         		lv_id_10_0, 
-        		"INT");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
@@ -4066,7 +4148,7 @@ ruleSkill returns [EObject current=null]
        			$current, 
        			"efficiency",
         		lv_efficiency_3_0, 
-        		"AbstractParameter");
+        		"datasemModeller.Dmodel.AbstractParameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4256,7 +4338,7 @@ ruleAbstractType returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_0_0, 
-        		"Type");
+        		"datasemModeller.Dmodel.Type");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4294,7 +4376,7 @@ ruleAbstractType returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_3_0, 
-        		"Type");
+        		"datasemModeller.Dmodel.Type");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4336,7 +4418,7 @@ ruleAbstractType returns [EObject current=null]
        			$current, 
        			"keyType",
         		lv_keyType_7_0, 
-        		"Type");
+        		"datasemModeller.Dmodel.Type");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4358,7 +4440,7 @@ ruleAbstractType returns [EObject current=null]
        			$current, 
        			"valueType",
         		lv_valueType_9_0, 
-        		"Type");
+        		"datasemModeller.Dmodel.Type");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4407,7 +4489,7 @@ ruleAttribute returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_0_0, 
-        		"AbstractType");
+        		"datasemModeller.Dmodel.AbstractType");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4426,7 +4508,7 @@ ruleAttribute returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -4447,7 +4529,7 @@ ruleAttribute returns [EObject current=null]
        			$current, 
        			"default",
         		lv_default_3_0, 
-        		"Parameter");
+        		"datasemModeller.Dmodel.Parameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4503,7 +4585,7 @@ ruleAttributeValue returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_2_0, 
-        		"Parameter");
+        		"datasemModeller.Dmodel.Parameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4542,7 +4624,7 @@ ruleVariable returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_0_0, 
-        		"AbstractType");
+        		"datasemModeller.Dmodel.AbstractType");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4561,7 +4643,7 @@ ruleVariable returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -4604,7 +4686,7 @@ ruleAction returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -4625,7 +4707,7 @@ ruleAction returns [EObject current=null]
        			$current, 
        			"inputs",
         		lv_inputs_3_0, 
-        		"Variable");
+        		"datasemModeller.Dmodel.Variable");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4647,7 +4729,7 @@ ruleAction returns [EObject current=null]
        			$current, 
        			"inputs",
         		lv_inputs_5_0, 
-        		"Variable");
+        		"datasemModeller.Dmodel.Variable");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4706,7 +4788,7 @@ ruleState returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -4729,7 +4811,7 @@ ruleState returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_3_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -4750,7 +4832,7 @@ ruleState returns [EObject current=null]
        			$current, 
        			"statements",
         		lv_statements_5_0, 
-        		"Statement");
+        		"datasemModeller.Dmodel.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4797,7 +4879,7 @@ ruleIfExpression returns [EObject current=null]
        			$current, 
        			"condition",
         		lv_condition_1_0, 
-        		"Condition");
+        		"datasemModeller.Dmodel.Condition");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4823,7 +4905,7 @@ ruleIfExpression returns [EObject current=null]
        			$current, 
        			"statements",
         		lv_statements_4_0, 
-        		"Statement");
+        		"datasemModeller.Dmodel.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4864,7 +4946,7 @@ ruleIfExpression returns [EObject current=null]
        			$current, 
        			"elseIf",
         		lv_elseIf_8_0, 
-        		"IfExpression");
+        		"datasemModeller.Dmodel.IfExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4887,7 +4969,7 @@ ruleIfExpression returns [EObject current=null]
        			$current, 
        			"elses",
         		lv_elses_10_0, 
-        		"Statement");
+        		"datasemModeller.Dmodel.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4934,7 +5016,7 @@ ruleForExpression returns [EObject current=null]
        			$current, 
        			"object",
         		lv_object_1_0, 
-        		"VarExpression");
+        		"datasemModeller.Dmodel.VarExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4956,7 +5038,7 @@ ruleForExpression returns [EObject current=null]
        			$current, 
        			"set",
         		lv_set_3_0, 
-        		"VarExpression");
+        		"datasemModeller.Dmodel.VarExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4982,7 +5064,7 @@ ruleForExpression returns [EObject current=null]
        			$current, 
        			"statements",
         		lv_statements_6_0, 
-        		"Statement");
+        		"datasemModeller.Dmodel.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5029,7 +5111,7 @@ ruleWhileExpression returns [EObject current=null]
        			$current, 
        			"condition",
         		lv_condition_1_0, 
-        		"Condition");
+        		"datasemModeller.Dmodel.Condition");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5055,7 +5137,7 @@ ruleWhileExpression returns [EObject current=null]
        			$current, 
        			"statements",
         		lv_statements_4_0, 
-        		"Statement");
+        		"datasemModeller.Dmodel.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5098,7 +5180,7 @@ ruleCondition returns [EObject current=null]
        			$current, 
        			"subjective",
         		lv_subjective_0_0, 
-        		"VarExpression");
+        		"datasemModeller.Dmodel.VarExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5116,7 +5198,7 @@ ruleCondition returns [EObject current=null]
        			$current, 
        			"operator",
         		lv_operator_1_0, 
-        		"Operator");
+        		"datasemModeller.Dmodel.Operator");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5134,7 +5216,7 @@ ruleCondition returns [EObject current=null]
        			$current, 
        			"objective",
         		lv_objective_2_0, 
-        		"Expression");
+        		"datasemModeller.Dmodel.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5157,7 +5239,7 @@ ruleCondition returns [EObject current=null]
        			$current, 
        			"subjective",
         		lv_subjective_4_0, 
-        		"VarExpression");
+        		"datasemModeller.Dmodel.VarExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5175,7 +5257,7 @@ ruleCondition returns [EObject current=null]
        			$current, 
        			"operator",
         		lv_operator_5_0, 
-        		"Operator");
+        		"datasemModeller.Dmodel.Operator");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5193,7 +5275,7 @@ ruleCondition returns [EObject current=null]
        			$current, 
        			"objective",
         		lv_objective_6_0, 
-        		"Expression");
+        		"datasemModeller.Dmodel.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5234,7 +5316,7 @@ ruleCondition returns [EObject current=null]
        			$current, 
        			"andCondition",
         		lv_andCondition_10_0, 
-        		"Condition");
+        		"datasemModeller.Dmodel.Condition");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5276,7 +5358,7 @@ ruleCondition returns [EObject current=null]
        			$current, 
        			"orCondition",
         		lv_orCondition_14_0, 
-        		"Condition");
+        		"datasemModeller.Dmodel.Condition");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5334,7 +5416,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"actionStatement",
         		lv_actionStatement_1_0, 
-        		"ActionStatement");
+        		"datasemModeller.Dmodel.ActionStatement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5368,7 +5450,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"changeStateStatement",
         		lv_changeStateStatement_3_0, 
-        		"ChangeStateStatement");
+        		"datasemModeller.Dmodel.ChangeStateStatement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5402,7 +5484,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"declarationStatement",
         		lv_declarationStatement_5_0, 
-        		"DeclarationStatement");
+        		"datasemModeller.Dmodel.DeclarationStatement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5436,7 +5518,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"ifExpression",
         		lv_ifExpression_7_0, 
-        		"IfExpression");
+        		"datasemModeller.Dmodel.IfExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5474,7 +5556,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"forExpression",
         		lv_forExpression_10_0, 
-        		"ForExpression");
+        		"datasemModeller.Dmodel.ForExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5512,7 +5594,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"whileExpression",
         		lv_whileExpression_13_0, 
-        		"WhileExpression");
+        		"datasemModeller.Dmodel.WhileExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5535,7 +5617,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"assertStatement",
         		lv_assertStatement_15_0, 
-        		"AssertStatement");
+        		"datasemModeller.Dmodel.AssertStatement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5593,7 +5675,7 @@ ruleDeclarationStatement returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_3_0, 
-        		"Expression");
+        		"datasemModeller.Dmodel.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5649,7 +5731,7 @@ ruleActionStatement returns [EObject current=null]
        			$current, 
        			"inputs",
         		lv_inputs_2_0, 
-        		"VarExpression");
+        		"datasemModeller.Dmodel.VarExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5692,7 +5774,7 @@ ruleAssertStatement returns [EObject current=null]
        			$current, 
        			"input",
         		lv_input_0_0, 
-        		"VarExpression");
+        		"datasemModeller.Dmodel.VarExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5714,7 +5796,7 @@ ruleAssertStatement returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_2_0, 
-        		"Expression");
+        		"datasemModeller.Dmodel.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5821,7 +5903,7 @@ ruleExpression returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_5_0, 
-        		"Term");
+        		"datasemModeller.Dmodel.Term");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5890,7 +5972,7 @@ ruleTerm returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_5_0, 
-        		"Factor");
+        		"datasemModeller.Dmodel.Factor");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5929,7 +6011,7 @@ ruleFactor returns [EObject current=null]
        			$current, 
        			"number",
         		lv_number_0_0, 
-        		"Number");
+        		"datasemModeller.Dmodel.Number");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5948,7 +6030,7 @@ ruleFactor returns [EObject current=null]
        			$current, 
        			"variable",
         		lv_variable_1_0, 
-        		"VarExpression");
+        		"datasemModeller.Dmodel.VarExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5968,7 +6050,7 @@ ruleFactor returns [EObject current=null]
        			$current, 
        			"string",
         		lv_string_2_0, 
-        		"STRING");
+        		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
 )
@@ -5987,7 +6069,7 @@ ruleFactor returns [EObject current=null]
        			$current, 
        			"boolean",
         		lv_boolean_3_0, 
-        		"BOOLEAN");
+        		"datasemModeller.Dmodel.BOOLEAN");
 	    }
 
 )
@@ -6009,7 +6091,7 @@ ruleFactor returns [EObject current=null]
        			$current, 
        			"expression",
         		lv_expression_5_0, 
-        		"Expression");
+        		"datasemModeller.Dmodel.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6084,7 +6166,7 @@ ruleVarExpression returns [EObject current=null]
        			$current, 
        			"variable",
         		lv_variable_2_0, 
-        		"QualifiedName");
+        		"datasemModeller.Dmodel.QualifiedName");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6106,7 +6188,7 @@ ruleVarExpression returns [EObject current=null]
        			$current, 
        			"methods",
         		lv_methods_4_0, 
-        		"Method");
+        		"datasemModeller.Dmodel.Method");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6146,7 +6228,7 @@ ruleMethod returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_0_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -6178,7 +6260,7 @@ ruleMethod returns [EObject current=null]
        			$current, 
        			"inputs",
         		lv_inputs_2_0, 
-        		"Parameter");
+        		"datasemModeller.Dmodel.Parameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6200,7 +6282,7 @@ ruleMethod returns [EObject current=null]
        			$current, 
        			"inputs",
         		lv_inputs_4_0, 
-        		"Parameter");
+        		"datasemModeller.Dmodel.Parameter");
 	        afterParserOrEnumRuleCall();
 	    }
 

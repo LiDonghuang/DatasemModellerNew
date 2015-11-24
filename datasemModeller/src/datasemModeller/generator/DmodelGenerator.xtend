@@ -187,8 +187,19 @@ def compile(Resource res) '''
 «««				«ENDIF»				
 			</WorkSource>
 	'''
+	def checkAggregationNode(WorkItem wi) {
+		var aggr = false
+		if (wi.hasSubtasks) {
+			aggr = true
+		}
+		else if (wi.type.hierarchy>0) {
+			aggr = true
+			wi.hasSubtasks = true;
+		}
+		return aggr
+	}
 	def printWorkItem(WorkItem wi, int r) '''
-			<WorkItem wiId="«wi.id»" name="«if(r>1){wi.name+"("+r+")"}else{wi.name}»" typeId="«wi.getType.id»" isAggregationNode="«wi.hasSubtasks»" hasPredecessors="«wi.hasPredecessors»" hasImpacts="«wi.hasImpacts»">
+			<WorkItem wiId="«wi.id»" name="«if(r>1){wi.name+"("+r+")"}else{wi.name}»" typeId="«wi.getType.id»" isAggregationNode="«checkAggregationNode(wi)»" hasPredecessors="«wi.hasPredecessors»" hasImpacts="«wi.hasImpacts»">
 				<GovernanceAttributes>
 «««				«printGovernanceAttribute("ClassOfService",String.valueOf(wi.getClassOfService.id))»
 				«IF	(readNumExpression(wi.value) > 0)»
@@ -196,6 +207,9 @@ def compile(Resource res) '''
 				«ENDIF»	
 				«IF	(wi.arrivalTime > 0)»
 				«printGovernanceAttribute("ArrivalTime",String.valueOf(wi.arrivalTime))»
+				«ENDIF»	
+				«IF	(wi.duration > 0)»
+				«printGovernanceAttribute("DueDate",String.valueOf(wi.duration+wi.arrivalTime))»
 				«ENDIF»	
 				</GovernanceAttributes>
 				«IF	wi.hasPredecessors»
@@ -284,7 +298,7 @@ def compile(Resource res) '''
 	def printMechanism(Mechanism m) '''
 		<Mechanism name="«m.name»" value="«m.value»">
 		«FOR a: m.getAttributes()»
-			<Attribute name="«a.attribute»" value="«a.value»"></Attribute> 
+			<Attribute name="«a.name»" value="«a.value»"></Attribute> 
 		«ENDFOR»
 		</Mechanism>
 	'''

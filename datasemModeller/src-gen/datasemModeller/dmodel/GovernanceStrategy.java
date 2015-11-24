@@ -2,8 +2,6 @@
  */
 package datasemModeller.dmodel;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -22,7 +20,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link datasemModeller.dmodel.GovernanceStrategy#getPushStrategy <em>Push Strategy</em>}</li>
  *   <li>{@link datasemModeller.dmodel.GovernanceStrategy#isCnp <em>Cnp</em>}</li>
  *   <li>{@link datasemModeller.dmodel.GovernanceStrategy#getContractNetProtocal <em>Contract Net Protocal</em>}</li>
- *   <li>{@link datasemModeller.dmodel.GovernanceStrategy#getProcesses <em>Processes</em>}</li>
  * </ul>
  * </p>
  *
@@ -239,21 +236,5 @@ public interface GovernanceStrategy extends EObject
    * @generated
    */
   void setContractNetProtocal(ContractNetProtocol value);
-
-  /**
-   * Returns the value of the '<em><b>Processes</b></em>' reference list.
-   * The list contents are of type {@link datasemModeller.dmodel.ProcessModel}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Processes</em>' reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Processes</em>' reference list.
-   * @see datasemModeller.dmodel.DmodelPackage#getGovernanceStrategy_Processes()
-   * @model
-   * @generated
-   */
-  EList<ProcessModel> getProcesses();
 
 } // GovernanceStrategy
