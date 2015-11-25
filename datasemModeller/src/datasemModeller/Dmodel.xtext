@@ -22,11 +22,11 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 		(ClassOfServices += ClassOfService)*
 		'end ClassOfServices')?
 		'Services' 
-		(Services += Service)*
+		Services += Service+
 		'end Services'
-		'ProcessModels'
+		('ProcessModels'
 		(ProcessModels += ProcessModel)*
-		'end ProcessModels'
+		'end ProcessModels')?
 		'GovernanceStrategies' 
 	    (GovernanceStrategies += GovernanceStrategy)*
 	    'end GovernanceStrategies'    
@@ -43,9 +43,9 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 			'end ServiceProviders'
 		'end OrganizationalModel'	
 		'WorkItemNetworkModel'			
-			'WorkSources'
+			('WorkSources'
 		    (WorkSources += WorkSource)+
-		    'end WorkSources'
+		    'end WorkSources')?
 		    'WorkItemNetworks'
 			(WorkItemNetworks += WorkItemNetwork)+
 			'end WorkItemNetworks'
@@ -170,10 +170,10 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 		name=ID ("type"":" type=[WorkItemType])?'{'
 		('desc' description=STRING)?
 		
-		(hasPredecessors?='prerequisites''{'(pTasks+=[WorkItem])(','pTasks+=[WorkItem])*'}')?		
+		(hasPredecessors?='prerequisites''{'(pTasks+=[WorkItem])(','pTasks+=[WorkItem])*'}')?
 		(
 		(hasSubtasks?='decomposites''{'(sTasks+=[WorkItem])(','sTasks+=[WorkItem])* '}'
-		'analysisEfforts''{'(requiredAnalysis+=RequiredService)(','requiredAnalysis+=RequiredService)*'}')?
+		('analysisEfforts''{'(requiredAnalysis+=RequiredService)(','requiredAnalysis+=RequiredService)*'}')?)?
 		|
 		(
 		(hasDecompositionMechanism?='decompositionMechanism'decompositionMechanism=Mechanism)?

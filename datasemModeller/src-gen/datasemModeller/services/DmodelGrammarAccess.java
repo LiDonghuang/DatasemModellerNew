@@ -94,15 +94,16 @@ public class DmodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cServicesAssignment_9 = (Assignment)cGroup.eContents().get(9);
 		private final RuleCall cServicesServiceParserRuleCall_9_0 = (RuleCall)cServicesAssignment_9.eContents().get(0);
 		private final Keyword cEndServicesKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Keyword cProcessModelsKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		private final Assignment cProcessModelsAssignment_12 = (Assignment)cGroup.eContents().get(12);
-		private final RuleCall cProcessModelsProcessModelParserRuleCall_12_0 = (RuleCall)cProcessModelsAssignment_12.eContents().get(0);
-		private final Keyword cEndProcessModelsKeyword_13 = (Keyword)cGroup.eContents().get(13);
-		private final Keyword cGovernanceStrategiesKeyword_14 = (Keyword)cGroup.eContents().get(14);
-		private final Assignment cGovernanceStrategiesAssignment_15 = (Assignment)cGroup.eContents().get(15);
-		private final RuleCall cGovernanceStrategiesGovernanceStrategyParserRuleCall_15_0 = (RuleCall)cGovernanceStrategiesAssignment_15.eContents().get(0);
-		private final Keyword cEndGovernanceStrategiesKeyword_16 = (Keyword)cGroup.eContents().get(16);
-		private final Keyword cEndUserLibrariesKeyword_17 = (Keyword)cGroup.eContents().get(17);
+		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
+		private final Keyword cProcessModelsKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
+		private final Assignment cProcessModelsAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
+		private final RuleCall cProcessModelsProcessModelParserRuleCall_11_1_0 = (RuleCall)cProcessModelsAssignment_11_1.eContents().get(0);
+		private final Keyword cEndProcessModelsKeyword_11_2 = (Keyword)cGroup_11.eContents().get(2);
+		private final Keyword cGovernanceStrategiesKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cGovernanceStrategiesAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final RuleCall cGovernanceStrategiesGovernanceStrategyParserRuleCall_13_0 = (RuleCall)cGovernanceStrategiesAssignment_13.eContents().get(0);
+		private final Keyword cEndGovernanceStrategiesKeyword_14 = (Keyword)cGroup.eContents().get(14);
+		private final Keyword cEndUserLibrariesKeyword_15 = (Keyword)cGroup.eContents().get(15);
 		
 		//UserLibraries:
 		//	'UserLibraries'
@@ -115,11 +116,10 @@ public class DmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//	ClassOfServices+=ClassOfService*
 		//	'end ClassOfServices')?
 		//	'Services'
-		//	Services+=Service*
-		//	'end Services'
-		//	'ProcessModels'
+		//	Services+=Service+
+		//	'end Services' ('ProcessModels'
 		//	ProcessModels+=ProcessModel*
-		//	'end ProcessModels'
+		//	'end ProcessModels')?
 		//	'GovernanceStrategies'
 		//	GovernanceStrategies+=GovernanceStrategy*
 		//	'end GovernanceStrategies'
@@ -128,8 +128,8 @@ public class DmodelGrammarAccess extends AbstractGrammarElementFinder {
 
 		//'UserLibraries' 'ServiceProviderTypes' ServiceProviderTypes+=ServiceProviderType+ 'end ServiceProviderTypes'
 		//'WorkItemTypes' WorkItemTypes+=WorkItemType+ 'end WorkItemTypes' ('ClassOfServices' ClassOfServices+=ClassOfService*
-		//'end ClassOfServices')? 'Services' Services+=Service* 'end Services' 'ProcessModels' ProcessModels+=ProcessModel*
-		//'end ProcessModels' 'GovernanceStrategies' GovernanceStrategies+=GovernanceStrategy* 'end GovernanceStrategies'
+		//'end ClassOfServices')? 'Services' Services+=Service+ 'end Services' ('ProcessModels' ProcessModels+=ProcessModel*
+		//'end ProcessModels')? 'GovernanceStrategies' GovernanceStrategies+=GovernanceStrategy* 'end GovernanceStrategies'
 		//'end UserLibraries'
 		public Group getGroup() { return cGroup; }
 
@@ -178,7 +178,7 @@ public class DmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//'Services'
 		public Keyword getServicesKeyword_8() { return cServicesKeyword_8; }
 
-		//Services+=Service*
+		//Services+=Service+
 		public Assignment getServicesAssignment_9() { return cServicesAssignment_9; }
 
 		//Service
@@ -187,32 +187,35 @@ public class DmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//'end Services'
 		public Keyword getEndServicesKeyword_10() { return cEndServicesKeyword_10; }
 
+		//('ProcessModels' ProcessModels+=ProcessModel* 'end ProcessModels')?
+		public Group getGroup_11() { return cGroup_11; }
+
 		//'ProcessModels'
-		public Keyword getProcessModelsKeyword_11() { return cProcessModelsKeyword_11; }
+		public Keyword getProcessModelsKeyword_11_0() { return cProcessModelsKeyword_11_0; }
 
 		//ProcessModels+=ProcessModel*
-		public Assignment getProcessModelsAssignment_12() { return cProcessModelsAssignment_12; }
+		public Assignment getProcessModelsAssignment_11_1() { return cProcessModelsAssignment_11_1; }
 
 		//ProcessModel
-		public RuleCall getProcessModelsProcessModelParserRuleCall_12_0() { return cProcessModelsProcessModelParserRuleCall_12_0; }
+		public RuleCall getProcessModelsProcessModelParserRuleCall_11_1_0() { return cProcessModelsProcessModelParserRuleCall_11_1_0; }
 
 		//'end ProcessModels'
-		public Keyword getEndProcessModelsKeyword_13() { return cEndProcessModelsKeyword_13; }
+		public Keyword getEndProcessModelsKeyword_11_2() { return cEndProcessModelsKeyword_11_2; }
 
 		//'GovernanceStrategies'
-		public Keyword getGovernanceStrategiesKeyword_14() { return cGovernanceStrategiesKeyword_14; }
+		public Keyword getGovernanceStrategiesKeyword_12() { return cGovernanceStrategiesKeyword_12; }
 
 		//GovernanceStrategies+=GovernanceStrategy*
-		public Assignment getGovernanceStrategiesAssignment_15() { return cGovernanceStrategiesAssignment_15; }
+		public Assignment getGovernanceStrategiesAssignment_13() { return cGovernanceStrategiesAssignment_13; }
 
 		//GovernanceStrategy
-		public RuleCall getGovernanceStrategiesGovernanceStrategyParserRuleCall_15_0() { return cGovernanceStrategiesGovernanceStrategyParserRuleCall_15_0; }
+		public RuleCall getGovernanceStrategiesGovernanceStrategyParserRuleCall_13_0() { return cGovernanceStrategiesGovernanceStrategyParserRuleCall_13_0; }
 
 		//'end GovernanceStrategies'
-		public Keyword getEndGovernanceStrategiesKeyword_16() { return cEndGovernanceStrategiesKeyword_16; }
+		public Keyword getEndGovernanceStrategiesKeyword_14() { return cEndGovernanceStrategiesKeyword_14; }
 
 		//'end UserLibraries'
-		public Keyword getEndUserLibrariesKeyword_17() { return cEndUserLibrariesKeyword_17; }
+		public Keyword getEndUserLibrariesKeyword_15() { return cEndUserLibrariesKeyword_15; }
 	}
 
 	public class ExperimentModelElements extends AbstractParserRuleElementFinder {
@@ -236,26 +239,27 @@ public class DmodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEndServiceProvidersKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		private final Keyword cEndOrganizationalModelKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		private final Keyword cWorkItemNetworkModelKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		private final Keyword cWorkSourcesKeyword_12 = (Keyword)cGroup.eContents().get(12);
-		private final Assignment cWorkSourcesAssignment_13 = (Assignment)cGroup.eContents().get(13);
-		private final RuleCall cWorkSourcesWorkSourceParserRuleCall_13_0 = (RuleCall)cWorkSourcesAssignment_13.eContents().get(0);
-		private final Keyword cEndWorkSourcesKeyword_14 = (Keyword)cGroup.eContents().get(14);
-		private final Keyword cWorkItemNetworksKeyword_15 = (Keyword)cGroup.eContents().get(15);
-		private final Assignment cWorkItemNetworksAssignment_16 = (Assignment)cGroup.eContents().get(16);
-		private final RuleCall cWorkItemNetworksWorkItemNetworkParserRuleCall_16_0 = (RuleCall)cWorkItemNetworksAssignment_16.eContents().get(0);
-		private final Keyword cEndWorkItemNetworksKeyword_17 = (Keyword)cGroup.eContents().get(17);
-		private final Keyword cEndWorkItemNetworkModelKeyword_18 = (Keyword)cGroup.eContents().get(18);
-		private final Keyword cExperimentSettingsKeyword_19 = (Keyword)cGroup.eContents().get(19);
-		private final Keyword cWINReplicationsKeyword_20 = (Keyword)cGroup.eContents().get(20);
-		private final Assignment cWINReplicationsAssignment_21 = (Assignment)cGroup.eContents().get(21);
-		private final RuleCall cWINReplicationsWINReplicationParserRuleCall_21_0 = (RuleCall)cWINReplicationsAssignment_21.eContents().get(0);
-		private final Keyword cEndWINReplicationsKeyword_22 = (Keyword)cGroup.eContents().get(22);
-		private final Keyword cIndicatorsKeyword_23 = (Keyword)cGroup.eContents().get(23);
-		private final Assignment cIndicatorsAssignment_24 = (Assignment)cGroup.eContents().get(24);
-		private final RuleCall cIndicatorsIDTerminalRuleCall_24_0 = (RuleCall)cIndicatorsAssignment_24.eContents().get(0);
-		private final Keyword cEndIndicatorsKeyword_25 = (Keyword)cGroup.eContents().get(25);
-		private final Keyword cEndExperimentSettingsKeyword_26 = (Keyword)cGroup.eContents().get(26);
-		private final Keyword cEndExperimentModelKeyword_27 = (Keyword)cGroup.eContents().get(27);
+		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
+		private final Keyword cWorkSourcesKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
+		private final Assignment cWorkSourcesAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
+		private final RuleCall cWorkSourcesWorkSourceParserRuleCall_12_1_0 = (RuleCall)cWorkSourcesAssignment_12_1.eContents().get(0);
+		private final Keyword cEndWorkSourcesKeyword_12_2 = (Keyword)cGroup_12.eContents().get(2);
+		private final Keyword cWorkItemNetworksKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Assignment cWorkItemNetworksAssignment_14 = (Assignment)cGroup.eContents().get(14);
+		private final RuleCall cWorkItemNetworksWorkItemNetworkParserRuleCall_14_0 = (RuleCall)cWorkItemNetworksAssignment_14.eContents().get(0);
+		private final Keyword cEndWorkItemNetworksKeyword_15 = (Keyword)cGroup.eContents().get(15);
+		private final Keyword cEndWorkItemNetworkModelKeyword_16 = (Keyword)cGroup.eContents().get(16);
+		private final Keyword cExperimentSettingsKeyword_17 = (Keyword)cGroup.eContents().get(17);
+		private final Keyword cWINReplicationsKeyword_18 = (Keyword)cGroup.eContents().get(18);
+		private final Assignment cWINReplicationsAssignment_19 = (Assignment)cGroup.eContents().get(19);
+		private final RuleCall cWINReplicationsWINReplicationParserRuleCall_19_0 = (RuleCall)cWINReplicationsAssignment_19.eContents().get(0);
+		private final Keyword cEndWINReplicationsKeyword_20 = (Keyword)cGroup.eContents().get(20);
+		private final Keyword cIndicatorsKeyword_21 = (Keyword)cGroup.eContents().get(21);
+		private final Assignment cIndicatorsAssignment_22 = (Assignment)cGroup.eContents().get(22);
+		private final RuleCall cIndicatorsIDTerminalRuleCall_22_0 = (RuleCall)cIndicatorsAssignment_22.eContents().get(0);
+		private final Keyword cEndIndicatorsKeyword_23 = (Keyword)cGroup.eContents().get(23);
+		private final Keyword cEndExperimentSettingsKeyword_24 = (Keyword)cGroup.eContents().get(24);
+		private final Keyword cEndExperimentModelKeyword_25 = (Keyword)cGroup.eContents().get(25);
 		
 		//ExperimentModel:
 		//	'ExperimentModel' name=ID ('Path' Path=QualifiedName)?
@@ -266,10 +270,9 @@ public class DmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//	ServiceProviders+=ServiceProvider+
 		//	'end ServiceProviders'
 		//	'end OrganizationalModel'
-		//	'WorkItemNetworkModel'
-		//	'WorkSources'
+		//	'WorkItemNetworkModel' ('WorkSources'
 		//	WorkSources+=WorkSource+
-		//	'end WorkSources'
+		//	'end WorkSources')?
 		//	'WorkItemNetworks'
 		//	WorkItemNetworks+=WorkItemNetwork+
 		//	'end WorkItemNetworks'
@@ -285,7 +288,7 @@ public class DmodelGrammarAccess extends AbstractGrammarElementFinder {
 
 		//'ExperimentModel' name=ID ('Path' Path=QualifiedName)? "Variables" ExperimentVariables+=ExperimentVariable*
 		//"end Variables" 'OrganizationalModel' 'ServiceProviders' ServiceProviders+=ServiceProvider+ 'end ServiceProviders'
-		//'end OrganizationalModel' 'WorkItemNetworkModel' 'WorkSources' WorkSources+=WorkSource+ 'end WorkSources'
+		//'end OrganizationalModel' 'WorkItemNetworkModel' ('WorkSources' WorkSources+=WorkSource+ 'end WorkSources')?
 		//'WorkItemNetworks' WorkItemNetworks+=WorkItemNetwork+ 'end WorkItemNetworks' 'end WorkItemNetworkModel'
 		//'ExperimentSettings' 'WINReplications' WINReplications+=WINReplication+ 'end WINReplications' 'Indicators'
 		//Indicators+=ID* 'end Indicators' 'end ExperimentSettings' 'end ExperimentModel'
@@ -345,65 +348,68 @@ public class DmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//'WorkItemNetworkModel'
 		public Keyword getWorkItemNetworkModelKeyword_11() { return cWorkItemNetworkModelKeyword_11; }
 
+		//('WorkSources' WorkSources+=WorkSource+ 'end WorkSources')?
+		public Group getGroup_12() { return cGroup_12; }
+
 		//'WorkSources'
-		public Keyword getWorkSourcesKeyword_12() { return cWorkSourcesKeyword_12; }
+		public Keyword getWorkSourcesKeyword_12_0() { return cWorkSourcesKeyword_12_0; }
 
 		//WorkSources+=WorkSource+
-		public Assignment getWorkSourcesAssignment_13() { return cWorkSourcesAssignment_13; }
+		public Assignment getWorkSourcesAssignment_12_1() { return cWorkSourcesAssignment_12_1; }
 
 		//WorkSource
-		public RuleCall getWorkSourcesWorkSourceParserRuleCall_13_0() { return cWorkSourcesWorkSourceParserRuleCall_13_0; }
+		public RuleCall getWorkSourcesWorkSourceParserRuleCall_12_1_0() { return cWorkSourcesWorkSourceParserRuleCall_12_1_0; }
 
 		//'end WorkSources'
-		public Keyword getEndWorkSourcesKeyword_14() { return cEndWorkSourcesKeyword_14; }
+		public Keyword getEndWorkSourcesKeyword_12_2() { return cEndWorkSourcesKeyword_12_2; }
 
 		//'WorkItemNetworks'
-		public Keyword getWorkItemNetworksKeyword_15() { return cWorkItemNetworksKeyword_15; }
+		public Keyword getWorkItemNetworksKeyword_13() { return cWorkItemNetworksKeyword_13; }
 
 		//WorkItemNetworks+=WorkItemNetwork+
-		public Assignment getWorkItemNetworksAssignment_16() { return cWorkItemNetworksAssignment_16; }
+		public Assignment getWorkItemNetworksAssignment_14() { return cWorkItemNetworksAssignment_14; }
 
 		//WorkItemNetwork
-		public RuleCall getWorkItemNetworksWorkItemNetworkParserRuleCall_16_0() { return cWorkItemNetworksWorkItemNetworkParserRuleCall_16_0; }
+		public RuleCall getWorkItemNetworksWorkItemNetworkParserRuleCall_14_0() { return cWorkItemNetworksWorkItemNetworkParserRuleCall_14_0; }
 
 		//'end WorkItemNetworks'
-		public Keyword getEndWorkItemNetworksKeyword_17() { return cEndWorkItemNetworksKeyword_17; }
+		public Keyword getEndWorkItemNetworksKeyword_15() { return cEndWorkItemNetworksKeyword_15; }
 
 		//'end WorkItemNetworkModel'
-		public Keyword getEndWorkItemNetworkModelKeyword_18() { return cEndWorkItemNetworkModelKeyword_18; }
+		public Keyword getEndWorkItemNetworkModelKeyword_16() { return cEndWorkItemNetworkModelKeyword_16; }
 
 		//'ExperimentSettings'
-		public Keyword getExperimentSettingsKeyword_19() { return cExperimentSettingsKeyword_19; }
+		public Keyword getExperimentSettingsKeyword_17() { return cExperimentSettingsKeyword_17; }
 
 		//'WINReplications'
-		public Keyword getWINReplicationsKeyword_20() { return cWINReplicationsKeyword_20; }
+		public Keyword getWINReplicationsKeyword_18() { return cWINReplicationsKeyword_18; }
 
 		//WINReplications+=WINReplication+
-		public Assignment getWINReplicationsAssignment_21() { return cWINReplicationsAssignment_21; }
+		public Assignment getWINReplicationsAssignment_19() { return cWINReplicationsAssignment_19; }
 
 		//WINReplication
-		public RuleCall getWINReplicationsWINReplicationParserRuleCall_21_0() { return cWINReplicationsWINReplicationParserRuleCall_21_0; }
+		public RuleCall getWINReplicationsWINReplicationParserRuleCall_19_0() { return cWINReplicationsWINReplicationParserRuleCall_19_0; }
 
 		//'end WINReplications'
-		public Keyword getEndWINReplicationsKeyword_22() { return cEndWINReplicationsKeyword_22; }
+		public Keyword getEndWINReplicationsKeyword_20() { return cEndWINReplicationsKeyword_20; }
 
 		//'Indicators'
-		public Keyword getIndicatorsKeyword_23() { return cIndicatorsKeyword_23; }
+		public Keyword getIndicatorsKeyword_21() { return cIndicatorsKeyword_21; }
 
 		//Indicators+=ID*
-		public Assignment getIndicatorsAssignment_24() { return cIndicatorsAssignment_24; }
+		public Assignment getIndicatorsAssignment_22() { return cIndicatorsAssignment_22; }
 
 		//ID
-		public RuleCall getIndicatorsIDTerminalRuleCall_24_0() { return cIndicatorsIDTerminalRuleCall_24_0; }
+		public RuleCall getIndicatorsIDTerminalRuleCall_22_0() { return cIndicatorsIDTerminalRuleCall_22_0; }
 
 		//'end Indicators'
-		public Keyword getEndIndicatorsKeyword_25() { return cEndIndicatorsKeyword_25; }
+		public Keyword getEndIndicatorsKeyword_23() { return cEndIndicatorsKeyword_23; }
 
 		//'end ExperimentSettings'
-		public Keyword getEndExperimentSettingsKeyword_26() { return cEndExperimentSettingsKeyword_26; }
+		public Keyword getEndExperimentSettingsKeyword_24() { return cEndExperimentSettingsKeyword_24; }
 
 		//'end ExperimentModel'
-		public Keyword getEndExperimentModelKeyword_27() { return cEndExperimentModelKeyword_27; }
+		public Keyword getEndExperimentModelKeyword_25() { return cEndExperimentModelKeyword_25; }
 	}
 
 	public class NumberElements extends AbstractParserRuleElementFinder {
@@ -1708,15 +1714,16 @@ public class DmodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cSTasksWorkItemCrossReference_5_0_3_1_0 = (CrossReference)cSTasksAssignment_5_0_3_1.eContents().get(0);
 		private final RuleCall cSTasksWorkItemIDTerminalRuleCall_5_0_3_1_0_1 = (RuleCall)cSTasksWorkItemCrossReference_5_0_3_1_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_5_0_4 = (Keyword)cGroup_5_0.eContents().get(4);
-		private final Keyword cAnalysisEffortsKeyword_5_0_5 = (Keyword)cGroup_5_0.eContents().get(5);
-		private final Keyword cLeftCurlyBracketKeyword_5_0_6 = (Keyword)cGroup_5_0.eContents().get(6);
-		private final Assignment cRequiredAnalysisAssignment_5_0_7 = (Assignment)cGroup_5_0.eContents().get(7);
-		private final RuleCall cRequiredAnalysisRequiredServiceParserRuleCall_5_0_7_0 = (RuleCall)cRequiredAnalysisAssignment_5_0_7.eContents().get(0);
-		private final Group cGroup_5_0_8 = (Group)cGroup_5_0.eContents().get(8);
-		private final Keyword cCommaKeyword_5_0_8_0 = (Keyword)cGroup_5_0_8.eContents().get(0);
-		private final Assignment cRequiredAnalysisAssignment_5_0_8_1 = (Assignment)cGroup_5_0_8.eContents().get(1);
-		private final RuleCall cRequiredAnalysisRequiredServiceParserRuleCall_5_0_8_1_0 = (RuleCall)cRequiredAnalysisAssignment_5_0_8_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5_0_9 = (Keyword)cGroup_5_0.eContents().get(9);
+		private final Group cGroup_5_0_5 = (Group)cGroup_5_0.eContents().get(5);
+		private final Keyword cAnalysisEffortsKeyword_5_0_5_0 = (Keyword)cGroup_5_0_5.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_5_0_5_1 = (Keyword)cGroup_5_0_5.eContents().get(1);
+		private final Assignment cRequiredAnalysisAssignment_5_0_5_2 = (Assignment)cGroup_5_0_5.eContents().get(2);
+		private final RuleCall cRequiredAnalysisRequiredServiceParserRuleCall_5_0_5_2_0 = (RuleCall)cRequiredAnalysisAssignment_5_0_5_2.eContents().get(0);
+		private final Group cGroup_5_0_5_3 = (Group)cGroup_5_0_5.eContents().get(3);
+		private final Keyword cCommaKeyword_5_0_5_3_0 = (Keyword)cGroup_5_0_5_3.eContents().get(0);
+		private final Assignment cRequiredAnalysisAssignment_5_0_5_3_1 = (Assignment)cGroup_5_0_5_3.eContents().get(1);
+		private final RuleCall cRequiredAnalysisRequiredServiceParserRuleCall_5_0_5_3_1_0 = (RuleCall)cRequiredAnalysisAssignment_5_0_5_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5_0_5_4 = (Keyword)cGroup_5_0_5.eContents().get(4);
 		private final Group cGroup_5_1 = (Group)cAlternatives_5.eContents().get(1);
 		private final Group cGroup_5_1_0 = (Group)cGroup_5_1.eContents().get(0);
 		private final Assignment cHasDecompositionMechanismAssignment_5_1_0_0 = (Assignment)cGroup_5_1_0.eContents().get(0);
@@ -1789,8 +1796,8 @@ public class DmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//WorkItem:
 		//	name=ID ("type" ":" type=[WorkItemType])? '{' ('desc' description=STRING)? (hasPredecessors?='prerequisites' '{'
 		//	pTasks+=[WorkItem] (',' pTasks+=[WorkItem])* '}')? ((hasSubtasks?='decomposites' '{' sTasks+=[WorkItem] (','
-		//	sTasks+=[WorkItem])* '}'
-		//	'analysisEfforts' '{' requiredAnalysis+=RequiredService (',' requiredAnalysis+=RequiredService)* '}')?
+		//	sTasks+=[WorkItem])* '}' ('analysisEfforts' '{' requiredAnalysis+=RequiredService (','
+		//	requiredAnalysis+=RequiredService)* '}')?)?
 		//	| (hasDecompositionMechanism?='decompositionMechanism' decompositionMechanism=Mechanism)? ('analysisEfforts' '{'
 		//	requiredAnalysis+=RequiredService (',' requiredAnalysis+=RequiredService)* '}')?
 		//	'efforts' '{' requiredServices+=RequiredService (',' requiredServices+=RequiredService)* '}') ('maturityLevels'
@@ -1803,8 +1810,8 @@ public class DmodelGrammarAccess extends AbstractGrammarElementFinder {
 
 		//name=ID ("type" ":" type=[WorkItemType])? '{' ('desc' description=STRING)? (hasPredecessors?='prerequisites' '{'
 		//pTasks+=[WorkItem] (',' pTasks+=[WorkItem])* '}')? ((hasSubtasks?='decomposites' '{' sTasks+=[WorkItem] (','
-		//sTasks+=[WorkItem])* '}' 'analysisEfforts' '{' requiredAnalysis+=RequiredService (','
-		//requiredAnalysis+=RequiredService)* '}')? | (hasDecompositionMechanism?='decompositionMechanism'
+		//sTasks+=[WorkItem])* '}' ('analysisEfforts' '{' requiredAnalysis+=RequiredService (','
+		//requiredAnalysis+=RequiredService)* '}')?)? | (hasDecompositionMechanism?='decompositionMechanism'
 		//decompositionMechanism=Mechanism)? ('analysisEfforts' '{' requiredAnalysis+=RequiredService (','
 		//requiredAnalysis+=RequiredService)* '}')? 'efforts' '{' requiredServices+=RequiredService (','
 		//requiredServices+=RequiredService)* '}') ('maturityLevels' maturityLevels=AbstractParameter)? ('uncertainty'
@@ -1891,15 +1898,15 @@ public class DmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4_4() { return cRightCurlyBracketKeyword_4_4; }
 
-		//(hasSubtasks?='decomposites' '{' sTasks+=[WorkItem] (',' sTasks+=[WorkItem])* '}' 'analysisEfforts' '{'
-		//requiredAnalysis+=RequiredService (',' requiredAnalysis+=RequiredService)* '}')? |
+		//(hasSubtasks?='decomposites' '{' sTasks+=[WorkItem] (',' sTasks+=[WorkItem])* '}' ('analysisEfforts' '{'
+		//requiredAnalysis+=RequiredService (',' requiredAnalysis+=RequiredService)* '}')?)? |
 		//(hasDecompositionMechanism?='decompositionMechanism' decompositionMechanism=Mechanism)? ('analysisEfforts' '{'
 		//requiredAnalysis+=RequiredService (',' requiredAnalysis+=RequiredService)* '}')? 'efforts' '{'
 		//requiredServices+=RequiredService (',' requiredServices+=RequiredService)* '}'
 		public Alternatives getAlternatives_5() { return cAlternatives_5; }
 
-		//(hasSubtasks?='decomposites' '{' sTasks+=[WorkItem] (',' sTasks+=[WorkItem])* '}' 'analysisEfforts' '{'
-		//requiredAnalysis+=RequiredService (',' requiredAnalysis+=RequiredService)* '}')?
+		//(hasSubtasks?='decomposites' '{' sTasks+=[WorkItem] (',' sTasks+=[WorkItem])* '}' ('analysisEfforts' '{'
+		//requiredAnalysis+=RequiredService (',' requiredAnalysis+=RequiredService)* '}')?)?
 		public Group getGroup_5_0() { return cGroup_5_0; }
 
 		//hasSubtasks?='decomposites'
@@ -1938,32 +1945,35 @@ public class DmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5_0_4() { return cRightCurlyBracketKeyword_5_0_4; }
 
+		//('analysisEfforts' '{' requiredAnalysis+=RequiredService (',' requiredAnalysis+=RequiredService)* '}')?
+		public Group getGroup_5_0_5() { return cGroup_5_0_5; }
+
 		//'analysisEfforts'
-		public Keyword getAnalysisEffortsKeyword_5_0_5() { return cAnalysisEffortsKeyword_5_0_5; }
+		public Keyword getAnalysisEffortsKeyword_5_0_5_0() { return cAnalysisEffortsKeyword_5_0_5_0; }
 
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_5_0_6() { return cLeftCurlyBracketKeyword_5_0_6; }
+		public Keyword getLeftCurlyBracketKeyword_5_0_5_1() { return cLeftCurlyBracketKeyword_5_0_5_1; }
 
 		//requiredAnalysis+=RequiredService
-		public Assignment getRequiredAnalysisAssignment_5_0_7() { return cRequiredAnalysisAssignment_5_0_7; }
+		public Assignment getRequiredAnalysisAssignment_5_0_5_2() { return cRequiredAnalysisAssignment_5_0_5_2; }
 
 		//RequiredService
-		public RuleCall getRequiredAnalysisRequiredServiceParserRuleCall_5_0_7_0() { return cRequiredAnalysisRequiredServiceParserRuleCall_5_0_7_0; }
+		public RuleCall getRequiredAnalysisRequiredServiceParserRuleCall_5_0_5_2_0() { return cRequiredAnalysisRequiredServiceParserRuleCall_5_0_5_2_0; }
 
 		//(',' requiredAnalysis+=RequiredService)*
-		public Group getGroup_5_0_8() { return cGroup_5_0_8; }
+		public Group getGroup_5_0_5_3() { return cGroup_5_0_5_3; }
 
 		//','
-		public Keyword getCommaKeyword_5_0_8_0() { return cCommaKeyword_5_0_8_0; }
+		public Keyword getCommaKeyword_5_0_5_3_0() { return cCommaKeyword_5_0_5_3_0; }
 
 		//requiredAnalysis+=RequiredService
-		public Assignment getRequiredAnalysisAssignment_5_0_8_1() { return cRequiredAnalysisAssignment_5_0_8_1; }
+		public Assignment getRequiredAnalysisAssignment_5_0_5_3_1() { return cRequiredAnalysisAssignment_5_0_5_3_1; }
 
 		//RequiredService
-		public RuleCall getRequiredAnalysisRequiredServiceParserRuleCall_5_0_8_1_0() { return cRequiredAnalysisRequiredServiceParserRuleCall_5_0_8_1_0; }
+		public RuleCall getRequiredAnalysisRequiredServiceParserRuleCall_5_0_5_3_1_0() { return cRequiredAnalysisRequiredServiceParserRuleCall_5_0_5_3_1_0; }
 
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5_0_9() { return cRightCurlyBracketKeyword_5_0_9; }
+		public Keyword getRightCurlyBracketKeyword_5_0_5_4() { return cRightCurlyBracketKeyword_5_0_5_4; }
 
 		//(hasDecompositionMechanism?='decompositionMechanism' decompositionMechanism=Mechanism)? ('analysisEfforts' '{'
 		//requiredAnalysis+=RequiredService (',' requiredAnalysis+=RequiredService)* '}')? 'efforts' '{'
@@ -4611,11 +4621,10 @@ public class DmodelGrammarAccess extends AbstractGrammarElementFinder {
 	//	ClassOfServices+=ClassOfService*
 	//	'end ClassOfServices')?
 	//	'Services'
-	//	Services+=Service*
-	//	'end Services'
-	//	'ProcessModels'
+	//	Services+=Service+
+	//	'end Services' ('ProcessModels'
 	//	ProcessModels+=ProcessModel*
-	//	'end ProcessModels'
+	//	'end ProcessModels')?
 	//	'GovernanceStrategies'
 	//	GovernanceStrategies+=GovernanceStrategy*
 	//	'end GovernanceStrategies'
@@ -4637,10 +4646,9 @@ public class DmodelGrammarAccess extends AbstractGrammarElementFinder {
 	//	ServiceProviders+=ServiceProvider+
 	//	'end ServiceProviders'
 	//	'end OrganizationalModel'
-	//	'WorkItemNetworkModel'
-	//	'WorkSources'
+	//	'WorkItemNetworkModel' ('WorkSources'
 	//	WorkSources+=WorkSource+
-	//	'end WorkSources'
+	//	'end WorkSources')?
 	//	'WorkItemNetworks'
 	//	WorkItemNetworks+=WorkItemNetwork+
 	//	'end WorkItemNetworks'
@@ -4892,8 +4900,8 @@ public class DmodelGrammarAccess extends AbstractGrammarElementFinder {
 	//WorkItem:
 	//	name=ID ("type" ":" type=[WorkItemType])? '{' ('desc' description=STRING)? (hasPredecessors?='prerequisites' '{'
 	//	pTasks+=[WorkItem] (',' pTasks+=[WorkItem])* '}')? ((hasSubtasks?='decomposites' '{' sTasks+=[WorkItem] (','
-	//	sTasks+=[WorkItem])* '}'
-	//	'analysisEfforts' '{' requiredAnalysis+=RequiredService (',' requiredAnalysis+=RequiredService)* '}')?
+	//	sTasks+=[WorkItem])* '}' ('analysisEfforts' '{' requiredAnalysis+=RequiredService (','
+	//	requiredAnalysis+=RequiredService)* '}')?)?
 	//	| (hasDecompositionMechanism?='decompositionMechanism' decompositionMechanism=Mechanism)? ('analysisEfforts' '{'
 	//	requiredAnalysis+=RequiredService (',' requiredAnalysis+=RequiredService)* '}')?
 	//	'efforts' '{' requiredServices+=RequiredService (',' requiredServices+=RequiredService)* '}') ('maturityLevels'

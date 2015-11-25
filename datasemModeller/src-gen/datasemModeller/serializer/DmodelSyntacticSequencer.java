@@ -25,6 +25,7 @@ public class DmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_Mechanism___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q;
 	protected AbstractElementAlias match_Service___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_3__q;
 	protected AbstractElementAlias match_UserLibraries___ClassOfServicesKeyword_7_0_EndClassOfServicesKeyword_7_2__q;
+	protected AbstractElementAlias match_UserLibraries___ProcessModelsKeyword_11_0_EndProcessModelsKeyword_11_2__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -33,6 +34,7 @@ public class DmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_Mechanism___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getMechanismAccess().getLeftCurlyBracketKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getMechanismAccess().getRightCurlyBracketKeyword_3_3()));
 		match_Service___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getServiceAccess().getLeftCurlyBracketKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getServiceAccess().getRightCurlyBracketKeyword_1_3()));
 		match_UserLibraries___ClassOfServicesKeyword_7_0_EndClassOfServicesKeyword_7_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUserLibrariesAccess().getClassOfServicesKeyword_7_0()), new TokenAlias(false, false, grammarAccess.getUserLibrariesAccess().getEndClassOfServicesKeyword_7_2()));
+		match_UserLibraries___ProcessModelsKeyword_11_0_EndProcessModelsKeyword_11_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getUserLibrariesAccess().getProcessModelsKeyword_11_0()), new TokenAlias(false, false, grammarAccess.getUserLibrariesAccess().getEndProcessModelsKeyword_11_2()));
 	}
 	
 	@Override
@@ -55,6 +57,8 @@ public class DmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Service___LeftCurlyBracketKeyword_1_0_RightCurlyBracketKeyword_1_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_UserLibraries___ClassOfServicesKeyword_7_0_EndClassOfServicesKeyword_7_2__q.equals(syntax))
 				emit_UserLibraries___ClassOfServicesKeyword_7_0_EndClassOfServicesKeyword_7_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_UserLibraries___ProcessModelsKeyword_11_0_EndProcessModelsKeyword_11_2__q.equals(syntax))
+				emit_UserLibraries___ProcessModelsKeyword_11_0_EndProcessModelsKeyword_11_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -99,12 +103,21 @@ public class DmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ('ClassOfServices' 'end ClassOfServices')?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     WorkItemTypes+=WorkItemType 'end WorkItemTypes' (ambiguity) 'Services' 'end Services' 'ProcessModels' 'end ProcessModels' 'GovernanceStrategies' 'end GovernanceStrategies' 'end UserLibraries' (rule end)
-	 *     WorkItemTypes+=WorkItemType 'end WorkItemTypes' (ambiguity) 'Services' 'end Services' 'ProcessModels' 'end ProcessModels' 'GovernanceStrategies' GovernanceStrategies+=GovernanceStrategy
-	 *     WorkItemTypes+=WorkItemType 'end WorkItemTypes' (ambiguity) 'Services' 'end Services' 'ProcessModels' ProcessModels+=ProcessModel
 	 *     WorkItemTypes+=WorkItemType 'end WorkItemTypes' (ambiguity) 'Services' Services+=Service
 	 */
 	protected void emit_UserLibraries___ClassOfServicesKeyword_7_0_EndClassOfServicesKeyword_7_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('ProcessModels' 'end ProcessModels')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     Services+=Service 'end Services' (ambiguity) 'GovernanceStrategies' 'end GovernanceStrategies' 'end UserLibraries' (rule end)
+	 *     Services+=Service 'end Services' (ambiguity) 'GovernanceStrategies' GovernanceStrategies+=GovernanceStrategy
+	 */
+	protected void emit_UserLibraries___ProcessModelsKeyword_11_0_EndProcessModelsKeyword_11_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

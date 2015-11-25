@@ -484,7 +484,7 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         Path=QualifiedName? 
 	 *         ExperimentVariables+=ExperimentVariable* 
 	 *         ServiceProviders+=ServiceProvider+ 
-	 *         WorkSources+=WorkSource+ 
+	 *         WorkSources+=WorkSource* 
 	 *         WorkItemNetworks+=WorkItemNetwork+ 
 	 *         WINReplications+=WINReplication+ 
 	 *         Indicators+=ID*
@@ -989,7 +989,7 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         ServiceProviderTypes+=ServiceProviderType+ 
 	 *         WorkItemTypes+=WorkItemType+ 
 	 *         ClassOfServices+=ClassOfService* 
-	 *         Services+=Service* 
+	 *         Services+=Service+ 
 	 *         ProcessModels+=ProcessModel* 
 	 *         GovernanceStrategies+=GovernanceStrategy*
 	 *     )
@@ -1113,7 +1113,12 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         description=STRING? 
 	 *         (hasPredecessors?='prerequisites' pTasks+=[WorkItem|ID] pTasks+=[WorkItem|ID]*)? 
 	 *         (
-	 *             (hasSubtasks?='decomposites' sTasks+=[WorkItem|ID] sTasks+=[WorkItem|ID]* requiredAnalysis+=RequiredService requiredAnalysis+=RequiredService*) | 
+	 *             (
+	 *                 hasSubtasks?='decomposites' 
+	 *                 sTasks+=[WorkItem|ID] 
+	 *                 sTasks+=[WorkItem|ID]* 
+	 *                 (requiredAnalysis+=RequiredService requiredAnalysis+=RequiredService*)?
+	 *             ) | 
 	 *             (
 	 *                 (hasDecompositionMechanism?='decompositionMechanism' decompositionMechanism=Mechanism)? 
 	 *                 (requiredAnalysis+=RequiredService requiredAnalysis+=RequiredService*)? 
