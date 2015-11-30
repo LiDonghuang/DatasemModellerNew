@@ -9,27 +9,21 @@
       fileExtensions="dmodel" ecorePackage="Dmodel.ecore#/">
     <genClasses ecoreClass="Dmodel.ecore#//ModelBuilder">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ModelBuilder/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ModelBuilder/Description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ModelBuilder/UserLibraries"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ModelBuilder/ExperimentModel"/>
     </genClasses>
     <genClasses ecoreClass="Dmodel.ecore#//UserLibraries">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//UserLibraries/ServiceProviderTypes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//UserLibraries/WorkItemTypes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//UserLibraries/ClassOfServices"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//UserLibraries/Services"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//UserLibraries/ProcessModels"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//UserLibraries/GovernanceStrategies"/>
     </genClasses>
     <genClasses ecoreClass="Dmodel.ecore#//ExperimentModel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ExperimentModel/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ExperimentModel/Path"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ExperimentModel/ExperimentVariables"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ExperimentModel/ServiceProviders"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ExperimentModel/WorkSources"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ExperimentModel/WorkItemNetworks"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ExperimentModel/WINReplications"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ExperimentModel/Indicators"/>
     </genClasses>
     <genClasses ecoreClass="Dmodel.ecore#//AbstractParameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//AbstractParameter/isVariable"/>
@@ -41,13 +35,90 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//NumExpression/distribution"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//NumExpression/numDist"/>
     </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//Operator">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Operator/equalTo"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Operator/largerThan"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Operator/smallerThan"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Operator/largerOrEqualTo"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Operator/smallerOrEqualTo"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Operator/notEqualTo"/>
+    <genClasses ecoreClass="Dmodel.ecore#//Distribution">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Distribution/isNormal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Distribution/isUniform"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Distribution/isExponential"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Distribution/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="Dmodel.ecore#//GovernanceStrategy">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//GovernanceStrategy/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//GovernanceStrategy/pullStrategy"/>
+    </genClasses>
+    <genClasses ecoreClass="Dmodel.ecore#//PullStrategy">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//PullStrategy/mechanisms"/>
+    </genClasses>
+    <genClasses ecoreClass="Dmodel.ecore#//Mechanism">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Mechanism/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Mechanism/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Mechanism/attributes"/>
+    </genClasses>
+    <genClasses ecoreClass="Dmodel.ecore#//MechanismAttribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//MechanismAttribute/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//MechanismAttribute/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Dmodel.ecore#//WorkItemType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItemType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItemType/hierarchy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItemType/id"/>
+    </genClasses>
+    <genClasses ecoreClass="Dmodel.ecore#//WorkItemNetwork">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItemNetwork/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItemNetwork/workItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItemNetwork/id"/>
+    </genClasses>
+    <genClasses ecoreClass="Dmodel.ecore#//WorkItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/hasPredecessors"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/pTasks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/hasSubtasks"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/sTasks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/requiredAnalysis"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/requiredServices"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/hasImpacts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/impacts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/arrivalTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/duration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/id"/>
+    </genClasses>
+    <genClasses ecoreClass="Dmodel.ecore#//RequiredService">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//RequiredService/serviceType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//RequiredService/efforts"/>
+    </genClasses>
+    <genClasses ecoreClass="Dmodel.ecore#//Impact">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Impact/impactWI"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Impact/likelihood"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Impact/risk"/>
+    </genClasses>
+    <genClasses ecoreClass="Dmodel.ecore#//ServiceProviderType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ServiceProviderType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ServiceProviderType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ServiceProviderType/hierarchy"/>
+    </genClasses>
+    <genClasses ecoreClass="Dmodel.ecore#//Service">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Service/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Service/hierarchy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Service/id"/>
+    </genClasses>
+    <genClasses ecoreClass="Dmodel.ecore#//ServiceProvider">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ServiceProvider/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ServiceProvider/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ServiceProvider/assignTo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ServiceProvider/governanceStrategy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ServiceProvider/resources"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ServiceProvider/id"/>
+    </genClasses>
+    <genClasses ecoreClass="Dmodel.ecore#//Asset">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Asset/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Asset/number"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Asset/skillSet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Asset/id"/>
+    </genClasses>
+    <genClasses ecoreClass="Dmodel.ecore#//Skill">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Skill/service"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Skill/efficiency"/>
     </genClasses>
     <genClasses ecoreClass="Dmodel.ecore#//ExperimentVariable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ExperimentVariable/name"/>
@@ -62,280 +133,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ExperimentVariable/strategy"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ExperimentVariable/strategyValue"/>
     </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//Distribution">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Distribution/isNormal"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Distribution/isUniform"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Distribution/isExponential"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Distribution/parameters"/>
-    </genClasses>
     <genClasses ecoreClass="Dmodel.ecore#//WINReplication">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WINReplication/workItemNetwork"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WINReplication/numReplications"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//GovernanceStrategy">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//GovernanceStrategy/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//GovernanceStrategy/pull"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//GovernanceStrategy/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//GovernanceStrategy/pullStrategy"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//GovernanceStrategy/push"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//GovernanceStrategy/pushStrategy"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//GovernanceStrategy/cnp"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//GovernanceStrategy/contractNetProtocal"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//ContractNetProtocol">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ContractNetProtocol/mechanisms"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ContractNetProtocol/variables"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ContractNetProtocol/roleBehaviors"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//RoleBehavior">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//RoleBehavior/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//RoleBehavior/actions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//RoleBehavior/states"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//ProcessModel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ProcessModel/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ProcessModel/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ProcessModel/mechanisms"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ProcessModel/actions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ProcessModel/states"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//PullStrategy">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//PullStrategy/mechanisms"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//PushStrategy">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//PushStrategy/mechanisms"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//Mechanism">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Mechanism/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Mechanism/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Mechanism/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Mechanism/attributes"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//MechanismAttribute">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//MechanismAttribute/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//MechanismAttribute/value"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//WorkSource">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkSource/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkSource/description"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkSource/assignTo"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//WorkItemNetwork">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItemNetwork/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItemNetwork/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItemNetwork/workItems"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItemNetwork/id"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//WorkItem">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/hasPredecessors"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/pTasks"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/hasSubtasks"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/sTasks"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/requiredAnalysis"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/hasDecompositionMechanism"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/decompositionMechanism"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/requiredServices"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/maturityLevels"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/uncertainty"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/risk"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/hasImpacts"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/impacts"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/value"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItem/workSource"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/arrivalTime"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/duration"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItem/id"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//RequiredService">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//RequiredService/serviceType"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//RequiredService/efforts"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//Impact">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Impact/impactWI"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Impact/likelihood"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Impact/risk"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//WorkItemType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItemType/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItemType/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItemType/hierarchy"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItemType/id"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//ValueFunction">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ValueFunction/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ValueFunction/description"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//ClassOfService">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ClassOfService/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ClassOfService/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ClassOfService/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ClassOfService/priority"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ClassOfService/disruptive"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//Service">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Service/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Service/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Service/hierarchy"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Service/id"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//ServiceProvider">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ServiceProvider/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ServiceProvider/type"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ServiceProvider/assignTo"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ServiceProvider/outsourceFrom"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ServiceProvider/governanceStrategy"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ServiceProvider/resources"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ServiceProvider/id"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//ServiceProviderType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ServiceProviderType/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ServiceProviderType/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ServiceProviderType/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ServiceProviderType/hierarchy"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//Asset">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Asset/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Asset/number"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Asset/skillSet"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Asset/id"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//Skill">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Skill/service"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Skill/efficiency"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//AbstractType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//AbstractType/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//AbstractType/listType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//AbstractType/mapType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//AbstractType/keyType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//AbstractType/valueType"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//ClassAttributes">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ClassAttributes/agentAttributes"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//Agent">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Agent/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Agent/attributeValues"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//Task">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Task/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Task/attributeValues"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//Attribute">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Attribute/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Attribute/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Attribute/default"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//AttributeValue">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//AttributeValue/attribute"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//AttributeValue/value"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//Variable">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Variable/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Variable/name"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//Action">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Action/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Action/inputs"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//State">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//State/backgroundState"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//State/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//State/statements"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//IfExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//IfExpression/condition"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//IfExpression/statements"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//IfExpression/hasElseIf"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//IfExpression/elseIf"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//IfExpression/elses"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//ForExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ForExpression/object"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ForExpression/set"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ForExpression/statements"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//WhileExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WhileExpression/condition"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WhileExpression/statements"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//Condition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Condition/subjective"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Condition/operator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Condition/objective"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Condition/hasAnd"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Condition/andCondition"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Condition/hasOr"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Condition/orCondition"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//Statement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Statement/isAction"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Statement/actionStatement"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Statement/isChangeState"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Statement/changeStateStatement"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Statement/isDeclaration"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Statement/declarationStatement"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Statement/isIfExpression"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Statement/ifExpression"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Statement/isForExpression"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Statement/forExpression"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Statement/isWhileExpression"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Statement/whileExpression"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Statement/assertStatement"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//DeclarationStatement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//DeclarationStatement/variable"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//DeclarationStatement/value"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//ActionStatement">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ActionStatement/action"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ActionStatement/inputs"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//AssertStatement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//AssertStatement/input"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//AssertStatement/value"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//ChangeStateStatement">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ChangeStateStatement/targetState"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//Expression"/>
-    <genClasses ecoreClass="Dmodel.ecore#//Term"/>
-    <genClasses ecoreClass="Dmodel.ecore#//Factor">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Factor/number"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Factor/variable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Factor/string"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Factor/boolean"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Factor/expression"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//VarExpression">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//VarExpression/self"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//VarExpression/context"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//VarExpression/variable"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//VarExpression/methods"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//Method">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Method/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Method/functionMethod"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Method/inputs"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//Plus">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Plus/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Plus/right"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//Minus">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Minus/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Minus/right"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//Multiply">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Multiply/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Multiply/right"/>
-    </genClasses>
-    <genClasses ecoreClass="Dmodel.ecore#//Division">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Division/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//Division/right"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

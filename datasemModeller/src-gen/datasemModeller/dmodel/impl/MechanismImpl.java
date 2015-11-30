@@ -31,7 +31,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link datasemModeller.dmodel.impl.MechanismImpl#getName <em>Name</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.MechanismImpl#getValue <em>Value</em>}</li>
- *   <li>{@link datasemModeller.dmodel.impl.MechanismImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.MechanismImpl#getAttributes <em>Attributes</em>}</li>
  * </ul>
  * </p>
@@ -79,26 +78,6 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
    * @ordered
    */
   protected String value = VALUE_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDescription()
-   * @generated
-   * @ordered
-   */
-  protected static final String DESCRIPTION_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDescription()
-   * @generated
-   * @ordered
-   */
-  protected String description = DESCRIPTION_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
@@ -182,29 +161,6 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDescription()
-  {
-    return description;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDescription(String newDescription)
-  {
-    String oldDescription = description;
-    description = newDescription;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.MECHANISM__DESCRIPTION, oldDescription, description));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<MechanismAttribute> getAttributes()
   {
     if (attributes == null)
@@ -244,8 +200,6 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
         return getName();
       case DmodelPackage.MECHANISM__VALUE:
         return getValue();
-      case DmodelPackage.MECHANISM__DESCRIPTION:
-        return getDescription();
       case DmodelPackage.MECHANISM__ATTRIBUTES:
         return getAttributes();
     }
@@ -268,9 +222,6 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
         return;
       case DmodelPackage.MECHANISM__VALUE:
         setValue((String)newValue);
-        return;
-      case DmodelPackage.MECHANISM__DESCRIPTION:
-        setDescription((String)newValue);
         return;
       case DmodelPackage.MECHANISM__ATTRIBUTES:
         getAttributes().clear();
@@ -296,9 +247,6 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
       case DmodelPackage.MECHANISM__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
-      case DmodelPackage.MECHANISM__DESCRIPTION:
-        setDescription(DESCRIPTION_EDEFAULT);
-        return;
       case DmodelPackage.MECHANISM__ATTRIBUTES:
         getAttributes().clear();
         return;
@@ -320,8 +268,6 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DmodelPackage.MECHANISM__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-      case DmodelPackage.MECHANISM__DESCRIPTION:
-        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case DmodelPackage.MECHANISM__ATTRIBUTES:
         return attributes != null && !attributes.isEmpty();
     }
@@ -343,8 +289,6 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
     result.append(name);
     result.append(", value: ");
     result.append(value);
-    result.append(", description: ");
-    result.append(description);
     result.append(')');
     return result.toString();
   }

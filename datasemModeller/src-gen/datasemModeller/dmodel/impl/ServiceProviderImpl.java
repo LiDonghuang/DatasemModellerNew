@@ -35,7 +35,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link datasemModeller.dmodel.impl.ServiceProviderImpl#getName <em>Name</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.ServiceProviderImpl#getType <em>Type</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.ServiceProviderImpl#getAssignTo <em>Assign To</em>}</li>
- *   <li>{@link datasemModeller.dmodel.impl.ServiceProviderImpl#getOutsourceFrom <em>Outsource From</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.ServiceProviderImpl#getGovernanceStrategy <em>Governance Strategy</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.ServiceProviderImpl#getResources <em>Resources</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.ServiceProviderImpl#getId <em>Id</em>}</li>
@@ -85,16 +84,6 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
    * @ordered
    */
   protected EList<ServiceProvider> assignTo;
-
-  /**
-   * The cached value of the '{@link #getOutsourceFrom() <em>Outsource From</em>}' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOutsourceFrom()
-   * @generated
-   * @ordered
-   */
-  protected EList<ServiceProvider> outsourceFrom;
 
   /**
    * The cached value of the '{@link #getGovernanceStrategy() <em>Governance Strategy</em>}' reference.
@@ -242,20 +231,6 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ServiceProvider> getOutsourceFrom()
-  {
-    if (outsourceFrom == null)
-    {
-      outsourceFrom = new EObjectResolvingEList<ServiceProvider>(ServiceProvider.class, this, DmodelPackage.SERVICE_PROVIDER__OUTSOURCE_FROM);
-    }
-    return outsourceFrom;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public GovernanceStrategy getGovernanceStrategy()
   {
     if (governanceStrategy != null && governanceStrategy.eIsProxy())
@@ -364,8 +339,6 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
         return basicGetType();
       case DmodelPackage.SERVICE_PROVIDER__ASSIGN_TO:
         return getAssignTo();
-      case DmodelPackage.SERVICE_PROVIDER__OUTSOURCE_FROM:
-        return getOutsourceFrom();
       case DmodelPackage.SERVICE_PROVIDER__GOVERNANCE_STRATEGY:
         if (resolve) return getGovernanceStrategy();
         return basicGetGovernanceStrategy();
@@ -397,10 +370,6 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
       case DmodelPackage.SERVICE_PROVIDER__ASSIGN_TO:
         getAssignTo().clear();
         getAssignTo().addAll((Collection<? extends ServiceProvider>)newValue);
-        return;
-      case DmodelPackage.SERVICE_PROVIDER__OUTSOURCE_FROM:
-        getOutsourceFrom().clear();
-        getOutsourceFrom().addAll((Collection<? extends ServiceProvider>)newValue);
         return;
       case DmodelPackage.SERVICE_PROVIDER__GOVERNANCE_STRATEGY:
         setGovernanceStrategy((GovernanceStrategy)newValue);
@@ -435,9 +404,6 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
       case DmodelPackage.SERVICE_PROVIDER__ASSIGN_TO:
         getAssignTo().clear();
         return;
-      case DmodelPackage.SERVICE_PROVIDER__OUTSOURCE_FROM:
-        getOutsourceFrom().clear();
-        return;
       case DmodelPackage.SERVICE_PROVIDER__GOVERNANCE_STRATEGY:
         setGovernanceStrategy((GovernanceStrategy)null);
         return;
@@ -467,8 +433,6 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
         return type != null;
       case DmodelPackage.SERVICE_PROVIDER__ASSIGN_TO:
         return assignTo != null && !assignTo.isEmpty();
-      case DmodelPackage.SERVICE_PROVIDER__OUTSOURCE_FROM:
-        return outsourceFrom != null && !outsourceFrom.isEmpty();
       case DmodelPackage.SERVICE_PROVIDER__GOVERNANCE_STRATEGY:
         return governanceStrategy != null;
       case DmodelPackage.SERVICE_PROVIDER__RESOURCES:

@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link datasemModeller.dmodel.WorkItemNetwork#getName <em>Name</em>}</li>
- *   <li>{@link datasemModeller.dmodel.WorkItemNetwork#getDescription <em>Description</em>}</li>
  *   <li>{@link datasemModeller.dmodel.WorkItemNetwork#getWorkItems <em>Work Items</em>}</li>
  *   <li>{@link datasemModeller.dmodel.WorkItemNetwork#getId <em>Id</em>}</li>
  * </ul>
@@ -52,32 +51,6 @@ public interface WorkItemNetwork extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Description</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Description</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Description</em>' attribute.
-   * @see #setDescription(String)
-   * @see datasemModeller.dmodel.DmodelPackage#getWorkItemNetwork_Description()
-   * @model
-   * @generated
-   */
-  String getDescription();
-
-  /**
-   * Sets the value of the '{@link datasemModeller.dmodel.WorkItemNetwork#getDescription <em>Description</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Description</em>' attribute.
-   * @see #getDescription()
-   * @generated
-   */
-  void setDescription(String value);
 
   /**
    * Returns the value of the '<em><b>Work Items</b></em>' containment reference list.

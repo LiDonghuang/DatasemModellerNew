@@ -2,11 +2,9 @@
  */
 package datasemModeller.dmodel.impl;
 
-import datasemModeller.dmodel.ContractNetProtocol;
 import datasemModeller.dmodel.DmodelPackage;
 import datasemModeller.dmodel.GovernanceStrategy;
 import datasemModeller.dmodel.PullStrategy;
-import datasemModeller.dmodel.PushStrategy;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -25,13 +23,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link datasemModeller.dmodel.impl.GovernanceStrategyImpl#getName <em>Name</em>}</li>
- *   <li>{@link datasemModeller.dmodel.impl.GovernanceStrategyImpl#isPull <em>Pull</em>}</li>
- *   <li>{@link datasemModeller.dmodel.impl.GovernanceStrategyImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.GovernanceStrategyImpl#getPullStrategy <em>Pull Strategy</em>}</li>
- *   <li>{@link datasemModeller.dmodel.impl.GovernanceStrategyImpl#isPush <em>Push</em>}</li>
- *   <li>{@link datasemModeller.dmodel.impl.GovernanceStrategyImpl#getPushStrategy <em>Push Strategy</em>}</li>
- *   <li>{@link datasemModeller.dmodel.impl.GovernanceStrategyImpl#isCnp <em>Cnp</em>}</li>
- *   <li>{@link datasemModeller.dmodel.impl.GovernanceStrategyImpl#getContractNetProtocal <em>Contract Net Protocal</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,46 +52,6 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #isPull() <em>Pull</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isPull()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean PULL_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isPull() <em>Pull</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isPull()
-   * @generated
-   * @ordered
-   */
-  protected boolean pull = PULL_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDescription()
-   * @generated
-   * @ordered
-   */
-  protected static final String DESCRIPTION_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDescription()
-   * @generated
-   * @ordered
-   */
-  protected String description = DESCRIPTION_EDEFAULT;
-
-  /**
    * The cached value of the '{@link #getPullStrategy() <em>Pull Strategy</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -108,66 +60,6 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
    * @ordered
    */
   protected PullStrategy pullStrategy;
-
-  /**
-   * The default value of the '{@link #isPush() <em>Push</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isPush()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean PUSH_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isPush() <em>Push</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isPush()
-   * @generated
-   * @ordered
-   */
-  protected boolean push = PUSH_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getPushStrategy() <em>Push Strategy</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPushStrategy()
-   * @generated
-   * @ordered
-   */
-  protected PushStrategy pushStrategy;
-
-  /**
-   * The default value of the '{@link #isCnp() <em>Cnp</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isCnp()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean CNP_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isCnp() <em>Cnp</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isCnp()
-   * @generated
-   * @ordered
-   */
-  protected boolean cnp = CNP_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getContractNetProtocal() <em>Contract Net Protocal</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getContractNetProtocal()
-   * @generated
-   * @ordered
-   */
-  protected ContractNetProtocol contractNetProtocal;
 
   /**
    * <!-- begin-user-doc -->
@@ -211,52 +103,6 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.GOVERNANCE_STRATEGY__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean isPull()
-  {
-    return pull;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPull(boolean newPull)
-  {
-    boolean oldPull = pull;
-    pull = newPull;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.GOVERNANCE_STRATEGY__PULL, oldPull, pull));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getDescription()
-  {
-    return description;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDescription(String newDescription)
-  {
-    String oldDescription = description;
-    description = newDescription;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.GOVERNANCE_STRATEGY__DESCRIPTION, oldDescription, description));
   }
 
   /**
@@ -312,148 +158,6 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isPush()
-  {
-    return push;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPush(boolean newPush)
-  {
-    boolean oldPush = push;
-    push = newPush;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.GOVERNANCE_STRATEGY__PUSH, oldPush, push));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PushStrategy getPushStrategy()
-  {
-    return pushStrategy;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetPushStrategy(PushStrategy newPushStrategy, NotificationChain msgs)
-  {
-    PushStrategy oldPushStrategy = pushStrategy;
-    pushStrategy = newPushStrategy;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DmodelPackage.GOVERNANCE_STRATEGY__PUSH_STRATEGY, oldPushStrategy, newPushStrategy);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPushStrategy(PushStrategy newPushStrategy)
-  {
-    if (newPushStrategy != pushStrategy)
-    {
-      NotificationChain msgs = null;
-      if (pushStrategy != null)
-        msgs = ((InternalEObject)pushStrategy).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DmodelPackage.GOVERNANCE_STRATEGY__PUSH_STRATEGY, null, msgs);
-      if (newPushStrategy != null)
-        msgs = ((InternalEObject)newPushStrategy).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DmodelPackage.GOVERNANCE_STRATEGY__PUSH_STRATEGY, null, msgs);
-      msgs = basicSetPushStrategy(newPushStrategy, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.GOVERNANCE_STRATEGY__PUSH_STRATEGY, newPushStrategy, newPushStrategy));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean isCnp()
-  {
-    return cnp;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setCnp(boolean newCnp)
-  {
-    boolean oldCnp = cnp;
-    cnp = newCnp;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.GOVERNANCE_STRATEGY__CNP, oldCnp, cnp));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ContractNetProtocol getContractNetProtocal()
-  {
-    return contractNetProtocal;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetContractNetProtocal(ContractNetProtocol newContractNetProtocal, NotificationChain msgs)
-  {
-    ContractNetProtocol oldContractNetProtocal = contractNetProtocal;
-    contractNetProtocal = newContractNetProtocal;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DmodelPackage.GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL, oldContractNetProtocal, newContractNetProtocal);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setContractNetProtocal(ContractNetProtocol newContractNetProtocal)
-  {
-    if (newContractNetProtocal != contractNetProtocal)
-    {
-      NotificationChain msgs = null;
-      if (contractNetProtocal != null)
-        msgs = ((InternalEObject)contractNetProtocal).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DmodelPackage.GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL, null, msgs);
-      if (newContractNetProtocal != null)
-        msgs = ((InternalEObject)newContractNetProtocal).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DmodelPackage.GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL, null, msgs);
-      msgs = basicSetContractNetProtocal(newContractNetProtocal, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL, newContractNetProtocal, newContractNetProtocal));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -461,10 +165,6 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
     {
       case DmodelPackage.GOVERNANCE_STRATEGY__PULL_STRATEGY:
         return basicSetPullStrategy(null, msgs);
-      case DmodelPackage.GOVERNANCE_STRATEGY__PUSH_STRATEGY:
-        return basicSetPushStrategy(null, msgs);
-      case DmodelPackage.GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL:
-        return basicSetContractNetProtocal(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -481,20 +181,8 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
     {
       case DmodelPackage.GOVERNANCE_STRATEGY__NAME:
         return getName();
-      case DmodelPackage.GOVERNANCE_STRATEGY__PULL:
-        return isPull();
-      case DmodelPackage.GOVERNANCE_STRATEGY__DESCRIPTION:
-        return getDescription();
       case DmodelPackage.GOVERNANCE_STRATEGY__PULL_STRATEGY:
         return getPullStrategy();
-      case DmodelPackage.GOVERNANCE_STRATEGY__PUSH:
-        return isPush();
-      case DmodelPackage.GOVERNANCE_STRATEGY__PUSH_STRATEGY:
-        return getPushStrategy();
-      case DmodelPackage.GOVERNANCE_STRATEGY__CNP:
-        return isCnp();
-      case DmodelPackage.GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL:
-        return getContractNetProtocal();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -512,26 +200,8 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
       case DmodelPackage.GOVERNANCE_STRATEGY__NAME:
         setName((String)newValue);
         return;
-      case DmodelPackage.GOVERNANCE_STRATEGY__PULL:
-        setPull((Boolean)newValue);
-        return;
-      case DmodelPackage.GOVERNANCE_STRATEGY__DESCRIPTION:
-        setDescription((String)newValue);
-        return;
       case DmodelPackage.GOVERNANCE_STRATEGY__PULL_STRATEGY:
         setPullStrategy((PullStrategy)newValue);
-        return;
-      case DmodelPackage.GOVERNANCE_STRATEGY__PUSH:
-        setPush((Boolean)newValue);
-        return;
-      case DmodelPackage.GOVERNANCE_STRATEGY__PUSH_STRATEGY:
-        setPushStrategy((PushStrategy)newValue);
-        return;
-      case DmodelPackage.GOVERNANCE_STRATEGY__CNP:
-        setCnp((Boolean)newValue);
-        return;
-      case DmodelPackage.GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL:
-        setContractNetProtocal((ContractNetProtocol)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -550,26 +220,8 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
       case DmodelPackage.GOVERNANCE_STRATEGY__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DmodelPackage.GOVERNANCE_STRATEGY__PULL:
-        setPull(PULL_EDEFAULT);
-        return;
-      case DmodelPackage.GOVERNANCE_STRATEGY__DESCRIPTION:
-        setDescription(DESCRIPTION_EDEFAULT);
-        return;
       case DmodelPackage.GOVERNANCE_STRATEGY__PULL_STRATEGY:
         setPullStrategy((PullStrategy)null);
-        return;
-      case DmodelPackage.GOVERNANCE_STRATEGY__PUSH:
-        setPush(PUSH_EDEFAULT);
-        return;
-      case DmodelPackage.GOVERNANCE_STRATEGY__PUSH_STRATEGY:
-        setPushStrategy((PushStrategy)null);
-        return;
-      case DmodelPackage.GOVERNANCE_STRATEGY__CNP:
-        setCnp(CNP_EDEFAULT);
-        return;
-      case DmodelPackage.GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL:
-        setContractNetProtocal((ContractNetProtocol)null);
         return;
     }
     super.eUnset(featureID);
@@ -587,20 +239,8 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
     {
       case DmodelPackage.GOVERNANCE_STRATEGY__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DmodelPackage.GOVERNANCE_STRATEGY__PULL:
-        return pull != PULL_EDEFAULT;
-      case DmodelPackage.GOVERNANCE_STRATEGY__DESCRIPTION:
-        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case DmodelPackage.GOVERNANCE_STRATEGY__PULL_STRATEGY:
         return pullStrategy != null;
-      case DmodelPackage.GOVERNANCE_STRATEGY__PUSH:
-        return push != PUSH_EDEFAULT;
-      case DmodelPackage.GOVERNANCE_STRATEGY__PUSH_STRATEGY:
-        return pushStrategy != null;
-      case DmodelPackage.GOVERNANCE_STRATEGY__CNP:
-        return cnp != CNP_EDEFAULT;
-      case DmodelPackage.GOVERNANCE_STRATEGY__CONTRACT_NET_PROTOCAL:
-        return contractNetProtocal != null;
     }
     return super.eIsSet(featureID);
   }
@@ -618,14 +258,6 @@ public class GovernanceStrategyImpl extends MinimalEObjectImpl.Container impleme
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", pull: ");
-    result.append(pull);
-    result.append(", description: ");
-    result.append(description);
-    result.append(", push: ");
-    result.append(push);
-    result.append(", cnp: ");
-    result.append(cnp);
     result.append(')');
     return result.toString();
   }

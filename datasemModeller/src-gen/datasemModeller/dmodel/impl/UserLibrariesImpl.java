@@ -2,10 +2,8 @@
  */
 package datasemModeller.dmodel.impl;
 
-import datasemModeller.dmodel.ClassOfService;
 import datasemModeller.dmodel.DmodelPackage;
 import datasemModeller.dmodel.GovernanceStrategy;
-import datasemModeller.dmodel.ProcessModel;
 import datasemModeller.dmodel.Service;
 import datasemModeller.dmodel.ServiceProviderType;
 import datasemModeller.dmodel.UserLibraries;
@@ -34,9 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link datasemModeller.dmodel.impl.UserLibrariesImpl#getServiceProviderTypes <em>Service Provider Types</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.UserLibrariesImpl#getWorkItemTypes <em>Work Item Types</em>}</li>
- *   <li>{@link datasemModeller.dmodel.impl.UserLibrariesImpl#getClassOfServices <em>Class Of Services</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.UserLibrariesImpl#getServices <em>Services</em>}</li>
- *   <li>{@link datasemModeller.dmodel.impl.UserLibrariesImpl#getProcessModels <em>Process Models</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.UserLibrariesImpl#getGovernanceStrategies <em>Governance Strategies</em>}</li>
  * </ul>
  * </p>
@@ -66,16 +62,6 @@ public class UserLibrariesImpl extends MinimalEObjectImpl.Container implements U
   protected EList<WorkItemType> workItemTypes;
 
   /**
-   * The cached value of the '{@link #getClassOfServices() <em>Class Of Services</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getClassOfServices()
-   * @generated
-   * @ordered
-   */
-  protected EList<ClassOfService> classOfServices;
-
-  /**
    * The cached value of the '{@link #getServices() <em>Services</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -84,16 +70,6 @@ public class UserLibrariesImpl extends MinimalEObjectImpl.Container implements U
    * @ordered
    */
   protected EList<Service> services;
-
-  /**
-   * The cached value of the '{@link #getProcessModels() <em>Process Models</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getProcessModels()
-   * @generated
-   * @ordered
-   */
-  protected EList<ProcessModel> processModels;
 
   /**
    * The cached value of the '{@link #getGovernanceStrategies() <em>Governance Strategies</em>}' containment reference list.
@@ -159,20 +135,6 @@ public class UserLibrariesImpl extends MinimalEObjectImpl.Container implements U
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ClassOfService> getClassOfServices()
-  {
-    if (classOfServices == null)
-    {
-      classOfServices = new EObjectContainmentEList<ClassOfService>(ClassOfService.class, this, DmodelPackage.USER_LIBRARIES__CLASS_OF_SERVICES);
-    }
-    return classOfServices;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Service> getServices()
   {
     if (services == null)
@@ -180,20 +142,6 @@ public class UserLibrariesImpl extends MinimalEObjectImpl.Container implements U
       services = new EObjectContainmentEList<Service>(Service.class, this, DmodelPackage.USER_LIBRARIES__SERVICES);
     }
     return services;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<ProcessModel> getProcessModels()
-  {
-    if (processModels == null)
-    {
-      processModels = new EObjectContainmentEList<ProcessModel>(ProcessModel.class, this, DmodelPackage.USER_LIBRARIES__PROCESS_MODELS);
-    }
-    return processModels;
   }
 
   /**
@@ -224,12 +172,8 @@ public class UserLibrariesImpl extends MinimalEObjectImpl.Container implements U
         return ((InternalEList<?>)getServiceProviderTypes()).basicRemove(otherEnd, msgs);
       case DmodelPackage.USER_LIBRARIES__WORK_ITEM_TYPES:
         return ((InternalEList<?>)getWorkItemTypes()).basicRemove(otherEnd, msgs);
-      case DmodelPackage.USER_LIBRARIES__CLASS_OF_SERVICES:
-        return ((InternalEList<?>)getClassOfServices()).basicRemove(otherEnd, msgs);
       case DmodelPackage.USER_LIBRARIES__SERVICES:
         return ((InternalEList<?>)getServices()).basicRemove(otherEnd, msgs);
-      case DmodelPackage.USER_LIBRARIES__PROCESS_MODELS:
-        return ((InternalEList<?>)getProcessModels()).basicRemove(otherEnd, msgs);
       case DmodelPackage.USER_LIBRARIES__GOVERNANCE_STRATEGIES:
         return ((InternalEList<?>)getGovernanceStrategies()).basicRemove(otherEnd, msgs);
     }
@@ -250,12 +194,8 @@ public class UserLibrariesImpl extends MinimalEObjectImpl.Container implements U
         return getServiceProviderTypes();
       case DmodelPackage.USER_LIBRARIES__WORK_ITEM_TYPES:
         return getWorkItemTypes();
-      case DmodelPackage.USER_LIBRARIES__CLASS_OF_SERVICES:
-        return getClassOfServices();
       case DmodelPackage.USER_LIBRARIES__SERVICES:
         return getServices();
-      case DmodelPackage.USER_LIBRARIES__PROCESS_MODELS:
-        return getProcessModels();
       case DmodelPackage.USER_LIBRARIES__GOVERNANCE_STRATEGIES:
         return getGovernanceStrategies();
     }
@@ -281,17 +221,9 @@ public class UserLibrariesImpl extends MinimalEObjectImpl.Container implements U
         getWorkItemTypes().clear();
         getWorkItemTypes().addAll((Collection<? extends WorkItemType>)newValue);
         return;
-      case DmodelPackage.USER_LIBRARIES__CLASS_OF_SERVICES:
-        getClassOfServices().clear();
-        getClassOfServices().addAll((Collection<? extends ClassOfService>)newValue);
-        return;
       case DmodelPackage.USER_LIBRARIES__SERVICES:
         getServices().clear();
         getServices().addAll((Collection<? extends Service>)newValue);
-        return;
-      case DmodelPackage.USER_LIBRARIES__PROCESS_MODELS:
-        getProcessModels().clear();
-        getProcessModels().addAll((Collection<? extends ProcessModel>)newValue);
         return;
       case DmodelPackage.USER_LIBRARIES__GOVERNANCE_STRATEGIES:
         getGovernanceStrategies().clear();
@@ -317,14 +249,8 @@ public class UserLibrariesImpl extends MinimalEObjectImpl.Container implements U
       case DmodelPackage.USER_LIBRARIES__WORK_ITEM_TYPES:
         getWorkItemTypes().clear();
         return;
-      case DmodelPackage.USER_LIBRARIES__CLASS_OF_SERVICES:
-        getClassOfServices().clear();
-        return;
       case DmodelPackage.USER_LIBRARIES__SERVICES:
         getServices().clear();
-        return;
-      case DmodelPackage.USER_LIBRARIES__PROCESS_MODELS:
-        getProcessModels().clear();
         return;
       case DmodelPackage.USER_LIBRARIES__GOVERNANCE_STRATEGIES:
         getGovernanceStrategies().clear();
@@ -347,12 +273,8 @@ public class UserLibrariesImpl extends MinimalEObjectImpl.Container implements U
         return serviceProviderTypes != null && !serviceProviderTypes.isEmpty();
       case DmodelPackage.USER_LIBRARIES__WORK_ITEM_TYPES:
         return workItemTypes != null && !workItemTypes.isEmpty();
-      case DmodelPackage.USER_LIBRARIES__CLASS_OF_SERVICES:
-        return classOfServices != null && !classOfServices.isEmpty();
       case DmodelPackage.USER_LIBRARIES__SERVICES:
         return services != null && !services.isEmpty();
-      case DmodelPackage.USER_LIBRARIES__PROCESS_MODELS:
-        return processModels != null && !processModels.isEmpty();
       case DmodelPackage.USER_LIBRARIES__GOVERNANCE_STRATEGIES:
         return governanceStrategies != null && !governanceStrategies.isEmpty();
     }

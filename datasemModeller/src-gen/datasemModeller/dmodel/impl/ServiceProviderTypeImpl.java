@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link datasemModeller.dmodel.impl.ServiceProviderTypeImpl#getId <em>Id</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.ServiceProviderTypeImpl#getName <em>Name</em>}</li>
- *   <li>{@link datasemModeller.dmodel.impl.ServiceProviderTypeImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.ServiceProviderTypeImpl#getHierarchy <em>Hierarchy</em>}</li>
  * </ul>
  * </p>
@@ -69,26 +68,6 @@ public class ServiceProviderTypeImpl extends MinimalEObjectImpl.Container implem
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDescription()
-   * @generated
-   * @ordered
-   */
-  protected static final String DESCRIPTION_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDescription()
-   * @generated
-   * @ordered
-   */
-  protected String description = DESCRIPTION_EDEFAULT;
 
   /**
    * The default value of the '{@link #getHierarchy() <em>Hierarchy</em>}' attribute.
@@ -182,29 +161,6 @@ public class ServiceProviderTypeImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDescription()
-  {
-    return description;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDescription(String newDescription)
-  {
-    String oldDescription = description;
-    description = newDescription;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.SERVICE_PROVIDER_TYPE__DESCRIPTION, oldDescription, description));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public int getHierarchy()
   {
     return hierarchy;
@@ -237,8 +193,6 @@ public class ServiceProviderTypeImpl extends MinimalEObjectImpl.Container implem
         return getId();
       case DmodelPackage.SERVICE_PROVIDER_TYPE__NAME:
         return getName();
-      case DmodelPackage.SERVICE_PROVIDER_TYPE__DESCRIPTION:
-        return getDescription();
       case DmodelPackage.SERVICE_PROVIDER_TYPE__HIERARCHY:
         return getHierarchy();
     }
@@ -260,9 +214,6 @@ public class ServiceProviderTypeImpl extends MinimalEObjectImpl.Container implem
         return;
       case DmodelPackage.SERVICE_PROVIDER_TYPE__NAME:
         setName((String)newValue);
-        return;
-      case DmodelPackage.SERVICE_PROVIDER_TYPE__DESCRIPTION:
-        setDescription((String)newValue);
         return;
       case DmodelPackage.SERVICE_PROVIDER_TYPE__HIERARCHY:
         setHierarchy((Integer)newValue);
@@ -287,9 +238,6 @@ public class ServiceProviderTypeImpl extends MinimalEObjectImpl.Container implem
       case DmodelPackage.SERVICE_PROVIDER_TYPE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DmodelPackage.SERVICE_PROVIDER_TYPE__DESCRIPTION:
-        setDescription(DESCRIPTION_EDEFAULT);
-        return;
       case DmodelPackage.SERVICE_PROVIDER_TYPE__HIERARCHY:
         setHierarchy(HIERARCHY_EDEFAULT);
         return;
@@ -311,8 +259,6 @@ public class ServiceProviderTypeImpl extends MinimalEObjectImpl.Container implem
         return id != ID_EDEFAULT;
       case DmodelPackage.SERVICE_PROVIDER_TYPE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DmodelPackage.SERVICE_PROVIDER_TYPE__DESCRIPTION:
-        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case DmodelPackage.SERVICE_PROVIDER_TYPE__HIERARCHY:
         return hierarchy != HIERARCHY_EDEFAULT;
     }
@@ -334,8 +280,6 @@ public class ServiceProviderTypeImpl extends MinimalEObjectImpl.Container implem
     result.append(id);
     result.append(", name: ");
     result.append(name);
-    result.append(", description: ");
-    result.append(description);
     result.append(", hierarchy: ");
     result.append(hierarchy);
     result.append(')');

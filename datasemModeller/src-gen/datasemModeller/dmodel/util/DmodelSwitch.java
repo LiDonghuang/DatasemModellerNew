@@ -107,31 +107,10 @@ public class DmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DmodelPackage.OPERATOR:
-      {
-        Operator operator = (Operator)theEObject;
-        T result = caseOperator(operator);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.EXPERIMENT_VARIABLE:
-      {
-        ExperimentVariable experimentVariable = (ExperimentVariable)theEObject;
-        T result = caseExperimentVariable(experimentVariable);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case DmodelPackage.DISTRIBUTION:
       {
         Distribution distribution = (Distribution)theEObject;
         T result = caseDistribution(distribution);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.WIN_REPLICATION:
-      {
-        WINReplication winReplication = (WINReplication)theEObject;
-        T result = caseWINReplication(winReplication);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -142,38 +121,10 @@ public class DmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DmodelPackage.CONTRACT_NET_PROTOCOL:
-      {
-        ContractNetProtocol contractNetProtocol = (ContractNetProtocol)theEObject;
-        T result = caseContractNetProtocol(contractNetProtocol);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.ROLE_BEHAVIOR:
-      {
-        RoleBehavior roleBehavior = (RoleBehavior)theEObject;
-        T result = caseRoleBehavior(roleBehavior);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.PROCESS_MODEL:
-      {
-        ProcessModel processModel = (ProcessModel)theEObject;
-        T result = caseProcessModel(processModel);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case DmodelPackage.PULL_STRATEGY:
       {
         PullStrategy pullStrategy = (PullStrategy)theEObject;
         T result = casePullStrategy(pullStrategy);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.PUSH_STRATEGY:
-      {
-        PushStrategy pushStrategy = (PushStrategy)theEObject;
-        T result = casePushStrategy(pushStrategy);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -191,10 +142,10 @@ public class DmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DmodelPackage.WORK_SOURCE:
+      case DmodelPackage.WORK_ITEM_TYPE:
       {
-        WorkSource workSource = (WorkSource)theEObject;
-        T result = caseWorkSource(workSource);
+        WorkItemType workItemType = (WorkItemType)theEObject;
+        T result = caseWorkItemType(workItemType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -226,24 +177,10 @@ public class DmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DmodelPackage.WORK_ITEM_TYPE:
+      case DmodelPackage.SERVICE_PROVIDER_TYPE:
       {
-        WorkItemType workItemType = (WorkItemType)theEObject;
-        T result = caseWorkItemType(workItemType);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.VALUE_FUNCTION:
-      {
-        ValueFunction valueFunction = (ValueFunction)theEObject;
-        T result = caseValueFunction(valueFunction);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.CLASS_OF_SERVICE:
-      {
-        ClassOfService classOfService = (ClassOfService)theEObject;
-        T result = caseClassOfService(classOfService);
+        ServiceProviderType serviceProviderType = (ServiceProviderType)theEObject;
+        T result = caseServiceProviderType(serviceProviderType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -261,13 +198,6 @@ public class DmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DmodelPackage.SERVICE_PROVIDER_TYPE:
-      {
-        ServiceProviderType serviceProviderType = (ServiceProviderType)theEObject;
-        T result = caseServiceProviderType(serviceProviderType);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case DmodelPackage.ASSET:
       {
         Asset asset = (Asset)theEObject;
@@ -282,202 +212,17 @@ public class DmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DmodelPackage.ABSTRACT_TYPE:
+      case DmodelPackage.EXPERIMENT_VARIABLE:
       {
-        AbstractType abstractType = (AbstractType)theEObject;
-        T result = caseAbstractType(abstractType);
+        ExperimentVariable experimentVariable = (ExperimentVariable)theEObject;
+        T result = caseExperimentVariable(experimentVariable);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DmodelPackage.CLASS_ATTRIBUTES:
+      case DmodelPackage.WIN_REPLICATION:
       {
-        ClassAttributes classAttributes = (ClassAttributes)theEObject;
-        T result = caseClassAttributes(classAttributes);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.AGENT:
-      {
-        Agent agent = (Agent)theEObject;
-        T result = caseAgent(agent);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.TASK:
-      {
-        Task task = (Task)theEObject;
-        T result = caseTask(task);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.ATTRIBUTE:
-      {
-        Attribute attribute = (Attribute)theEObject;
-        T result = caseAttribute(attribute);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.ATTRIBUTE_VALUE:
-      {
-        AttributeValue attributeValue = (AttributeValue)theEObject;
-        T result = caseAttributeValue(attributeValue);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.VARIABLE:
-      {
-        Variable variable = (Variable)theEObject;
-        T result = caseVariable(variable);
-        if (result == null) result = caseDeclarationStatement(variable);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.ACTION:
-      {
-        Action action = (Action)theEObject;
-        T result = caseAction(action);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.STATE:
-      {
-        State state = (State)theEObject;
-        T result = caseState(state);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.IF_EXPRESSION:
-      {
-        IfExpression ifExpression = (IfExpression)theEObject;
-        T result = caseIfExpression(ifExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.FOR_EXPRESSION:
-      {
-        ForExpression forExpression = (ForExpression)theEObject;
-        T result = caseForExpression(forExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.WHILE_EXPRESSION:
-      {
-        WhileExpression whileExpression = (WhileExpression)theEObject;
-        T result = caseWhileExpression(whileExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.CONDITION:
-      {
-        Condition condition = (Condition)theEObject;
-        T result = caseCondition(condition);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.STATEMENT:
-      {
-        Statement statement = (Statement)theEObject;
-        T result = caseStatement(statement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.DECLARATION_STATEMENT:
-      {
-        DeclarationStatement declarationStatement = (DeclarationStatement)theEObject;
-        T result = caseDeclarationStatement(declarationStatement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.ACTION_STATEMENT:
-      {
-        ActionStatement actionStatement = (ActionStatement)theEObject;
-        T result = caseActionStatement(actionStatement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.ASSERT_STATEMENT:
-      {
-        AssertStatement assertStatement = (AssertStatement)theEObject;
-        T result = caseAssertStatement(assertStatement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.CHANGE_STATE_STATEMENT:
-      {
-        ChangeStateStatement changeStateStatement = (ChangeStateStatement)theEObject;
-        T result = caseChangeStateStatement(changeStateStatement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.EXPRESSION:
-      {
-        Expression expression = (Expression)theEObject;
-        T result = caseExpression(expression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.TERM:
-      {
-        Term term = (Term)theEObject;
-        T result = caseTerm(term);
-        if (result == null) result = caseExpression(term);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.FACTOR:
-      {
-        Factor factor = (Factor)theEObject;
-        T result = caseFactor(factor);
-        if (result == null) result = caseTerm(factor);
-        if (result == null) result = caseExpression(factor);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.VAR_EXPRESSION:
-      {
-        VarExpression varExpression = (VarExpression)theEObject;
-        T result = caseVarExpression(varExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.METHOD:
-      {
-        Method method = (Method)theEObject;
-        T result = caseMethod(method);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.PLUS:
-      {
-        Plus plus = (Plus)theEObject;
-        T result = casePlus(plus);
-        if (result == null) result = caseExpression(plus);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.MINUS:
-      {
-        Minus minus = (Minus)theEObject;
-        T result = caseMinus(minus);
-        if (result == null) result = caseExpression(minus);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.MULTIPLY:
-      {
-        Multiply multiply = (Multiply)theEObject;
-        T result = caseMultiply(multiply);
-        if (result == null) result = caseTerm(multiply);
-        if (result == null) result = caseExpression(multiply);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DmodelPackage.DIVISION:
-      {
-        Division division = (Division)theEObject;
-        T result = caseDivision(division);
-        if (result == null) result = caseTerm(division);
-        if (result == null) result = caseExpression(division);
+        WINReplication winReplication = (WINReplication)theEObject;
+        T result = caseWINReplication(winReplication);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -566,38 +311,6 @@ public class DmodelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Operator</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Operator</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseOperator(Operator object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Experiment Variable</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Experiment Variable</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseExperimentVariable(ExperimentVariable object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Distribution</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -609,22 +322,6 @@ public class DmodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDistribution(Distribution object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>WIN Replication</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>WIN Replication</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseWINReplication(WINReplication object)
   {
     return null;
   }
@@ -646,54 +343,6 @@ public class DmodelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Contract Net Protocol</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Contract Net Protocol</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseContractNetProtocol(ContractNetProtocol object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Role Behavior</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Role Behavior</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRoleBehavior(RoleBehavior object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Process Model</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Process Model</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseProcessModel(ProcessModel object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Pull Strategy</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -705,22 +354,6 @@ public class DmodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePullStrategy(PullStrategy object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Push Strategy</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Push Strategy</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePushStrategy(PushStrategy object)
   {
     return null;
   }
@@ -758,17 +391,17 @@ public class DmodelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Work Source</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Work Item Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Work Source</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Work Item Type</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseWorkSource(WorkSource object)
+  public T caseWorkItemType(WorkItemType object)
   {
     return null;
   }
@@ -838,49 +471,17 @@ public class DmodelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Work Item Type</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Service Provider Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Work Item Type</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Service Provider Type</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseWorkItemType(WorkItemType object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Value Function</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Value Function</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseValueFunction(ValueFunction object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Class Of Service</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Class Of Service</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseClassOfService(ClassOfService object)
+  public T caseServiceProviderType(ServiceProviderType object)
   {
     return null;
   }
@@ -918,22 +519,6 @@ public class DmodelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Service Provider Type</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Service Provider Type</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseServiceProviderType(ServiceProviderType object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Asset</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -966,433 +551,33 @@ public class DmodelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Abstract Type</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Experiment Variable</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Abstract Type</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Experiment Variable</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAbstractType(AbstractType object)
+  public T caseExperimentVariable(ExperimentVariable object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Class Attributes</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>WIN Replication</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Class Attributes</em>'.
+   * @return the result of interpreting the object as an instance of '<em>WIN Replication</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseClassAttributes(ClassAttributes object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Agent</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Agent</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAgent(Agent object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Task</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Task</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTask(Task object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Attribute</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Attribute</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAttribute(Attribute object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Attribute Value</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Attribute Value</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAttributeValue(AttributeValue object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Variable</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Variable</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVariable(Variable object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Action</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAction(Action object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>State</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>State</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseState(State object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>If Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>If Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseIfExpression(IfExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>For Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>For Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseForExpression(ForExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>While Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>While Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseWhileExpression(WhileExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Condition</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Condition</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCondition(Condition object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseStatement(Statement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Declaration Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Declaration Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDeclarationStatement(DeclarationStatement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Action Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Action Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseActionStatement(ActionStatement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Assert Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Assert Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAssertStatement(AssertStatement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Change State Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Change State Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseChangeStateStatement(ChangeStateStatement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseExpression(Expression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Term</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Term</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTerm(Term object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Factor</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Factor</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFactor(Factor object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Var Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Var Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVarExpression(VarExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Method</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Method</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMethod(Method object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Plus</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Plus</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePlus(Plus object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Minus</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Minus</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMinus(Minus object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Multiply</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Multiply</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMultiply(Multiply object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Division</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Division</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDivision(Division object)
+  public T caseWINReplication(WINReplication object)
   {
     return null;
   }

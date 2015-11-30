@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link datasemModeller.dmodel.ServiceProvider#getName <em>Name</em>}</li>
  *   <li>{@link datasemModeller.dmodel.ServiceProvider#getType <em>Type</em>}</li>
  *   <li>{@link datasemModeller.dmodel.ServiceProvider#getAssignTo <em>Assign To</em>}</li>
- *   <li>{@link datasemModeller.dmodel.ServiceProvider#getOutsourceFrom <em>Outsource From</em>}</li>
  *   <li>{@link datasemModeller.dmodel.ServiceProvider#getGovernanceStrategy <em>Governance Strategy</em>}</li>
  *   <li>{@link datasemModeller.dmodel.ServiceProvider#getResources <em>Resources</em>}</li>
  *   <li>{@link datasemModeller.dmodel.ServiceProvider#getId <em>Id</em>}</li>
@@ -97,22 +96,6 @@ public interface ServiceProvider extends EObject
    * @generated
    */
   EList<ServiceProvider> getAssignTo();
-
-  /**
-   * Returns the value of the '<em><b>Outsource From</b></em>' reference list.
-   * The list contents are of type {@link datasemModeller.dmodel.ServiceProvider}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Outsource From</em>' reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Outsource From</em>' reference list.
-   * @see datasemModeller.dmodel.DmodelPackage#getServiceProvider_OutsourceFrom()
-   * @model
-   * @generated
-   */
-  EList<ServiceProvider> getOutsourceFrom();
 
   /**
    * Returns the value of the '<em><b>Governance Strategy</b></em>' reference.

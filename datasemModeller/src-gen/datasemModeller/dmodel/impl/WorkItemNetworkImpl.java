@@ -30,7 +30,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link datasemModeller.dmodel.impl.WorkItemNetworkImpl#getName <em>Name</em>}</li>
- *   <li>{@link datasemModeller.dmodel.impl.WorkItemNetworkImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.WorkItemNetworkImpl#getWorkItems <em>Work Items</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.WorkItemNetworkImpl#getId <em>Id</em>}</li>
  * </ul>
@@ -59,26 +58,6 @@ public class WorkItemNetworkImpl extends MinimalEObjectImpl.Container implements
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDescription()
-   * @generated
-   * @ordered
-   */
-  protected static final String DESCRIPTION_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDescription()
-   * @generated
-   * @ordered
-   */
-  protected String description = DESCRIPTION_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getWorkItems() <em>Work Items</em>}' containment reference list.
@@ -159,29 +138,6 @@ public class WorkItemNetworkImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDescription()
-  {
-    return description;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDescription(String newDescription)
-  {
-    String oldDescription = description;
-    description = newDescription;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.WORK_ITEM_NETWORK__DESCRIPTION, oldDescription, description));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<WorkItem> getWorkItems()
   {
     if (workItems == null)
@@ -242,8 +198,6 @@ public class WorkItemNetworkImpl extends MinimalEObjectImpl.Container implements
     {
       case DmodelPackage.WORK_ITEM_NETWORK__NAME:
         return getName();
-      case DmodelPackage.WORK_ITEM_NETWORK__DESCRIPTION:
-        return getDescription();
       case DmodelPackage.WORK_ITEM_NETWORK__WORK_ITEMS:
         return getWorkItems();
       case DmodelPackage.WORK_ITEM_NETWORK__ID:
@@ -265,9 +219,6 @@ public class WorkItemNetworkImpl extends MinimalEObjectImpl.Container implements
     {
       case DmodelPackage.WORK_ITEM_NETWORK__NAME:
         setName((String)newValue);
-        return;
-      case DmodelPackage.WORK_ITEM_NETWORK__DESCRIPTION:
-        setDescription((String)newValue);
         return;
       case DmodelPackage.WORK_ITEM_NETWORK__WORK_ITEMS:
         getWorkItems().clear();
@@ -293,9 +244,6 @@ public class WorkItemNetworkImpl extends MinimalEObjectImpl.Container implements
       case DmodelPackage.WORK_ITEM_NETWORK__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DmodelPackage.WORK_ITEM_NETWORK__DESCRIPTION:
-        setDescription(DESCRIPTION_EDEFAULT);
-        return;
       case DmodelPackage.WORK_ITEM_NETWORK__WORK_ITEMS:
         getWorkItems().clear();
         return;
@@ -318,8 +266,6 @@ public class WorkItemNetworkImpl extends MinimalEObjectImpl.Container implements
     {
       case DmodelPackage.WORK_ITEM_NETWORK__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DmodelPackage.WORK_ITEM_NETWORK__DESCRIPTION:
-        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case DmodelPackage.WORK_ITEM_NETWORK__WORK_ITEMS:
         return workItems != null && !workItems.isEmpty();
       case DmodelPackage.WORK_ITEM_NETWORK__ID:
@@ -341,8 +287,6 @@ public class WorkItemNetworkImpl extends MinimalEObjectImpl.Container implements
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", description: ");
-    result.append(description);
     result.append(", id: ");
     result.append(id);
     result.append(')');

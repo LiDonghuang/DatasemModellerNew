@@ -100,24 +100,9 @@ public class DmodelAdapterFactory extends AdapterFactoryImpl
         return createNumExpressionAdapter();
       }
       @Override
-      public Adapter caseOperator(Operator object)
-      {
-        return createOperatorAdapter();
-      }
-      @Override
-      public Adapter caseExperimentVariable(ExperimentVariable object)
-      {
-        return createExperimentVariableAdapter();
-      }
-      @Override
       public Adapter caseDistribution(Distribution object)
       {
         return createDistributionAdapter();
-      }
-      @Override
-      public Adapter caseWINReplication(WINReplication object)
-      {
-        return createWINReplicationAdapter();
       }
       @Override
       public Adapter caseGovernanceStrategy(GovernanceStrategy object)
@@ -125,29 +110,9 @@ public class DmodelAdapterFactory extends AdapterFactoryImpl
         return createGovernanceStrategyAdapter();
       }
       @Override
-      public Adapter caseContractNetProtocol(ContractNetProtocol object)
-      {
-        return createContractNetProtocolAdapter();
-      }
-      @Override
-      public Adapter caseRoleBehavior(RoleBehavior object)
-      {
-        return createRoleBehaviorAdapter();
-      }
-      @Override
-      public Adapter caseProcessModel(ProcessModel object)
-      {
-        return createProcessModelAdapter();
-      }
-      @Override
       public Adapter casePullStrategy(PullStrategy object)
       {
         return createPullStrategyAdapter();
-      }
-      @Override
-      public Adapter casePushStrategy(PushStrategy object)
-      {
-        return createPushStrategyAdapter();
       }
       @Override
       public Adapter caseMechanism(Mechanism object)
@@ -160,9 +125,9 @@ public class DmodelAdapterFactory extends AdapterFactoryImpl
         return createMechanismAttributeAdapter();
       }
       @Override
-      public Adapter caseWorkSource(WorkSource object)
+      public Adapter caseWorkItemType(WorkItemType object)
       {
-        return createWorkSourceAdapter();
+        return createWorkItemTypeAdapter();
       }
       @Override
       public Adapter caseWorkItemNetwork(WorkItemNetwork object)
@@ -185,19 +150,9 @@ public class DmodelAdapterFactory extends AdapterFactoryImpl
         return createImpactAdapter();
       }
       @Override
-      public Adapter caseWorkItemType(WorkItemType object)
+      public Adapter caseServiceProviderType(ServiceProviderType object)
       {
-        return createWorkItemTypeAdapter();
-      }
-      @Override
-      public Adapter caseValueFunction(ValueFunction object)
-      {
-        return createValueFunctionAdapter();
-      }
-      @Override
-      public Adapter caseClassOfService(ClassOfService object)
-      {
-        return createClassOfServiceAdapter();
+        return createServiceProviderTypeAdapter();
       }
       @Override
       public Adapter caseService(Service object)
@@ -210,11 +165,6 @@ public class DmodelAdapterFactory extends AdapterFactoryImpl
         return createServiceProviderAdapter();
       }
       @Override
-      public Adapter caseServiceProviderType(ServiceProviderType object)
-      {
-        return createServiceProviderTypeAdapter();
-      }
-      @Override
       public Adapter caseAsset(Asset object)
       {
         return createAssetAdapter();
@@ -225,139 +175,14 @@ public class DmodelAdapterFactory extends AdapterFactoryImpl
         return createSkillAdapter();
       }
       @Override
-      public Adapter caseAbstractType(AbstractType object)
+      public Adapter caseExperimentVariable(ExperimentVariable object)
       {
-        return createAbstractTypeAdapter();
+        return createExperimentVariableAdapter();
       }
       @Override
-      public Adapter caseClassAttributes(ClassAttributes object)
+      public Adapter caseWINReplication(WINReplication object)
       {
-        return createClassAttributesAdapter();
-      }
-      @Override
-      public Adapter caseAgent(Agent object)
-      {
-        return createAgentAdapter();
-      }
-      @Override
-      public Adapter caseTask(Task object)
-      {
-        return createTaskAdapter();
-      }
-      @Override
-      public Adapter caseAttribute(Attribute object)
-      {
-        return createAttributeAdapter();
-      }
-      @Override
-      public Adapter caseAttributeValue(AttributeValue object)
-      {
-        return createAttributeValueAdapter();
-      }
-      @Override
-      public Adapter caseVariable(Variable object)
-      {
-        return createVariableAdapter();
-      }
-      @Override
-      public Adapter caseAction(Action object)
-      {
-        return createActionAdapter();
-      }
-      @Override
-      public Adapter caseState(State object)
-      {
-        return createStateAdapter();
-      }
-      @Override
-      public Adapter caseIfExpression(IfExpression object)
-      {
-        return createIfExpressionAdapter();
-      }
-      @Override
-      public Adapter caseForExpression(ForExpression object)
-      {
-        return createForExpressionAdapter();
-      }
-      @Override
-      public Adapter caseWhileExpression(WhileExpression object)
-      {
-        return createWhileExpressionAdapter();
-      }
-      @Override
-      public Adapter caseCondition(Condition object)
-      {
-        return createConditionAdapter();
-      }
-      @Override
-      public Adapter caseStatement(Statement object)
-      {
-        return createStatementAdapter();
-      }
-      @Override
-      public Adapter caseDeclarationStatement(DeclarationStatement object)
-      {
-        return createDeclarationStatementAdapter();
-      }
-      @Override
-      public Adapter caseActionStatement(ActionStatement object)
-      {
-        return createActionStatementAdapter();
-      }
-      @Override
-      public Adapter caseAssertStatement(AssertStatement object)
-      {
-        return createAssertStatementAdapter();
-      }
-      @Override
-      public Adapter caseChangeStateStatement(ChangeStateStatement object)
-      {
-        return createChangeStateStatementAdapter();
-      }
-      @Override
-      public Adapter caseExpression(Expression object)
-      {
-        return createExpressionAdapter();
-      }
-      @Override
-      public Adapter caseTerm(Term object)
-      {
-        return createTermAdapter();
-      }
-      @Override
-      public Adapter caseFactor(Factor object)
-      {
-        return createFactorAdapter();
-      }
-      @Override
-      public Adapter caseVarExpression(VarExpression object)
-      {
-        return createVarExpressionAdapter();
-      }
-      @Override
-      public Adapter caseMethod(Method object)
-      {
-        return createMethodAdapter();
-      }
-      @Override
-      public Adapter casePlus(Plus object)
-      {
-        return createPlusAdapter();
-      }
-      @Override
-      public Adapter caseMinus(Minus object)
-      {
-        return createMinusAdapter();
-      }
-      @Override
-      public Adapter caseMultiply(Multiply object)
-      {
-        return createMultiplyAdapter();
-      }
-      @Override
-      public Adapter caseDivision(Division object)
-      {
-        return createDivisionAdapter();
+        return createWINReplicationAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -457,36 +282,6 @@ public class DmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.Operator <em>Operator</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.Operator
-   * @generated
-   */
-  public Adapter createOperatorAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.ExperimentVariable <em>Experiment Variable</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.ExperimentVariable
-   * @generated
-   */
-  public Adapter createExperimentVariableAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.Distribution <em>Distribution</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -497,21 +292,6 @@ public class DmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDistributionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.WINReplication <em>WIN Replication</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.WINReplication
-   * @generated
-   */
-  public Adapter createWINReplicationAdapter()
   {
     return null;
   }
@@ -532,51 +312,6 @@ public class DmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.ContractNetProtocol <em>Contract Net Protocol</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.ContractNetProtocol
-   * @generated
-   */
-  public Adapter createContractNetProtocolAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.RoleBehavior <em>Role Behavior</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.RoleBehavior
-   * @generated
-   */
-  public Adapter createRoleBehaviorAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.ProcessModel <em>Process Model</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.ProcessModel
-   * @generated
-   */
-  public Adapter createProcessModelAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.PullStrategy <em>Pull Strategy</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -587,21 +322,6 @@ public class DmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPullStrategyAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.PushStrategy <em>Push Strategy</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.PushStrategy
-   * @generated
-   */
-  public Adapter createPushStrategyAdapter()
   {
     return null;
   }
@@ -637,16 +357,16 @@ public class DmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.WorkSource <em>Work Source</em>}'.
+   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.WorkItemType <em>Work Item Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see datasemModeller.dmodel.WorkSource
+   * @see datasemModeller.dmodel.WorkItemType
    * @generated
    */
-  public Adapter createWorkSourceAdapter()
+  public Adapter createWorkItemTypeAdapter()
   {
     return null;
   }
@@ -712,46 +432,16 @@ public class DmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.WorkItemType <em>Work Item Type</em>}'.
+   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.ServiceProviderType <em>Service Provider Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see datasemModeller.dmodel.WorkItemType
+   * @see datasemModeller.dmodel.ServiceProviderType
    * @generated
    */
-  public Adapter createWorkItemTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.ValueFunction <em>Value Function</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.ValueFunction
-   * @generated
-   */
-  public Adapter createValueFunctionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.ClassOfService <em>Class Of Service</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.ClassOfService
-   * @generated
-   */
-  public Adapter createClassOfServiceAdapter()
+  public Adapter createServiceProviderTypeAdapter()
   {
     return null;
   }
@@ -787,21 +477,6 @@ public class DmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.ServiceProviderType <em>Service Provider Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.ServiceProviderType
-   * @generated
-   */
-  public Adapter createServiceProviderTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.Asset <em>Asset</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -832,406 +507,31 @@ public class DmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.AbstractType <em>Abstract Type</em>}'.
+   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.ExperimentVariable <em>Experiment Variable</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see datasemModeller.dmodel.AbstractType
+   * @see datasemModeller.dmodel.ExperimentVariable
    * @generated
    */
-  public Adapter createAbstractTypeAdapter()
+  public Adapter createExperimentVariableAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.ClassAttributes <em>Class Attributes</em>}'.
+   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.WINReplication <em>WIN Replication</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see datasemModeller.dmodel.ClassAttributes
+   * @see datasemModeller.dmodel.WINReplication
    * @generated
    */
-  public Adapter createClassAttributesAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.Agent <em>Agent</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.Agent
-   * @generated
-   */
-  public Adapter createAgentAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.Task <em>Task</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.Task
-   * @generated
-   */
-  public Adapter createTaskAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.Attribute <em>Attribute</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.Attribute
-   * @generated
-   */
-  public Adapter createAttributeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.AttributeValue <em>Attribute Value</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.AttributeValue
-   * @generated
-   */
-  public Adapter createAttributeValueAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.Variable <em>Variable</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.Variable
-   * @generated
-   */
-  public Adapter createVariableAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.Action <em>Action</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.Action
-   * @generated
-   */
-  public Adapter createActionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.State <em>State</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.State
-   * @generated
-   */
-  public Adapter createStateAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.IfExpression <em>If Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.IfExpression
-   * @generated
-   */
-  public Adapter createIfExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.ForExpression <em>For Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.ForExpression
-   * @generated
-   */
-  public Adapter createForExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.WhileExpression <em>While Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.WhileExpression
-   * @generated
-   */
-  public Adapter createWhileExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.Condition <em>Condition</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.Condition
-   * @generated
-   */
-  public Adapter createConditionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.Statement <em>Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.Statement
-   * @generated
-   */
-  public Adapter createStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.DeclarationStatement <em>Declaration Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.DeclarationStatement
-   * @generated
-   */
-  public Adapter createDeclarationStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.ActionStatement <em>Action Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.ActionStatement
-   * @generated
-   */
-  public Adapter createActionStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.AssertStatement <em>Assert Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.AssertStatement
-   * @generated
-   */
-  public Adapter createAssertStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.ChangeStateStatement <em>Change State Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.ChangeStateStatement
-   * @generated
-   */
-  public Adapter createChangeStateStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.Expression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.Expression
-   * @generated
-   */
-  public Adapter createExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.Term <em>Term</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.Term
-   * @generated
-   */
-  public Adapter createTermAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.Factor <em>Factor</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.Factor
-   * @generated
-   */
-  public Adapter createFactorAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.VarExpression <em>Var Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.VarExpression
-   * @generated
-   */
-  public Adapter createVarExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.Method <em>Method</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.Method
-   * @generated
-   */
-  public Adapter createMethodAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.Plus <em>Plus</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.Plus
-   * @generated
-   */
-  public Adapter createPlusAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.Minus <em>Minus</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.Minus
-   * @generated
-   */
-  public Adapter createMinusAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.Multiply <em>Multiply</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.Multiply
-   * @generated
-   */
-  public Adapter createMultiplyAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.Division <em>Division</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see datasemModeller.dmodel.Division
-   * @generated
-   */
-  public Adapter createDivisionAdapter()
+  public Adapter createWINReplicationAdapter()
   {
     return null;
   }

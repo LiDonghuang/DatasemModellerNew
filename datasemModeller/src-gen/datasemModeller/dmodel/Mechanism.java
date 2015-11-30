@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link datasemModeller.dmodel.Mechanism#getName <em>Name</em>}</li>
  *   <li>{@link datasemModeller.dmodel.Mechanism#getValue <em>Value</em>}</li>
- *   <li>{@link datasemModeller.dmodel.Mechanism#getDescription <em>Description</em>}</li>
  *   <li>{@link datasemModeller.dmodel.Mechanism#getAttributes <em>Attributes</em>}</li>
  * </ul>
  * </p>
@@ -78,32 +77,6 @@ public interface Mechanism extends EObject
    * @generated
    */
   void setValue(String value);
-
-  /**
-   * Returns the value of the '<em><b>Description</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Description</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Description</em>' attribute.
-   * @see #setDescription(String)
-   * @see datasemModeller.dmodel.DmodelPackage#getMechanism_Description()
-   * @model
-   * @generated
-   */
-  String getDescription();
-
-  /**
-   * Sets the value of the '{@link datasemModeller.dmodel.Mechanism#getDescription <em>Description</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Description</em>' attribute.
-   * @see #getDescription()
-   * @generated
-   */
-  void setDescription(String value);
 
   /**
    * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.

@@ -8,7 +8,6 @@ import datasemModeller.dmodel.ExperimentVariable;
 import datasemModeller.dmodel.ServiceProvider;
 import datasemModeller.dmodel.WINReplication;
 import datasemModeller.dmodel.WorkItemNetwork;
-import datasemModeller.dmodel.WorkSource;
 
 import java.util.Collection;
 
@@ -23,7 +22,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -35,13 +33,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link datasemModeller.dmodel.impl.ExperimentModelImpl#getName <em>Name</em>}</li>
- *   <li>{@link datasemModeller.dmodel.impl.ExperimentModelImpl#getPath <em>Path</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.ExperimentModelImpl#getExperimentVariables <em>Experiment Variables</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.ExperimentModelImpl#getServiceProviders <em>Service Providers</em>}</li>
- *   <li>{@link datasemModeller.dmodel.impl.ExperimentModelImpl#getWorkSources <em>Work Sources</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.ExperimentModelImpl#getWorkItemNetworks <em>Work Item Networks</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.ExperimentModelImpl#getWINReplications <em>WIN Replications</em>}</li>
- *   <li>{@link datasemModeller.dmodel.impl.ExperimentModelImpl#getIndicators <em>Indicators</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,26 +65,6 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPath()
-   * @generated
-   * @ordered
-   */
-  protected static final String PATH_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPath()
-   * @generated
-   * @ordered
-   */
-  protected String path = PATH_EDEFAULT;
-
-  /**
    * The cached value of the '{@link #getExperimentVariables() <em>Experiment Variables</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -110,16 +85,6 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
   protected EList<ServiceProvider> serviceProviders;
 
   /**
-   * The cached value of the '{@link #getWorkSources() <em>Work Sources</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getWorkSources()
-   * @generated
-   * @ordered
-   */
-  protected EList<WorkSource> workSources;
-
-  /**
    * The cached value of the '{@link #getWorkItemNetworks() <em>Work Item Networks</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -138,16 +103,6 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
    * @ordered
    */
   protected EList<WINReplication> winReplications;
-
-  /**
-   * The cached value of the '{@link #getIndicators() <em>Indicators</em>}' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIndicators()
-   * @generated
-   * @ordered
-   */
-  protected EList<String> indicators;
 
   /**
    * <!-- begin-user-doc -->
@@ -198,29 +153,6 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getPath()
-  {
-    return path;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPath(String newPath)
-  {
-    String oldPath = path;
-    path = newPath;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.EXPERIMENT_MODEL__PATH, oldPath, path));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<ExperimentVariable> getExperimentVariables()
   {
     if (experimentVariables == null)
@@ -242,20 +174,6 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
       serviceProviders = new EObjectContainmentEList<ServiceProvider>(ServiceProvider.class, this, DmodelPackage.EXPERIMENT_MODEL__SERVICE_PROVIDERS);
     }
     return serviceProviders;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<WorkSource> getWorkSources()
-  {
-    if (workSources == null)
-    {
-      workSources = new EObjectContainmentEList<WorkSource>(WorkSource.class, this, DmodelPackage.EXPERIMENT_MODEL__WORK_SOURCES);
-    }
-    return workSources;
   }
 
   /**
@@ -291,20 +209,6 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getIndicators()
-  {
-    if (indicators == null)
-    {
-      indicators = new EDataTypeEList<String>(String.class, this, DmodelPackage.EXPERIMENT_MODEL__INDICATORS);
-    }
-    return indicators;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -314,8 +218,6 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
         return ((InternalEList<?>)getExperimentVariables()).basicRemove(otherEnd, msgs);
       case DmodelPackage.EXPERIMENT_MODEL__SERVICE_PROVIDERS:
         return ((InternalEList<?>)getServiceProviders()).basicRemove(otherEnd, msgs);
-      case DmodelPackage.EXPERIMENT_MODEL__WORK_SOURCES:
-        return ((InternalEList<?>)getWorkSources()).basicRemove(otherEnd, msgs);
       case DmodelPackage.EXPERIMENT_MODEL__WORK_ITEM_NETWORKS:
         return ((InternalEList<?>)getWorkItemNetworks()).basicRemove(otherEnd, msgs);
       case DmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATIONS:
@@ -336,20 +238,14 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
     {
       case DmodelPackage.EXPERIMENT_MODEL__NAME:
         return getName();
-      case DmodelPackage.EXPERIMENT_MODEL__PATH:
-        return getPath();
       case DmodelPackage.EXPERIMENT_MODEL__EXPERIMENT_VARIABLES:
         return getExperimentVariables();
       case DmodelPackage.EXPERIMENT_MODEL__SERVICE_PROVIDERS:
         return getServiceProviders();
-      case DmodelPackage.EXPERIMENT_MODEL__WORK_SOURCES:
-        return getWorkSources();
       case DmodelPackage.EXPERIMENT_MODEL__WORK_ITEM_NETWORKS:
         return getWorkItemNetworks();
       case DmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATIONS:
         return getWINReplications();
-      case DmodelPackage.EXPERIMENT_MODEL__INDICATORS:
-        return getIndicators();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -368,9 +264,6 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
       case DmodelPackage.EXPERIMENT_MODEL__NAME:
         setName((String)newValue);
         return;
-      case DmodelPackage.EXPERIMENT_MODEL__PATH:
-        setPath((String)newValue);
-        return;
       case DmodelPackage.EXPERIMENT_MODEL__EXPERIMENT_VARIABLES:
         getExperimentVariables().clear();
         getExperimentVariables().addAll((Collection<? extends ExperimentVariable>)newValue);
@@ -379,10 +272,6 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
         getServiceProviders().clear();
         getServiceProviders().addAll((Collection<? extends ServiceProvider>)newValue);
         return;
-      case DmodelPackage.EXPERIMENT_MODEL__WORK_SOURCES:
-        getWorkSources().clear();
-        getWorkSources().addAll((Collection<? extends WorkSource>)newValue);
-        return;
       case DmodelPackage.EXPERIMENT_MODEL__WORK_ITEM_NETWORKS:
         getWorkItemNetworks().clear();
         getWorkItemNetworks().addAll((Collection<? extends WorkItemNetwork>)newValue);
@@ -390,10 +279,6 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
       case DmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATIONS:
         getWINReplications().clear();
         getWINReplications().addAll((Collection<? extends WINReplication>)newValue);
-        return;
-      case DmodelPackage.EXPERIMENT_MODEL__INDICATORS:
-        getIndicators().clear();
-        getIndicators().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -412,26 +297,17 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
       case DmodelPackage.EXPERIMENT_MODEL__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DmodelPackage.EXPERIMENT_MODEL__PATH:
-        setPath(PATH_EDEFAULT);
-        return;
       case DmodelPackage.EXPERIMENT_MODEL__EXPERIMENT_VARIABLES:
         getExperimentVariables().clear();
         return;
       case DmodelPackage.EXPERIMENT_MODEL__SERVICE_PROVIDERS:
         getServiceProviders().clear();
         return;
-      case DmodelPackage.EXPERIMENT_MODEL__WORK_SOURCES:
-        getWorkSources().clear();
-        return;
       case DmodelPackage.EXPERIMENT_MODEL__WORK_ITEM_NETWORKS:
         getWorkItemNetworks().clear();
         return;
       case DmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATIONS:
         getWINReplications().clear();
-        return;
-      case DmodelPackage.EXPERIMENT_MODEL__INDICATORS:
-        getIndicators().clear();
         return;
     }
     super.eUnset(featureID);
@@ -449,20 +325,14 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
     {
       case DmodelPackage.EXPERIMENT_MODEL__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DmodelPackage.EXPERIMENT_MODEL__PATH:
-        return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
       case DmodelPackage.EXPERIMENT_MODEL__EXPERIMENT_VARIABLES:
         return experimentVariables != null && !experimentVariables.isEmpty();
       case DmodelPackage.EXPERIMENT_MODEL__SERVICE_PROVIDERS:
         return serviceProviders != null && !serviceProviders.isEmpty();
-      case DmodelPackage.EXPERIMENT_MODEL__WORK_SOURCES:
-        return workSources != null && !workSources.isEmpty();
       case DmodelPackage.EXPERIMENT_MODEL__WORK_ITEM_NETWORKS:
         return workItemNetworks != null && !workItemNetworks.isEmpty();
       case DmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATIONS:
         return winReplications != null && !winReplications.isEmpty();
-      case DmodelPackage.EXPERIMENT_MODEL__INDICATORS:
-        return indicators != null && !indicators.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -480,10 +350,6 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", Path: ");
-    result.append(path);
-    result.append(", Indicators: ");
-    result.append(indicators);
     result.append(')');
     return result.toString();
   }

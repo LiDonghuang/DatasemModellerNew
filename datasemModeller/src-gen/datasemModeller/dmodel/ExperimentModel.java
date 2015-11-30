@@ -15,13 +15,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link datasemModeller.dmodel.ExperimentModel#getName <em>Name</em>}</li>
- *   <li>{@link datasemModeller.dmodel.ExperimentModel#getPath <em>Path</em>}</li>
  *   <li>{@link datasemModeller.dmodel.ExperimentModel#getExperimentVariables <em>Experiment Variables</em>}</li>
  *   <li>{@link datasemModeller.dmodel.ExperimentModel#getServiceProviders <em>Service Providers</em>}</li>
- *   <li>{@link datasemModeller.dmodel.ExperimentModel#getWorkSources <em>Work Sources</em>}</li>
  *   <li>{@link datasemModeller.dmodel.ExperimentModel#getWorkItemNetworks <em>Work Item Networks</em>}</li>
  *   <li>{@link datasemModeller.dmodel.ExperimentModel#getWINReplications <em>WIN Replications</em>}</li>
- *   <li>{@link datasemModeller.dmodel.ExperimentModel#getIndicators <em>Indicators</em>}</li>
  * </ul>
  * </p>
  *
@@ -58,32 +55,6 @@ public interface ExperimentModel extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Path</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Path</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Path</em>' attribute.
-   * @see #setPath(String)
-   * @see datasemModeller.dmodel.DmodelPackage#getExperimentModel_Path()
-   * @model
-   * @generated
-   */
-  String getPath();
-
-  /**
-   * Sets the value of the '{@link datasemModeller.dmodel.ExperimentModel#getPath <em>Path</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Path</em>' attribute.
-   * @see #getPath()
-   * @generated
-   */
-  void setPath(String value);
-
-  /**
    * Returns the value of the '<em><b>Experiment Variables</b></em>' containment reference list.
    * The list contents are of type {@link datasemModeller.dmodel.ExperimentVariable}.
    * <!-- begin-user-doc -->
@@ -116,22 +87,6 @@ public interface ExperimentModel extends EObject
   EList<ServiceProvider> getServiceProviders();
 
   /**
-   * Returns the value of the '<em><b>Work Sources</b></em>' containment reference list.
-   * The list contents are of type {@link datasemModeller.dmodel.WorkSource}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Work Sources</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Work Sources</em>' containment reference list.
-   * @see datasemModeller.dmodel.DmodelPackage#getExperimentModel_WorkSources()
-   * @model containment="true"
-   * @generated
-   */
-  EList<WorkSource> getWorkSources();
-
-  /**
    * Returns the value of the '<em><b>Work Item Networks</b></em>' containment reference list.
    * The list contents are of type {@link datasemModeller.dmodel.WorkItemNetwork}.
    * <!-- begin-user-doc -->
@@ -162,21 +117,5 @@ public interface ExperimentModel extends EObject
    * @generated
    */
   EList<WINReplication> getWINReplications();
-
-  /**
-   * Returns the value of the '<em><b>Indicators</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Indicators</em>' attribute list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Indicators</em>' attribute list.
-   * @see datasemModeller.dmodel.DmodelPackage#getExperimentModel_Indicators()
-   * @model unique="false"
-   * @generated
-   */
-  EList<String> getIndicators();
 
 } // ExperimentModel

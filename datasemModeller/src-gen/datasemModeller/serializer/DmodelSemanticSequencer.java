@@ -5,60 +5,28 @@ package datasemModeller.serializer;
 
 import com.google.inject.Inject;
 import datasemModeller.dmodel.AbstractParameter;
-import datasemModeller.dmodel.AbstractType;
-import datasemModeller.dmodel.ActionStatement;
-import datasemModeller.dmodel.Agent;
-import datasemModeller.dmodel.AssertStatement;
 import datasemModeller.dmodel.Asset;
-import datasemModeller.dmodel.Attribute;
-import datasemModeller.dmodel.AttributeValue;
-import datasemModeller.dmodel.ChangeStateStatement;
-import datasemModeller.dmodel.ClassAttributes;
-import datasemModeller.dmodel.ClassOfService;
-import datasemModeller.dmodel.Condition;
-import datasemModeller.dmodel.ContractNetProtocol;
-import datasemModeller.dmodel.DeclarationStatement;
 import datasemModeller.dmodel.Distribution;
-import datasemModeller.dmodel.Division;
 import datasemModeller.dmodel.DmodelPackage;
 import datasemModeller.dmodel.ExperimentModel;
 import datasemModeller.dmodel.ExperimentVariable;
-import datasemModeller.dmodel.Factor;
-import datasemModeller.dmodel.ForExpression;
 import datasemModeller.dmodel.GovernanceStrategy;
-import datasemModeller.dmodel.IfExpression;
 import datasemModeller.dmodel.Impact;
 import datasemModeller.dmodel.Mechanism;
 import datasemModeller.dmodel.MechanismAttribute;
-import datasemModeller.dmodel.Method;
-import datasemModeller.dmodel.Minus;
 import datasemModeller.dmodel.ModelBuilder;
-import datasemModeller.dmodel.Multiply;
 import datasemModeller.dmodel.NumExpression;
-import datasemModeller.dmodel.Operator;
-import datasemModeller.dmodel.Plus;
-import datasemModeller.dmodel.ProcessModel;
 import datasemModeller.dmodel.PullStrategy;
-import datasemModeller.dmodel.PushStrategy;
 import datasemModeller.dmodel.RequiredService;
-import datasemModeller.dmodel.RoleBehavior;
 import datasemModeller.dmodel.Service;
 import datasemModeller.dmodel.ServiceProvider;
 import datasemModeller.dmodel.ServiceProviderType;
 import datasemModeller.dmodel.Skill;
-import datasemModeller.dmodel.State;
-import datasemModeller.dmodel.Statement;
-import datasemModeller.dmodel.Task;
 import datasemModeller.dmodel.UserLibraries;
-import datasemModeller.dmodel.ValueFunction;
-import datasemModeller.dmodel.VarExpression;
-import datasemModeller.dmodel.Variable;
 import datasemModeller.dmodel.WINReplication;
-import datasemModeller.dmodel.WhileExpression;
 import datasemModeller.dmodel.WorkItem;
 import datasemModeller.dmodel.WorkItemNetwork;
 import datasemModeller.dmodel.WorkItemType;
-import datasemModeller.dmodel.WorkSource;
 import datasemModeller.services.DmodelGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -88,53 +56,11 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case DmodelPackage.ABSTRACT_PARAMETER:
 				sequence_AbstractParameter(context, (AbstractParameter) semanticObject); 
 				return; 
-			case DmodelPackage.ABSTRACT_TYPE:
-				sequence_AbstractType(context, (AbstractType) semanticObject); 
-				return; 
-			case DmodelPackage.ACTION:
-				sequence_Action(context, (datasemModeller.dmodel.Action) semanticObject); 
-				return; 
-			case DmodelPackage.ACTION_STATEMENT:
-				sequence_ActionStatement(context, (ActionStatement) semanticObject); 
-				return; 
-			case DmodelPackage.AGENT:
-				sequence_Agent(context, (Agent) semanticObject); 
-				return; 
-			case DmodelPackage.ASSERT_STATEMENT:
-				sequence_AssertStatement(context, (AssertStatement) semanticObject); 
-				return; 
 			case DmodelPackage.ASSET:
 				sequence_Asset(context, (Asset) semanticObject); 
 				return; 
-			case DmodelPackage.ATTRIBUTE:
-				sequence_Attribute(context, (Attribute) semanticObject); 
-				return; 
-			case DmodelPackage.ATTRIBUTE_VALUE:
-				sequence_AttributeValue(context, (AttributeValue) semanticObject); 
-				return; 
-			case DmodelPackage.CHANGE_STATE_STATEMENT:
-				sequence_ChangeStateStatement(context, (ChangeStateStatement) semanticObject); 
-				return; 
-			case DmodelPackage.CLASS_ATTRIBUTES:
-				sequence_ClassAttributes(context, (ClassAttributes) semanticObject); 
-				return; 
-			case DmodelPackage.CLASS_OF_SERVICE:
-				sequence_ClassOfService(context, (ClassOfService) semanticObject); 
-				return; 
-			case DmodelPackage.CONDITION:
-				sequence_Condition(context, (Condition) semanticObject); 
-				return; 
-			case DmodelPackage.CONTRACT_NET_PROTOCOL:
-				sequence_ContractNetProtocol(context, (ContractNetProtocol) semanticObject); 
-				return; 
-			case DmodelPackage.DECLARATION_STATEMENT:
-				sequence_DeclarationStatement(context, (DeclarationStatement) semanticObject); 
-				return; 
 			case DmodelPackage.DISTRIBUTION:
 				sequence_Distribution(context, (Distribution) semanticObject); 
-				return; 
-			case DmodelPackage.DIVISION:
-				sequence_Term(context, (Division) semanticObject); 
 				return; 
 			case DmodelPackage.EXPERIMENT_MODEL:
 				sequence_ExperimentModel(context, (ExperimentModel) semanticObject); 
@@ -142,17 +68,8 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case DmodelPackage.EXPERIMENT_VARIABLE:
 				sequence_ExperimentVariable(context, (ExperimentVariable) semanticObject); 
 				return; 
-			case DmodelPackage.FACTOR:
-				sequence_Factor(context, (Factor) semanticObject); 
-				return; 
-			case DmodelPackage.FOR_EXPRESSION:
-				sequence_ForExpression(context, (ForExpression) semanticObject); 
-				return; 
 			case DmodelPackage.GOVERNANCE_STRATEGY:
 				sequence_GovernanceStrategy(context, (GovernanceStrategy) semanticObject); 
-				return; 
-			case DmodelPackage.IF_EXPRESSION:
-				sequence_IfExpression(context, (IfExpression) semanticObject); 
 				return; 
 			case DmodelPackage.IMPACT:
 				sequence_Impact(context, (Impact) semanticObject); 
@@ -163,41 +80,17 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case DmodelPackage.MECHANISM_ATTRIBUTE:
 				sequence_MechanismAttribute(context, (MechanismAttribute) semanticObject); 
 				return; 
-			case DmodelPackage.METHOD:
-				sequence_Method(context, (Method) semanticObject); 
-				return; 
-			case DmodelPackage.MINUS:
-				sequence_Expression(context, (Minus) semanticObject); 
-				return; 
 			case DmodelPackage.MODEL_BUILDER:
 				sequence_ModelBuilder(context, (ModelBuilder) semanticObject); 
-				return; 
-			case DmodelPackage.MULTIPLY:
-				sequence_Term(context, (Multiply) semanticObject); 
 				return; 
 			case DmodelPackage.NUM_EXPRESSION:
 				sequence_NumExpression(context, (NumExpression) semanticObject); 
 				return; 
-			case DmodelPackage.OPERATOR:
-				sequence_Operator(context, (Operator) semanticObject); 
-				return; 
-			case DmodelPackage.PLUS:
-				sequence_Expression(context, (Plus) semanticObject); 
-				return; 
-			case DmodelPackage.PROCESS_MODEL:
-				sequence_ProcessModel(context, (ProcessModel) semanticObject); 
-				return; 
 			case DmodelPackage.PULL_STRATEGY:
 				sequence_PullStrategy(context, (PullStrategy) semanticObject); 
 				return; 
-			case DmodelPackage.PUSH_STRATEGY:
-				sequence_PushStrategy(context, (PushStrategy) semanticObject); 
-				return; 
 			case DmodelPackage.REQUIRED_SERVICE:
 				sequence_RequiredService(context, (RequiredService) semanticObject); 
-				return; 
-			case DmodelPackage.ROLE_BEHAVIOR:
-				sequence_RoleBehavior(context, (RoleBehavior) semanticObject); 
 				return; 
 			case DmodelPackage.SERVICE:
 				sequence_Service(context, (Service) semanticObject); 
@@ -211,32 +104,11 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case DmodelPackage.SKILL:
 				sequence_Skill(context, (Skill) semanticObject); 
 				return; 
-			case DmodelPackage.STATE:
-				sequence_State(context, (State) semanticObject); 
-				return; 
-			case DmodelPackage.STATEMENT:
-				sequence_Statement(context, (Statement) semanticObject); 
-				return; 
-			case DmodelPackage.TASK:
-				sequence_Task(context, (Task) semanticObject); 
-				return; 
 			case DmodelPackage.USER_LIBRARIES:
 				sequence_UserLibraries(context, (UserLibraries) semanticObject); 
 				return; 
-			case DmodelPackage.VALUE_FUNCTION:
-				sequence_ValueFunction(context, (ValueFunction) semanticObject); 
-				return; 
-			case DmodelPackage.VAR_EXPRESSION:
-				sequence_VarExpression(context, (VarExpression) semanticObject); 
-				return; 
-			case DmodelPackage.VARIABLE:
-				sequence_Variable(context, (Variable) semanticObject); 
-				return; 
 			case DmodelPackage.WIN_REPLICATION:
 				sequence_WINReplication(context, (WINReplication) semanticObject); 
-				return; 
-			case DmodelPackage.WHILE_EXPRESSION:
-				sequence_WhileExpression(context, (WhileExpression) semanticObject); 
 				return; 
 			case DmodelPackage.WORK_ITEM:
 				sequence_WorkItem(context, (WorkItem) semanticObject); 
@@ -246,9 +118,6 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				return; 
 			case DmodelPackage.WORK_ITEM_TYPE:
 				sequence_WorkItemType(context, (WorkItemType) semanticObject); 
-				return; 
-			case DmodelPackage.WORK_SOURCE:
-				sequence_WorkSource(context, (WorkSource) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -269,195 +138,12 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     AbstractType returns AbstractType
-	 *
-	 * Constraint:
-	 *     (type=Type | (listType?='List' type=Type) | (mapType?='Map' keyType=Type valueType=Type))
-	 */
-	protected void sequence_AbstractType(ISerializationContext context, AbstractType semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ActionStatement returns ActionStatement
-	 *
-	 * Constraint:
-	 *     (action=[Action|ID] inputs+=VarExpression+)
-	 */
-	protected void sequence_ActionStatement(ISerializationContext context, ActionStatement semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Action returns Action
-	 *
-	 * Constraint:
-	 *     (name=ID inputs+=Variable? inputs+=Variable*)
-	 */
-	protected void sequence_Action(ISerializationContext context, datasemModeller.dmodel.Action semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Agent returns Agent
-	 *
-	 * Constraint:
-	 *     (name=ID attributeValues+=AttributeValue*)
-	 */
-	protected void sequence_Agent(ISerializationContext context, Agent semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     AssertStatement returns AssertStatement
-	 *
-	 * Constraint:
-	 *     (input=VarExpression value=Expression)
-	 */
-	protected void sequence_AssertStatement(ISerializationContext context, AssertStatement semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.ASSERT_STATEMENT__INPUT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.ASSERT_STATEMENT__INPUT));
-			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.ASSERT_STATEMENT__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.ASSERT_STATEMENT__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAssertStatementAccess().getInputVarExpressionParserRuleCall_0_0(), semanticObject.getInput());
-		feeder.accept(grammarAccess.getAssertStatementAccess().getValueExpressionParserRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Asset returns Asset
 	 *
 	 * Constraint:
 	 *     (name=ID number=AbstractParameter (skillSet+=Skill skillSet+=Skill*)? id=INT?)
 	 */
 	protected void sequence_Asset(ISerializationContext context, Asset semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     AttributeValue returns AttributeValue
-	 *
-	 * Constraint:
-	 *     (attribute=[Attribute|ID] value=Parameter)
-	 */
-	protected void sequence_AttributeValue(ISerializationContext context, AttributeValue semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.ATTRIBUTE_VALUE__ATTRIBUTE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.ATTRIBUTE_VALUE__ATTRIBUTE));
-			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.ATTRIBUTE_VALUE__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.ATTRIBUTE_VALUE__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAttributeValueAccess().getAttributeAttributeIDTerminalRuleCall_0_0_1(), semanticObject.getAttribute());
-		feeder.accept(grammarAccess.getAttributeValueAccess().getValueParameterParserRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Attribute returns Attribute
-	 *
-	 * Constraint:
-	 *     (type=AbstractType name=ID default=Parameter?)
-	 */
-	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ChangeStateStatement returns ChangeStateStatement
-	 *
-	 * Constraint:
-	 *     targetState=[State|ID]
-	 */
-	protected void sequence_ChangeStateStatement(ISerializationContext context, ChangeStateStatement semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.CHANGE_STATE_STATEMENT__TARGET_STATE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.CHANGE_STATE_STATEMENT__TARGET_STATE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getChangeStateStatementAccess().getTargetStateStateIDTerminalRuleCall_1_0_1(), semanticObject.getTargetState());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ClassAttributes returns ClassAttributes
-	 *
-	 * Constraint:
-	 *     agentAttributes+=Attribute+
-	 */
-	protected void sequence_ClassAttributes(ISerializationContext context, ClassAttributes semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ClassOfService returns ClassOfService
-	 *
-	 * Constraint:
-	 *     (id=INT? name=ID description=STRING? priority=INT? disruptive=BOOLEAN?)
-	 */
-	protected void sequence_ClassOfService(ISerializationContext context, ClassOfService semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Condition returns Condition
-	 *
-	 * Constraint:
-	 *     (
-	 *         ((subjective=VarExpression operator=Operator objective=Expression) | (subjective=VarExpression operator=Operator objective=Expression)) 
-	 *         ((hasAnd?='and' andCondition=Condition) | (hasOr?='or' orCondition=Condition))?
-	 *     )
-	 */
-	protected void sequence_Condition(ISerializationContext context, Condition semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ContractNetProtocol returns ContractNetProtocol
-	 *
-	 * Constraint:
-	 *     (mechanisms+=Mechanism+ variables+=Variable* roleBehaviors+=RoleBehavior+)
-	 */
-	protected void sequence_ContractNetProtocol(ISerializationContext context, ContractNetProtocol semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DeclarationStatement returns DeclarationStatement
-	 *
-	 * Constraint:
-	 *     (variable=DeclarationStatement_DeclarationStatement_1 value=Expression?)
-	 */
-	protected void sequence_DeclarationStatement(ISerializationContext context, DeclarationStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -481,13 +167,10 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         Path=QualifiedName? 
 	 *         ExperimentVariables+=ExperimentVariable* 
 	 *         ServiceProviders+=ServiceProvider+ 
-	 *         WorkSources+=WorkSource* 
 	 *         WorkItemNetworks+=WorkItemNetwork+ 
-	 *         WINReplications+=WINReplication+ 
-	 *         Indicators+=ID*
+	 *         WINReplications+=WINReplication+
 	 *     )
 	 */
 	protected void sequence_ExperimentModel(ISerializationContext context, ExperimentModel semanticObject) {
@@ -518,108 +201,22 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     Expression returns Minus
-	 *     Expression.Plus_1_0_0_0 returns Minus
-	 *     Expression.Minus_1_0_1_0 returns Minus
-	 *
-	 * Constraint:
-	 *     (left=Expression_Minus_1_0_1_0 right=Term)
-	 */
-	protected void sequence_Expression(ISerializationContext context, Minus semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MINUS__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.MINUS__LEFT));
-			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MINUS__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.MINUS__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExpressionAccess().getMinusLeftAction_1_0_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getExpressionAccess().getRightTermParserRuleCall_1_1_0(), semanticObject.getRight());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns Plus
-	 *     Expression.Plus_1_0_0_0 returns Plus
-	 *     Expression.Minus_1_0_1_0 returns Plus
-	 *
-	 * Constraint:
-	 *     (left=Expression_Plus_1_0_0_0 right=Term)
-	 */
-	protected void sequence_Expression(ISerializationContext context, Plus semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.PLUS__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.PLUS__LEFT));
-			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.PLUS__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.PLUS__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExpressionAccess().getPlusLeftAction_1_0_0_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getExpressionAccess().getRightTermParserRuleCall_1_1_0(), semanticObject.getRight());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns Factor
-	 *     Expression.Plus_1_0_0_0 returns Factor
-	 *     Expression.Minus_1_0_1_0 returns Factor
-	 *     Term returns Factor
-	 *     Term.Multiply_1_0_0_0 returns Factor
-	 *     Term.Division_1_0_1_0 returns Factor
-	 *     Factor returns Factor
-	 *
-	 * Constraint:
-	 *     (number=Number | variable=VarExpression | string=STRING | boolean=BOOLEAN | expression=Expression)
-	 */
-	protected void sequence_Factor(ISerializationContext context, Factor semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ForExpression returns ForExpression
-	 *
-	 * Constraint:
-	 *     (object=VarExpression set=VarExpression statements+=Statement*)
-	 */
-	protected void sequence_ForExpression(ISerializationContext context, ForExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     GovernanceStrategy returns GovernanceStrategy
 	 *
 	 * Constraint:
-	 *     (
-	 *         name=ID 
-	 *         (
-	 *             (pull?='Pull' description=STRING? pullStrategy=PullStrategy) | 
-	 *             (push?='Push' description=STRING? pushStrategy=PushStrategy) | 
-	 *             (cnp?='CNP' description=STRING? contractNetProtocal=ContractNetProtocol)
-	 *         )
-	 *     )
+	 *     (name=ID pullStrategy=PullStrategy)
 	 */
 	protected void sequence_GovernanceStrategy(ISerializationContext context, GovernanceStrategy semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     IfExpression returns IfExpression
-	 *
-	 * Constraint:
-	 *     (condition=Condition statements+=Statement* ((hasElseIf?='if' elseIf=IfExpression) | elses+=Statement+)?)
-	 */
-	protected void sequence_IfExpression(ISerializationContext context, IfExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.GOVERNANCE_STRATEGY__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.GOVERNANCE_STRATEGY__NAME));
+			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.GOVERNANCE_STRATEGY__PULL_STRATEGY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.GOVERNANCE_STRATEGY__PULL_STRATEGY));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getGovernanceStrategyAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getGovernanceStrategyAccess().getPullStrategyPullStrategyParserRuleCall_2_0(), semanticObject.getPullStrategy());
+		feeder.finish();
 	}
 	
 	
@@ -673,21 +270,9 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Mechanism returns Mechanism
 	 *
 	 * Constraint:
-	 *     (name=ID value=Parameter description=STRING? (attributes+=MechanismAttribute attributes+=MechanismAttribute*)?)
+	 *     (name=ID value=Parameter (attributes+=MechanismAttribute attributes+=MechanismAttribute*)?)
 	 */
 	protected void sequence_Mechanism(ISerializationContext context, Mechanism semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Method returns Method
-	 *
-	 * Constraint:
-	 *     (name=ID functionMethod?='(' inputs+=Parameter? inputs+=Parameter*)
-	 */
-	protected void sequence_Method(ISerializationContext context, Method semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -697,14 +282,12 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     ModelBuilder returns ModelBuilder
 	 *
 	 * Constraint:
-	 *     (name=ID Description=STRING UserLibraries=UserLibraries ExperimentModel=ExperimentModel)
+	 *     (name=ID UserLibraries=UserLibraries ExperimentModel=ExperimentModel)
 	 */
 	protected void sequence_ModelBuilder(ISerializationContext context, ModelBuilder semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MODEL_BUILDER__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.MODEL_BUILDER__NAME));
-			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MODEL_BUILDER__DESCRIPTION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.MODEL_BUILDER__DESCRIPTION));
 			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MODEL_BUILDER__USER_LIBRARIES) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.MODEL_BUILDER__USER_LIBRARIES));
 			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MODEL_BUILDER__EXPERIMENT_MODEL) == ValueTransient.YES)
@@ -712,9 +295,8 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getModelBuilderAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getModelBuilderAccess().getDescriptionSTRINGTerminalRuleCall_3_0(), semanticObject.getDescription());
-		feeder.accept(grammarAccess.getModelBuilderAccess().getUserLibrariesUserLibrariesParserRuleCall_4_0(), semanticObject.getUserLibraries());
-		feeder.accept(grammarAccess.getModelBuilderAccess().getExperimentModelExperimentModelParserRuleCall_5_0(), semanticObject.getExperimentModel());
+		feeder.accept(grammarAccess.getModelBuilderAccess().getUserLibrariesUserLibrariesParserRuleCall_2_0(), semanticObject.getUserLibraries());
+		feeder.accept(grammarAccess.getModelBuilderAccess().getExperimentModelExperimentModelParserRuleCall_3_0(), semanticObject.getExperimentModel());
 		feeder.finish();
 	}
 	
@@ -733,55 +315,12 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     Operator returns Operator
-	 *
-	 * Constraint:
-	 *     (
-	 *         equalTo?='==' | 
-	 *         largerThan?='>' | 
-	 *         smallerThan?='<' | 
-	 *         largerOrEqualTo?='>=' | 
-	 *         smallerOrEqualTo?='<=' | 
-	 *         notEqualTo?='!='
-	 *     )
-	 */
-	protected void sequence_Operator(ISerializationContext context, Operator semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ProcessModel returns ProcessModel
-	 *
-	 * Constraint:
-	 *     (name=ID description=STRING? mechanisms+=Mechanism* (actions+=Action* states+=State+)?)
-	 */
-	protected void sequence_ProcessModel(ISerializationContext context, ProcessModel semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     PullStrategy returns PullStrategy
 	 *
 	 * Constraint:
 	 *     mechanisms+=Mechanism+
 	 */
 	protected void sequence_PullStrategy(ISerializationContext context, PullStrategy semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     PushStrategy returns PushStrategy
-	 *
-	 * Constraint:
-	 *     mechanisms+=Mechanism+
-	 */
-	protected void sequence_PushStrategy(ISerializationContext context, PushStrategy semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -809,22 +348,10 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     RoleBehavior returns RoleBehavior
-	 *
-	 * Constraint:
-	 *     (name=ID actions+=Action* states+=State+)
-	 */
-	protected void sequence_RoleBehavior(ISerializationContext context, RoleBehavior semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     ServiceProviderType returns ServiceProviderType
 	 *
 	 * Constraint:
-	 *     (id=INT? name=ID description=STRING? hierarchy=INT?)
+	 *     (id=INT? name=ID hierarchy=INT?)
 	 */
 	protected void sequence_ServiceProviderType(ISerializationContext context, ServiceProviderType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -840,7 +367,6 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         name=ID 
 	 *         type=[ServiceProviderType|ID]? 
 	 *         (assignTo+=[ServiceProvider|ID] assignTo+=[ServiceProvider|ID]*)? 
-	 *         (outsourceFrom+=[ServiceProvider|ID] outsourceFrom+=[ServiceProvider|ID]*)? 
 	 *         governanceStrategy=[GovernanceStrategy|ID]? 
 	 *         resources+=Asset* 
 	 *         id=INT?
@@ -856,7 +382,7 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Service returns Service
 	 *
 	 * Constraint:
-	 *     (name=ID description=STRING? hierarchy=INT? id=INT?)
+	 *     (name=ID hierarchy=INT? id=INT?)
 	 */
 	protected void sequence_Service(ISerializationContext context, Service semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -886,162 +412,13 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     State returns State
-	 *
-	 * Constraint:
-	 *     ((backgroundState?='backgroundState' name=ID) | (name=ID statements+=Statement*))
-	 */
-	protected void sequence_State(ISerializationContext context, State semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Statement returns Statement
-	 *
-	 * Constraint:
-	 *     (
-	 *         (isAction?='Do' actionStatement=ActionStatement) | 
-	 *         (isChangeState?='->' changeStateStatement=ChangeStateStatement) | 
-	 *         (isDeclaration?='var' declarationStatement=DeclarationStatement) | 
-	 *         (isIfExpression?='if' ifExpression=IfExpression) | 
-	 *         (isForExpression?='for' forExpression=ForExpression) | 
-	 *         (isWhileExpression?='while' whileExpression=WhileExpression) | 
-	 *         assertStatement=AssertStatement
-	 *     )
-	 */
-	protected void sequence_Statement(ISerializationContext context, Statement semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Task returns Task
-	 *
-	 * Constraint:
-	 *     (name=ID attributeValues+=AttributeValue*)
-	 */
-	protected void sequence_Task(ISerializationContext context, Task semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns Division
-	 *     Expression.Plus_1_0_0_0 returns Division
-	 *     Expression.Minus_1_0_1_0 returns Division
-	 *     Term returns Division
-	 *     Term.Multiply_1_0_0_0 returns Division
-	 *     Term.Division_1_0_1_0 returns Division
-	 *
-	 * Constraint:
-	 *     (left=Term_Division_1_0_1_0 right=Factor)
-	 */
-	protected void sequence_Term(ISerializationContext context, Division semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.DIVISION__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.DIVISION__LEFT));
-			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.DIVISION__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.DIVISION__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTermAccess().getDivisionLeftAction_1_0_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getTermAccess().getRightFactorParserRuleCall_1_1_0(), semanticObject.getRight());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns Multiply
-	 *     Expression.Plus_1_0_0_0 returns Multiply
-	 *     Expression.Minus_1_0_1_0 returns Multiply
-	 *     Term returns Multiply
-	 *     Term.Multiply_1_0_0_0 returns Multiply
-	 *     Term.Division_1_0_1_0 returns Multiply
-	 *
-	 * Constraint:
-	 *     (left=Term_Multiply_1_0_0_0 right=Factor)
-	 */
-	protected void sequence_Term(ISerializationContext context, Multiply semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MULTIPLY__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.MULTIPLY__LEFT));
-			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.MULTIPLY__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.MULTIPLY__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTermAccess().getMultiplyLeftAction_1_0_0_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getTermAccess().getRightFactorParserRuleCall_1_1_0(), semanticObject.getRight());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     UserLibraries returns UserLibraries
 	 *
 	 * Constraint:
-	 *     (
-	 *         ServiceProviderTypes+=ServiceProviderType+ 
-	 *         WorkItemTypes+=WorkItemType+ 
-	 *         ClassOfServices+=ClassOfService* 
-	 *         Services+=Service+ 
-	 *         ProcessModels+=ProcessModel* 
-	 *         GovernanceStrategies+=GovernanceStrategy*
-	 *     )
+	 *     (ServiceProviderTypes+=ServiceProviderType+ WorkItemTypes+=WorkItemType+ Services+=Service+ GovernanceStrategies+=GovernanceStrategy*)
 	 */
 	protected void sequence_UserLibraries(ISerializationContext context, UserLibraries semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ValueFunction returns ValueFunction
-	 *
-	 * Constraint:
-	 *     (name=ID description=STRING?)
-	 */
-	protected void sequence_ValueFunction(ISerializationContext context, ValueFunction semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     VarExpression returns VarExpression
-	 *
-	 * Constraint:
-	 *     ((self?='self' | context?='context' | variable=QualifiedName) methods+=Method*)
-	 */
-	protected void sequence_VarExpression(ISerializationContext context, VarExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Variable returns Variable
-	 *     DeclarationStatement.DeclarationStatement_1 returns Variable
-	 *
-	 * Constraint:
-	 *     (type=AbstractType name=ID)
-	 */
-	protected void sequence_Variable(ISerializationContext context, Variable semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.VARIABLE__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.VARIABLE__TYPE));
-			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.VARIABLE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.VARIABLE__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getVariableAccess().getTypeAbstractTypeParserRuleCall_0_0(), semanticObject.getType());
-		feeder.accept(grammarAccess.getVariableAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
 	}
 	
 	
@@ -1060,21 +437,9 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.WIN_REPLICATION__NUM_REPLICATIONS));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getWINReplicationAccess().getWorkItemNetworkWorkItemNetworkIDTerminalRuleCall_1_0_1(), semanticObject.getWorkItemNetwork());
-		feeder.accept(grammarAccess.getWINReplicationAccess().getNumReplicationsINTTerminalRuleCall_3_0(), semanticObject.getNumReplications());
+		feeder.accept(grammarAccess.getWINReplicationAccess().getWorkItemNetworkWorkItemNetworkIDTerminalRuleCall_0_0_1(), semanticObject.getWorkItemNetwork());
+		feeder.accept(grammarAccess.getWINReplicationAccess().getNumReplicationsINTTerminalRuleCall_2_0(), semanticObject.getNumReplications());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     WhileExpression returns WhileExpression
-	 *
-	 * Constraint:
-	 *     (condition=Condition statements+=Statement*)
-	 */
-	protected void sequence_WhileExpression(ISerializationContext context, WhileExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1083,7 +448,7 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     WorkItemNetwork returns WorkItemNetwork
 	 *
 	 * Constraint:
-	 *     (name=ID description=STRING? workItems+=WorkItem+ id=INT?)
+	 *     (name=ID workItems+=WorkItem+ id=INT?)
 	 */
 	protected void sequence_WorkItemNetwork(ISerializationContext context, WorkItemNetwork semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1095,7 +460,7 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     WorkItemType returns WorkItemType
 	 *
 	 * Constraint:
-	 *     (name=ID description=STRING? hierarchy=INT? id=INT?)
+	 *     (name=ID hierarchy=INT? id=INT?)
 	 */
 	protected void sequence_WorkItemType(ISerializationContext context, WorkItemType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1110,7 +475,6 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     (
 	 *         name=ID 
 	 *         type=[WorkItemType|ID]? 
-	 *         description=STRING? 
 	 *         (hasPredecessors?='prerequisites' pTasks+=[WorkItem|ID] pTasks+=[WorkItem|ID]*)? 
 	 *         (
 	 *             (
@@ -1119,37 +483,16 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *                 sTasks+=[WorkItem|ID]* 
 	 *                 (requiredAnalysis+=RequiredService requiredAnalysis+=RequiredService*)?
 	 *             ) | 
-	 *             (
-	 *                 (hasDecompositionMechanism?='decompositionMechanism' decompositionMechanism=Mechanism)? 
-	 *                 (requiredAnalysis+=RequiredService requiredAnalysis+=RequiredService*)? 
-	 *                 requiredServices+=RequiredService 
-	 *                 requiredServices+=RequiredService*
-	 *             )
+	 *             ((requiredAnalysis+=RequiredService requiredAnalysis+=RequiredService*)? requiredServices+=RequiredService requiredServices+=RequiredService*)
 	 *         )? 
-	 *         maturityLevels=AbstractParameter? 
-	 *         uncertainty=AbstractParameter? 
-	 *         risk=AbstractParameter? 
 	 *         (hasImpacts?='impacts' impacts+=Impact impacts+=Impact*)? 
 	 *         value=NumExpression? 
-	 *         workSource=[WorkSource|ID]? 
 	 *         arrivalTime=INT? 
 	 *         duration=INT? 
 	 *         id=INT?
 	 *     )
 	 */
 	protected void sequence_WorkItem(ISerializationContext context, WorkItem semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     WorkSource returns WorkSource
-	 *
-	 * Constraint:
-	 *     (name=ID description=STRING? (assignTo+=[ServiceProvider|ID] assignTo+=[ServiceProvider|ID]*)?)
-	 */
-	protected void sequence_WorkSource(ISerializationContext context, WorkSource semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
