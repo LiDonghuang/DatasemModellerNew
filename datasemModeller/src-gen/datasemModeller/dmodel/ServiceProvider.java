@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link datasemModeller.dmodel.ServiceProvider#getType <em>Type</em>}</li>
  *   <li>{@link datasemModeller.dmodel.ServiceProvider#getAssignTo <em>Assign To</em>}</li>
  *   <li>{@link datasemModeller.dmodel.ServiceProvider#getGovernanceStrategy <em>Governance Strategy</em>}</li>
+ *   <li>{@link datasemModeller.dmodel.ServiceProvider#getStrategySpecs <em>Strategy Specs</em>}</li>
  *   <li>{@link datasemModeller.dmodel.ServiceProvider#getResources <em>Resources</em>}</li>
  *   <li>{@link datasemModeller.dmodel.ServiceProvider#getId <em>Id</em>}</li>
  * </ul>
@@ -122,6 +123,22 @@ public interface ServiceProvider extends EObject
    * @generated
    */
   void setGovernanceStrategy(GovernanceStrategy value);
+
+  /**
+   * Returns the value of the '<em><b>Strategy Specs</b></em>' containment reference list.
+   * The list contents are of type {@link datasemModeller.dmodel.MechanismAttribute}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Strategy Specs</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Strategy Specs</em>' containment reference list.
+   * @see datasemModeller.dmodel.DmodelPackage#getServiceProvider_StrategySpecs()
+   * @model containment="true"
+   * @generated
+   */
+  EList<MechanismAttribute> getStrategySpecs();
 
   /**
    * Returns the value of the '<em><b>Resources</b></em>' containment reference list.

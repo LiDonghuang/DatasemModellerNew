@@ -17,6 +17,7 @@ import datasemModeller.dmodel.MechanismAttribute;
 import datasemModeller.dmodel.ModelBuilder;
 import datasemModeller.dmodel.NumExpression;
 import datasemModeller.dmodel.PullStrategy;
+import datasemModeller.dmodel.PushStrategy;
 import datasemModeller.dmodel.RequiredService;
 import datasemModeller.dmodel.Service;
 import datasemModeller.dmodel.ServiceProvider;
@@ -88,6 +89,9 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				return; 
 			case DmodelPackage.PULL_STRATEGY:
 				sequence_PullStrategy(context, (PullStrategy) semanticObject); 
+				return; 
+			case DmodelPackage.PUSH_STRATEGY:
+				sequence_PushStrategy(context, (PushStrategy) semanticObject); 
 				return; 
 			case DmodelPackage.REQUIRED_SERVICE:
 				sequence_RequiredService(context, (RequiredService) semanticObject); 
@@ -170,7 +174,8 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         ExperimentVariables+=ExperimentVariable* 
 	 *         ServiceProviders+=ServiceProvider+ 
 	 *         WorkItemNetworks+=WorkItemNetwork+ 
-	 *         WINReplications+=WINReplication+
+	 *         WINReplications+=WINReplication+ 
+	 *         ExperimentParameters=Mechanism
 	 *     )
 	 */
 	protected void sequence_ExperimentModel(ISerializationContext context, ExperimentModel semanticObject) {
@@ -204,19 +209,10 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     GovernanceStrategy returns GovernanceStrategy
 	 *
 	 * Constraint:
-	 *     (name=ID pullStrategy=PullStrategy)
+	 *     ((name=ID ((pull?='pull' pullStrategy=PullStrategy) | (push?='push' pushStrategy=PushStrategy))) | pushStrategy=PushStrategy)
 	 */
 	protected void sequence_GovernanceStrategy(ISerializationContext context, GovernanceStrategy semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.GOVERNANCE_STRATEGY__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.GOVERNANCE_STRATEGY__NAME));
-			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.GOVERNANCE_STRATEGY__PULL_STRATEGY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.GOVERNANCE_STRATEGY__PULL_STRATEGY));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getGovernanceStrategyAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getGovernanceStrategyAccess().getPullStrategyPullStrategyParserRuleCall_2_0(), semanticObject.getPullStrategy());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -327,6 +323,18 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     PushStrategy returns PushStrategy
+	 *
+	 * Constraint:
+	 *     mechanisms+=Mechanism+
+	 */
+	protected void sequence_PushStrategy(ISerializationContext context, PushStrategy semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     RequiredService returns RequiredService
 	 *
 	 * Constraint:
@@ -368,6 +376,7 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         type=[ServiceProviderType|ID]? 
 	 *         (assignTo+=[ServiceProvider|ID] assignTo+=[ServiceProvider|ID]*)? 
 	 *         governanceStrategy=[GovernanceStrategy|ID]? 
+	 *         (strategySpecs+=MechanismAttribute strategySpecs+=MechanismAttribute*)? 
 	 *         resources+=Asset* 
 	 *         id=INT?
 	 *     )
@@ -427,19 +436,10 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     WINReplication returns WINReplication
 	 *
 	 * Constraint:
-	 *     (workItemNetwork=[WorkItemNetwork|ID] numReplications=INT)
+	 *     (workItemNetwork=[WorkItemNetwork|ID] numReplications=INT assignTo=[ServiceProvider|ID] interarrival=AbstractParameter?)
 	 */
 	protected void sequence_WINReplication(ISerializationContext context, WINReplication semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.WIN_REPLICATION__WORK_ITEM_NETWORK) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.WIN_REPLICATION__WORK_ITEM_NETWORK));
-			if (transientValues.isValueTransient(semanticObject, DmodelPackage.Literals.WIN_REPLICATION__NUM_REPLICATIONS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DmodelPackage.Literals.WIN_REPLICATION__NUM_REPLICATIONS));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getWINReplicationAccess().getWorkItemNetworkWorkItemNetworkIDTerminalRuleCall_0_0_1(), semanticObject.getWorkItemNetwork());
-		feeder.accept(grammarAccess.getWINReplicationAccess().getNumReplicationsINTTerminalRuleCall_2_0(), semanticObject.getNumReplications());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -460,7 +460,7 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     WorkItemType returns WorkItemType
 	 *
 	 * Constraint:
-	 *     (name=ID hierarchy=INT? id=INT?)
+	 *     (name=ID hierarchy=INT? Mechanisms+=Mechanism* id=INT?)
 	 */
 	protected void sequence_WorkItemType(ISerializationContext context, WorkItemType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -478,7 +478,7 @@ public class DmodelSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         (hasPredecessors?='prerequisites' pTasks+=[WorkItem|ID] pTasks+=[WorkItem|ID]*)? 
 	 *         (
 	 *             (
-	 *                 hasSubtasks?='decomposites' 
+	 *                 hasSubtasks?='decomposesTo' 
 	 *                 sTasks+=[WorkItem|ID] 
 	 *                 sTasks+=[WorkItem|ID]* 
 	 *                 (requiredAnalysis+=RequiredService requiredAnalysis+=RequiredService*)?

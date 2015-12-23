@@ -28,6 +28,8 @@
         eType="#//WorkItemNetwork" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="WINReplications" upperBound="-1"
         eType="#//WINReplication" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ExperimentParameters" eType="#//Mechanism"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractParameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -49,10 +51,18 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GovernanceStrategy">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pull" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pullStrategy" eType="#//PullStrategy"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="push" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pushStrategy" eType="#//PushStrategy"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PullStrategy">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mechanisms" upperBound="-1"
+        eType="#//Mechanism" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PushStrategy">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mechanisms" upperBound="-1"
         eType="#//Mechanism" containment="true"/>
   </eClassifiers>
@@ -69,6 +79,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="WorkItemType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hierarchy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Mechanisms" upperBound="-1"
+        eType="#//Mechanism" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WorkItemNetwork">
@@ -127,6 +139,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="assignTo" unique="false"
         upperBound="-1" eType="#//ServiceProvider"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="governanceStrategy" eType="#//GovernanceStrategy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="strategySpecs" upperBound="-1"
+        eType="#//MechanismAttribute" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
         eType="#//Asset" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -162,5 +176,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="WINReplication">
     <eStructuralFeatures xsi:type="ecore:EReference" name="workItemNetwork" eType="#//WorkItemNetwork"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numReplications" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignTo" eType="#//ServiceProvider"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interarrival" eType="#//AbstractParameter"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

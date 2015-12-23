@@ -115,6 +115,11 @@ public class DmodelAdapterFactory extends AdapterFactoryImpl
         return createPullStrategyAdapter();
       }
       @Override
+      public Adapter casePushStrategy(PushStrategy object)
+      {
+        return createPushStrategyAdapter();
+      }
+      @Override
       public Adapter caseMechanism(Mechanism object)
       {
         return createMechanismAdapter();
@@ -322,6 +327,21 @@ public class DmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPullStrategyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link datasemModeller.dmodel.PushStrategy <em>Push Strategy</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see datasemModeller.dmodel.PushStrategy
+   * @generated
+   */
+  public Adapter createPushStrategyAdapter()
   {
     return null;
   }

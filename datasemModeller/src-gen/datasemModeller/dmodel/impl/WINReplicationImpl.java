@@ -2,11 +2,14 @@
  */
 package datasemModeller.dmodel.impl;
 
+import datasemModeller.dmodel.AbstractParameter;
 import datasemModeller.dmodel.DmodelPackage;
+import datasemModeller.dmodel.ServiceProvider;
 import datasemModeller.dmodel.WINReplication;
 import datasemModeller.dmodel.WorkItemNetwork;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -23,6 +26,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link datasemModeller.dmodel.impl.WINReplicationImpl#getWorkItemNetwork <em>Work Item Network</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.WINReplicationImpl#getNumReplications <em>Num Replications</em>}</li>
+ *   <li>{@link datasemModeller.dmodel.impl.WINReplicationImpl#getAssignTo <em>Assign To</em>}</li>
+ *   <li>{@link datasemModeller.dmodel.impl.WINReplicationImpl#getInterarrival <em>Interarrival</em>}</li>
  * </ul>
  * </p>
  *
@@ -59,6 +64,26 @@ public class WINReplicationImpl extends MinimalEObjectImpl.Container implements 
    * @ordered
    */
   protected int numReplications = NUM_REPLICATIONS_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getAssignTo() <em>Assign To</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAssignTo()
+   * @generated
+   * @ordered
+   */
+  protected ServiceProvider assignTo;
+
+  /**
+   * The cached value of the '{@link #getInterarrival() <em>Interarrival</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInterarrival()
+   * @generated
+   * @ordered
+   */
+  protected AbstractParameter interarrival;
 
   /**
    * <!-- begin-user-doc -->
@@ -152,6 +177,113 @@ public class WINReplicationImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
+  public ServiceProvider getAssignTo()
+  {
+    if (assignTo != null && assignTo.eIsProxy())
+    {
+      InternalEObject oldAssignTo = (InternalEObject)assignTo;
+      assignTo = (ServiceProvider)eResolveProxy(oldAssignTo);
+      if (assignTo != oldAssignTo)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DmodelPackage.WIN_REPLICATION__ASSIGN_TO, oldAssignTo, assignTo));
+      }
+    }
+    return assignTo;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ServiceProvider basicGetAssignTo()
+  {
+    return assignTo;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAssignTo(ServiceProvider newAssignTo)
+  {
+    ServiceProvider oldAssignTo = assignTo;
+    assignTo = newAssignTo;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.WIN_REPLICATION__ASSIGN_TO, oldAssignTo, assignTo));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AbstractParameter getInterarrival()
+  {
+    return interarrival;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetInterarrival(AbstractParameter newInterarrival, NotificationChain msgs)
+  {
+    AbstractParameter oldInterarrival = interarrival;
+    interarrival = newInterarrival;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DmodelPackage.WIN_REPLICATION__INTERARRIVAL, oldInterarrival, newInterarrival);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setInterarrival(AbstractParameter newInterarrival)
+  {
+    if (newInterarrival != interarrival)
+    {
+      NotificationChain msgs = null;
+      if (interarrival != null)
+        msgs = ((InternalEObject)interarrival).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DmodelPackage.WIN_REPLICATION__INTERARRIVAL, null, msgs);
+      if (newInterarrival != null)
+        msgs = ((InternalEObject)newInterarrival).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DmodelPackage.WIN_REPLICATION__INTERARRIVAL, null, msgs);
+      msgs = basicSetInterarrival(newInterarrival, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.WIN_REPLICATION__INTERARRIVAL, newInterarrival, newInterarrival));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DmodelPackage.WIN_REPLICATION__INTERARRIVAL:
+        return basicSetInterarrival(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -162,6 +294,11 @@ public class WINReplicationImpl extends MinimalEObjectImpl.Container implements 
         return basicGetWorkItemNetwork();
       case DmodelPackage.WIN_REPLICATION__NUM_REPLICATIONS:
         return getNumReplications();
+      case DmodelPackage.WIN_REPLICATION__ASSIGN_TO:
+        if (resolve) return getAssignTo();
+        return basicGetAssignTo();
+      case DmodelPackage.WIN_REPLICATION__INTERARRIVAL:
+        return getInterarrival();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -181,6 +318,12 @@ public class WINReplicationImpl extends MinimalEObjectImpl.Container implements 
         return;
       case DmodelPackage.WIN_REPLICATION__NUM_REPLICATIONS:
         setNumReplications((Integer)newValue);
+        return;
+      case DmodelPackage.WIN_REPLICATION__ASSIGN_TO:
+        setAssignTo((ServiceProvider)newValue);
+        return;
+      case DmodelPackage.WIN_REPLICATION__INTERARRIVAL:
+        setInterarrival((AbstractParameter)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -202,6 +345,12 @@ public class WINReplicationImpl extends MinimalEObjectImpl.Container implements 
       case DmodelPackage.WIN_REPLICATION__NUM_REPLICATIONS:
         setNumReplications(NUM_REPLICATIONS_EDEFAULT);
         return;
+      case DmodelPackage.WIN_REPLICATION__ASSIGN_TO:
+        setAssignTo((ServiceProvider)null);
+        return;
+      case DmodelPackage.WIN_REPLICATION__INTERARRIVAL:
+        setInterarrival((AbstractParameter)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -220,6 +369,10 @@ public class WINReplicationImpl extends MinimalEObjectImpl.Container implements 
         return workItemNetwork != null;
       case DmodelPackage.WIN_REPLICATION__NUM_REPLICATIONS:
         return numReplications != NUM_REPLICATIONS_EDEFAULT;
+      case DmodelPackage.WIN_REPLICATION__ASSIGN_TO:
+        return assignTo != null;
+      case DmodelPackage.WIN_REPLICATION__INTERARRIVAL:
+        return interarrival != null;
     }
     return super.eIsSet(featureID);
   }

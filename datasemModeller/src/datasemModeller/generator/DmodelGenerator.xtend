@@ -36,25 +36,26 @@ def compile(Resource res) '''
 «var ExperimentModel emodel = modelBuilder.getExperimentModel()»
 «var UserLibraries ulib = modelBuilder.getUserLibraries()»
 <ExperimentModel experimentId="0" name="«modelBuilder.name»" description="">
-
 «printServiceProviderTypes(ulib.getServiceProviderTypes())»
 «printWorkItemTypes(ulib.getWorkItemTypes())»
 «printServices(ulib.getServices())»
-
-	<Runs>
-	<Run runId="1" description="«emodel.name»" numberOfReplications="100" numberOfSteps="10000">
-		<OrganizationalModel>
-		<ServiceProviders>
-		«buildOrganization(emodel)»
-		</ServiceProviders>
-		</OrganizationalModel>
-		<WorkItemNetworkModel>		
-		<WorkItems>
-		«buildWorkItems(emodel)»
-		</WorkItems>
-		</WorkItemNetworkModel>
-	</Run>
-	</Runs>
+<Runs>
+<Run runId="1" description="«emodel.name»">
+	<ExperimentParameters>
+	«printExperimentParameters(emodel.experimentParameters)»
+	</ExperimentParameters>
+	<OrganizationalModel>
+	<ServiceProviders>
+	«buildOrganization(emodel)»
+	</ServiceProviders>
+	</OrganizationalModel>
+	<WorkItemNetworkModel>		
+	<WorkItems>
+	«buildWorkItems(emodel)»
+	</WorkItems>
+	</WorkItemNetworkModel>
+</Run>
+</Runs>
 </ExperimentModel>	
 '''
 
@@ -118,6 +119,20 @@ def compile(Resource res) '''
 		«ENDFOR»    	
 	'''	  
 
+	def findSpec(ServiceProvider sp, MechanismAttribute a1) {
+		var MechanismAttribute a = a1
+		for (a2: sp.strategySpecs) {
+			if (a2.name.matches(a1.name)) {
+				a = a2
+			}
+		}
+		return a
+	}
+	def printExperimentParameters(Mechanism paras) '''
+		«FOR a: paras.getAttributes()»
+		<ExperimentParameter name="«a.name»" value="«a.value»"></ExperimentParameter>
+		«ENDFOR»
+	'''
 	def printServiceProvider(ServiceProvider sp) '''
 			<ServiceProvider serviceProviderId="«sp.id»" name="«sp.name»" typeId="«sp.getType.id»" description="">
 			<AssignWITo>
@@ -127,14 +142,31 @@ def compile(Resource res) '''
 			</AssignWITo>
 			<BorrowResourceFrom>
 			</BorrowResourceFrom>
-			
+			«IF	(sp.governanceStrategy.isPull())»
 			<GovernanceStrategy type="«"pull"»">
 			<Mechanisms>
 			«FOR m:sp.governanceStrategy.pullStrategy.mechanisms»
-			«printMechanism(m)»
+			<Mechanism name="«m.name»" value="«m.value»">
+			«FOR a: m.getAttributes()»
+			<Attribute name="«findSpec(sp,a).name»" value="«findSpec(sp,a).value»"></Attribute>
 			«ENDFOR»
-			</Mechanisms>								
-			</GovernanceStrategy>	
+			</Mechanism>
+			«ENDFOR»
+			</Mechanisms>
+			</GovernanceStrategy>
+			«ELSE»
+			<GovernanceStrategy type="«"push"»">
+			<Mechanisms>
+			«FOR m:sp.governanceStrategy.pushStrategy.mechanisms»
+			<Mechanism name="«m.name»" value="«m.value»"></Mechanism>
+			«FOR a: m.getAttributes()»
+			<Attribute name="«findSpec(sp,a).name»" value="«findSpec(sp,a).value»"></Attribute>
+			«ENDFOR»
+			</Mechanism>
+			«ENDFOR»
+			</Mechanisms>
+			</GovernanceStrategy>
+			«ENDIF»
 	'''
 	def printResource(Asset r, int n) '''
 			<Resource resourceId="«r.id»" name="«r.name+"."+n»" description="">
@@ -233,7 +265,13 @@ def compile(Resource res) '''
 		«var id=1»
 		«FOR t : ts»
 			«t.setId(id++)»	
-			<WorkItemType wiTypeId="«t.id»" hierarchy="«t.hierarchy»" name="«t.name»"></WorkItemType>
+			<WorkItemType wiTypeId="«t.id»" hierarchy="«t.hierarchy»" name="«t.name»">
+			<Mechanisms>
+			«FOR m:t.getMechanisms()»
+			«printMechanism(m)»
+			«ENDFOR»
+			</Mechanisms>
+			</WorkItemType>
 		«ENDFOR»
 		</WorkItemTypes>
 	'''	

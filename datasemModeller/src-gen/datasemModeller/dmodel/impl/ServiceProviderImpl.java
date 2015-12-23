@@ -5,6 +5,7 @@ package datasemModeller.dmodel.impl;
 import datasemModeller.dmodel.Asset;
 import datasemModeller.dmodel.DmodelPackage;
 import datasemModeller.dmodel.GovernanceStrategy;
+import datasemModeller.dmodel.MechanismAttribute;
 import datasemModeller.dmodel.ServiceProvider;
 import datasemModeller.dmodel.ServiceProviderType;
 
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link datasemModeller.dmodel.impl.ServiceProviderImpl#getType <em>Type</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.ServiceProviderImpl#getAssignTo <em>Assign To</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.ServiceProviderImpl#getGovernanceStrategy <em>Governance Strategy</em>}</li>
+ *   <li>{@link datasemModeller.dmodel.impl.ServiceProviderImpl#getStrategySpecs <em>Strategy Specs</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.ServiceProviderImpl#getResources <em>Resources</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.ServiceProviderImpl#getId <em>Id</em>}</li>
  * </ul>
@@ -94,6 +96,16 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
    * @ordered
    */
   protected GovernanceStrategy governanceStrategy;
+
+  /**
+   * The cached value of the '{@link #getStrategySpecs() <em>Strategy Specs</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getStrategySpecs()
+   * @generated
+   * @ordered
+   */
+  protected EList<MechanismAttribute> strategySpecs;
 
   /**
    * The cached value of the '{@link #getResources() <em>Resources</em>}' containment reference list.
@@ -274,6 +286,20 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<MechanismAttribute> getStrategySpecs()
+  {
+    if (strategySpecs == null)
+    {
+      strategySpecs = new EObjectContainmentEList<MechanismAttribute>(MechanismAttribute.class, this, DmodelPackage.SERVICE_PROVIDER__STRATEGY_SPECS);
+    }
+    return strategySpecs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Asset> getResources()
   {
     if (resources == null)
@@ -316,6 +342,8 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
+      case DmodelPackage.SERVICE_PROVIDER__STRATEGY_SPECS:
+        return ((InternalEList<?>)getStrategySpecs()).basicRemove(otherEnd, msgs);
       case DmodelPackage.SERVICE_PROVIDER__RESOURCES:
         return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
     }
@@ -342,6 +370,8 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
       case DmodelPackage.SERVICE_PROVIDER__GOVERNANCE_STRATEGY:
         if (resolve) return getGovernanceStrategy();
         return basicGetGovernanceStrategy();
+      case DmodelPackage.SERVICE_PROVIDER__STRATEGY_SPECS:
+        return getStrategySpecs();
       case DmodelPackage.SERVICE_PROVIDER__RESOURCES:
         return getResources();
       case DmodelPackage.SERVICE_PROVIDER__ID:
@@ -373,6 +403,10 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
         return;
       case DmodelPackage.SERVICE_PROVIDER__GOVERNANCE_STRATEGY:
         setGovernanceStrategy((GovernanceStrategy)newValue);
+        return;
+      case DmodelPackage.SERVICE_PROVIDER__STRATEGY_SPECS:
+        getStrategySpecs().clear();
+        getStrategySpecs().addAll((Collection<? extends MechanismAttribute>)newValue);
         return;
       case DmodelPackage.SERVICE_PROVIDER__RESOURCES:
         getResources().clear();
@@ -407,6 +441,9 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
       case DmodelPackage.SERVICE_PROVIDER__GOVERNANCE_STRATEGY:
         setGovernanceStrategy((GovernanceStrategy)null);
         return;
+      case DmodelPackage.SERVICE_PROVIDER__STRATEGY_SPECS:
+        getStrategySpecs().clear();
+        return;
       case DmodelPackage.SERVICE_PROVIDER__RESOURCES:
         getResources().clear();
         return;
@@ -435,6 +472,8 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
         return assignTo != null && !assignTo.isEmpty();
       case DmodelPackage.SERVICE_PROVIDER__GOVERNANCE_STRATEGY:
         return governanceStrategy != null;
+      case DmodelPackage.SERVICE_PROVIDER__STRATEGY_SPECS:
+        return strategySpecs != null && !strategySpecs.isEmpty();
       case DmodelPackage.SERVICE_PROVIDER__RESOURCES:
         return resources != null && !resources.isEmpty();
       case DmodelPackage.SERVICE_PROVIDER__ID:

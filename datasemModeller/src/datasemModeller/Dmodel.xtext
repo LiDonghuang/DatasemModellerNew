@@ -52,7 +52,10 @@ ExperimentModel:
 	'ExperimentSettings'
 		'WINReplications' 
 		(WINReplications+=WINReplication)+
-		'end WINReplications'	
+		'end WINReplications'
+		'ExperimentParameters'
+		ExperimentParameters = Mechanism
+		'end ExperimentParameters'
 	'end ExperimentSettings'
 	
 'end ExperimentModel'
@@ -85,17 +88,22 @@ Distribution:
 // ------------------------ Governance Objects ---------------------------------
 GovernanceStrategy: 
 	name = ID 
-	"{"
-	pullStrategy=PullStrategy
-	"}"	
+	("type"":"
+	((pull?="pull" "{"pullStrategy=PullStrategy"}")|(push?="push" "{"pushStrategy=PushStrategy"}"))
+	)
+	|
+	("{"pushStrategy=PushStrategy"}")
 ;
 PullStrategy:	
+	'mechanisms' '{'(mechanisms += Mechanism)+ '}'
+;
+PushStrategy:	
 	'mechanisms' '{'(mechanisms += Mechanism)+ '}'
 ;
 Mechanism:
 	name=ID'='value=Parameter		
 	('{'
-		('attributes' '{' (attributes+=MechanismAttribute)(','attributes+=MechanismAttribute)* '}')?
+		( (attributes+=MechanismAttribute)(','attributes+=MechanismAttribute)* )?
 	'}')?	
 ;	
 MechanismAttribute:
@@ -105,6 +113,7 @@ MechanismAttribute:
 WorkItemType:		
 	name=ID '{'
 	('hierarchy''='hierarchy=INT)?
+	(Mechanisms+=Mechanism)*
 	'}'
 	(id=INT)?
 ;
@@ -118,18 +127,19 @@ WorkItem:
 	name=ID ("type"":" type=[WorkItemType])?'{'
 	(hasPredecessors?='prerequisites''{'(pTasks+=[WorkItem])(','pTasks+=[WorkItem])*'}')?
 	(
-	(hasSubtasks?='decomposites''{'(sTasks+=[WorkItem])(','sTasks+=[WorkItem])* '}'
-	('analysisEfforts''{'(requiredAnalysis+=RequiredService)(','requiredAnalysis+=RequiredService)*'}')?)?
+	(hasSubtasks?='decomposesTo''{'(sTasks+=[WorkItem])(','sTasks+=[WorkItem])* '}'
+	('analysisPhases''{'(requiredAnalysis+=RequiredService)(','requiredAnalysis+=RequiredService)*'}')?)?
 	|
 	(
-	('analysisEfforts''{'(requiredAnalysis+=RequiredService)(','requiredAnalysis+=RequiredService)*'}')?
+	('analysisPhases''{'(requiredAnalysis+=RequiredService)(','requiredAnalysis+=RequiredService)*'}'
+	)?
 	'efforts' '{'(requiredServices+=RequiredService)(','requiredServices+=RequiredService)*'}')
 	)		
 	(hasImpacts?='impacts' '{'(impacts+=Impact)(','impacts+=Impact)*'}')?
 	
-	('value' value=NumExpression)?
-	('arrival' arrivalTime=INT)?
-	('duration' duration=INT)?
+	('value''=' value=NumExpression)?
+	('arrival''=' arrivalTime=INT)?
+	('duration''=' duration=INT)?
 	'}'
 	(id=INT)?
 ;
@@ -157,6 +167,7 @@ ServiceProvider:
 	name=ID ("type"":" type=[ServiceProviderType])? '{'
 	('assignTo' '{' (assignTo+=[ServiceProvider])(','assignTo+=[ServiceProvider])* '}')?		
 	('strategy'":" governanceStrategy=[GovernanceStrategy])?
+	("{"(strategySpecs+=MechanismAttribute)(','strategySpecs+=MechanismAttribute)*"}")?
     ('resources'':' resources+=Asset+)?
     '}'
     (id=INT)?
@@ -182,6 +193,7 @@ ExperimentVariable:
 	)
 ;
 WINReplication:
-	workItemNetwork=[WorkItemNetwork]
-	'*' numReplications=INT
+	'create'workItemNetwork=[WorkItemNetwork]
+	'*' numReplications=INT 'at'assignTo=[ServiceProvider]
+	(',''interArrival''='interarrival=AbstractParameter)?
 ;	

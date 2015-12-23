@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link datasemModeller.dmodel.ExperimentModel#getServiceProviders <em>Service Providers</em>}</li>
  *   <li>{@link datasemModeller.dmodel.ExperimentModel#getWorkItemNetworks <em>Work Item Networks</em>}</li>
  *   <li>{@link datasemModeller.dmodel.ExperimentModel#getWINReplications <em>WIN Replications</em>}</li>
+ *   <li>{@link datasemModeller.dmodel.ExperimentModel#getExperimentParameters <em>Experiment Parameters</em>}</li>
  * </ul>
  * </p>
  *
@@ -117,5 +118,31 @@ public interface ExperimentModel extends EObject
    * @generated
    */
   EList<WINReplication> getWINReplications();
+
+  /**
+   * Returns the value of the '<em><b>Experiment Parameters</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Experiment Parameters</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Experiment Parameters</em>' containment reference.
+   * @see #setExperimentParameters(Mechanism)
+   * @see datasemModeller.dmodel.DmodelPackage#getExperimentModel_ExperimentParameters()
+   * @model containment="true"
+   * @generated
+   */
+  Mechanism getExperimentParameters();
+
+  /**
+   * Sets the value of the '{@link datasemModeller.dmodel.ExperimentModel#getExperimentParameters <em>Experiment Parameters</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Experiment Parameters</em>' containment reference.
+   * @see #getExperimentParameters()
+   * @generated
+   */
+  void setExperimentParameters(Mechanism value);
 
 } // ExperimentModel

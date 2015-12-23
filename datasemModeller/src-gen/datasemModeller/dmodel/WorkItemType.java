@@ -2,6 +2,8 @@
  */
 package datasemModeller.dmodel;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link datasemModeller.dmodel.WorkItemType#getName <em>Name</em>}</li>
  *   <li>{@link datasemModeller.dmodel.WorkItemType#getHierarchy <em>Hierarchy</em>}</li>
+ *   <li>{@link datasemModeller.dmodel.WorkItemType#getMechanisms <em>Mechanisms</em>}</li>
  *   <li>{@link datasemModeller.dmodel.WorkItemType#getId <em>Id</em>}</li>
  * </ul>
  * </p>
@@ -75,6 +78,22 @@ public interface WorkItemType extends EObject
    * @generated
    */
   void setHierarchy(int value);
+
+  /**
+   * Returns the value of the '<em><b>Mechanisms</b></em>' containment reference list.
+   * The list contents are of type {@link datasemModeller.dmodel.Mechanism}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Mechanisms</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Mechanisms</em>' containment reference list.
+   * @see datasemModeller.dmodel.DmodelPackage#getWorkItemType_Mechanisms()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Mechanism> getMechanisms();
 
   /**
    * Returns the value of the '<em><b>Id</b></em>' attribute.

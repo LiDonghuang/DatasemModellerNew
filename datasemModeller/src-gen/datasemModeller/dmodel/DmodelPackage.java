@@ -213,13 +213,22 @@ public interface DmodelPackage extends EPackage
   int EXPERIMENT_MODEL__WIN_REPLICATIONS = 4;
 
   /**
+   * The feature id for the '<em><b>Experiment Parameters</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPERIMENT_MODEL__EXPERIMENT_PARAMETERS = 5;
+
+  /**
    * The number of structural features of the '<em>Experiment Model</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPERIMENT_MODEL_FEATURE_COUNT = 5;
+  int EXPERIMENT_MODEL_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link datasemModeller.dmodel.impl.AbstractParameterImpl <em>Abstract Parameter</em>}' class.
@@ -388,13 +397,40 @@ public interface DmodelPackage extends EPackage
   int GOVERNANCE_STRATEGY__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Pull</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GOVERNANCE_STRATEGY__PULL = 1;
+
+  /**
    * The feature id for the '<em><b>Pull Strategy</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GOVERNANCE_STRATEGY__PULL_STRATEGY = 1;
+  int GOVERNANCE_STRATEGY__PULL_STRATEGY = 2;
+
+  /**
+   * The feature id for the '<em><b>Push</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GOVERNANCE_STRATEGY__PUSH = 3;
+
+  /**
+   * The feature id for the '<em><b>Push Strategy</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GOVERNANCE_STRATEGY__PUSH_STRATEGY = 4;
 
   /**
    * The number of structural features of the '<em>Governance Strategy</em>' class.
@@ -403,7 +439,7 @@ public interface DmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GOVERNANCE_STRATEGY_FEATURE_COUNT = 2;
+  int GOVERNANCE_STRATEGY_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link datasemModeller.dmodel.impl.PullStrategyImpl <em>Pull Strategy</em>}' class.
@@ -434,6 +470,34 @@ public interface DmodelPackage extends EPackage
   int PULL_STRATEGY_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link datasemModeller.dmodel.impl.PushStrategyImpl <em>Push Strategy</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see datasemModeller.dmodel.impl.PushStrategyImpl
+   * @see datasemModeller.dmodel.impl.DmodelPackageImpl#getPushStrategy()
+   * @generated
+   */
+  int PUSH_STRATEGY = 8;
+
+  /**
+   * The feature id for the '<em><b>Mechanisms</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PUSH_STRATEGY__MECHANISMS = 0;
+
+  /**
+   * The number of structural features of the '<em>Push Strategy</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PUSH_STRATEGY_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link datasemModeller.dmodel.impl.MechanismImpl <em>Mechanism</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -441,7 +505,7 @@ public interface DmodelPackage extends EPackage
    * @see datasemModeller.dmodel.impl.DmodelPackageImpl#getMechanism()
    * @generated
    */
-  int MECHANISM = 8;
+  int MECHANISM = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -487,7 +551,7 @@ public interface DmodelPackage extends EPackage
    * @see datasemModeller.dmodel.impl.DmodelPackageImpl#getMechanismAttribute()
    * @generated
    */
-  int MECHANISM_ATTRIBUTE = 9;
+  int MECHANISM_ATTRIBUTE = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -524,7 +588,7 @@ public interface DmodelPackage extends EPackage
    * @see datasemModeller.dmodel.impl.DmodelPackageImpl#getWorkItemType()
    * @generated
    */
-  int WORK_ITEM_TYPE = 10;
+  int WORK_ITEM_TYPE = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -545,13 +609,22 @@ public interface DmodelPackage extends EPackage
   int WORK_ITEM_TYPE__HIERARCHY = 1;
 
   /**
+   * The feature id for the '<em><b>Mechanisms</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORK_ITEM_TYPE__MECHANISMS = 2;
+
+  /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WORK_ITEM_TYPE__ID = 2;
+  int WORK_ITEM_TYPE__ID = 3;
 
   /**
    * The number of structural features of the '<em>Work Item Type</em>' class.
@@ -560,7 +633,7 @@ public interface DmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM_TYPE_FEATURE_COUNT = 3;
+  int WORK_ITEM_TYPE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link datasemModeller.dmodel.impl.WorkItemNetworkImpl <em>Work Item Network</em>}' class.
@@ -570,7 +643,7 @@ public interface DmodelPackage extends EPackage
    * @see datasemModeller.dmodel.impl.DmodelPackageImpl#getWorkItemNetwork()
    * @generated
    */
-  int WORK_ITEM_NETWORK = 11;
+  int WORK_ITEM_NETWORK = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -616,7 +689,7 @@ public interface DmodelPackage extends EPackage
    * @see datasemModeller.dmodel.impl.DmodelPackageImpl#getWorkItem()
    * @generated
    */
-  int WORK_ITEM = 12;
+  int WORK_ITEM = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -761,7 +834,7 @@ public interface DmodelPackage extends EPackage
    * @see datasemModeller.dmodel.impl.DmodelPackageImpl#getRequiredService()
    * @generated
    */
-  int REQUIRED_SERVICE = 13;
+  int REQUIRED_SERVICE = 14;
 
   /**
    * The feature id for the '<em><b>Service Type</b></em>' reference.
@@ -798,7 +871,7 @@ public interface DmodelPackage extends EPackage
    * @see datasemModeller.dmodel.impl.DmodelPackageImpl#getImpact()
    * @generated
    */
-  int IMPACT = 14;
+  int IMPACT = 15;
 
   /**
    * The feature id for the '<em><b>Impact WI</b></em>' reference.
@@ -844,7 +917,7 @@ public interface DmodelPackage extends EPackage
    * @see datasemModeller.dmodel.impl.DmodelPackageImpl#getServiceProviderType()
    * @generated
    */
-  int SERVICE_PROVIDER_TYPE = 15;
+  int SERVICE_PROVIDER_TYPE = 16;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -890,7 +963,7 @@ public interface DmodelPackage extends EPackage
    * @see datasemModeller.dmodel.impl.DmodelPackageImpl#getService()
    * @generated
    */
-  int SERVICE = 16;
+  int SERVICE = 17;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -936,7 +1009,7 @@ public interface DmodelPackage extends EPackage
    * @see datasemModeller.dmodel.impl.DmodelPackageImpl#getServiceProvider()
    * @generated
    */
-  int SERVICE_PROVIDER = 17;
+  int SERVICE_PROVIDER = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -975,13 +1048,22 @@ public interface DmodelPackage extends EPackage
   int SERVICE_PROVIDER__GOVERNANCE_STRATEGY = 3;
 
   /**
+   * The feature id for the '<em><b>Strategy Specs</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SERVICE_PROVIDER__STRATEGY_SPECS = 4;
+
+  /**
    * The feature id for the '<em><b>Resources</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SERVICE_PROVIDER__RESOURCES = 4;
+  int SERVICE_PROVIDER__RESOURCES = 5;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -990,7 +1072,7 @@ public interface DmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SERVICE_PROVIDER__ID = 5;
+  int SERVICE_PROVIDER__ID = 6;
 
   /**
    * The number of structural features of the '<em>Service Provider</em>' class.
@@ -999,7 +1081,7 @@ public interface DmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SERVICE_PROVIDER_FEATURE_COUNT = 6;
+  int SERVICE_PROVIDER_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link datasemModeller.dmodel.impl.AssetImpl <em>Asset</em>}' class.
@@ -1009,7 +1091,7 @@ public interface DmodelPackage extends EPackage
    * @see datasemModeller.dmodel.impl.DmodelPackageImpl#getAsset()
    * @generated
    */
-  int ASSET = 18;
+  int ASSET = 19;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1064,7 +1146,7 @@ public interface DmodelPackage extends EPackage
    * @see datasemModeller.dmodel.impl.DmodelPackageImpl#getSkill()
    * @generated
    */
-  int SKILL = 19;
+  int SKILL = 20;
 
   /**
    * The feature id for the '<em><b>Service</b></em>' reference.
@@ -1101,7 +1183,7 @@ public interface DmodelPackage extends EPackage
    * @see datasemModeller.dmodel.impl.DmodelPackageImpl#getExperimentVariable()
    * @generated
    */
-  int EXPERIMENT_VARIABLE = 20;
+  int EXPERIMENT_VARIABLE = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1219,7 +1301,7 @@ public interface DmodelPackage extends EPackage
    * @see datasemModeller.dmodel.impl.DmodelPackageImpl#getWINReplication()
    * @generated
    */
-  int WIN_REPLICATION = 21;
+  int WIN_REPLICATION = 22;
 
   /**
    * The feature id for the '<em><b>Work Item Network</b></em>' reference.
@@ -1240,13 +1322,31 @@ public interface DmodelPackage extends EPackage
   int WIN_REPLICATION__NUM_REPLICATIONS = 1;
 
   /**
+   * The feature id for the '<em><b>Assign To</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WIN_REPLICATION__ASSIGN_TO = 2;
+
+  /**
+   * The feature id for the '<em><b>Interarrival</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WIN_REPLICATION__INTERARRIVAL = 3;
+
+  /**
    * The number of structural features of the '<em>WIN Replication</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WIN_REPLICATION_FEATURE_COUNT = 2;
+  int WIN_REPLICATION_FEATURE_COUNT = 4;
 
 
   /**
@@ -1412,6 +1512,17 @@ public interface DmodelPackage extends EPackage
   EReference getExperimentModel_WINReplications();
 
   /**
+   * Returns the meta object for the containment reference '{@link datasemModeller.dmodel.ExperimentModel#getExperimentParameters <em>Experiment Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Experiment Parameters</em>'.
+   * @see datasemModeller.dmodel.ExperimentModel#getExperimentParameters()
+   * @see #getExperimentModel()
+   * @generated
+   */
+  EReference getExperimentModel_ExperimentParameters();
+
+  /**
    * Returns the meta object for class '{@link datasemModeller.dmodel.AbstractParameter <em>Abstract Parameter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1573,6 +1684,17 @@ public interface DmodelPackage extends EPackage
   EAttribute getGovernanceStrategy_Name();
 
   /**
+   * Returns the meta object for the attribute '{@link datasemModeller.dmodel.GovernanceStrategy#isPull <em>Pull</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Pull</em>'.
+   * @see datasemModeller.dmodel.GovernanceStrategy#isPull()
+   * @see #getGovernanceStrategy()
+   * @generated
+   */
+  EAttribute getGovernanceStrategy_Pull();
+
+  /**
    * Returns the meta object for the containment reference '{@link datasemModeller.dmodel.GovernanceStrategy#getPullStrategy <em>Pull Strategy</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1582,6 +1704,28 @@ public interface DmodelPackage extends EPackage
    * @generated
    */
   EReference getGovernanceStrategy_PullStrategy();
+
+  /**
+   * Returns the meta object for the attribute '{@link datasemModeller.dmodel.GovernanceStrategy#isPush <em>Push</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Push</em>'.
+   * @see datasemModeller.dmodel.GovernanceStrategy#isPush()
+   * @see #getGovernanceStrategy()
+   * @generated
+   */
+  EAttribute getGovernanceStrategy_Push();
+
+  /**
+   * Returns the meta object for the containment reference '{@link datasemModeller.dmodel.GovernanceStrategy#getPushStrategy <em>Push Strategy</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Push Strategy</em>'.
+   * @see datasemModeller.dmodel.GovernanceStrategy#getPushStrategy()
+   * @see #getGovernanceStrategy()
+   * @generated
+   */
+  EReference getGovernanceStrategy_PushStrategy();
 
   /**
    * Returns the meta object for class '{@link datasemModeller.dmodel.PullStrategy <em>Pull Strategy</em>}'.
@@ -1603,6 +1747,27 @@ public interface DmodelPackage extends EPackage
    * @generated
    */
   EReference getPullStrategy_Mechanisms();
+
+  /**
+   * Returns the meta object for class '{@link datasemModeller.dmodel.PushStrategy <em>Push Strategy</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Push Strategy</em>'.
+   * @see datasemModeller.dmodel.PushStrategy
+   * @generated
+   */
+  EClass getPushStrategy();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link datasemModeller.dmodel.PushStrategy#getMechanisms <em>Mechanisms</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Mechanisms</em>'.
+   * @see datasemModeller.dmodel.PushStrategy#getMechanisms()
+   * @see #getPushStrategy()
+   * @generated
+   */
+  EReference getPushStrategy_Mechanisms();
 
   /**
    * Returns the meta object for class '{@link datasemModeller.dmodel.Mechanism <em>Mechanism</em>}'.
@@ -1710,6 +1875,17 @@ public interface DmodelPackage extends EPackage
    * @generated
    */
   EAttribute getWorkItemType_Hierarchy();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link datasemModeller.dmodel.WorkItemType#getMechanisms <em>Mechanisms</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Mechanisms</em>'.
+   * @see datasemModeller.dmodel.WorkItemType#getMechanisms()
+   * @see #getWorkItemType()
+   * @generated
+   */
+  EReference getWorkItemType_Mechanisms();
 
   /**
    * Returns the meta object for the attribute '{@link datasemModeller.dmodel.WorkItemType#getId <em>Id</em>}'.
@@ -2145,6 +2321,17 @@ public interface DmodelPackage extends EPackage
   EReference getServiceProvider_GovernanceStrategy();
 
   /**
+   * Returns the meta object for the containment reference list '{@link datasemModeller.dmodel.ServiceProvider#getStrategySpecs <em>Strategy Specs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Strategy Specs</em>'.
+   * @see datasemModeller.dmodel.ServiceProvider#getStrategySpecs()
+   * @see #getServiceProvider()
+   * @generated
+   */
+  EReference getServiceProvider_StrategySpecs();
+
+  /**
    * Returns the meta object for the containment reference list '{@link datasemModeller.dmodel.ServiceProvider#getResources <em>Resources</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2416,6 +2603,28 @@ public interface DmodelPackage extends EPackage
   EAttribute getWINReplication_NumReplications();
 
   /**
+   * Returns the meta object for the reference '{@link datasemModeller.dmodel.WINReplication#getAssignTo <em>Assign To</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Assign To</em>'.
+   * @see datasemModeller.dmodel.WINReplication#getAssignTo()
+   * @see #getWINReplication()
+   * @generated
+   */
+  EReference getWINReplication_AssignTo();
+
+  /**
+   * Returns the meta object for the containment reference '{@link datasemModeller.dmodel.WINReplication#getInterarrival <em>Interarrival</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Interarrival</em>'.
+   * @see datasemModeller.dmodel.WINReplication#getInterarrival()
+   * @see #getWINReplication()
+   * @generated
+   */
+  EReference getWINReplication_Interarrival();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2565,6 +2774,14 @@ public interface DmodelPackage extends EPackage
     EReference EXPERIMENT_MODEL__WIN_REPLICATIONS = eINSTANCE.getExperimentModel_WINReplications();
 
     /**
+     * The meta object literal for the '<em><b>Experiment Parameters</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPERIMENT_MODEL__EXPERIMENT_PARAMETERS = eINSTANCE.getExperimentModel_ExperimentParameters();
+
+    /**
      * The meta object literal for the '{@link datasemModeller.dmodel.impl.AbstractParameterImpl <em>Abstract Parameter</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2693,12 +2910,36 @@ public interface DmodelPackage extends EPackage
     EAttribute GOVERNANCE_STRATEGY__NAME = eINSTANCE.getGovernanceStrategy_Name();
 
     /**
+     * The meta object literal for the '<em><b>Pull</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GOVERNANCE_STRATEGY__PULL = eINSTANCE.getGovernanceStrategy_Pull();
+
+    /**
      * The meta object literal for the '<em><b>Pull Strategy</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference GOVERNANCE_STRATEGY__PULL_STRATEGY = eINSTANCE.getGovernanceStrategy_PullStrategy();
+
+    /**
+     * The meta object literal for the '<em><b>Push</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GOVERNANCE_STRATEGY__PUSH = eINSTANCE.getGovernanceStrategy_Push();
+
+    /**
+     * The meta object literal for the '<em><b>Push Strategy</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GOVERNANCE_STRATEGY__PUSH_STRATEGY = eINSTANCE.getGovernanceStrategy_PushStrategy();
 
     /**
      * The meta object literal for the '{@link datasemModeller.dmodel.impl.PullStrategyImpl <em>Pull Strategy</em>}' class.
@@ -2717,6 +2958,24 @@ public interface DmodelPackage extends EPackage
      * @generated
      */
     EReference PULL_STRATEGY__MECHANISMS = eINSTANCE.getPullStrategy_Mechanisms();
+
+    /**
+     * The meta object literal for the '{@link datasemModeller.dmodel.impl.PushStrategyImpl <em>Push Strategy</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see datasemModeller.dmodel.impl.PushStrategyImpl
+     * @see datasemModeller.dmodel.impl.DmodelPackageImpl#getPushStrategy()
+     * @generated
+     */
+    EClass PUSH_STRATEGY = eINSTANCE.getPushStrategy();
+
+    /**
+     * The meta object literal for the '<em><b>Mechanisms</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PUSH_STRATEGY__MECHANISMS = eINSTANCE.getPushStrategy_Mechanisms();
 
     /**
      * The meta object literal for the '{@link datasemModeller.dmodel.impl.MechanismImpl <em>Mechanism</em>}' class.
@@ -2803,6 +3062,14 @@ public interface DmodelPackage extends EPackage
      * @generated
      */
     EAttribute WORK_ITEM_TYPE__HIERARCHY = eINSTANCE.getWorkItemType_Hierarchy();
+
+    /**
+     * The meta object literal for the '<em><b>Mechanisms</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WORK_ITEM_TYPE__MECHANISMS = eINSTANCE.getWorkItemType_Mechanisms();
 
     /**
      * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
@@ -3139,6 +3406,14 @@ public interface DmodelPackage extends EPackage
     EReference SERVICE_PROVIDER__GOVERNANCE_STRATEGY = eINSTANCE.getServiceProvider_GovernanceStrategy();
 
     /**
+     * The meta object literal for the '<em><b>Strategy Specs</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SERVICE_PROVIDER__STRATEGY_SPECS = eINSTANCE.getServiceProvider_StrategySpecs();
+
+    /**
      * The meta object literal for the '<em><b>Resources</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3345,6 +3620,22 @@ public interface DmodelPackage extends EPackage
      * @generated
      */
     EAttribute WIN_REPLICATION__NUM_REPLICATIONS = eINSTANCE.getWINReplication_NumReplications();
+
+    /**
+     * The meta object literal for the '<em><b>Assign To</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WIN_REPLICATION__ASSIGN_TO = eINSTANCE.getWINReplication_AssignTo();
+
+    /**
+     * The meta object literal for the '<em><b>Interarrival</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WIN_REPLICATION__INTERARRIVAL = eINSTANCE.getWINReplication_Interarrival();
 
   }
 

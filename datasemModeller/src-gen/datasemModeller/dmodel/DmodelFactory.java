@@ -95,6 +95,15 @@ public interface DmodelFactory extends EFactory
   PullStrategy createPullStrategy();
 
   /**
+   * Returns a new object of class '<em>Push Strategy</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Push Strategy</em>'.
+   * @generated
+   */
+  PushStrategy createPushStrategy();
+
+  /**
    * Returns a new object of class '<em>Mechanism</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

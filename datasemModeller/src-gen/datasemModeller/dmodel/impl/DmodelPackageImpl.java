@@ -16,6 +16,7 @@ import datasemModeller.dmodel.MechanismAttribute;
 import datasemModeller.dmodel.ModelBuilder;
 import datasemModeller.dmodel.NumExpression;
 import datasemModeller.dmodel.PullStrategy;
+import datasemModeller.dmodel.PushStrategy;
 import datasemModeller.dmodel.RequiredService;
 import datasemModeller.dmodel.Service;
 import datasemModeller.dmodel.ServiceProvider;
@@ -97,6 +98,13 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * @generated
    */
   private EClass pullStrategyEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pushStrategyEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -414,6 +422,16 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getExperimentModel_ExperimentParameters()
+  {
+    return (EReference)experimentModelEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getAbstractParameter()
   {
     return abstractParameterEClass;
@@ -564,9 +582,39 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getGovernanceStrategy_Pull()
+  {
+    return (EAttribute)governanceStrategyEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getGovernanceStrategy_PullStrategy()
   {
-    return (EReference)governanceStrategyEClass.getEStructuralFeatures().get(1);
+    return (EReference)governanceStrategyEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getGovernanceStrategy_Push()
+  {
+    return (EAttribute)governanceStrategyEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getGovernanceStrategy_PushStrategy()
+  {
+    return (EReference)governanceStrategyEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -587,6 +635,26 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
   public EReference getPullStrategy_Mechanisms()
   {
     return (EReference)pullStrategyEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPushStrategy()
+  {
+    return pushStrategyEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPushStrategy_Mechanisms()
+  {
+    return (EReference)pushStrategyEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -694,9 +762,19 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getWorkItemType_Mechanisms()
+  {
+    return (EReference)workItemTypeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getWorkItemType_Id()
   {
-    return (EAttribute)workItemTypeEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)workItemTypeEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1094,7 +1172,7 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getServiceProvider_Resources()
+  public EReference getServiceProvider_StrategySpecs()
   {
     return (EReference)serviceProviderEClass.getEStructuralFeatures().get(4);
   }
@@ -1104,9 +1182,19 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getServiceProvider_Resources()
+  {
+    return (EReference)serviceProviderEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getServiceProvider_Id()
   {
-    return (EAttribute)serviceProviderEClass.getEStructuralFeatures().get(5);
+    return (EAttribute)serviceProviderEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -1344,6 +1432,26 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getWINReplication_AssignTo()
+  {
+    return (EReference)winReplicationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getWINReplication_Interarrival()
+  {
+    return (EReference)winReplicationEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public DmodelFactory getDmodelFactory()
   {
     return (DmodelFactory)getEFactoryInstance();
@@ -1386,6 +1494,7 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
     createEReference(experimentModelEClass, EXPERIMENT_MODEL__SERVICE_PROVIDERS);
     createEReference(experimentModelEClass, EXPERIMENT_MODEL__WORK_ITEM_NETWORKS);
     createEReference(experimentModelEClass, EXPERIMENT_MODEL__WIN_REPLICATIONS);
+    createEReference(experimentModelEClass, EXPERIMENT_MODEL__EXPERIMENT_PARAMETERS);
 
     abstractParameterEClass = createEClass(ABSTRACT_PARAMETER);
     createEAttribute(abstractParameterEClass, ABSTRACT_PARAMETER__IS_VARIABLE);
@@ -1405,10 +1514,16 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
 
     governanceStrategyEClass = createEClass(GOVERNANCE_STRATEGY);
     createEAttribute(governanceStrategyEClass, GOVERNANCE_STRATEGY__NAME);
+    createEAttribute(governanceStrategyEClass, GOVERNANCE_STRATEGY__PULL);
     createEReference(governanceStrategyEClass, GOVERNANCE_STRATEGY__PULL_STRATEGY);
+    createEAttribute(governanceStrategyEClass, GOVERNANCE_STRATEGY__PUSH);
+    createEReference(governanceStrategyEClass, GOVERNANCE_STRATEGY__PUSH_STRATEGY);
 
     pullStrategyEClass = createEClass(PULL_STRATEGY);
     createEReference(pullStrategyEClass, PULL_STRATEGY__MECHANISMS);
+
+    pushStrategyEClass = createEClass(PUSH_STRATEGY);
+    createEReference(pushStrategyEClass, PUSH_STRATEGY__MECHANISMS);
 
     mechanismEClass = createEClass(MECHANISM);
     createEAttribute(mechanismEClass, MECHANISM__NAME);
@@ -1422,6 +1537,7 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
     workItemTypeEClass = createEClass(WORK_ITEM_TYPE);
     createEAttribute(workItemTypeEClass, WORK_ITEM_TYPE__NAME);
     createEAttribute(workItemTypeEClass, WORK_ITEM_TYPE__HIERARCHY);
+    createEReference(workItemTypeEClass, WORK_ITEM_TYPE__MECHANISMS);
     createEAttribute(workItemTypeEClass, WORK_ITEM_TYPE__ID);
 
     workItemNetworkEClass = createEClass(WORK_ITEM_NETWORK);
@@ -1469,6 +1585,7 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
     createEReference(serviceProviderEClass, SERVICE_PROVIDER__TYPE);
     createEReference(serviceProviderEClass, SERVICE_PROVIDER__ASSIGN_TO);
     createEReference(serviceProviderEClass, SERVICE_PROVIDER__GOVERNANCE_STRATEGY);
+    createEReference(serviceProviderEClass, SERVICE_PROVIDER__STRATEGY_SPECS);
     createEReference(serviceProviderEClass, SERVICE_PROVIDER__RESOURCES);
     createEAttribute(serviceProviderEClass, SERVICE_PROVIDER__ID);
 
@@ -1498,6 +1615,8 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
     winReplicationEClass = createEClass(WIN_REPLICATION);
     createEReference(winReplicationEClass, WIN_REPLICATION__WORK_ITEM_NETWORK);
     createEAttribute(winReplicationEClass, WIN_REPLICATION__NUM_REPLICATIONS);
+    createEReference(winReplicationEClass, WIN_REPLICATION__ASSIGN_TO);
+    createEReference(winReplicationEClass, WIN_REPLICATION__INTERARRIVAL);
   }
 
   /**
@@ -1548,6 +1667,7 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
     initEReference(getExperimentModel_ServiceProviders(), this.getServiceProvider(), null, "ServiceProviders", null, 0, -1, ExperimentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExperimentModel_WorkItemNetworks(), this.getWorkItemNetwork(), null, "WorkItemNetworks", null, 0, -1, ExperimentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExperimentModel_WINReplications(), this.getWINReplication(), null, "WINReplications", null, 0, -1, ExperimentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExperimentModel_ExperimentParameters(), this.getMechanism(), null, "ExperimentParameters", null, 0, 1, ExperimentModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(abstractParameterEClass, AbstractParameter.class, "AbstractParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAbstractParameter_IsVariable(), ecorePackage.getEBoolean(), "isVariable", null, 0, 1, AbstractParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1567,10 +1687,16 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
 
     initEClass(governanceStrategyEClass, GovernanceStrategy.class, "GovernanceStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getGovernanceStrategy_Name(), ecorePackage.getEString(), "name", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getGovernanceStrategy_Pull(), ecorePackage.getEBoolean(), "pull", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGovernanceStrategy_PullStrategy(), this.getPullStrategy(), null, "pullStrategy", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getGovernanceStrategy_Push(), ecorePackage.getEBoolean(), "push", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGovernanceStrategy_PushStrategy(), this.getPushStrategy(), null, "pushStrategy", null, 0, 1, GovernanceStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pullStrategyEClass, PullStrategy.class, "PullStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPullStrategy_Mechanisms(), this.getMechanism(), null, "mechanisms", null, 0, -1, PullStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pushStrategyEClass, PushStrategy.class, "PushStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPushStrategy_Mechanisms(), this.getMechanism(), null, "mechanisms", null, 0, -1, PushStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mechanismEClass, Mechanism.class, "Mechanism", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMechanism_Name(), ecorePackage.getEString(), "name", null, 0, 1, Mechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1584,6 +1710,7 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
     initEClass(workItemTypeEClass, WorkItemType.class, "WorkItemType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getWorkItemType_Name(), ecorePackage.getEString(), "name", null, 0, 1, WorkItemType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkItemType_Hierarchy(), ecorePackage.getEInt(), "hierarchy", null, 0, 1, WorkItemType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkItemType_Mechanisms(), this.getMechanism(), null, "Mechanisms", null, 0, -1, WorkItemType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWorkItemType_Id(), ecorePackage.getEInt(), "id", null, 0, 1, WorkItemType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(workItemNetworkEClass, WorkItemNetwork.class, "WorkItemNetwork", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1631,6 +1758,7 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
     initEReference(getServiceProvider_Type(), this.getServiceProviderType(), null, "type", null, 0, 1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getServiceProvider_AssignTo(), this.getServiceProvider(), null, "assignTo", null, 0, -1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getServiceProvider_GovernanceStrategy(), this.getGovernanceStrategy(), null, "governanceStrategy", null, 0, 1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getServiceProvider_StrategySpecs(), this.getMechanismAttribute(), null, "strategySpecs", null, 0, -1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getServiceProvider_Resources(), this.getAsset(), null, "resources", null, 0, -1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getServiceProvider_Id(), ecorePackage.getEInt(), "id", null, 0, 1, ServiceProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1660,6 +1788,8 @@ public class DmodelPackageImpl extends EPackageImpl implements DmodelPackage
     initEClass(winReplicationEClass, WINReplication.class, "WINReplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getWINReplication_WorkItemNetwork(), this.getWorkItemNetwork(), null, "workItemNetwork", null, 0, 1, WINReplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getWINReplication_NumReplications(), ecorePackage.getEInt(), "numReplications", null, 0, 1, WINReplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWINReplication_AssignTo(), this.getServiceProvider(), null, "assignTo", null, 0, 1, WINReplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWINReplication_Interarrival(), this.getAbstractParameter(), null, "interarrival", null, 0, 1, WINReplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

@@ -5,6 +5,7 @@ package datasemModeller.dmodel.impl;
 import datasemModeller.dmodel.DmodelPackage;
 import datasemModeller.dmodel.ExperimentModel;
 import datasemModeller.dmodel.ExperimentVariable;
+import datasemModeller.dmodel.Mechanism;
 import datasemModeller.dmodel.ServiceProvider;
 import datasemModeller.dmodel.WINReplication;
 import datasemModeller.dmodel.WorkItemNetwork;
@@ -37,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link datasemModeller.dmodel.impl.ExperimentModelImpl#getServiceProviders <em>Service Providers</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.ExperimentModelImpl#getWorkItemNetworks <em>Work Item Networks</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.ExperimentModelImpl#getWINReplications <em>WIN Replications</em>}</li>
+ *   <li>{@link datasemModeller.dmodel.impl.ExperimentModelImpl#getExperimentParameters <em>Experiment Parameters</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,6 +105,16 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
    * @ordered
    */
   protected EList<WINReplication> winReplications;
+
+  /**
+   * The cached value of the '{@link #getExperimentParameters() <em>Experiment Parameters</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExperimentParameters()
+   * @generated
+   * @ordered
+   */
+  protected Mechanism experimentParameters;
 
   /**
    * <!-- begin-user-doc -->
@@ -209,6 +221,54 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
+  public Mechanism getExperimentParameters()
+  {
+    return experimentParameters;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExperimentParameters(Mechanism newExperimentParameters, NotificationChain msgs)
+  {
+    Mechanism oldExperimentParameters = experimentParameters;
+    experimentParameters = newExperimentParameters;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DmodelPackage.EXPERIMENT_MODEL__EXPERIMENT_PARAMETERS, oldExperimentParameters, newExperimentParameters);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExperimentParameters(Mechanism newExperimentParameters)
+  {
+    if (newExperimentParameters != experimentParameters)
+    {
+      NotificationChain msgs = null;
+      if (experimentParameters != null)
+        msgs = ((InternalEObject)experimentParameters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DmodelPackage.EXPERIMENT_MODEL__EXPERIMENT_PARAMETERS, null, msgs);
+      if (newExperimentParameters != null)
+        msgs = ((InternalEObject)newExperimentParameters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DmodelPackage.EXPERIMENT_MODEL__EXPERIMENT_PARAMETERS, null, msgs);
+      msgs = basicSetExperimentParameters(newExperimentParameters, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DmodelPackage.EXPERIMENT_MODEL__EXPERIMENT_PARAMETERS, newExperimentParameters, newExperimentParameters));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -222,6 +282,8 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
         return ((InternalEList<?>)getWorkItemNetworks()).basicRemove(otherEnd, msgs);
       case DmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATIONS:
         return ((InternalEList<?>)getWINReplications()).basicRemove(otherEnd, msgs);
+      case DmodelPackage.EXPERIMENT_MODEL__EXPERIMENT_PARAMETERS:
+        return basicSetExperimentParameters(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -246,6 +308,8 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
         return getWorkItemNetworks();
       case DmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATIONS:
         return getWINReplications();
+      case DmodelPackage.EXPERIMENT_MODEL__EXPERIMENT_PARAMETERS:
+        return getExperimentParameters();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -280,6 +344,9 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
         getWINReplications().clear();
         getWINReplications().addAll((Collection<? extends WINReplication>)newValue);
         return;
+      case DmodelPackage.EXPERIMENT_MODEL__EXPERIMENT_PARAMETERS:
+        setExperimentParameters((Mechanism)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -309,6 +376,9 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
       case DmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATIONS:
         getWINReplications().clear();
         return;
+      case DmodelPackage.EXPERIMENT_MODEL__EXPERIMENT_PARAMETERS:
+        setExperimentParameters((Mechanism)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -333,6 +403,8 @@ public class ExperimentModelImpl extends MinimalEObjectImpl.Container implements
         return workItemNetworks != null && !workItemNetworks.isEmpty();
       case DmodelPackage.EXPERIMENT_MODEL__WIN_REPLICATIONS:
         return winReplications != null && !winReplications.isEmpty();
+      case DmodelPackage.EXPERIMENT_MODEL__EXPERIMENT_PARAMETERS:
+        return experimentParameters != null;
     }
     return super.eIsSet(featureID);
   }

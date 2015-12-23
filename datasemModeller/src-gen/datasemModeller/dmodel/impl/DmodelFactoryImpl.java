@@ -72,6 +72,7 @@ public class DmodelFactoryImpl extends EFactoryImpl implements DmodelFactory
       case DmodelPackage.DISTRIBUTION: return createDistribution();
       case DmodelPackage.GOVERNANCE_STRATEGY: return createGovernanceStrategy();
       case DmodelPackage.PULL_STRATEGY: return createPullStrategy();
+      case DmodelPackage.PUSH_STRATEGY: return createPushStrategy();
       case DmodelPackage.MECHANISM: return createMechanism();
       case DmodelPackage.MECHANISM_ATTRIBUTE: return createMechanismAttribute();
       case DmodelPackage.WORK_ITEM_TYPE: return createWorkItemType();
@@ -177,6 +178,17 @@ public class DmodelFactoryImpl extends EFactoryImpl implements DmodelFactory
   {
     PullStrategyImpl pullStrategy = new PullStrategyImpl();
     return pullStrategy;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PushStrategy createPushStrategy()
+  {
+    PushStrategyImpl pushStrategy = new PushStrategyImpl();
+    return pushStrategy;
   }
 
   /**

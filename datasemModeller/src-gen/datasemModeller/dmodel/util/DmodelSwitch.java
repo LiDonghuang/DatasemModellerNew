@@ -128,6 +128,13 @@ public class DmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DmodelPackage.PUSH_STRATEGY:
+      {
+        PushStrategy pushStrategy = (PushStrategy)theEObject;
+        T result = casePushStrategy(pushStrategy);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DmodelPackage.MECHANISM:
       {
         Mechanism mechanism = (Mechanism)theEObject;
@@ -354,6 +361,22 @@ public class DmodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePullStrategy(PullStrategy object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Push Strategy</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Push Strategy</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePushStrategy(PushStrategy object)
   {
     return null;
   }

@@ -3,14 +3,24 @@
 package datasemModeller.dmodel.impl;
 
 import datasemModeller.dmodel.DmodelPackage;
+import datasemModeller.dmodel.Mechanism;
 import datasemModeller.dmodel.WorkItemType;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +31,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link datasemModeller.dmodel.impl.WorkItemTypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.WorkItemTypeImpl#getHierarchy <em>Hierarchy</em>}</li>
+ *   <li>{@link datasemModeller.dmodel.impl.WorkItemTypeImpl#getMechanisms <em>Mechanisms</em>}</li>
  *   <li>{@link datasemModeller.dmodel.impl.WorkItemTypeImpl#getId <em>Id</em>}</li>
  * </ul>
  * </p>
@@ -68,6 +79,16 @@ public class WorkItemTypeImpl extends MinimalEObjectImpl.Container implements Wo
    * @ordered
    */
   protected int hierarchy = HIERARCHY_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getMechanisms() <em>Mechanisms</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMechanisms()
+   * @generated
+   * @ordered
+   */
+  protected EList<Mechanism> mechanisms;
 
   /**
    * The default value of the '{@link #getId() <em>Id</em>}' attribute.
@@ -161,6 +182,20 @@ public class WorkItemTypeImpl extends MinimalEObjectImpl.Container implements Wo
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Mechanism> getMechanisms()
+  {
+    if (mechanisms == null)
+    {
+      mechanisms = new EObjectContainmentEList<Mechanism>(Mechanism.class, this, DmodelPackage.WORK_ITEM_TYPE__MECHANISMS);
+    }
+    return mechanisms;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public int getId()
   {
     return id;
@@ -185,6 +220,22 @@ public class WorkItemTypeImpl extends MinimalEObjectImpl.Container implements Wo
    * @generated
    */
   @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DmodelPackage.WORK_ITEM_TYPE__MECHANISMS:
+        return ((InternalEList<?>)getMechanisms()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -193,6 +244,8 @@ public class WorkItemTypeImpl extends MinimalEObjectImpl.Container implements Wo
         return getName();
       case DmodelPackage.WORK_ITEM_TYPE__HIERARCHY:
         return getHierarchy();
+      case DmodelPackage.WORK_ITEM_TYPE__MECHANISMS:
+        return getMechanisms();
       case DmodelPackage.WORK_ITEM_TYPE__ID:
         return getId();
     }
@@ -204,6 +257,7 @@ public class WorkItemTypeImpl extends MinimalEObjectImpl.Container implements Wo
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -214,6 +268,10 @@ public class WorkItemTypeImpl extends MinimalEObjectImpl.Container implements Wo
         return;
       case DmodelPackage.WORK_ITEM_TYPE__HIERARCHY:
         setHierarchy((Integer)newValue);
+        return;
+      case DmodelPackage.WORK_ITEM_TYPE__MECHANISMS:
+        getMechanisms().clear();
+        getMechanisms().addAll((Collection<? extends Mechanism>)newValue);
         return;
       case DmodelPackage.WORK_ITEM_TYPE__ID:
         setId((Integer)newValue);
@@ -238,6 +296,9 @@ public class WorkItemTypeImpl extends MinimalEObjectImpl.Container implements Wo
       case DmodelPackage.WORK_ITEM_TYPE__HIERARCHY:
         setHierarchy(HIERARCHY_EDEFAULT);
         return;
+      case DmodelPackage.WORK_ITEM_TYPE__MECHANISMS:
+        getMechanisms().clear();
+        return;
       case DmodelPackage.WORK_ITEM_TYPE__ID:
         setId(ID_EDEFAULT);
         return;
@@ -259,6 +320,8 @@ public class WorkItemTypeImpl extends MinimalEObjectImpl.Container implements Wo
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DmodelPackage.WORK_ITEM_TYPE__HIERARCHY:
         return hierarchy != HIERARCHY_EDEFAULT;
+      case DmodelPackage.WORK_ITEM_TYPE__MECHANISMS:
+        return mechanisms != null && !mechanisms.isEmpty();
       case DmodelPackage.WORK_ITEM_TYPE__ID:
         return id != ID_EDEFAULT;
     }

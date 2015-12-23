@@ -24,6 +24,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ExperimentModel/ServiceProviders"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ExperimentModel/WorkItemNetworks"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ExperimentModel/WINReplications"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ExperimentModel/ExperimentParameters"/>
     </genClasses>
     <genClasses ecoreClass="Dmodel.ecore#//AbstractParameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//AbstractParameter/isVariable"/>
@@ -43,10 +44,16 @@
     </genClasses>
     <genClasses ecoreClass="Dmodel.ecore#//GovernanceStrategy">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//GovernanceStrategy/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//GovernanceStrategy/pull"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//GovernanceStrategy/pullStrategy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//GovernanceStrategy/push"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//GovernanceStrategy/pushStrategy"/>
     </genClasses>
     <genClasses ecoreClass="Dmodel.ecore#//PullStrategy">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//PullStrategy/mechanisms"/>
+    </genClasses>
+    <genClasses ecoreClass="Dmodel.ecore#//PushStrategy">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//PushStrategy/mechanisms"/>
     </genClasses>
     <genClasses ecoreClass="Dmodel.ecore#//Mechanism">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//Mechanism/name"/>
@@ -60,6 +67,7 @@
     <genClasses ecoreClass="Dmodel.ecore#//WorkItemType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItemType/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItemType/hierarchy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WorkItemType/Mechanisms"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WorkItemType/id"/>
     </genClasses>
     <genClasses ecoreClass="Dmodel.ecore#//WorkItemNetwork">
@@ -107,6 +115,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ServiceProvider/type"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ServiceProvider/assignTo"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ServiceProvider/governanceStrategy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ServiceProvider/strategySpecs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//ServiceProvider/resources"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//ServiceProvider/id"/>
     </genClasses>
@@ -136,6 +145,8 @@
     <genClasses ecoreClass="Dmodel.ecore#//WINReplication">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WINReplication/workItemNetwork"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dmodel.ecore#//WINReplication/numReplications"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WINReplication/assignTo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dmodel.ecore#//WINReplication/interarrival"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
