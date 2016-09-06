@@ -158,7 +158,7 @@ def compile(Resource res) '''
 			<GovernanceStrategy type="«"push"»">
 			<Mechanisms>
 			«FOR m:sp.governanceStrategy.pushStrategy.mechanisms»
-			<Mechanism name="«m.name»" value="«m.value»"></Mechanism>
+			<Mechanism name="«m.name»" value="«m.value»">
 			«FOR a: m.getAttributes()»
 			<Attribute name="«findSpec(sp,a).name»" value="«findSpec(sp,a).value»"></Attribute>
 			«ENDFOR»
